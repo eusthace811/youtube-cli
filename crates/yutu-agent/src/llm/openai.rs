@@ -9,7 +9,7 @@ use std::collections::HashMap;
 use std::time::Duration;
 use yutu_auth::Secret;
 
-use super::{OnText, REQUEST_TIMEOUT, join_url, sse};
+use super::{Meta, OnChunk, REQUEST_TIMEOUT, Reply, join_url, sse};
 use crate::gojson;
 use crate::model::{Content, FunctionCall, Part, Request, Role, merge};
 
@@ -43,8 +43,8 @@ impl OpenAi {
         &self,
         req: &Request<'_>,
         stream: bool,
-        on_text: OnText<'_>,
-    ) -> Result<Content, String> {
+        on_chunk: OnChunk<'_>,
+    ) -> Result<Reply, String> {
         let url = join_url(&self.base_url, "responses");
         let mut body = self.body(req);
         if stream {
@@ -58,10 +58,13 @@ impl OpenAi {
                 .map_err(|e| format!("openai: call failed: {e}"))?;
             let text = resp.text().await.map_err(|e| e.to_string())?;
             let v: Value = serde_json::from_str(&text).map_err(|e| e.to_string())?;
-            return convert(&v);
+            return Ok(Reply {
+                content: convert(&v)?,
+                meta: meta(&v, false),
+            });
         }
         let resp = self.send(&url, body, stream).await?;
-        read_stream(sse::Reader::new(resp), on_text).await
+        read_stream(sse::Reader::new(resp), on_chunk).await
     }
 
     async fn send(
@@ -338,11 +341,22 @@ fn function_call(call_id: &str, name: &str, arguments: &str) -> Result<FunctionC
 /// The adapter's stream translation: text and reasoning deltas print as they
 /// arrive, calls assemble from their argument deltas, and the terminal
 /// response stands in when the deltas carried nothing.
-async fn read_stream(mut events: sse::Reader, on_text: OnText<'_>) -> Result<Content, String> {
+async fn read_stream(mut events: sse::Reader, on_chunk: OnChunk<'_>) -> Result<Reply, String> {
     let mut parts: Vec<Part> = Vec::new();
     let mut args: HashMap<String, String> = HashMap::new();
     let mut items: HashMap<String, (String, String)> = HashMap::new();
-    let mut terminal: Option<Value> = None;
+    let mut terminal: Option<(Value, bool)> = None;
+    let mut delta_chunk = |delta: &str, thought: bool| {
+        let chunk = Content {
+            role: Role::Model,
+            parts: vec![Part::Text {
+                text: delta.to_string(),
+                thought,
+                signature: None,
+            }],
+        };
+        on_chunk(&chunk, &Meta::default());
+    };
     while let Some(event) = events.next().await? {
         if event.data == "[DONE]" {
             break;
@@ -355,13 +369,13 @@ async fn read_stream(mut events: sse::Reader, on_text: OnText<'_>) -> Result<Con
         let delta = e["delta"].as_str().unwrap_or_default();
         match kind.as_str() {
             "response.output_text.delta" | "response.refusal.delta" if !delta.is_empty() => {
-                on_text(delta);
+                delta_chunk(delta, false);
                 push_text(&mut parts, delta, false);
             }
             "response.reasoning_text.delta" | "response.reasoning_summary_text.delta"
                 if !delta.is_empty() =>
             {
-                on_text(delta);
+                delta_chunk(delta, true);
                 push_text(&mut parts, delta, true);
             }
             "response.output_item.added" => {
@@ -408,19 +422,99 @@ async fn read_stream(mut events: sse::Reader, on_text: OnText<'_>) -> Result<Con
                     format!("openai stream error: {}", yutu_auth::log::quote(msg))
                 });
             }
-            "response.completed" | "response.incomplete" => terminal = Some(e["response"].clone()),
+            "response.completed" => terminal = Some((e["response"].clone(), false)),
+            "response.incomplete" => terminal = Some((e["response"].clone(), true)),
             _ => {}
         }
     }
+    let meta = match &terminal {
+        Some((t, incomplete)) => Meta {
+            turn_complete: true,
+            ..meta(t, *incomplete)
+        },
+        None => Meta {
+            turn_complete: true,
+            finish_reason: Some("FINISH_REASON_UNSPECIFIED".into()),
+            ..Meta::default()
+        },
+    };
     if parts.is_empty()
-        && let Some(t) = &terminal
+        && let Some((t, _)) = &terminal
     {
-        return convert(t);
+        return Ok(Reply {
+            content: convert(t)?,
+            meta,
+        });
     }
-    Ok(Content {
-        role: Role::Model,
-        parts,
+    Ok(Reply {
+        content: Content {
+            role: Role::Model,
+            parts,
+        },
+        meta,
     })
+}
+
+/// The adapter's usage, finish reason and model version for a response.
+fn meta(resp: &Value, incomplete_event: bool) -> Meta {
+    let u = &resp["usage"];
+    let count = |v: &Value| v.as_i64().unwrap_or(0).clamp(0, i64::from(i32::MAX));
+    let (input, output) = (count(&u["input_tokens"]), count(&u["output_tokens"]));
+    let counts = [
+        (
+            "cachedContentTokenCount",
+            count(&u["input_tokens_details"]["cached_tokens"]),
+        ),
+        ("candidatesTokenCount", output),
+        ("promptTokenCount", input),
+        (
+            "thoughtsTokenCount",
+            count(&u["output_tokens_details"]["reasoning_tokens"]),
+        ),
+        ("totalTokenCount", count(&u["total_tokens"])),
+    ];
+    // genai omits zero counts; the details lists are always present.
+    let mut usage: Map<String, Value> = counts
+        .into_iter()
+        .filter(|(_, n)| *n != 0)
+        .map(|(k, n)| (k.to_string(), n.into()))
+        .collect();
+    usage.insert("candidatesTokensDetails".into(), json!([modality(output)]));
+    usage.insert("promptTokensDetails".into(), json!([modality(input)]));
+    let truncated = incomplete_event
+        || match resp["status"].as_str().unwrap_or_default() {
+            "completed" => false,
+            "" => resp["incomplete_details"].is_object(),
+            _ => true,
+        };
+    let finish = match resp["incomplete_details"]["reason"]
+        .as_str()
+        .unwrap_or_default()
+    {
+        "max_output_tokens" => "MAX_TOKENS",
+        "content_filter" => "SAFETY",
+        "" if truncated => "OTHER",
+        "" => "STOP",
+        _ => "OTHER",
+    };
+    Meta {
+        usage: Some(Value::Object(usage)),
+        finish_reason: Some(finish.into()),
+        model_version: resp["model"]
+            .as_str()
+            .filter(|s| !s.is_empty())
+            .map(String::from),
+        turn_complete: false,
+    }
+}
+
+fn modality(n: i64) -> Value {
+    let mut m = Map::new();
+    m.insert("modality".into(), "TEXT".into());
+    if n != 0 {
+        m.insert("tokenCount".into(), n.into());
+    }
+    Value::Object(m)
 }
 
 fn push_text(parts: &mut Vec<Part>, delta: &str, thought: bool) {
