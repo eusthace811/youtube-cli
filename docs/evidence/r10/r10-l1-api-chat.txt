@@ -1,0 +1,28 @@
+PASS: lane 1, the same scripted chat through the REST API, Go vs head
+Same tool calls, function responses, recorder lines and final reply on both binaries.
+
+Each binary runs `agent --args "web webui api"` against the mock LLM and the YouTube recorder. The chat
+goes through the requests the dev UI makes: create a session, then POST /api/run_sse (streaming, as the
+UI's SSE toggle sends it), then again through POST /api/run. Head's requests carry the bearer token (E11).
+
+== /api/run_sse streaming=True
+go  : status 200, tool calls ['channel-list', 'playlist-list'], final reply 'You have three playlists.', model requests 3
+      function responses [('channel-list', ['output']), ('playlist-list', ['output'])]
+      recorder: GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+      recorder: GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+head: status 200, tool calls ['channel-list', 'playlist-list'], final reply 'You have three playlists.', model requests 3
+      function responses [('channel-list', ['output']), ('playlist-list', ['output'])]
+      recorder: GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+      recorder: GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+identical status, tool calls, responses, final reply and recorder lines: True
+
+== /api/run streaming=None
+go  : status 200, tool calls ['channel-list', 'playlist-list'], final reply 'You have three playlists.', model requests 3
+      function responses [('channel-list', ['output']), ('playlist-list', ['output'])]
+      recorder: GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+      recorder: GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+head: status 200, tool calls ['channel-list', 'playlist-list'], final reply 'You have three playlists.', model requests 3
+      function responses [('channel-list', ['output']), ('playlist-list', ['output'])]
+      recorder: GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+      recorder: GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+identical status, tool calls, responses, final reply and recorder lines: True

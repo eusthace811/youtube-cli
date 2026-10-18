@@ -1,0 +1,21 @@
+PASS: lane 6, pubsub trigger samples, Go vs head
+Every sample gets the same status and body from both, and the agent runs on the same input.
+
+== Pub/Sub push sample
+go  : 200 {"status":"success"}  model requests 1
+      agent saw: '{"attributes":{"key":"value"},"data":"Hello Cloud Pub/Sub! Here is my message!"}'
+head: 200 {"status":"success"}  model requests 1
+      agent saw: '{"attributes":{"key":"value"},"data":"Hello Cloud Pub/Sub! Here is my message!"}'
+identical status, body and agent input: True
+== no data or attributes
+go  : 400 {"status":"failed to retrieve message content: empty message data and attributes"}  model requests 0
+      agent saw: None
+head: 400 {"status":"failed to retrieve message content: empty message data and attributes"}  model requests 0
+      agent saw: None
+identical status, body and agent input: True
+== bad base64
+go  : 400 {"status":"failed to decode request: json: cannot unmarshal string into Go struct field PubSubTriggerRequest.message.data of type []uint8: illegal base64 data at input byte 0"}  model requests 0
+      agent saw: None
+head: 400 {"status":"failed to decode request: json: cannot unmarshal string into Go struct field PubSubTriggerRequest.message.data of type []uint8: illegal base64 data at input byte 0"}  model requests 0
+      agent saw: None
+identical status, body and agent input: True

@@ -1,0 +1,15 @@
+PASS: perf, `web webui api` idle RSS and /run round-trip p50 (30 calls)
+Rule: head idle RSS at most 0.5x Go and head p50 at or below Go.
+
+Alternating launches of the Go harness and head. Idle RSS: `ps -o rss` 2 s after the port opens.
+Latency: 30 sequential POST /api/run calls, each one scripted text reply from the in-process mock LLM,
+timed at the client (fresh connection each); p50 per launch.
+run 1 go  : idle RSS  36.62 MiB  /run p50   2.18 ms
+run 1 head: idle RSS  10.97 MiB  /run p50   1.74 ms
+run 2 go  : idle RSS  36.08 MiB  /run p50   2.24 ms
+run 2 head: idle RSS  11.08 MiB  /run p50   1.62 ms
+run 3 go  : idle RSS  36.48 MiB  /run p50   2.19 ms
+run 3 head: idle RSS  10.91 MiB  /run p50   1.72 ms
+
+median idle RSS: go 36.48 MiB head 10.97 MiB (head/go 0.30)
+median /run p50: go 2.19 ms head 1.72 ms (head/go 0.78)

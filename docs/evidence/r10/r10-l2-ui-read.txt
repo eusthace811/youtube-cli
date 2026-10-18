@@ -1,0 +1,13 @@
+PASS: lane 2, dev UI load and a read question on head
+The UI's load sequence answers 200 and the read question gets the scripted answer from a real video-list call.
+
+SUBSTITUTED: no real LLM key or Google account exists on this machine, so the lane (it needs a real Gemini key) runs as a scripted mock-LLM session that exercises the same code path.
+The browser's requests are replayed in order with the cookie the sign-in link sets.
+GET /ui/ -> 200 text/html; charset=utf-8 (53361 bytes)
+GET /ui/assets/config/runtime-config.json -> 200 application/json; charset=UTF-8 b'{"backendUrl":"http://localhost:8080/api"}\n'
+GET /api/list-apps?relative_path=./ -> 200 application/json; charset=UTF-8 b'["Miffy"]\n'
+GET /api/version -> 200 application/json; charset=UTF-8 b'{"version":"2.5.0","language":"rust","language_version":"1.99.1"}\n'
+POST /api/apps/Miffy/users/user/sessions -> 200 application/json; charset=UTF-8 b'{"id":"b8487b51-0233-43ac-bfe8-94e28529af9c","appName":"Miffy","userId":"user","lastUpdateTime":1792343021,"events":[],"'
+GET /api/apps/Miffy/users/user/sessions -> 200 application/json; charset=UTF-8 b'[{"id":"b8487b51-0233-43ac-bfe8-94e28529af9c","appName":"Miffy","userId":"user","lastUpdateTime":1792343021,"events":[],'
+POST /api/run_sse -> 200: tool calls ['video-list'], responses [('video-list', ['output'])], reply 'Your video v1 has 42 views.'
+recorder: ['GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}']

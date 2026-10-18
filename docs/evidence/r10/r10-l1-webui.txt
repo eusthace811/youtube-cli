@@ -1,0 +1,14 @@
+PASS: lane 1 in Chrome, the same chat through the unmodified dev UI on Go and head
+Both UIs show channel-list(True), playlist-list and "You have three playlists."; the recorder lines are identical.
+
+Go: ref/yutu-go-harness on port 18485, opened at http://localhost:18485/ui/ (Go needs no token).
+Head: the parity build on port 18486, opened through its printed sign-in link (cookie, E11).
+Both: `web -port P webui -api_server_address http://localhost:P/api api -webui_address localhost:P`, the mock
+LLM scripted with channel-list(mine), playlist-list(UC1, 3) and the final text, and the YouTube recorder.
+Typed "how many playlists do I have?" into each UI's chat box.
+
+go   UI: #1 question, #2 channel-list(True), #3 channel-list response, #4 playlist-list, #5 its response,
+     #6 "You have three playlists."   Screenshot: r10-l1-webui-go.png
+head UI: the same six rows.            Screenshot: r10-l1-webui-head.png
+go   recorder: GET /youtube/v3/channels mine; GET /youtube/v3/playlists channelId=UC1 maxResults=3 (3 model requests)
+head recorder: identical (3 model requests)

@@ -1,0 +1,68 @@
+PASS: lane 5, the A2A agent card, Go vs head
+The cards are identical apart from head's bearer securitySchemes/security (E11).
+
+status/content-type go (200, 'application/json') head (200, 'application/json')
+keys only in head: ['security', 'securitySchemes']; keys only in Go: []; shared keys that differ: []
+  head security: [{"bearer": []}]
+  head securitySchemes: {"bearer": {"type": "http", "scheme": "bearer", "description": "The per-launch token yutu agent prints at startup."}}
+head card minus the auth scheme, re-indented, is byte-identical to Go's card text: True
+
+head card:
+{
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "description": "YouTube growth strategist and workflow assistant — retrieve, create, update, and delete YouTube content.",
+  "name": "Miffy",
+  "version": "2.0.0",
+  "skills": [
+    {
+      "description": "YouTube growth strategist and workflow assistant — retrieve, create, update, and delete YouTube content. I am an expert YouTube growth strategist and workflow assistant. I am authenticated to operate YouTube channels on behalf of users via tool calls.\n\nConsult the **youtube** skill for the full tool catalog, safety rules, workflows, and SEO guidelines.\n\n## Workflow\n\nFor every user request:\n\n1. **Classify**: Is this a read-only query, a content modification, a deletion, or a multistep workflow?\n2. **Gather context**: Use read tools to find resource IDs, verify targets, and understand current state.\n3. **Execute**: Use write or delete tools with the gathered data.\n4. **Report**: State what was done, including resource IDs and titles.\n",
+      "id": "Miffy",
+      "name": "model",
+      "tags": [
+        "llm"
+      ]
+    }
+  ],
+  "capabilities": {
+    "extensions": [
+      {
+        "description": "Content is spread across task artifacts and the status message, which carries long-running function calls.",
+        "uri": "https://google.github.io/adk-docs/a2a/a2a-extension/"
+      }
+    ],
+    "pushNotifications": false,
+    "streaming": true
+  },
+  "supportedInterfaces": [
+    {
+      "url": "http://localhost:8080/a2a/v1/invoke",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    },
+    {
+      "url": "http://localhost:8080/a2a/invoke",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "0.3"
+    }
+  ],
+  "url": "http://localhost:8080/a2a/invoke",
+  "protocolVersion": "0.3",
+  "preferredTransport": "JSONRPC",
+  "securitySchemes": {
+    "bearer": {
+      "type": "http",
+      "scheme": "bearer",
+      "description": "The per-launch token yutu agent prints at startup."
+    }
+  },
+  "security": [
+    {
+      "bearer": []
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+PASS: launcher arguments and errors, Go vs head
+Every other launch error is byte-identical; the one difference is head's token line.
+
+`agent --args X` with flags each launcher rejects; stdout, stderr (timestamps masked) and exit code.
+== --args 'web': identical True
+== --args 'web foo': identical True
+== --args 'web api api': identical True
+== --args 'web api -bogus': identical True
+== --args 'web -port x': identical True
+== --args 'web -port 99999 api': identical False
+  stderr go:   'time=T level=INFO msg="No artifact service configured. Using an in-memory one, so whatever it holds is lost when the process exits."\ntime=T level=INFO msg="Starting the web server: &{port:99999 host:127.0.0.1 writeTimeout:15000000000 readTimeout:15000000000 idleTimeout:60000000000 shutdownTimeout:15000000000 otelToCloud:false useH2C:false maxPayloadSize:0}"\ntime=T level=INFO msg=""\ntime=T level=INFO msg="Web servers starts on http://localhost:99999"\ntime=T level=INFO msg="       api:  you can access API using http://localhost:99999/api"\ntime=T level=INFO msg="       api:      for instance: http://localhost:99999/api/list-apps"\ntime=T level=INFO msg="       api:      debug excluded: for the web UI\'s Traces and agent structure panels, use -include_debug_api"\ntime=T level=INFO msg=""\ntime=T level=ERROR msg="failed to launch agent" error="server failed: listen tcp: address 99999: invalid port"\n'
+  stderr head: 'time=T level=INFO msg="No artifact service configured. Using an in-memory one, so whatever it holds is lost when the process exits."\ntime=T level=INFO msg="Starting the web server: &{port:99999 host:127.0.0.1 writeTimeout:15000000000 readTimeout:15000000000 idleTimeout:60000000000 shutdownTimeout:15000000000 otelToCloud:false useH2C:false maxPayloadSize:0}"\ntime=T level=INFO msg=""\ntime=T level=INFO msg="Web servers starts on http://localhost:99999"\ntime=T level=INFO msg="       token: 8as_vetwgA3disCmjtQTaGQGklvw81DHxGHyJMntxC4  (send it as \\"Authorization: Bearer <token>\\"; every route requires it)"\ntime=T level=INFO msg="       api:  you can access API using http://localhost:99999/api"\ntime=T level=INFO msg="       api:      for instance: http://localhost:99999/api/list-apps"\ntime=T level=INFO msg="       api:      debug excluded: for the web UI\'s Traces and agent structure panels, use -include_debug_api"\ntime=T level=INFO msg=""\ntime=T level=ERROR msg="failed to launch agent" error="server failed: listen tcp: address 127.0.0.1:99999: invalid port"\n'
+== --args 'web pubsub -trigger_max_retries 0': identical True
+== --args 'web eventarc -trigger_max_delay 0s': identical True
+== --args 'web webui -h': identical True
+== --args 'web -h': identical True
+== --args 'web a2a -a2a_agent_url': identical True
+== --args 'web -read-timeout 1x api': identical True
+Expected difference: `web -port 99999 api` gets as far as the startup lines, where head adds its token
+line (E11) before the listen error.

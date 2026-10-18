@@ -1,0 +1,6 @@
+PASS: lane 3, /list-apps without the token
+Head answers 401 without the token (Go serves the list to anyone, divergence E11).
+
+go  : GET /api/list-apps (no Authorization) -> 200  b'["Miffy"]\n'
+head: GET /api/list-apps (no Authorization) -> 401 Bearer realm="yutu" b'unauthorized\n'
+head: GET /api/list-apps with the token -> 200 b'["Miffy"]\n'
