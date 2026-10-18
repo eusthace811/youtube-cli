@@ -1,0 +1,70 @@
+r11 lane 1: PASS
+
+Generated skills/ against Go's skills/youtube and cmd/agent (INSTRUCTION.md, skills/).
+Expected differences: E13 (no i18nLanguage-list, i18nRegion-list, videoCategory-list;
+caption-download under a local-file heading; resources line lists only resources with tools)
+and the license frontmatter (Go says MIT; every file ships under Apache-2.0).
+
+$ diff -r /Users/juan/Projects/youtube-cli/yutu/skills/youtube /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/youtube
+exit: 1
+--- stdout ---
+diff -r /Users/juan/Projects/youtube-cli/yutu/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/youtube/SKILL.md
+4c4
+< license: MIT
+---
+> license: Apache-2.0
+13c13
+< Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, i18nLanguage, i18nRegion, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, videoCategory, watermark.
+---
+> Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, watermark.
+31d30
+< - `caption-download`
+37,38d35
+< - `i18nLanguage-list`
+< - `i18nRegion-list`
+55d51
+< - `videoCategory-list`
+94a91,94
+> 
+> ### Local file (writes a file on this machine — confirm the path with user first)
+> 
+> - `caption-download`
+--- stderr ---
+
+$ diff /Users/juan/Projects/youtube-cli/yutu/cmd/agent/INSTRUCTION.md /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/agent/INSTRUCTION.md
+exit: 0
+--- stdout ---
+--- stderr ---
+
+$ diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/agent/skills
+exit: 1
+--- stdout ---
+diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/agent/skills/youtube/SKILL.md
+4c4
+< license: MIT
+---
+> license: Apache-2.0
+12c12
+< Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, i18nLanguage, i18nRegion, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, videoCategory, watermark.
+---
+> Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, watermark.
+26d25
+< - `caption-download`
+32,33d30
+< - `i18nLanguage-list`
+< - `i18nRegion-list`
+50d46
+< - `videoCategory-list`
+89a86,89
+> 
+> ### Local file (writes a file on this machine — confirm the path with user first)
+> 
+> - `caption-download`
+--- stderr ---
+
+Distinct changed lines vs the expected set:
+$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/expected /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/changed
+exit: 0
+--- stdout ---
+--- stderr ---
+
