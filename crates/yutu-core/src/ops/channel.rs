@@ -2,12 +2,13 @@
 
 use super::common::{Fields, cli_max_results, finish_list, paginate};
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list};
+use crate::output::{Cell, print_list, print_result};
 use serde::Deserialize;
 use yutu_api::Value;
 use yutu_api::client::BoxFuture;
 
 const ERR_GET: &str = "failed to get channel";
+const ERR_UPDATE: &str = "failed to update channel";
 
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(default)]
@@ -29,6 +30,7 @@ pub struct Channel {
 #[derive(Debug, Clone, Copy, PartialEq)]
 enum Verb {
     List,
+    Update,
 }
 
 struct Bound(Verb, Channel);
@@ -56,6 +58,17 @@ fn cli(verb: Verb, f: &dyn FlagValues) -> Box<dyn Invoke> {
             c.fields.parts = f.strings("parts");
             c.fields.output = f.string("output");
         }
+        Verb::Update => {
+            c.fields.ids = ids(f, "id");
+            c.country = f.changed("country").then(|| f.string("country"));
+            c.custom_url = f.string("customUrl");
+            c.default_language = f
+                .changed("defaultLanguage")
+                .then(|| f.string("defaultLanguage"));
+            c.description = f.changed("description").then(|| f.string("description"));
+            c.title = f.string("title");
+            c.fields.output = f.string("output");
+        }
     }
     Box::new(Bound(verb, c))
 }
@@ -65,15 +78,23 @@ fn mcp(verb: Verb, args: serde_json::Value) -> Result<Box<dyn Invoke>, String> {
     Ok(Box::new(Bound(verb, c)))
 }
 
-pub static ENTRIES: [Entry; 1] = [Entry {
-    path: "channel list",
-    cli: |f| cli(Verb::List, f),
-    mcp: |a| mcp(Verb::List, a),
-}];
+pub static ENTRIES: [Entry; 2] = [
+    Entry {
+        path: "channel list",
+        cli: |f| cli(Verb::List, f),
+        mcp: |a| mcp(Verb::List, a),
+    },
+    Entry {
+        path: "channel update",
+        cli: |f| cli(Verb::Update, f),
+        mcp: |a| mcp(Verb::Update, a),
+    },
+];
 
 impl Invoke for Bound {
     fn confirm(&self) -> String {
         match self.0 {
+            Verb::Update => format!("Update channel: {}", self.1.fields.ids.join(", ")),
             Verb::List => String::new(),
         }
     }
@@ -83,6 +104,7 @@ impl Invoke for Bound {
         Box::pin(async move {
             match self.0 {
                 Verb::List => c.list(ctx).await,
+                Verb::Update => c.update(ctx).await,
             }
         })
     }
@@ -144,4 +166,60 @@ impl Channel {
             )
         })
     }
+
+    async fn update(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
+        let mut q = self.clone();
+        q.fields.parts = vec!["snippet".into()];
+        let (channels, err) = match q.get(ctx).await {
+            Ok(fetched) => fetched,
+            Err(e) => return Err(prefixed(ERR_UPDATE, e)),
+        };
+        if let Some(e) = err {
+            return Err(prefixed(ERR_UPDATE, e));
+        }
+        let Some(mut cha) = channels.into_iter().next() else {
+            return Err(OpError::new(ERR_GET));
+        };
+        {
+            let s = cha.ensure("snippet");
+            if let Some(c) = &self.country {
+                s.set_str("country", c);
+            }
+            if !self.custom_url.is_empty() {
+                s.set_str("customUrl", &self.custom_url);
+            }
+            if let Some(l) = &self.default_language {
+                s.set_str("defaultLanguage", l);
+            }
+            if let Some(d) = &self.description {
+                s.set_str("description", d);
+            }
+            if !self.title.is_empty() {
+                s.set_str("title", &self.title);
+            }
+        }
+        let svc = ctx.service().await?;
+        let res = svc
+            .call("youtube.channels.update")
+            .params("part", &q.fields.parts)
+            .body(&cha)
+            .send()
+            .await
+            .map_err(|e| OpError::wrap(ERR_UPDATE, e))?;
+        let id = res.str("id").to_string();
+        print_result(
+            &mut ctx.out,
+            &self.fields.output,
+            &res,
+            &format!("Channel updated: {id}\n"),
+        )
+        .map_err(OpError::new)
+    }
+}
+
+/// `errors.Join(sentinel, err)` where `err` may itself be a join.
+fn prefixed(sentinel: &str, e: OpError) -> OpError {
+    let mut out = OpError::new(sentinel);
+    out.extend(e);
+    out
 }
