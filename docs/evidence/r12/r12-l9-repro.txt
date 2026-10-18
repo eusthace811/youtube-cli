@@ -1,5 +1,5 @@
 r12 lane 9: PASS
 
 macOS only: no Linux host or CI runner is available here; the CI release job builds Linux with the same --locked flags.
-fresh clone build 1: exit 0, sha256 9751d6f6cbc4190a2ff2bf8ff454ed244e7015bf8792c0f983103c1cee0af8b6
-fresh clone build 2: exit 0, sha256 9751d6f6cbc4190a2ff2bf8ff454ed244e7015bf8792c0f983103c1cee0af8b6
+fresh clone build 1: exit 0, sha256 0edace54d37127876aab63e1419c9846d02a401c843cf873a874f2ee8c4b6451
+fresh clone build 2: exit 0, sha256 0edace54d37127876aab63e1419c9846d02a401c843cf873a874f2ee8c4b6451
