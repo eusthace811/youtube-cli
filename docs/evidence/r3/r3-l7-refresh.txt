@@ -4,7 +4,7 @@ One process makes two API calls (video update: GET then PUT) with an expired tok
 refreshes: 1
 Authorization headers: ['Bearer refreshed-1', 'Bearer refreshed-1']
 before: {"access_token":"expired-token","token_type":"Bearer","refresh_token":"lane-refresh","expiry":"2020-01-01T00:00:00Z","expires_in":3599}
-after:  {"access_token":"refreshed-1","token_type":"Bearer","refresh_token":"lane-refresh","expiry":"2026-10-18T17:58:10.242057+01:00","expires_in":3599}
+after:  {"access_token":"refreshed-1","token_type":"Bearer","refresh_token":"lane-refresh","expiry":"2026-10-18T18:21:56.463517+01:00","expires_in":3599}
 $ yutu video update
 exit: 0
 --- stdout ---

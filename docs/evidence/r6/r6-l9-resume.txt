@@ -1,7 +1,7 @@
 r6 lane 9: PASS
 
-recorder SIGKILLed with 41943040 bytes acknowledged, restarted on the same port 2 s later from its persisted session
-chunk requests seen: 19; status query after restart: ['bytes */209715200']; next chunk: bytes 41943040-50331647/209715200
+recorder SIGKILLed with 50331648 bytes acknowledged, restarted on the same port 2 s later from its persisted session
+chunk requests seen: 15; status query after restart: ['bytes */209715200']; next chunk: bytes 50331648-58720255/209715200
 final acknowledged bytes: 209715200 of 209715200
 $ yutu video insert (200 MiB)
 exit: 0

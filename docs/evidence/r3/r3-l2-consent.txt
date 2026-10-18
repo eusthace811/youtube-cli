@@ -1,17 +1,17 @@
 r3 lane 2: PASS
 
 SUBSTITUTED: a fake `open` records the consent URL and the lane plays the browser redirect against a mock token endpoint.
-consent URL (fake browser): http://127.0.0.1:59464/auth?access_type=offline&client_id=lane-client.apps.googleusercontent.com&code_challenge=qyW_xWwzoXzc4ekADckVKcMIwBrgZpnDWJI1REwko5U&code_challenge_method=S256&prompt=consent&redirect_uri=http%3A%2F%2Flocalhost%3A8216&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.force-ssl+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.channel-memberships.creator&state=HQe0deK9zkczS2y5wv2cYeZZm3K8M3VnZAxhP6oipf9CVeGpYwvVTlRk99Qo3mNKDGEpTSuTsUpc-vH2za073bmczPJQ0eKWyujM-PcdjwWpZzhuwNhJlDSQ7QD3jmuFzeZvgwYO6aY6Lj3WflXP1GzyMTiIU4rOslQsSZh8ZMw%3D
+consent URL (fake browser): http://127.0.0.1:58908/auth?access_type=offline&client_id=lane-client.apps.googleusercontent.com&code_challenge=piE8t9D6H3Kk7dAsYR9KUQTNij9JGxFUl83hShJSGLI&code_challenge_method=S256&prompt=consent&redirect_uri=http%3A%2F%2Flocalhost%3A8216&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.force-ssl+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.channel-memberships.creator&state=3uvuszWTFEccaFuzgnyXxB-RkrmCU4zAXr2zvk3TYkSJjkJiMido-czWlhUPHnJ1yC6oOijr0W7TCCx5famFXWlRkT-Xlij-pFS_VCWW6PNK2LwR5vdmiE_bCYt6bM8HUQZmyO3pjizemBaUaMrZSDtoEgBKbmt667lnMXyDqWg%3D
 callback: 200 'Authorization code received: lane-code\nYou can now safely close the browser window.\n'
-token exchange form: [{'code': ['lane-code'], 'code_verifier': ['n7HyDcR5nXpRyA4o_nLYReskkQuU66Mx7rEevDjqSYo'], 'grant_type': ['authorization_code'], 'redirect_uri': ['http://localhost:8216']}]
+token exchange form: [{'code': ['lane-code'], 'code_verifier': ['vMId7ZlgpCxLon6M3ykmf4F5NlrixzOY6ZefTtjN0g0'], 'grant_type': ['authorization_code'], 'redirect_uri': ['http://localhost:8216']}]
 PKCE S256 challenge matches verifier: True
 token file mode: 0o600
-token file: {"access_token":"issued-for-lane-code","token_type":"Bearer","refresh_token":"lane-refresh","expiry":"2026-10-18T17:58:05.86241+01:00","expires_in":3599}
+token file: {"access_token":"issued-for-lane-code","token_type":"Bearer","refresh_token":"lane-refresh","expiry":"2026-10-18T18:21:55.611508+01:00","expires_in":3599}
 $ yutu auth
 exit: 0
 --- stdout ---
 Your browser has been opened to an authorization URL. yutu will resume once authorization has been provided.
-http://127.0.0.1:59464/auth?access_type=offline&client_id=lane-client.apps.googleusercontent.com&code_challenge=qyW_xWwzoXzc4ekADckVKcMIwBrgZpnDWJI1REwko5U&code_challenge_method=S256&prompt=consent&redirect_uri=http%3A%2F%2Flocalhost%3A8216&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.force-ssl+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.channel-memberships.creator&state=HQe0deK9zkczS2y5wv2cYeZZm3K8M3VnZAxhP6oipf9CVeGpYwvVTlRk99Qo3mNKDGEpTSuTsUpc-vH2za073bmczPJQ0eKWyujM-PcdjwWpZzhuwNhJlDSQ7QD3jmuFzeZvgwYO6aY6Lj3WflXP1GzyMTiIU4rOslQsSZh8ZMw%3D
+http://127.0.0.1:58908/auth?access_type=offline&client_id=lane-client.apps.googleusercontent.com&code_challenge=piE8t9D6H3Kk7dAsYR9KUQTNij9JGxFUl83hShJSGLI&code_challenge_method=S256&prompt=consent&redirect_uri=http%3A%2F%2Flocalhost%3A8216&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.force-ssl+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.channel-memberships.creator&state=3uvuszWTFEccaFuzgnyXxB-RkrmCU4zAXr2zvk3TYkSJjkJiMido-czWlhUPHnJ1yC6oOijr0W7TCCx5famFXWlRkT-Xlij-pFS_VCWW6PNK2LwR5vdmiE_bCYt6bM8HUQZmyO3pjizemBaUaMrZSDtoEgBKbmt667lnMXyDqWg%3D
 
 --- stderr ---
 
