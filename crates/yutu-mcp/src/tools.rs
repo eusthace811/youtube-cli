@@ -101,9 +101,21 @@ impl Tool {
         let entry = self
             .entry
             .ok_or_else(|| format!("{} is not available in this build", self.name))?;
-        let invoke = (entry.mcp)(input.clone())?;
+        let invoke = (entry.mcp)(no_limit(input.clone()))?;
         Ok(Bound { invoke, input })
     }
+}
+
+/// Divergence E17: every `max_results` schema says "0 for no limit", as the
+/// CLI's `--maxResults 0` means, but Go passed 0 through and fetched
+/// nothing. The logged input keeps what the client sent.
+fn no_limit(mut input: Value) -> Value {
+    if let Some(m) = input.get_mut("max_results")
+        && m.as_f64() == Some(0.0)
+    {
+        *m = Value::from(i64::MAX);
+    }
+    input
 }
 
 /// Runs a bound op into a buffer: the buffer is the text content on success,

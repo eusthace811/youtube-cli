@@ -1,0 +1,22 @@
+r12 lane 10: PASS
+
+Adversarial attack on every confirmation gate by independent reviewers. A break is a write reaching the
+recorder, or caption download writing a file, without the human approval the design requires.
+
+Pass 1 at 3aae399 (docs/evidence/r12/r12-review-3aae399.md):
+  CLI          45 attempts   no break
+  stdio MCP    48 attempts   no break
+  HTTP MCP     30 attempts   no break
+  agent console               BREAK C1 (piped or read-ahead stdin answered the approval)
+  agent web                   BREAK W1 (bearer token doubled as the browser cookie), Low W2
+  -> fixed in 94e24a1 (terminal-only approvals, separate UI token, browser-only answers, Origin checks)
+
+Pass 2 at 94e24a1 (docs/evidence/r12/r12-rereview-94e24a1.md):
+  C1, W1, W2 confirmed fixed; CLI (45) and stdio MCP (57) rerun with no new break.
+  Verdict: lane 10 PASS. Residual N1 (a multi-thousand-line instant paste already in the terminal
+  buffer could answer) -> fixed after 94e24a1: tcflush plus kernel-delivery timestamps per line.
+  Verified: pty_console.py race3 gives 0 writes for 20 to 3000-line pastes; typed y after the prompt
+  still deletes, n does not.
+
+The new Claude Code and Codex providers (E16) use the same gate: r12-e16-cli.txt shows both real CLIs
+reaching "Delete playlist(s): PLtest [y/N]" and no DELETE after the typed n.

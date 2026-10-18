@@ -34,6 +34,19 @@ fn every_help_text_matches_the_go_oracle() {
             // help gains exactly the --yes line Go's gated commands show.
             want_stdout.push_str("      --yes                             Confirm the operation\n");
         }
+        if command == "yutu agent" {
+            // Divergence E16: the agent also runs on the Claude Code and
+            // Codex CLIs, which its examples and --provider usage name.
+            want_stdout = want_stdout
+                .replace(
+                    "--base-url \"https://api.deepseek.com/\"\n",
+                    "--base-url \"https://api.deepseek.com/\"\n# Claude Code or Codex CLI, signed in already\nyutu agent --provider claude-code\nyutu agent --provider codex\n",
+                )
+                .replace(
+                    "openai for OpenAI(compatible)",
+                    "openai for OpenAI(compatible), claude-code or codex to use that CLI's own sign-in",
+                );
+        }
         assert_eq!(
             String::from_utf8(out).unwrap(),
             want_stdout,

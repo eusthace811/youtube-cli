@@ -99,7 +99,7 @@ impl Toolbox {
         }
         let args = Value::Object(call.args.clone()).to_string();
         let bound = yutu_mcp::tools::find(&call.name)?.bind(Some(&args)).ok()?;
-        let message = bound.invoke.confirm();
+        let message = yutu_core::confirm::printable(&bound.invoke.confirm());
         Some(Approval {
             tool: call.name.clone(),
             args: crate::gojson::marshal(&Value::Object(call.args.clone())),

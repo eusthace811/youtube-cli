@@ -62,7 +62,8 @@ async fn queued_session(stdin: &[&str], interactive: bool) -> (String, usize) {
     let agent = agent(&llm, &youtube).await;
     let (tx, rx) = tokio::sync::mpsc::unbounded_channel();
     for line in stdin {
-        tx.send(format!("{line}\n")).unwrap();
+        tx.send(yutu_agent::console::Line::now(format!("{line}\n")))
+            .unwrap();
     }
     drop(tx);
     let mut out: Vec<u8> = Vec::new();

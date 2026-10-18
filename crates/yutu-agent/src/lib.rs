@@ -42,7 +42,9 @@ pub struct ModelConfig {
     pub google_search: bool,
 }
 
-/// Picks the provider client. Keys come from `--api-key`, else
+/// Picks the provider client. For `claude-code` and `codex` the model is
+/// the CLI's own default unless `--model` names one, and `YUTU_CLAUDE_BIN`
+/// or `YUTU_CODEX_BIN` may name the executable. Keys come from `--api-key`, else
 /// `GOOGLE_API_KEY` then `GEMINI_API_KEY` (google) or `OPENAI_API_KEY`
 /// (openai); base URLs from `--base-url`, else `GOOGLE_GEMINI_BASE_URL` or
 /// `OPENAI_BASE_URL`.
@@ -106,8 +108,29 @@ pub fn model_config(
                 google_search: false,
             })
         }
+        "claude-code" | "codex" => {
+            let kind = if opts.provider == "codex" {
+                llm::cli::Kind::Codex
+            } else {
+                llm::cli::Kind::ClaudeCode
+            };
+            // The CLI signs in on its own; a key or endpoint here would be
+            // silently ignored, so it is refused.
+            if !opts.api_key.is_empty() || !opts.base_url.is_empty() {
+                return Err(format!(
+                    "{}: --api-key and --base-url do not apply; the CLI uses its own sign-in",
+                    kind.provider()
+                ));
+            }
+            let (var, default) = kind.program_var();
+            let program = env(var).unwrap_or_else(|| default.to_string());
+            Ok(ModelConfig {
+                llm: llm::Llm::Cli(llm::cli::Cli::new(kind, program.into(), &opts.model)),
+                google_search: false,
+            })
+        }
         other => Err(format!(
-            "unsupported provider {}: supported providers are google and openai",
+            "unsupported provider {}: supported providers are google, openai, claude-code and codex",
             log::quote(other)
         )),
     }

@@ -92,6 +92,18 @@ prs = ["R11"]
 fields = []
 proof = "xtask/tests/install.rs"
 
+[divergence.E16]
+summary = "the agent also runs on the Claude Code and Codex CLIs (--provider claude-code|codex), with their tools off or read-only and the same human approval for writes"
+prs = ["R12"]
+fields = ["stdout", "stderr"]
+proof = "crates/yutu-agent/tests/cli_provider.rs, crates/yutu-core/tests/help_golden.rs and r9 lane 10"
+
+[divergence.E17]
+summary = "max_results 0 in an MCP or agent tool call means no limit, as every tool schema says; Go fetched nothing"
+prs = ["R12"]
+fields = ["requests", "stdout"]
+proof = "crates/yutu-agent/tests/max_results.rs; found by the E16 real-model lane"
+
 # Not in Appendix E yet: found in R9. Go embeds cmd/agent/skills as a
 # directory named "skills", so ADK's file-system source sees no SKILL.md at
 # its root and the agent's skill toolset is always empty. The instruction

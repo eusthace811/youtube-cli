@@ -6,6 +6,22 @@ use std::io::{BufRead, IsTerminal, Write};
 
 pub const NOT_CONFIRMED: &str = "operation not confirmed (pass confirm: true or rerun with --yes)";
 
+/// A confirmation message safe to show a person: control characters, which
+/// could redraw the terminal around the question, are escaped. Messages are
+/// built from tool arguments a model or MCP client chose.
+pub fn printable(message: &str) -> String {
+    message
+        .chars()
+        .map(|c| {
+            if c.is_control() {
+                format!("\\u{{{:x}}}", u32::from(c))
+            } else {
+                c.to_string()
+            }
+        })
+        .collect()
+}
+
 /// Go's `utils.IsInteractive` for a file descriptor.
 pub fn interactive(is_terminal: bool) -> bool {
     std::env::var("CI").unwrap_or_default().is_empty() && is_terminal
@@ -31,5 +47,20 @@ pub fn confirm(yes: bool, message: &str) -> Result<(), String> {
     match line.trim() {
         "y" | "Y" => Ok(()),
         _ => Err(NOT_CONFIRMED.into()),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn control_characters_are_shown_not_obeyed() {
+        assert_eq!(
+            super::printable("Delete video(s): REAL,\u{1b}[2K\r\nList video(s): x"),
+            "Delete video(s): REAL,\\u{1b}[2K\\u{d}\\u{a}List video(s): x"
+        );
+        assert_eq!(
+            super::printable("Delete video(s): v1"),
+            "Delete video(s): v1"
+        );
     }
 }

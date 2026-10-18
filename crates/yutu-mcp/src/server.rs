@@ -621,7 +621,7 @@ impl Session {
         };
         let input = bound.input.to_string();
         let log_mrtr = || log::info(tool.name, &[("input", &input), ("mrtr", "true")]);
-        let confirm = bound.invoke.confirm();
+        let confirm = yutu_core::confirm::printable(&bound.invoke.confirm());
         if !confirm.is_empty() {
             let responses = match responses {
                 Some(r) => r,

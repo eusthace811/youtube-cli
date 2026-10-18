@@ -42,9 +42,12 @@ Only these, each one function in `parity/diff.py`:
 | E13 | the skill generator lists only real tools and marks caption download as writing a file | R11 | 0 | xtask/tests/skillgen.rs |
 | E14 | the Docker image documents how to reach --mode http | R11 | 0 | r11 lane 5 |
 | E15 | install.sh verifies checksums and attestations and installs the skill only on request | R11 | 0 | xtask/tests/install.rs |
+| E16 | the agent also runs on the Claude Code and Codex CLIs (--provider claude-code|codex), with their tools off or read-only and the same human approval for writes | R12 | 0 | crates/yutu-agent/tests/cli_provider.rs, crates/yutu-core/tests/help_golden.rs and r9 lane 10 |
+| E17 | max_results 0 in an MCP or agent tool call means no limit, as every tool schema says; Go fetched nothing | R12 | 0 | crates/yutu-agent/tests/max_results.rs; found by the E16 real-model lane |
 
 Contract or help differences accepted under a registered id:
 
+- registered E16: $help.yutu agent.stdout: "Start an agent to automate YouTube workflows.\n\nUsage:\n  yutu agent [flags]\n\nExamples:\n# Gemini(compatible) (default)\nyutu agent --provider google --mod
 - registered E1: $help.yutu caption download.stdout: "Download a caption. Use this tool to download a caption from a video.\n\nUsage:\n  yutu caption download [flags]\n\nExamples:\n# Download a caption 
 
 ## Known Go defects reproduced on purpose
@@ -58,4 +61,4 @@ Go is the oracle, so these behave as Go does. They are candidates for fixes afte
 - **agent skill toolset**: list_skills is empty and load_skill finds nothing, because yutu's embed nests the skill one directory deeper than ADK reads; `Skills::embedded()` in crates/yutu-agent is the ready fix
 - **several list tables**: Go dereferences nil nested fields and would crash; the port prints empty cells instead (never reachable with real API responses)
 
-cases: 2815, differences: 0, divergences: 15, all registered
+cases: 2815, differences: 0, divergences: 17, all registered

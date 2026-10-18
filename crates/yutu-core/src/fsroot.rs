@@ -90,8 +90,8 @@ impl Root {
     /// Refuses the active credential and token files by identity, so a
     /// renamed path, hard link or symlink cannot reach them (E1). Each is
     /// looked up both as yutu-auth resolves it (from the working directory,
-    /// absolute paths included) and under the root; a lookup that fails for
-    /// any reason but absence refuses.
+    /// absolute paths included) and under the root. Like yutu-auth, a value
+    /// that names no readable file is an inline secret, not a path.
     fn refuse_protected(&self, dev: u64, ino: u64) -> io::Result<()> {
         let names = [
             std::env::var("YUTU_CREDENTIAL")
@@ -106,17 +106,8 @@ impl Root {
         let same = |m: &std::fs::Metadata| m.dev() == dev && m.ino() == ino;
         for n in names {
             let abs = gopath::abs(&n).unwrap_or_else(|_| n.clone());
-            match std::fs::metadata(&abs) {
-                Ok(m) if same(&m) => return Err(blocked()),
-                Err(e)
-                    if !matches!(
-                        e.kind(),
-                        io::ErrorKind::NotFound | io::ErrorKind::NotADirectory
-                    ) =>
-                {
-                    return Err(blocked());
-                }
-                _ => {}
+            if std::fs::metadata(&abs).is_ok_and(|m| same(&m)) {
+                return Err(blocked());
             }
             if let Ok(m) = self.dir.dir().metadata(&n)
                 && m.dev() == dev

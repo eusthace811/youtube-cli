@@ -88,10 +88,14 @@ pub fn handle(cfg: &WebUiConfig, req: &Req) -> Option<Resp> {
         ));
     }
     let name = clean(rel);
+    // The sign-in cookie reaches every localhost port, so the page may load
+    // images only from itself: markdown an agent reply renders cannot send
+    // requests (and the cookie) to another local server.
     let html = |body: Vec<u8>| {
         Resp::new(200)
             .header("accept-ranges", "bytes")
             .header("content-type", content_type(INDEX))
+            .header("content-security-policy", "img-src 'self' data: blob:")
             .body(body)
     };
     if is_dir(&name) {

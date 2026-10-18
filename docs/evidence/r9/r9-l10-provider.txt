@@ -1,7 +1,8 @@
 PASS: lane 10, unsupported provider
-Exit code, stdout and stderr (timestamps masked) are identical.
+Exit code and stdout are identical; stderr differs only by the two E16 providers.
 
 go: exit 1 stdout ''
 go: stderr 'time=T level=ERROR msg="model configuration error" error="unsupported provider \\"bogus\\": supported providers are google and openai"\n'
 head: exit 1 stdout ''
-head: stderr 'time=T level=ERROR msg="model configuration error" error="unsupported provider \\"bogus\\": supported providers are google and openai"\n'
+head: stderr 'time=T level=ERROR msg="model configuration error" error="unsupported provider \\"bogus\\": supported providers are google, openai, claude-code and codex"\n'
+E16: head's list of supported providers adds claude-code and codex; nothing else differs.

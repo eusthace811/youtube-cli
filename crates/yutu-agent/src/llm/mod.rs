@@ -1,6 +1,8 @@
-//! The two model clients: Gemini's `generateContent` API, as genai sends it
-//! for ADK, and OpenAI's Responses API, as ADK's openai adapter sends it.
+//! The model clients: Gemini's `generateContent` API, as genai sends it for
+//! ADK, OpenAI's Responses API, as ADK's openai adapter sends it, and the
+//! Claude Code and Codex CLIs (divergence E16).
 
+pub mod cli;
 pub mod gemini;
 pub mod openai;
 mod sse;
@@ -35,6 +37,7 @@ pub type OnChunk<'a> = &'a mut (dyn FnMut(&Content, &Meta) + Send);
 pub enum Llm {
     Gemini(gemini::Gemini),
     OpenAi(openai::OpenAi),
+    Cli(cli::Cli),
 }
 
 impl Llm {
@@ -47,6 +50,7 @@ impl Llm {
         match self {
             Llm::Gemini(g) => g.generate(req, stream, on_chunk).await,
             Llm::OpenAi(o) => o.generate(req, stream, on_chunk).await,
+            Llm::Cli(c) => c.generate(req, stream, on_chunk).await,
         }
     }
 }

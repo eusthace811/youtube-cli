@@ -43,7 +43,7 @@ def run_corpus(binary):
 
 def contract_and_help(binary):
     p = subprocess.run([sys.executable, "-I", str(PARITY / "contract.py"), "--bin", binary, "--compare", str(PARITY / "golden/mcp-contract.json"),
-                        "--allow", "E1=$help.yutu caption download"], capture_output=True, text=True)
+                        "--allow", "E1=$help.yutu caption download,E16=$help.yutu agent.stdout"], capture_output=True, text=True)
     unregistered = [l for l in p.stdout.splitlines() if l and not l.startswith(("registered", "contract:"))]
     registered = [l for l in p.stdout.splitlines() if l.startswith("registered")]
     return unregistered, registered

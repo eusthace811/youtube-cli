@@ -93,10 +93,18 @@ impl App for Yutu {
         }
         if inv.command.path == "agent" {
             let f = &inv.flags;
+            let provider = f.string("provider").to_string();
+            // The default model names Gemini; the CLIs pick their own.
+            let cli = matches!(provider.as_str(), "claude-code" | "codex");
+            let model = if cli && !f.changed("model") {
+                String::new()
+            } else {
+                f.string("model").to_string()
+            };
             let opts = yutu_agent::Options {
                 args: f.string("args").to_string(),
-                provider: f.string("provider").to_string(),
-                model: f.string("model").to_string(),
+                provider,
+                model,
                 api_key: f.string("api-key").to_string(),
                 base_url: f.string("base-url").to_string(),
                 instruction: f.string("instruction").to_string(),

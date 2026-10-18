@@ -14,7 +14,7 @@ recorder lines identical: True (4 go, 4 head)
   GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
   GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
 function response 8 (no-such-tool) differs:
-  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: video-update, liveChatMessage-transition, liveStream-update, channelSection-list, thirdPartyLink-delete, liveChatMessage-delete, playlist-insert, playlistItem-insert, member-list, comment-list, liveBroadcast-delete, activity-list, playlistI
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: comment-list, playlist-insert, liveBroadcast-list, search-list, member-list, playlistItem-list, liveBroadcast-bind, watermark-unset, playlistImage-delete, caption-insert, video-reportAbuse, comment-update, liveBroadcast-delete, liveStream-l
   head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
 exit: go 0 head 0
 stdout identical: True
@@ -46,7 +46,7 @@ recorder lines identical: True (4 go, 4 head)
   GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
   GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
 function response 8 (no-such-tool) differs:
-  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: caption-delete, video-getRating, member-list, liveChatBan-insert, playlist-list, liveBroadcast-list, liveChatMessage-delete, liveChatModerator-insert, liveChatMessage-transition, liveChatMessage-list, playlistImage-update, video-insert, sup
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: watermark-set, liveChatMessage-transition, playlist-update, liveChatModerator-list, playlist-list, subscription-list, liveBroadcast-transition, thirdPartyLink-insert, thumbnail-set, load_skill, commentThread-insert, liveBroadcast-insert, su
   head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
 exit: go 0 head 0
 stdout identical: True
@@ -76,7 +76,7 @@ recorder lines identical: True (4 go, 4 head)
   GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
   GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
 function response 8 (no-such-tool) differs:
-  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: liveChatBan-insert, caption-update, membershipsLevel-list, liveStream-delete, comment-markAsSpam, liveChatMessage-transition, playlist-update, liveChatBan-delete, liveBroadcast-list, playlistImage-list, load_skill_resource, superChatEvent-l
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: member-list, liveChatBan-insert, video-reportAbuse, playlist-delete, thirdPartyLink-list, search-list, watermark-set, activity-list, thirdPartyLink-insert, video-update, liveBroadcast-insert, load_skill, thirdPartyLink-update, liveBroadcast
   head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
 exit: go 0 head 0
 stdout identical: True
@@ -106,7 +106,7 @@ recorder lines identical: True (4 go, 4 head)
   GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
   GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
 function response 8 (no-such-tool) differs:
-  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: comment-list, watermark-set, liveChatMessage-transition, liveChatMessage-insert, superChatEvent-list, subscription-insert, channel-update, subscription-delete, caption-delete, search-list, liveChatMessage-list, abuseReport-insert, comment-i
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: thirdPartyLink-update, comment-insert, channelBanner-insert, caption-list, list_skills, caption-update, liveStream-delete, playlistItem-delete, caption-delete, liveStream-insert, superChatEvent-list, subscription-delete, comment-update, liv
   head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
 exit: go 0 head 0
 stdout identical: True

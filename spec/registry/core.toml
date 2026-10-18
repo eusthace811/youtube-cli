@@ -23,7 +23,10 @@ yutu agent --provider google --model gemini-3.8-flash --api-key "YOUR_KEY"
 yutu agent --provider google --model gemini-3.8-flash --api-key "YOUR_KEY" --base-url "https://custom.endpoint.com/"
 # OpenAI(compatible) (OpenAI, DeepSeek, Ollama, vLLM, etc.)
 yutu agent --provider openai --model gpt-5.6-terra --api-key "YOUR_KEY"
-yutu agent --provider openai --model deepseek-flash --api-key "YOUR_KEY" --base-url "https://api.deepseek.com/""""
+yutu agent --provider openai --model deepseek-flash --api-key "YOUR_KEY" --base-url "https://api.deepseek.com/"
+# Claude Code or Codex CLI, signed in already
+yutu agent --provider claude-code
+yutu agent --provider codex"""
 runnable = true
 
 [[command.flag]]
@@ -64,7 +67,7 @@ name = "provider"
 short = "p"
 type = "string"
 default = "google"
-usage = "LLM provider: google for Gemini(compatible), openai for OpenAI(compatible)"
+usage = "LLM provider: google for Gemini(compatible), openai for OpenAI(compatible), claude-code or codex to use that CLI's own sign-in"
 
 [[command]]
 path = "auth"

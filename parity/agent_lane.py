@@ -64,17 +64,26 @@ def typed(argv, stdin, env, timeout):
     for t in threads:
         t.start()
     deadline = time.time() + timeout
-    keys = [line.encode() for line in stdin.splitlines(keepends=True)] + [b"\x04"]
-    for i, key in enumerate(keys):
-        with seen:
-            while sum(out.count(m) for m in PROMPTS) <= i and p.poll() is None:
-                if not seen.wait(max(0.0, deadline - time.time())) and time.time() > deadline:
-                    p.kill()
-                    raise subprocess.TimeoutExpired(argv, timeout)
-        if p.poll() is not None:
-            break
-        os.write(master, key)
-    p.wait(max(1, deadline - time.time()))
+    lines = [line if line.endswith("\n") else line + "\n" for line in stdin.splitlines(keepends=True)]
+    keys = [line.encode() for line in lines] + [b"\x04"]
+
+    def waiting(i):
+        return sum(out.count(m) for m in PROMPTS) > i and out.endswith(PROMPTS)
+
+    try:
+        for i, key in enumerate(keys):
+            with seen:
+                while not waiting(i) and p.poll() is None:
+                    seen.wait(max(0.0, deadline - time.time()))
+                    if time.time() > deadline:
+                        raise subprocess.TimeoutExpired(argv, timeout)
+            if p.poll() is not None:
+                break
+            os.write(master, key)
+        p.wait(max(1, deadline - time.time()))
+    except subprocess.TimeoutExpired:
+        p.kill()
+        raise
     for t in threads[:2]:
         t.join()
     os.close(master)
@@ -360,8 +369,11 @@ def lane10(go, head, out):
     for name, s in (("go", g), ("head", h)):
         ev(f"{name}: exit {s['exit']} stdout {s['stdout']!r}")
         ev(f"{name}: stderr {s['stderr']!r}")
-    ok = g["exit"] == h["exit"] == 1 and g["stderr"] == h["stderr"] and g["stdout"] == h["stdout"]
-    return ev.save(ok, "Exit code, stdout and stderr (timestamps masked) are identical.")
+    e16 = g["stderr"].replace("supported providers are google and openai",
+                              "supported providers are google, openai, claude-code and codex")
+    ev("E16: head's list of supported providers adds claude-code and codex; nothing else differs.")
+    ok = g["exit"] == h["exit"] == 1 and e16 == h["stderr"] and g["stdout"] == h["stdout"]
+    return ev.save(ok, "Exit code and stdout are identical; stderr differs only by the two E16 providers.")
 
 
 def substituted(go, head, out):
@@ -446,9 +458,51 @@ def perf(go, head, out, runs=3, n=50):
     return ev.save(ok, "Rule: head wall time at or below Go, head peak RSS at most 0.5x Go.")
 
 
+def real_cli(head, out):
+    """E16 on the real Claude Code and Codex CLIs, signed in on this machine:
+    YouTube calls go to the recorder, answers are typed into a terminal."""
+    ev = Evidence(out / "r12-e16-cli.txt", "E16, the agent on the real Claude Code and Codex CLIs")
+    ev("Real models through the operator's signed-in CLIs; YouTube is the parity recorder (no Google account).")
+    ev("Stdin: ask for the playlists, ask to delete PLtest, answer n. Pass rule per provider: exit 0, a GET of")
+    ev("playlists reached the recorder, the delete (if the model asked for it) stopped at the approval prompt,")
+    ev("and no write reached the recorder.")
+    ok = True
+    stdin = "List my playlists.\nDelete the playlist with id PLtest.\nn\n"
+    for provider, flags in (("claude-code", ["-m", "haiku"]), ("codex", [])):
+        rec = Recorder()
+        rec.reset(overrides={"GET_playlists": {"kind": "youtube#playlistListResponse", "items": [
+            {"kind": "youtube#playlist", "id": "PLtest", "snippet": {"title": "Test playlist", "channelId": "UCme"},
+             "status": {"privacyStatus": "private"}}]}})
+        e = {k: v for k, v in os.environ.items() if k != "CI"}
+        e["YUTU_PARITY_ENDPOINT"] = rec.url
+        argv = [str(head), "agent", "-p", provider] + flags
+        start = time.perf_counter()
+        code, stdout, stderr = typed(argv, stdin, e, 600)
+        wall = time.perf_counter() - start
+        lines = [f'{r["method"]} {r["path"]}' for r in rec.requests]
+        rec.close()
+        text = stdout.decode()
+        asked = "[y/N]" in text
+        writes = [l for l in lines if not l.startswith("GET")]
+        good = code == 0 and any(l == "GET /youtube/v3/playlists" for l in lines) and not writes
+        ok &= good
+        ev()
+        ev(f"== {provider}: {'PASS' if good else 'FAIL'} exit {code}, {wall:.1f} s, approval asked: {asked}")
+        ev(f"$ yutu agent -p {provider} {' '.join(flags)}")
+        ev("recorder:")
+        for l in lines:
+            ev(f"  {l}")
+        ev("stdout:")
+        for l in text.splitlines():
+            ev(f"  {l}")
+        if stderr.strip():
+            ev(f"stderr: {stderr.decode()[-600:]!r}")
+    return ev.save(ok, "Both CLIs drove the agent's read tools, and no write got past the human's n.")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["lanes", "compare", "perf"])
+    ap.add_argument("cmd", choices=["lanes", "compare", "perf", "real-cli"])
     ap.add_argument("--go", required=True)
     ap.add_argument("--head", required=True)
     ap.add_argument("--out", default=str(HERE.parent / "docs" / "evidence" / "r9"))
@@ -462,6 +516,8 @@ def main():
         stdin = a.stdin.encode().decode("unicode_escape")
         g, h = session(a.go, script, stdin, a.provider), session(a.head, script, stdin, a.provider)
         sys.exit(0 if compare(g, h, print) else 1)
+    if a.cmd == "real-cli":
+        sys.exit(0 if real_cli(a.head, out) else 1)
     if a.cmd == "perf":
         sys.exit(0 if perf(a.go, a.head, out) else 1)
     ok = all([lane1(a.go, a.head, out), lane5(a.head, out), lane6(a.head, out), lane9(a.go, a.head, out),

@@ -1,0 +1,48 @@
+PASS: E16, the agent on the real Claude Code and Codex CLIs
+Both CLIs drove the agent's read tools, and no write got past the human's n.
+
+Real models through the operator's signed-in CLIs; YouTube is the parity recorder (no Google account).
+Stdin: ask for the playlists, ask to delete PLtest, answer n. Pass rule per provider: exit 0, a GET of
+playlists reached the recorder, the delete (if the model asked for it) stopped at the approval prompt,
+and no write reached the recorder.
+
+== claude-code: PASS exit 0, 14.7 s, approval asked: True
+$ yutu agent -p claude-code -m haiku
+recorder:
+  GET /youtube/v3/playlists
+stdout:
+  
+  
+  User -> 
+  Agent -> I'll fetch your playlists now. This is a read-only request, so nothing will be changed on your channel.You have one playlist on your channel:
+  
+  - **Test playlist** (ID: PLtest), privacy: private, channel ID: UCme
+  
+  I only read the data, so nothing on your channel was changed.
+  User -> 
+  Agent -> I'm requesting deletion of the playlist "Test playlist" (ID: PLtest) from your channel. Deleting a playlist can't be undone, so I've queued the call for your approval. Nothing has been deleted yet. Once you approve, I'll confirm the result.
+  Tool call needs approval: playlist-delete {"ids":["PLtest"]}
+  Delete playlist(s): PLtest [y/N] The deletion of "Test playlist" (ID: PLtest) was canceled, so nothing was removed. The playlist is still on your channel, private as before. If you want me to delete it, reply with confirmation and I'll send the request again.
+  User -> 
+  EOF detected, exiting...
+stderr: 'time=2026-10-18T19:21:06.049+01:00 level=INFO msg=playlist-list input="{\\"mine\\":true,\\"max_results\\":0,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=136\n'
+
+== codex: PASS exit 0, 18.9 s, approval asked: True
+$ yutu agent -p codex 
+recorder:
+  GET /youtube/v3/playlists
+stdout:
+  
+  
+  User -> 
+  Agent -> I’ll load the YouTube skill and retrieve your playlists.You have one playlist:
+  
+  - **[Test playlist](https://www.youtube.com/playlist?list=PLtest)** — Private
+    ID: `PLtest`
+  User -> 
+  Agent -> I’ll delete “Test playlist” (ID: `PLtest`).
+  Tool call needs approval: playlist-delete {"ids":["PLtest"]}
+  Delete playlist(s): PLtest [y/N] Deletion was canceled. “Test playlist” (ID: `PLtest`) was not deleted.
+  User -> 
+  EOF detected, exiting...
+stderr: 'time=2026-10-18T19:21:21.889+01:00 level=INFO msg=playlist-list input="{\\"mine\\":true,\\"max_results\\":0,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"contentDetails\\"],\\"output\\":\\"json\\"}" output_length=136\n'

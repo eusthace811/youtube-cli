@@ -2,7 +2,9 @@
 //! stdout, plus the approval prompt divergence E9 adds for writes.
 
 use std::collections::VecDeque;
-use std::io::{BufRead, Write};
+use std::io::{Read, Write};
+use std::os::fd::AsFd;
+use std::time::Instant;
 use tokio::sync::mpsc;
 
 use crate::agent::{Agent, BoxFuture, Frontend, Verdict};
@@ -11,28 +13,54 @@ use crate::llm::Meta;
 use crate::model::{Content, Part, Role};
 use crate::tools::Approval;
 
-/// Lines read from stdin, each with its newline; a closed channel is EOF.
-pub type Lines = mpsc::UnboundedReceiver<String>;
+/// A line read from stdin, with its newline, and when the read that
+/// completed it returned.
+pub struct Line {
+    pub text: String,
+    pub at: Instant,
+}
+
+impl Line {
+    pub fn now(text: impl Into<String>) -> Line {
+        Line {
+            text: text.into(),
+            at: Instant::now(),
+        }
+    }
+}
+
+/// Lines read from stdin; a closed channel is EOF.
+pub type Lines = mpsc::UnboundedReceiver<Line>;
 
 /// Reads stdin on its own thread, as ADK's console does on a goroutine. A
 /// last line without a newline is dropped, like Go's `ReadString('\n')`
-/// returning it alongside EOF. The thread reads eagerly, so whatever was
-/// typed or pasted before an approval prompt is already queued when the
-/// prompt appears and cannot answer it.
+/// returning it alongside EOF. Reads are unbuffered and each line carries
+/// the time the kernel handed it over, so an approval can tell a line typed
+/// after its question from one that was already waiting.
 pub fn stdin_lines() -> Lines {
     let (tx, rx) = mpsc::unbounded_channel();
     std::thread::spawn(move || {
-        let stdin = std::io::stdin();
-        let mut lock = stdin.lock();
+        let Ok(fd) = std::io::stdin().as_fd().try_clone_to_owned() else {
+            return;
+        };
+        let mut stdin = std::fs::File::from(fd);
+        let mut pending: Vec<u8> = Vec::new();
+        let mut buf = [0u8; 8192];
         loop {
-            let mut line = String::new();
-            match lock.read_line(&mut line) {
-                Ok(n) if n > 0 && line.ends_with('\n') => {
-                    if tx.send(line).is_err() {
-                        return;
-                    }
+            let n = match stdin.read(&mut buf) {
+                Ok(0) | Err(_) => return,
+                Ok(n) => n,
+            };
+            let at = Instant::now();
+            pending.extend_from_slice(&buf[..n]);
+            while let Some(end) = pending.iter().position(|&b| b == b'\n') {
+                let bytes: Vec<u8> = pending.drain(..=end).collect();
+                let Ok(text) = String::from_utf8(bytes) else {
+                    return;
+                };
+                if tx.send(Line { text, at }).is_err() {
+                    return;
                 }
-                _ => return,
             }
         }
     });
@@ -57,7 +85,7 @@ impl Console<'_> {
     async fn next_line(&mut self) -> Option<String> {
         match self.ahead.pop_front() {
             Some(line) => Some(line),
-            None => self.lines.recv().await,
+            None => self.lines.recv().await.map(|l| l.text),
         }
     }
 }
@@ -87,11 +115,16 @@ impl Frontend for Console<'_> {
                 a.message.clone()
             };
             // Like the CLI gate, only a person at a terminal can approve, and
-            // only with a line entered after seeing the question: whatever
-            // is queued before the question is printed is kept for the REPL.
-            while let Ok(line) = self.lines.try_recv() {
-                self.ahead.push_back(line);
+            // only with a line that arrived after the question was shown.
+            // Input the terminal still holds is discarded, as sudo does;
+            // lines that arrived earlier are kept for the REPL.
+            if self.interactive {
+                let _ = rustix::termios::tcflush(
+                    std::io::stdin(),
+                    rustix::termios::QueueSelector::IFlush,
+                );
             }
+            let asked = Instant::now();
             self.print(&format!(
                 "\nTool call needs approval: {} {}\n{question} [y/N] ",
                 a.tool, a.args
@@ -100,9 +133,14 @@ impl Frontend for Console<'_> {
                 self.print("\nnot a terminal, declined\n");
                 return Verdict::Decline;
             }
-            match self.lines.recv().await.as_deref().map(str::trim) {
-                Some("y" | "Y") => Verdict::Approve,
-                _ => Verdict::Decline,
+            loop {
+                match self.lines.recv().await {
+                    Some(line) if line.at < asked => self.ahead.push_back(line.text),
+                    Some(line) if matches!(line.text.trim(), "y" | "Y") => {
+                        return Verdict::Approve;
+                    }
+                    _ => return Verdict::Decline,
+                }
             }
         })
     }

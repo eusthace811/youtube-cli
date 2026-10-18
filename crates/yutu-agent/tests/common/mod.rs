@@ -177,6 +177,27 @@ pub async fn agent(llm_url: &str, youtube_url: &str) -> Agent {
     }
 }
 
+/// The agent on the `claude-code` or `codex` provider, its CLI replaced by
+/// `program`.
+pub async fn cli_agent(provider: &str, program: &str, youtube_url: &str) -> Agent {
+    let opts = Options {
+        args: "console".into(),
+        provider: provider.into(),
+        model: String::new(),
+        api_key: String::new(),
+        base_url: String::new(),
+        instruction: String::new(),
+    };
+    let provider = Arc::new(At(youtube_url.to_string()));
+    let program = program.to_string();
+    let env =
+        move |k: &str| matches!(k, "YUTU_CLAUDE_BIN" | "YUTU_CODEX_BIN").then(|| program.clone());
+    match yutu_agent::build(&opts, provider, &env).await {
+        Ok(a) => a,
+        Err((msg, e)) => panic!("{msg}: {e}"),
+    }
+}
+
 /// Runs a console session as a person at a terminal would: each line of
 /// `stdin` is typed only once the next prompt has been printed.
 pub async fn console(agent: &Agent, stdin: &[&str]) -> String {
@@ -193,7 +214,7 @@ pub async fn console(agent: &Agent, stdin: &[&str]) -> String {
 struct Typist {
     out: Vec<u8>,
     pending: std::collections::VecDeque<String>,
-    tx: Option<mpsc::UnboundedSender<String>>,
+    tx: Option<mpsc::UnboundedSender<yutu_agent::console::Line>>,
 }
 
 impl std::io::Write for Typist {
@@ -202,6 +223,7 @@ impl std::io::Write for Typist {
         if buf.ends_with(b"User -> ") || buf.ends_with(b"[y/N] ") {
             match self.pending.pop_front() {
                 Some(line) => {
+                    let line = yutu_agent::console::Line::now(line);
                     let _ = self.tx.as_ref().map(|tx| tx.send(line));
                 }
                 None => self.tx = None,

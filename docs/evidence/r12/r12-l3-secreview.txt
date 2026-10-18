@@ -1,0 +1,22 @@
+r12 lane 3: PASS (with Lows, all fixed or accepted)
+
+Independent security review, two passes by separate reviewers.
+- Pass 1 at 3aae399: docs/evidence/r12/r12-review-3aae399.md
+- Pass 2 at 94e24a1: docs/evidence/r12/r12-rereview-94e24a1.md
+
+Supply chain (pass 1, rerun at 94e24a1, see r12-l4-audit.txt): cargo audit found nothing across 198 crates
+and 1338 advisories; cargo deny reported advisories, bans, licenses and sources ok.
+
+Findings and status:
+  A1 Low   token named by an absolute path unprotected in caption download    fixed 94e24a1, confirmed by pass 2
+  A2 Low   check-then-open race in fsroot create_write                          fixed 94e24a1, confirmed by pass 2
+  A3 Low   LLM API key followed redirects to other hosts                        fixed 94e24a1, confirmed by pass 2
+  A4 Low   parity-only tokeninfo URL accepted userinfo                          fixed 94e24a1, confirmed by pass 2
+  N2 Low   A1 fix broke caption download with inline credentials (regression)   fixed after 94e24a1, verified with a1.py
+  N3 Low   model could hide the approval question with terminal escapes         fixed after 94e24a1, verified with esc.py
+  N4 Low   dev UI cookie could leak through rendered images (theoretical)       fixed after 94e24a1 (CSP img-src 'self')
+  I2 Info  access log recorded the UI sign-in token                             fixed after 94e24a1
+  A5-A9, I1, I3 Info                                                            accepted, documented in docs/SECURITY.md
+
+Clean areas (pass 1): no unsafe code, no telemetry, egress limited to Google, Gemini, OpenAI and loopback,
+secrets redacted, timeouts everywhere, workflows pinned by SHA with least privilege.

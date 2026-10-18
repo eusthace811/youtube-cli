@@ -282,7 +282,7 @@ where
         &format!(
             "{} {} {}",
             parts.method,
-            uri,
+            redact_token(&uri.to_string()),
             yutu_auth::flow::go_duration(start.elapsed())
         ),
         &[],
@@ -325,4 +325,31 @@ where
     builder
         .body(body)
         .map_err(|e| std::io::Error::other(e.to_string()))
+}
+
+/// The request target with any `token=` value hidden, for the access log.
+fn redact_token(target: &str) -> String {
+    let Some((path, query)) = target.split_once('?') else {
+        return target.to_string();
+    };
+    let query: Vec<String> = query
+        .split('&')
+        .map(|p| match p.split_once('=') {
+            Some(("token", _)) => "token=REDACTED".to_string(),
+            _ => p.to_string(),
+        })
+        .collect();
+    format!("{path}?{}", query.join("&"))
+}
+
+#[cfg(test)]
+mod redact_tests {
+    #[test]
+    fn the_access_log_hides_tokens() {
+        assert_eq!(
+            super::redact_token("/ui/?mode=x&token=secret&b=1"),
+            "/ui/?mode=x&token=REDACTED&b=1"
+        );
+        assert_eq!(super::redact_token("/api/list-apps"), "/api/list-apps");
+    }
 }

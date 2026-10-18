@@ -134,6 +134,11 @@ fn the_ui_link_signs_the_browser_in_with_a_cookie() {
         let cookie = format!("yutu_token={UI_TOKEN}");
         let r = http(w.port, "GET", "/api/list-apps", &[("Cookie", &cookie)], b"").await;
         assert_eq!((r.status, r.text().as_str()), (200, "[\"Miffy\"]\n"));
+        let page = http(w.port, "GET", "/ui/", &[("Cookie", &cookie)], b"").await;
+        assert_eq!(
+            page.header("content-security-policy"),
+            Some("img-src 'self' data: blob:")
+        );
         let bad = http(w.port, "GET", "/ui/?token=nope", &[], b"").await;
         assert_eq!(bad.status, 401);
         let bearer_link = format!("/ui/?token={TOKEN}");
