@@ -1,0 +1,9 @@
+r5 lane 10: PASS
+
+SUBSTITUTED: no test channel exists; every step runs on Go and head against the recorder and must match exactly.
+$ yutu liveStream insert --title T --ingestionType rtmp --resolution 1080p --yes
+  exit 0, requests [('POST', '/youtube/v3/liveStreams')], identical to Go: True
+  stdout: 'Live stream inserted: id-1\n'
+$ yutu liveStream delete --ids s1 --yes
+  exit 0, requests [('DELETE', '/youtube/v3/liveStreams')], identical to Go: True
+  stdout: 'Live stream s1 deleted\n'

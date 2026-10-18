@@ -1,0 +1,9 @@
+r5 lane 9: PASS
+
+SUBSTITUTED: no test channel exists; every step runs on Go and head against the recorder and must match exactly.
+$ yutu subscription insert --subscriberChannelId me --channelId UCpublic --yes
+  exit 0, requests [('POST', '/youtube/v3/subscriptions')], identical to Go: True
+  stdout: 'Subscription inserted: id-1\n'
+$ yutu subscription delete --ids s1 --yes
+  exit 0, requests [('DELETE', '/youtube/v3/subscriptions')], identical to Go: True
+  stdout: 'Subscription s1 deleted'

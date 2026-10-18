@@ -1,0 +1,4 @@
+r5 lane 8: PASS
+
+go: (1, "Delete playlist(s): p1 [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu playlist delete -h' to see usage.\r\n", 0)
+head: (1, "Delete playlist(s): p1 [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu playlist delete -h' to see usage.\r\n", 0)

@@ -1,0 +1,9 @@
+r5 lane 3: PASS
+
+SUBSTITUTED: no test channel exists; every step runs on Go and head against the recorder and must match exactly.
+$ yutu playlistItem insert --kind video --kVideoId v1 --playlistId p1 --channelId c1 --yes
+  exit 0, requests [('POST', '/youtube/v3/playlistItems')], identical to Go: True
+  stdout: 'Playlist Item inserted: id-1\n'
+$ yutu playlistItem delete --ids i1 --yes
+  exit 0, requests [('DELETE', '/youtube/v3/playlistItems')], identical to Go: True
+  stdout: 'Playlist Item i1 deleted\n'

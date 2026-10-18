@@ -1,0 +1,12 @@
+r5 lane 5: PASS
+
+SUBSTITUTED: no test channel exists; every step runs on Go and head against the recorder and must match exactly.
+$ yutu video rate --ids v1 --rating like --yes
+  exit 0, requests [('POST', '/youtube/v3/videos/rate')], identical to Go: True
+  stdout: 'Video v1 rated like\n'
+$ yutu video getRating --ids v1
+  exit 0, requests [('GET', '/youtube/v3/videos/getRating')], identical to Go: True
+  stdout: ' ID         RATING  \n videoId-0  none    \n videoId-1  like    \n videoId-2  dislike \n                    '
+$ yutu video rate --ids v1 --rating none --yes
+  exit 0, requests [('POST', '/youtube/v3/videos/rate')], identical to Go: True
+  stdout: 'Video v1 rated none\n'

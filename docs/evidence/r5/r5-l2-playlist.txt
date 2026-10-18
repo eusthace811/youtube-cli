@@ -1,0 +1,17 @@
+r5 lane 2: PASS
+
+SUBSTITUTED: no test channel exists; every step runs on Go and head against the recorder and must match exactly.
+$ yutu playlist insert --title T --channelId UC1 --privacy private --yes
+  exit 0, requests [('POST', '/youtube/v3/playlists')], identical to Go: True
+  stdout: 'Playlist inserted: id-1\n'
+$ yutu playlist update --id id1 --title T2 --yes
+  exit 1, requests [], identical to Go: True
+  stdout: ''
+  stderr: "Error: failed to get playlist\nRun 'yutu playlist update -h' to see usage.\n"
+  Go fails the same way; this is a Go defect reproduced for parity (see docs/PARITY.md, known Go defects).
+$ yutu playlist delete --ids id1 --yes
+  exit 0, requests [('DELETE', '/youtube/v3/playlists')], identical to Go: True
+  stdout: 'Playlist id1 deleted'
+$ yutu playlist list --mine -o json
+  exit 0, requests [('GET', '/youtube/v3/playlists')], identical to Go: True
+  stdout: '[{"contentDetails":{"itemCount":24},"etag":"etag-0","id":"id-0","kind":"kind-0","localizations":{"ka":{"description":"Ünïcödé ✓ 日本語のタイトル localizations{}.description","title":"# hash"},"kb":{"descripti'

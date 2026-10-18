@@ -1,0 +1,6 @@
+r5 perf: PASS
+
+Metric: 100 sequential `playlistItem insert --yes` invocations against the recorder, five alternating batches.
+Trunk batches (s): 1.33, 1.31, 1.35, 1.31, 1.35 -> median 1.33 s
+Head batches (s):  0.39, 0.35, 0.35, 0.35, 0.36 -> median 0.35 s (0.27x)
+Rule: head <= 0.5x trunk.

@@ -1,0 +1,5 @@
+r5 lane 6: PASS
+
+stdout go:   'Playlist p1 deletedPlaylist p2 deleted'
+stdout head: 'Playlist p1 deletedPlaylist p2 deleted'
+requests: [('DELETE', '/youtube/v3/playlists', {'alt': ['json'], 'id': ['p1'], 'prettyPrint': ['false']}), ('DELETE', '/youtube/v3/playlists', {'alt': ['json'], 'id': ['p2'], 'prettyPrint': ['false']})]

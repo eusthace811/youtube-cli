@@ -1,0 +1,9 @@
+r5 lane 4: PASS
+
+SUBSTITUTED: no test channel exists; every step runs on Go and head against the recorder and must match exactly.
+$ yutu commentThread insert --channelId c1 --videoId v1 --textOriginal hi --yes
+  exit 0, requests [('POST', '/youtube/v3/commentThreads')], identical to Go: True
+  stdout: 'CommentThread inserted: id-1\n'
+$ yutu comment delete --ids c1 --yes
+  exit 0, requests [('DELETE', '/youtube/v3/comments')], identical to Go: True
+  stdout: 'Comment c1 deleted\n'
