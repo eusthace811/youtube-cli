@@ -65,6 +65,14 @@ pub struct Skills {
 pub const TOOL_NAMES: [&str; 3] = ["list_skills", "load_skill", "load_skill_resource"];
 
 impl Skills {
+    /// The skills the agent can see, which is none, as in Go: yutu's embed
+    /// nests the skill one directory deeper than ADK's toolset reads, so
+    /// `list_skills` is empty and `load_skill` finds nothing. Kept for parity
+    /// (a known Go defect in docs/PARITY.md); `embedded()` is the fix.
+    pub fn visible() -> Skills {
+        Skills { skills: Vec::new() }
+    }
+
     pub fn embedded() -> Skills {
         let mut skills: Vec<Skill> = EMBEDDED
             .iter()

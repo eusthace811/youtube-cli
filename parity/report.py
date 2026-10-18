@@ -24,6 +24,7 @@ KNOWN_GO_DEFECTS = [
     ("channel update, comment update (CLI)", "the same: the lookup paginates with MaxResults 0 and always fails"),
     ("comment markAsSpam / setModerationStatus", "print the input struct itself, including \"confirmed\":false"),
     ("liveBroadcast bind", "prints the response id and an empty stream id when --streamId is unset"),
+    ("agent skill toolset", "list_skills is empty and load_skill finds nothing, because yutu's embed nests the skill one directory deeper than ADK reads; `Skills::embedded()` in crates/yutu-agent is the ready fix"),
     ("several list tables", "Go dereferences nil nested fields and would crash; the port prints empty cells instead (never reachable with real API responses)"),
 ]
 

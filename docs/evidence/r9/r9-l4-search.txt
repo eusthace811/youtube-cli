@@ -16,4 +16,4 @@ stdout identical: True
 stderr identical (timestamps masked): True
   go:   ''
 model requests: go 1 head 1
-  request 0 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs
+  request 0 /v1beta/models/gemini-3.8-flash:generateContent: identical

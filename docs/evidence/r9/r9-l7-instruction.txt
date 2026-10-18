@@ -1,6 +1,6 @@
 PASS: lane 7, --instruction override
-The override replaces the embedded instruction on both; head appends the skill block after Go's text.
+The override replaces the embedded instruction on both, and head's system instruction equals Go's.
 
 SUBSTITUTED: no real LLM key or Google account exists on this machine, so the real-model lane runs as a scripted mock-LLM session that exercises the same code path.
 go system instruction:   'Reply only in French\n\nYou are an agent. Your internal name is "Miffy". The description about you is "YouTube growth strategist and workflow assistant — retrieve, create, update, and delete YouTube content.".'
-head system instruction: 'Reply only in French\n\nYou are an agent. Your internal name is "Miffy". The description about you is "YouTube growth strategist and workflow assistant — retrieve, create, update, and delete YouTube content.".\n\nYou can use specialized \'skills\' to help you with complex tasks. You MUST use the skill tools to interact with these skills.\n\nSkills are folders of instructions and resources that extend your'...
+head system instruction: 'Reply only in French\n\nYou are an agent. Your internal name is "Miffy". The description about you is "YouTube growth strategist and workflow assistant — retrieve, create, update, and delete YouTube content.".'...

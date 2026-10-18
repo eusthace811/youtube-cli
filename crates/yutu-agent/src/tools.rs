@@ -51,7 +51,7 @@ impl Toolbox {
         let session = Session::new(Server::new(provider, yutu_mcp::VERSION), None);
         let mut tb = Toolbox {
             session,
-            skills: Skills::embedded(),
+            skills: Skills::visible(),
             declarations: Vec::new(),
             google_search,
             next_id: AtomicI64::new(1),

@@ -214,8 +214,6 @@ def lane1(go, head, out):
     ev("- playlist-delete response, the approval prompt on stdout, Go's mrtr=true log line: E9. Go's in-memory")
     ev("  MCP client declares no elicitation, so every gated tool fails with 'client does not support")
     ev("  elicitation' and no write can ever run; head asks the human and sends 'canceled by user' on no.")
-    ev("- list_skills, load_skill, load_skill_resource responses and the longer system instruction (the")
-    ev("  skill toolset's block): divergence agent-skills; Go's embedded skills directory is never found.")
     ev("- no-such-tool 'Available tools' order: nondeterministic in Go (map order); head lists declarations in order.")
     ev("- stderr tool log lines: yutu-mcp (R7) logs the bound input without Go's 'confirmed':false and in")
     ev("  schema order; the agent adds nothing to stderr. Not E9/E10.")
@@ -350,19 +348,19 @@ def substituted(go, head, out):
     gs, hs = system_of(g["llm"][0]["body"]), system_of(h["llm"][0]["body"])
     ev(f"go system instruction:   {gs!r}")
     ev(f"head system instruction: {hs[:400]!r}...")
-    ok = gs.startswith("Reply only in French\n\nYou are an agent.") and hs.startswith(gs)
-    results.append(ev.save(ok, "The override replaces the embedded instruction on both; head appends the skill block after Go's text."))
+    ok = gs.startswith("Reply only in French\n\nYou are an agent.") and hs == gs
+    results.append(ev.save(ok, "The override replaces the embedded instruction on both, and head's system instruction equals Go's."))
     # Lane 8: the embedded skill loads.
-    ev = Evidence(out / "r9-l8-skill.txt", "lane 8, load the embedded skill")
+    ev = Evidence(out / "r9-l8-skill.txt", "lane 8, use the embedded skill")
     ev(SUBSTITUTE)
     ev("Go embeds skills/ under an extra directory level, so its skill toolset finds no skill (observed below).")
-    ev("Head loads the youtube skill; registered as divergence agent-skills in parity/divergences.toml.")
+    ev("Head keeps that behavior for parity; docs/PARITY.md lists it as a known Go defect with the ready fix.")
     script = calls(("load_skill", {"name": "youtube"})) + [{"text": "Loaded."}]
     g, h = session(go, script, "use the youtube skill\n"), session(head, script, "use the youtube skill\n")
     ev(f"go response:   {json.dumps(tool_calls(g))[:300]}")
     ev(f"head response: {json.dumps(tool_calls(h))[:300]}")
-    ok = tool_calls(h)[0][1].get("skill_name") == "youtube" and "# YouTube" in tool_calls(h)[0][1]["instructions"]
-    results.append(ev.save(ok, "The trace shows load_skill returning the youtube SKILL.md instructions."))
+    ok = tool_calls(h) == tool_calls(g) and bool(tool_calls(h))
+    results.append(ev.save(ok, "The skill tool call and its result are identical on Go and head."))
     return all(results)
 
 
