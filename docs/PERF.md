@@ -141,17 +141,17 @@ Verdict: perf, 50 tool-call scripted session
 
 Script: 50 sequential video-list calls then a text reply; mock LLM and recorder in-process, zero added latency.
 Alternating Go harness and head, measured with /usr/bin/time -l (peak RSS in bytes).
-run 1 go  : wall 0.444s  peak RSS 58.4 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 1 head: wall 0.304s  peak RSS 18.2 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 2 go  : wall 0.467s  peak RSS 58.2 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 2 head: wall 0.280s  peak RSS 18.3 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 3 go  : wall 0.481s  peak RSS 58.4 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 3 head: wall 0.305s  peak RSS 18.2 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 1 go  : wall 0.448s  peak RSS 57.8 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 1 head: wall 0.265s  peak RSS 18.4 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 2 go  : wall 0.474s  peak RSS 60.8 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 2 head: wall 0.268s  peak RSS 18.2 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 3 go  : wall 0.472s  peak RSS 59.0 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 3 head: wall 0.273s  peak RSS 18.3 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
 
-median wall: go 0.467s head 0.304s (head/go 0.65)
-median peak RSS: go 58.4 MiB head 18.2 MiB (head/go 0.31)
-zero-call session (startup, one model call, EOF): go 0.056s head 0.034s
-agent overhead per tool call, (wall - zero-call) / 50, which includes the mock's and recorder's Python handling: go 8.22 ms head 5.40 ms
+median wall: go 0.472s head 0.268s (head/go 0.57)
+median peak RSS: go 59.0 MiB head 18.3 MiB (head/go 0.31)
+zero-call session (startup, one model call, EOF): go 0.057s head 0.034s
+agent overhead per tool call, (wall - zero-call) / 50, which includes the mock's and recorder's Python handling: go 8.30 ms head 4.68 ms
 ```
 
 ## R10: Agent web launcher

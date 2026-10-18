@@ -1,6 +1,6 @@
 r12 lane 7: PASS
 
-Every perf probe rerun at the final head (c36e61c), on a parity-endpoint release build with the dev UI stored
+Every perf probe rerun at the final head (c36e61c; R9 rerun at 1d74969, the only probe the last change touches), on a parity-endpoint release build with the dev UI stored
 brotli-compressed, the machine otherwise idle (load average about 3 from desktop apps, none from this
 work). Each probe interleaves Go and head runs on this machine and keeps its own evidence file; docs/PERF.md
 is generated from them by parity/perfdoc.py.
@@ -13,7 +13,7 @@ is generated from them by parity/perfdoc.py.
   R6  2 GiB upload   7,540 MB/s, peak RSS 14.3 MB vs Go 3,112 MB/s, 58.3 MB
   R7  MCP            initialize 2.67 ms, tools/list 0.67 ms vs Go 11.13 / 1.56 ms
   R8  HTTP MCP       41,802 req/s vs Go 4,575 (9.14x), p50 1.17 ms vs 10.31 ms
-  R9  agent loop     50 tool calls 0.30 s vs Go 0.47 s; peak RSS 18 MiB vs 58 MiB
+  R9  agent loop     50 tool calls 0.27 s vs Go 0.47 s; peak RSS 18 MiB vs 58 MiB
   R10 web launcher   idle RSS 10.98 MiB vs 36.70 MiB; /run p50 at or below Go; 120 s idle soak flat
   R11 download size  shipped binary 7,216,960 B (0.126x Go); npm tarball 0.282x; image estimate 0.125x (rule <= 0.3x)
 
