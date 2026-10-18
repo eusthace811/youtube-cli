@@ -87,7 +87,9 @@ pub fn finish_list(
 /// file cannot be swapped between the check and the read.
 pub fn open_media(name: &str) -> Result<yutu_api::Media, String> {
     let root = crate::fsroot::Root::global()?;
-    root.open_read(name).map(yutu_api::Media::Open).map_err(|e| e.to_string())
+    root.open_read(name)
+        .map(yutu_api::Media::Open)
+        .map_err(|e| e.to_string())
 }
 
 /// A file to write under the root, refusing blocked extensions so a

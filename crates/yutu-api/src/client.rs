@@ -269,10 +269,18 @@ impl Call<'_> {
             (Media::Bytes(b), _) => (b.len() as u64, b[..b.len().min(512)].to_vec()),
             (_, Some(mut f)) => {
                 use tokio::io::{AsyncReadExt, AsyncSeekExt};
-                let size = f.metadata().await.map_err(|e| Error::Local(e.to_string()))?.len();
+                let size = f
+                    .metadata()
+                    .await
+                    .map_err(|e| Error::Local(e.to_string()))?
+                    .len();
                 let mut head = vec![0u8; size.min(512) as usize];
-                f.read_exact(&mut head).await.map_err(|e| Error::Local(e.to_string()))?;
-                f.seek(std::io::SeekFrom::Start(0)).await.map_err(|e| Error::Local(e.to_string()))?;
+                f.read_exact(&mut head)
+                    .await
+                    .map_err(|e| Error::Local(e.to_string()))?;
+                f.seek(std::io::SeekFrom::Start(0))
+                    .await
+                    .map_err(|e| Error::Local(e.to_string()))?;
                 (size, head)
             }
             (_, None) => unreachable!(),
@@ -286,7 +294,9 @@ impl Call<'_> {
             (_, Some(mut f)) => {
                 use tokio::io::AsyncReadExt;
                 let mut buf = Vec::with_capacity(size as usize);
-                f.read_to_end(&mut buf).await.map_err(|e| Error::Local(e.to_string()))?;
+                f.read_to_end(&mut buf)
+                    .await
+                    .map_err(|e| Error::Local(e.to_string()))?;
                 buf
             }
             (_, None) => unreachable!(),

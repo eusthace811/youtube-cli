@@ -93,6 +93,27 @@ pub trait FlagValues {
     fn changed(&self, name: &str) -> bool;
 }
 
+impl FlagValues for crate::cli::Flags {
+    fn string(&self, name: &str) -> String {
+        crate::cli::Flags::string(self, name).to_string()
+    }
+    fn bool(&self, name: &str) -> bool {
+        crate::cli::Flags::bool(self, name)
+    }
+    fn strings(&self, name: &str) -> Vec<String> {
+        crate::cli::Flags::strings(self, name).to_vec()
+    }
+    fn i64(&self, name: &str) -> i64 {
+        crate::cli::Flags::i64(self, name)
+    }
+    fn u64(&self, name: &str) -> u64 {
+        crate::cli::Flags::u64(self, name)
+    }
+    fn changed(&self, name: &str) -> bool {
+        crate::cli::Flags::changed(self, name)
+    }
+}
+
 /// Builds the YouTube service the first time an op needs it, the way Go's
 /// `EnsureService` calls `DefaultServiceProvider`.
 pub trait ServiceProvider: Send + Sync {
