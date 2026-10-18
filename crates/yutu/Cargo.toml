@@ -13,6 +13,7 @@ yutu-api.workspace = true
 yutu-auth.workspace = true
 yutu-core.workspace = true
 yutu-mcp.workspace = true
+yutu-agent.workspace = true
 tokio = { version = "1", features = ["rt", "time"] }
 
 [dev-dependencies]
