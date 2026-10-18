@@ -9,3 +9,4 @@ publish = false
 serde.workspace = true
 serde_json.workspace = true
 toml.workspace = true
+brotli-decompressor = "6"

@@ -22,7 +22,8 @@ struct CliService;
 impl ServiceProvider for CliService {
     fn service(&self) -> BoxFuture<'_, Result<Service, String>> {
         Box::pin(async {
-            if yutu_api::client::parity_mode()
+            if cfg!(feature = "parity-endpoint")
+                && yutu_api::client::parity_mode()
                 && std::env::var("YUTU_PARITY_AUTH").as_deref() != Ok("1")
             {
                 // One client for the process, so the agent's and the MCP

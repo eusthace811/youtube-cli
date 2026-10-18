@@ -27,5 +27,12 @@ strip = true
 panic = "abort"
 opt-level = 3
 
+# Build scripts run optimized: yutu-agent's compresses the dev UI bundle.
+[profile.release.build-override]
+opt-level = 3
+
+[profile.dev.build-override]
+opt-level = 3
+
 [profile.dev]
 debug = 1

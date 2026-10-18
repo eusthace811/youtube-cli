@@ -13,11 +13,15 @@ mod bundle {
 pub const PREFIX: &str = "/ui/";
 const INDEX: &str = "index.html";
 
-fn file(name: &str) -> Option<&'static [u8]> {
-    bundle::FILES
-        .iter()
-        .find(|(n, _)| *n == name)
-        .map(|(_, b)| *b)
+/// A bundle file's bytes, decompressed from the brotli copy in the binary.
+fn file(name: &str) -> Option<Vec<u8>> {
+    use std::io::Read;
+    let (_, br) = bundle::FILES.iter().find(|(n, _)| *n == name)?;
+    let mut raw = Vec::new();
+    brotli_decompressor::Decompressor::new(*br, 1 << 16)
+        .read_to_end(&mut raw)
+        .expect("the build script wrote valid brotli");
+    Some(raw)
 }
 
 fn is_dir(name: &str) -> bool {
@@ -43,7 +47,7 @@ fn content_type(name: &str) -> &'static str {
 /// index.html with its `<base href>` pointing at the mount, as ADK serves
 /// it for deep links.
 fn index() -> Vec<u8> {
-    let html = String::from_utf8_lossy(file(INDEX).unwrap_or_default());
+    let html = String::from_utf8_lossy(&file(INDEX).unwrap_or_default()).into_owned();
     html.replacen("<base href=\"./\"", &format!("<base href=\"{PREFIX}\""), 1)
         .into_bytes()
 }
@@ -131,6 +135,14 @@ mod tests {
     #[test]
     fn bundle_is_embedded_whole() {
         assert_eq!(bundle::FILES.len(), 106);
+        let root = concat!(env!("CARGO_MANIFEST_DIR"), "/assets/webui/distr");
+        for (name, _) in bundle::FILES {
+            let vendored = std::fs::read(format!("{root}/{name}")).unwrap();
+            assert!(
+                file(name) == Some(vendored),
+                "{name} inflates to the vendored bytes"
+            );
+        }
         assert!(file("index.html").is_some());
         assert!(file("assets/config/runtime-config.json").is_some());
         assert!(

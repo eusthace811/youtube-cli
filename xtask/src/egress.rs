@@ -95,16 +95,38 @@ fn served_urls() -> std::collections::BTreeSet<String> {
     out
 }
 
+/// With `--release`, a binary that still carries the parity test hooks
+/// (any `YUTU_PARITY_` variable) fails too: they belong only in builds with
+/// the `parity-endpoint` feature.
 pub fn run(args: &[String]) -> Result<(), String> {
+    let release = args.first().is_some_and(|a| a == "--release");
+    let args = if release { &args[1..] } else { args };
     if args.is_empty() {
-        return Err("usage: xtask egress BINARY...".to_string());
+        return Err("usage: xtask egress [--release] BINARY...".to_string());
+    }
+    if release {
+        for path in args {
+            let bytes = std::fs::read(path).map_err(|e| format!("egress: {path}: {e}"))?;
+            if bytes.windows(12).any(|w| w == b"YUTU_PARITY_") {
+                return Err(format!(
+                    "egress: {path} carries parity test hooks (YUTU_PARITY_*)"
+                ));
+            }
+        }
+        println!("egress: no parity test hooks");
     }
     let served = served_urls();
     let mut served_hosts: BTreeMap<String, usize> = BTreeMap::new();
     let mut unexpected: BTreeMap<String, Vec<String>> = BTreeMap::new();
     let mut displayed: BTreeMap<&str, &str> = BTreeMap::new();
     for path in args {
-        let bytes = std::fs::read(path).map_err(|e| format!("egress: {path}: {e}"))?;
+        let mut bytes = std::fs::read(path).map_err(|e| format!("egress: {path}: {e}"))?;
+        if mask_brotli_dictionary(&mut bytes) {
+            println!(
+                "egress: masked the brotli static dictionary (RFC 7932 Appendix A, {} bytes of word fragments the dev UI's decompressor carries)",
+                DICTIONARY.len()
+            );
+        }
         for found in urls(&bytes) {
             if ALLOWED.contains(&found.host.as_str()) {
                 continue;
@@ -144,6 +166,22 @@ pub fn run(args: &[String]) -> Result<(), String> {
     } else {
         Err(summary)
     }
+}
+
+const DICTIONARY: &[u8] = &brotli_decompressor::dictionary::kBrotliDictionary;
+
+/// Blanks the brotli static dictionary out of `bytes`: it is a fixed table
+/// of English and web text fragments, among them "http://" next to words,
+/// not addresses the program contacts. Only an exact copy is masked.
+fn mask_brotli_dictionary(bytes: &mut [u8]) -> bool {
+    let Some(at) = bytes
+        .windows(DICTIONARY.len())
+        .position(|w| w == DICTIONARY)
+    else {
+        return false;
+    };
+    bytes[at..at + DICTIONARY.len()].fill(0);
+    true
 }
 
 /// Packed literals can follow the URL directly, so any byte may follow it

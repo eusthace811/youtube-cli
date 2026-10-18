@@ -23,6 +23,10 @@ http = "1"
 http-body-util = "0.1"
 hyper = { version = "1", features = ["server", "http1"] }
 hyper-util = { version = "0.1", default-features = false, features = ["tokio"] }
+brotli-decompressor = "6"
+
+[build-dependencies]
+brotli = "9"
 
 [dev-dependencies]
 yutu-api = { workspace = true, features = ["parity-endpoint"] }

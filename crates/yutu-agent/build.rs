@@ -1,6 +1,8 @@
 //! Lists the embedded dev UI bundle, assets/webui/distr, as a table of
-//! `(path, bytes)` for `launch::webui`.
+//! `(path, brotli bytes)` for `launch::webui`. Compressing at build time
+//! keeps the 8 MB bundle to about a quarter of that in the binary.
 
+use std::io::Write;
 use std::path::{Path, PathBuf};
 
 fn walk(dir: &Path, root: &Path, out: &mut Vec<(String, PathBuf)>) {
@@ -28,16 +30,26 @@ fn main() {
     println!("cargo:rerun-if-changed={}", root.display());
     let mut files = Vec::new();
     walk(&root, &root, &mut files);
+    let out_dir = PathBuf::from(std::env::var("OUT_DIR").expect("cargo sets it"));
+    let br_dir = out_dir.join("webui");
+    std::fs::create_dir_all(&br_dir).expect("create webui dir");
     let mut src = String::from("pub static FILES: &[(&str, &[u8])] = &[\n");
-    for (rel, path) in files {
+    for (i, (rel, path)) in files.into_iter().enumerate() {
+        let raw = std::fs::read(&path).expect("read bundle file");
+        let mut br = Vec::new();
+        {
+            let mut w = brotli::CompressorWriter::new(&mut br, 1 << 16, 11, 24);
+            w.write_all(&raw).expect("brotli");
+        }
+        let br_path = br_dir.join(format!("{i}.br"));
+        std::fs::write(&br_path, br).expect("write brotli");
         src.push_str(&format!(
             "    ({rel:?}, include_bytes!({:?})),\n",
-            path.display().to_string()
+            br_path.display().to_string()
         ));
     }
     src.push_str("];\n");
-    let out = PathBuf::from(std::env::var("OUT_DIR").expect("cargo sets it")).join("webui.rs");
-    std::fs::write(out, src).expect("write webui.rs");
+    std::fs::write(out_dir.join("webui.rs"), src).expect("write webui.rs");
 
     // `/version` reports the compiler as ADK reports the Go runtime.
     let rustc = std::env::var("RUSTC").unwrap_or_else(|_| "rustc".into());

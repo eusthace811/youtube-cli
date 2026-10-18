@@ -1,6 +1,6 @@
 r7 perf: PASS
 
 Metric: initialize (from spawn to reply) and tools/list latency over 10 fresh stdio sessions, alternating.
-Trunk: initialize 11.17 ms, tools/list 1.47 ms
-Head:  initialize 2.55 ms, tools/list 0.67 ms
+Trunk: initialize 11.62 ms, tools/list 1.52 ms
+Head:  initialize 2.81 ms, tools/list 0.69 ms
 Rule: head initialize <= 4 ms and tools/list <= trunk.

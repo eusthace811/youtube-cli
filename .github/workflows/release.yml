@@ -98,7 +98,7 @@ jobs:
       - name: Check the six binaries for unexpected network hosts
         run: |
           rustup show active-toolchain || rustup toolchain install
-          cargo run --locked -p xtask -- egress dist-out/yutu-*-*
+          cargo run --locked -p xtask -- egress --release dist-out/yutu-*-*
       - name: SHA256SUMS
         working-directory: dist-out
         run: |
