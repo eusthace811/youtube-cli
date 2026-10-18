@@ -1,0 +1,4 @@
+r2 lane 3: PASS
+
+release build without parity-endpoint: 0 occurrences; with YUTU_PARITY_ENDPOINT set it resolves https://youtube.googleapis.com/
+release build with parity-endpoint (control): 1 occurrences; it resolves http://127.0.0.1:9/

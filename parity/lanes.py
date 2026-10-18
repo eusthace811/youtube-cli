@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -246,6 +247,163 @@ def r1_l10():
         ok &= code == 0
         log += f"$ {' '.join(s)} -> exit {code}\n{(out + err)[-600:]}\n"
     return ok, log
+
+
+# R2 ---------------------------------------------------------------------
+
+EXAMPLES = ROOT / "target" / "release" / "examples"
+ENCODE = str(ROOT / "ref" / "yutu-go-encode")
+
+
+def build_examples(features=""):
+    args = ["cargo", "build", "-q", "--release", "-p", "yutu-api", "--examples"]
+    if features:
+        args += ["--features", features]
+    return sh(args, cwd=ROOT)
+
+
+def go_encode(items):
+    d = Path(tempfile.mkdtemp())
+    (d / "fx").mkdir()
+    (d / "fx" / "GET_videos.json").write_text(json.dumps({"kind": "youtube#videoListResponse", "items": items}))
+    sh([ENCODE, str(ROOT / "spec/youtube-v3.json"), str(d / "fx"), str(d / "go")])
+    return d
+
+
+@lane("r2", 1, "r2-l1-replay.txt")
+def r2_l1():
+    import random
+    build_examples()
+    files = sorted((ROOT / "parity/golden/cases").glob("*.json"))
+    with_reqs = [f for f in files if json.loads(f.read_text())["requests"]]
+    random.Random(20261018).shuffle(with_reqs)
+    picked = with_reqs[:100]
+    code, out, err = sh([str(EXAMPLES / "replay")] + [str(f) for f in picked])
+    replayed = [json.loads(l) for l in out.splitlines() if l.strip()]
+    golden = [(str(f), r) for f in picked for r in json.loads(f.read_text())["requests"]]
+    diffs = []
+    for (f, g), h in zip(golden, replayed):
+        if "error" in h:
+            diffs.append(f"{f}: {h['error']}")
+            continue
+        gn = differ.normalize_request(g)
+        hq = differ.split_part(h["query"])
+        if gn["method"] != h["method"] or gn["path"] != h["path"] or gn["query"] != hq:
+            diffs.append(f"{f}: {gn['method']} {gn['path']} {gn['query']} != {h['method']} {h['path']} {hq}")
+        if g["ctype"] == "application/json" and json.loads(g["body"]) != h["body"]:
+            diffs.append(f"{f}: body {g['body'][:200]} != {json.dumps(h['body'])[:200]}")
+    ok = code == 0 and len(golden) == len(replayed) and not diffs
+    return ok, f"cases: {len(picked)}, requests: {len(golden)}, replayed: {len(replayed)}, request differences: {len(diffs)}\n" + "\n".join(diffs[:30]) + err[-1000:]
+
+
+@lane("r2", 2, "r2-l2-determinism.txt")
+def r2_l2():
+    code, out, err = sh(["cargo", "run", "-q", "-p", "xtask", "--", "gen-api"], cwd=ROOT)
+    d = sh(["git", "diff", "--exit-code", "--stat", "crates/yutu-api/src/generated.rs"], cwd=ROOT)
+    return code == 0 and d[0] == 0, fmt("xtask gen-api", code, out, err) + fmt("git diff --exit-code generated.rs", *d)
+
+
+@lane("r2", 3, "r2-l3-feature.txt")
+def r2_l3():
+    env = {**os.environ, "YUTU_PARITY_ENDPOINT": "http://127.0.0.1:9"}
+    build_examples()
+    plain = sh(f"strings {EXAMPLES / 'endpoint'} | grep -c YUTU_PARITY_ENDPOINT || true")[1].strip()
+    plain_run = sh([str(EXAMPLES / "endpoint")], env=env)[1].strip()
+    build_examples("parity-endpoint")
+    with_feature = sh(f"strings {EXAMPLES / 'endpoint'} | grep -c YUTU_PARITY_ENDPOINT || true")[1].strip()
+    feature_run = sh([str(EXAMPLES / "endpoint")], env=env)[1].strip()
+    build_examples()
+    ok = plain == "0" and plain_run == "https://youtube.googleapis.com/" and with_feature != "0" and feature_run == "http://127.0.0.1:9/"
+    return ok, (f"release build without parity-endpoint: {plain} occurrences; with YUTU_PARITY_ENDPOINT set it resolves {plain_run}\n"
+                f"release build with parity-endpoint (control): {with_feature} occurrences; it resolves {feature_run}\n")
+
+
+@lane("r2", 4, "r2-l4-real.txt")
+def r2_l4():
+    build_examples()
+    rec = Recorder()
+    local = sh([str(EXAMPLES / "fetch"), rec.url + "/"])
+    rec.close()
+    real = sh([str(EXAMPLES / "fetch"), "https://youtube.googleapis.com/"])
+    ok = local[1].startswith("ok") and "googleapi: Error 40" in real[1]
+    return ok, ("SUBSTITUTED: no test Google account or OAuth client exists on this machine, so the real call goes out without credentials.\n"
+                "It still proves TLS to youtube.googleapis.com and decoding of a real Google error; the decode of a full list response is shown against the recorder.\n"
+                + fmt("fetch <recorder>", *local) + fmt("fetch https://youtube.googleapis.com/", *real))
+
+
+@lane("r2", 5, "r2-l5-big.txt")
+def r2_l5():
+    d = Path(tempfile.mkdtemp())
+    (d / "fx").mkdir()
+    sh([sys.executable, "-I", str(ROOT / "parity/gen_fixtures.py"), "--big", str(d / "fx/GET_videos.json")])
+    sh([ENCODE, str(ROOT / "spec/youtube-v3.json"), str(d / "fx"), str(d / "go")])
+    build_examples()
+    log, ok = f"fixture: {os.path.getsize(d / 'fx/GET_videos.json')} bytes, 500 videos\n", True
+    for fmt_, suffix in (("items-json", ".items.json"), ("items-yaml", ".items.yaml"), ("json", ".json"), ("yaml", ".yaml")):
+        got = sh([str(EXAMPLES / "codec"), "VideoListResponse", str(d / "fx/GET_videos.json"), fmt_])[1]
+        want = (d / "go" / f"GET_videos.p0{suffix}").read_text()
+        same = got == want
+        ok &= same
+        log += f"{fmt_}: {len(got)} bytes, byte-identical to Go: {same}\n"
+    return ok, log
+
+
+@lane("r2", 6, "r2-l6-timeout.txt")
+def r2_l6():
+    import socket
+    import threading
+    srv = socket.socket()
+    srv.bind(("127.0.0.1", 0))
+    srv.listen()
+    port = srv.getsockname()[1]
+    conns = []
+    threading.Thread(target=lambda: conns.append(srv.accept()), daemon=True).start()
+    build_examples()
+    t = time.time()
+    code, out, err = sh([str(EXAMPLES / "fetch"), f"http://127.0.0.1:{port}/"])
+    elapsed = time.time() - t
+    srv.close()
+    ok = "error" in out and 55 <= elapsed <= 70
+    return ok, f"a server that accepts and never answers; client gave up after {elapsed:.1f} s\n" + fmt("fetch", code, out, err)
+
+
+@lane("r2", 7, "r2-l7-pin.txt")
+def r2_l7():
+    mod = ROOT / ".tools/gopath/pkg/mod/google.golang.org/api@v0.300.0/youtube/v3/youtube-api.json"
+    want = (ROOT / "spec/SHA256SUMS").read_text().split()[0]
+    got = sh(["shasum", "-a", "256", str(mod)])[1].split()[0]
+    spec = sh(["shasum", "-a", "256", str(ROOT / "spec/youtube-v3.json")])[1].split()[0]
+    return want == got == spec, f"spec/SHA256SUMS: {want}\nGo module cache file: {got}\nspec/youtube-v3.json: {spec}\n"
+
+
+def zero_lane(item, needle_go):
+    d = go_encode([item])
+    build_examples()
+    got = sh([str(EXAMPLES / "codec"), "VideoListResponse", str(d / "fx/GET_videos.json"), "items-json"])[1]
+    want = (d / "go" / "GET_videos.p0.items.json").read_text()
+    return got == want, f"input item: {json.dumps(item)}\nGo:   {want}\nRust: {got}\n"
+
+
+@lane("r2", 8, "r2-l8-zero.txt")
+def r2_l8():
+    ok, text = zero_lane({"id": "v", "statistics": {"viewCount": "0"}}, "viewCount")
+    return ok, ("The plan expected \"viewCount\":\"0\" on the guess that Go uses json/v2 zero semantics. The oracle shows Go drops it, because\n"
+                "the YouTube structs marshal through gensupport (encoding/json v1, omitempty). Pass rule applied: Rust equals Go byte for byte.\n" + text)
+
+
+@lane("r2", 9, "r2-l9-empty.txt")
+def r2_l9():
+    ok, text = zero_lane({"id": "v", "snippet": {"title": "t", "tags": []}}, "tags")
+    return ok, ("The plan expected \"tags\":[]; Go drops an empty tags list for the same gensupport reason. Pass rule applied: Rust equals Go.\n" + text)
+
+
+@lane("r2", 10, "r2-l10-gates.txt")
+def r2_l10():
+    a = sh(["cargo", "deny", "check"], cwd=ROOT)
+    b = sh(["cargo", "build", "-q", "--release", "-p", "yutu"], cwd=ROOT)
+    c = sh(["cargo", "run", "-q", "-p", "xtask", "--", "egress", HEAD], cwd=ROOT)
+    ok = a[0] == 0 and c[0] == 0 and "0 unexpected hosts" in c[1] + c[2]
+    return ok, fmt("cargo deny check", *a) + fmt("xtask egress", *c)
 
 
 def main():

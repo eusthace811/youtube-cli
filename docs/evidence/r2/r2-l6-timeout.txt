@@ -1,0 +1,10 @@
+r2 lane 6: PASS
+
+a server that accepts and never answers; client gave up after 60.1 s
+$ fetch
+exit: 0
+--- stdout ---
+error after 60.0s: Get "http://127.0.0.1:49229/youtube/v3/videos?alt=json&part=id&prettyPrint=false": operation timed out
+
+--- stderr ---
+

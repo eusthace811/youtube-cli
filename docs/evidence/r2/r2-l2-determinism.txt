@@ -1,0 +1,15 @@
+r2 lane 2: PASS
+
+$ xtask gen-api
+exit: 0
+--- stdout ---
+generated.rs written (83 methods, 209 schemas)
+
+--- stderr ---
+
+$ git diff --exit-code generated.rs
+exit: 0
+--- stdout ---
+
+--- stderr ---
+

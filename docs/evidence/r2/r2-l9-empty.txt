@@ -1,0 +1,6 @@
+r2 lane 9: PASS
+
+The plan expected "tags":[]; Go drops an empty tags list for the same gensupport reason. Pass rule applied: Rust equals Go.
+input item: {"id": "v", "snippet": {"title": "t", "tags": []}}
+Go:   [{"id":"v","snippet":{"title":"t"}}]
+Rust: [{"id":"v","snippet":{"title":"t"}}]

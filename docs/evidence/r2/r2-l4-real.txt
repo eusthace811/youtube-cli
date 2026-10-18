@@ -1,0 +1,18 @@
+r2 lane 4: PASS
+
+SUBSTITUTED: no test Google account or OAuth client exists on this machine, so the real call goes out without credentials.
+It still proves TLS to youtube.googleapis.com and decoding of a real Google error; the decode of a full list response is shown against the recorder.
+$ fetch <recorder>
+exit: 0
+--- stdout ---
+ok after 0.0s
+
+--- stderr ---
+
+$ fetch https://youtube.googleapis.com/
+exit: 0
+--- stdout ---
+error after 0.1s: googleapi: Error 403: Method doesn't allow unregistered callers (callers without established identity). Please use API Key or other form of API consumer identity to call this API., forbidden
+
+--- stderr ---
+

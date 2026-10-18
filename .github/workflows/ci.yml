@@ -27,6 +27,7 @@ jobs:
       - run: cargo test --workspace --locked
       - run: cargo build --release --locked
       - run: cargo run --locked -p xtask -- egress target/release/yutu
+      - run: cargo run --locked -p xtask -- gen-api --check
       - name: cargo deny
         run: |
           cargo install --locked cargo-deny@0.20.2

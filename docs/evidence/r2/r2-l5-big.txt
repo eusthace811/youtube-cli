@@ -1,0 +1,7 @@
+r2 lane 5: PASS
+
+fixture: 4188444 bytes, 500 videos
+items-json: 3866947 bytes, byte-identical to Go: True
+items-yaml: 5671264 bytes, byte-identical to Go: True
+json: 3867005 bytes, byte-identical to Go: True
+yaml: 6412984 bytes, byte-identical to Go: True

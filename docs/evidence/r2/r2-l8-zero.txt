@@ -1,0 +1,7 @@
+r2 lane 8: PASS
+
+The plan expected "viewCount":"0" on the guess that Go uses json/v2 zero semantics. The oracle shows Go drops it, because
+the YouTube structs marshal through gensupport (encoding/json v1, omitempty). Pass rule applied: Rust equals Go byte for byte.
+input item: {"id": "v", "statistics": {"viewCount": "0"}}
+Go:   [{"id":"v","statistics":{}}]
+Rust: [{"id":"v","statistics":{}}]

@@ -1,0 +1,8 @@
+r2 perf: PASS
+
+Metric: decode a 500-video VideoListResponse (4188444 bytes) and re-encode its items as JSON.
+Probe: Go `go test -bench` (20 iterations, ns/op) and Rust `cargo bench --bench decode` (median of 20), alternated 5 times.
+Go runs (ms):   29.55, 29.72, 29.54, 29.55, 29.89 -> median 29.55 ms
+Rust runs (ms): 13.78, 13.93, 13.92, 13.83, 13.92 -> median 13.92 ms
+Binary: target/release/yutu 0.64 MB (yutu-api not yet linked into the CLI at this PR).
+Rule: head median <= Go median and binary <= 15 MB.

@@ -144,6 +144,11 @@ impl Call<'_> {
         self
     }
 
+    /// The HTTP method and URL `download()` would send.
+    pub fn preview_download(&self) -> (&'static str, String) {
+        (self.method.http_method, self.url(self.method.path, "media", None))
+    }
+
     /// The HTTP method and URL this call would send, for tests and lanes.
     pub fn preview(&self) -> (&'static str, String) {
         match (&self.media, self.method.upload_path) {

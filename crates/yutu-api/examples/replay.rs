@@ -88,7 +88,8 @@ fn main() {
                 force_zero_fields(&mut v, b);
                 call = call.body(&v);
             }
-            let (verb, url) = call.preview();
+            let download = req["query"]["alt"][0] == "media";
+            let (verb, url) = if download { call.preview_download() } else { call.preview() };
             let (p, q) = url
                 .trim_start_matches("http://recorder")
                 .split_once('?')

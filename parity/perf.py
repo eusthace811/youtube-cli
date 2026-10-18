@@ -67,6 +67,33 @@ def r1():
     return ok, text
 
 
+@probe("r2")
+def r2():
+    import tempfile
+    d = Path(tempfile.mkdtemp())
+    big = d / "GET_videos.json"
+    subprocess.run([sys.executable, "-I", str(ROOT / "parity/gen_fixtures.py"), "--big", str(big)], check=True)
+    env = {**os.environ, "BIG_FIXTURE": str(big), "GOPATH": str(ROOT / ".tools/gopath"), "GOTOOLCHAIN": "local", "GOFLAGS": "-mod=mod"}
+    go_bin = str(ROOT / ".tools/go/bin/go")
+    subprocess.run(["cargo", "build", "-q", "--release", "-p", "yutu-api", "--bench", "decode"], cwd=ROOT, check=True, env=env)
+    go_ms, rust_ms = [], []
+    for _ in range(5):
+        out = subprocess.run([go_bin, "test", "-run", "x", "-bench", ".", "-benchtime", "20x"], cwd=ROOT / "ref/harness/bench", env=env, capture_output=True, text=True).stdout
+        go_ms.append(int(re.search(r"(\d+) ns/op", out).group(1)) / 1e6)
+        out = subprocess.run(["cargo", "bench", "-q", "-p", "yutu-api", "--bench", "decode"], cwd=ROOT, env=env, capture_output=True, text=True).stdout
+        rust_ms.append(float(re.search(r"median ([\d.]+) ms", out).group(1)))
+    gm, rm = statistics.median(go_ms), statistics.median(rust_ms)
+    size = os.path.getsize(HEAD) / 1e6
+    ok = rm <= gm and size <= 15
+    text = (f"Metric: decode a 500-video VideoListResponse ({big.stat().st_size} bytes) and re-encode its items as JSON.\n"
+            f"Probe: Go `go test -bench` (20 iterations, ns/op) and Rust `cargo bench --bench decode` (median of 20), alternated 5 times.\n"
+            f"Go runs (ms):   {', '.join(f'{x:.2f}' for x in go_ms)} -> median {gm:.2f} ms\n"
+            f"Rust runs (ms): {', '.join(f'{x:.2f}' for x in rust_ms)} -> median {rm:.2f} ms\n"
+            f"Binary: target/release/yutu {size:.2f} MB (yutu-api not yet linked into the CLI at this PR).\n"
+            f"Rule: head median <= Go median and binary <= 15 MB.\n")
+    return ok, text
+
+
 def main():
     pr = sys.argv[1]
     ok, text = PROBES[pr]()
