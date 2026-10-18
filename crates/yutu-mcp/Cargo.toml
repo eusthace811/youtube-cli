@@ -6,6 +6,7 @@ license.workspace = true
 publish = false
 
 [dependencies]
+yutu-auth.workspace = true
 yutu-core.workspace = true
 yutu-api.workspace = true
 serde.workspace = true
