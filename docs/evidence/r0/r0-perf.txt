@@ -1,0 +1,18 @@
+R0 perf: PASS
+
+Metric: wall time of the full corpus on ref/yutu-go-harness (trunk has no harness).
+Probe: /usr/bin/time -p python3 -I parity/run.py --bin ref/yutu-go-harness --all, three runs.
+Case count: 2678 at probe time (2702 after the edge cases were added).
+corpus: 2678 cases, golden written
+real 86.00
+user 34.62
+sys 14.95
+corpus: 2678 cases, golden written
+real 86.23
+user 34.83
+sys 14.78
+corpus: 2678 cases, golden written
+real 80.88
+user 31.64
+sys 13.41
+Median: 86.00 s. Rule: under 180 s. Verdict: PASS.
