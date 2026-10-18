@@ -6,3 +6,12 @@ license.workspace = true
 publish = false
 
 [dependencies]
+yutu-core.workspace = true
+yutu-api.workspace = true
+serde.workspace = true
+serde_json = { workspace = true, features = ["raw_value"] }
+tokio = { version = "1", features = ["rt", "sync", "io-std", "io-util"] }
+
+[dev-dependencies]
+yutu-api = { workspace = true, features = ["parity-endpoint"] }
+tokio = { version = "1", features = ["rt", "net"] }
