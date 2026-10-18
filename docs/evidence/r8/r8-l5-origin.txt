@@ -1,0 +1,9 @@
+r8 lane 5: PASS
+
+Pass rule: head returns 403 (E8). Go serves the request.
+--- Go: yutu-go-harness mcp --mode http --port 51593 ---
+request: {"method": "POST", "path": "/mcp", "headers": {"Content-Type": "application/json", "Accept": "application/json, text/event-stream", "Mcp-Protocol-Version": "2025-06-18", "Authorization": "Bearer good-token", "Origin": "https://evil.example"}} body={"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "lane", "version": "0"}}}
+response: {"status": 200, "body": {"jsonrpc": "2.0", "id": 1, "result": {"capabilities": {"logging": {}, "resources": {"listChanged": true}, "tools": {"listChanged": true}}, "instructions": "Automate YouTube operations", "protocolVersion": "2025-06-18", "serverInfo": {"name": "yutu", "version": "v0.11.0"}}}, "headers": {"content-type": "application/json", "cache-control": "no-cache, no-transform"}}
+--- head: yutu mcp --mode http --port 51593 ---
+request: {"method": "POST", "path": "/mcp", "headers": {"Content-Type": "application/json", "Accept": "application/json, text/event-stream", "Mcp-Protocol-Version": "2025-06-18", "Authorization": "Bearer good-token", "Origin": "https://evil.example"}} body={"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "lane", "version": "0"}}}
+response: {"status": 403, "body": "Forbidden: invalid Origin header \"https://evil.example\"\n", "headers": {"content-type": "text/plain; charset=utf-8", "x-content-type-options": "nosniff"}}

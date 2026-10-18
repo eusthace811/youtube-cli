@@ -1,0 +1,9 @@
+r8 lane 4: PASS
+
+Pass rule: the metadata JSON and its headers equal Go's.
+--- Go: yutu-go-harness mcp --mode http --port 51581 ---
+request: {"method": "GET", "path": "/.well-known/oauth-protected-resource", "headers": {}} body=null
+response: {"status": 200, "body": {"resource": "http://localhost:PORT/mcp", "authorization_servers": ["https://accounts.google.com"], "scopes_supported": ["https://www.googleapis.com/auth/youtube", "https://www.googleapis.com/auth/youtube.force-ssl", "https://www.googleapis.com/auth/youtube.channel-memberships.creator"]}, "headers": {"content-type": "application/json", "access-control-allow-origin": "*", "access-control-allow-methods": "GET, OPTIONS", "access-control-allow-headers": "Content-Type"}}
+--- head: yutu mcp --mode http --port 51581 ---
+request: {"method": "GET", "path": "/.well-known/oauth-protected-resource", "headers": {}} body=null
+response: {"status": 200, "body": {"resource": "http://localhost:PORT/mcp", "authorization_servers": ["https://accounts.google.com"], "scopes_supported": ["https://www.googleapis.com/auth/youtube", "https://www.googleapis.com/auth/youtube.force-ssl", "https://www.googleapis.com/auth/youtube.channel-memberships.creator"]}, "headers": {"content-type": "application/json", "access-control-allow-origin": "*", "access-control-allow-methods": "GET, OPTIONS", "access-control-allow-headers": "Content-Type"}}
