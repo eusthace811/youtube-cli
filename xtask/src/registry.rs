@@ -1,5 +1,5 @@
 //! The slice of spec/registry/*.toml the generators need: command paths,
-//! short help, and each tool's name and effect. youtube-core's build script
+//! short help, examples, flags, and each tool's name and effect. youtube-core's build script
 //! reads the same files, so the generators and the binary share one source.
 
 use serde::Deserialize;
@@ -22,10 +22,33 @@ pub struct Tool {
 }
 
 #[derive(Debug, Deserialize)]
+pub struct Flag {
+    pub name: String,
+    #[serde(default)]
+    pub short: String,
+    #[serde(rename = "type", default)]
+    pub kind: String,
+    #[serde(default)]
+    pub default: String,
+    #[serde(default)]
+    pub usage: String,
+    #[serde(default)]
+    pub required: bool,
+    #[serde(default)]
+    pub hidden: bool,
+}
+
+#[derive(Debug, Deserialize)]
 pub struct Command {
     pub path: String,
     #[serde(default)]
     pub short: String,
+    #[serde(default)]
+    pub example: String,
+    #[serde(default)]
+    pub runnable: bool,
+    #[serde(default, rename = "flag")]
+    pub flags: Vec<Flag>,
     pub tool: Option<Tool>,
 }
 

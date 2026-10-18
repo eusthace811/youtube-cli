@@ -42,7 +42,7 @@ export YOUTUBE_CLI_ROOT="$HOME"
 
 `youtube auth` takes its two paths from `--credential` and `--cacheToken` only, because their defaults count as set (as in Go). Every other command reads the environment variables above.
 
-`YOUTUBE_CLI_ROOT` is the directory files you name for uploads and caption downloads must stay inside. A token file written by Go yutu works unchanged, and so does one written by youtube-cli for Go.
+`YOUTUBE_CLI_ROOT` is the directory every file path must stay inside: the credential and token as well as uploads and caption downloads. A path outside it is read as inline Base64 or JSON instead, which fails with "illegal base64 data". A token file written by Go yutu works unchanged, and so does one written by youtube-cli for Go.
 
 ## Use it
 
@@ -78,6 +78,22 @@ The Claude Code and Codex providers need no API key. youtube runs the CLI only a
 The agent asks `Tool call needs approval: ... [y/N]` before every change. Only a `y` typed at a terminal after the question appears counts.
 
 For the dev web UI, run `youtube agent --args "web webui api"` and open the sign-in link printed at start.
+
+## Skills for Claude
+
+Two skills ship in `skills/`, generated from the same command registry as the program:
+
+- `skills/youtube-cli` drives the `youtube` command in the shell. It holds a reference of every command and flag, and rules for a live channel: Claude reads freely, shows you the exact command for any change, and adds `--yes` only after you agree.
+- `skills/youtube` drives the MCP tools, for use with `youtube mcp`.
+
+Install the one you use, not both:
+
+```shell
+cp -R skills/youtube-cli ~/.claude/skills/youtube-cli   # command line
+cp -R skills/youtube ~/.claude/skills/youtube           # MCP
+```
+
+Restart Claude Code after installing.
 
 ## Documentation
 

@@ -24,7 +24,8 @@ created="$("${BIN}" playlist insert --title "youtube-cli check $(date +%s)" \
 id="$(printf '%s' "${created}" | python3 -I -c 'import json,sys; print(json.load(sys.stdin)["id"])')"
 echo "created ${id}"
 # Whatever happens from here (a failed step, Ctrl-C), delete the playlist.
-trap '"${BIN}" playlist delete --ids "${id}" --yes >/dev/null 2>&1 || true' EXIT
+trap '"${BIN}" playlist delete --ids "${id}" --yes >/dev/null 2>&1 ||
+  echo "cleanup failed: delete playlist ${id} by hand" >&2' EXIT
 
 step "wait until YouTube serves the new playlist (lookups lag a few seconds after a create)"
 served=0

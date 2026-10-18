@@ -1,14 +1,39 @@
-//! `xtask skillgen`: the agent skill and instruction, generated from the
-//! registry so they name only real tools, each under its registry effect
-//! (divergence E13). Port of Go's internal/tools/skillgen.
+//! `xtask skillgen`: the agent skills and instruction, generated from the
+//! registry so they name only real tools and commands, each under its
+//! registry effect. `skills/youtube` drives the MCP tools (a port of Go's
+//! internal/tools/skillgen, divergence E13); `skills/youtube-cli` drives
+//! the `youtube` command line, with a full command and flag reference.
 
 use crate::emit::{Generated, emit};
-use crate::registry::{Effect, Registry};
+use crate::registry::{Command, Effect, Flag, Registry};
 use std::fmt::Write;
 
 const SETUP: &str = include_str!("../skill-refs/setup.md");
 const WORKFLOWS: &str = include_str!("../skill-refs/workflows.md");
 const SEO_GUIDE: &str = include_str!("../skill-refs/seo-guide.md");
+const SETUP_CLI: &str = include_str!("../skill-refs/setup-cli.md");
+
+const CLI_DESCRIPTION: &str = "Use whenever the user mentions YouTube, their channel, videos, uploads, playlists, comments, captions, subscriptions, live streams, thumbnails or video SEO. Operates YouTube through the `youtube` command-line tool (youtube-cli) in the shell, with the user's approval before any change.";
+
+const CLI_COMPATIBILITY: &str = "Requires the `youtube` command from youtube-cli on PATH, signed in to the user's channel (Google Cloud OAuth client for YouTube Data API v3).";
+
+const CLI_USAGE: &str = "- **Shape**: `youtube <resource> <verb> [flags]`, for example `youtube playlist list --mine`. `youtube <resource> <verb> --help` prints the exact flags; [references/commands.md](references/commands.md) lists every command and flag.
+- **Output**: most commands take `-o json|yaml|table` (some add `silent`). Use `-o json` to read IDs and fields programmatically (pipe to `jq` or `python3 -c`); use `-o table` to show results to the user.
+- **Lists**: `--maxResults` (`-n`) defaults to 5; `--maxResults 0` fetches everything (mind the quota).
+- **Lists of values**: flags of type `strings` take comma-separated values, for example `--ids a,b,c`.
+- **Not a terminal**: the shell you run in is not a terminal, so any command that changes the channel stops with `operation not confirmed` unless it carries `--yes`. That is expected; see the rules below for when `--yes` may be added.
+- **Quota**: the YouTube API allows about 10,000 units a day by default. Most reads cost 1 unit, `search list` 100, and uploads far more (Google's quota calculator has current costs). Avoid large loops.";
+
+const CLI_RULES: &str = "The channel is live and belongs to the user. Follow these rules exactly:
+
+1. **Read freely.** Commands under Read never change anything. Use them to find IDs and check current state before proposing a change.
+2. **Ask before every change.** Before any command under Write, Local file or Destructive, show the user the exact command line and say what it will change. Run it, with `--yes` added, only after the user explicitly agrees to that command in the conversation. Never add `--yes` on your own initiative, and never treat silence or an earlier approval of something else as consent.
+3. **Deletions.** List exactly what will be deleted (IDs and titles) and get an explicit yes for that list. Never delete in a loop the user has not approved item by item or as an exact list.
+4. **Change only what was asked.** Pass only the flags for the fields the user wants changed. Put all changes to one item in a single update command: YouTube serves a stale copy for a few seconds after a write, so two quick updates to the same item can undo each other.
+5. **Just created?** If an update or lookup right after a create reports `failed to get ...`, wait a few seconds and retry once.
+6. **Uploads.** Videos uploaded from a Google project that has not been audited stay private whatever `--privacy` says. Uploads cost a lot of quota.
+7. **Secrets.** Never print, read or copy the client secret or token files (`YOUTUBE_CLI_CREDENTIAL`, `YOUTUBE_CLI_CACHE_TOKEN`). Signing in (`youtube auth`) needs the user at the browser; ask them to run it.
+8. **Report IDs.** Include resource IDs and titles in every answer so the user can check them in YouTube Studio.";
 
 const DESCRIPTION: &str = "Use whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, and more.";
 
@@ -78,6 +103,20 @@ fn generate(registry: &Registry) -> Vec<Generated> {
         file("skills/youtube/references/setup.md", SETUP.into()),
         file("skills/youtube/references/workflows.md", WORKFLOWS.into()),
         file("skills/youtube/references/seo-guide.md", SEO_GUIDE.into()),
+        file("skills/youtube-cli/SKILL.md", cli_skill(registry)),
+        file(
+            "skills/youtube-cli/references/commands.md",
+            cli_commands(registry),
+        ),
+        file("skills/youtube-cli/references/setup.md", SETUP_CLI.into()),
+        file(
+            "skills/youtube-cli/references/workflows.md",
+            WORKFLOWS.into(),
+        ),
+        file(
+            "skills/youtube-cli/references/seo-guide.md",
+            SEO_GUIDE.into(),
+        ),
         // Go writes the agent's copies under cmd/agent. They move to
         // crates/youtube-agent/assets once that crate embeds them.
         file(
@@ -147,5 +186,148 @@ fn skill(registry: &Registry, target: Target) -> String {
     b.push_str("\n## Common Workflows\n\nSee [references/workflows.md](references/workflows.md) for step-by-step walkthroughs.\n\n");
     b.push_str("## YouTube Growth Tips\n\nSee [references/seo-guide.md](references/seo-guide.md) for the full guide. When creating or updating content, apply these principles:\n\n");
     writeln!(b, "{GROWTH_TIPS}").unwrap();
+    b
+}
+
+/// Every leaf command with an MCP tool, and its effect, sorted by path.
+fn tool_commands(registry: &Registry) -> Vec<(&Command, Effect)> {
+    registry
+        .resources()
+        .into_iter()
+        .flat_map(|r| registry.children(&r.path))
+        .filter_map(|c| c.tool.as_ref().map(|t| (c, t.effect)))
+        .collect()
+}
+
+/// Top-level commands that run the program itself rather than a resource.
+fn program_commands(registry: &Registry) -> Vec<&Command> {
+    let resources: Vec<&str> = registry
+        .resources()
+        .iter()
+        .map(|r| r.path.as_str())
+        .collect();
+    registry
+        .children("")
+        .into_iter()
+        .filter(|c| !resources.contains(&c.path.as_str()) && c.runnable)
+        .collect()
+}
+
+fn cli_skill(registry: &Registry) -> String {
+    let commands = tool_commands(registry);
+    let mut resources: Vec<&str> = commands
+        .iter()
+        .map(|(c, _)| c.path.split(' ').next().unwrap())
+        .collect();
+    resources.dedup();
+    let mut b = String::new();
+    write!(
+        b,
+        "---\nname: youtube-cli\ndescription: \"{CLI_DESCRIPTION}\"\nlicense: Apache-2.0\ncompatibility: {CLI_COMPATIBILITY}\nmetadata:\n  author: youtube-cli\n---\n\n"
+    )
+    .unwrap();
+    b.push_str("# YouTube (command line)\n\n");
+    writeln!(
+        b,
+        "Operate YouTube with the `youtube` command through the shell. Resources: {}.\n",
+        resources.join(", ")
+    )
+    .unwrap();
+    b.push_str("## Setup\n\nRun `youtube version` and `youtube channel list --for mine` first. If either fails, see [references/setup.md](references/setup.md) and help the user fix it before anything else.\n\n");
+    writeln!(b, "## How to run it\n\n{CLI_USAGE}\n").unwrap();
+    writeln!(b, "## Rules\n\n{CLI_RULES}\n").unwrap();
+    b.push_str("## Commands\n\nFlags and examples for each are in [references/commands.md](references/commands.md).\n");
+    for (effect, heading) in SECTIONS {
+        writeln!(b, "\n### {heading}\n").unwrap();
+        for (c, _) in commands.iter().filter(|(_, e)| *e == effect) {
+            writeln!(b, "- `youtube {}`: {}", c.path, c.short).unwrap();
+        }
+    }
+    b.push_str("\n### Program\n\n");
+    for c in program_commands(registry) {
+        writeln!(b, "- `youtube {}`: {}", c.path, c.short).unwrap();
+    }
+    b.push_str("\n## Common Workflows\n\nSee [references/workflows.md](references/workflows.md) for step-by-step command sequences. Apply the rules above to every write in them: show the command and get a yes before running it with `--yes`.\n\n");
+    b.push_str("## YouTube Growth Tips\n\nSee [references/seo-guide.md](references/seo-guide.md) for the full guide. When creating or updating content, apply these principles:\n\n");
+    writeln!(b, "{GROWTH_TIPS}").unwrap();
+    b
+}
+
+fn flag_type(f: &Flag) -> &str {
+    match f.kind.as_str() {
+        "stringSlice" => "strings",
+        "int64" | "int32" | "int" => "int",
+        "float64" => "float",
+        "bool" => "bool",
+        "string" => "string",
+        other => other,
+    }
+}
+
+fn flag_row(f: &Flag) -> String {
+    let name = if f.short.is_empty() {
+        format!("`--{}`", f.name)
+    } else {
+        format!("`-{}, --{}`", f.short, f.name)
+    };
+    let default = match f.default.as_str() {
+        "" | "[]" | "false" => String::new(),
+        d => format!("`{d}`"),
+    };
+    let usage = f.usage.replace('|', "\\|");
+    let required = if f.required { " **Required.**" } else { "" };
+    format!(
+        "| {name} | {} | {default} | {usage}{required} |",
+        flag_type(f)
+    )
+}
+
+fn command_section(b: &mut String, c: &Command, effect: Option<Effect>) {
+    writeln!(b, "\n### `youtube {}`\n", c.path).unwrap();
+    let label = match effect {
+        Some(Effect::Read) => " Read only.",
+        Some(Effect::Write) => " Changes the channel: needs the user's yes, then `--yes`.",
+        Some(Effect::WritesLocalFile) => " Writes a local file: confirm the path, then `--yes`.",
+        Some(Effect::Destructive) => {
+            " Irreversible: list what goes, get the user's yes, then `--yes`."
+        }
+        None => "",
+    };
+    writeln!(b, "{}.{label}\n", c.short.trim_end_matches('.')).unwrap();
+    let flags: Vec<&Flag> = c.flags.iter().filter(|f| !f.hidden).collect();
+    if !flags.is_empty() {
+        b.push_str(
+            "| Flag | Type | Default | Description |\n|------|------|---------|-------------|\n",
+        );
+        for f in flags {
+            writeln!(b, "{}", flag_row(f)).unwrap();
+        }
+    }
+    let example = c.example.trim();
+    if !example.is_empty() {
+        writeln!(b, "\n```bash\n{example}\n```").unwrap();
+    }
+}
+
+fn cli_commands(registry: &Registry) -> String {
+    let mut b = String::from(
+        "# youtube command reference\n\nEvery command and flag of the `youtube` command (youtube-cli), generated from the same registry the program is built from. `youtube <command> --help` prints the same flags.\n\nCommands that change the channel ask for confirmation, and in a non-terminal shell they need `--yes`; add it only after the user agrees to that exact command.\n",
+    );
+    for r in registry.resources() {
+        writeln!(
+            b,
+            "\n## `youtube {}`\n\n{}.",
+            r.path,
+            r.short.trim_end_matches('.')
+        )
+        .unwrap();
+        for c in registry.children(&r.path) {
+            command_section(&mut b, c, c.tool.as_ref().map(|t| t.effect));
+        }
+    }
+    b.push_str("\n## Program commands\n");
+    for c in program_commands(registry) {
+        command_section(&mut b, c, None);
+    }
     b
 }

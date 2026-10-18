@@ -201,3 +201,45 @@ fn each_tool_is_listed_under_its_registry_effect() {
         )));
     }
 }
+
+#[test]
+fn the_cli_skill_references_every_command_and_flag() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..");
+    let reference =
+        fs::read_to_string(root.join("skills/youtube-cli/references/commands.md")).unwrap();
+    let skill = fs::read_to_string(root.join("skills/youtube-cli/SKILL.md")).unwrap();
+    assert!(skill.starts_with("---\nname: youtube-cli\n"));
+    let mut checked = 0;
+    for entry in fs::read_dir(root.join("spec/registry")).unwrap() {
+        let text = fs::read_to_string(entry.unwrap().path()).unwrap();
+        let file: toml::Value = toml::from_str(&text).unwrap();
+        for c in file["command"].as_array().unwrap() {
+            let path = c["path"].as_str().unwrap();
+            let tool = c.get("tool").is_some();
+            if tool {
+                assert!(
+                    reference.contains(&format!("### `youtube {path}`")),
+                    "{path} in commands.md"
+                );
+                assert!(
+                    skill.contains(&format!("- `youtube {path}`: ")),
+                    "{path} in SKILL.md"
+                );
+                for f in c
+                    .get("flag")
+                    .and_then(|f| f.as_array())
+                    .into_iter()
+                    .flatten()
+                {
+                    let name = f["name"].as_str().unwrap();
+                    assert!(
+                        reference.contains(&format!("--{name}`")),
+                        "--{name} of {path}"
+                    );
+                }
+                checked += 1;
+            }
+        }
+    }
+    assert_eq!(checked, 74, "every MCP-backed command");
+}
