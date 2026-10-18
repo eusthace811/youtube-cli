@@ -1,4 +1,4 @@
 r0 lane 6: PASS
 
 edited one fixture byte (id-0 -> id-X)
-stdout: at byte 83: '        CHANNEL ID           VIEWS \n id-0    Plain title snippet.title                 snippet.chann' != '        CHANNEL ID           VIEWS \n id-X    Plain title snippet.title                 snippet.chann'
+stdout: at byte 69: '        CHANNEL ID           VIEWS \n id-0    @at sign                    snippet.channelId-0    620 ' != '        CHANNEL ID           VIEWS \n id-X    @at sign                    snippet.channelId-0    620 '

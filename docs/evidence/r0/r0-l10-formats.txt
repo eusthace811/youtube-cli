@@ -31,8 +31,8 @@ r0 lane 10: PASS
 --- yaml tail repr ---
 'e: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n\n'
 --- table ---
- ID      TITLE                                     CHANNEL ID           VIEWS 
- id-0    Plain title snippet.title                 snippet.channelId-0    620 
- id-1    Ünïcödé ✓ 日本語のタイトル snippet.title  snippet.channelId-1   8539 
- id-2    <b>tags</b> & "quotes" snippet.title      snippet.channelId-2  16458 
- zero-0                                                                     0 |<EOF
+ ID      TITLE                       CHANNEL ID           VIEWS 
+ id-0    @at sign                    snippet.channelId-0    620 
+ id-1    Ünïcödé ✓ 日本語のタイトル  snippet.channelId-1   8539 
+ id-2    - dash start                snippet.channelId-2  16458 
+ zero-0                                                       0 |<EOF

@@ -130,7 +130,8 @@ def r0_l7():
 @lane("r0", 8, "r0-l8-rebuild.txt")
 def r0_l8():
     d = Path(tempfile.mkdtemp())
-    sh(["git", "clone", "--quiet", str(ROOT), str(d / "clone")])
+    branch = sh(["git", "-C", str(ROOT), "rev-parse", "--abbrev-ref", "HEAD"])[1].strip()
+    sh(["git", "clone", "--quiet", "--branch", branch, str(ROOT), str(d / "clone")])
     ref = d / "clone" / "ref"
     code, out, err = sh(["bash", str(ref / "build.sh")], env={**os.environ, "GO": str(ROOT / ".tools/go/bin/go"), "GOPATH": str(ROOT / ".tools/gopath")})
     want = {l.split()[1]: l.split()[0] for l in (ROOT / "ref/SHA256SUMS").read_text().splitlines()}

@@ -2,7 +2,7 @@ r0 lane 3: PASS
 
 exit: 0
 --- requests (1) ---
-{"method": "POST", "path": "/upload/youtube/v3/videos", "query": {"alt": ["json"], "part": ["snippet,status"], "prettyPrint": ["false"], "uploadType": ["multipart"]}, "ctype": "multipart/related; boundary=3441bfb55f0adc645db48b7e4e4dcc5dc1c506bf8556f98d827b7fe2853b", "body": "--3441bfb55f0adc645db48b7e4e4dcc5dc1c506bf8556f98d827b7fe2853b\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"categoryId\":\"val-categoryId\",\"title\":\"video\"},\"status\":{\"containsSyntheticMedia\":false,\"privacyStatus\":\"val-privacy\",\"selfDeclaredMadeForKids\":false}}\n\r\n--3441bfb55f0adc645db48b7e4e4d
+{"method": "POST", "path": "/upload/youtube/v3/videos", "query": {"alt": ["json"], "part": ["snippet,status"], "prettyPrint": ["false"], "uploadType": ["multipart"]}, "ctype": "multipart/related; boundary=5c040e08d288601655d1b6741b0310664101eeaa56c75dd7d587b27ec318", "body": "--5c040e08d288601655d1b6741b0310664101eeaa56c75dd7d587b27ec318\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"categoryId\":\"val-categoryId\",\"title\":\"video\"},\"status\":{\"containsSyntheticMedia\":false,\"privacyStatus\":\"val-privacy\",\"selfDeclaredMadeForKids\":false}}\n\r\n--5c040e08d288601655d1b6741b03
 --- stdout ---
 Video inserted: id-1
 
