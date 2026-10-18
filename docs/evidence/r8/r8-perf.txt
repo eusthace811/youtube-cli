@@ -1,0 +1,27 @@
+r8 perf: PASS
+
+Metric: requests/second and p50 latency for `tools/call video-list` (ids=[v1]) over stateless HTTP,
+50 keep-alive HTTP/1.1 clients (crates/yutu-mcp/examples/loadgen, 3 s per run), Go harness and head
+alternated, three rounds. `ab` was dropped: it speaks HTTP/1.0, and Go closes the connection after
+every chunked reply, so `ab` would time Go's TCP handshakes.
+Rounds are 3 s, not the plan's 30 s: Go's http.DefaultClient keeps 2 idle connections per host, so it
+opens and closes upstream connections on most calls and exhausts macOS's 16,384 ephemeral ports
+(TIME_WAIT lasts 30 s) within about 4 s, after which its calls fail with EADDRNOTAVAIL. Each run
+starts after a 35 s cooldown. A reply counts as failed unless it is HTTP 200 without
+"isError":true, and the first reply of each server is checked to be a successful video list.
+Upstream: crates/yutu-mcp/examples/perfmock answers tokeninfo and videos.list (114489 byte fixture,
+first page) from memory; parity/recorder.py tops out near 2,100 req/s and would cap both servers.
+Go calls tokeninfo on every request; head verifies the token once and caches it (E4).
+Machine: 12 logical CPUs, default YUTU_LOG_LEVEL (one INFO line per call on both).
+Round 1: Go 4552 req/s p50 10.32 ms (13689 done, 0 failed); head 36436 req/s p50 1.34 ms (109352 done, 0 failed)
+Round 2: Go 4527 req/s p50 10.41 ms (13619 done, 0 failed); head 38418 req/s p50 1.28 ms (115302 done, 0 failed)
+Round 3: Go 4622 req/s p50 10.18 ms (13894 done, 0 failed); head 38229 req/s p50 1.29 ms (114733 done, 0 failed)
+Median: Go 4552 req/s p50 10.32 ms; head 38229 req/s p50 1.29 ms (8.40x throughput).
+Rule: head throughput >= 2x Go and head p50 <= Go p50, with no failed requests.
+
+Measured separately, same setup, counting TIME_WAIT sockets with `netstat -an -p tcp` around one 3 s run each:
+  head: 107 -> 211 TIME_WAIT (+104) for 109,352 calls; reqwest keeps its upstream connections pooled.
+  Go:   211 -> 11,973 TIME_WAIT (+11,762) for 13,599 calls, close to one closed connection per call.
+Explain the number (inferred): head makes one upstream call per request (videos.list) because the verified
+token is cached; Go makes two (tokeninfo, videos.list) and opens a fresh TCP connection for most of them.
+The loadgen client and perfmock run on the same machine, so head's figure is a floor, not a ceiling.

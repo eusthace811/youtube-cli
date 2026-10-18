@@ -1,0 +1,12 @@
+r8 lane 8: PASS
+
+Server: yutu mcp --mode http (default host and port)
+Pass rule: every listener on 8216 is loopback.
+$ lsof -nP -iTCP:8216 -sTCP:LISTEN
+exit: 0
+--- stdout ---
+COMMAND     PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+yutu-head 44827 juan    8u  IPv4 0x7e04a2c8f2218e92      0t0  TCP 127.0.0.1:8216 (LISTEN)
+
+--- stderr ---
+

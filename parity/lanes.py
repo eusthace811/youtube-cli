@@ -21,7 +21,7 @@ from recorder import Recorder  # noqa: E402
 
 GO = str(ROOT / "ref" / "yutu-go")
 HARNESS = str(ROOT / "ref" / "yutu-go-harness")
-HEAD = str(ROOT / "target" / "release" / "yutu")
+HEAD = os.environ.get("YUTU_HEAD", str(ROOT / "target" / "release" / "yutu"))
 LANES = {}
 
 
@@ -404,6 +404,205 @@ def r2_l10():
     c = sh(["cargo", "run", "-q", "-p", "xtask", "--", "egress", HEAD], cwd=ROOT)
     ok = a[0] == 0 and c[0] == 0 and "0 unexpected hosts" in c[1] + c[2]
     return ok, fmt("cargo deny check", *a) + fmt("xtask egress", *c)
+
+
+# R8 ---------------------------------------------------------------------
+
+R8_INIT = {"jsonrpc": "2.0", "id": 1, "method": "initialize",
+           "params": {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "lane", "version": "0"}}}
+
+
+def r8_post(body, token="good-token", headers=None, pad=None):
+    h = {"Content-Type": "application/json", "Accept": "application/json, text/event-stream",
+         "Mcp-Protocol-Version": "2025-06-18"}
+    if token:
+        h["Authorization"] = f"Bearer {token}"
+    ex = {"method": "POST", "path": "/mcp", "headers": {**h, **(headers or {})}, "body": body}
+    if pad:
+        ex["pad"] = pad
+    return ex
+
+
+class Http:
+    """`<binary> mcp --mode http` with the mock tokeninfo and the recorder.
+    `port=None` keeps the default port."""
+
+    def __init__(self, binary, port=None, env=None):
+        self.port = port or 8216
+        self.ti = runner.tokeninfo()
+        self.ti.reset()
+        self.rec = Recorder()
+        self.dir = Path(tempfile.mkdtemp())
+        self.env = {"PATH": "/usr/bin:/bin", "HOME": str(self.dir), "YUTU_PARITY_ENDPOINT": self.rec.url,
+                    "YUTU_PARITY_TOKENINFO": self.ti.url, **(env or {})}
+        argv = [binary, "mcp", "--mode", "http"] + (["--port", str(port)] if port else [])
+        self.cmd = " ".join(["yutu-go-harness" if binary == HARNESS else "yutu"] + argv[1:])
+        self.err = tempfile.TemporaryFile()
+        self.p = subprocess.Popen(argv, env=self.env, cwd=self.dir, stdout=subprocess.DEVNULL, stderr=self.err)
+        if not runner.wait_listening(self.port, self.p):
+            raise RuntimeError(f"{self.cmd} did not listen")
+
+    def __enter__(self):
+        return self
+
+    def send(self, ex):
+        return runner.http_exchange(self.port, ex, 30)
+
+    def stderr(self):
+        self.err.seek(0)
+        return self.err.read().decode("utf-8", "replace")
+
+    def __exit__(self, *exc):
+        self.p.terminate()
+        self.p.wait()
+        self.rec.close()
+        shutil.rmtree(self.dir, ignore_errors=True)
+
+
+def exchange_text(label, ex, got):
+    sent = {k: v for k, v in ex.items() if k != "body"}
+    body = f"<{ex['pad']} byte ping>" if "pad" in ex else json.dumps(ex.get("body"))[:300]
+    return f"--- {label} ---\nrequest: {json.dumps(sent)} body={body}\nresponse: {json.dumps(got, ensure_ascii=False)[:1500]}\n"
+
+
+def both_http(ex, env=None):
+    port = runner.free_port()
+    out = {}
+    for name, binary in (("Go", HARNESS), ("head", HEAD)):
+        with Http(binary, port, env) as s:
+            out[name] = (s.cmd, s.send(ex))
+    text = "".join(exchange_text(f"{name}: {cmd}", ex, got) for name, (cmd, got) in out.items())
+    return out["Go"][1], out["head"][1], text.replace(f":{port}", ":PORT")
+
+
+@lane("r8", 1, "r8-l1-http-corpus.txt")
+def r8_l1():
+    cmd = [sys.executable, "-I", str(ROOT / "parity/run.py"), "--bin", HEAD, "--only", "mcp-http", "--compare"]
+    a = sh(cmd, cwd=ROOT)
+    b = sh(cmd + ["--allow", "none"], cwd=ROOT)
+    ok = a[0] == 0 and a[1].strip().endswith("0 differences")
+    return ok, ("Go golden: parity/golden/cases/mcp-http.*.json, recorded from ref/yutu-go-harness with parity/tokeninfo.py.\n"
+                "First run accepts the registered divergences (E1, E4, E8); the second accepts none, to show what they cover.\n"
+                + fmt(" ".join(cmd[2:]), *a) + fmt(" ".join(cmd[2:] + ["--allow", "none"]), b[0], b[1][-6000:], b[2]))
+
+
+@lane("r8", 3, "r8-l3-401.txt")
+def r8_l3():
+    g, h, text = both_http(r8_post(R8_INIT, token=None))
+    ok = g["status"] == h["status"] == 401 and g["headers"]["www-authenticate"] == h["headers"]["www-authenticate"] \
+        and g["body"] == h["body"]
+    return ok, "Pass rule: head's WWW-Authenticate, status and body equal Go's.\n" + text
+
+
+@lane("r8", 4, "r8-l4-metadata.txt")
+def r8_l4():
+    ex = {"method": "GET", "path": "/.well-known/oauth-protected-resource", "headers": {}, "body": None}
+    g, h, text = both_http(ex)
+    ok = g["status"] == h["status"] == 200 and g["body"] == h["body"] and g["headers"] == h["headers"]
+    return ok, "Pass rule: the metadata JSON and its headers equal Go's.\n" + text
+
+
+@lane("r8", 5, "r8-l5-origin.txt")
+def r8_l5():
+    g, h, text = both_http(r8_post(R8_INIT, headers={"Origin": "https://evil.example"}))
+    ok = h["status"] == 403
+    return ok, "Pass rule: head returns 403 (E8). Go serves the request.\n" + text
+
+
+@lane("r8", 6, "r8-l6-cap.txt")
+def r8_l6():
+    g, h, text = both_http(r8_post(None, pad=3 << 20))
+    ok = g["status"] == h["status"] == 413
+    return ok, "Pass rule: both reject a 3 MiB body.\n" + text
+
+
+def slowloris(port, seconds):
+    """Sends a request head one byte per second; returns when the server
+    closed the connection, or None if it was still open after `seconds`."""
+    import socket
+    s = socket.create_connection(("127.0.0.1", port))
+    s.settimeout(1)
+    start = time.time()
+    payload = f"POST /mcp HTTP/1.1\r\nHost: localhost:{port}\r\nContent-Type: application/json\r\n".encode()
+    i = 0
+    try:
+        while time.time() - start < seconds:
+            try:
+                s.send(payload[i % len(payload):i % len(payload) + 1])
+                i += 1
+                if s.recv(4096) == b"":
+                    return time.time() - start
+            except socket.timeout:
+                continue
+            except OSError:
+                return time.time() - start
+        return None
+    finally:
+        s.close()
+
+
+@lane("r8", 7, "r8-l7-slowloris.txt")
+def r8_l7():
+    import threading
+    out = {}
+    servers = [Http(HARNESS, runner.free_port()), Http(HEAD, runner.free_port())]
+    try:
+        threads = [threading.Thread(target=lambda n=n, s=s: out.__setitem__(n, slowloris(s.port, 20)))
+                   for n, s in zip(("Go", "head"), servers)]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+    finally:
+        for s in servers:
+            s.__exit__()
+    fmt_t = lambda t: "still open after 20 s" if t is None else f"closed after {t:.1f} s"  # noqa: E731
+    ok = out["head"] is not None and out["head"] <= 12
+    return ok, ("Each connection sends `POST /mcp HTTP/1.1` headers one byte per second, never finishing them.\n"
+                "Pass rule: head closes it within its 10 s header timeout (E8), allowing 2 s of slack.\n"
+                f"Go:   {fmt_t(out['Go'])}\nhead: {fmt_t(out['head'])}\n")
+
+
+@lane("r8", 8, "r8-l8-bind.txt")
+def r8_l8():
+    with Http(HEAD) as s:
+        code, out, err = sh(["lsof", "-nP", "-iTCP:8216", "-sTCP:LISTEN"])
+        cmd = s.cmd
+    lines = [l for l in out.splitlines()[1:] if l.strip()]
+    ok = code == 0 and lines and all(("127.0.0.1:8216" in l or "[::1]:8216" in l) for l in lines)
+    return ok, (f"Server: {cmd} (default host and port)\nPass rule: every listener on 8216 is loopback.\n"
+                + fmt("lsof -nP -iTCP:8216 -sTCP:LISTEN", code, out, err))
+
+
+@lane("r8", 9, "r8-l9-aud.txt")
+def r8_l9():
+    ping = r8_post({"jsonrpc": "2.0", "id": 2, "method": "ping", "params": {}})
+    other = {"YUTU_MCP_ALLOWED_CLIENT_IDS": "client-b.apps.googleusercontent.com"}
+    listed = {"YUTU_MCP_ALLOWED_CLIENT_IDS": "client-b.apps.googleusercontent.com, client-a.apps.googleusercontent.com"}
+    g, h, text = both_http(ping, other)
+    with Http(HEAD, runner.free_port(), listed) as s:
+        allowed = s.send(ping)
+    ok = h["status"] == 401 and h["body"] == "invalid token: audience not allowed\n" and allowed["status"] == 200
+    return ok, ("The test token's aud and azp are client-a.apps.googleusercontent.com (parity/tokeninfo.py).\n"
+                f"Pass rule: with YUTU_MCP_ALLOWED_CLIENT_IDS={other['YUTU_MCP_ALLOWED_CLIENT_IDS']} head returns 401 (E4).\n"
+                "Go ignores the variable.\n" + text
+                + exchange_text(f"head with YUTU_MCP_ALLOWED_CLIENT_IDS={listed['YUTU_MCP_ALLOWED_CLIENT_IDS']}", ping, allowed))
+
+
+@lane("r8", 10, "r8-l10-post.txt")
+def r8_l10():
+    ping = r8_post({"jsonrpc": "2.0", "id": 2, "method": "ping", "params": {}})
+    seen = {}
+    for name, binary in (("Go", HARNESS), ("head", HEAD)):
+        with Http(binary, runner.free_port()) as s:
+            s.send(ping)
+            seen[name] = s.ti.taken()
+    h = seen["head"]
+    ok = len(h) == 1 and h[0]["method"] == "POST" and h[0]["query"] == "" and "good-token" not in h[0]["path"] \
+        and h[0]["body"] == "access_token=good-token" and h[0]["ctype"] == "application/x-www-form-urlencoded"
+    return ok, ("Requests the mock tokeninfo received for one authenticated ping.\n"
+                "Pass rule: head sends the token in a form body and never in the URL (E4).\n"
+                + "".join(f"--- {n} ---\n" + "\n".join(json.dumps(r) for r in reqs) + "\n" for n, reqs in seen.items()))
 
 
 def main():

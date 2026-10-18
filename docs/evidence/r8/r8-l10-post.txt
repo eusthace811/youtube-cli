@@ -1,0 +1,8 @@
+r8 lane 10: PASS
+
+Requests the mock tokeninfo received for one authenticated ping.
+Pass rule: head sends the token in a form body and never in the URL (E4).
+--- Go ---
+{"method": "GET", "path": "/tokeninfo", "query": "access_token=good-token", "ctype": "", "body": ""}
+--- head ---
+{"method": "POST", "path": "/tokeninfo", "query": "", "ctype": "application/x-www-form-urlencoded", "body": "access_token=good-token"}

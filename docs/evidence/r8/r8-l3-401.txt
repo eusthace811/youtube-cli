@@ -1,0 +1,9 @@
+r8 lane 3: PASS
+
+Pass rule: head's WWW-Authenticate, status and body equal Go's.
+--- Go: yutu-go-harness mcp --mode http --port 51568 ---
+request: {"method": "POST", "path": "/mcp", "headers": {"Content-Type": "application/json", "Accept": "application/json, text/event-stream", "Mcp-Protocol-Version": "2025-06-18"}} body={"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "lane", "version": "0"}}}
+response: {"status": 401, "body": "no bearer token\n", "headers": {"content-type": "text/plain; charset=utf-8", "www-authenticate": "Bearer resource_metadata=\"http://localhost:PORT/.well-known/oauth-protected-resource\", scope=\"https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.channel-memberships.creator\"", "x-content-type-options": "nosniff"}}
+--- head: yutu mcp --mode http --port 51568 ---
+request: {"method": "POST", "path": "/mcp", "headers": {"Content-Type": "application/json", "Accept": "application/json, text/event-stream", "Mcp-Protocol-Version": "2025-06-18"}} body={"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "lane", "version": "0"}}}
+response: {"status": 401, "body": "no bearer token\n", "headers": {"content-type": "text/plain; charset=utf-8", "www-authenticate": "Bearer resource_metadata=\"http://localhost:PORT/.well-known/oauth-protected-resource\", scope=\"https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.channel-memberships.creator\"", "x-content-type-options": "nosniff"}}

@@ -1,0 +1,9 @@
+r8 lane 6: PASS
+
+Pass rule: both reject a 3 MiB body.
+--- Go: yutu-go-harness mcp --mode http --port 51606 ---
+request: {"method": "POST", "path": "/mcp", "headers": {"Content-Type": "application/json", "Accept": "application/json, text/event-stream", "Mcp-Protocol-Version": "2025-06-18", "Authorization": "Bearer good-token"}, "pad": 3145728} body=<3145728 byte ping>
+response: {"status": 413, "body": "request body exceeds 2097152 bytes\n", "headers": {"content-type": "text/plain; charset=utf-8", "x-content-type-options": "nosniff"}}
+--- head: yutu mcp --mode http --port 51606 ---
+request: {"method": "POST", "path": "/mcp", "headers": {"Content-Type": "application/json", "Accept": "application/json, text/event-stream", "Mcp-Protocol-Version": "2025-06-18", "Authorization": "Bearer good-token"}, "pad": 3145728} body=<3145728 byte ping>
+response: {"status": 413, "body": "request body exceeds 2097152 bytes\n", "headers": {"content-type": "text/plain; charset=utf-8", "x-content-type-options": "nosniff"}}

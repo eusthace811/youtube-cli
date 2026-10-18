@@ -1,0 +1,19 @@
+r8 lane 2: SUBSTITUTED
+
+Lane 2 calls channel-list with a real test-account access token. No Google test account exists on
+this machine, so the lane runs against parity/tokeninfo.py, a local stand-in for
+https://oauth2.googleapis.com/tokeninfo, through the parity-endpoint build's YUTU_PARITY_TOKENINFO.
+
+What the substitute proves, and where:
+- The verified caller's token is the only credential a tool call sends:
+  crates/yutu-mcp/tests/http_identity.rs puts a poisoned youtube.token.json in the root and asserts
+  the API sees exactly `authorization: Bearer good-token`.
+- Every read tool's defaults call over HTTP equals Go's golden: r8-l1-http-corpus.txt
+  (mcp-http.tool.channel-list among them).
+- The tokeninfo request shape: r8-l10-post.txt.
+
+What it does not prove: that Google's tokeninfo accepts the token as a POST form body and returns
+`aud`, `azp`, `scope` and `expires_in` as parsed here. Run this lane with a real token before release:
+
+    yutu mcp --mode http &
+    python3 -I parity/mcp_client.py --http http://localhost:8216/mcp --token "$TOKEN" call channel-list '{"for":"mine"}'

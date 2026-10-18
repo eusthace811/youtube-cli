@@ -1,0 +1,6 @@
+r8 lane 7: PASS
+
+Each connection sends `POST /mcp HTTP/1.1` headers one byte per second, never finishing them.
+Pass rule: head closes it within its 10 s header timeout (E8), allowing 2 s of slack.
+Go:   still open after 20 s
+head: closed after 10.0 s
