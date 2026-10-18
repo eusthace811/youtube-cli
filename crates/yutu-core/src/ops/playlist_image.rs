@@ -8,6 +8,7 @@ use yutu_api::Value;
 use yutu_api::client::BoxFuture;
 
 const ERR_GET: &str = "failed to get playlist image";
+const ERR_DELETE: &str = "failed to delete playlist image";
 
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(default)]
@@ -26,6 +27,7 @@ pub struct PlaylistImage {
 #[derive(Debug, Clone, Copy, PartialEq)]
 enum Verb {
     List,
+    Delete,
 }
 
 struct Bound(Verb, PlaylistImage);
@@ -41,6 +43,10 @@ fn cli(verb: Verb, f: &dyn FlagValues) -> Box<dyn Invoke> {
             pi.fields.on_behalf_of_content_owner = f.string("onBehalfOfContentOwner");
             pi.on_behalf_of_content_owner_channel = f.string("onBehalfOfContentOwnerChannel");
         }
+        Verb::Delete => {
+            pi.fields.ids = f.strings("ids");
+            pi.fields.on_behalf_of_content_owner = f.string("onBehalfOfContentOwner");
+        }
     }
     Box::new(Bound(verb, pi))
 }
@@ -50,15 +56,24 @@ fn mcp(verb: Verb, args: serde_json::Value) -> Result<Box<dyn Invoke>, String> {
     Ok(Box::new(Bound(verb, pi)))
 }
 
-pub static ENTRIES: [Entry; 1] = [Entry {
-    path: "playlistImage list",
-    cli: |f| cli(Verb::List, f),
-    mcp: |a| mcp(Verb::List, a),
-}];
+pub static ENTRIES: [Entry; 2] = [
+    Entry {
+        path: "playlistImage delete",
+        cli: |f| cli(Verb::Delete, f),
+        mcp: |a| mcp(Verb::Delete, a),
+    },
+    Entry {
+        path: "playlistImage list",
+        cli: |f| cli(Verb::List, f),
+        mcp: |a| mcp(Verb::List, a),
+    },
+];
 
 impl Invoke for Bound {
     fn confirm(&self) -> String {
+        let pi = &self.1;
         match self.0 {
+            Verb::Delete => format!("Delete playlist image(s): {}", pi.fields.ids.join(", ")),
             Verb::List => String::new(),
         }
     }
@@ -68,6 +83,7 @@ impl Invoke for Bound {
         Box::pin(async move {
             match self.0 {
                 Verb::List => pi.list(ctx).await,
+                Verb::Delete => pi.delete(ctx).await,
             }
         })
     }
@@ -119,5 +135,31 @@ impl PlaylistImage {
                 },
             )
         })
+    }
+
+    async fn delete(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
+        let svc = ctx.service().await?;
+        let mut errs = OpError::default();
+        for id in &self.fields.ids {
+            let mut call = svc.call("youtube.playlistImages.delete").param("id", id);
+            if !self.fields.on_behalf_of_content_owner.is_empty() {
+                call = call.param(
+                    "onBehalfOfContentOwner",
+                    &self.fields.on_behalf_of_content_owner,
+                );
+            }
+            match call.send_empty().await {
+                Err(e) => {
+                    errs.push(ERR_DELETE);
+                    errs.push(e.to_string());
+                }
+                Ok(()) => {
+                    if let Err(e) = ctx.out.write_str(&format!("PlaylistImage {id} deleted\n")) {
+                        errs.push(e);
+                    }
+                }
+            }
+        }
+        errs.into_result()
     }
 }
