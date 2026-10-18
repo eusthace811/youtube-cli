@@ -1,0 +1,41 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.tool.liveChatModerator-list",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-live_chat_id"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T17:09:58.248+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:09:58.248+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:09:58.259+01:00 level=INFO msg=liveChatModerator-list input=\"{\\\"confirmed\\\":false,\\\"max_results\\\":5,\\\"parts\\\":[\\\"snippet\\\"],\\\"output\\\":\\\"json\\\",\\\"live_chat_id\\\":\\\"val-live_chat_id\\\"}\" output_length=1063\n",
+ "stdout": "{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"content\": [{\"text\": \"[{\\\"etag\\\":\\\"etag-0\\\",\\\"id\\\":\\\"id-0\\\",\\\"kind\\\":\\\"kind-0\\\",\\\"snippet\\\":{\\\"liveChatId\\\":\\\"snippet.liveChatId-0\\\",\\\"moderatorDetails\\\":{\\\"channelId\\\":\\\"snippet.moderatorDetails.channelId-0\\\",\\\"channelUrl\\\":\\\"snippet.moderatorDetails.channelUrl-0\\\",\\\"displayName\\\":\\\"snippet.moderatorDetails.displayName-0\\\",\\\"profileImageUrl\\\":\\\"snippet.moderatorDetails.profileImageUrl-0\\\"}}},{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"liveChatId\\\":\\\"snippet.liveChatId-1\\\",\\\"moderatorDetails\\\":{\\\"channelId\\\":\\\"snippet.moderatorDetails.channelId-1\\\",\\\"channelUrl\\\":\\\"snippet.moderatorDetails.channelUrl-1\\\",\\\"displayName\\\":\\\"snippet.moderatorDetails.displayName-1\\\",\\\"profileImageUrl\\\":\\\"snippet.moderatorDetails.profileImageUrl-1\\\"}}},{\\\"etag\\\":\\\"etag-2\\\",\\\"id\\\":\\\"id-2\\\",\\\"kind\\\":\\\"kind-2\\\",\\\"snippet\\\":{\\\"liveChatId\\\":\\\"snippet.liveChatId-2\\\",\\\"moderatorDetails\\\":{\\\"channelId\\\":\\\"snippet.moderatorDetails.channelId-2\\\",\\\"channelUrl\\\":\\\"snippet.moderatorDetails.channelUrl-2\\\",\\\"displayName\\\":\\\"snippet.moderatorDetails.displayName-2\\\",\\\"profileImageUrl\\\":\\\"snippet.moderatorDetails.profileImageUrl-2\\\"}}},{\\\"id\\\":\\\"zero-0\\\",\\\"snippet\\\":{\\\"moderatorDetails\\\":{}}}]\\n\", \"type\": \"text\"}]}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

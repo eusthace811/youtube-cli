@@ -75,6 +75,25 @@ def mask_port(text):
     return re.sub(r"127\.0\.0\.1:\d+", "127.0.0.1:PORT", text)
 
 
+TOOL_INPUT = re.compile(r'(msg=\S+ input=)"((?:[^"\\]|\\.)*)"')
+
+
+def tool_input_by_value(text):
+    """Rewrites the `input=` JSON of cobra-mcp tool log lines canonically.
+    Go logs its op struct: fields in struct order, the dead `confirmed`
+    field, and `omitempty` dropping empty lists. Head logs the bound
+    arguments. Both carry the same values."""
+    def canon(m):
+        try:
+            data = json.loads(json.loads(f'"{m.group(2)}"'))
+        except ValueError:
+            return m.group(0)
+        if isinstance(data, dict):
+            data = {k: v for k, v in data.items() if k != "confirmed" and v != []}
+        return m.group(1) + json.dumps(json.dumps(data, sort_keys=True, separators=(",", ":")))
+    return TOOL_INPUT.sub(canon, text)
+
+
 def mcp_by_value(text):
     """Parses each JSON-RPC reply line so MCP stdout compares by value, not key order."""
     return [json.loads(line) for line in text.splitlines() if line.strip()]
@@ -112,12 +131,17 @@ def compare(golden, head, case, allowed=()):
             for k in g:
                 if g[k] != h[k]:
                     out.append(f"request {i} {k}: {json.dumps(g[k], ensure_ascii=False)[:400]} != {json.dumps(h[k], ensure_ascii=False)[:400]}")
-    mcp = case.get("surface") == "mcp"
-    for field, norm in (("stdout", mask_port), ("stderr", lambda t: mask_port(mask_time(t)))):
+    if "tokeninfo" not in skip and golden.get("tokeninfo") != head.get("tokeninfo"):
+        out.append(f"tokeninfo: {json.dumps(golden.get('tokeninfo'))[:400]} != {json.dumps(head.get('tokeninfo'))[:400]}")
+    mcp = case.get("surface") in ("mcp", "mcp-http")
+    stderr_norm = lambda t: mask_port(mask_time(t))  # noqa: E731
+    if case.get("surface") == "mcp-http":
+        stderr_norm = lambda t: tool_input_by_value(mask_port(mask_time(t)))  # noqa: E731
+    for field, norm in (("stdout", mask_port), ("stderr", stderr_norm)):
         if field in skip:
             continue
         g, h = norm(golden[field]), norm(head[field])
-        if mcp:
+        if mcp and field == "stdout":
             g, h = mcp_by_value(g), mcp_by_value(h)
             for i, (a, b) in enumerate(zip(g, h)):
                 if a != b:

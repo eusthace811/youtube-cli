@@ -1,0 +1,36 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.tool.video-getRating",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videos/getRating",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1",
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T17:10:00.787+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:10:00.787+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:10:00.796+01:00 level=INFO msg=video-getRating input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\"}\" output_length=128\n",
+ "stdout": "{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"content\": [{\"text\": \"[{\\\"rating\\\":\\\"none\\\",\\\"videoId\\\":\\\"videoId-0\\\"},{\\\"rating\\\":\\\"like\\\",\\\"videoId\\\":\\\"videoId-1\\\"},{\\\"rating\\\":\\\"dislike\\\",\\\"videoId\\\":\\\"videoId-2\\\"},{}]\\n\", \"type\": \"text\"}]}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

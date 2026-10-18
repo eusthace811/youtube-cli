@@ -1,0 +1,4789 @@
+[
+ {
+  "id": "mcp-http.tool.abuseReport-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "abuseReport-insert",
+      "arguments": {
+       "abuse_types": [
+        "abuse_types1",
+        "abuse_types2"
+       ],
+       "subject_id": "val-subject_id",
+       "subject_type_id": "val-subject_type_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.activity-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "activity-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.caption-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "caption-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.caption-download",
+  "group": "mcp-http",
+  "effect": "media",
+  "surface": "mcp-http",
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "caption-download",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ],
+       "file": "out.srt"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E1",
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.caption-insert",
+  "group": "mcp-http",
+  "effect": "media",
+  "surface": "mcp-http",
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "caption-insert",
+      "arguments": {
+       "file": "caption.srt",
+       "video_id": "val-video_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.caption-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "caption-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.caption-update",
+  "group": "mcp-http",
+  "effect": "media",
+  "surface": "mcp-http",
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "caption-update",
+      "arguments": {
+       "video_id": "val-video_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.channel-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "channel-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.channel-update",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "channel-update",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.channelBanner-insert",
+  "group": "mcp-http",
+  "effect": "media",
+  "surface": "mcp-http",
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "channelBanner-insert",
+      "arguments": {
+       "channel_id": "val-channel_id",
+       "file": "image.png"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.channelSection-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "channelSection-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.channelSection-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "channelSection-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.comment-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "comment-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.comment-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "comment-insert",
+      "arguments": {
+       "parent_id": "val-parent_id",
+       "text_original": "val-text_original"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "comment-insert"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "comment-insert",
+      "arguments": {
+       "parent_id": "val-parent_id",
+       "text_original": "val-text_original"
+      },
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "comment-insert"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 3,
+     "method": "tools/call",
+     "params": {
+      "name": "comment-insert",
+      "arguments": {
+       "parent_id": "val-parent_id",
+       "text_original": "val-text_original"
+      },
+      "inputResponses": {
+       "confirm": {
+        "action": "accept"
+       }
+      },
+      "requestState": "awaiting_confirm",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "comment-insert"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 4,
+     "method": "tools/call",
+     "params": {
+      "name": "comment-insert",
+      "arguments": {
+       "parent_id": "val-parent_id",
+       "text_original": "val-text_original"
+      },
+      "inputResponses": {
+       "confirm": {
+        "action": "decline"
+       }
+      },
+      "requestState": "awaiting_confirm",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.comment-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "comment-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.comment-markAsSpam",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "comment-markAsSpam",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.comment-setModerationStatus",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "comment-setModerationStatus",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ],
+       "moderation_status": "heldForReview"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.comment-update",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "comment-update",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.commentThread-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "commentThread-insert",
+      "arguments": {
+       "channel_id": "val-channel_id",
+       "text_original": "val-text_original",
+       "video_id": "val-video_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.commentThread-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "commentThread-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveBroadcast-bind",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveBroadcast-bind",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveBroadcast-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveBroadcast-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveBroadcast-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveBroadcast-insert",
+      "arguments": {
+       "title": "val-title",
+       "scheduled_start_time": "2026-01-02T03:04:05Z"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveBroadcast-insertCuepoint",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveBroadcast-insertCuepoint",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveBroadcast-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveBroadcast-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveBroadcast-transition",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveBroadcast-transition",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ],
+       "broadcast_status": "testing"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveBroadcast-update",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveBroadcast-update",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveChatBan-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveChatBan-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveChatBan-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveChatBan-insert",
+      "arguments": {
+       "live_chat_id": "val-live_chat_id",
+       "banned_user_channel_id": "val-banned_user_channel_id",
+       "ban_type": "permanent"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveChatMessage-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveChatMessage-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveChatMessage-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveChatMessage-insert",
+      "arguments": {
+       "live_chat_id": "val-live_chat_id",
+       "message_text": "val-message_text"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveChatMessage-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveChatMessage-list",
+      "arguments": {
+       "live_chat_id": "val-live_chat_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveChatMessage-transition",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveChatMessage-transition",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ],
+       "status": "closed"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveChatModerator-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveChatModerator-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveChatModerator-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveChatModerator-insert",
+      "arguments": {
+       "live_chat_id": "val-live_chat_id",
+       "moderator_channel_id": "val-moderator_channel_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveChatModerator-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveChatModerator-list",
+      "arguments": {
+       "live_chat_id": "val-live_chat_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveStream-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveStream-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveStream-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveStream-insert",
+      "arguments": {
+       "title": "val-title",
+       "ingestion_type": "rtmp",
+       "resolution": "240p"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveStream-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveStream-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.liveStream-update",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "liveStream-update",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.member-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "member-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.membershipsLevel-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "membershipsLevel-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlist-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlist-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlist-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlist-insert",
+      "arguments": {
+       "title": "val-title",
+       "channel_id": "val-channel_id",
+       "privacy": "public"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "playlist-insert"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlist-insert",
+      "arguments": {
+       "title": "val-title",
+       "channel_id": "val-channel_id",
+       "privacy": "public"
+      },
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "playlist-insert"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 3,
+     "method": "tools/call",
+     "params": {
+      "name": "playlist-insert",
+      "arguments": {
+       "title": "val-title",
+       "channel_id": "val-channel_id",
+       "privacy": "public"
+      },
+      "inputResponses": {
+       "confirm": {
+        "action": "accept"
+       }
+      },
+      "requestState": "awaiting_confirm",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "playlist-insert"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 4,
+     "method": "tools/call",
+     "params": {
+      "name": "playlist-insert",
+      "arguments": {
+       "title": "val-title",
+       "channel_id": "val-channel_id",
+       "privacy": "public"
+      },
+      "inputResponses": {
+       "confirm": {
+        "action": "decline"
+       }
+      },
+      "requestState": "awaiting_confirm",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlist-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlist-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlist-update",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlist-update",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlistImage-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlistImage-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlistImage-insert",
+  "group": "mcp-http",
+  "effect": "media",
+  "surface": "mcp-http",
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlistImage-insert",
+      "arguments": {
+       "file": "image.png",
+       "playlist_id": "val-playlist_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlistImage-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlistImage-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlistImage-update",
+  "group": "mcp-http",
+  "effect": "media",
+  "surface": "mcp-http",
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlistImage-update",
+      "arguments": {
+       "playlist_id": "val-playlist_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlistItem-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlistItem-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlistItem-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlistItem-insert",
+      "arguments": {
+       "kind": "video",
+       "playlist_id": "val-playlist_id",
+       "channel_id": "val-channel_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlistItem-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlistItem-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.playlistItem-update",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "playlistItem-update",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.search-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "search-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.subscription-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "subscription-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.subscription-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "subscription-insert",
+      "arguments": {
+       "subscriber_channel_id": "val-subscriber_channel_id",
+       "channel_id": "val-channel_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.subscription-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "subscription-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.superChatEvent-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "superChatEvent-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.thirdPartyLink-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "thirdPartyLink-delete",
+      "arguments": {
+       "linking_token": "val-linking_token",
+       "type": "linkUnspecified"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.thirdPartyLink-insert",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "thirdPartyLink-insert",
+      "arguments": {
+       "linking_token": "val-linking_token",
+       "type": "linkUnspecified"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.thirdPartyLink-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "thirdPartyLink-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.thirdPartyLink-update",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "thirdPartyLink-update",
+      "arguments": {
+       "linking_token": "val-linking_token"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.thumbnail-set",
+  "group": "mcp-http",
+  "effect": "media",
+  "surface": "mcp-http",
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "thumbnail-set",
+      "arguments": {
+       "file": "thumb.png",
+       "video_id": "val-video_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.video-delete",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "video-delete"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      },
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "video-delete"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 3,
+     "method": "tools/call",
+     "params": {
+      "name": "video-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      },
+      "inputResponses": {
+       "confirm": {
+        "action": "accept"
+       }
+      },
+      "requestState": "awaiting_confirm",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "video-delete"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 4,
+     "method": "tools/call",
+     "params": {
+      "name": "video-delete",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      },
+      "inputResponses": {
+       "confirm": {
+        "action": "decline"
+       }
+      },
+      "requestState": "awaiting_confirm",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.video-getRating",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-getRating",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.video-insert",
+  "group": "mcp-http",
+  "effect": "media",
+  "surface": "mcp-http",
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-insert",
+      "arguments": {
+       "file": "video.mp4",
+       "category_id": "val-category_id",
+       "privacy": "public"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.video-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.video-rate",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-rate",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ],
+       "rating": "like"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.video-reportAbuse",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-reportAbuse",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ],
+       "reason_id": "val-reason_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.video-update",
+  "group": "mcp-http",
+  "effect": "write",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-update",
+      "arguments": {
+       "ids": [
+        "id1",
+        "id2"
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.videoAbuseReportReason-list",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "videoAbuseReportReason-list",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.watermark-set",
+  "group": "mcp-http",
+  "effect": "media",
+  "surface": "mcp-http",
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "watermark-set",
+      "arguments": {
+       "channel_id": "val-channel_id",
+       "file": "image.png"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.tool.watermark-unset",
+  "group": "mcp-http",
+  "effect": "destructive",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "watermark-unset",
+      "arguments": {
+       "channel_id": "val-channel_id"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.resource.i18n.hl",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "resources/read",
+     "params": {
+      "uri": "i18n://hl"
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "resources/read",
+     "Mcp-Name": "i18n://hl"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "resources/read",
+     "params": {
+      "uri": "i18n://hl",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.resource.i18n.language.ja",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "resources/read",
+     "params": {
+      "uri": "i18n://language/ja"
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "resources/read",
+     "Mcp-Name": "i18n://language/ja"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "resources/read",
+     "params": {
+      "uri": "i18n://language/ja",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.resource.i18n.region.fr",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "resources/read",
+     "params": {
+      "uri": "i18n://region/fr"
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "resources/read",
+     "Mcp-Name": "i18n://region/fr"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "resources/read",
+     "params": {
+      "uri": "i18n://region/fr",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.resource.video.category.ja",
+  "group": "mcp-http",
+  "effect": "read",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "resources/read",
+     "params": {
+      "uri": "video://category/ja"
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "resources/read",
+     "Mcp-Name": "video://category/ja"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "resources/read",
+     "params": {
+      "uri": "video://category/ja",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4",
+   "E6"
+  ]
+ },
+ {
+  "id": "mcp-http.initialize",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "1999-01-01",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.lists",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/list",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 3,
+     "method": "resources/list",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 4,
+     "method": "resources/templates/list",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 5,
+     "method": "prompts/list",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 6,
+     "method": "ping",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 8,
+     "method": "tools/call",
+     "params": {
+      "name": "no-such-tool",
+      "arguments": {}
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.batch",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token"
+    },
+    "body": [
+     {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "ping"
+     },
+     {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "ping"
+     }
+    ]
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-03-26"
+    },
+    "body": [
+     {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "ping"
+     },
+     {
+      "jsonrpc": "2.0",
+      "method": "notifications/initialized"
+     }
+    ]
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token"
+    },
+    "body": [
+     {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "initialize",
+      "params": {
+       "protocolVersion": "2025-06-18",
+       "capabilities": {},
+       "clientInfo": {
+        "name": "parity",
+        "version": "0"
+       }
+      }
+     },
+     {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "initialize",
+      "params": {
+       "protocolVersion": "2025-06-18",
+       "capabilities": {},
+       "clientInfo": {
+        "name": "parity",
+        "version": "0"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": [
+     {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "ping"
+     }
+    ]
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token"
+    },
+    "body": []
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.no-call",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "method": "notifications/initialized"
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 9,
+     "result": {}
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.invalid",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 7,
+     "method": "nope",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": null,
+     "method": "ping"
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "1.0",
+     "id": 1,
+     "method": "ping"
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "notifications/initialized"
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "tools/call"
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "tools/call",
+     "params": null
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": ""
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "text/plain",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json; charset=utf-8",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "*/*",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "1999-01-01"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Last-Event-ID": "x_1"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Host": "evil.example"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.methods",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "GET",
+    "path": "/mcp",
+    "headers": {
+     "Authorization": "Bearer good-token"
+    },
+    "body": null
+   },
+   {
+    "method": "DELETE",
+    "path": "/mcp",
+    "headers": {
+     "Authorization": "Bearer good-token"
+    },
+    "body": null
+   },
+   {
+    "method": "PUT",
+    "path": "/mcp",
+    "headers": {
+     "Authorization": "Bearer good-token"
+    },
+    "body": null
+   },
+   {
+    "method": "HEAD",
+    "path": "/mcp",
+    "headers": {
+     "Authorization": "Bearer good-token"
+    },
+    "body": null
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.new-protocol",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "server/discover"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "server/discover",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/list"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/list",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "ping"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "ping",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "initialize"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      },
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "nope"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "nope",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/list"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/list",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/list"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/list",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {},
+       "io.modelcontextprotocol/clientInfo": "x"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2027-01-01",
+     "Mcp-Method": "tools/list"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/list",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2027-01-01",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "ping"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/list",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": ""
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/list",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-list",
+      "arguments": {},
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/call",
+     "Mcp-Name": "video-delete"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "tools/call",
+     "params": {
+      "name": "video-list",
+      "arguments": {},
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "resources/read",
+     "Mcp-Name": "i18n://nope"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "resources/read",
+     "params": {
+      "uri": "i18n://hl",
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 3,
+     "method": "tools/list",
+     "params": {
+      "_meta": {
+       "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+       "io.modelcontextprotocol/clientCapabilities": {}
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "tools/list"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 3,
+     "method": "tools/list",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2026-07-28",
+     "Mcp-Method": "notifications/initialized"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "method": "notifications/initialized"
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.cap",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": null,
+    "pad": 3145728
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": null,
+    "pad": 2097152
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": null,
+    "pad": 2097153
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.auth.none",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.auth.tokens",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer nope",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "ping",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer few-scopes",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "ping",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer no-expiry",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "ping",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer error-field",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "ping",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token-2",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "ping",
+     "params": {}
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.auth.header-forms",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Authorization": "bearer good-token"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Authorization": "Bearer  good-token"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Authorization": "Bearer good-token extra"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Authorization": "Basic Z29vZA=="
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Authorization": "Bearer"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.auth.cached",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "method": "ping",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 3,
+     "method": "ping",
+     "params": {}
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 4,
+     "method": "ping",
+     "params": {}
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.routes",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "GET",
+    "path": "/.well-known/oauth-protected-resource",
+    "headers": {},
+    "body": null
+   },
+   {
+    "method": "OPTIONS",
+    "path": "/.well-known/oauth-protected-resource",
+    "headers": {},
+    "body": null
+   },
+   {
+    "method": "POST",
+    "path": "/.well-known/oauth-protected-resource",
+    "headers": {},
+    "body": null
+   },
+   {
+    "method": "GET",
+    "path": "/",
+    "headers": {},
+    "body": null
+   },
+   {
+    "method": "GET",
+    "path": "/nope",
+    "headers": {
+     "Authorization": "Bearer good-token"
+    },
+    "body": null
+   },
+   {
+    "method": "POST",
+    "path": "/mcp/",
+    "headers": {},
+    "body": null
+   },
+   {
+    "method": "GET",
+    "path": "/.well-known/oauth-protected-resource/mcp",
+    "headers": {},
+    "body": null
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.origin.loopback",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Origin": "http://localhost:3000"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Origin": "http://127.0.0.1:8216"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   },
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Origin": "http://[::1]"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4"
+  ]
+ },
+ {
+  "id": "mcp-http.origin.foreign",
+  "group": "mcp-http",
+  "effect": "core",
+  "surface": "mcp-http",
+  "media": false,
+  "files": {},
+  "exchanges": [
+   {
+    "method": "POST",
+    "path": "/mcp",
+    "headers": {
+     "Content-Type": "application/json",
+     "Accept": "application/json, text/event-stream",
+     "Authorization": "Bearer good-token",
+     "Mcp-Protocol-Version": "2025-06-18",
+     "Origin": "https://evil.example"
+    },
+    "body": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "method": "initialize",
+     "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+       "name": "parity",
+       "version": "0"
+      }
+     }
+    }
+   }
+  ],
+  "divergences": [
+   "E4",
+   "E8"
+  ]
+ }
+]

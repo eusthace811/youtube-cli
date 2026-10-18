@@ -1,0 +1,39 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.tool.superChatEvent-list",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/superChatEvents",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T17:10:00.187+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:10:00.187+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:10:00.198+01:00 level=INFO msg=superChatEvent-list input=\"{\\\"confirmed\\\":false,\\\"max_results\\\":5,\\\"parts\\\":[\\\"id\\\",\\\"snippet\\\"],\\\"output\\\":\\\"json\\\"}\" output_length=2262\n",
+ "stdout": "{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"content\": [{\"text\": \"[{\\\"etag\\\":\\\"etag-0\\\",\\\"id\\\":\\\"id-0\\\",\\\"kind\\\":\\\"kind-0\\\",\\\"snippet\\\":{\\\"amountMicros\\\":\\\"620\\\",\\\"channelId\\\":\\\"snippet.channelId-0\\\",\\\"commentText\\\":\\\"snippet.commentText-0\\\",\\\"createdAt\\\":\\\"2026-01-10T12:34:50Z\\\",\\\"currency\\\":\\\"snippet.currency-0\\\",\\\"displayString\\\":\\\"snippet.displayString-0\\\",\\\"messageType\\\":19,\\\"superStickerMetadata\\\":{\\\"altText\\\":\\\"snippet.superStickerMetadata.altText-0\\\",\\\"altTextLanguage\\\":\\\"snippet.superStickerMetadata.altTextLanguage-0\\\",\\\"stickerId\\\":\\\"snippet.superStickerMetadata.stickerId-0\\\"},\\\"supporterDetails\\\":{\\\"channelId\\\":\\\"snippet.supporterDetails.channelId-0\\\",\\\"channelUrl\\\":\\\"snippet.supporterDetails.channelUrl-0\\\",\\\"displayName\\\":\\\"snippet.supporterDetails.displayName-0\\\",\\\"profileImageUrl\\\":\\\"snippet.supporterDetails.profileImageUrl-0\\\"}}},{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"amountMicros\\\":\\\"8539\\\",\\\"channelId\\\":\\\"snippet.channelId-1\\\",\\\"commentText\\\":\\\"snippet.commentText-1\\\",\\\"createdAt\\\":\\\"2026-02-11T12:34:51Z\\\",\\\"currency\\\":\\\"snippet.currency-1\\\",\\\"displayString\\\":\\\"snippet.displayString-1\\\",\\\"isSuperStickerEvent\\\":true,\\\"messageType\\\":32,\\\"superStickerMetadata\\\":{\\\"altText\\\":\\\"snippet.superStickerMetadata.altText-1\\\",\\\"altTextLanguage\\\":\\\"snippet.superStickerMetadata.altTextLanguage-1\\\",\\\"stickerId\\\":\\\"snippet.superStickerMetadata.stickerId-1\\\"},\\\"supporterDetails\\\":{\\\"channelId\\\":\\\"snippet.supporterDetails.channelId-1\\\",\\\"channelUrl\\\":\\\"snippet.supporterDetails.channelUrl-1\\\",\\\"displayName\\\":\\\"snippet.supporterDetails.displayName-1\\\",\\\"profileImageUrl\\\":\\\"snippet.supporterDetails.profileImageUrl-1\\\"}}},{\\\"etag\\\":\\\"etag-2\\\",\\\"id\\\":\\\"id-2\\\",\\\"kind\\\":\\\"kind-2\\\",\\\"snippet\\\":{\\\"amountMicros\\\":\\\"16458\\\",\\\"channelId\\\":\\\"snippet.channelId-2\\\",\\\"commentText\\\":\\\"snippet.commentText-2\\\",\\\"createdAt\\\":\\\"2026-03-12T12:34:52Z\\\",\\\"currency\\\":\\\"snippet.currency-2\\\",\\\"displayString\\\":\\\"snippet.displayString-2\\\",\\\"messageType\\\":45,\\\"superStickerMetadata\\\":{\\\"altText\\\":\\\"snippet.superStickerMetadata.altText-2\\\",\\\"altTextLanguage\\\":\\\"snippet.superStickerMetadata.altTextLanguage-2\\\",\\\"stickerId\\\":\\\"snippet.superStickerMetadata.stickerId-2\\\"},\\\"supporterDetails\\\":{\\\"channelId\\\":\\\"snippet.supporterDetails.channelId-2\\\",\\\"channelUrl\\\":\\\"snippet.supporterDetails.channelUrl-2\\\",\\\"displayName\\\":\\\"snippet.supporterDetails.displayName-2\\\",\\\"profileImageUrl\\\":\\\"snippet.supporterDetails.profileImageUrl-2\\\"}}},{\\\"id\\\":\\\"zero-0\\\",\\\"snippet\\\":{\\\"superStickerMetadata\\\":{},\\\"supporterDetails\\\":{}}}]\\n\", \"type\": \"text\"}]}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

@@ -1,0 +1,108 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.invalid",
+ "requests": [],
+ "stderr": "time=2026-10-18T17:10:02.226+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:10:02.226+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\n",
+ "stdout": "{\"body\": \"JSON RPC not handled: \\\"nope\\\" unsupported\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": \"invalid request: missing id for \\\"ping\\\"\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": \"malformed payload: invalid message version tag \\\"1.0\\\"; expected \\\"2.0\\\"\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": \"invalid request: unexpected id for \\\"notifications/initialized\\\"\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": \"invalid request: missing required \\\"params\\\"\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": {\"error\": {\"code\": -32600, \"message\": \"handling 'tools/call': invalid request: missing required \\\"params\\\"\"}, \"id\": 1, \"jsonrpc\": \"2.0\"}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": \"POST requires a non-empty body\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": \"Content-Type must be 'application/json'\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 415}\n{\"body\": {\"id\": 1, \"jsonrpc\": \"2.0\", \"result\": {\"capabilities\": {\"logging\": {}, \"resources\": {\"listChanged\": true}, \"tools\": {\"listChanged\": true}}, \"instructions\": \"Automate YouTube operations\", \"protocolVersion\": \"2025-06-18\", \"serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": \"Accept must contain both 'application/json' and 'text/event-stream'\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": {\"id\": 1, \"jsonrpc\": \"2.0\", \"result\": {\"capabilities\": {\"logging\": {}, \"resources\": {\"listChanged\": true}, \"tools\": {\"listChanged\": true}}, \"instructions\": \"Automate YouTube operations\", \"protocolVersion\": \"2025-06-18\", \"serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": \"Bad Request: Unsupported protocol version (supported versions: 2026-07-28,2025-11-25,2025-06-18,2025-03-26,2024-11-05)\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": \"can't send Last-Event-ID for POST request\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": \"Forbidden: invalid Host header \\\"evil.example\\\"\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 403}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.methods",
+ "requests": [],
+ "stderr": "time=2026-10-18T17:10:02.316+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:10:02.316+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\n",
+ "stdout": "{\"body\": \"Method Not Allowed\\n\", \"headers\": {\"allow\": \"POST\", \"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 405}\n{\"body\": \"Method Not Allowed\\n\", \"headers\": {\"allow\": \"POST\", \"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 405}\n{\"body\": \"Method Not Allowed\\n\", \"headers\": {\"allow\": \"POST\", \"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 405}\n{\"body\": \"\", \"headers\": {\"allow\": \"POST\", \"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 405}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

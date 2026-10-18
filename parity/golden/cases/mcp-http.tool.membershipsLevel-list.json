@@ -1,0 +1,36 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.tool.membershipsLevel-list",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/membershipsLevels",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T17:09:58.756+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:09:58.756+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:09:58.762+01:00 level=INFO msg=membershipsLevel-list input=\"{\\\"confirmed\\\":false,\\\"parts\\\":[\\\"id\\\",\\\"snippet\\\"],\\\"output\\\":\\\"json\\\"}\" output_length=570\n",
+ "stdout": "{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"content\": [{\"text\": \"[{\\\"etag\\\":\\\"etag-0\\\",\\\"id\\\":\\\"id-0\\\",\\\"kind\\\":\\\"kind-0\\\",\\\"snippet\\\":{\\\"creatorChannelId\\\":\\\"snippet.creatorChannelId-0\\\",\\\"levelDetails\\\":{\\\"displayName\\\":\\\"snippet.levelDetails.displayName-0\\\"}}},{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"creatorChannelId\\\":\\\"snippet.creatorChannelId-1\\\",\\\"levelDetails\\\":{\\\"displayName\\\":\\\"snippet.levelDetails.displayName-1\\\"}}},{\\\"etag\\\":\\\"etag-2\\\",\\\"id\\\":\\\"id-2\\\",\\\"kind\\\":\\\"kind-2\\\",\\\"snippet\\\":{\\\"creatorChannelId\\\":\\\"snippet.creatorChannelId-2\\\",\\\"levelDetails\\\":{\\\"displayName\\\":\\\"snippet.levelDetails.displayName-2\\\"}}},{\\\"id\\\":\\\"zero-0\\\",\\\"snippet\\\":{\\\"levelDetails\\\":{}}}]\\n\", \"type\": \"text\"}]}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

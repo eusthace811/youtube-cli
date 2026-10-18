@@ -1,0 +1,73 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.tool.video-delete",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T17:10:00.702+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:10:00.702+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:10:00.713+01:00 level=INFO msg=video-delete input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false}\" mrtr=true\ntime=2026-10-18T17:10:00.714+01:00 level=INFO msg=video-delete input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false}\" mrtr=true\ntime=2026-10-18T17:10:00.715+01:00 level=INFO msg=video-delete input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false}\" output_length=34\ntime=2026-10-18T17:10:00.715+01:00 level=INFO msg=video-delete input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false}\" mrtr=true\n",
+ "stdout": "{\"body\": {\"error\": {\"code\": 0, \"message\": \"multi-round-trip: fulfilling input request \\\"confirm\\\": client does not support elicitation\"}, \"id\": 2, \"jsonrpc\": \"2.0\"}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"_meta\": {\"io.modelcontextprotocol/serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}, \"content\": null, \"inputRequests\": {\"confirm\": {\"method\": \"elicitation/create\", \"params\": {\"message\": \"Delete video(s): id1, id2\", \"mode\": \"form\"}}}, \"requestState\": \"awaiting_confirm\", \"resultType\": \"input_required\"}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": {\"id\": 3, \"jsonrpc\": \"2.0\", \"result\": {\"_meta\": {\"io.modelcontextprotocol/serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}, \"content\": [{\"text\": \"Video id1 deletedVideo id2 deleted\", \"type\": \"text\"}], \"resultType\": \"complete\"}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": {\"id\": 4, \"jsonrpc\": \"2.0\", \"result\": {\"_meta\": {\"io.modelcontextprotocol/serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}, \"content\": [{\"text\": \"canceled by user\", \"type\": \"text\"}], \"isError\": true, \"resultType\": \"complete\"}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

@@ -94,3 +94,13 @@ def test_unregistered_divergence_is_rejected():
         assert "E999" in str(e)
     else:
         raise AssertionError("unregistered divergence accepted")
+
+
+def test_http_tool_input_compares_by_value_without_go_struct_noise():
+    case = {"id": "h", "surface": "mcp-http"}
+    go = result(stdout="", stderr='time=1 level=INFO msg=video-list input="{\\"ids\\":[\\"a\\"],\\"confirmed\\":false,\\"max_results\\":5}" output_length=9\n')
+    head = result(stdout="", stderr='time=2 level=INFO msg=video-list input="{\\"max_results\\":5,\\"ids\\":[\\"a\\"],\\"parts\\":[]}" output_length=9\n')
+    changed = result(stdout="", stderr='time=2 level=INFO msg=video-list input="{\\"ids\\":[\\"b\\"],\\"max_results\\":5}" output_length=9\n')
+    assert diff.compare(go, head, case) == []
+    assert len(diff.compare(go, changed, case)) == 1
+    assert len(diff.compare(go, head, {"id": "s", "surface": "mcp"})) == 1
