@@ -1,7 +1,7 @@
 r1 perf: PASS
 
-Metric: `yutu version` wall time over 60 interleaved runs, peak RSS, stripped binary size.
-Spawn floor /usr/bin/true: median 1.31 ms, p90 1.38 ms
-Trunk (Go):  median 12.07 ms, p90 13.17 ms, RSS 36.8 MB, binary 57.1 MB
-Head (Rust): median 3.52 ms, p90 3.84 ms, RSS 6.5 MB, binary 7.2 MB
+Metric: `youtube version` wall time over 60 interleaved runs, peak RSS, stripped binary size.
+Spawn floor /usr/bin/true: median 1.28 ms, p90 1.37 ms
+Trunk (Go):  median 12.13 ms, p90 12.80 ms, RSS 36.4 MB, binary 57.1 MB
+Head (Rust): median 3.51 ms, p90 3.84 ms, RSS 6.5 MB, binary 7.2 MB
 Rule: head median <= 4.0 ms, RSS <= 12 MB, binary <= 15 MB.

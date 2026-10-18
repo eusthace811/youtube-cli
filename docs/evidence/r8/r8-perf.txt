@@ -1,7 +1,7 @@
 r8 perf: PASS
 
 Metric: requests/second and p50 latency for `tools/call video-list` (ids=[v1]) over stateless HTTP,
-50 keep-alive HTTP/1.1 clients (crates/yutu-mcp/examples/loadgen, 3 s per run), Go harness and head
+50 keep-alive HTTP/1.1 clients (crates/youtube-mcp/examples/loadgen, 3 s per run), Go harness and head
 alternated, three rounds. `ab` was dropped: it speaks HTTP/1.0, and Go closes the connection after
 every chunked reply, so `ab` would time Go's TCP handshakes.
 Rounds are 3 s, not the plan's 30 s: Go's http.DefaultClient keeps 2 idle connections per host, so it
@@ -9,12 +9,12 @@ opens and closes upstream connections on most calls and exhausts macOS's 16,384 
 (TIME_WAIT lasts 30 s) within about 4 s, after which its calls fail with EADDRNOTAVAIL. Each run
 starts after a 35 s cooldown. A reply counts as failed unless it is HTTP 200 without
 "isError":true, and the first reply of each server is checked to be a successful video list.
-Upstream: crates/yutu-mcp/examples/perfmock answers tokeninfo and videos.list (114489 byte fixture,
+Upstream: crates/youtube-mcp/examples/perfmock answers tokeninfo and videos.list (114489 byte fixture,
 first page) from memory; parity/recorder.py tops out near 2,100 req/s and would cap both servers.
 Go calls tokeninfo on every request; head verifies the token once and caches it (E4).
-Machine: 12 logical CPUs, default YUTU_LOG_LEVEL (one INFO line per call on both).
-Round 1: Go 4575 req/s p50 10.31 ms (13762 done, 0 failed); head 41193 req/s p50 1.19 ms (123630 done, 0 failed)
-Round 2: Go 4527 req/s p50 10.40 ms (13614 done, 0 failed); head 41802 req/s p50 1.17 ms (125461 done, 0 failed)
-Round 3: Go 4614 req/s p50 10.25 ms (13882 done, 0 failed); head 42034 req/s p50 1.17 ms (126152 done, 0 failed)
-Median: Go 4575 req/s p50 10.31 ms; head 41802 req/s p50 1.17 ms (9.14x throughput).
+Machine: 12 logical CPUs, default YOUTUBE_CLI_LOG_LEVEL (one INFO line per call on both).
+Round 1: Go 4438 req/s p50 10.60 ms (13348 done, 0 failed); head 36664 req/s p50 1.28 ms (110036 done, 0 failed)
+Round 2: Go 4436 req/s p50 10.60 ms (13336 done, 0 failed); head 40802 req/s p50 1.19 ms (122457 done, 0 failed)
+Round 3: Go 4471 req/s p50 10.53 ms (13443 done, 0 failed); head 41617 req/s p50 1.18 ms (124887 done, 0 failed)
+Median: Go 4438 req/s p50 10.60 ms; head 40802 req/s p50 1.19 ms (9.19x throughput).
 Rule: head throughput >= 2x Go and head p50 <= Go p50, with no failed requests.

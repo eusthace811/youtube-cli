@@ -4,12 +4,12 @@ Rule: head idle RSS at most 0.5x Go and head p50 at or below Go.
 Alternating launches of the Go harness and head. Idle RSS: `ps -o rss` 2 s after the port opens.
 Latency: 30 sequential POST /api/run calls, each one scripted text reply from the in-process mock LLM,
 timed at the client (fresh connection each); p50 per launch.
-run 1 go  : idle RSS  36.55 MiB  /run p50   2.18 ms
-run 1 head: idle RSS  11.03 MiB  /run p50   1.66 ms
-run 2 go  : idle RSS  36.70 MiB  /run p50   2.22 ms
-run 2 head: idle RSS  10.98 MiB  /run p50   1.66 ms
-run 3 go  : idle RSS  36.72 MiB  /run p50   2.23 ms
-run 3 head: idle RSS  10.92 MiB  /run p50   1.62 ms
+run 1 go  : idle RSS  36.70 MiB  /run p50   2.23 ms
+run 1 head: idle RSS  11.22 MiB  /run p50   1.91 ms
+run 2 go  : idle RSS  37.34 MiB  /run p50   2.30 ms
+run 2 head: idle RSS  11.08 MiB  /run p50   1.72 ms
+run 3 go  : idle RSS  37.19 MiB  /run p50   2.28 ms
+run 3 head: idle RSS  11.08 MiB  /run p50   1.72 ms
 
-median idle RSS: go 36.70 MiB head 10.98 MiB (head/go 0.30)
-median /run p50: go 2.22 ms head 1.66 ms (head/go 0.75)
+median idle RSS: go 37.19 MiB head 11.08 MiB (head/go 0.30)
+median /run p50: go 2.28 ms head 1.72 ms (head/go 0.76)
