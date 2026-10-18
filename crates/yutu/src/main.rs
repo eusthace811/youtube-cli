@@ -16,6 +16,11 @@ impl App for Yutu {
 
     fn run(&self, inv: &Invocation) -> Result<(), CmdError> {
         match inv.command.path {
+            "auth" => yutu_auth::run_auth_command(
+                inv.flags.string("credential"),
+                inv.flags.string("cacheToken"),
+            )
+            .map_err(CmdError::Exit),
             "version" => {
                 // Go prints the banner with cobra's cmd.Printf, which writes to stderr.
                 let _ =

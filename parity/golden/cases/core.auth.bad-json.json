@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.auth.bad-json",
+ "requests": [],
+ "stderr": "time=2026-10-18T16:35:24.818+01:00 level=ERROR msg=\"authentication failed\" error=\"failed to parse client secret: oauth2/google: no credentials found\"\n",
+ "stdout": ""
+}

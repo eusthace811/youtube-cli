@@ -484,6 +484,48 @@
   ]
  },
  {
+  "id": "core.auth.bad-json",
+  "group": "auth",
+  "effect": "core",
+  "argv": [
+   "auth",
+   "-c",
+   "{\"bad\":1}"
+  ],
+  "env": {}
+ },
+ {
+  "id": "core.auth.missing-file",
+  "group": "auth",
+  "effect": "core",
+  "argv": [
+   "auth",
+   "-c",
+   "nonexistent.json"
+  ],
+  "env": {}
+ },
+ {
+  "id": "core.auth.env-garbage",
+  "group": "auth",
+  "effect": "core",
+  "argv": [
+   "auth"
+  ],
+  "env": {
+   "YUTU_CREDENTIAL": "%%%"
+  }
+ },
+ {
+  "id": "core.auth.default-missing",
+  "group": "auth",
+  "effect": "core",
+  "argv": [
+   "auth"
+  ],
+  "env": {}
+ },
+ {
   "id": "core.completion.bash",
   "group": "completion",
   "effect": "core",

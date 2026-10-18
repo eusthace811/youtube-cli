@@ -180,6 +180,11 @@ def core_cases():
     c.append({"id": "core.suggest", "group": "help", "effect": "core", "argv": ["vidoe"]})
     c.append({"id": "core.help-flag-sub", "group": "help", "effect": "core", "argv": ["video", "list", "-h"]})
     c.append({"id": "core.help-unknown", "group": "help", "effect": "core", "argv": ["help", "nope"]})
+    for name, argv, env in (("bad-json", ["auth", "-c", '{"bad":1}'], {}),
+                            ("missing-file", ["auth", "-c", "nonexistent.json"], {}),
+                            ("env-garbage", ["auth"], {"YUTU_CREDENTIAL": "%%%"}),
+                            ("default-missing", ["auth"], {})):
+        c.append({"id": f"core.auth.{name}", "group": "auth", "effect": "core", "argv": argv, "env": env})
     for sh in ("bash", "zsh", "fish", "powershell"):
         c.append({"id": f"core.completion.{sh}", "group": "completion", "effect": "core", "argv": ["completion", sh]})
     return c

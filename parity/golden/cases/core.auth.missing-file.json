@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.auth.missing-file",
+ "requests": [],
+ "stderr": "time=2026-10-18T16:35:24.832+01:00 level=ERROR msg=\"failed to parse client secret\" hint=\"Please configure client secret as described in https://github.com/eat-pray-ai/yutu#prerequisites\" error=\"illegal base64 data at input byte 11\"\ntime=2026-10-18T16:35:24.832+01:00 level=ERROR msg=\"authentication failed\" error=\"failed to parse client secret: illegal base64 data at input byte 11\"\n",
+ "stdout": ""
+}
