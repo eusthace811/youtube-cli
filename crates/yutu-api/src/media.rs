@@ -184,16 +184,28 @@ fn backoff(attempt: u32) -> Duration {
 /// The session URL must stay on the host the upload started on, or on a
 /// Google API host over TLS, so a forged Location cannot collect the token.
 fn session_host_allowed(session: &str, start: &str) -> bool {
-    let host = |u: &str| -> Option<String> {
-        let rest = u.split_once("://")?.1;
-        Some(rest.split(['/', '?']).next()?.to_ascii_lowercase())
-    };
-    match (host(session), host(start)) {
-        (Some(s), Some(o)) => {
-            s == o || (s.ends_with(".googleapis.com") && session.starts_with("https://"))
+    match (authority(session), authority(start)) {
+        (Some((ss, sh)), Some((os, oh))) => {
+            (sh == oh && ss == os) || (ss == "https" && sh.ends_with(".googleapis.com"))
         }
         _ => false,
     }
+}
+
+/// Scheme and host of an absolute URL, refusing userinfo, backslashes and
+/// other authority forms a WHATWG parser would read differently.
+pub(crate) fn authority(url: &str) -> Option<(String, String)> {
+    let (scheme, rest) = url.split_once("://")?;
+    let end = rest.find(['/', '?', '#']).unwrap_or(rest.len());
+    let auth = &rest[..end];
+    if auth.is_empty() || auth.contains(['@', '\\', '%', ' ']) {
+        return None;
+    }
+    let host = match auth.rsplit_once(':') {
+        Some((h, port)) if !h.ends_with(']') && port.bytes().all(|b| b.is_ascii_digit()) => h,
+        _ => auth,
+    };
+    Some((scheme.to_ascii_lowercase(), host.to_ascii_lowercase()))
 }
 
 #[cfg(test)]

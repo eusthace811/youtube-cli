@@ -710,6 +710,12 @@ async fn round_trip(
     params: &[(&'static str, String)],
     in_params: bool,
 ) -> Result<Token, String> {
+    if !secure_token_url(&config.token_url) {
+        return Err(format!(
+            "refusing to send credentials to {}: the token endpoint must use https",
+            log::quote(&config.token_url)
+        ));
+    }
     let mut v = params.to_vec();
     if in_params {
         if !config.client_id.is_empty() {
@@ -830,6 +836,24 @@ async fn round_trip(
         return Err("oauth2: server response missing access_token".to_string());
     }
     Ok(token)
+}
+
+/// The client secret, code and refresh token only go to an https token
+/// endpoint, or plain http on loopback for local testing.
+fn secure_token_url(url: &str) -> bool {
+    let lower = url.to_ascii_lowercase();
+    if lower.starts_with("https://") {
+        return true;
+    }
+    let Some(rest) = lower.strip_prefix("http://") else {
+        return false;
+    };
+    let auth = &rest[..rest.find(['/', '?', '#']).unwrap_or(rest.len())];
+    if auth.contains(['@', '\\']) {
+        return false;
+    }
+    let host = auth.rsplit_once(':').map(|(h, _)| h).unwrap_or(auth);
+    matches!(host, "127.0.0.1" | "localhost" | "[::1]")
 }
 
 /// oauth2's `RetrieveError`.
@@ -1009,6 +1033,14 @@ mod tests {
         assert_eq!(read("   \n"), Err("EOF".to_string()));
         assert_eq!(read("  4%2Fabc def\n"), Ok("4%2Fabc".to_string()));
         assert_eq!(read("\n\ncode"), Ok("code".to_string()));
+    }
+
+    #[test]
+    fn token_endpoint_must_be_secure() {
+        assert!(secure_token_url("https://oauth2.googleapis.com/token"));
+        assert!(secure_token_url("http://127.0.0.1:5000/token"));
+        assert!(!secure_token_url("http://oauth2.googleapis.com/token"));
+        assert!(!secure_token_url("http://localhost:80@evil.example/token"));
     }
 
     #[test]

@@ -140,3 +140,36 @@ fn writes_truncate_at_mode_0600() {
         0o600
     );
 }
+
+#[test]
+fn renamed_links_and_secret_files_cannot_reach_the_token() {
+    let dir = std::env::temp_dir().join(format!("yutu-fsroot-ident-{}", std::process::id()));
+    std::fs::create_dir_all(dir.join(".ssh")).unwrap();
+    std::fs::write(dir.join("youtube.token.json"), "{}").unwrap();
+    std::fs::write(dir.join(".ssh/id_ed25519"), "key").unwrap();
+    std::fs::hard_link(dir.join("youtube.token.json"), dir.join("alias.txt")).unwrap();
+    std::os::unix::fs::symlink("youtube.token.json", dir.join("link.srt")).unwrap();
+    let root = yutu_core::fsroot::Root::open(dir.to_str().unwrap()).unwrap();
+    let denied = |r: std::io::Result<std::fs::File>| r.unwrap_err().to_string();
+    assert_eq!(
+        denied(root.create_write("alias.txt")),
+        "access denied: blocked file extension"
+    );
+    assert_eq!(
+        denied(root.create_write("link.srt")),
+        "access denied: blocked file extension"
+    );
+    assert_eq!(
+        denied(root.open_read("alias.txt")),
+        "access denied: blocked file extension"
+    );
+    assert_eq!(
+        denied(root.open_read(".ssh/id_ed25519")),
+        "access denied: blocked file extension"
+    );
+    assert_eq!(
+        std::fs::read_to_string(dir.join("youtube.token.json")).unwrap(),
+        "{}"
+    );
+    std::fs::remove_dir_all(&dir).unwrap();
+}

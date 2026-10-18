@@ -48,9 +48,7 @@ pub fn endpoint() -> String {
 /// environment variable can never send bearer tokens elsewhere.
 #[cfg(feature = "parity-endpoint")]
 fn is_loopback_url(url: &str) -> bool {
-    let rest = url.strip_prefix("http://").unwrap_or("");
-    let host = rest.split(['/', ':']).next().unwrap_or("");
-    matches!(host, "127.0.0.1" | "localhost" | "[::1]")
+    matches!(crate::media::authority(url), Some((s, h)) if s == "http" && matches!(h.as_str(), "127.0.0.1" | "localhost" | "[::1]"))
 }
 
 /// Whether requests go to the parity recorder, which needs no credentials.
