@@ -35,20 +35,12 @@ const DISPLAY_ONLY: &[(&str, &str)] = &[
         "the A2A extension identifier ADK puts on the agent card",
     ),
     (
-        "https://github.com/eat-pray-ai/yutu",
-        "the `youtube version` banner link",
-    ),
-    (
         "https://github.com/spf13/cobra/issues/1279",
         "a comment in cobra's fish completion script",
     ),
     (
         "https://github.com/spf13/cobra/issues/1508",
         "a comment in cobra's bash completion script",
-    ),
-    (
-        "https://github.com/eat-pray-ai/yutu#prerequisites",
-        "the youtube-auth error that points at the README's credential setup",
     ),
     (
         "https://docs.rs/rustls/latest/rustls/#cryptography-providers",

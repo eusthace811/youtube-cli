@@ -1,10 +1,10 @@
-yutu-rs
-Copyright 2026 the yutu-rs authors
+youtube-cli
+Copyright 2026 the youtube-cli authors
 
-yutu-rs is a Rust rewrite of yutu (https://github.com/eat-pray-ai/yutu),
+youtube-cli is a Rust rewrite of yutu (https://github.com/eat-pray-ai/yutu),
 Copyright 2025 eat-pray-ai & OpenWaygate, licensed under the Apache License,
 Version 2.0. Its command surface, help texts, MCP tool definitions, agent
 instruction and skill text are derived from yutu.
 
-The agent's dev web UI (crates/yutu-agent/assets/webui) is the ADK web UI
+The agent's dev web UI (crates/youtube-agent/assets/webui) is the ADK web UI
 bundle vendored from Google's Agent Development Kit, Apache License 2.0.

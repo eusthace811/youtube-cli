@@ -44,13 +44,13 @@ fn fails_on_a_telemetry_host() {
 fn passes_allowed_and_display_only_urls() {
     let path = fixture(
         "allowed.bin",
-        b"\0https://oauth2.googleapis.com/token\0http://localhost:8216\0Star https://github.com/eat-pray-ai/yutuv0.11.0\0",
+        b"\0https://oauth2.googleapis.com/token\0http://localhost:8216\0# https://github.com/spf13/cobra/issues/1279\n\0",
     );
     assert_eq!(
         egress(&path),
         (
             Some(0),
-            "egress: display-only https://github.com/eat-pray-ai/yutu (the `youtube version` banner link)\negress: 0 unexpected hosts\n"
+            "egress: display-only https://github.com/spf13/cobra/issues/1279 (a comment in cobra's fish completion script)\negress: 0 unexpected hosts\n"
                 .to_string(),
             String::new()
         )
