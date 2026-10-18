@@ -32,3 +32,28 @@ jobs:
         run: |
           cargo install --locked cargo-deny@0.20.2
           cargo deny check
+      - run: cargo run --locked -p xtask -- skillgen --check
+      - run: cargo run --locked -p xtask -- smokegen --check
+      - run: ./scripts/command-test.sh target/release/yutu
+
+  windows-smoke:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - name: Install toolchain from rust-toolchain.toml
+        shell: bash
+        run: rustup show active-toolchain || rustup toolchain install
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
+      - run: cargo build --release --locked -p yutu
+      - name: yutu version
+        shell: bash
+        run: ./target/release/yutu.exe version
+      - name: yutu video list --help matches Go v0.11.0
+        shell: bash
+        run: |
+          curl -sSfL https://github.com/eat-pray-ai/yutu/releases/download/v0.11.0/yutu-windows-amd64.exe -o yutu-go.exe
+          ./target/release/yutu.exe video list --help > rust-help.txt
+          ./yutu-go.exe video list --help > go-help.txt
+          diff -u go-help.txt rust-help.txt
