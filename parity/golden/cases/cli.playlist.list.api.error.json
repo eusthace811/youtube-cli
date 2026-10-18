@@ -1,0 +1,31 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.playlist.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlists",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get playlist\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu playlist list -h' to see usage.\n",
+ "stdout": ""
+}

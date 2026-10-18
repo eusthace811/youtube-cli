@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.abuseReport.insert.output.yaml",
+ "requests": [
+  {
+   "body": "{\"abuseTypes\":[{\"id\":\"spam\"},{\"id\":\"violence\"}],\"subject\":{\"id\":\"val-subjectId\",\"typeId\":\"val-subjectTypeId\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/abuseReports",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "abusetypes:\n    - id: abuseTypes[].id-1\n      forcesendfields: []\n      nullfields: []\n    - id: abuseTypes[].id-2\n      forcesendfields: []\n      nullfields: []\ndescription: Ünïcödé ✓ 日本語のタイトル description\nrelatedentities:\n    - entity:\n        id: relatedEntities[].entity.id-1\n        typeid: relatedEntities[].entity.typeId-1\n        url: relatedEntities[].entity.url-1\n        forcesendfields: []\n        nullfields: []\n      forcesendfields: []\n      nullfields: []\n    - entity:\n        id: relatedEntities[].entity.id-2\n        typeid: relatedEntities[].entity.typeId-2\n        url: relatedEntities[].entity.url-2\n        forcesendfields: []\n        nullfields: []\n      forcesendfields: []\n      nullfields: []\nsubject:\n    id: subject.id-1\n    typeid: subject.typeId-1\n    url: subject.url-1\n    forcesendfields: []\n    nullfields: []\nserverresponse:\n    httpstatuscode: 200\n    header:\n        Content-Length:\n            - \"580\"\n        Content-Type:\n            - application/json\n        Date:\n            - Sun, 18 Oct 2026 12:00:00 GMT\n        Server:\n            - parity-recorder\nforcesendfields: []\nnullfields: []\n\n"
+}

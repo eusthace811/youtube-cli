@@ -1,0 +1,35 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.video-update.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1",
+     "id2"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:30.786+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"video-update\",\"arguments\":{\"ids\":[\"id1\",\"id2\"]}}}\ntime=2026-10-18T15:39:30.787+01:00 level=INFO msg=video-update input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Update video: id1, id2\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:30.787+01:00 level=ERROR msg=\"failed to update video\\nfailed to get video\\ngoogleapi: Error 403: The request is not allowed., forbidden\" tool=video-update input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\"}\"\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"failed to update video\\nfailed to get video\\ngoogleapi: Error 403: The request is not allowed., forbidden\"}],\"isError\":true}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Update video: id1, id2\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"failed to update video\\nfailed to get video\\ngoogleapi: Error 403: The request is not allowed., forbidden\"}],\"isError\":true}}\n"
+}

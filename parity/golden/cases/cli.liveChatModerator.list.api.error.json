@@ -1,0 +1,32 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveChatModerator.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get live chat moderator\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveChatModerator list -h' to see usage.\n",
+ "stdout": ""
+}

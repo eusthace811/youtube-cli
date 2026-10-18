@@ -1,0 +1,31 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.channel.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/channels",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get channel\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu channel list -h' to see usage.\n",
+ "stdout": ""
+}

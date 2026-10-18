@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatMessage.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Send a live chat message. Use this tool to post a text message to a live chat.\n\nUsage:\n  yutu liveChatMessage insert [flags]\n\nExamples:\n# Send a message to a live chat\nyutu liveChatMessage insert --liveChatId abc123 --messageText \"Hello everyone!\"\n\nFlags:\n  -h, --help                 help for insert\n  -l, --liveChatId string    ID of the live chat\n  -m, --messageText string   Text of the message to send\n  -o, --output string        json|yaml|silent\n  -p, --parts strings        Parts to include (default [snippet])\n      --yes                  Confirm the operation\n"
+}

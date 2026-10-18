@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete third-party links. Use this tool to delete third-party links.\n\nUsage:\n  yutu thirdPartyLink delete [flags]\n\nExamples:\n# Delete a third-party link\nyutu thirdPartyLink delete --linkingToken abc123 --type channelToStoreLink\n\nFlags:\n  -e, --externalChannelId string   Channel ID to which changes should be applied, for delegation\n  -h, --help                       help for delete\n  -l, --linkingToken string        Linking token that identifies the YouTube account and channel\n  -t, --type string                Type of the link: linkUnspecified|channelToStoreLink\n      --yes                        Confirm the operation\n"
+}

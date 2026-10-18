@@ -1,0 +1,31 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.channel.list.maxResults.1",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/channels",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TITLE                       COUNTRY           \n id-0    @at sign                    snippet.country-0 \n id-1    Ünïcödé ✓ 日本語のタイトル  snippet.country-1 \n id-2    - dash start                snippet.country-2 \n zero-0                                                "
+}

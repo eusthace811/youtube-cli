@@ -1,0 +1,49 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.delete.onBehalfOf.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "onBehalfOf": [
+     "val-onBehalfOf"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "onBehalfOf": [
+     "val-onBehalfOf"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Caption id1 deleted\nCaption id2 deleted\n"
+}

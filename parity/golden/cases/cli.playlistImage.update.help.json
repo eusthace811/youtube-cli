@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistImage.update.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update a playlist image. Use this tool to update a playlist image.\n\nUsage:\n  yutu playlistImage update [flags]\n\nExamples:\n# Update a playlist image\nyutu playlistImage update --playlistId PLxxx --type hero --width 2048 --height 1152\n\nFlags:\n  -H, --height int                             The image height\n  -h, --help                                   help for update\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -o, --output string                          json|yaml|silent\n  -p, --playlistId string                      ID of the playlist this image is associated with\n  -t, --type string                            The image type (e.g., 'hero')\n  -W, --width int                              The image width\n      --yes                                    Confirm the operation\n"
+}

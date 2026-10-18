@@ -1,0 +1,81 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistItem.list.maxResults.0",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistItems",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistItems",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistItems",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p3"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TITLE                       KIND                        RESOURCE ID \n id-0    @at sign                    snippet.resourceId.kind-0               \n id-1    Ünïcödé ✓ 日本語のタイトル  snippet.resourceId.kind-1               \n id-2    - dash start                snippet.resourceId.kind-2               \n zero-0                                                                      \n id-10   key: value                  snippet.resourceId.kind-10              \n id-11   'single' quoted             snippet.resourceId.kind-11              \n id-12   <b>tags</b> & \"quotes\"      snippet.resourceId.kind-12              \n zero-1                                                                      \n id-20   Ünïcödé ✓ 日本語のタイトル  snippet.resourceId.kind-20              \n id-21   - dash start                snippet.resourceId.kind-21              \n id-22   line sep                     snippet.resourceId.kind-22              \n zero-2                                                                      "
+}

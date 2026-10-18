@@ -1,0 +1,49 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.update.file",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "videoId": [
+     "val-videoId"
+    ]
+   }
+  },
+  {
+   "body": "--f09ba9e293ea9c30ac59529fed09381914ebd12d7ee95258e8a4e01d72d3\r\nContent-Type: application/json\r\n\r\n{\"etag\":\"etag-0\",\"id\":\"id-0\",\"kind\":\"kind-0\",\"snippet\":{\"audioTrackType\":\"unknown\",\"failureReason\":\"unknownFormat\",\"language\":\"snippet.language-0\",\"lastUpdated\":\"2026-01-10T12:34:50Z\",\"name\":\"~\",\"status\":\"serving\",\"trackKind\":\"standard\",\"videoId\":\"val-videoId\"}}\n\r\n--f09ba9e293ea9c30ac59529fed09381914ebd12d7ee95258e8a4e01d72d3\r\nContent-Type: text/plain; charset=utf-8\r\n\r\n1\n00:00:00,000 --> 00:00:01,000\nHello\n\r\n--f09ba9e293ea9c30ac59529fed09381914ebd12d7ee95258e8a4e01d72d3--\r\n",
+   "ctype": "multipart/related; boundary=f09ba9e293ea9c30ac59529fed09381914ebd12d7ee95258e8a4e01d72d3",
+   "method": "PUT",
+   "path": "/upload/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Caption updated: id-1\n"
+}

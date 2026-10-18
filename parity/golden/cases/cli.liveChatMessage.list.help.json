@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatMessage.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List live chat messages. Use this tool to list messages in a live chat.\n\nUsage:\n  yutu liveChatMessage list [flags]\n\nExamples:\n# List messages for a live chat\nyutu liveChatMessage list --liveChatId abc123\n# List messages with limit\nyutu liveChatMessage list --liveChatId abc123 --maxResults 10\n\nFlags:\n  -h, --help                help for list\n      --hl string           Localization language for system messages\n  -l, --liveChatId string   ID of the live chat\n  -n, --maxResults int      The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string       json|yaml|table (default \"table\")\n  -p, --parts strings       Comma separated parts (default [snippet,authorDetails])\n"
+}

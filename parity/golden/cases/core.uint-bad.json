@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.uint-bad",
+ "requests": [],
+ "stderr": "Error: invalid argument \"-5\" for \"-d, --durationMs\" flag: strconv.ParseUint: parsing \"-5\": invalid syntax\nRun 'yutu watermark set -h' to see usage.\n",
+ "stdout": ""
+}

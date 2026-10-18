@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.watermark.set.onBehalfOfContentOwner",
+ "requests": [
+  {
+   "body": "--912d1f17a9ce10e75a8f52eb9e10fc1d9606c8a28257997b81c66f75773a\r\nContent-Type: application/json\r\n\r\n{\"position\":{},\"timing\":{}}\n\r\n--912d1f17a9ce10e75a8f52eb9e10fc1d9606c8a28257997b81c66f75773a\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--912d1f17a9ce10e75a8f52eb9e10fc1d9606c8a28257997b81c66f75773a--\r\n",
+   "ctype": "multipart/related; boundary=912d1f17a9ce10e75a8f52eb9e10fc1d9606c8a28257997b81c66f75773a",
+   "method": "POST",
+   "path": "/upload/youtube/v3/watermarks/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelId": [
+     "val-channelId"
+    ],
+    "onBehalfOfContentOwner": [
+     "val-onBehalfOfContentOwner"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Watermark set for channel val-channelId\n"
+}

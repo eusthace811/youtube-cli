@@ -1,0 +1,10 @@
+r0 lane 5: PASS
+
+tools: 74
+$ contract.py --compare
+exit: 0
+--- stdout ---
+contract: 0 differences
+
+--- stderr ---
+

@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistImage.insert.output.silent",
+ "requests": [
+  {
+   "body": "--71ee6cb7417fc5013e82661a3fdde774ed0da3e4bf29b4897da96c0879ad\r\nContent-Type: application/json\r\n\r\n{\"kind\":\"youtube#playlistImages\",\"snippet\":{\"playlistId\":\"val-playlistId\"}}\n\r\n--71ee6cb7417fc5013e82661a3fdde774ed0da3e4bf29b4897da96c0879ad\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--71ee6cb7417fc5013e82661a3fdde774ed0da3e4bf29b4897da96c0879ad--\r\n",
+   "ctype": "multipart/related; boundary=71ee6cb7417fc5013e82661a3fdde774ed0da3e4bf29b4897da96c0879ad",
+   "method": "POST",
+   "path": "/upload/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": ""
+}

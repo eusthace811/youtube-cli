@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.commentThread.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List comment threads. Use this tool to list comment threads.\n\nUsage:\n  yutu commentThread list [flags]\n\nExamples:\n# List comment threads on a video\nyutu commentThread list --videoId dQw4w9WgXcQ --maxResults 10\n# Search comment threads by terms\nyutu commentThread list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --searchTerms 'hello'\n# List specific comment threads in JSON format\nyutu commentThread list --ids abc123,def456 --output json\n\nFlags:\n  -a, --allThreadsRelatedToChannelId string   Returns the comment threads of all videos of the channel and the channel comments as well\n  -c, --channelId string                      Channel id of the video owner\n  -h, --help                                  help for list\n  -i, --ids strings                           IDs of the comment threads\n  -n, --maxResults int                        The maximum number of items that should be returned, 0 for no limit (default 5)\n  -m, --moderationStatus string               published|heldForReview|likelySpam|rejected (default \"published\")\n  -O, --order string                          orderUnspecified|time|relevance (default \"time\")\n  -o, --output string                         json|yaml|table (default \"table\")\n  -p, --parts strings                         Comma separated parts (default [id,snippet])\n  -s, --searchTerms string                    Search terms\n  -t, --textFormat string                     textFormatUnspecified|html (default \"html\")\n  -v, --videoId string                        Returns the comment threads of the specified video\n"
+}

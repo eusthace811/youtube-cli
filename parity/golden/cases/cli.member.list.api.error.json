@@ -1,0 +1,32 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.member.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/members",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "mode": [
+     "all_current"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get member\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu member list -h' to see usage.\n",
+ "stdout": ""
+}

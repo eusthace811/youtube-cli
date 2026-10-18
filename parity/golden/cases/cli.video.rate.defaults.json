@@ -1,0 +1,49 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.rate.defaults",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/videos/rate",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "rating": [
+     "val-rating"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/videos/rate",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "rating": [
+     "val-rating"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Video id1 rated val-rating\nVideo id2 rated val-rating\n"
+}

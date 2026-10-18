@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.list.output.table",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      CHANNEL ID                            DISPLAY NAME                           \n id-0    snippet.moderatorDetails.channelId-0  snippet.moderatorDetails.displayName-0 \n id-1    snippet.moderatorDetails.channelId-1  snippet.moderatorDetails.displayName-1 \n id-2    snippet.moderatorDetails.channelId-2  snippet.moderatorDetails.displayName-2 \n zero-0                                                                               "
+}

@@ -1,0 +1,33 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.liveChatMessage-list.output.table",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/messages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-live_chat_id"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "snippet",
+     "authorDetails"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:21.574+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"liveChatMessage-list\",\"arguments\":{\"live_chat_id\":\"val-live_chat_id\",\"output\":\"table\"}}}\ntime=2026-10-18T15:39:21.575+01:00 level=INFO msg=liveChatMessage-list input=\"{\\\"confirmed\\\":false,\\\"max_results\\\":5,\\\"parts\\\":[\\\"snippet\\\",\\\"authorDetails\\\"],\\\"output\\\":\\\"table\\\",\\\"live_chat_id\\\":\\\"val-live_chat_id\\\"}\" output_length=409\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\" ID      TYPE              AUTHOR                       MESSAGE                  \\n id-0    invalidType       authorDetails.displayName-0  snippet.displayMessage-0 \\n id-1    textMessageEvent  authorDetails.displayName-1  snippet.displayMessage-1 \\n id-2    tombstone         authorDetails.displayName-2  snippet.displayMessage-2 \\n zero-0                                                                          \"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\" ID      TYPE              AUTHOR                       MESSAGE                  \\n id-0    invalidType       authorDetails.displayName-0  snippet.displayMessage-0 \\n id-1    textMessageEvent  authorDetails.displayName-1  snippet.displayMessage-1 \\n id-2    tombstone         authorDetails.displayName-2  snippet.displayMessage-2 \\n zero-0                                                                          \"}]}}\n"
+}

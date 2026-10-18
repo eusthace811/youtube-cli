@@ -1,0 +1,29 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.thumbnail.set.api.error",
+ "requests": [
+  {
+   "body": "--cd528fb77dfcf2c664295fc8135e15e46c5fb8cba9ea40c5be8f0a0f4e48\r\nContent-Type: application/json\r\n\r\n\r\n--cd528fb77dfcf2c664295fc8135e15e46c5fb8cba9ea40c5be8f0a0f4e48\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--cd528fb77dfcf2c664295fc8135e15e46c5fb8cba9ea40c5be8f0a0f4e48--\r\n",
+   "ctype": "multipart/related; boundary=cd528fb77dfcf2c664295fc8135e15e46c5fb8cba9ea40c5be8f0a0f4e48",
+   "method": "POST",
+   "path": "/upload/youtube/v3/thumbnails/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ],
+    "videoId": [
+     "val-videoId"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to set thumbnail\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu thumbnail set -h' to see usage.\n",
+ "stdout": ""
+}

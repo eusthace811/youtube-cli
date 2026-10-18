@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlist.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete playlists. Use this tool to delete playlists by IDs.\n\nUsage:\n  yutu playlist delete [flags]\n\nExamples:\n# Delete a playlist by ID\nyutu playlist delete --ids PLxxxx\n# Delete multiple playlists\nyutu playlist delete --ids PLxxx1,PLxxx2\n\nFlags:\n  -h, --help                            help for delete\n  -i, --ids strings                     IDs of the playlists to delete\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+}

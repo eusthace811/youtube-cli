@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.playlistItem.update.title.short",
+ "requests": [],
+ "stderr": "Error: failed to get playlist item\nRun 'yutu playlistItem update -h' to see usage.\n",
+ "stdout": ""
+}

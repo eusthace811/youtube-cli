@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistImage.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete playlist images. Use this tool to delete playlist images by IDs.\n\nUsage:\n  yutu playlistImage delete [flags]\n\nExamples:\n# Delete a playlist image by ID\nyutu playlistImage delete --ids abc123\n# Delete multiple playlist images\nyutu playlistImage delete --ids abc123,def456\n\nFlags:\n  -h, --help                            help for delete\n  -i, --ids strings                     IDs of the playlist images to delete\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+}

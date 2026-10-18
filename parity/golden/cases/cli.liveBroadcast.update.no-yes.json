@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveBroadcast.update.no-yes",
+ "requests": [],
+ "stderr": "Update live broadcast: id1\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu liveBroadcast update -h' to see usage.\n",
+ "stdout": ""
+}

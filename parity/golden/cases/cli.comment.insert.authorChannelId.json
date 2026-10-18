@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.insert.authorChannelId",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"authorChannelId\":{\"value\":\"val-authorChannelId\"},\"parentId\":\"val-parentId\",\"textOriginal\":\"val-textOriginal\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/comments",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Comment inserted: id-1\n"
+}

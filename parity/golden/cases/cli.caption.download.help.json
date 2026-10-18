@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.download.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Download a caption. Use this tool to download a caption from a video.\n\nUsage:\n  yutu caption download [flags]\n\nExamples:\n# Download a caption as SRT\nyutu caption download --id abc123 --file subtitle.srt\n# Download a caption as VTT\nyutu caption download --id abc123 --file subtitle.vtt --tfmt vtt\n# Download a caption translated to French\nyutu caption download --id abc123 --file subtitle.srt --tlang fr\n\nFlags:\n  -f, --file string                     Path to save the caption file\n  -h, --help                            help for download\n  -i, --id strings                      ID of the caption to download\n  -b, --onBehalfOf string               ID of the YouTube account that the content owner is acting on behalf of\n  -B, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -t, --tfmt string                     sbv|srt|vtt\n  -l, --tlang string                    Translate the captions into this language\n"
+}

@@ -1,0 +1,43 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.insertCuepoint.cueDurationSecs.short",
+ "requests": [
+  {
+   "body": "{\"cueType\":\"cueTypeAd\",\"durationSecs\":7}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/cuepoint",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"cueType\":\"cueTypeAd\",\"durationSecs\":7}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/cuepoint",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Cuepoint inserted for broadcast id1: id-1\nCuepoint inserted for broadcast id2: id-1\n"
+}

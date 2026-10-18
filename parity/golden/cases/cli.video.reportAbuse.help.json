@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.reportAbuse.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Report abuse on a video. Use this tool to report abuse on a video.\n\nUsage:\n  yutu video reportAbuse [flags]\n\nExamples:\n# Report abuse on a video\nyutu video reportAbuse --ids dQw4w9WgXcQ --reasonId V\n# Report abuse with secondary reason and language\nyutu video reportAbuse --ids dQw4w9WgXcQ --reasonId V --secondaryReasonId V1 --language en\n# Report abuse with comments\nyutu video reportAbuse --ids dQw4w9WgXcQ --reasonId N --comments 'Spam content'\n\nFlags:\n  -c, --comments string                 Additional comments regarding the abuse report\n  -h, --help                            help for reportAbuse\n  -i, --ids strings                     IDs of the videos to report abuse on\n  -l, --language string                 Language that the content was viewed in\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -r, --reasonId string                 ID of the reason for reporting abuse\n  -s, --secondaryReasonId string        ID of the secondary reason for reporting abuse\n      --yes                             Confirm the operation\n"
+}

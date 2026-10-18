@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.commentThread.insert.output.yaml",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"channelId\":\"val-channelId\",\"topLevelComment\":{\"snippet\":{\"authorChannelId\":{},\"channelId\":\"val-channelId\",\"textOriginal\":\"val-textOriginal\",\"videoId\":\"val-videoId\"}}}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/commentThreads",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "etag: etag-1\nid: id-1\nkind: kind-1\nreplies:\n    comments:\n        - etag: replies.comments[].etag-1\n          id: replies.comments[].id-1\n          kind: replies.comments[].kind-1\n          snippet:\n            authorchannelid:\n                value: replies.comments[].snippet.authorChannelId.value-1\n                forcesendfields: []\n                nullfields: []\n            authorchannelurl: replies.comments[].snippet.authorChannelUrl-1\n            authordisplayname: replies.comments[].snippet.authorDisplayName-1\n            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-1\n            canrate: true\n            channelid: replies.comments[].snippet.channelId-1\n            likecount: 49\n            moderationstatus: heldForReview\n            parentid: replies.comments[].snippet.parentId-1\n            publishedat: \"2026-02-11T12:34:51Z\"\n            textdisplay: Ünïcödé ✓ 日本語のタイトル replies.comments[].snippet.textDisplay\n            textoriginal: replies.comments[].snippet.textOriginal-1\n            updatedat: \"2026-02-11T12:34:51Z\"\n            videoid: replies.comments[].snippet.videoId-1\n            viewerrating: like\n            forcesendfields: []\n            nullfields: []\n          serverresponse:\n            httpstatuscode: 0\n            header: {}\n          forcesendfields: []\n          nullfields: []\n        - etag: replies.comments[].etag-2\n          id: replies.comments[].id-2\n          kind: replies.comments[].kind-2\n          snippet:\n            authorchannelid:\n                value: replies.comments[].snippet.authorChannelId.value-2\n                forcesendfields: []\n                nullfields: []\n            authorchannelurl: replies.comments[].snippet.authorChannelUrl-2\n            authordisplayname: replies.comments[].snippet.authorDisplayName-2\n            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-2\n            canrate: false\n            channelid: replies.comments[].snippet.channelId-2\n            likecount: 62\n            moderationstatus: likelySpam\n            parentid: replies.comments[].snippet.parentId-2\n            publishedat: \"2026-03-12T12:34:52Z\"\n            textdisplay: <b>tags</b> & \"quotes\" replies.comments[].snippet.textDisplay\n            textoriginal: replies.comments[].snippet.textOriginal-2\n            updatedat: \"2026-03-12T12:34:52Z\"\n            videoid: replies.comments[].snippet.videoId-2\n            viewerrating: dislike\n            forcesendfields: []\n            nullfields: []\n          serverresponse:\n            httpstatuscode: 0\n            header: {}\n          forcesendfields: []\n          nullfields: []\n    forcesendfields: []\n    nullfields: []\nsnippet:\n    canreply: true\n    channelid: snippet.channelId-1\n    ispublic: true\n    toplevelcomment:\n        etag: snippet.topLevelComment.etag-1\n        id: snippet.topLevelComment.id-1\n        kind: snippet.topLevelComment.kind-1\n        snippet:\n            authorchannelid:\n                value: snippet.topLevelComment.snippet.authorChannelId.value-1\n                forcesendfields: []\n                nullfields: []\n            authorchannelurl: snippet.topLevelComment.snippet.authorChannelUrl-1\n            authordisplayname: snippet.topLevelComment.snippet.authorDisplayName-1\n            authorprofileimageurl: snippet.topLevelComment.snippet.authorProfileImageUrl-1\n            canrate: true\n            channelid: snippet.topLevelComment.snippet.channelId-1\n            likecount: 54\n            moderationstatus: heldForReview\n            parentid: snippet.topLevelComment.snippet.parentId-1\n            publishedat: \"2026-02-11T12:34:51Z\"\n            textdisplay: Ünïcödé ✓ 日本語のタイトル snippet.topLevelComment.snippet.textDisplay\n            textoriginal: snippet.topLevelComment.snippet.textOriginal-1\n            updatedat: \"2026-02-11T12:34:51Z\"\n            videoid: snippet.topLevelComment.snippet.videoId-1\n            viewerrating: like\n            forcesendfields: []\n            nullfields: []\n        serverresponse:\n            httpstatuscode: 0\n            header: {}\n        forcesendfields: []\n        nullfields: []\n    totalreplycount: 36\n    videoid: snippet.videoId-1\n    forcesendfields: []\n    nullfields: []\nserverresponse:\n    httpstatuscode: 200\n    header:\n        Content-Length:\n            - \"3109\"\n        Content-Type:\n            - application/json\n        Date:\n            - Sun, 18 Oct 2026 12:00:00 GMT\n        Server:\n            - parity-recorder\nforcesendfields: []\nnullfields: []\n\n"
+}

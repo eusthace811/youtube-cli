@@ -1,0 +1,31 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.playlistImage-list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:24.927+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"playlistImage-list\",\"arguments\":{\"output\":\"yaml\"}}}\ntime=2026-10-18T15:39:24.928+01:00 level=INFO msg=playlistImage-list input=\"{\\\"confirmed\\\":false,\\\"max_results\\\":5,\\\"parts\\\":[\\\"id\\\",\\\"kind\\\",\\\"snippet\\\"],\\\"output\\\":\\\"yaml\\\"}\" output_length=997\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"- id: id-0\\n  kind: kind-0\\n  snippet:\\n    height: 14\\n    playlistid: snippet.playlistId-0\\n    type: hero\\n    width: 13\\n    forcesendfields: []\\n    nullfields: []\\n  serverresponse:\\n    httpstatuscode: 0\\n    header: {}\\n  forcesendfields: []\\n  nullfields: []\\n- id: id-1\\n  kind: kind-1\\n  snippet:\\n    height: 27\\n    playlistid: snippet.playlistId-1\\n    type: hero\\n    width: 26\\n    forcesendfields: []\\n    nullfields: []\\n  serverresponse:\\n    httpstatuscode: 0\\n    header: {}\\n  forcesendfields: []\\n  nullfields: []\\n- id: id-2\\n  kind: kind-2\\n  snippet:\\n    height: 40\\n    playlistid: snippet.playlistId-2\\n    type: hero\\n    width: 39\\n    forcesendfields: []\\n    nullfields: []\\n  serverresponse:\\n    httpstatuscode: 0\\n    header: {}\\n  forcesendfields: []\\n  nullfields: []\\n- id: zero-0\\n  kind: \\\"\\\"\\n  snippet:\\n    height: 0\\n    playlistid: \\\"\\\"\\n    type: \\\"\\\"\\n    width: 0\\n    forcesendfields: []\\n    nullfields: []\\n  serverresponse:\\n    httpstatuscode: 0\\n    header: {}\\n  forcesendfields: []\\n  nullfields: []\\n\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"- id: id-0\\n  kind: kind-0\\n  snippet:\\n    height: 14\\n    playlistid: snippet.playlistId-0\\n    type: hero\\n    width: 13\\n    forcesendfields: []\\n    nullfields: []\\n  serverresponse:\\n    httpstatuscode: 0\\n    header: {}\\n  forcesendfields: []\\n  nullfields: []\\n- id: id-1\\n  kind: kind-1\\n  snippet:\\n    height: 27\\n    playlistid: snippet.playlistId-1\\n    type: hero\\n    width: 26\\n    forcesendfields: []\\n    nullfields: []\\n  serverresponse:\\n    httpstatuscode: 0\\n    header: {}\\n  forcesendfields: []\\n  nullfields: []\\n- id: id-2\\n  kind: kind-2\\n  snippet:\\n    height: 40\\n    playlistid: snippet.playlistId-2\\n    type: hero\\n    width: 39\\n    forcesendfields: []\\n    nullfields: []\\n  serverresponse:\\n    httpstatuscode: 0\\n    header: {}\\n  forcesendfields: []\\n  nullfields: []\\n- id: zero-0\\n  kind: \\\"\\\"\\n  snippet:\\n    height: 0\\n    playlistid: \\\"\\\"\\n    type: \\\"\\\"\\n    width: 0\\n    forcesendfields: []\\n    nullfields: []\\n  serverresponse:\\n    httpstatuscode: 0\\n    header: {}\\n  forcesendfields: []\\n  nullfields: []\\n\\n\"}]}}\n"
+}

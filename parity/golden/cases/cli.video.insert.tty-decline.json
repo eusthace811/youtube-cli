@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.video.insert.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Upload video: video.mp4 [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu video insert -h' to see usage.\r\n"
+}

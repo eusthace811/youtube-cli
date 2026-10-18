@@ -1,0 +1,58 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.list.maxResults.21",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TITLE                       STATUS  \n id-0    @at sign                    created \n id-1    Ünïcödé ✓ 日本語のタイトル  ready   \n id-2    - dash start                active  \n zero-0                                      \n id-10   key: value                  created \n id-11   'single' quoted             ready   \n id-12   <b>tags</b> & \"quotes\"      active  \n zero-1                                      "
+}

@@ -1,0 +1,28 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.insert.scheduledStartTime",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"scheduledStartTime\":\"2026-01-02T03:04:05Z\",\"title\":\"val-title\"},\"status\":{}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live broadcast inserted: id-1\n"
+}

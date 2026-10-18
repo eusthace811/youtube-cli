@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveStream.update.no-yes",
+ "requests": [],
+ "stderr": "Update live stream: id1\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu liveStream update -h' to see usage.\n",
+ "stdout": ""
+}

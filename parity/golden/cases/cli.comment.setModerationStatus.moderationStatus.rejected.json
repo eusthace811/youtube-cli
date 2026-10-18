@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.setModerationStatus.moderationStatus.rejected",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/comments/setModerationStatus",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1",
+     "id2"
+    ],
+    "moderationStatus": [
+     "rejected"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Comment moderation status set to rejected: [id1 id2]\n"
+}

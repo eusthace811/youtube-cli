@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.comment.update.tty-accept",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update comment: id1 [y/N] y\r\nError: failed to get comment\r\nRun 'yutu comment update -h' to see usage.\r\n"
+}

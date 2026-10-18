@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.insert.audioTrackType.commentary",
+ "requests": [
+  {
+   "body": "--4e8f75b1b84e2316ce060f7087a4fa6c8880150f18c2441f1d41f8231188\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"audioTrackType\":\"commentary\",\"trackKind\":\"standard\",\"videoId\":\"val-videoId\"}}\n\r\n--4e8f75b1b84e2316ce060f7087a4fa6c8880150f18c2441f1d41f8231188\r\nContent-Type: text/plain; charset=utf-8\r\n\r\n1\n00:00:00,000 --> 00:00:01,000\nHello\n\r\n--4e8f75b1b84e2316ce060f7087a4fa6c8880150f18c2441f1d41f8231188--\r\n",
+   "ctype": "multipart/related; boundary=4e8f75b1b84e2316ce060f7087a4fa6c8880150f18c2441f1d41f8231188",
+   "method": "POST",
+   "path": "/upload/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Caption inserted: id-1\n"
+}

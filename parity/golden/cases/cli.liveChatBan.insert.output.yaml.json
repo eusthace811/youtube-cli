@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatBan.insert.output.yaml",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"bannedUserDetails\":{\"channelId\":\"val-bannedUserChannelId\"},\"liveChatId\":\"val-liveChatId\",\"type\":\"val-banType\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/bans",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "etag: etag-1\nid: id-1\nkind: kind-1\nsnippet:\n    bandurationseconds: 8725\n    banneduserdetails:\n        channelid: snippet.bannedUserDetails.channelId-1\n        channelurl: snippet.bannedUserDetails.channelUrl-1\n        displayname: snippet.bannedUserDetails.displayName-1\n        profileimageurl: snippet.bannedUserDetails.profileImageUrl-1\n        forcesendfields: []\n        nullfields: []\n    livechatid: snippet.liveChatId-1\n    type: permanent\n    forcesendfields: []\n    nullfields: []\nserverresponse:\n    httpstatuscode: 200\n    header:\n        Content-Length:\n            - \"409\"\n        Content-Type:\n            - application/json\n        Date:\n            - Sun, 18 Oct 2026 12:00:00 GMT\n        Server:\n            - parity-recorder\nforcesendfields: []\nnullfields: []\n\n"
+}

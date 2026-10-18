@@ -1,0 +1,159 @@
+{
+ "pages": [
+  {
+   "kind": "youtube#playlistImageListResponse",
+   "etag": "etag-page-0",
+   "items": [
+    {
+     "id": "id-0",
+     "kind": "kind-0",
+     "snippet": {
+      "height": 14,
+      "playlistId": "snippet.playlistId-0",
+      "type": "hero",
+      "width": 13
+     }
+    },
+    {
+     "id": "id-1",
+     "kind": "kind-1",
+     "snippet": {
+      "height": 27,
+      "playlistId": "snippet.playlistId-1",
+      "type": "hero",
+      "width": 26
+     }
+    },
+    {
+     "id": "id-2",
+     "kind": "kind-2",
+     "snippet": {
+      "height": 40,
+      "playlistId": "snippet.playlistId-2",
+      "type": "hero",
+      "width": 39
+     }
+    },
+    {
+     "id": "zero-0",
+     "kind": "",
+     "snippet": {
+      "height": 0,
+      "playlistId": "",
+      "type": "",
+      "width": 0
+     }
+    }
+   ],
+   "pageInfo": {
+    "totalResults": 12,
+    "resultsPerPage": 4
+   },
+   "nextPageToken": "p2",
+   "_token": ""
+  },
+  {
+   "kind": "youtube#playlistImageListResponse",
+   "etag": "etag-page-1",
+   "items": [
+    {
+     "id": "id-10",
+     "kind": "kind-10",
+     "snippet": {
+      "height": 144,
+      "playlistId": "snippet.playlistId-10",
+      "type": "hero",
+      "width": 143
+     }
+    },
+    {
+     "id": "id-11",
+     "kind": "kind-11",
+     "snippet": {
+      "height": 157,
+      "playlistId": "snippet.playlistId-11",
+      "type": "hero",
+      "width": 156
+     }
+    },
+    {
+     "id": "id-12",
+     "kind": "kind-12",
+     "snippet": {
+      "height": 170,
+      "playlistId": "snippet.playlistId-12",
+      "type": "hero",
+      "width": 169
+     }
+    },
+    {
+     "id": "zero-1",
+     "kind": "",
+     "snippet": {
+      "height": 0,
+      "playlistId": "",
+      "type": "",
+      "width": 0
+     }
+    }
+   ],
+   "pageInfo": {
+    "totalResults": 12,
+    "resultsPerPage": 4
+   },
+   "nextPageToken": "p3",
+   "_token": "p2"
+  },
+  {
+   "kind": "youtube#playlistImageListResponse",
+   "etag": "etag-page-2",
+   "items": [
+    {
+     "id": "id-20",
+     "kind": "kind-20",
+     "snippet": {
+      "height": 274,
+      "playlistId": "snippet.playlistId-20",
+      "type": "hero",
+      "width": 273
+     }
+    },
+    {
+     "id": "id-21",
+     "kind": "kind-21",
+     "snippet": {
+      "height": 287,
+      "playlistId": "snippet.playlistId-21",
+      "type": "hero",
+      "width": 286
+     }
+    },
+    {
+     "id": "id-22",
+     "kind": "kind-22",
+     "snippet": {
+      "height": 300,
+      "playlistId": "snippet.playlistId-22",
+      "type": "hero",
+      "width": 299
+     }
+    },
+    {
+     "id": "zero-2",
+     "kind": "",
+     "snippet": {
+      "height": 0,
+      "playlistId": "",
+      "type": "",
+      "width": 0
+     }
+    }
+   ],
+   "pageInfo": {
+    "totalResults": 12,
+    "resultsPerPage": 4
+   },
+   "_token": "p3"
+  }
+ ]
+}

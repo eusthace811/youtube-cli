@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.watermark-set.offset_type.offsetFromEnd",
+ "requests": [
+  {
+   "body": "--68ad0fea9abf11c21f54e590e0871e1bdc0c576070def52cc10681744568\r\nContent-Type: application/json\r\n\r\n{\"position\":{},\"timing\":{\"type\":\"offsetFromEnd\"}}\n\r\n--68ad0fea9abf11c21f54e590e0871e1bdc0c576070def52cc10681744568\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--68ad0fea9abf11c21f54e590e0871e1bdc0c576070def52cc10681744568--\r\n",
+   "ctype": "multipart/related; boundary=68ad0fea9abf11c21f54e590e0871e1bdc0c576070def52cc10681744568",
+   "method": "POST",
+   "path": "/upload/youtube/v3/watermarks/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelId": [
+     "val-channel_id"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:31.109+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"watermark-set\",\"arguments\":{\"channel_id\":\"val-channel_id\",\"file\":\"image.png\",\"offset_type\":\"offsetFromEnd\"}}}\ntime=2026-10-18T15:39:31.109+01:00 level=INFO msg=watermark-set input=\"{\\\"confirmed\\\":false,\\\"channel_id\\\":\\\"val-channel_id\\\",\\\"file\\\":\\\"image.png\\\",\\\"offset_type\\\":\\\"offsetFromEnd\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Set watermark image.png for channel val-channel_id\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:31.111+01:00 level=INFO msg=watermark-set input=\"{\\\"confirmed\\\":false,\\\"channel_id\\\":\\\"val-channel_id\\\",\\\"file\\\":\\\"image.png\\\",\\\"offset_type\\\":\\\"offsetFromEnd\\\"}\" output_length=41\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Watermark set for channel val-channel_id\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Set watermark image.png for channel val-channel_id\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Watermark set for channel val-channel_id\\n\"}]}}\n"
+}

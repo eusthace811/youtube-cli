@@ -1,0 +1,34 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.list.onBehalfOfContentOwner",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveBroadcasts",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "onBehalfOfContentOwner": [
+     "val-onBehalfOfContentOwner"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TITLE                       STATUS                      PRIVACY  \n id-0    @at sign                    lifeCycleStatusUnspecified  public   \n id-1    Ünïcödé ✓ 日本語のタイトル  created                     unlisted \n id-2    - dash start                ready                       private  \n zero-0                                                                   "
+}

@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.abuseReport.insert.subjectUrl.short",
+ "requests": [
+  {
+   "body": "{\"abuseTypes\":[{\"id\":\"spam\"},{\"id\":\"violence\"}],\"subject\":{\"id\":\"val-subjectId\",\"typeId\":\"val-subjectTypeId\",\"url\":\"val-subjectUrl\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/abuseReports",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Abuse report submitted\n"
+}

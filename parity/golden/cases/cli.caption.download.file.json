@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {
+  "out.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello caption\n",
+  "val-file": null
+ },
+ "id": "cli.caption.download.file",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/captions/id1",
+   "query": {
+    "alt": [
+     "media"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Caption id1 downloaded to out.srt\n"
+}

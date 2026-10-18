@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.subscription.insert.tty-accept",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"channelId\":\"val-subscriberChannelId\",\"resourceId\":{\"channelId\":\"val-channelId\"}}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/subscriptions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Subscribe to channel: val-channelId [y/N] y\r\nSubscription inserted: id-1\r\n"
+}

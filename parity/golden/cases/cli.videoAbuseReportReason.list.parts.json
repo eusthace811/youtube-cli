@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.videoAbuseReportReason.list.parts",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videoAbuseReportReasons",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      LABEL           \n id-0    snippet.label-0 \n id-1    snippet.label-1 \n id-2    snippet.label-2 \n zero-0                  "
+}

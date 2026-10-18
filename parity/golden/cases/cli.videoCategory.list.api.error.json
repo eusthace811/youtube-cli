@@ -1,0 +1,30 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.videoCategory.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videoCategories",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "regionCode": [
+     "US"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get video categoryId\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu videoCategory list -h' to see usage.\n",
+ "stdout": ""
+}

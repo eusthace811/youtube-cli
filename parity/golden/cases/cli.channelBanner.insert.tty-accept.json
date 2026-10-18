@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.channelBanner.insert.tty-accept",
+ "requests": [
+  {
+   "body": "--6c7a25fa28d0fe087800c53d6ca942650163dfb83f5f697e8d0ec8ac6c03\r\nContent-Type: application/json\r\n\r\n{}\n\r\n--6c7a25fa28d0fe087800c53d6ca942650163dfb83f5f697e8d0ec8ac6c03\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--6c7a25fa28d0fe087800c53d6ca942650163dfb83f5f697e8d0ec8ac6c03--\r\n",
+   "ctype": "multipart/related; boundary=6c7a25fa28d0fe087800c53d6ca942650163dfb83f5f697e8d0ec8ac6c03",
+   "method": "POST",
+   "path": "/upload/youtube/v3/channelBanners/insert",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelId": [
+     "val-channelId"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Upload channel banner image.png for channel val-channelId [y/N] y\r\nChannelBanner inserted: url-1\r\n"
+}

@@ -1,0 +1,48 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.update.parts.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "linkingToken": [
+     "val-linkingToken"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"etag\":\"etag-0\",\"kind\":\"kind-0\",\"linkingToken\":\"linkingToken-0\",\"snippet\":{\"channelToAffiliateProgramLink\":{\"merchantId\":\"1488\",\"programStatus\":\"affiliateProgramStatusUnspecified\",\"statusUpdateReason\":\"snippet.channelToAffiliateProgramLink.statusUpdateReason-0\",\"statusUpdateTime\":\"snippet.channelToAffiliateProgramLink.statusUpdateTime-0\"},\"channelToStoreLink\":{\"billingDetails\":{\"billingStatus\":\"billingStatusUnspecified\"},\"merchantAffiliateProgramDetails\":{\"status\":\"merchantAffiliateProgramStatusUnspecified\"},\"merchantId\":\"1147\",\"storeName\":\"snippet.channelToStoreLink.storeName-0\",\"storeUrl\":\"snippet.channelToStoreLink.storeUrl-0\"},\"type\":\"linkUnspecified\"},\"status\":{\"linkStatus\":\"unknown\"}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Third party link updated: linkingToken-1\n"
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.comment.delete.no-yes",
+ "requests": [],
+ "stderr": "Delete comment(s): id1, id2\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu comment delete -h' to see usage.\n",
+ "stdout": ""
+}

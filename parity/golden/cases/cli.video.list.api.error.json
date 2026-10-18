@@ -1,0 +1,32 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.video.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status",
+     "statistics"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get video\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu video list -h' to see usage.\n",
+ "stdout": ""
+}

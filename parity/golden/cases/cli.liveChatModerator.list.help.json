@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List live chat moderators. Use this tool to list moderators for a live chat.\n\nUsage:\n  yutu liveChatModerator list [flags]\n\nExamples:\n# List moderators for a live chat\nyutu liveChatModerator list --liveChatId abc123\n# List moderators with limit\nyutu liveChatModerator list --liveChatId abc123 --maxResults 10\n\nFlags:\n  -h, --help                help for list\n  -l, --liveChatId string   ID of the live chat\n  -n, --maxResults int      The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string       json|yaml|table (default \"table\")\n  -p, --parts strings       Comma separated parts (default [snippet])\n"
+}

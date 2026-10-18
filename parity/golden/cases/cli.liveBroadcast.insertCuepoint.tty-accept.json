@@ -1,0 +1,43 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.insertCuepoint.tty-accept",
+ "requests": [
+  {
+   "body": "{\"cueType\":\"cueTypeAd\"}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/cuepoint",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"cueType\":\"cueTypeAd\"}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/cuepoint",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Insert cuepoint into live broadcast(s) id1, id2 [y/N] y\r\nCuepoint inserted for broadcast id1: id-1\r\nCuepoint inserted for broadcast id2: id-1\r\n"
+}

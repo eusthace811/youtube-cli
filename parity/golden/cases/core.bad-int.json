@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.bad-int",
+ "requests": [],
+ "stderr": "Error: invalid argument \"x\" for \"-n, --maxResults\" flag: strconv.ParseInt: parsing \"x\": invalid syntax\nRun 'yutu video list -h' to see usage.\n",
+ "stdout": ""
+}

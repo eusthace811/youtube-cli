@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete captions. Use this tool to delete captions of a video by IDs.\n\nUsage:\n  yutu caption delete [flags]\n\nExamples:\n# Delete a caption by ID\nyutu caption delete --ids abc123\n# Delete multiple captions\nyutu caption delete --ids abc123,def456\n\nFlags:\n  -h, --help                            help for delete\n  -i, --ids strings                     IDs of the captions to delete\n  -b, --onBehalfOf string               ID of the YouTube account that the content owner is acting on behalf of\n  -B, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+}

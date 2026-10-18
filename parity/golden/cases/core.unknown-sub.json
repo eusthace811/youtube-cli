@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "core.unknown-sub",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Manage YouTube videos. Use this tool to list, upload, update, delete, get rating, or report videos.\n\nUsage:\n  yutu video [flags]\n  yutu video [command]\n\nAvailable Commands:\n  delete      Delete videos\n  getRating   Get video ratings\n  insert      Upload a video\n  list        List videos\n  rate        Rate a video\n  reportAbuse Report abuse on a video\n  update      Update a video\n\nFlags:\n  -h, --help   help for video\n\nUse \"yutu video [command] --help\" for more information about a command.\n"
+}

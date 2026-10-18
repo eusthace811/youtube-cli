@@ -1,0 +1,47 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.insert.playlistId",
+ "requests": [
+  {
+   "body": "--afc46823e0052efc356c75f4a4a2dd3e92a42e588f75fb944e8e85ddb417\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"categoryId\":\"val-categoryId\",\"title\":\"video\"},\"status\":{\"containsSyntheticMedia\":false,\"privacyStatus\":\"val-privacy\",\"selfDeclaredMadeForKids\":false}}\n\r\n--afc46823e0052efc356c75f4a4a2dd3e92a42e588f75fb944e8e85ddb417\r\nContent-Type: application/octet-stream\r\n\r\n\u0000\u0000\u0000\u0018ftypisom\u0000\u0000\u0002\u0000isomiso2\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\r\n--afc46823e0052efc356c75f4a4a2dd3e92a42e588f75fb944e8e85ddb417--\r\n",
+   "ctype": "multipart/related; boundary=afc46823e0052efc356c75f4a4a2dd3e92a42e588f75fb944e8e85ddb417",
+   "method": "POST",
+   "path": "/upload/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet,status"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  },
+  {
+   "body": "{\"snippet\":{\"channelId\":\"snippet.channelId-1\",\"description\":\"Ünïcödé ✓ 日本語のタイトル snippet.description\",\"playlistId\":\"val-playlistId\",\"resourceId\":{\"kind\":\"youtube#video\",\"videoId\":\"id-1\"},\"title\":\"Ünïcödé ✓ 日本語のタイトル\"},\"status\":{\"privacyStatus\":\"unlisted\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/playlistItems",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Video inserted: id-1\n"
+}

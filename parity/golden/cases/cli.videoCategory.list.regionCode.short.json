@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.videoCategory.list.regionCode.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videoCategories",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "regionCode": [
+     "val-regionCode"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TITLE                       ASSIGNABLE \n id-0    @at sign                    false      \n id-1    Ünïcödé ✓ 日本語のタイトル  true       \n id-2    - dash start                false      \n zero-0                              false      "
+}

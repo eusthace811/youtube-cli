@@ -1,0 +1,32 @@
+{
+ "abuseTypes": [
+  {
+   "id": "abuseTypes[].id-1"
+  },
+  {
+   "id": "abuseTypes[].id-2"
+  }
+ ],
+ "description": "Ünïcödé ✓ 日本語のタイトル description",
+ "relatedEntities": [
+  {
+   "entity": {
+    "id": "relatedEntities[].entity.id-1",
+    "typeId": "relatedEntities[].entity.typeId-1",
+    "url": "relatedEntities[].entity.url-1"
+   }
+  },
+  {
+   "entity": {
+    "id": "relatedEntities[].entity.id-2",
+    "typeId": "relatedEntities[].entity.typeId-2",
+    "url": "relatedEntities[].entity.url-2"
+   }
+  }
+ ],
+ "subject": {
+  "id": "subject.id-1",
+  "typeId": "subject.typeId-1",
+  "url": "subject.url-1"
+ }
+}

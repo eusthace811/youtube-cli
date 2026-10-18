@@ -1,0 +1,38 @@
+r0 lane 10: PASS
+
+--- yaml (head) ---
+- agegating:
+    alcoholcontent: false
+    restricted: false
+    videogamerating: anyone
+    forcesendfields: []
+    nullfields: []
+  brandpartner:
+    channelhandle: brandPartner.channelHandle-0
+    channelid: brandPartner.channelId-0
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    caption: "true"
+    contentrating:
+        acbrating: acbUnspecified
+        agcomrating: agcomUnspecified
+        anatelrating: anatelUnspecified
+        bbfcrating: bbfcUnspecified
+        bfvcrating: bfvcUnspecified
+        bmukkrating: bmukkUnspecified
+        catvrating: catvUnspecified
+        catvfrrating: catvfrUnspecified
+        cbfcrating: cbfcUnspecified
+        cccrating: cccUnspecified
+        ccerating: cceUnspecified
+        chfilmrating: chfilmUnspecified
+        chvrsrating: c
+--- yaml tail repr ---
+'e: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n\n'
+--- table ---
+ ID      TITLE                                     CHANNEL ID           VIEWS 
+ id-0    Plain title snippet.title                 snippet.channelId-0    620 
+ id-1    Ünïcödé ✓ 日本語のタイトル snippet.title  snippet.channelId-1   8539 
+ id-2    <b>tags</b> & "quotes" snippet.title      snippet.channelId-2  16458 
+ zero-0                                                                     0 |<EOF

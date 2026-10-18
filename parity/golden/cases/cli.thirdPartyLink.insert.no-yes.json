@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.thirdPartyLink.insert.no-yes",
+ "requests": [],
+ "stderr": "Create third-party link: val-linkingToken\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu thirdPartyLink insert -h' to see usage.\n",
+ "stdout": ""
+}

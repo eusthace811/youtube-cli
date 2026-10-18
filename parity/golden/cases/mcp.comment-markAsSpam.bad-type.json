@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.comment-markAsSpam.bad-type",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/comments/markAsSpam",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1",
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:18.245+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"comment-markAsSpam\",\"arguments\":{\"ids\":[\"id1\",\"id2\"],\"unknown_prop\":1}}}\ntime=2026-10-18T15:39:18.247+01:00 level=INFO msg=comment-markAsSpam input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Mark comment(s) id1, id2 as spam\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:18.247+01:00 level=INFO msg=comment-markAsSpam input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\"}\" output_length=56\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\"}\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Mark comment(s) id1, id2 as spam\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\"}\\n\"}]}}\n"
+}

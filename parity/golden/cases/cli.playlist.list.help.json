@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlist.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List playlists. Use this tool to list playlists.\n\nUsage:\n  yutu playlist list [flags]\n\nExamples:\n# List my playlists\nyutu playlist list --mine\n# List playlists by channel ID with limit\nyutu playlist list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10\n# List specific playlists in JSON format\nyutu playlist list --ids PLxxx1,PLxxx2 --output json\n\nFlags:\n  -c, --channelId string                       Return the playlists owned by the specified channel id\n  -h, --help                                   help for list\n  -l, --hl string                              Return content in specified language\n  -i, --ids strings                            Return the playlists with the given Ids for Stubby or Apiary\n  -n, --maxResults int                         The maximum number of items that should be returned, 0 for no limit (default 5)\n  -M, --mine                                   Return the playlists owned by the authenticated user (default true)\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -o, --output string                          json|yaml|table (default \"table\")\n  -p, --parts strings                          Comma separated parts (default [id,snippet,status])\n"
+}

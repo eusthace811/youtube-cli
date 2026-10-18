@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.insert.output.silent",
+ "requests": [
+  {
+   "body": "{\"cdn\":{\"ingestionType\":\"val-ingestionType\",\"resolution\":\"val-resolution\"},\"snippet\":{\"title\":\"val-title\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": ""
+}

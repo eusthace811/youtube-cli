@@ -1,0 +1,32 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveStream.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get live stream\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveStream list -h' to see usage.\n",
+ "stdout": ""
+}

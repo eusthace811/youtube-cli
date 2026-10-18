@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.channelBanner.insert.no-yes",
+ "requests": [],
+ "stderr": "Upload channel banner image.png for channel val-channelId\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu channelBanner insert -h' to see usage.\n",
+ "stdout": ""
+}

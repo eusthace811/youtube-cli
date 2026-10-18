@@ -1,0 +1,27 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.membershipsLevel.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/membershipsLevels",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get memberships level\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu membershipsLevel list -h' to see usage.\n",
+ "stdout": ""
+}

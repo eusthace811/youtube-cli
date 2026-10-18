@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.list.parts",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " LINKING TOKEN   TYPE                           LINK STATUS \n linkingToken-0  linkUnspecified                unknown     \n linkingToken-1  channelToStoreLink             failed      \n linkingToken-2  channelToAffiliateProgramLink  pending     \n                                                            "
+}

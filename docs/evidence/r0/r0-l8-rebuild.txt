@@ -1,0 +1,15 @@
+r0 lane 8: PASS
+
+$ ref/build.sh (clean clone)
+exit: 0
+--- stdout ---
+all modules verified
+c889453e211cbf1f327bee3d14089887e44e74e5ed2067ef926ca8d06d169e3a  yutu-go
+a6e49a99ed9420ae5b9457c566ab88e123e591db8f05a3313f5a99060756fb50  yutu-go-harness
+2e058f1a928e7fef74dd94d76ebf1932877b8bb37b92bd0f707eef06e2fffccb  yutu-go-dump
+
+--- stderr ---
+
+
+expected: {'yutu-go': 'c889453e211cbf1f327bee3d14089887e44e74e5ed2067ef926ca8d06d169e3a', 'yutu-go-harness': 'a6e49a99ed9420ae5b9457c566ab88e123e591db8f05a3313f5a99060756fb50', 'yutu-go-dump': '2e058f1a928e7fef74dd94d76ebf1932877b8bb37b92bd0f707eef06e2fffccb'}
+got: {'yutu-go': 'c889453e211cbf1f327bee3d14089887e44e74e5ed2067ef926ca8d06d169e3a', 'yutu-go-harness': 'a6e49a99ed9420ae5b9457c566ab88e123e591db8f05a3313f5a99060756fb50', 'yutu-go-dump': '2e058f1a928e7fef74dd94d76ebf1932877b8bb37b92bd0f707eef06e2fffccb'}

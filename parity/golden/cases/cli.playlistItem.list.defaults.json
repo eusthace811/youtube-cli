@@ -1,0 +1,31 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistItem.list.defaults",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistItems",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TITLE                       KIND                       RESOURCE ID \n id-0    @at sign                    snippet.resourceId.kind-0              \n id-1    Ünïcödé ✓ 日本語のタイトル  snippet.resourceId.kind-1              \n id-2    - dash start                snippet.resourceId.kind-2              \n zero-0                                                                     "
+}

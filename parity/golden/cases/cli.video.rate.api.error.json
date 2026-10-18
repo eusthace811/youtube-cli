@@ -1,0 +1,49 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.video.rate.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/videos/rate",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "rating": [
+     "val-rating"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/videos/rate",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "rating": [
+     "val-rating"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to rate video\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu video rate -h' to see usage.\n",
+ "stdout": "Video id2 rated val-rating\n"
+}

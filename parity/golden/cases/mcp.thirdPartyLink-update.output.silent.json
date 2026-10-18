@@ -1,0 +1,48 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.thirdPartyLink-update.output.silent",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "linkingToken": [
+     "val-linking_token"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"etag\":\"etag-0\",\"kind\":\"kind-0\",\"linkingToken\":\"linkingToken-0\",\"snippet\":{\"channelToAffiliateProgramLink\":{\"merchantId\":\"1488\",\"programStatus\":\"affiliateProgramStatusUnspecified\",\"statusUpdateReason\":\"snippet.channelToAffiliateProgramLink.statusUpdateReason-0\",\"statusUpdateTime\":\"snippet.channelToAffiliateProgramLink.statusUpdateTime-0\"},\"channelToStoreLink\":{\"billingDetails\":{\"billingStatus\":\"billingStatusUnspecified\"},\"merchantAffiliateProgramDetails\":{\"status\":\"merchantAffiliateProgramStatusUnspecified\"},\"merchantId\":\"1147\",\"storeName\":\"snippet.channelToStoreLink.storeName-0\",\"storeUrl\":\"snippet.channelToStoreLink.storeUrl-0\"},\"type\":\"linkUnspecified\"},\"status\":{\"linkStatus\":\"unknown\"}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:28.625+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"thirdPartyLink-update\",\"arguments\":{\"linking_token\":\"val-linking_token\",\"output\":\"silent\"}}}\ntime=2026-10-18T15:39:28.626+01:00 level=INFO msg=thirdPartyLink-update input=\"{\\\"confirmed\\\":false,\\\"parts\\\":[\\\"snippet\\\",\\\"status\\\"],\\\"output\\\":\\\"silent\\\",\\\"linking_token\\\":\\\"val-linking_token\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Update third-party link: val-linking_token\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:28.627+01:00 level=INFO msg=thirdPartyLink-update input=\"{\\\"confirmed\\\":false,\\\"parts\\\":[\\\"snippet\\\",\\\"status\\\"],\\\"output\\\":\\\"silent\\\",\\\"linking_token\\\":\\\"val-linking_token\\\"}\" output_length=0\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Update third-party link: val-linking_token\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"\"}]}}\n"
+}

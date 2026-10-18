@@ -1,0 +1,37 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.reportAbuse.tty-accept",
+ "requests": [
+  {
+   "body": "{\"reasonId\":\"val-reasonId\",\"videoId\":\"id1\"}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/videos/reportAbuse",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"reasonId\":\"val-reasonId\",\"videoId\":\"id2\"}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/videos/reportAbuse",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Report abuse on video(s) id1, id2 [y/N] y\r\nVideo id1 reported for abuseVideo id2 reported for abuse"
+}

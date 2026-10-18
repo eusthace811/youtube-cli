@@ -1,0 +1,43 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.liveBroadcast-insertCuepoint.output.yaml",
+ "requests": [
+  {
+   "body": "{}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/cuepoint",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/cuepoint",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:20.021+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"liveBroadcast-insertCuepoint\",\"arguments\":{\"ids\":[\"id1\",\"id2\"],\"output\":\"yaml\"}}}\ntime=2026-10-18T15:39:20.021+01:00 level=INFO msg=liveBroadcast-insertCuepoint input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"output\\\":\\\"yaml\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Insert cuepoint into live broadcast(s) id1, id2\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:20.022+01:00 level=INFO msg=liveBroadcast-insertCuepoint input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"output\\\":\\\"yaml\\\"}\" output_length=784\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"cuetype: cueTypeAd\\ndurationsecs: 25\\netag: etag-1\\nid: id-1\\ninsertionoffsettimems: 8570\\nwalltimems: 8229\\nserverresponse:\\n    httpstatuscode: 200\\n    header:\\n        Content-Length:\\n            - \\\"131\\\"\\n        Content-Type:\\n            - application/json\\n        Date:\\n            - Sun, 18 Oct 2026 12:00:00 GMT\\n        Server:\\n            - parity-recorder\\nforcesendfields: []\\nnullfields: []\\n\\ncuetype: cueTypeAd\\ndurationsecs: 25\\netag: etag-1\\nid: id-1\\ninsertionoffsettimems: 8570\\nwalltimems: 8229\\nserverresponse:\\n    httpstatuscode: 200\\n    header:\\n        Content-Length:\\n            - \\\"131\\\"\\n        Content-Type:\\n            - application/json\\n        Date:\\n            - Sun, 18 Oct 2026 12:00:00 GMT\\n        Server:\\n            - parity-recorder\\nforcesendfields: []\\nnullfields: []\\n\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Insert cuepoint into live broadcast(s) id1, id2\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"cuetype: cueTypeAd\\ndurationsecs: 25\\netag: etag-1\\nid: id-1\\ninsertionoffsettimems: 8570\\nwalltimems: 8229\\nserverresponse:\\n    httpstatuscode: 200\\n    header:\\n        Content-Length:\\n            - \\\"131\\\"\\n        Content-Type:\\n            - application/json\\n        Date:\\n            - Sun, 18 Oct 2026 12:00:00 GMT\\n        Server:\\n            - parity-recorder\\nforcesendfields: []\\nnullfields: []\\n\\ncuetype: cueTypeAd\\ndurationsecs: 25\\netag: etag-1\\nid: id-1\\ninsertionoffsettimems: 8570\\nwalltimems: 8229\\nserverresponse:\\n    httpstatuscode: 200\\n    header:\\n        Content-Length:\\n            - \\\"131\\\"\\n        Content-Type:\\n            - application/json\\n        Date:\\n            - Sun, 18 Oct 2026 12:00:00 GMT\\n        Server:\\n            - parity-recorder\\nforcesendfields: []\\nnullfields: []\\n\\n\"}]}}\n"
+}

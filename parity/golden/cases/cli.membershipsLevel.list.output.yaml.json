@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.membershipsLevel.list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/membershipsLevels",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "- etag: etag-0\n  id: id-0\n  kind: kind-0\n  snippet:\n    creatorchannelid: snippet.creatorChannelId-0\n    leveldetails:\n        displayname: snippet.levelDetails.displayName-0\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-1\n  id: id-1\n  kind: kind-1\n  snippet:\n    creatorchannelid: snippet.creatorChannelId-1\n    leveldetails:\n        displayname: snippet.levelDetails.displayName-1\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-2\n  id: id-2\n  kind: kind-2\n  snippet:\n    creatorchannelid: snippet.creatorChannelId-2\n    leveldetails:\n        displayname: snippet.levelDetails.displayName-2\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: \"\"\n  id: zero-0\n  kind: \"\"\n  snippet:\n    creatorchannelid: \"\"\n    leveldetails:\n        displayname: \"\"\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n\n"
+}

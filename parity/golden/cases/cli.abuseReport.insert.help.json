@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.abuseReport.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Create an abuse report. Use this tool to report abusive content on YouTube such as spam, harassment, or violent content.\n\nUsage:\n  yutu abuseReport insert [flags]\n\nExamples:\n# Report a video as spam\nyutu abuseReport insert --abuseTypes spam --subjectId VIDEO_ID --subjectTypeId video --description \"This video is spam\"\n# Report a comment as harassment\nyutu abuseReport insert --abuseTypes harassment --subjectId COMMENT_ID --subjectTypeId comment --description \"Harassment in comment\"\n\nFlags:\n  -a, --abuseTypes strings       Abuse type IDs (e.g., spam, harassment)\n  -d, --description string       Description of the abuse\n  -h, --help                     help for insert\n  -o, --output string            json|yaml|silent\n  -p, --parts strings            Parts to include (default [snippet])\n  -r, --relatedEntityId string   ID of a related entity\n  -s, --subjectId string         ID of the subject being reported\n  -t, --subjectTypeId string     Type ID of the subject (e.g., video, comment, channel)\n  -u, --subjectUrl string        URL of the subject being reported\n      --yes                      Confirm the operation\n"
+}

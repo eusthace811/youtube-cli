@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.unknown-short",
+ "requests": [],
+ "stderr": "Error: unknown shorthand flag: 'z' in -z\nRun 'yutu video list -h' to see usage.\n",
+ "stdout": ""
+}

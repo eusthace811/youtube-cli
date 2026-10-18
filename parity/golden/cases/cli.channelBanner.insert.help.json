@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.channelBanner.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Upload a channel banner. Use this tool to upload a channel banner.\n\nUsage:\n  yutu channelBanner insert [flags]\n\nExamples:\n# Upload a channel banner\nyutu channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.jpg\n# Upload a channel banner with JSON output\nyutu channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.png --output json\n\nFlags:\n  -c, --channelId string                       ID of the channel to insert the banner for\n  -f, --file string                            Path to the banner image\n  -h, --help                                   help for insert\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -o, --output string                          json|yaml|silent\n      --yes                                    Confirm the operation\n"
+}

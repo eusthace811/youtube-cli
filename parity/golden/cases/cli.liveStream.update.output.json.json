@@ -1,0 +1,52 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.update.output.json",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"cdn\":{\"frameRate\":\"30fps\",\"ingestionType\":\"rtmp\",\"resolution\":\"240p\"},\"id\":\"id-0\",\"snippet\":{\"description\":\"Plain title snippet.description\",\"title\":\"@at sign\"}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "cdn"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "{\"cdn\":{\"format\":\"cdn.format-1\",\"frameRate\":\"60fps\",\"ingestionInfo\":{\"backupIngestionAddress\":\"cdn.ingestionInfo.backupIngestionAddress-1\",\"ingestionAddress\":\"cdn.ingestionInfo.ingestionAddress-1\",\"rtmpsBackupIngestionAddress\":\"cdn.ingestionInfo.rtmpsBackupIngestionAddress-1\",\"rtmpsIngestionAddress\":\"cdn.ingestionInfo.rtmpsIngestionAddress-1\",\"streamName\":\"cdn.ingestionInfo.streamName-1\"},\"ingestionType\":\"dash\",\"resolution\":\"360p\"},\"contentDetails\":{\"closedCaptionsIngestionUrl\":\"contentDetails.closedCaptionsIngestionUrl-1\",\"isReusable\":true},\"etag\":\"etag-1\",\"id\":\"id-1\",\"kind\":\"kind-1\",\"snippet\":{\"channelId\":\"snippet.channelId-1\",\"description\":\"Ünïcödé ✓ 日本語のタイトル snippet.description\",\"isDefaultStream\":true,\"publishedAt\":\"2026-02-11T12:34:51Z\",\"title\":\"Ünïcödé ✓ 日本語のタイトル\"},\"status\":{\"healthStatus\":{\"configurationIssues\":[{\"description\":\"Ünïcödé ✓ 日本語のタイトル status.healthStatus.configurationIssues[].description\",\"reason\":\"status.healthStatus.configurationIssues[].reason-1\",\"severity\":\"warning\",\"type\":\"gopSizeLong\"},{\"description\":\"<b>tags</b> & \\\"quotes\\\" status.healthStatus.configurationIssues[].description\",\"reason\":\"status.healthStatus.configurationIssues[].reason-2\",\"severity\":\"error\",\"type\":\"gopSizeShort\"}],\"lastUpdateTimeSeconds\":\"9190\",\"status\":\"ok\"},\"streamStatus\":\"ready\"}}\n"
+}

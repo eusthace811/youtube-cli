@@ -1,0 +1,55 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.search-list.types",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/search",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelType": [
+     "channelTypeUnspecified"
+    ],
+    "eventType": [
+     "none"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "order": [
+     "relevance"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "safeSearch": [
+     "moderate"
+    ],
+    "type": [
+     "types1",
+     "types2"
+    ],
+    "videoCaption": [
+     "any"
+    ],
+    "videoDimension": [
+     "any"
+    ],
+    "videoDuration": [
+     "any"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:26.636+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"search-list\",\"arguments\":{\"types\":[\"types1\",\"types2\"]}}}\ntime=2026-10-18T15:39:26.637+01:00 level=ERROR msg=\"failed to get search\\njson: cannot unmarshal string into Go struct field .items.3.id of type youtube.ResourceId\" tool=search-list input=\"{\\\"confirmed\\\":false,\\\"max_results\\\":5,\\\"parts\\\":[\\\"id\\\",\\\"snippet\\\"],\\\"output\\\":\\\"json\\\",\\\"channel_type\\\":\\\"channelTypeUnspecified\\\",\\\"event_type\\\":\\\"none\\\",\\\"order\\\":\\\"relevance\\\",\\\"safe_search\\\":\\\"moderate\\\",\\\"types\\\":[\\\"types1\\\",\\\"types2\\\"],\\\"video_caption\\\":\\\"any\\\",\\\"video_dimension\\\":\\\"any\\\",\\\"video_duration\\\":\\\"any\\\"}\"\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"failed to get search\\njson: cannot unmarshal string into Go struct field .items.3.id of type youtube.ResourceId\"}],\"isError\":true}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"failed to get search\\njson: cannot unmarshal string into Go struct field .items.3.id of type youtube.ResourceId\"}],\"isError\":true}}\n"
+}

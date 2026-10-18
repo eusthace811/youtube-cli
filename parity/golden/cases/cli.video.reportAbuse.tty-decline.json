@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.video.reportAbuse.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Report abuse on video(s) id1, id2 [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu video reportAbuse -h' to see usage.\r\n"
+}

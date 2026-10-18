@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.watermark.unset.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Unset a channel watermark. Use this tool to unset a channel watermark.\n\nUsage:\n  yutu watermark unset [flags]\n\nExamples:\n# Unset watermark for a channel\nyutu watermark unset --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw\n\nFlags:\n  -c, --channelId string   ID of the channel\n  -h, --help               help for unset\n      --yes                Confirm the operation\n"
+}

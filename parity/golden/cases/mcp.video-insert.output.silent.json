@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.video-insert.output.silent",
+ "requests": [
+  {
+   "body": "--91c162fbc566643f31ed89c6e58f4cb3cf33d35adf44602683bbe835f5a4\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"categoryId\":\"val-category_id\",\"tags\":[\"yutu🐰\"],\"title\":\"video\"},\"status\":{\"containsSyntheticMedia\":false,\"privacyStatus\":\"public\",\"selfDeclaredMadeForKids\":false}}\n\r\n--91c162fbc566643f31ed89c6e58f4cb3cf33d35adf44602683bbe835f5a4\r\nContent-Type: application/octet-stream\r\n\r\n\u0000\u0000\u0000\u0018ftypisom\u0000\u0000\u0002\u0000isomiso2\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\r\n--91c162fbc566643f31ed89c6e58f4cb3cf33d35adf44602683bbe835f5a4--\r\n",
+   "ctype": "multipart/related; boundary=91c162fbc566643f31ed89c6e58f4cb3cf33d35adf44602683bbe835f5a4",
+   "method": "POST",
+   "path": "/upload/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet,status"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:29.472+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"video-insert\",\"arguments\":{\"file\":\"video.mp4\",\"category_id\":\"val-category_id\",\"privacy\":\"public\",\"output\":\"silent\"}}}\ntime=2026-10-18T15:39:29.473+01:00 level=INFO msg=video-insert input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"silent\\\",\\\"file\\\":\\\"video.mp4\\\",\\\"tags\\\":[\\\"yutu🐰\\\"],\\\"category_id\\\":\\\"val-category_id\\\",\\\"privacy\\\":\\\"public\\\",\\\"for_kids\\\":false,\\\"contains_synthetic_media\\\":false}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Upload video: video.mp4\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:29.474+01:00 level=INFO msg=video-insert input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"silent\\\",\\\"file\\\":\\\"video.mp4\\\",\\\"tags\\\":[\\\"yutu🐰\\\"],\\\"category_id\\\":\\\"val-category_id\\\",\\\"privacy\\\":\\\"public\\\",\\\"for_kids\\\":false,\\\"contains_synthetic_media\\\":false}\" output_length=0\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Upload video: video.mp4\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"\"}]}}\n"
+}

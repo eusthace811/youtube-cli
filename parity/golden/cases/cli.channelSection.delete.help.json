@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.channelSection.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete channel sections. Use this tool to delete channel sections by IDs.\n\nUsage:\n  yutu channelSection delete [flags]\n\nExamples:\n# Delete a channel section by ID\nyutu channelSection delete --ids abc123\n# Delete multiple channel sections\nyutu channelSection delete --ids abc123,def456\n\nFlags:\n  -h, --help                            help for delete\n  -i, --ids strings                     Delete the channel sections with the given ids\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+}

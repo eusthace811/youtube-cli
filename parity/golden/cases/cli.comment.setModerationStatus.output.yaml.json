@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.setModerationStatus.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/comments/setModerationStatus",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1",
+     "id2"
+    ],
+    "moderationStatus": [
+     "val-moderationStatus"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "fields:\n    ids:\n        - id1\n        - id2\n    max_results: 0\n    hl: \"\"\n    channel_id: \"\"\n    parts: []\n    output: yaml\n    on_behalf_of_content_owner: \"\"\nauthor_channel_id: \"\"\ncan_rate: null\nparent_id: \"\"\ntext_format: \"\"\ntext_original: \"\"\nmoderation_status: val-moderationStatus\nban_author: null\nvideo_id: \"\"\nviewer_rating: \"\"\n\n"
+}

@@ -1,0 +1,10 @@
+{
+ "id": "id-1",
+ "kind": "kind-1",
+ "snippet": {
+  "height": 27,
+  "playlistId": "snippet.playlistId-1",
+  "type": "hero",
+  "width": 26
+ }
+}

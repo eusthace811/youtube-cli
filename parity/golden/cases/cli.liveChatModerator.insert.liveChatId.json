@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.insert.liveChatId",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"liveChatId\":\"val-liveChatId\",\"moderatorDetails\":{\"channelId\":\"val-moderatorChannelId\"}}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live chat moderator inserted: id-1\n"
+}

@@ -1,0 +1,43 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatMessage.delete.ids",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/liveChat/messages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/liveChat/messages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live chat message id1 deleted\nLive chat message id2 deleted\n"
+}

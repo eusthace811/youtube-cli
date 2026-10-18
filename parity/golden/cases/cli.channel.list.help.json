@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.channel.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List channels. Use this tool to list channels.\n\nUsage:\n  yutu channel list [flags]\n\nExamples:\n# List my channel info\nyutu channel list --for mine\n# List channel by handle\nyutu channel list --forHandle @GoogleDevelopers\n# List channel by ID in JSON format\nyutu channel list --ids UC_x5XG1OV2P6uZZ5FSM9Ttw --output json\n# List channels in table format\nyutu channel list --maxResults 10 --output table\n\nFlags:\n  -g, --categoryId string               Return the channels within the specified guide category id\n  -F, --for string                      managedByMe|mine|mySubscribers\n  -d, --forHandle string                Return the channel associated with a YouTube handle\n  -u, --forUsername string              Return the channel associated with a YouTube username\n  -h, --help                            help for list\n  -l, --hl string                       Specifies the localization language of the metadata\n  -i, --ids strings                     Return the channels with the specified Ids\n  -n, --maxResults int                  The maximum number of items that should be returned, 0 for no limit (default 5)\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet,status])\n"
+}

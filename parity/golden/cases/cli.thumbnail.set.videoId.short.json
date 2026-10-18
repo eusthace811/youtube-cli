@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thumbnail.set.videoId.short",
+ "requests": [
+  {
+   "body": "--dd8f8037ebd51579c24498f8db739fc65898044beeeb7895aebd3539576c\r\nContent-Type: application/json\r\n\r\n\r\n--dd8f8037ebd51579c24498f8db739fc65898044beeeb7895aebd3539576c\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--dd8f8037ebd51579c24498f8db739fc65898044beeeb7895aebd3539576c--\r\n",
+   "ctype": "multipart/related; boundary=dd8f8037ebd51579c24498f8db739fc65898044beeeb7895aebd3539576c",
+   "method": "POST",
+   "path": "/upload/youtube/v3/thumbnails/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ],
+    "videoId": [
+     "val-videoId"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Thumbnail set for video val-videoId"
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thumbnail.set.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Set a thumbnail for a video. Use this tool to set a thumbnail for a video.\n\nUsage:\n  yutu thumbnail set [flags]\n\nExamples:\n# Set a thumbnail for a video\nyutu thumbnail set --file image.jpg --videoId dQw4w9WgXcQ\n# Set a thumbnail with JSON output\nyutu thumbnail set --file image.png --videoId dQw4w9WgXcQ --output json\n\nFlags:\n  -f, --file string      Path to the thumbnail file\n  -h, --help             help for set\n  -o, --output string    json|yaml|silent\n  -v, --videoId string   ID of the video\n      --yes              Confirm the operation\n"
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.channel.update.tty-accept",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update channel: id1 [y/N] y\r\nError: failed to get channel\r\nRun 'yutu channel update -h' to see usage.\r\n"
+}

@@ -1,0 +1,87 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.list.maxResults.0",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/comments",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/comments",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/comments",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p3"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      AUTHOR                        VIDEO ID            TEXT DISPLAY                                   \n id-0    snippet.authorDisplayName-0   snippet.videoId-0   Plain title snippet.textDisplay                \n id-1    snippet.authorDisplayName-1   snippet.videoId-1   Ünïcödé ✓ 日本語のタイトル snippet.textDisplay \n id-2    snippet.authorDisplayName-2   snippet.videoId-2   <b>tags</b> & \"quotes\" snippet.textDisplay     \n zero-0                                                                                                   \n id-10   snippet.authorDisplayName-10  snippet.videoId-10  null snippet.textDisplay                       \n id-11   snippet.authorDisplayName-11  snippet.videoId-11  ~ snippet.textDisplay                          \n id-12   snippet.authorDisplayName-12  snippet.videoId-12  @at sign snippet.textDisplay                   \n zero-1                                                                                                   \n id-20   snippet.authorDisplayName-20  snippet.videoId-20  emoji 🎬🎥 mix snippet.textDisplay             \n id-21   snippet.authorDisplayName-21  snippet.videoId-21  tab    and                                     \n                                                           newline snippet.textDisplay                    \n id-22   snippet.authorDisplayName-22  snippet.videoId-22  true snippet.textDisplay                       \n zero-2                                                                                                   "
+}

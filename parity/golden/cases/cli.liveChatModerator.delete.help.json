@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete live chat moderators. Use this tool to remove moderators from a live chat by their IDs.\n\nUsage:\n  yutu liveChatModerator delete [flags]\n\nExamples:\n# Delete a live chat moderator by ID\nyutu liveChatModerator delete --ids abc123\n# Delete multiple live chat moderators\nyutu liveChatModerator delete --ids abc123,def456\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of the live chat moderators to delete\n      --yes           Confirm the operation\n"
+}

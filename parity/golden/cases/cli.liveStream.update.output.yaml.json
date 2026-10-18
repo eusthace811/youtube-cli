@@ -1,0 +1,52 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.update.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"cdn\":{\"frameRate\":\"30fps\",\"ingestionType\":\"rtmp\",\"resolution\":\"240p\"},\"id\":\"id-0\",\"snippet\":{\"description\":\"Plain title snippet.description\",\"title\":\"@at sign\"}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "cdn"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "cdn:\n    format: cdn.format-1\n    framerate: 60fps\n    ingestioninfo:\n        backupingestionaddress: cdn.ingestionInfo.backupIngestionAddress-1\n        ingestionaddress: cdn.ingestionInfo.ingestionAddress-1\n        rtmpsbackupingestionaddress: cdn.ingestionInfo.rtmpsBackupIngestionAddress-1\n        rtmpsingestionaddress: cdn.ingestionInfo.rtmpsIngestionAddress-1\n        streamname: cdn.ingestionInfo.streamName-1\n        forcesendfields: []\n        nullfields: []\n    ingestiontype: dash\n    resolution: 360p\n    forcesendfields: []\n    nullfields: []\ncontentdetails:\n    closedcaptionsingestionurl: contentDetails.closedCaptionsIngestionUrl-1\n    isreusable: true\n    forcesendfields: []\n    nullfields: []\netag: etag-1\nid: id-1\nkind: kind-1\nsnippet:\n    channelid: snippet.channelId-1\n    description: Ünïcödé ✓ 日本語のタイトル snippet.description\n    isdefaultstream: true\n    publishedat: \"2026-02-11T12:34:51Z\"\n    title: Ünïcödé ✓ 日本語のタイトル\n    forcesendfields: []\n    nullfields: []\nstatus:\n    healthstatus:\n        configurationissues:\n            - description: Ünïcödé ✓ 日本語のタイトル status.healthStatus.configurationIssues[].description\n              reason: status.healthStatus.configurationIssues[].reason-1\n              severity: warning\n              type: gopSizeLong\n              forcesendfields: []\n              nullfields: []\n            - description: <b>tags</b> & \"quotes\" status.healthStatus.configurationIssues[].description\n              reason: status.healthStatus.configurationIssues[].reason-2\n              severity: error\n              type: gopSizeShort\n              forcesendfields: []\n              nullfields: []\n        lastupdatetimeseconds: 9190\n        status: ok\n        forcesendfields: []\n        nullfields: []\n    streamstatus: ready\n    forcesendfields: []\n    nullfields: []\nserverresponse:\n    httpstatuscode: 200\n    header:\n        Content-Length:\n            - \"1558\"\n        Content-Type:\n            - application/json\n        Date:\n            - Sun, 18 Oct 2026 12:00:00 GMT\n        Server:\n            - parity-recorder\nforcesendfields: []\nnullfields: []\n\n"
+}

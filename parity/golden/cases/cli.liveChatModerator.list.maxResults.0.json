@@ -1,0 +1,84 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.list.maxResults.0",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p3"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      CHANNEL ID                             DISPLAY NAME                            \n id-0    snippet.moderatorDetails.channelId-0   snippet.moderatorDetails.displayName-0  \n id-1    snippet.moderatorDetails.channelId-1   snippet.moderatorDetails.displayName-1  \n id-2    snippet.moderatorDetails.channelId-2   snippet.moderatorDetails.displayName-2  \n zero-0                                                                                 \n id-10   snippet.moderatorDetails.channelId-10  snippet.moderatorDetails.displayName-10 \n id-11   snippet.moderatorDetails.channelId-11  snippet.moderatorDetails.displayName-11 \n id-12   snippet.moderatorDetails.channelId-12  snippet.moderatorDetails.displayName-12 \n zero-1                                                                                 \n id-20   snippet.moderatorDetails.channelId-20  snippet.moderatorDetails.displayName-20 \n id-21   snippet.moderatorDetails.channelId-21  snippet.moderatorDetails.displayName-21 \n id-22   snippet.moderatorDetails.channelId-22  snippet.moderatorDetails.displayName-22 \n zero-2                                                                                 "
+}

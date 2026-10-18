@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.i18nLanguage.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List i18n languages. Use this tool to list available internationalization languages.\n\nUsage:\n  yutu i18nLanguage list [flags]\n\nFlags:\n  -h, --help            help for list\n  -l, --hl string       Host language\n  -o, --output string   json|yaml|table (default \"table\")\n  -p, --parts strings   Comma separated parts (default [id,snippet])\n"
+}

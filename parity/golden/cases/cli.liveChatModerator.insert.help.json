@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Add a live chat moderator. Use this tool to add a moderator to a live chat.\n\nUsage:\n  yutu liveChatModerator insert [flags]\n\nExamples:\n# Add a moderator to a live chat\nyutu liveChatModerator insert --liveChatId abc123 --moderatorChannelId UC_xyz\n\nFlags:\n  -h, --help                        help for insert\n  -l, --liveChatId string           ID of the live chat\n  -m, --moderatorChannelId string   Channel ID of the moderator\n  -o, --output string               json|yaml|silent\n  -p, --parts strings               Parts to include (default [snippet])\n      --yes                         Confirm the operation\n"
+}

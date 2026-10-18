@@ -1,0 +1,49 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.delete.onBehalfOfContentOwnerChannel.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/liveBroadcasts",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "onBehalfOfContentOwnerChannel": [
+     "val-onBehalfOfContentOwnerChannel"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/liveBroadcasts",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "onBehalfOfContentOwnerChannel": [
+     "val-onBehalfOfContentOwnerChannel"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live broadcast id1 deleted\nLive broadcast id2 deleted\n"
+}

@@ -1,0 +1,73 @@
+{
+ "pages": [
+  {
+   "kind": "youtube#videoGetRatingResponse",
+   "etag": "etag-page-0",
+   "items": [
+    {
+     "rating": "none",
+     "videoId": "videoId-0"
+    },
+    {
+     "rating": "like",
+     "videoId": "videoId-1"
+    },
+    {
+     "rating": "dislike",
+     "videoId": "videoId-2"
+    },
+    {
+     "rating": "",
+     "videoId": ""
+    }
+   ],
+   "_token": ""
+  },
+  {
+   "kind": "youtube#videoGetRatingResponse",
+   "etag": "etag-page-1",
+   "items": [
+    {
+     "rating": "like",
+     "videoId": "videoId-10"
+    },
+    {
+     "rating": "dislike",
+     "videoId": "videoId-11"
+    },
+    {
+     "rating": "none",
+     "videoId": "videoId-12"
+    },
+    {
+     "rating": "",
+     "videoId": ""
+    }
+   ],
+   "_token": "p2"
+  },
+  {
+   "kind": "youtube#videoGetRatingResponse",
+   "etag": "etag-page-2",
+   "items": [
+    {
+     "rating": "dislike",
+     "videoId": "videoId-20"
+    },
+    {
+     "rating": "none",
+     "videoId": "videoId-21"
+    },
+    {
+     "rating": "like",
+     "videoId": "videoId-22"
+    },
+    {
+     "rating": "",
+     "videoId": ""
+    }
+   ],
+   "_token": "p3"
+  }
+ ]
+}

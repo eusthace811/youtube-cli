@@ -1,0 +1,49 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveChatMessage.transition.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/messages/transition",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "status": [
+     "val-status"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/messages/transition",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "status": [
+     "val-status"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to transition live chat message\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveChatMessage transition -h' to see usage.\n",
+ "stdout": "Live chat message id2 transitioned to val-status\n"
+}

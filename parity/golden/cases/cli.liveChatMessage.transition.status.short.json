@@ -1,0 +1,49 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatMessage.transition.status.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/messages/transition",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "status": [
+     "val-status"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/messages/transition",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "status": [
+     "val-status"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live chat message id1 transitioned to val-status\nLive chat message id2 transitioned to val-status\n"
+}

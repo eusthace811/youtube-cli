@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thumbnail.set.output.silent",
+ "requests": [
+  {
+   "body": "--df82ef039b72fac32619e89ad1fed5b3d990ed8496a1db6ced9e2e236d8d\r\nContent-Type: application/json\r\n\r\n\r\n--df82ef039b72fac32619e89ad1fed5b3d990ed8496a1db6ced9e2e236d8d\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--df82ef039b72fac32619e89ad1fed5b3d990ed8496a1db6ced9e2e236d8d--\r\n",
+   "ctype": "multipart/related; boundary=df82ef039b72fac32619e89ad1fed5b3d990ed8496a1db6ced9e2e236d8d",
+   "method": "POST",
+   "path": "/upload/youtube/v3/thumbnails/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ],
+    "videoId": [
+     "val-videoId"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": ""
+}

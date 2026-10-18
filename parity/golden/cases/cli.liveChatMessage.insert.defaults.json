@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatMessage.insert.defaults",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"liveChatId\":\"val-liveChatId\",\"textMessageDetails\":{\"messageText\":\"val-messageText\"},\"type\":\"textMessageEvent\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/messages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "authorDetails"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live chat message inserted: id-1\n"
+}

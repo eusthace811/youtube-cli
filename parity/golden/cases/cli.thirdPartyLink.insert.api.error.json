@@ -1,0 +1,27 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.thirdPartyLink.insert.api.error",
+ "requests": [
+  {
+   "body": "{\"linkingToken\":\"val-linkingToken\",\"snippet\":{\"type\":\"val-type\"},\"status\":{}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to insert third party link\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu thirdPartyLink insert -h' to see usage.\n",
+ "stdout": ""
+}

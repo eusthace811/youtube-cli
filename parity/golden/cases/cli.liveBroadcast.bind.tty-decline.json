@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveBroadcast.bind.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Bind live broadcast(s) id1, id2 to stream  [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu liveBroadcast bind -h' to see usage.\r\n"
+}

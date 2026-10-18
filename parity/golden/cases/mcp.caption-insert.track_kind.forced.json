@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.caption-insert.track_kind.forced",
+ "requests": [
+  {
+   "body": "--2b63dd54d4c759625a76de01271027f1ab700cfad30dcb6691bdf9a56555\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"audioTrackType\":\"unknown\",\"trackKind\":\"forced\",\"videoId\":\"val-video_id\"}}\n\r\n--2b63dd54d4c759625a76de01271027f1ab700cfad30dcb6691bdf9a56555\r\nContent-Type: text/plain; charset=utf-8\r\n\r\n1\n00:00:00,000 --> 00:00:01,000\nHello\n\r\n--2b63dd54d4c759625a76de01271027f1ab700cfad30dcb6691bdf9a56555--\r\n",
+   "ctype": "multipart/related; boundary=2b63dd54d4c759625a76de01271027f1ab700cfad30dcb6691bdf9a56555",
+   "method": "POST",
+   "path": "/upload/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:15.932+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"caption-insert\",\"arguments\":{\"file\":\"caption.srt\",\"video_id\":\"val-video_id\",\"track_kind\":\"forced\"}}}\ntime=2026-10-18T15:39:15.932+01:00 level=INFO msg=caption-insert input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\",\\\"file\\\":\\\"caption.srt\\\",\\\"audio_track_type\\\":\\\"unknown\\\",\\\"track_kind\\\":\\\"forced\\\",\\\"video_id\\\":\\\"val-video_id\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Upload caption for video val-video_id with caption.srt\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:15.933+01:00 level=INFO msg=caption-insert input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\",\\\"file\\\":\\\"caption.srt\\\",\\\"audio_track_type\\\":\\\"unknown\\\",\\\"track_kind\\\":\\\"forced\\\",\\\"video_id\\\":\\\"val-video_id\\\"}\" output_length=360\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"audioTrackType\\\":\\\"primary\\\",\\\"failureReason\\\":\\\"unsupportedFormat\\\",\\\"isAutoSynced\\\":true,\\\"isCC\\\":true,\\\"isDraft\\\":true,\\\"isEasyReader\\\":true,\\\"isLarge\\\":true,\\\"language\\\":\\\"snippet.language-1\\\",\\\"lastUpdated\\\":\\\"2026-02-11T12:34:51Z\\\",\\\"name\\\":\\\"Plain title\\\",\\\"status\\\":\\\"syncing\\\",\\\"trackKind\\\":\\\"ASR\\\",\\\"videoId\\\":\\\"snippet.videoId-1\\\"}}\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Upload caption for video val-video_id with caption.srt\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"audioTrackType\\\":\\\"primary\\\",\\\"failureReason\\\":\\\"unsupportedFormat\\\",\\\"isAutoSynced\\\":true,\\\"isCC\\\":true,\\\"isDraft\\\":true,\\\"isEasyReader\\\":true,\\\"isLarge\\\":true,\\\"language\\\":\\\"snippet.language-1\\\",\\\"lastUpdated\\\":\\\"2026-02-11T12:34:51Z\\\",\\\"name\\\":\\\"Plain title\\\",\\\"status\\\":\\\"syncing\\\",\\\"trackKind\\\":\\\"ASR\\\",\\\"videoId\\\":\\\"snippet.videoId-1\\\"}}\\n\"}]}}\n"
+}

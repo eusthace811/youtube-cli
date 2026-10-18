@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.thumbnail-set.output.silent",
+ "requests": [
+  {
+   "body": "--98c0f1dcb1b50896f8f093f19727e0f64faee0ba0e67f8179a029062ae73\r\nContent-Type: application/json\r\n\r\n\r\n--98c0f1dcb1b50896f8f093f19727e0f64faee0ba0e67f8179a029062ae73\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--98c0f1dcb1b50896f8f093f19727e0f64faee0ba0e67f8179a029062ae73--\r\n",
+   "ctype": "multipart/related; boundary=98c0f1dcb1b50896f8f093f19727e0f64faee0ba0e67f8179a029062ae73",
+   "method": "POST",
+   "path": "/upload/youtube/v3/thumbnails/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ],
+    "videoId": [
+     "val-video_id"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:28.826+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"thumbnail-set\",\"arguments\":{\"file\":\"thumb.png\",\"video_id\":\"val-video_id\",\"output\":\"silent\"}}}\ntime=2026-10-18T15:39:28.827+01:00 level=INFO msg=thumbnail-set input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"silent\\\",\\\"file\\\":\\\"thumb.png\\\",\\\"video_id\\\":\\\"val-video_id\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Set thumbnail thumb.png for video val-video_id\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:28.828+01:00 level=INFO msg=thumbnail-set input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"silent\\\",\\\"file\\\":\\\"thumb.png\\\",\\\"video_id\\\":\\\"val-video_id\\\"}\" output_length=0\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Set thumbnail thumb.png for video val-video_id\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"\"}]}}\n"
+}

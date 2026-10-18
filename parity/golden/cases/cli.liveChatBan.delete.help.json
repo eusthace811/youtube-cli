@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatBan.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete live chat bans. Use this tool to unban users from a live chat by ban IDs.\n\nUsage:\n  yutu liveChatBan delete [flags]\n\nExamples:\n# Delete a live chat ban by ID\nyutu liveChatBan delete --ids abc123\n# Delete multiple live chat bans\nyutu liveChatBan delete --ids abc123,def456\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of the live chat bans to delete\n      --yes           Confirm the operation\n"
+}

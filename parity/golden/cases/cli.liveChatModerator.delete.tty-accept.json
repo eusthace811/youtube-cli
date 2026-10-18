@@ -1,0 +1,43 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.delete.tty-accept",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Delete live chat moderator(s): id1, id2 [y/N] y\r\nLive chat moderator id1 deleted\r\nLive chat moderator id2 deleted\r\n"
+}

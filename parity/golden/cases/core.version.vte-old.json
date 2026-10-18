@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "core.version.vte-old",
+ "requests": [],
+ "stderr": "  _(\\_/)_     yutu v0.11.0 darwin/arm64\n │   ▶   │    CLI, MCP server, and AI agent to automate YouTube workflows\n │ • x • │    📦 build: Gopher-2026-10-15T00:00:00Z\n ╰─/───\\─╯    🌟 Star:  Github/eat-pray-ai/yutu (https://github.com/eat-pray-ai/yutu)\u001b[0m\n",
+ "stdout": ""
+}

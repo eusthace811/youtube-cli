@@ -1,0 +1,265 @@
+{
+ "pages": [
+  {
+   "kind": "youtube#captionListResponse",
+   "etag": "etag-page-0",
+   "items": [
+    {
+     "etag": "etag-0",
+     "id": "id-0",
+     "kind": "kind-0",
+     "snippet": {
+      "audioTrackType": "unknown",
+      "failureReason": "unknownFormat",
+      "isAutoSynced": false,
+      "isCC": false,
+      "isDraft": false,
+      "isEasyReader": false,
+      "isLarge": false,
+      "language": "snippet.language-0",
+      "lastUpdated": "2026-01-10T12:34:50Z",
+      "name": "~",
+      "status": "serving",
+      "trackKind": "standard",
+      "videoId": "snippet.videoId-0"
+     }
+    },
+    {
+     "etag": "etag-1",
+     "id": "id-1",
+     "kind": "kind-1",
+     "snippet": {
+      "audioTrackType": "primary",
+      "failureReason": "unsupportedFormat",
+      "isAutoSynced": true,
+      "isCC": true,
+      "isDraft": true,
+      "isEasyReader": true,
+      "isLarge": true,
+      "language": "snippet.language-1",
+      "lastUpdated": "2026-02-11T12:34:51Z",
+      "name": "Plain title",
+      "status": "syncing",
+      "trackKind": "ASR",
+      "videoId": "snippet.videoId-1"
+     }
+    },
+    {
+     "etag": "etag-2",
+     "id": "id-2",
+     "kind": "kind-2",
+     "snippet": {
+      "audioTrackType": "commentary",
+      "failureReason": "processingFailed",
+      "isAutoSynced": false,
+      "isCC": false,
+      "isDraft": false,
+      "isEasyReader": false,
+      "isLarge": false,
+      "language": "snippet.language-2",
+      "lastUpdated": "2026-03-12T12:34:52Z",
+      "name": "key: value",
+      "status": "failed",
+      "trackKind": "forced",
+      "videoId": "snippet.videoId-2"
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-0",
+     "kind": "",
+     "snippet": {
+      "audioTrackType": "",
+      "failureReason": "",
+      "isAutoSynced": false,
+      "isCC": false,
+      "isDraft": false,
+      "isEasyReader": false,
+      "isLarge": false,
+      "language": "",
+      "lastUpdated": "",
+      "name": "",
+      "status": "",
+      "trackKind": "",
+      "videoId": ""
+     }
+    }
+   ],
+   "_token": ""
+  },
+  {
+   "kind": "youtube#captionListResponse",
+   "etag": "etag-page-1",
+   "items": [
+    {
+     "etag": "etag-10",
+     "id": "id-10",
+     "kind": "kind-10",
+     "snippet": {
+      "audioTrackType": "commentary",
+      "failureReason": "unsupportedFormat",
+      "isAutoSynced": false,
+      "isCC": false,
+      "isDraft": false,
+      "isEasyReader": false,
+      "isLarge": false,
+      "language": "snippet.language-10",
+      "lastUpdated": "2026-02-11T12:34:50Z",
+      "name": "123",
+      "status": "syncing",
+      "trackKind": "ASR",
+      "videoId": "snippet.videoId-10"
+     }
+    },
+    {
+     "etag": "etag-11",
+     "id": "id-11",
+     "kind": "kind-11",
+     "snippet": {
+      "audioTrackType": "descriptive",
+      "failureReason": "processingFailed",
+      "isAutoSynced": true,
+      "isCC": true,
+      "isDraft": true,
+      "isEasyReader": true,
+      "isLarge": true,
+      "language": "snippet.language-11",
+      "lastUpdated": "2026-03-12T12:34:51Z",
+      "name": "@at sign",
+      "status": "failed",
+      "trackKind": "forced",
+      "videoId": "snippet.videoId-11"
+     }
+    },
+    {
+     "etag": "etag-12",
+     "id": "id-12",
+     "kind": "kind-12",
+     "snippet": {
+      "audioTrackType": "unknown",
+      "failureReason": "unknownFormat",
+      "isAutoSynced": false,
+      "isCC": false,
+      "isDraft": false,
+      "isEasyReader": false,
+      "isLarge": false,
+      "language": "snippet.language-12",
+      "lastUpdated": "2026-04-13T12:34:52Z",
+      "name": "Ünïcödé ✓ 日本語のタイトル",
+      "status": "serving",
+      "trackKind": "standard",
+      "videoId": "snippet.videoId-12"
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-1",
+     "kind": "",
+     "snippet": {
+      "audioTrackType": "",
+      "failureReason": "",
+      "isAutoSynced": false,
+      "isCC": false,
+      "isDraft": false,
+      "isEasyReader": false,
+      "isLarge": false,
+      "language": "",
+      "lastUpdated": "",
+      "name": "",
+      "status": "",
+      "trackKind": "",
+      "videoId": ""
+     }
+    }
+   ],
+   "_token": "p2"
+  },
+  {
+   "kind": "youtube#captionListResponse",
+   "etag": "etag-page-2",
+   "items": [
+    {
+     "etag": "etag-20",
+     "id": "id-20",
+     "kind": "kind-20",
+     "snippet": {
+      "audioTrackType": "unknown",
+      "failureReason": "processingFailed",
+      "isAutoSynced": false,
+      "isCC": false,
+      "isDraft": false,
+      "isEasyReader": false,
+      "isLarge": false,
+      "language": "snippet.language-20",
+      "lastUpdated": "2026-03-12T12:34:50Z",
+      "name": "Plain title",
+      "status": "failed",
+      "trackKind": "forced",
+      "videoId": "snippet.videoId-20"
+     }
+    },
+    {
+     "etag": "etag-21",
+     "id": "id-21",
+     "kind": "kind-21",
+     "snippet": {
+      "audioTrackType": "primary",
+      "failureReason": "unknownFormat",
+      "isAutoSynced": true,
+      "isCC": true,
+      "isDraft": true,
+      "isEasyReader": true,
+      "isLarge": true,
+      "language": "snippet.language-21",
+      "lastUpdated": "2026-04-13T12:34:51Z",
+      "name": "key: value",
+      "status": "serving",
+      "trackKind": "standard",
+      "videoId": "snippet.videoId-21"
+     }
+    },
+    {
+     "etag": "etag-22",
+     "id": "id-22",
+     "kind": "kind-22",
+     "snippet": {
+      "audioTrackType": "commentary",
+      "failureReason": "unsupportedFormat",
+      "isAutoSynced": false,
+      "isCC": false,
+      "isDraft": false,
+      "isEasyReader": false,
+      "isLarge": false,
+      "language": "snippet.language-22",
+      "lastUpdated": "2026-05-14T12:34:52Z",
+      "name": "'single' quoted",
+      "status": "syncing",
+      "trackKind": "ASR",
+      "videoId": "snippet.videoId-22"
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-2",
+     "kind": "",
+     "snippet": {
+      "audioTrackType": "",
+      "failureReason": "",
+      "isAutoSynced": false,
+      "isCC": false,
+      "isDraft": false,
+      "isEasyReader": false,
+      "isLarge": false,
+      "language": "",
+      "lastUpdated": "",
+      "name": "",
+      "status": "",
+      "trackKind": "",
+      "videoId": ""
+     }
+    }
+   ],
+   "_token": "p3"
+  }
+ ]
+}

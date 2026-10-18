@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.watermark.set.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Set a channel watermark. Use this tool to set a channel watermark.\n\nUsage:\n  yutu watermark set [flags]\n\nExamples:\n# Set a watermark for a channel\nyutu watermark set --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file watermark.png\n# Set a watermark with position and offset\nyutu watermark set --channelId UC_x5X --file logo.png --inVideoPosition bottomRight --offsetType offsetFromEnd --offsetMs 1000\n# Set a watermark with duration\nyutu watermark set --channelId UC_x5X --file logo.png --durationMs 5000 --offsetMs 2000\n\nFlags:\n  -c, --channelId string                ID of the channel\n  -d, --durationMs uint                 Duration in milliseconds for which the watermark should be displayed\n  -f, --file string                     Path to the watermark file\n  -h, --help                            help for set\n  -p, --inVideoPosition string          topLeft|topRight|bottomLeft|bottomRight\n  -m, --offsetMs uint                   Defines the time at which the watermark will appear\n  -t, --offsetType string               offsetFromStart|offsetFromEnd\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+}

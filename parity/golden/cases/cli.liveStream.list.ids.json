@@ -1,0 +1,36 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.list.ids",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1",
+     "id2"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TITLE                       STATUS  \n id-0    @at sign                    created \n id-1    Ünïcödé ✓ 日本語のタイトル  ready   \n id-2    - dash start                active  \n zero-0                                      "
+}

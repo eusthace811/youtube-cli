@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveBroadcast.transition.no-yes",
+ "requests": [],
+ "stderr": "Transition live broadcast(s) id1, id2 to val-broadcastStatus\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu liveBroadcast transition -h' to see usage.\n",
+ "stdout": ""
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete comments. Use this tool to delete comments by IDs.\n\nUsage:\n  yutu comment delete [flags]\n\nExamples:\n# Delete a comment by ID\nyutu comment delete --ids abc123\n# Delete multiple comments\nyutu comment delete --ids abc123,def456\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of comments\n      --yes           Confirm the operation\n"
+}

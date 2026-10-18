@@ -1,0 +1,58 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.member.list.paging.fail",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/members",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "mode": [
+     "all_current"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/members",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "mode": [
+     "all_current"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get member\ngoogleapi: Error 500: Backend Error, backendError\nRun 'yutu member list -h' to see usage.\n",
+ "stdout": "[{\"etag\":\"etag-0\",\"kind\":\"kind-0\",\"snippet\":{\"creatorChannelId\":\"snippet.creatorChannelId-0\",\"memberDetails\":{\"channelId\":\"snippet.memberDetails.channelId-0\",\"channelUrl\":\"snippet.memberDetails.channelUrl-0\",\"displayName\":\"snippet.memberDetails.displayName-0\",\"profileImageUrl\":\"snippet.memberDetails.profileImageUrl-0\"},\"membershipsDetails\":{\"accessibleLevels\":[\"snippet.membershipsDetails.accessibleLevels[]-0\",\"snippet.membershipsDetails.accessibleLevels[]-1\"],\"highestAccessibleLevel\":\"snippet.membershipsDetails.highestAccessibleLevel-0\",\"highestAccessibleLevelDisplayName\":\"snippet.membershipsDetails.highestAccessibleLevelDisplayName-0\",\"membershipsDuration\":{\"memberSince\":\"snippet.membershipsDetails.membershipsDuration.memberSince-0\",\"memberTotalDurationMonths\":72},\"membershipsDurationAtLevels\":[{\"level\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].level-0\",\"memberSince\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-0\",\"memberTotalDurationMonths\":82},{\"level\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].level-1\",\"memberSince\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-1\",\"memberTotalDurationMonths\":95}]}}},{\"etag\":\"etag-1\",\"kind\":\"kind-1\",\"snippet\":{\"creatorChannelId\":\"snippet.creatorChannelId-1\",\"memberDetails\":{\"channelId\":\"snippet.memberDetails.channelId-1\",\"channelUrl\":\"snippet.memberDetails.channelUrl-1\",\"displayName\":\"snippet.memberDetails.displayName-1\",\"profileImageUrl\":\"snippet.memberDetails.profileImageUrl-1\"},\"membershipsDetails\":{\"accessibleLevels\":[\"snippet.membershipsDetails.accessibleLevels[]-1\",\"snippet.membershipsDetails.accessibleLevels[]-2\"],\"highestAccessibleLevel\":\"snippet.membershipsDetails.highestAccessibleLevel-1\",\"highestAccessibleLevelDisplayName\":\"snippet.membershipsDetails.highestAccessibleLevelDisplayName-1\",\"membershipsDuration\":{\"memberSince\":\"snippet.membershipsDetails.membershipsDuration.memberSince-1\",\"memberTotalDurationMonths\":85},\"membershipsDurationAtLevels\":[{\"level\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].level-1\",\"memberSince\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-1\",\"memberTotalDurationMonths\":95},{\"level\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].level-2\",\"memberSince\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-2\",\"memberTotalDurationMonths\":108}]}}},{\"etag\":\"etag-2\",\"kind\":\"kind-2\",\"snippet\":{\"creatorChannelId\":\"snippet.creatorChannelId-2\",\"memberDetails\":{\"channelId\":\"snippet.memberDetails.channelId-2\",\"channelUrl\":\"snippet.memberDetails.channelUrl-2\",\"displayName\":\"snippet.memberDetails.displayName-2\",\"profileImageUrl\":\"snippet.memberDetails.profileImageUrl-2\"},\"membershipsDetails\":{\"accessibleLevels\":[\"snippet.membershipsDetails.accessibleLevels[]-2\",\"snippet.membershipsDetails.accessibleLevels[]-3\"],\"highestAccessibleLevel\":\"snippet.membershipsDetails.highestAccessibleLevel-2\",\"highestAccessibleLevelDisplayName\":\"snippet.membershipsDetails.highestAccessibleLevelDisplayName-2\",\"membershipsDuration\":{\"memberSince\":\"snippet.membershipsDetails.membershipsDuration.memberSince-2\",\"memberTotalDurationMonths\":98},\"membershipsDurationAtLevels\":[{\"level\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].level-2\",\"memberSince\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-2\",\"memberTotalDurationMonths\":108},{\"level\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].level-3\",\"memberSince\":\"snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-3\",\"memberTotalDurationMonths\":121}]}}},{\"snippet\":{\"memberDetails\":{},\"membershipsDetails\":{\"membershipsDuration\":{}}}}]\n"
+}

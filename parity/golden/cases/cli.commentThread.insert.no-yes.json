@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.commentThread.insert.no-yes",
+ "requests": [],
+ "stderr": "Create comment thread on video val-videoId\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu commentThread insert -h' to see usage.\n",
+ "stdout": ""
+}

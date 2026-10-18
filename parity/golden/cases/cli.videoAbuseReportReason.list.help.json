@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.videoAbuseReportReason.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List video abuse report reasons. Use this tool to list available abuse report reasons.\n\nUsage:\n  yutu videoAbuseReportReason list [flags]\n\nExamples:\n# List video abuse report reasons\nyutu videoAbuseReportReason list --hl en\n\nFlags:\n  -h, --help            help for list\n  -l, --hl string       Host language\n  -o, --output string   json|yaml|table (default \"table\")\n  -p, --parts strings   Comma separated parts (default [id,snippet])\n"
+}

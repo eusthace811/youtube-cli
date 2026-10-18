@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.rate.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Rate a video. Use this tool to rate a video.\n\nUsage:\n  yutu video rate [flags]\n\nExamples:\n# Like a video\nyutu video rate --ids dQw4w9WgXcQ --rating like\n# Dislike multiple videos\nyutu video rate --ids dQw4w9WgXcQ,abc123 --rating dislike\n# Remove rating from a video\nyutu video rate --ids dQw4w9WgXcQ --rating none\n\nFlags:\n  -h, --help            help for rate\n  -i, --ids strings     IDs of the videos to rate\n  -r, --rating string   like|dislike|none\n      --yes             Confirm the operation\n"
+}

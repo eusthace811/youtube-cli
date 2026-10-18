@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.bool-bad",
+ "requests": [],
+ "stderr": "Error: invalid argument \"maybe\" for \"-M, --mine\" flag: strconv.ParseBool: parsing \"maybe\": invalid syntax\nRun 'yutu playlist list -h' to see usage.\n",
+ "stdout": ""
+}

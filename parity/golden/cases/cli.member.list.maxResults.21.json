@@ -1,0 +1,58 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.member.list.maxResults.21",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/members",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "mode": [
+     "all_current"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/members",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "mode": [
+     "all_current"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " CHANNEL ID                          DISPLAY NAME                         \n snippet.memberDetails.channelId-0   snippet.memberDetails.displayName-0  \n snippet.memberDetails.channelId-1   snippet.memberDetails.displayName-1  \n snippet.memberDetails.channelId-2   snippet.memberDetails.displayName-2  \n                                                                          \n snippet.memberDetails.channelId-10  snippet.memberDetails.displayName-10 \n snippet.memberDetails.channelId-11  snippet.memberDetails.displayName-11 \n snippet.memberDetails.channelId-12  snippet.memberDetails.displayName-12 \n                                                                          "
+}

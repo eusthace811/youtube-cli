@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.insert.tty-accept",
+ "requests": [
+  {
+   "body": "--01fd0d2e32b737e5c7d23e1645cd6b5b1e55ac7f7014379d5fa32b1aa484\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"categoryId\":\"val-categoryId\",\"title\":\"video\"},\"status\":{\"containsSyntheticMedia\":false,\"privacyStatus\":\"val-privacy\",\"selfDeclaredMadeForKids\":false}}\n\r\n--01fd0d2e32b737e5c7d23e1645cd6b5b1e55ac7f7014379d5fa32b1aa484\r\nContent-Type: application/octet-stream\r\n\r\n\u0000\u0000\u0000\u0018ftypisom\u0000\u0000\u0002\u0000isomiso2\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\r\n--01fd0d2e32b737e5c7d23e1645cd6b5b1e55ac7f7014379d5fa32b1aa484--\r\n",
+   "ctype": "multipart/related; boundary=01fd0d2e32b737e5c7d23e1645cd6b5b1e55ac7f7014379d5fa32b1aa484",
+   "method": "POST",
+   "path": "/upload/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet,status"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Upload video: video.mp4 [y/N] y\r\nVideo inserted: id-1\r\n"
+}

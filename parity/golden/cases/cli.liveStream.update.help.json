@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.update.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update a live stream. Use this tool to update an existing live stream's settings.\n\nUsage:\n  yutu liveStream update [flags]\n\nExamples:\n# Update live stream title\nyutu liveStream update --id stream123 --title \"New Title\"\n# Update live stream CDN settings\nyutu liveStream update --id stream123 --resolution 1080p --frameRate 60fps\n\nFlags:\n  -d, --description string                     Description of the live stream\n  -f, --frameRate string                       Frame rate of the video stream (30fps, 60fps, variable)\n  -h, --help                                   help for update\n  -i, --id strings                             ID of the live stream to update\n  -I, --ingestionType string                   Ingestion type (rtmp, dash, webrtc, hls)\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -r, --resolution string                      Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)\n  -t, --title string                           Title of the live stream\n      --yes                                    Confirm the operation\n"
+}

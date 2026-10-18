@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.subscription.insert.title.short",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"channelId\":\"val-subscriberChannelId\",\"resourceId\":{\"channelId\":\"val-channelId\"},\"title\":\"val-title\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/subscriptions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Subscription inserted: id-1\n"
+}

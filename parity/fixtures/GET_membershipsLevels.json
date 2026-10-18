@@ -1,0 +1,157 @@
+{
+ "pages": [
+  {
+   "kind": "youtube#membershipsLevelListResponse",
+   "etag": "etag-page-0",
+   "items": [
+    {
+     "etag": "etag-0",
+     "id": "id-0",
+     "kind": "kind-0",
+     "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-0",
+      "levelDetails": {
+       "displayName": "snippet.levelDetails.displayName-0"
+      }
+     }
+    },
+    {
+     "etag": "etag-1",
+     "id": "id-1",
+     "kind": "kind-1",
+     "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-1",
+      "levelDetails": {
+       "displayName": "snippet.levelDetails.displayName-1"
+      }
+     }
+    },
+    {
+     "etag": "etag-2",
+     "id": "id-2",
+     "kind": "kind-2",
+     "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-2",
+      "levelDetails": {
+       "displayName": "snippet.levelDetails.displayName-2"
+      }
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-0",
+     "kind": "",
+     "snippet": {
+      "creatorChannelId": "",
+      "levelDetails": {
+       "displayName": ""
+      }
+     }
+    }
+   ],
+   "_token": ""
+  },
+  {
+   "kind": "youtube#membershipsLevelListResponse",
+   "etag": "etag-page-1",
+   "items": [
+    {
+     "etag": "etag-10",
+     "id": "id-10",
+     "kind": "kind-10",
+     "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-10",
+      "levelDetails": {
+       "displayName": "snippet.levelDetails.displayName-10"
+      }
+     }
+    },
+    {
+     "etag": "etag-11",
+     "id": "id-11",
+     "kind": "kind-11",
+     "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-11",
+      "levelDetails": {
+       "displayName": "snippet.levelDetails.displayName-11"
+      }
+     }
+    },
+    {
+     "etag": "etag-12",
+     "id": "id-12",
+     "kind": "kind-12",
+     "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-12",
+      "levelDetails": {
+       "displayName": "snippet.levelDetails.displayName-12"
+      }
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-1",
+     "kind": "",
+     "snippet": {
+      "creatorChannelId": "",
+      "levelDetails": {
+       "displayName": ""
+      }
+     }
+    }
+   ],
+   "_token": "p2"
+  },
+  {
+   "kind": "youtube#membershipsLevelListResponse",
+   "etag": "etag-page-2",
+   "items": [
+    {
+     "etag": "etag-20",
+     "id": "id-20",
+     "kind": "kind-20",
+     "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-20",
+      "levelDetails": {
+       "displayName": "snippet.levelDetails.displayName-20"
+      }
+     }
+    },
+    {
+     "etag": "etag-21",
+     "id": "id-21",
+     "kind": "kind-21",
+     "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-21",
+      "levelDetails": {
+       "displayName": "snippet.levelDetails.displayName-21"
+      }
+     }
+    },
+    {
+     "etag": "etag-22",
+     "id": "id-22",
+     "kind": "kind-22",
+     "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-22",
+      "levelDetails": {
+       "displayName": "snippet.levelDetails.displayName-22"
+      }
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-2",
+     "kind": "",
+     "snippet": {
+      "creatorChannelId": "",
+      "levelDetails": {
+       "displayName": ""
+      }
+     }
+    }
+   ],
+   "_token": "p3"
+  }
+ ]
+}

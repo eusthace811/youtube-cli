@@ -1,0 +1,50 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistImage.update.height.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"id\":\"id-0\",\"kind\":\"kind-0\",\"snippet\":{\"height\":7,\"playlistId\":\"val-playlistId\",\"type\":\"hero\",\"width\":13}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "PlaylistImage updated: id-1\n"
+}

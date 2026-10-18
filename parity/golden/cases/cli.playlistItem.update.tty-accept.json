@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.playlistItem.update.tty-accept",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update playlist item: id1 [y/N] y\r\nError: failed to get playlist item\r\nRun 'yutu playlistItem update -h' to see usage.\r\n"
+}

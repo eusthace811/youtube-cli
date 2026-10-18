@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.resource.i18n.region.fr",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/i18nRegions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "hl": [
+     "fr"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:31.302+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"resources/read\",\"params\":{\"uri\":\"i18n://region/fr\"}}\ntime=2026-10-18T15:39:31.303+01:00 level=INFO msg=\"resource read\" resource=i18nRegions uri=i18n://region/fr\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"ttlMs\":0,\"cacheScope\":\"public\",\"contents\":[{\"uri\":\"i18n://region/fr\",\"mimeType\":\"application/json\",\"text\":\"[{\\\"etag\\\":\\\"etag-0\\\",\\\"id\\\":\\\"id-0\\\",\\\"kind\\\":\\\"kind-0\\\",\\\"snippet\\\":{\\\"gl\\\":\\\"snippet.gl-0\\\",\\\"name\\\":\\\"~\\\"}},{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"gl\\\":\\\"snippet.gl-1\\\",\\\"name\\\":\\\"Plain title\\\"}},{\\\"etag\\\":\\\"etag-2\\\",\\\"id\\\":\\\"id-2\\\",\\\"kind\\\":\\\"kind-2\\\",\\\"snippet\\\":{\\\"gl\\\":\\\"snippet.gl-2\\\",\\\"name\\\":\\\"key: value\\\"}},{\\\"id\\\":\\\"zero-0\\\",\\\"snippet\\\":{}}]\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"ttlMs\":0,\"cacheScope\":\"public\",\"contents\":[{\"uri\":\"i18n://region/fr\",\"mimeType\":\"application/json\",\"text\":\"[{\\\"etag\\\":\\\"etag-0\\\",\\\"id\\\":\\\"id-0\\\",\\\"kind\\\":\\\"kind-0\\\",\\\"snippet\\\":{\\\"gl\\\":\\\"snippet.gl-0\\\",\\\"name\\\":\\\"~\\\"}},{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"gl\\\":\\\"snippet.gl-1\\\",\\\"name\\\":\\\"Plain title\\\"}},{\\\"etag\\\":\\\"etag-2\\\",\\\"id\\\":\\\"id-2\\\",\\\"kind\\\":\\\"kind-2\\\",\\\"snippet\\\":{\\\"gl\\\":\\\"snippet.gl-2\\\",\\\"name\\\":\\\"key: value\\\"}},{\\\"id\\\":\\\"zero-0\\\",\\\"snippet\\\":{}}]\\n\"}]}}\n"
+}

@@ -1,0 +1,4448 @@
+{
+ "initialize": {
+  "capabilities": {
+   "logging": {},
+   "resources": {
+    "listChanged": true
+   },
+   "tools": {
+    "listChanged": true
+   }
+  },
+  "instructions": "Automate YouTube operations",
+  "protocolVersion": "2025-06-18",
+  "serverInfo": {
+   "name": "yutu",
+   "version": "v0.11.0"
+  }
+ },
+ "prompts": {
+  "id": 5,
+  "jsonrpc": "2.0",
+  "result": {
+   "cacheScope": "public",
+   "prompts": [],
+   "ttlMs": 7200000
+  }
+ },
+ "resources": {
+  "id": 3,
+  "jsonrpc": "2.0",
+  "result": {
+   "cacheScope": "public",
+   "resources": [
+    {
+     "annotations": {
+      "audience": [
+       "user",
+       "assistant"
+      ],
+      "priority": 0.51
+     },
+     "description": "List all i18n host languages for YouTube regions",
+     "mimeType": "application/json",
+     "name": "i18nHostLanguages",
+     "uri": "i18n://hl"
+    }
+   ],
+   "ttlMs": 7200000
+  }
+ },
+ "templates": {
+  "id": 4,
+  "jsonrpc": "2.0",
+  "result": {
+   "cacheScope": "public",
+   "resourceTemplates": [
+    {
+     "annotations": {
+      "audience": [
+       "user",
+       "assistant"
+      ],
+      "priority": 0.51
+     },
+     "description": "List i18n languages. Use this tool to list available internationalization languages.",
+     "mimeType": "application/json",
+     "name": "i18nLanguages",
+     "uriTemplate": "i18n://language/{hl}"
+    },
+    {
+     "annotations": {
+      "audience": [
+       "user",
+       "assistant"
+      ],
+      "priority": 0.51
+     },
+     "description": "List i18n regions. Use this tool to list available internationalization regions.",
+     "mimeType": "application/json",
+     "name": "i18nRegions",
+     "uriTemplate": "i18n://region/{hl}"
+    },
+    {
+     "annotations": {
+      "audience": [
+       "user",
+       "assistant"
+      ],
+      "priority": 0.51
+     },
+     "description": "Manage YouTube video categories. Use this tool to list available video categories.",
+     "mimeType": "application/json",
+     "name": "video categories",
+     "title": "Manage YouTube video categories",
+     "uriTemplate": "video://category/{hl}"
+    }
+   ],
+   "ttlMs": 7200000
+  }
+ },
+ "tools": {
+  "id": 2,
+  "jsonrpc": "2.0",
+  "result": {
+   "cacheScope": "public",
+   "tools": [
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Create an abuse report. Use this tool to report abusive content on YouTube such as spam, harassment, or violent content.",
+     "inputSchema": {
+      "properties": {
+       "abuse_types": {
+        "description": "Abuse type IDs (e.g., spam, harassment)",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "description": {
+        "description": "Description of the abuse",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet"
+        ],
+        "description": "Parts to include in the response",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "related_entity_id": {
+        "description": "ID of a related entity",
+        "type": "string"
+       },
+       "subject_id": {
+        "description": "ID of the subject being reported",
+        "type": "string"
+       },
+       "subject_type_id": {
+        "description": "Type ID of the subject (e.g., video, comment, channel)",
+        "type": "string"
+       },
+       "subject_url": {
+        "description": "URL of the subject being reported",
+        "type": "string"
+       }
+      },
+      "required": [
+       "abuse_types",
+       "subject_id",
+       "subject_type_id"
+      ],
+      "type": "object"
+     },
+     "name": "abuseReport-insert",
+     "title": "Create an abuse report"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List activities. Use this tool to list activities such as uploads, likes, and favorites.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "ID of the channel",
+        "type": "string"
+       },
+       "for": {
+        "description": "home|mine",
+        "enum": [
+         "home",
+         "mine"
+        ],
+        "type": "string"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet",
+         "contentDetails"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "published_after": {
+        "description": "Filter on activities published after this date",
+        "type": "string"
+       },
+       "published_before": {
+        "description": "Filter on activities published before this date",
+        "type": "string"
+       },
+       "region_code": {
+        "description": "Display the content as seen by viewers in this country",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "name": "activity-list",
+     "title": "List activities"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete captions. Use this tool to delete captions of a video by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the captions to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of": {
+        "description": "ID of the YouTube account that the content owner is acting on behalf of",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "caption-delete",
+     "title": "Delete captions"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Download a caption. Use this tool to download a caption from a video.",
+     "inputSchema": {
+      "properties": {
+       "file": {
+        "description": "Path to save the caption file",
+        "type": "string"
+       },
+       "ids": {
+        "description": "ID of the caption to download",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of": {
+        "description": "ID of the YouTube account that the content owner is acting on behalf of",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "tfmt": {
+        "description": "sbv|srt|vtt",
+        "enum": [
+         "sbv",
+         "srt",
+         "vtt"
+        ],
+        "type": "string"
+       },
+       "tlang": {
+        "description": "Translate the captions into this language",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids",
+       "file"
+      ],
+      "type": "object"
+     },
+     "name": "caption-download",
+     "title": "Download a caption"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Upload a caption. Use this tool to upload a caption to a video.",
+     "inputSchema": {
+      "properties": {
+       "audio_track_type": {
+        "default": "unknown",
+        "description": "unknown|primary|commentary|descriptive",
+        "enum": [
+         "unknown",
+         "primary",
+         "commentary",
+         "descriptive"
+        ],
+        "type": "string"
+       },
+       "file": {
+        "description": "Path to save the caption file",
+        "type": "string"
+       },
+       "is_auto_synced": {
+        "description": "Whether YouTube synchronized the caption track to the audio track in the video",
+        "type": "boolean"
+       },
+       "is_cc": {
+        "description": "Whether the track contains closed captions for the deaf and hard of hearing",
+        "type": "boolean"
+       },
+       "is_draft": {
+        "description": "whether the caption track is a draft",
+        "type": "boolean"
+       },
+       "is_easy_reader": {
+        "description": "Whether caption track is formatted for 'easy reader'",
+        "type": "boolean"
+       },
+       "is_large": {
+        "description": "Whether the caption track uses large text for the vision-impaired",
+        "type": "boolean"
+       },
+       "language": {
+        "description": "Language of the caption track",
+        "type": "string"
+       },
+       "name": {
+        "description": "Name of the caption track",
+        "type": "string"
+       },
+       "on_behalf_of": {
+        "description": "ID of the YouTube account that the content owner is acting on behalf of",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "track_kind": {
+        "default": "standard",
+        "description": "standard|ASR|forced",
+        "enum": [
+         "standard",
+         "ASR",
+         "forced"
+        ],
+        "type": "string"
+       },
+       "video_id": {
+        "description": "ID of the video",
+        "type": "string"
+       }
+      },
+      "required": [
+       "file",
+       "video_id"
+      ],
+      "type": "object"
+     },
+     "name": "caption-insert",
+     "title": "Upload a caption"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List captions. Use this tool to list captions of a video.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the captions to list",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of": {
+        "description": "ID of the YouTube account that the content owner is acting on behalf of",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "video_id": {
+        "description": "ID of the video",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "name": "caption-list",
+     "title": "List captions"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a caption. Use this tool to update a caption.",
+     "inputSchema": {
+      "properties": {
+       "audio_track_type": {
+        "description": "unknown|primary|commentary|descriptive",
+        "enum": [
+         "unknown",
+         "primary",
+         "commentary",
+         "descriptive"
+        ],
+        "type": "string"
+       },
+       "file": {
+        "description": "Path to save the caption file",
+        "type": "string"
+       },
+       "is_auto_synced": {
+        "description": "Whether YouTube synchronized the caption track to the audio track in the video",
+        "type": "boolean"
+       },
+       "is_cc": {
+        "description": "Whether the track contains closed captions for the deaf and hard of hearing",
+        "type": "boolean"
+       },
+       "is_draft": {
+        "description": "whether the caption track is a draft",
+        "type": "boolean"
+       },
+       "is_easy_reader": {
+        "description": "Whether caption track is formatted for 'easy reader'",
+        "type": "boolean"
+       },
+       "is_large": {
+        "description": "Whether the caption track uses large text for the vision-impaired",
+        "type": "boolean"
+       },
+       "language": {
+        "description": "Language of the caption track",
+        "type": "string"
+       },
+       "name": {
+        "description": "Name of the caption track",
+        "type": "string"
+       },
+       "on_behalf_of": {
+        "description": "ID of the YouTube account that the content owner is acting on behalf of",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "track_kind": {
+        "description": "standard|ASR|forced",
+        "enum": [
+         "standard",
+         "ASR",
+         "forced"
+        ],
+        "type": "string"
+       },
+       "video_id": {
+        "description": "ID of the video",
+        "type": "string"
+       }
+      },
+      "required": [
+       "video_id"
+      ],
+      "type": "object"
+     },
+     "name": "caption-update",
+     "title": "Update a caption"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List channels. Use this tool to list channels.",
+     "inputSchema": {
+      "properties": {
+       "category_id": {
+        "description": "Return the channels within the specified guide category id",
+        "type": "string"
+       },
+       "for": {
+        "description": "managedByMe|mine|mySubscribers",
+        "enum": [
+         "managedByMe",
+         "mine",
+         "mySubscribers"
+        ],
+        "type": "string"
+       },
+       "for_handle": {
+        "description": "Return the channel associated with a YouTube handle",
+        "type": "string"
+       },
+       "for_username": {
+        "description": "Return the channel associated with a YouTube username",
+        "type": "string"
+       },
+       "hl": {
+        "description": "Specifies the localization language of the metadata",
+        "type": "string"
+       },
+       "ids": {
+        "default": [],
+        "description": "Return the channels with the specified Ids",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "channel-list",
+     "title": "List channels"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a channel. Use this tool to update a channel.",
+     "inputSchema": {
+      "properties": {
+       "country": {
+        "description": "Country of the channel",
+        "type": "string"
+       },
+       "custom_url": {
+        "description": "Custom URL of the channel",
+        "type": "string"
+       },
+       "default_language": {
+        "description": "The language of the channel's default title and description",
+        "type": "string"
+       },
+       "description": {
+        "description": "Description of the channel",
+        "type": "string"
+       },
+       "ids": {
+        "description": "ID of the channel to update",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the channel",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "channel-update",
+     "title": "Update a channel"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Upload a channel banner. Use this tool to upload a channel banner.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "ID of the channel to insert the banner for",
+        "type": "string"
+       },
+       "file": {
+        "description": "Path to the banner image",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "YouTube channel ID linked to the content owner",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "channel_id",
+       "file"
+      ],
+      "type": "object"
+     },
+     "name": "channelBanner-insert",
+     "title": "Upload a channel banner"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete channel sections. Use this tool to delete channel sections by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "Delete the channel sections with the given ids",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "channelSection-delete",
+     "title": "Delete channel sections"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List channel sections. Use this tool to list channel sections.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "Return the ChannelSections owned by the specified channel id",
+        "type": "string"
+       },
+       "hl": {
+        "description": "Return content in specified language",
+        "type": "string"
+       },
+       "ids": {
+        "description": "Return the channel sections with the given ids",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "mine": {
+        "description": "Return the ChannelSections owned by the authenticated user",
+        "type": "boolean"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "channelSection-list",
+     "title": "List channel sections"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete comments. Use this tool to delete comments by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of comments",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "comment-delete",
+     "title": "Delete comments"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Create a comment. Use this tool to create a comment on a video.",
+     "inputSchema": {
+      "properties": {
+       "author_channel_id": {
+        "description": "Channel id of the comment author",
+        "type": "string"
+       },
+       "can_rate": {
+        "description": "Whether the viewer can rate the comment",
+        "type": "boolean"
+       },
+       "channel_id": {
+        "description": "Channel id of the video owner",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parent_id": {
+        "description": "ID of the parent comment",
+        "type": "string"
+       },
+       "text_original": {
+        "description": "Text of the comment",
+        "type": "string"
+       },
+       "video_id": {
+        "description": "ID of the video",
+        "type": "string"
+       }
+      },
+      "required": [
+       "parent_id",
+       "text_original"
+      ],
+      "type": "object"
+     },
+     "name": "comment-insert",
+     "title": "Create a comment"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List comments. Use this tool to list comments by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of comments",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parent_id": {
+        "description": "Returns replies to the specified comment",
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "text_format": {
+        "default": "html",
+        "description": "textFormatUnspecified|html|plainText",
+        "enum": [
+         "textFormatUnspecified",
+         "html",
+         "plainText"
+        ],
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "name": "comment-list",
+     "title": "List comments"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Mark comments as spam. Use this tool to mark comments as spam.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of comments",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "comment-markAsSpam",
+     "title": "Mark comments as spam"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Set comment moderation status. Use this tool to set comment moderation status.",
+     "inputSchema": {
+      "properties": {
+       "ban_author": {
+        "description": "If set to true the author of the comment gets added to the ban list",
+        "type": "boolean"
+       },
+       "ids": {
+        "description": "IDs of comments",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "moderation_status": {
+        "description": "heldForReview|published|rejected",
+        "enum": [
+         "heldForReview",
+         "published",
+         "rejected"
+        ],
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids",
+       "moderation_status"
+      ],
+      "type": "object"
+     },
+     "name": "comment-setModerationStatus",
+     "title": "Set comment moderation status"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a comment. Use this tool to update a comment.",
+     "inputSchema": {
+      "properties": {
+       "can_rate": {
+        "description": "Whether the viewer can rate the comment",
+        "type": "boolean"
+       },
+       "ids": {
+        "description": "ID of the comment",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "text_original": {
+        "description": "Text of the comment",
+        "type": "string"
+       },
+       "viewer_rating": {
+        "description": "none|like|dislike",
+        "enum": [
+         "none",
+         "like",
+         "dislike"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "comment-update",
+     "title": "Update a comment"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Create a comment thread. Use this tool to create a comment thread.",
+     "inputSchema": {
+      "properties": {
+       "author_channel_id": {
+        "description": "Channel id of the comment author",
+        "type": "string"
+       },
+       "channel_id": {
+        "description": "Channel id of the video owner",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "text_original": {
+        "description": "Text of the comment",
+        "type": "string"
+       },
+       "video_id": {
+        "description": "ID of the video",
+        "type": "string"
+       }
+      },
+      "required": [
+       "channel_id",
+       "text_original",
+       "video_id"
+      ],
+      "type": "object"
+     },
+     "name": "commentThread-insert",
+     "title": "Create a comment thread"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List comment threads. Use this tool to list comment threads.",
+     "inputSchema": {
+      "properties": {
+       "all_threads_related_to_channel_id": {
+        "description": "Returns the comment threads of all videos of the channel and the channel comments as well",
+        "type": "string"
+       },
+       "channel_id": {
+        "description": "Channel id of the video owner",
+        "type": "string"
+       },
+       "ids": {
+        "description": "IDs of the comment threads",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "moderation_status": {
+        "default": "published",
+        "description": "published|heldForReview|likelySpam|rejected",
+        "enum": [
+         "published",
+         "heldForReview",
+         "likelySpam",
+         "rejected"
+        ],
+        "type": "string"
+       },
+       "order": {
+        "default": "time",
+        "description": "orderUnspecified|time|relevance",
+        "enum": [
+         "orderUnspecified",
+         "time",
+         "relevance"
+        ],
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "search_terms": {
+        "description": "Search terms",
+        "type": "string"
+       },
+       "text_format": {
+        "default": "html",
+        "description": "textFormatUnspecified|html",
+        "enum": [
+         "textFormatUnspecified",
+         "html"
+        ],
+        "type": "string"
+       },
+       "video_id": {
+        "description": "Returns the comment threads of the specified video",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "name": "commentThread-list",
+     "title": "List comment threads"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Bind a live broadcast to a stream. Use this tool to bind or unbind a live stream to/from a live broadcast.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the live broadcasts to bind",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet",
+         "contentDetails",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "stream_id": {
+        "description": "ID of the live stream to bind",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "liveBroadcast-bind",
+     "title": "Bind a live broadcast to a stream"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete live broadcasts. Use this tool to delete live broadcasts by their IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the live broadcasts to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "liveBroadcast-delete",
+     "title": "Delete live broadcasts"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Create a live broadcast. Use this tool to create a live broadcast for the authenticated user.",
+     "inputSchema": {
+      "properties": {
+       "description": {
+        "description": "Description of the live broadcast",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet",
+         "status",
+         "contentDetails"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "privacy_status": {
+        "description": "Privacy status (public, unlisted, private)",
+        "enum": [
+         "public",
+         "unlisted",
+         "private"
+        ],
+        "type": "string"
+       },
+       "scheduled_end_time": {
+        "description": "Scheduled end time in RFC 3339 format",
+        "type": "string"
+       },
+       "scheduled_start_time": {
+        "description": "Scheduled start time in RFC 3339 format",
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the live broadcast",
+        "type": "string"
+       }
+      },
+      "required": [
+       "title",
+       "scheduled_start_time"
+      ],
+      "type": "object"
+     },
+     "name": "liveBroadcast-insert",
+     "title": "Create a live broadcast"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Insert a cuepoint into a live broadcast. Use this tool to insert an ad break cuepoint into a currently live broadcast.",
+     "inputSchema": {
+      "properties": {
+       "cue_duration_secs": {
+        "description": "Cuepoint duration in seconds",
+        "minimum": 0,
+        "type": "number"
+       },
+       "cue_insertion_offset_ms": {
+        "description": "Cuepoint insertion offset time in milliseconds",
+        "minimum": 0,
+        "type": "number"
+       },
+       "cue_type": {
+        "description": "Cue type (cueTypeAd)",
+        "enum": [
+         "cueTypeAd"
+        ],
+        "type": "string"
+       },
+       "cue_walltime_ms": {
+        "description": "Cuepoint wall clock time in milliseconds",
+        "minimum": 0,
+        "type": "number"
+       },
+       "ids": {
+        "description": "IDs of the live broadcasts to insert cuepoints into",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "liveBroadcast-insertCuepoint",
+     "title": "Insert a cuepoint into a live broadcast"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List live broadcasts. Use this tool to list live broadcasts for the authenticated user.",
+     "inputSchema": {
+      "properties": {
+       "broadcast_status": {
+        "description": "Broadcast status filter (all, active, upcoming, completed)",
+        "enum": [
+         "all",
+         "active",
+         "upcoming",
+         "completed"
+        ],
+        "type": "string"
+       },
+       "broadcast_type": {
+        "description": "Broadcast type filter (all, event, persistent)",
+        "enum": [
+         "all",
+         "event",
+         "persistent"
+        ],
+        "type": "string"
+       },
+       "ids": {
+        "description": "Return live broadcasts with the given ids",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "mine": {
+        "description": "List broadcasts owned by the authenticated user",
+        "type": "boolean"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "liveBroadcast-list",
+     "title": "List live broadcasts"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Transition a live broadcast. Use this tool to change the status of a live broadcast (e.g., go live, end broadcast).",
+     "inputSchema": {
+      "properties": {
+       "broadcast_status": {
+        "description": "Broadcast status to transition to (testing, live, complete)",
+        "enum": [
+         "testing",
+         "live",
+         "complete"
+        ],
+        "type": "string"
+       },
+       "ids": {
+        "description": "IDs of the live broadcasts to transition",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "ids",
+       "broadcast_status"
+      ],
+      "type": "object"
+     },
+     "name": "liveBroadcast-transition",
+     "title": "Transition a live broadcast"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a live broadcast. Use this tool to update an existing live broadcast's settings.",
+     "inputSchema": {
+      "properties": {
+       "description": {
+        "description": "Description of the live broadcast",
+        "type": "string"
+       },
+       "ids": {
+        "description": "ID of the live broadcast to update",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "privacy_status": {
+        "description": "Privacy status (public, unlisted, private)",
+        "enum": [
+         "public",
+         "unlisted",
+         "private"
+        ],
+        "type": "string"
+       },
+       "scheduled_end_time": {
+        "description": "Scheduled end time in RFC 3339 format",
+        "type": "string"
+       },
+       "scheduled_start_time": {
+        "description": "Scheduled start time in RFC 3339 format",
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the live broadcast",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "liveBroadcast-update",
+     "title": "Update a live broadcast"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete live chat bans. Use this tool to unban users from a live chat by ban IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the live chat bans to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "liveChatBan-delete",
+     "title": "Delete live chat bans"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Create a live chat ban. Use this tool to ban a user from a live chat.",
+     "inputSchema": {
+      "properties": {
+       "ban_duration_seconds": {
+        "description": "Duration of the ban in seconds (only for temporary bans)",
+        "minimum": 0,
+        "type": "number"
+       },
+       "ban_type": {
+        "description": "permanent|temporary",
+        "enum": [
+         "permanent",
+         "temporary"
+        ],
+        "type": "string"
+       },
+       "banned_user_channel_id": {
+        "description": "Channel ID of the user to ban",
+        "type": "string"
+       },
+       "live_chat_id": {
+        "description": "ID of the live chat",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet"
+        ],
+        "description": "Parts to include in the response",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "live_chat_id",
+       "banned_user_channel_id",
+       "ban_type"
+      ],
+      "type": "object"
+     },
+     "name": "liveChatBan-insert",
+     "title": "Create a live chat ban"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete live chat messages. Use this tool to remove messages from a live chat by their IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the live chat messages to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "liveChatMessage-delete",
+     "title": "Delete live chat messages"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Send a live chat message. Use this tool to post a text message to a live chat.",
+     "inputSchema": {
+      "properties": {
+       "live_chat_id": {
+        "description": "ID of the live chat",
+        "type": "string"
+       },
+       "message_text": {
+        "description": "Text of the message to send",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet"
+        ],
+        "description": "Parts to include in the response",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "live_chat_id",
+       "message_text"
+      ],
+      "type": "object"
+     },
+     "name": "liveChatMessage-insert",
+     "title": "Send a live chat message"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List live chat messages. Use this tool to list messages in a live chat.",
+     "inputSchema": {
+      "properties": {
+       "hl": {
+        "description": "Localization language for system messages",
+        "type": "string"
+       },
+       "live_chat_id": {
+        "description": "ID of the live chat",
+        "type": "string"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet",
+         "authorDetails"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "live_chat_id"
+      ],
+      "type": "object"
+     },
+     "name": "liveChatMessage-list",
+     "title": "List live chat messages"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Transition a durable live chat event. Use this tool to change the status of a live chat message (e.g., close a poll).",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the live chat messages to transition",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "status": {
+        "description": "Status to transition to (closed)",
+        "enum": [
+         "closed"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids",
+       "status"
+      ],
+      "type": "object"
+     },
+     "name": "liveChatMessage-transition",
+     "title": "Transition a live chat message"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete live chat moderators. Use this tool to remove moderators from a live chat by their IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the live chat moderators to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "liveChatModerator-delete",
+     "title": "Delete live chat moderators"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Add a live chat moderator. Use this tool to add a moderator to a live chat.",
+     "inputSchema": {
+      "properties": {
+       "live_chat_id": {
+        "description": "ID of the live chat",
+        "type": "string"
+       },
+       "moderator_channel_id": {
+        "description": "Channel ID of the moderator",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet"
+        ],
+        "description": "Parts to include in the response",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "live_chat_id",
+       "moderator_channel_id"
+      ],
+      "type": "object"
+     },
+     "name": "liveChatModerator-insert",
+     "title": "Add a live chat moderator"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List live chat moderators. Use this tool to list moderators for a live chat.",
+     "inputSchema": {
+      "properties": {
+       "live_chat_id": {
+        "description": "ID of the live chat",
+        "type": "string"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "live_chat_id"
+      ],
+      "type": "object"
+     },
+     "name": "liveChatModerator-list",
+     "title": "List live chat moderators"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete live streams. Use this tool to delete live streams by their IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the live streams to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "liveStream-delete",
+     "title": "Delete live streams"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Create a live stream. Use this tool to create a live stream.",
+     "inputSchema": {
+      "properties": {
+       "description": {
+        "description": "Description of the live stream",
+        "type": "string"
+       },
+       "frame_rate": {
+        "description": "Frame rate of the video stream (30fps, 60fps, variable)",
+        "enum": [
+         "30fps",
+         "60fps",
+         "variable"
+        ],
+        "type": "string"
+       },
+       "ingestion_type": {
+        "description": "Ingestion type (rtmp, dash, webrtc, hls)",
+        "enum": [
+         "rtmp",
+         "dash",
+         "webrtc",
+         "hls"
+        ],
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet",
+         "cdn",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "resolution": {
+        "description": "Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)",
+        "enum": [
+         "240p",
+         "360p",
+         "480p",
+         "720p",
+         "1080p",
+         "1440p",
+         "2160p",
+         "variable"
+        ],
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the live stream",
+        "type": "string"
+       }
+      },
+      "required": [
+       "title",
+       "ingestion_type",
+       "resolution"
+      ],
+      "type": "object"
+     },
+     "name": "liveStream-insert",
+     "title": "Create a live stream"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List live streams. Use this tool to list live streams for the authenticated user.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "Return live streams with the given ids",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "mine": {
+        "description": "List streams owned by the authenticated user",
+        "type": "boolean"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet",
+         "cdn",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "liveStream-list",
+     "title": "List live streams"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a live stream. Use this tool to update an existing live stream's settings.",
+     "inputSchema": {
+      "properties": {
+       "description": {
+        "description": "Description of the live stream",
+        "type": "string"
+       },
+       "frame_rate": {
+        "description": "Frame rate of the video stream (30fps, 60fps, variable)",
+        "enum": [
+         "30fps",
+         "60fps",
+         "variable"
+        ],
+        "type": "string"
+       },
+       "ids": {
+        "description": "ID of the live stream to update",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "ingestion_type": {
+        "description": "Ingestion type (rtmp, dash, webrtc, hls)",
+        "enum": [
+         "rtmp",
+         "dash",
+         "webrtc",
+         "hls"
+        ],
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "Channel ID for content owner operations",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "resolution": {
+        "description": "Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)",
+        "enum": [
+         "240p",
+         "360p",
+         "480p",
+         "720p",
+         "1080p",
+         "1440p",
+         "2160p",
+         "variable"
+        ],
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the live stream",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "liveStream-update",
+     "title": "Update a live stream"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List channel members. Use this tool to list information about channel members.",
+     "inputSchema": {
+      "properties": {
+       "has_access_to_level": {
+        "description": "Filter members in the results set to the ones that have access to a level",
+        "type": "string"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "member_channel_id": {
+        "description": "Comma separated list of channel Ids. Only data about members that are part of this list will be included",
+        "type": "string"
+       },
+       "mode": {
+        "default": "all_current",
+        "description": "listMembersModeUnknown, updates, or all_current",
+        "enum": [
+         "listMembersModeUnknown",
+         "updates",
+         "all_current"
+        ],
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "member-list",
+     "title": "List channel members"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List membership levels. Use this tool to list membership levels.",
+     "inputSchema": {
+      "properties": {
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "membershipsLevel-list",
+     "title": "List membership levels"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete playlists. Use this tool to delete playlists by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the playlists to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "playlist-delete",
+     "title": "Delete playlists"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Create a playlist. Use this tool to create a playlist.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "Channel id of the playlist",
+        "type": "string"
+       },
+       "description": {
+        "description": "Description of the playlist",
+        "type": "string"
+       },
+       "language": {
+        "description": "Language of the playlist",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "privacy": {
+        "description": "public|private|unlisted",
+        "enum": [
+         "public",
+         "private",
+         "unlisted"
+        ],
+        "type": "string"
+       },
+       "tags": {
+        "description": "Comma separated tags",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "title": {
+        "description": "Title of the playlist",
+        "type": "string"
+       }
+      },
+      "required": [
+       "title",
+       "channel_id",
+       "privacy"
+      ],
+      "type": "object"
+     },
+     "name": "playlist-insert",
+     "title": "Create a playlist"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List playlists. Use this tool to list playlists.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "Return the playlists owned by the specified channel id",
+        "type": "string"
+       },
+       "hl": {
+        "description": "Return content in specified language",
+        "type": "string"
+       },
+       "ids": {
+        "description": "Return the playlists with the given Ids for Stubby or Apiary",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "mine": {
+        "description": "Return the playlists owned by the authenticated user",
+        "type": "boolean"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "YouTube channel ID linked to the content owner",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "playlist-list",
+     "title": "List playlists"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a playlist. Use this tool to update a playlist.",
+     "inputSchema": {
+      "properties": {
+       "description": {
+        "description": "Description of the playlist",
+        "type": "string"
+       },
+       "ids": {
+        "description": "ID of the playlist to update",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "language": {
+        "description": "Language of the playlist",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "privacy": {
+        "description": "public|private|unlisted",
+        "enum": [
+         "public",
+         "private",
+         "unlisted"
+        ],
+        "type": "string"
+       },
+       "tags": {
+        "description": "Comma separated tags",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "title": {
+        "description": "Title of the playlist",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "playlist-update",
+     "title": "Update a playlist"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete playlist images. Use this tool to delete playlist images by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the playlist images to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "playlistImage-delete",
+     "title": "Delete playlist images"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Upload a playlist image. Use this tool to upload a playlist image.",
+     "inputSchema": {
+      "properties": {
+       "file": {
+        "description": "Path to the image file",
+        "type": "string"
+       },
+       "height": {
+        "description": "The image height",
+        "minimum": 0,
+        "type": "number"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "YouTube channel ID linked to the content owner",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "playlist_id": {
+        "description": "ID of the playlist this image is associated with",
+        "type": "string"
+       },
+       "type": {
+        "description": "The image type (e.g., 'hero')",
+        "type": "string"
+       },
+       "width": {
+        "description": "The image width",
+        "minimum": 0,
+        "type": "number"
+       }
+      },
+      "required": [
+       "file",
+       "playlist_id"
+      ],
+      "type": "object"
+     },
+     "name": "playlistImage-insert",
+     "title": "Upload a playlist image"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List playlist images. Use this tool to list playlist images.",
+     "inputSchema": {
+      "properties": {
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "YouTube channel ID linked to the content owner",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parent": {
+        "description": "Return PlaylistImages for this playlist id",
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "kind",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "playlistImage-list",
+     "title": "List playlist images"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a playlist image. Use this tool to update a playlist image.",
+     "inputSchema": {
+      "properties": {
+       "height": {
+        "description": "The image height",
+        "minimum": 0,
+        "type": "number"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "YouTube channel ID linked to the content owner",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "playlist_id": {
+        "description": "ID of the playlist this image is associated with",
+        "type": "string"
+       },
+       "type": {
+        "description": "The image type (e.g., 'hero')",
+        "type": "string"
+       },
+       "width": {
+        "description": "The image width",
+        "minimum": 0,
+        "type": "number"
+       }
+      },
+      "required": [
+       "playlist_id"
+      ],
+      "type": "object"
+     },
+     "name": "playlistImage-update",
+     "title": "Update a playlist image"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete playlist items. Use this tool to delete playlist items by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the playlist items to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "playlistItem-delete",
+     "title": "Delete playlist items"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Add a playlist item. Use this tool to add a playlist item to a playlist.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "ID that YouTube uses to uniquely identify the user that added the item to the playlist",
+        "type": "string"
+       },
+       "description": {
+        "description": "Description of the playlist item",
+        "type": "string"
+       },
+       "k_channel_id": {
+        "description": "ID of the channel if kind is channel",
+        "type": "string"
+       },
+       "k_playlist_id": {
+        "description": "ID of the playlist if kind is playlist",
+        "type": "string"
+       },
+       "k_video_id": {
+        "description": "ID of the video if kind is video",
+        "type": "string"
+       },
+       "kind": {
+        "description": "video|channel|playlist",
+        "enum": [
+         "video",
+         "channel",
+         "playlist"
+        ],
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "playlist_id": {
+        "description": "The id that YouTube uses to uniquely identify the playlist that the item is in",
+        "type": "string"
+       },
+       "privacy": {
+        "description": "public|private|unlisted",
+        "enum": [
+         "public",
+         "private",
+         "unlisted"
+        ],
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the playlist item",
+        "type": "string"
+       }
+      },
+      "required": [
+       "kind",
+       "playlist_id",
+       "channel_id"
+      ],
+      "type": "object"
+     },
+     "name": "playlistItem-insert",
+     "title": "Add a playlist item"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List playlist items. Use this tool to list playlist items.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the playlist items to list",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "playlist_id": {
+        "description": "Return the playlist items within the given playlist",
+        "type": "string"
+       },
+       "video_id": {
+        "description": "Return the playlist items associated with the given video id",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "name": "playlistItem-list",
+     "title": "List playlist items"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a playlist item. Use this tool to update a playlist item.",
+     "inputSchema": {
+      "properties": {
+       "description": {
+        "description": "Description of the playlist item",
+        "type": "string"
+       },
+       "ids": {
+        "description": "ID of the playlist item to update",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "privacy": {
+        "description": "public|private|unlisted",
+        "enum": [
+         "public",
+         "private",
+         "unlisted"
+        ],
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the playlist item",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "playlistItem-update",
+     "title": "Update a playlist item"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "Search resources. Use this tool to search for videos, channels, playlists, and other resources.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "Filter on resources belonging to this channelId",
+        "type": "string"
+       },
+       "channel_type": {
+        "default": "channelTypeUnspecified",
+        "description": "channelTypeUnspecified|any|show",
+        "enum": [
+         "channelTypeUnspecified",
+         "any",
+         "show"
+        ],
+        "type": "string"
+       },
+       "event_type": {
+        "default": "none",
+        "description": "none|upcoming|live|completed",
+        "enum": [
+         "none",
+         "upcoming",
+         "live",
+         "completed"
+        ],
+        "type": "string"
+       },
+       "for": {
+        "description": "mine|developer|contentOwner",
+        "enum": [
+         "mine",
+         "developer",
+         "contentOwner"
+        ],
+        "type": "string"
+       },
+       "location": {
+        "description": "Filter on location of the video",
+        "type": "string"
+       },
+       "location_radius": {
+        "description": "Filter on distance from the location",
+        "type": "string"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "order": {
+        "default": "relevance",
+        "description": "searchSortUnspecified|date|rating|viewCount|relevance|title|videoCount",
+        "enum": [
+         "searchSortUnspecified",
+         "date",
+         "rating",
+         "viewCount",
+         "relevance",
+         "title",
+         "videoCount"
+        ],
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "published_after": {
+        "description": "Filter on resources published after this date",
+        "type": "string"
+       },
+       "published_before": {
+        "description": "Filter on resources published before this date",
+        "type": "string"
+       },
+       "q": {
+        "description": "Textual search terms to match",
+        "type": "string"
+       },
+       "region_code": {
+        "description": "Display the content as seen by viewers in this country",
+        "type": "string"
+       },
+       "relevance_language": {
+        "description": "Return results relevant to this language",
+        "type": "string"
+       },
+       "safe_search": {
+        "default": "moderate",
+        "description": "safeSearchSettingUnspecified|none|moderate|strict",
+        "enum": [
+         "safeSearchSettingUnspecified",
+         "none",
+         "moderate",
+         "strict"
+        ],
+        "type": "string"
+       },
+       "topic_id": {
+        "description": "Restrict results to a particular topic",
+        "type": "string"
+       },
+       "types": {
+        "description": "Restrict results to a particular set of resource types from One Platform",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "video_caption": {
+        "default": "any",
+        "description": "videoCaptionUnspecified|any|closedCaption|none",
+        "enum": [
+         "videoCaptionUnspecified",
+         "any",
+         "closedCaption",
+         "none"
+        ],
+        "type": "string"
+       },
+       "video_category_id": {
+        "description": "Filter on videos in a specific category",
+        "type": "string"
+       },
+       "video_definition": {
+        "description": "Filter on the definition of the videos",
+        "enum": [
+         "any",
+         "high",
+         "standard"
+        ],
+        "type": "string"
+       },
+       "video_dimension": {
+        "default": "any",
+        "description": "any|2d|3d",
+        "enum": [
+         "any",
+         "2d",
+         "3d"
+        ],
+        "type": "string"
+       },
+       "video_duration": {
+        "default": "any",
+        "description": "videoDurationUnspecified|any|short|medium|long",
+        "enum": [
+         "videoDurationUnspecified",
+         "any",
+         "short",
+         "medium",
+         "long"
+        ],
+        "type": "string"
+       },
+       "video_embeddable": {
+        "description": "videoEmbeddableUnspecified|any|true",
+        "enum": [
+         "videoEmbeddableUnspecified",
+         "any",
+         "true"
+        ],
+        "type": "string"
+       },
+       "video_license": {
+        "description": "any|youtube|creativeCommon",
+        "enum": [
+         "any",
+         "youtube",
+         "creativeCommon"
+        ],
+        "type": "string"
+       },
+       "video_paid_product_placement": {
+        "description": "videoPaidProductPlacementUnspecified|any|true",
+        "enum": [
+         "videoPaidProductPlacementUnspecified",
+         "any",
+         "true"
+        ],
+        "type": "string"
+       },
+       "video_syndicated": {
+        "description": "videoSyndicatedUnspecified|any|true",
+        "enum": [
+         "videoSyndicatedUnspecified",
+         "any",
+         "true"
+        ],
+        "type": "string"
+       },
+       "video_type": {
+        "description": "videoTypeUnspecified|any|movie|episode",
+        "enum": [
+         "videoTypeUnspecified",
+         "any",
+         "movie",
+         "episode"
+        ],
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "name": "search-list",
+     "title": "Search resources"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete subscriptions. Use this tool to delete subscriptions by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the subscriptions to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "subscription-delete",
+     "title": "Delete subscriptions"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Subscribe to a channel. Use this tool to subscribe to a YouTube channel.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "ID of the channel to subscribe to",
+        "type": "string"
+       },
+       "description": {
+        "description": "Description of the subscription",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "subscriber_channel_id": {
+        "description": "Subscriber's channel id",
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the subscription",
+        "type": "string"
+       }
+      },
+      "required": [
+       "subscriber_channel_id",
+       "channel_id"
+      ],
+      "type": "object"
+     },
+     "name": "subscription-insert",
+     "title": "Subscribe to a channel"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List subscriptions. Use this tool to list subscriptions.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "Return the subscriptions of the given channel owner",
+        "type": "string"
+       },
+       "for": {
+        "description": "mine|myRecentSubscribers|mySubscribers",
+        "enum": [
+         "mine",
+         "myRecentSubscribers",
+         "mySubscribers"
+        ],
+        "type": "string"
+       },
+       "for_channel_id": {
+        "description": "Return the subscriptions to the subset of these channels that the authenticated user is subscribed to",
+        "type": "string"
+       },
+       "ids": {
+        "description": "Return the subscriptions with the given ids for Stubby or Apiary",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "YouTube channel ID linked to the content owner",
+        "type": "string"
+       },
+       "order": {
+        "default": "relevance",
+        "description": "subscriptionOrderUnspecified|relevance|unread|alphabetical",
+        "enum": [
+         "subscriptionOrderUnspecified",
+         "relevance",
+         "unread",
+         "alphabetical"
+        ],
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "subscription-list",
+     "title": "List subscriptions"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List Super Chat events. Use this tool to list Super Chat events.",
+     "inputSchema": {
+      "properties": {
+       "hl": {
+        "description": "Return rendered funding amounts in specified language",
+        "type": "string"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "superChatEvent-list",
+     "title": "List Super Chat events"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete third-party links. Use this tool to delete third-party links.",
+     "inputSchema": {
+      "properties": {
+       "external_channel_id": {
+        "description": "Channel ID to which changes should be applied, for delegation",
+        "type": "string"
+       },
+       "linking_token": {
+        "description": "Linking token that identifies the YouTube account and channel",
+        "type": "string"
+       },
+       "type": {
+        "description": "Type of the link: linkUnspecified|channelToStoreLink",
+        "enum": [
+         "linkUnspecified",
+         "channelToStoreLink"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "linking_token",
+       "type"
+      ],
+      "type": "object"
+     },
+     "name": "thirdPartyLink-delete",
+     "title": "Delete third-party links"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Create a third-party link. Use this tool to create a third-party link.",
+     "inputSchema": {
+      "properties": {
+       "external_channel_id": {
+        "description": "Channel ID to which changes should be applied, for delegation",
+        "type": "string"
+       },
+       "link_status": {
+        "description": "Status of the link: unknown|failed|pending|linked",
+        "enum": [
+         "unknown",
+         "failed",
+         "pending",
+         "linked"
+        ],
+        "type": "string"
+       },
+       "linking_token": {
+        "description": "Linking token that identifies the YouTube account and channel",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "type": {
+        "description": "Type of the link: linkUnspecified|channelToStoreLink",
+        "enum": [
+         "linkUnspecified",
+         "channelToStoreLink"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "linking_token",
+       "type"
+      ],
+      "type": "object"
+     },
+     "name": "thirdPartyLink-insert",
+     "title": "Create a third-party link"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List third-party links. Use this tool to list links between a YouTube channel and a third-party service.",
+     "inputSchema": {
+      "properties": {
+       "external_channel_id": {
+        "description": "Channel ID to which changes should be applied, for delegation",
+        "type": "string"
+       },
+       "linking_token": {
+        "description": "Linking token that identifies the YouTube account and channel",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "type": {
+        "description": "Type of the link: linkUnspecified|channelToStoreLink",
+        "enum": [
+         "linkUnspecified",
+         "channelToStoreLink"
+        ],
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "name": "thirdPartyLink-list",
+     "title": "List third-party links"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a third-party link. Use this tool to update the status or type of a link between a YouTube channel and a third-party service.",
+     "inputSchema": {
+      "properties": {
+       "external_channel_id": {
+        "description": "Channel ID to which changes should be applied, for delegation",
+        "type": "string"
+       },
+       "link_status": {
+        "description": "Status of the link: unknown|failed|pending|linked",
+        "enum": [
+         "unknown",
+         "failed",
+         "pending",
+         "linked"
+        ],
+        "type": "string"
+       },
+       "linking_token": {
+        "description": "Linking token that identifies the YouTube account and channel",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "snippet",
+         "status"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "type": {
+        "description": "Type of the link: linkUnspecified|channelToStoreLink",
+        "enum": [
+         "linkUnspecified",
+         "channelToStoreLink"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "linking_token"
+      ],
+      "type": "object"
+     },
+     "name": "thirdPartyLink-update",
+     "title": "Update a third-party link"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Set a thumbnail for a video. Use this tool to set a thumbnail for a video.",
+     "inputSchema": {
+      "properties": {
+       "file": {
+        "description": "Path to the thumbnail file",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "video_id": {
+        "description": "ID of the video",
+        "type": "string"
+       }
+      },
+      "required": [
+       "file",
+       "video_id"
+      ],
+      "type": "object"
+     },
+     "name": "thumbnail-set",
+     "title": "Set a thumbnail for a video"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Delete videos. Use this tool to delete videos by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the videos to delete",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "video-delete",
+     "title": "Delete videos"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "Get video ratings. Use this tool to get video ratings by IDs.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the videos to get the rating for",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "video-getRating",
+     "title": "Get video ratings"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Upload a video. Use this tool to upload a video.",
+     "inputSchema": {
+      "properties": {
+       "auto_levels": {
+        "description": "Should auto-levels be applied to the upload",
+        "type": "boolean"
+       },
+       "category_id": {
+        "description": "Category of the video",
+        "type": "string"
+       },
+       "channel_id": {
+        "description": "Channel id of the video",
+        "type": "string"
+       },
+       "contains_synthetic_media": {
+        "default": false,
+        "description": "Whether the video contains altered or synthetic media",
+        "type": "boolean"
+       },
+       "description": {
+        "description": "Description of the video",
+        "type": "string"
+       },
+       "embeddable": {
+        "description": "Whether the video is embeddable",
+        "type": "boolean"
+       },
+       "file": {
+        "description": "Path to the video file",
+        "type": "string"
+       },
+       "for_kids": {
+        "default": false,
+        "description": "Whether the video is for kids",
+        "type": "boolean"
+       },
+       "language": {
+        "description": "Language of the video",
+        "type": "string"
+       },
+       "license": {
+        "description": "youtube|creativeCommon",
+        "enum": [
+         "youtube",
+         "creativeCommon"
+        ],
+        "type": "string"
+       },
+       "notify_subscribers": {
+        "description": "Notify the channel subscribers about the new video",
+        "type": "boolean"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner_channel": {
+        "description": "YouTube channel ID linked to the content owner",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "playlist_id": {
+        "description": "Playlist id of the video",
+        "type": "string"
+       },
+       "privacy": {
+        "description": "public|private|unlisted",
+        "enum": [
+         "public",
+         "private",
+         "unlisted"
+        ],
+        "type": "string"
+       },
+       "public_stats_viewable": {
+        "description": "Whether the extended video statistics can be viewed by everyone",
+        "type": "boolean"
+       },
+       "publish_at": {
+        "description": "Datetime when the video is scheduled to publish",
+        "type": "string"
+       },
+       "recording_date": {
+        "description": "Date and time when the video was recorded",
+        "type": "string"
+       },
+       "stabilize": {
+        "description": "Should stabilize be applied to the upload",
+        "type": "boolean"
+       },
+       "tags": {
+        "default": [
+         "yutu🐰"
+        ],
+        "description": "Comma separated tags",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "thumbnail": {
+        "description": "Path to the thumbnail file",
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the video",
+        "type": "string"
+       }
+      },
+      "required": [
+       "file",
+       "category_id",
+       "privacy"
+      ],
+      "type": "object"
+     },
+     "name": "video-insert",
+     "title": "Upload a video"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List videos. Use this tool to list videos.",
+     "inputSchema": {
+      "properties": {
+       "category_id": {
+        "description": "Category of the video",
+        "type": "string"
+       },
+       "chart": {
+        "description": "chartUnspecified|mostPopular",
+        "enum": [
+         "chartUnspecified",
+         "mostPopular"
+        ],
+        "type": "string"
+       },
+       "hl": {
+        "description": "Specifies the localization language",
+        "type": "string"
+       },
+       "ids": {
+        "description": "Return videos with the given ids",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "locale": {
+        "description": "Locale of the video metadata to return",
+        "type": "string"
+       },
+       "max_height": {
+        "description": "Max height of the embedded player in pixels",
+        "minimum": 0,
+        "type": "number"
+       },
+       "max_results": {
+        "default": 5,
+        "description": "The maximum number of items that should be returned, 0 for no limit",
+        "minimum": 0,
+        "type": "number"
+       },
+       "max_width": {
+        "description": "Max width of the embedded player in pixels",
+        "minimum": 0,
+        "type": "number"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet",
+         "status",
+         "statistics"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "rating": {
+        "description": "Return videos liked/disliked by the authenticated user",
+        "type": "string"
+       },
+       "region_code": {
+        "description": "Specific to the specified region",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "name": "video-list",
+     "title": "List videos"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Rate a video. Use this tool to rate a video.",
+     "inputSchema": {
+      "properties": {
+       "ids": {
+        "description": "IDs of the videos to rate",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "rating": {
+        "description": "like|dislike|none",
+        "enum": [
+         "like",
+         "dislike",
+         "none"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids",
+       "rating"
+      ],
+      "type": "object"
+     },
+     "name": "video-rate",
+     "title": "Rate a video"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Report abuse on a video. Use this tool to report abuse on a video.",
+     "inputSchema": {
+      "properties": {
+       "comments": {
+        "description": "Additional comments regarding the abuse report",
+        "type": "string"
+       },
+       "ids": {
+        "description": "IDs of the videos to report abuse on",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "language": {
+        "description": "Language that the content was viewed in",
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       },
+       "reason_id": {
+        "description": "ID of the reason for reporting abuse",
+        "type": "string"
+       },
+       "secondary_reason_id": {
+        "description": "ID of the secondary reason for reporting abuse",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids",
+       "reason_id"
+      ],
+      "type": "object"
+     },
+     "name": "video-reportAbuse",
+     "title": "Report abuse on a video"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Update a video. Use this tool to update a video.",
+     "inputSchema": {
+      "properties": {
+       "category_id": {
+        "description": "Category of the video",
+        "type": "string"
+       },
+       "contains_synthetic_media": {
+        "description": "Whether the video contains altered or synthetic media",
+        "type": "boolean"
+       },
+       "description": {
+        "description": "Description of the video",
+        "type": "string"
+       },
+       "embeddable": {
+        "description": "Whether the video is embeddable",
+        "type": "boolean"
+       },
+       "ids": {
+        "description": "ID of the video to update",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "language": {
+        "description": "Language of the video",
+        "type": "string"
+       },
+       "license": {
+        "description": "youtube|creativeCommon",
+        "enum": [
+         "youtube",
+         "creativeCommon"
+        ],
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|silent",
+        "enum": [
+         "json",
+         "yaml",
+         "silent"
+        ],
+        "type": "string"
+       },
+       "playlist_id": {
+        "description": "Playlist id of the video",
+        "type": "string"
+       },
+       "privacy": {
+        "description": "public|private|unlisted",
+        "enum": [
+         "public",
+         "private",
+         "unlisted"
+        ],
+        "type": "string"
+       },
+       "publish_at": {
+        "description": "Datetime when the video is scheduled to publish",
+        "type": "string"
+       },
+       "recording_date": {
+        "description": "Date and time when the video was recorded",
+        "type": "string"
+       },
+       "tags": {
+        "description": "Comma separated tags",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "thumbnail": {
+        "description": "Path to the thumbnail file",
+        "type": "string"
+       },
+       "title": {
+        "description": "Title of the video",
+        "type": "string"
+       }
+      },
+      "required": [
+       "ids"
+      ],
+      "type": "object"
+     },
+     "name": "video-update",
+     "title": "Update a video"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": true
+     },
+     "description": "List video abuse report reasons. Use this tool to list available abuse report reasons.",
+     "inputSchema": {
+      "properties": {
+       "hl": {
+        "description": "Host language",
+        "type": "string"
+       },
+       "output": {
+        "default": "json",
+        "description": "json|yaml|table",
+        "enum": [
+         "json",
+         "yaml",
+         "table"
+        ],
+        "type": "string"
+       },
+       "parts": {
+        "default": [
+         "id",
+         "snippet"
+        ],
+        "description": "Comma separated parts",
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "name": "videoAbuseReportReason-list",
+     "title": "List video abuse report reasons"
+    },
+    {
+     "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Set a channel watermark. Use this tool to set a channel watermark.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "ID of the channel",
+        "type": "string"
+       },
+       "duration_ms": {
+        "description": "Duration in milliseconds for which the watermark should be displayed",
+        "minimum": 0,
+        "type": "number"
+       },
+       "file": {
+        "description": "Path to the watermark file",
+        "type": "string"
+       },
+       "in_video_position": {
+        "description": "topLeft|topRight|bottomLeft|bottomRight",
+        "enum": [
+         "topLeft",
+         "topRight",
+         "bottomLeft",
+         "bottomRight"
+        ],
+        "type": "string"
+       },
+       "offset_ms": {
+        "description": "Defines the time at which the watermark will appear",
+        "minimum": 0,
+        "type": "number"
+       },
+       "offset_type": {
+        "description": "offsetFromStart|offsetFromEnd",
+        "enum": [
+         "offsetFromStart",
+         "offsetFromEnd"
+        ],
+        "type": "string"
+       },
+       "on_behalf_of_content_owner": {
+        "description": "ID of the content owner, for YouTube content partners",
+        "type": "string"
+       }
+      },
+      "required": [
+       "channel_id",
+       "file"
+      ],
+      "type": "object"
+     },
+     "name": "watermark-set",
+     "title": "Set a channel watermark"
+    },
+    {
+     "annotations": {
+      "destructiveHint": true,
+      "idempotentHint": true,
+      "openWorldHint": true,
+      "readOnlyHint": false
+     },
+     "description": "Unset a channel watermark. Use this tool to unset a channel watermark.",
+     "inputSchema": {
+      "properties": {
+       "channel_id": {
+        "description": "ID of the channel",
+        "type": "string"
+       }
+      },
+      "required": [
+       "channel_id"
+      ],
+      "type": "object"
+     },
+     "name": "watermark-unset",
+     "title": "Unset a channel watermark"
+    }
+   ],
+   "ttlMs": 7200000
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.list.maxResults.1",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status",
+     "statistics"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TITLE                       CHANNEL ID           VIEWS \n id-0    @at sign                    snippet.channelId-0    620 \n id-1    Ünïcödé ✓ 日本語のタイトル  snippet.channelId-1   8539 \n id-2    - dash start                snippet.channelId-2  16458 \n zero-0                                                       0 "
+}

@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.commentThread.insert.channelId",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"channelId\":\"val-channelId\",\"topLevelComment\":{\"snippet\":{\"authorChannelId\":{},\"channelId\":\"val-channelId\",\"textOriginal\":\"val-textOriginal\",\"videoId\":\"val-videoId\"}}}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/commentThreads",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "CommentThread inserted: id-1\n"
+}

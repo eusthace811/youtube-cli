@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.mcp-bad-mode",
+ "requests": [],
+ "stderr": "time=2026-10-18T15:42:16.844+01:00 level=INFO msg=\"starting MCP server\" mode=bogus version=v0.11.0\ntime=2026-10-18T15:42:16.844+01:00 level=ERROR msg=\"invalid mode\" mode=bogus valid_modes=\"stdio, http\"\n",
+ "stdout": ""
+}

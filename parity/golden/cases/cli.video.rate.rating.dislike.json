@@ -1,0 +1,49 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.rate.rating.dislike",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/videos/rate",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "rating": [
+     "dislike"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/videos/rate",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "rating": [
+     "dislike"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Video id1 rated dislike\nVideo id2 rated dislike\n"
+}

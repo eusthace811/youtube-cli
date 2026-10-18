@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.caption.insert.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Upload caption for video val-videoId with caption.srt [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu caption insert -h' to see usage.\r\n"
+}

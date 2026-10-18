@@ -1,0 +1,214 @@
+{
+ "pages": [
+  {
+   "kind": "youtube#videoAbuseReportReasonListResponse",
+   "etag": "etag-page-0",
+   "items": [
+    {
+     "etag": "etag-0",
+     "id": "id-0",
+     "kind": "kind-0",
+     "snippet": {
+      "label": "snippet.label-0",
+      "secondaryReasons": [
+       {
+        "id": "snippet.secondaryReasons[].id-0",
+        "label": "snippet.secondaryReasons[].label-0"
+       },
+       {
+        "id": "snippet.secondaryReasons[].id-1",
+        "label": "snippet.secondaryReasons[].label-1"
+       }
+      ]
+     }
+    },
+    {
+     "etag": "etag-1",
+     "id": "id-1",
+     "kind": "kind-1",
+     "snippet": {
+      "label": "snippet.label-1",
+      "secondaryReasons": [
+       {
+        "id": "snippet.secondaryReasons[].id-1",
+        "label": "snippet.secondaryReasons[].label-1"
+       },
+       {
+        "id": "snippet.secondaryReasons[].id-2",
+        "label": "snippet.secondaryReasons[].label-2"
+       }
+      ]
+     }
+    },
+    {
+     "etag": "etag-2",
+     "id": "id-2",
+     "kind": "kind-2",
+     "snippet": {
+      "label": "snippet.label-2",
+      "secondaryReasons": [
+       {
+        "id": "snippet.secondaryReasons[].id-2",
+        "label": "snippet.secondaryReasons[].label-2"
+       },
+       {
+        "id": "snippet.secondaryReasons[].id-3",
+        "label": "snippet.secondaryReasons[].label-3"
+       }
+      ]
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-0",
+     "kind": "",
+     "snippet": {
+      "label": "",
+      "secondaryReasons": []
+     }
+    }
+   ],
+   "_token": ""
+  },
+  {
+   "kind": "youtube#videoAbuseReportReasonListResponse",
+   "etag": "etag-page-1",
+   "items": [
+    {
+     "etag": "etag-10",
+     "id": "id-10",
+     "kind": "kind-10",
+     "snippet": {
+      "label": "snippet.label-10",
+      "secondaryReasons": [
+       {
+        "id": "snippet.secondaryReasons[].id-10",
+        "label": "snippet.secondaryReasons[].label-10"
+       },
+       {
+        "id": "snippet.secondaryReasons[].id-11",
+        "label": "snippet.secondaryReasons[].label-11"
+       }
+      ]
+     }
+    },
+    {
+     "etag": "etag-11",
+     "id": "id-11",
+     "kind": "kind-11",
+     "snippet": {
+      "label": "snippet.label-11",
+      "secondaryReasons": [
+       {
+        "id": "snippet.secondaryReasons[].id-11",
+        "label": "snippet.secondaryReasons[].label-11"
+       },
+       {
+        "id": "snippet.secondaryReasons[].id-12",
+        "label": "snippet.secondaryReasons[].label-12"
+       }
+      ]
+     }
+    },
+    {
+     "etag": "etag-12",
+     "id": "id-12",
+     "kind": "kind-12",
+     "snippet": {
+      "label": "snippet.label-12",
+      "secondaryReasons": [
+       {
+        "id": "snippet.secondaryReasons[].id-12",
+        "label": "snippet.secondaryReasons[].label-12"
+       },
+       {
+        "id": "snippet.secondaryReasons[].id-13",
+        "label": "snippet.secondaryReasons[].label-13"
+       }
+      ]
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-1",
+     "kind": "",
+     "snippet": {
+      "label": "",
+      "secondaryReasons": []
+     }
+    }
+   ],
+   "_token": "p2"
+  },
+  {
+   "kind": "youtube#videoAbuseReportReasonListResponse",
+   "etag": "etag-page-2",
+   "items": [
+    {
+     "etag": "etag-20",
+     "id": "id-20",
+     "kind": "kind-20",
+     "snippet": {
+      "label": "snippet.label-20",
+      "secondaryReasons": [
+       {
+        "id": "snippet.secondaryReasons[].id-20",
+        "label": "snippet.secondaryReasons[].label-20"
+       },
+       {
+        "id": "snippet.secondaryReasons[].id-21",
+        "label": "snippet.secondaryReasons[].label-21"
+       }
+      ]
+     }
+    },
+    {
+     "etag": "etag-21",
+     "id": "id-21",
+     "kind": "kind-21",
+     "snippet": {
+      "label": "snippet.label-21",
+      "secondaryReasons": [
+       {
+        "id": "snippet.secondaryReasons[].id-21",
+        "label": "snippet.secondaryReasons[].label-21"
+       },
+       {
+        "id": "snippet.secondaryReasons[].id-22",
+        "label": "snippet.secondaryReasons[].label-22"
+       }
+      ]
+     }
+    },
+    {
+     "etag": "etag-22",
+     "id": "id-22",
+     "kind": "kind-22",
+     "snippet": {
+      "label": "snippet.label-22",
+      "secondaryReasons": [
+       {
+        "id": "snippet.secondaryReasons[].id-22",
+        "label": "snippet.secondaryReasons[].label-22"
+       },
+       {
+        "id": "snippet.secondaryReasons[].id-23",
+        "label": "snippet.secondaryReasons[].label-23"
+       }
+      ]
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-2",
+     "kind": "",
+     "snippet": {
+      "label": "",
+      "secondaryReasons": []
+     }
+    }
+   ],
+   "_token": "p3"
+  }
+ ]
+}

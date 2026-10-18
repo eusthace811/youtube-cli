@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.superChatEvent.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List Super Chat events. Use this tool to list Super Chat events.\n\nUsage:\n  yutu superChatEvent list [flags]\n\nExamples:\n# List Super Chat events\nyutu superChatEvent list --maxResults 10\n\nFlags:\n  -h, --help             help for list\n  -l, --hl string        Return rendered funding amounts in specified language\n  -n, --maxResults int   The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string    json|yaml|table (default \"table\")\n  -p, --parts strings    Comma separated parts (default [id,snippet])\n"
+}

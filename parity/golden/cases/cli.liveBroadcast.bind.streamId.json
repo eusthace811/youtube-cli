@@ -1,0 +1,59 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.bind.streamId",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/bind",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "streamId": [
+     "val-streamId"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/bind",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "streamId": [
+     "val-streamId"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live broadcast id-1 bound to stream val-streamId\nLive broadcast id-1 bound to stream val-streamId\n"
+}

@@ -1,0 +1,33 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.playlistImage-insert.on_behalf_of_content_owner",
+ "requests": [
+  {
+   "body": "--7f1dcf0075910de0f1414fb0b2fec2b53b8cc537a60d980e3dccecf8a34f\r\nContent-Type: application/json\r\n\r\n{\"kind\":\"youtube#playlistImages\",\"snippet\":{\"playlistId\":\"val-playlist_id\"}}\n\r\n--7f1dcf0075910de0f1414fb0b2fec2b53b8cc537a60d980e3dccecf8a34f\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--7f1dcf0075910de0f1414fb0b2fec2b53b8cc537a60d980e3dccecf8a34f--\r\n",
+   "ctype": "multipart/related; boundary=7f1dcf0075910de0f1414fb0b2fec2b53b8cc537a60d980e3dccecf8a34f",
+   "method": "POST",
+   "path": "/upload/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "onBehalfOfContentOwner": [
+     "val-on_behalf_of_content_owner"
+    ],
+    "part": [
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:24.706+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"playlistImage-insert\",\"arguments\":{\"file\":\"image.png\",\"playlist_id\":\"val-playlist_id\",\"on_behalf_of_content_owner\":\"val-on_behalf_of_content_owner\"}}}\ntime=2026-10-18T15:39:24.707+01:00 level=INFO msg=playlistImage-insert input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\",\\\"on_behalf_of_content_owner\\\":\\\"val-on_behalf_of_content_owner\\\",\\\"playlist_id\\\":\\\"val-playlist_id\\\",\\\"file\\\":\\\"image.png\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Upload playlist image image.png for playlist val-playlist_id\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:24.709+01:00 level=INFO msg=playlistImage-insert input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\",\\\"on_behalf_of_content_owner\\\":\\\"val-on_behalf_of_content_owner\\\",\\\"playlist_id\\\":\\\"val-playlist_id\\\",\\\"file\\\":\\\"image.png\\\"}\" output_length=115\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"height\\\":27,\\\"playlistId\\\":\\\"snippet.playlistId-1\\\",\\\"type\\\":\\\"hero\\\",\\\"width\\\":26}}\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Upload playlist image image.png for playlist val-playlist_id\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"height\\\":27,\\\"playlistId\\\":\\\"snippet.playlistId-1\\\",\\\"type\\\":\\\"hero\\\",\\\"width\\\":26}}\\n\"}]}}\n"
+}

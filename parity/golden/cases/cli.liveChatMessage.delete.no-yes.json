@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveChatMessage.delete.no-yes",
+ "requests": [],
+ "stderr": "Delete live chat message(s): id1, id2\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu liveChatMessage delete -h' to see usage.\n",
+ "stdout": ""
+}

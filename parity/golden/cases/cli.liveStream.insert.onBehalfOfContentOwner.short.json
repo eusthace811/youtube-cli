@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.insert.onBehalfOfContentOwner.short",
+ "requests": [
+  {
+   "body": "{\"cdn\":{\"ingestionType\":\"val-ingestionType\",\"resolution\":\"val-resolution\"},\"snippet\":{\"title\":\"val-title\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "onBehalfOfContentOwner": [
+     "val-onBehalfOfContentOwner"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live stream inserted: id-1\n"
+}

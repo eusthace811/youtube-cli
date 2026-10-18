@@ -1,0 +1,522 @@
+[
+ {
+  "id": "core.version",
+  "group": "version",
+  "effect": "core",
+  "argv": [
+   "version"
+  ]
+ },
+ {
+  "id": "core.version.hyperlink",
+  "group": "version",
+  "effect": "core",
+  "argv": [
+   "version"
+  ],
+  "env": {
+   "FORCE_HYPERLINK": "1"
+  }
+ },
+ {
+  "id": "core.version.iterm",
+  "group": "version",
+  "effect": "core",
+  "argv": [
+   "version"
+  ],
+  "env": {
+   "TERM_PROGRAM": "iTerm.app",
+   "TERM_PROGRAM_VERSION": "3.5.2"
+  }
+ },
+ {
+  "id": "core.version.vte-old",
+  "group": "version",
+  "effect": "core",
+  "argv": [
+   "version"
+  ],
+  "env": {
+   "VTE_VERSION": "5000"
+  }
+ },
+ {
+  "id": "core.root",
+  "group": "help",
+  "effect": "core",
+  "argv": []
+ },
+ {
+  "id": "core.help",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "--help"
+  ]
+ },
+ {
+  "id": "core.help.cmd",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "help"
+  ]
+ },
+ {
+  "id": "core.help.video",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "help",
+   "video"
+  ]
+ },
+ {
+  "id": "core.help.video-list",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "help",
+   "video",
+   "list"
+  ]
+ },
+ {
+  "id": "core.resource",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "video"
+  ]
+ },
+ {
+  "id": "core.unknown",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "nope"
+  ]
+ },
+ {
+  "id": "core.unknown-sub",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "video",
+   "nope"
+  ]
+ },
+ {
+  "id": "core.unknown-flag",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "video",
+   "list",
+   "--nope"
+  ]
+ },
+ {
+  "id": "core.bad-int",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "video",
+   "list",
+   "--maxResults",
+   "x"
+  ]
+ },
+ {
+  "id": "core.missing-required",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "video",
+   "delete"
+  ]
+ },
+ {
+  "id": "core.missing-value",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "video",
+   "list",
+   "--ids"
+  ]
+ },
+ {
+  "id": "core.agent-empty-args",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "agent",
+   "--args",
+   ""
+  ]
+ },
+ {
+  "id": "core.mcp-bad-mode",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "mcp",
+   "--mode",
+   "bogus"
+  ]
+ },
+ {
+  "id": "core.extra-arg",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "version",
+   "extra"
+  ]
+ },
+ {
+  "id": "core.tty.video-list.json",
+  "group": "tty",
+  "effect": "read",
+  "tty": true,
+  "argv": [
+   "video",
+   "list",
+   "-o",
+   "json"
+  ]
+ },
+ {
+  "id": "core.tty.video-update.json",
+  "group": "tty",
+  "effect": "write",
+  "tty": true,
+  "argv": [
+   "video",
+   "update",
+   "--id",
+   "id1",
+   "--title",
+   "T",
+   "--yes",
+   "-o",
+   "json"
+  ]
+ },
+ {
+  "id": "core.tty.video-list.yaml",
+  "group": "tty",
+  "effect": "read",
+  "tty": true,
+  "argv": [
+   "video",
+   "list",
+   "-o",
+   "yaml"
+  ]
+ },
+ {
+  "id": "core.tty.video-update.yaml",
+  "group": "tty",
+  "effect": "write",
+  "tty": true,
+  "argv": [
+   "video",
+   "update",
+   "--id",
+   "id1",
+   "--title",
+   "T",
+   "--yes",
+   "-o",
+   "yaml"
+  ]
+ },
+ {
+  "id": "core.tty.video-list.table",
+  "group": "tty",
+  "effect": "read",
+  "tty": true,
+  "argv": [
+   "video",
+   "list",
+   "-o",
+   "table"
+  ]
+ },
+ {
+  "id": "core.tty.video-update.table",
+  "group": "tty",
+  "effect": "write",
+  "tty": true,
+  "argv": [
+   "video",
+   "update",
+   "--id",
+   "id1",
+   "--title",
+   "T",
+   "--yes",
+   "-o",
+   "table"
+  ]
+ },
+ {
+  "id": "core.tty.ci.video-list.json",
+  "group": "tty",
+  "effect": "read",
+  "tty": true,
+  "env": {
+   "CI": "1"
+  },
+  "argv": [
+   "video",
+   "list",
+   "-o",
+   "json"
+  ]
+ },
+ {
+  "id": "core.tty.empty-list.json",
+  "group": "tty",
+  "effect": "read",
+  "tty": true,
+  "argv": [
+   "video",
+   "list",
+   "-o",
+   "json"
+  ],
+  "fixtures": {
+   "GET_videos": {
+    "items": []
+   }
+  }
+ },
+ {
+  "id": "core.empty-list.json",
+  "group": "empty",
+  "effect": "read",
+  "argv": [
+   "video",
+   "list",
+   "-o",
+   "json"
+  ],
+  "fixtures": {
+   "GET_videos": {
+    "items": []
+   }
+  }
+ },
+ {
+  "id": "core.empty-list.yaml",
+  "group": "empty",
+  "effect": "read",
+  "argv": [
+   "video",
+   "list",
+   "-o",
+   "yaml"
+  ],
+  "fixtures": {
+   "GET_videos": {
+    "items": []
+   }
+  }
+ },
+ {
+  "id": "core.empty-list.table",
+  "group": "empty",
+  "effect": "read",
+  "argv": [
+   "video",
+   "list",
+   "-o",
+   "table"
+  ],
+  "fixtures": {
+   "GET_videos": {
+    "items": []
+   }
+  }
+ },
+ {
+  "id": "core.delete-yes-missing-ids",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "video",
+   "delete",
+   "--yes"
+  ]
+ },
+ {
+  "id": "core.slice-repeat",
+  "group": "help",
+  "effect": "read",
+  "argv": [
+   "video",
+   "list",
+   "--ids",
+   "a",
+   "--ids",
+   "b,c",
+   "-o",
+   "json"
+  ]
+ },
+ {
+  "id": "core.slice-quoted",
+  "group": "help",
+  "effect": "read",
+  "argv": [
+   "video",
+   "list",
+   "--ids",
+   "\"a,b\",c",
+   "-o",
+   "json"
+  ]
+ },
+ {
+  "id": "core.short-combined",
+  "group": "help",
+  "effect": "read",
+  "argv": [
+   "video",
+   "list",
+   "-ia,b",
+   "-ojson"
+  ]
+ },
+ {
+  "id": "core.short-eq",
+  "group": "help",
+  "effect": "read",
+  "argv": [
+   "video",
+   "list",
+   "-i=a",
+   "-o=json"
+  ]
+ },
+ {
+  "id": "core.double-dash",
+  "group": "help",
+  "effect": "read",
+  "argv": [
+   "video",
+   "list",
+   "--",
+   "--ids",
+   "x"
+  ]
+ },
+ {
+  "id": "core.positional",
+  "group": "help",
+  "effect": "read",
+  "argv": [
+   "video",
+   "list",
+   "extra"
+  ]
+ },
+ {
+  "id": "core.unknown-short",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "video",
+   "list",
+   "-z"
+  ]
+ },
+ {
+  "id": "core.bool-bad",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "playlist",
+   "list",
+   "--mine=maybe"
+  ]
+ },
+ {
+  "id": "core.uint-bad",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "watermark",
+   "set",
+   "--durationMs",
+   "-5"
+  ]
+ },
+ {
+  "id": "core.suggest",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "vidoe"
+  ]
+ },
+ {
+  "id": "core.help-flag-sub",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "video",
+   "list",
+   "-h"
+  ]
+ },
+ {
+  "id": "core.help-unknown",
+  "group": "help",
+  "effect": "core",
+  "argv": [
+   "help",
+   "nope"
+  ]
+ },
+ {
+  "id": "core.completion.bash",
+  "group": "completion",
+  "effect": "core",
+  "argv": [
+   "completion",
+   "bash"
+  ]
+ },
+ {
+  "id": "core.completion.zsh",
+  "group": "completion",
+  "effect": "core",
+  "argv": [
+   "completion",
+   "zsh"
+  ]
+ },
+ {
+  "id": "core.completion.fish",
+  "group": "completion",
+  "effect": "core",
+  "argv": [
+   "completion",
+   "fish"
+  ]
+ },
+ {
+  "id": "core.completion.powershell",
+  "group": "completion",
+  "effect": "core",
+  "argv": [
+   "completion",
+   "powershell"
+  ]
+ }
+]

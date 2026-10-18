@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.i18nLanguage.list.hl.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/i18nLanguages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "hl": [
+     "val-hl"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      HL            NAME        \n id-0    snippet.hl-0  ~           \n id-1    snippet.hl-1  Plain title \n id-2    snippet.hl-2  key: value  \n zero-0                            "
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.unknown",
+ "requests": [],
+ "stderr": "Error: unknown command \"nope\" for \"yutu\"\nRun 'yutu --help' for usage.\nRun 'yutu -h' to see usage.\n",
+ "stdout": ""
+}

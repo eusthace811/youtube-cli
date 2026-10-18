@@ -1,0 +1,33 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.list.parts",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/comments",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      AUTHOR                       VIDEO ID           TEXT DISPLAY                                   \n id-0    snippet.authorDisplayName-0  snippet.videoId-0  Plain title snippet.textDisplay                \n id-1    snippet.authorDisplayName-1  snippet.videoId-1  Ünïcödé ✓ 日本語のタイトル snippet.textDisplay \n id-2    snippet.authorDisplayName-2  snippet.videoId-2  <b>tags</b> & \"quotes\" snippet.textDisplay     \n zero-0                                                                                                 "
+}

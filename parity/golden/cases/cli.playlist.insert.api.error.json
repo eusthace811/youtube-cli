@@ -1,0 +1,27 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.playlist.insert.api.error",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"channelId\":\"val-channelId\",\"title\":\"val-title\"},\"status\":{\"privacyStatus\":\"val-privacy\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/playlists",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to insert playlist\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu playlist insert -h' to see usage.\n",
+ "stdout": ""
+}

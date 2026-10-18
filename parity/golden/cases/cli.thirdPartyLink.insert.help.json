@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Create a third-party link. Use this tool to create a third-party link.\n\nUsage:\n  yutu thirdPartyLink insert [flags]\n\nExamples:\n# Insert a new third-party link\nyutu thirdPartyLink insert --linkingToken abc123 --type channelToStoreLink --linkStatus pending --parts snippet,status\n\nFlags:\n  -e, --externalChannelId string   Channel ID to which changes should be applied, for delegation\n  -h, --help                       help for insert\n  -s, --linkStatus string          Status of the link: unknown|failed|pending|linked\n  -l, --linkingToken string        Linking token that identifies the YouTube account and channel\n  -o, --output string              json|yaml|silent\n  -p, --parts strings              Comma separated parts (default [snippet,status])\n  -t, --type string                Type of the link: linkUnspecified|channelToStoreLink\n      --yes                        Confirm the operation\n"
+}

@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.insert.parts.short",
+ "requests": [
+  {
+   "body": "{\"cdn\":{\"ingestionType\":\"val-ingestionType\",\"resolution\":\"val-resolution\"},\"snippet\":{\"title\":\"val-title\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live stream inserted: id-1\n"
+}

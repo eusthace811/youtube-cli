@@ -1,0 +1,30 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.comment.setModerationStatus.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/comments/setModerationStatus",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1",
+     "id2"
+    ],
+    "moderationStatus": [
+     "val-moderationStatus"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to set comment moderation status\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu comment setModerationStatus -h' to see usage.\n",
+ "stdout": ""
+}

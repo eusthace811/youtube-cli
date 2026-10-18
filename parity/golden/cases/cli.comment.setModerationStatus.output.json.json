@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.setModerationStatus.output.json",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/comments/setModerationStatus",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1",
+     "id2"
+    ],
+    "moderationStatus": [
+     "val-moderationStatus"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "{\"ids\":[\"id1\",\"id2\"],\"confirmed\":false,\"output\":\"json\",\"moderation_status\":\"val-moderationStatus\"}\n"
+}

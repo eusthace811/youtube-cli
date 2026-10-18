@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.insert.onBehalfOfContentOwnerChannel",
+ "requests": [
+  {
+   "body": "--8641af327b54b3a3ea3d7535fdc075c20d9894f6bac8515f7a051159ed10\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"categoryId\":\"val-categoryId\",\"title\":\"video\"},\"status\":{\"containsSyntheticMedia\":false,\"privacyStatus\":\"val-privacy\",\"selfDeclaredMadeForKids\":false}}\n\r\n--8641af327b54b3a3ea3d7535fdc075c20d9894f6bac8515f7a051159ed10\r\nContent-Type: application/octet-stream\r\n\r\n\u0000\u0000\u0000\u0018ftypisom\u0000\u0000\u0002\u0000isomiso2\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\r\n--8641af327b54b3a3ea3d7535fdc075c20d9894f6bac8515f7a051159ed10--\r\n",
+   "ctype": "multipart/related; boundary=8641af327b54b3a3ea3d7535fdc075c20d9894f6bac8515f7a051159ed10",
+   "method": "POST",
+   "path": "/upload/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "onBehalfOfContentOwnerChannel": [
+     "val-onBehalfOfContentOwnerChannel"
+    ],
+    "part": [
+     "snippet,status"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Video inserted: id-1\n"
+}

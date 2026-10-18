@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete live broadcasts. Use this tool to delete live broadcasts by their IDs.\n\nUsage:\n  yutu liveBroadcast delete [flags]\n\nExamples:\n# Delete a live broadcast by ID\nyutu liveBroadcast delete --ids broadcast123\n# Delete multiple live broadcasts\nyutu liveBroadcast delete --ids broadcast123,broadcast456\n\nFlags:\n  -h, --help                                   help for delete\n  -i, --ids strings                            IDs of the live broadcasts to delete\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n      --yes                                    Confirm the operation\n"
+}

@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "- etag: etag-0\n  kind: kind-0\n  linkingtoken: linkingToken-0\n  snippet:\n    channeltoaffiliateprogramlink:\n        merchantid: 1488\n        programstatus: affiliateProgramStatusUnspecified\n        statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-0\n        statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-0\n        forcesendfields: []\n        nullfields: []\n    channeltostorelink:\n        billingdetails:\n            billingstatus: billingStatusUnspecified\n            forcesendfields: []\n            nullfields: []\n        merchantaffiliateprogramdetails:\n            status: merchantAffiliateProgramStatusUnspecified\n            forcesendfields: []\n            nullfields: []\n        merchantid: 1147\n        storename: snippet.channelToStoreLink.storeName-0\n        storeurl: snippet.channelToStoreLink.storeUrl-0\n        forcesendfields: []\n        nullfields: []\n    type: linkUnspecified\n    forcesendfields: []\n    nullfields: []\n  status:\n    linkstatus: unknown\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- etag: etag-1\n  kind: kind-1\n  linkingtoken: linkingToken-1\n  snippet:\n    channeltoaffiliateprogramlink:\n        merchantid: 9407\n        programstatus: active\n        statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-1\n        statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-1\n        forcesendfields: []\n        nullfields: []\n    channeltostorelink:\n        billingdetails:\n            billingstatus: billingStatusPending\n            forcesendfields: []\n            nullfields: []\n        merchantaffiliateprogramdetails:\n            status: merchantAffiliateProgramStatusEligible\n            forcesendfields: []\n            nullfields: []\n        merchantid: 9066\n        storename: snippet.channelToStoreLink.storeName-1\n        storeurl: snippet.channelToStoreLink.storeUrl-1\n        forcesendfields: []\n        nullfields: []\n    type: channelToStoreLink\n    forcesendfields: []\n    nullfields: []\n  status:\n    linkstatus: failed\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- etag: etag-2\n  kind: kind-2\n  linkingtoken: linkingToken-2\n  snippet:\n    channeltoaffiliateprogramlink:\n        merchantid: 17326\n        programstatus: inactive\n        statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-2\n        statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-2\n        forcesendfields: []\n        nullfields: []\n    channeltostorelink:\n        billingdetails:\n            billingstatus: billingStatusActive\n            forcesendfields: []\n            nullfields: []\n        merchantaffiliateprogramdetails:\n            status: merchantAffiliateProgramStatusActive\n            forcesendfields: []\n            nullfields: []\n        merchantid: 16985\n        storename: snippet.channelToStoreLink.storeName-2\n        storeurl: snippet.channelToStoreLink.storeUrl-2\n        forcesendfields: []\n        nullfields: []\n    type: channelToAffiliateProgramLink\n    forcesendfields: []\n    nullfields: []\n  status:\n    linkstatus: pending\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- etag: \"\"\n  kind: \"\"\n  linkingtoken: \"\"\n  snippet:\n    channeltoaffiliateprogramlink:\n        merchantid: 0\n        programstatus: \"\"\n        statusupdatereason: \"\"\n        statusupdatetime: \"\"\n        forcesendfields: []\n        nullfields: []\n    channeltostorelink:\n        billingdetails:\n            billingstatus: \"\"\n            forcesendfields: []\n            nullfields: []\n        merchantaffiliateprogramdetails:\n            status: \"\"\n            forcesendfields: []\n            nullfields: []\n        merchantid: 0\n        storename: \"\"\n        storeurl: \"\"\n        forcesendfields: []\n        nullfields: []\n    type: \"\"\n    forcesendfields: []\n    nullfields: []\n  status:\n    linkstatus: \"\"\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n\n"
+}

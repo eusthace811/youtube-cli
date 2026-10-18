@@ -1,0 +1,52 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.update.id.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveBroadcasts",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"id\":\"id-0\",\"snippet\":{\"description\":\"Plain title snippet.description\",\"scheduledEndTime\":\"2026-01-10T12:34:50Z\",\"scheduledStartTime\":\"2026-01-10T12:34:50Z\",\"title\":\"@at sign\"},\"status\":{\"privacyStatus\":\"public\"}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/liveBroadcasts",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live broadcast updated: id-1\n"
+}

@@ -1,0 +1,31 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.playlistImage.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get playlist image\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu playlistImage list -h' to see usage.\n",
+ "stdout": ""
+}

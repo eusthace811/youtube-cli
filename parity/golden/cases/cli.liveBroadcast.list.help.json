@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List live broadcasts. Use this tool to list live broadcasts for the authenticated user.\n\nUsage:\n  yutu liveBroadcast list [flags]\n\nExamples:\n# List my live broadcasts\nyutu liveBroadcast list --mine\n# List live broadcasts by ID\nyutu liveBroadcast list --ids broadcast1,broadcast2\n# List active live broadcasts\nyutu liveBroadcast list --mine --broadcastStatus active --output json\n\nFlags:\n  -s, --broadcastStatus string                 Broadcast status filter (all, active, upcoming, completed)\n  -T, --broadcastType string                   Broadcast type filter (all, event, persistent)\n  -h, --help                                   help for list\n  -i, --ids strings                            Return live broadcasts with the given ids\n  -n, --maxResults int                         The maximum number of items that should be returned, 0 for no limit (default 5)\n  -m, --mine                                   List broadcasts owned by the authenticated user\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|table (default \"table\")\n  -p, --parts strings                          Comma separated parts (default [id,snippet,status])\n"
+}

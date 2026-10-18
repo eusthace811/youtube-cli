@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.missing-required",
+ "requests": [],
+ "stderr": "Delete video(s): \nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu video delete -h' to see usage.\n",
+ "stdout": ""
+}

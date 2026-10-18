@@ -1,0 +1,217 @@
+{
+ "pages": [
+  {
+   "kind": "youtube#batchGetStatsResponse",
+   "etag": "etag-page-0",
+   "items": [
+    {
+     "contentDetails": {
+      "duration": "contentDetails.duration-0"
+     },
+     "etag": "etag-0",
+     "id": "id-0",
+     "kind": "kind-0",
+     "snippet": {
+      "publishTime": "snippet.publishTime-0"
+     },
+     "statistics": {
+      "commentCount": "713",
+      "likeCount": "620",
+      "viewCount": "620"
+     }
+    },
+    {
+     "contentDetails": {
+      "duration": "contentDetails.duration-1"
+     },
+     "etag": "etag-1",
+     "id": "id-1",
+     "kind": "kind-1",
+     "snippet": {
+      "publishTime": "snippet.publishTime-1"
+     },
+     "statistics": {
+      "commentCount": "8632",
+      "likeCount": "8539",
+      "viewCount": "8539"
+     }
+    },
+    {
+     "contentDetails": {
+      "duration": "contentDetails.duration-2"
+     },
+     "etag": "etag-2",
+     "id": "id-2",
+     "kind": "kind-2",
+     "snippet": {
+      "publishTime": "snippet.publishTime-2"
+     },
+     "statistics": {
+      "commentCount": "16551",
+      "likeCount": "16458",
+      "viewCount": "16458"
+     }
+    },
+    {
+     "contentDetails": {
+      "duration": ""
+     },
+     "etag": "",
+     "id": "zero-0",
+     "kind": "",
+     "snippet": {
+      "publishTime": ""
+     },
+     "statistics": {
+      "commentCount": "0",
+      "likeCount": "0",
+      "viewCount": "0"
+     }
+    }
+   ],
+   "_token": ""
+  },
+  {
+   "kind": "youtube#batchGetStatsResponse",
+   "etag": "etag-page-1",
+   "items": [
+    {
+     "contentDetails": {
+      "duration": "contentDetails.duration-10"
+     },
+     "etag": "etag-10",
+     "id": "id-10",
+     "kind": "kind-10",
+     "snippet": {
+      "publishTime": "snippet.publishTime-10"
+     },
+     "statistics": {
+      "commentCount": "79903",
+      "likeCount": "79810",
+      "viewCount": "79810"
+     }
+    },
+    {
+     "contentDetails": {
+      "duration": "contentDetails.duration-11"
+     },
+     "etag": "etag-11",
+     "id": "id-11",
+     "kind": "kind-11",
+     "snippet": {
+      "publishTime": "snippet.publishTime-11"
+     },
+     "statistics": {
+      "commentCount": "87822",
+      "likeCount": "87729",
+      "viewCount": "87729"
+     }
+    },
+    {
+     "contentDetails": {
+      "duration": "contentDetails.duration-12"
+     },
+     "etag": "etag-12",
+     "id": "id-12",
+     "kind": "kind-12",
+     "snippet": {
+      "publishTime": "snippet.publishTime-12"
+     },
+     "statistics": {
+      "commentCount": "95741",
+      "likeCount": "95648",
+      "viewCount": "95648"
+     }
+    },
+    {
+     "contentDetails": {
+      "duration": ""
+     },
+     "etag": "",
+     "id": "zero-1",
+     "kind": "",
+     "snippet": {
+      "publishTime": ""
+     },
+     "statistics": {
+      "commentCount": "0",
+      "likeCount": "0",
+      "viewCount": "0"
+     }
+    }
+   ],
+   "_token": "p2"
+  },
+  {
+   "kind": "youtube#batchGetStatsResponse",
+   "etag": "etag-page-2",
+   "items": [
+    {
+     "contentDetails": {
+      "duration": "contentDetails.duration-20"
+     },
+     "etag": "etag-20",
+     "id": "id-20",
+     "kind": "kind-20",
+     "snippet": {
+      "publishTime": "snippet.publishTime-20"
+     },
+     "statistics": {
+      "commentCount": "159093",
+      "likeCount": "159000",
+      "viewCount": "159000"
+     }
+    },
+    {
+     "contentDetails": {
+      "duration": "contentDetails.duration-21"
+     },
+     "etag": "etag-21",
+     "id": "id-21",
+     "kind": "kind-21",
+     "snippet": {
+      "publishTime": "snippet.publishTime-21"
+     },
+     "statistics": {
+      "commentCount": "167012",
+      "likeCount": "166919",
+      "viewCount": "166919"
+     }
+    },
+    {
+     "contentDetails": {
+      "duration": "contentDetails.duration-22"
+     },
+     "etag": "etag-22",
+     "id": "id-22",
+     "kind": "kind-22",
+     "snippet": {
+      "publishTime": "snippet.publishTime-22"
+     },
+     "statistics": {
+      "commentCount": "174931",
+      "likeCount": "174838",
+      "viewCount": "174838"
+     }
+    },
+    {
+     "contentDetails": {
+      "duration": ""
+     },
+     "etag": "",
+     "id": "zero-2",
+     "kind": "",
+     "snippet": {
+      "publishTime": ""
+     },
+     "statistics": {
+      "commentCount": "0",
+      "likeCount": "0",
+      "viewCount": "0"
+     }
+    }
+   ],
+   "_token": "p3"
+  }
+ ]
+}

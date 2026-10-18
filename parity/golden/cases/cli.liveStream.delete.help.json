@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete live streams. Use this tool to delete live streams by their IDs.\n\nUsage:\n  yutu liveStream delete [flags]\n\nExamples:\n# Delete a live stream by ID\nyutu liveStream delete --ids stream123\n# Delete multiple live streams\nyutu liveStream delete --ids stream123,stream456\n\nFlags:\n  -h, --help                                   help for delete\n  -i, --ids strings                            IDs of the live streams to delete\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n      --yes                                    Confirm the operation\n"
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.comment.update.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update comment: id1 [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu comment update -h' to see usage.\r\n"
+}

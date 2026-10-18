@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlist.update.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update a playlist. Use this tool to update a playlist.\n\nUsage:\n  yutu playlist update [flags]\n\nExamples:\n# Update playlist title\nyutu playlist update --id PLxxx --title 'Updated Title'\n# Update playlist description and privacy\nyutu playlist update --id PLxxx --description 'New description' --privacy public\n# Update playlist tags\nyutu playlist update --id PLxxx --tags 'music,pop,2024'\n\nFlags:\n  -d, --description string   Description of the playlist\n  -h, --help                 help for update\n  -i, --id strings           ID of the playlist to update\n  -l, --language string      Language of the playlist\n  -o, --output string        json|yaml|silent\n  -p, --privacy string       public|private|unlisted\n  -a, --tags strings         Comma separated tags\n  -t, --title string         Title of the playlist\n      --yes                  Confirm the operation\n"
+}

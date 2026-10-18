@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thumbnail.set.output.yaml",
+ "requests": [
+  {
+   "body": "--4cbe8fa463f4ddfb59fa39803a9448101283de7fc6aa0b4e4af47d1c6a9f\r\nContent-Type: application/json\r\n\r\n\r\n--4cbe8fa463f4ddfb59fa39803a9448101283de7fc6aa0b4e4af47d1c6a9f\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--4cbe8fa463f4ddfb59fa39803a9448101283de7fc6aa0b4e4af47d1c6a9f--\r\n",
+   "ctype": "multipart/related; boundary=4cbe8fa463f4ddfb59fa39803a9448101283de7fc6aa0b4e4af47d1c6a9f",
+   "method": "POST",
+   "path": "/upload/youtube/v3/thumbnails/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ],
+    "videoId": [
+     "val-videoId"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "etag: etag-page-0\neventid: \"\"\nitems:\n    - default:\n        height: 14\n        url: default.url-0\n        width: 13\n        forcesendfields: []\n        nullfields: []\n      fhd:\n        height: 10\n        url: fhd.url-0\n        width: 9\n        forcesendfields: []\n        nullfields: []\n      high:\n        height: 11\n        url: high.url-0\n        width: 10\n        forcesendfields: []\n        nullfields: []\n      maxres:\n        height: 13\n        url: maxres.url-0\n        width: 12\n        forcesendfields: []\n        nullfields: []\n      medium:\n        height: 13\n        url: medium.url-0\n        width: 12\n        forcesendfields: []\n        nullfields: []\n      qhd:\n        height: 10\n        url: qhd.url-0\n        width: 9\n        forcesendfields: []\n        nullfields: []\n      standard:\n        height: 15\n        url: standard.url-0\n        width: 14\n        forcesendfields: []\n        nullfields: []\n      uhd:\n        height: 10\n        url: uhd.url-0\n        width: 9\n        forcesendfields: []\n        nullfields: []\n      forcesendfields: []\n      nullfields: []\n    - default:\n        height: 27\n        url: default.url-1\n        width: 26\n        forcesendfields: []\n        nullfields: []\n      fhd:\n        height: 23\n        url: fhd.url-1\n        width: 22\n        forcesendfields: []\n        nullfields: []\n      high:\n        height: 24\n        url: high.url-1\n        width: 23\n        forcesendfields: []\n        nullfields: []\n      maxres:\n        height: 26\n        url: maxres.url-1\n        width: 25\n        forcesendfields: []\n        nullfields: []\n      medium:\n        height: 26\n        url: medium.url-1\n        width: 25\n        forcesendfields: []\n        nullfields: []\n      qhd:\n        height: 23\n        url: qhd.url-1\n        width: 22\n        forcesendfields: []\n        nullfields: []\n      standard:\n        height: 28\n        url: standard.url-1\n        width: 27\n        forcesendfields: []\n        nullfields: []\n      uhd:\n        height: 23\n        url: uhd.url-1\n        width: 22\n        forcesendfields: []\n        nullfields: []\n      forcesendfields: []\n      nullfields: []\n    - default:\n        height: 40\n        url: default.url-2\n        width: 39\n        forcesendfields: []\n        nullfields: []\n      fhd:\n        height: 36\n        url: fhd.url-2\n        width: 35\n        forcesendfields: []\n        nullfields: []\n      high:\n        height: 37\n        url: high.url-2\n        width: 36\n        forcesendfields: []\n        nullfields: []\n      maxres:\n        height: 39\n        url: maxres.url-2\n        width: 38\n        forcesendfields: []\n        nullfields: []\n      medium:\n        height: 39\n        url: medium.url-2\n        width: 38\n        forcesendfields: []\n        nullfields: []\n      qhd:\n        height: 36\n        url: qhd.url-2\n        width: 35\n        forcesendfields: []\n        nullfields: []\n      standard:\n        height: 41\n        url: standard.url-2\n        width: 40\n        forcesendfields: []\n        nullfields: []\n      uhd:\n        height: 36\n        url: uhd.url-2\n        width: 35\n        forcesendfields: []\n        nullfields: []\n      forcesendfields: []\n      nullfields: []\n    - default:\n        height: 0\n        url: \"\"\n        width: 0\n        forcesendfields: []\n        nullfields: []\n      fhd:\n        height: 0\n        url: \"\"\n        width: 0\n        forcesendfields: []\n        nullfields: []\n      high:\n        height: 0\n        url: \"\"\n        width: 0\n        forcesendfields: []\n        nullfields: []\n      maxres:\n        height: 0\n        url: \"\"\n        width: 0\n        forcesendfields: []\n        nullfields: []\n      medium:\n        height: 0\n        url: \"\"\n        width: 0\n        forcesendfields: []\n        nullfields: []\n      qhd:\n        height: 0\n        url: \"\"\n        width: 0\n        forcesendfields: []\n        nullfields: []\n      standard:\n        height: 0\n        url: \"\"\n        width: 0\n        forcesendfields: []\n        nullfields: []\n      uhd:\n        height: 0\n        url: \"\"\n        width: 0\n        forcesendfields: []\n        nullfields: []\n      forcesendfields: []\n      nullfields: []\nkind: youtube#thumbnailSetResponse\nvisitorid: \"\"\nserverresponse:\n    httpstatuscode: 200\n    header:\n        Content-Length:\n            - \"1895\"\n        Content-Type:\n            - application/json\n        Date:\n            - Sun, 18 Oct 2026 12:00:00 GMT\n        Server:\n            - parity-recorder\nforcesendfields: []\nnullfields: []\n\n"
+}

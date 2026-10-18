@@ -1,0 +1,36 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.subscription.list.channelId.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/subscriptions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelId": [
+     "val-channelId"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "order": [
+     "relevance"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      KIND                       RESOURCE ID  CHANNEL TITLE              \n id-0    snippet.resourceId.kind-0               @at sign                   \n id-1    snippet.resourceId.kind-1               Ünïcödé ✓ 日本語のタイトル \n id-2    snippet.resourceId.kind-2               - dash start               \n zero-0                                                                     "
+}

@@ -1,0 +1,27 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.channelSection.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/channelSections",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get channel section\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu channelSection list -h' to see usage.\n",
+ "stdout": ""
+}

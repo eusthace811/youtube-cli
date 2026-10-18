@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatBan.insert.parts",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"bannedUserDetails\":{\"channelId\":\"val-bannedUserChannelId\"},\"liveChatId\":\"val-liveChatId\",\"type\":\"val-banType\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/bans",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Live chat ban inserted: id-1\n"
+}

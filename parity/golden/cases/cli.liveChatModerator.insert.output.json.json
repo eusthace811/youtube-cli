@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.insert.output.json",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"liveChatId\":\"val-liveChatId\",\"moderatorDetails\":{\"channelId\":\"val-moderatorChannelId\"}}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "{\"etag\":\"etag-1\",\"id\":\"id-1\",\"kind\":\"kind-1\",\"snippet\":{\"liveChatId\":\"snippet.liveChatId-1\",\"moderatorDetails\":{\"channelId\":\"snippet.moderatorDetails.channelId-1\",\"channelUrl\":\"snippet.moderatorDetails.channelUrl-1\",\"displayName\":\"snippet.moderatorDetails.displayName-1\",\"profileImageUrl\":\"snippet.moderatorDetails.profileImageUrl-1\"}}}\n"
+}

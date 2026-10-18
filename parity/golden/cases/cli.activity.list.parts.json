@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.activity.list.parts",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/activities",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TITLE                       TYPE             TIME                 \n id-0    @at sign                    typeUnspecified  2026-01-10T12:34:50Z \n id-1    Ünïcödé ✓ 日本語のタイトル  upload           2026-02-11T12:34:51Z \n id-2    - dash start                comment          2026-03-12T12:34:52Z \n zero-0                                                                    "
+}

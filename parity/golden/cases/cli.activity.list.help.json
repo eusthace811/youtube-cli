@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.activity.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List activities. Use this tool to list activities such as uploads, likes, and favorites.\n\nUsage:\n  yutu activity list [flags]\n\nExamples:\n# List my activities\nyutu activity list --for mine\n# List activities by channel ID with limit\nyutu activity list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10\n# List activities after a date in JSON format\nyutu activity list --publishedAfter 2024-01-01T00:00:00Z --output json\n\nFlags:\n  -c, --channelId string         ID of the channel\n  -F, --for string               home|mine\n  -h, --help                     help for list\n  -n, --maxResults int           The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string            json|yaml|table (default \"table\")\n  -p, --parts strings            Comma separated parts (default [id,snippet,contentDetails])\n  -a, --publishedAfter string    Filter on activities published after this date\n  -b, --publishedBefore string   Filter on activities published before this date\n  -r, --regionCode string        Display the content as seen by viewers in this country\n"
+}

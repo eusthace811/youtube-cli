@@ -1,0 +1,33 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveChatMessage.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/messages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "snippet",
+     "authorDetails"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get live chat message\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveChatMessage list -h' to see usage.\n",
+ "stdout": ""
+}

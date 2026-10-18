@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "core.help.video-list",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List videos. Use this tool to list videos.\n\nUsage:\n  yutu video list [flags]\n\nExamples:\n# List a video by ID\nyutu video list --ids IBju0NwjQRc\n# List multiple videos in JSON format\nyutu video list --ids IBju0NwjQRc,wZ9z3FUuNvQ --output json\n# List most popular videos by region\nyutu video list --chart mostPopular --regionCode US --maxResults 10\n# List my liked videos\nyutu video list --myRating like --output yaml\n\nFlags:\n  -c, --chart string                    chartUnspecified|mostPopular\n  -h, --help                            help for list\n  -l, --hl string                       Specifies the localization language\n  -i, --ids strings                     Return videos with the given ids\n  -L, --locale string                   Locale of the video metadata to return\n  -H, --maxHeight int                   Max height of the embedded player in pixels\n  -n, --maxResults int                  The maximum number of items that should be returned, 0 for no limit (default 5)\n  -W, --maxWidth int                    Max width of the embedded player in pixels\n  -R, --myRating string                 Return videos liked/disliked by the authenticated user\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet,status,statistics])\n  -r, --regionCode string               Specific to the specified region\n  -g, --videoCategoryId string          Category of the video\n"
+}

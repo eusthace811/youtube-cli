@@ -1,0 +1,34 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveBroadcast.update.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveBroadcasts",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to update live broadcast\nfailed to get live broadcast\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveBroadcast update -h' to see usage.\n",
+ "stdout": ""
+}

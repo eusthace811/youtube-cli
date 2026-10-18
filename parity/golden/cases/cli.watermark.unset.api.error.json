@@ -1,0 +1,26 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.watermark.unset.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/watermarks/unset",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelId": [
+     "val-channelId"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to unset watermark\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu watermark unset -h' to see usage.\n",
+ "stdout": ""
+}

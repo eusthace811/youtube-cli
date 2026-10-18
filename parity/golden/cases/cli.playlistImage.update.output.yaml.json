@@ -1,0 +1,50 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistImage.update.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"id\":\"id-0\",\"kind\":\"kind-0\",\"snippet\":{\"height\":14,\"playlistId\":\"val-playlistId\",\"type\":\"hero\",\"width\":13}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "id: id-1\nkind: kind-1\nsnippet:\n    height: 27\n    playlistid: snippet.playlistId-1\n    type: hero\n    width: 26\n    forcesendfields: []\n    nullfields: []\nserverresponse:\n    httpstatuscode: 200\n    header:\n        Content-Length:\n            - \"126\"\n        Content-Type:\n            - application/json\n        Date:\n            - Sun, 18 Oct 2026 12:00:00 GMT\n        Server:\n            - parity-recorder\nforcesendfields: []\nnullfields: []\n\n"
+}

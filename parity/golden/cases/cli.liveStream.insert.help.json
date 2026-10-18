@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Create a live stream. Use this tool to create a live stream.\n\nUsage:\n  yutu liveStream insert [flags]\n\nExamples:\n# Create a live stream with RTMP at 1080p\nyutu liveStream insert --title \"My Stream\" --ingestionType rtmp --resolution 1080p --frameRate 60fps\n# Create a live stream with description\nyutu liveStream insert --title \"Gaming Stream\" --description \"Live gaming session\" --ingestionType rtmp --resolution 720p\n\nFlags:\n  -d, --description string                     Description of the live stream\n  -f, --frameRate string                       Frame rate of the video stream (30fps, 60fps, variable)\n  -h, --help                                   help for insert\n  -I, --ingestionType string                   Ingestion type (rtmp, dash, webrtc, hls)\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -p, --parts strings                          Comma separated parts (default [snippet,cdn,status])\n  -r, --resolution string                      Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)\n  -t, --title string                           Title of the live stream\n      --yes                                    Confirm the operation\n"
+}

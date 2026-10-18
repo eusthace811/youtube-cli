@@ -1,0 +1,58 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.list.maxResults.21",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      CHANNEL ID                             DISPLAY NAME                            \n id-0    snippet.moderatorDetails.channelId-0   snippet.moderatorDetails.displayName-0  \n id-1    snippet.moderatorDetails.channelId-1   snippet.moderatorDetails.displayName-1  \n id-2    snippet.moderatorDetails.channelId-2   snippet.moderatorDetails.displayName-2  \n zero-0                                                                                 \n id-10   snippet.moderatorDetails.channelId-10  snippet.moderatorDetails.displayName-10 \n id-11   snippet.moderatorDetails.channelId-11  snippet.moderatorDetails.displayName-11 \n id-12   snippet.moderatorDetails.channelId-12  snippet.moderatorDetails.displayName-12 \n zero-1                                                                                 "
+}

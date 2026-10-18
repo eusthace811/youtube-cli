@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.setModerationStatus.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Set comment moderation status. Use this tool to set comment moderation status.\n\nUsage:\n  yutu comment setModerationStatus [flags]\n\nExamples:\n# Publish a held comment\nyutu comment setModerationStatus --ids abc123 --moderationStatus published\n# Hold multiple comments for review\nyutu comment setModerationStatus --ids abc123,def456 --moderationStatus heldForReview\n# Reject a comment and ban author\nyutu comment setModerationStatus --ids abc123 --moderationStatus rejected --banAuthor\n\nFlags:\n  -A, --banAuthor                 If set to true the author of the comment gets added to the ban list\n  -h, --help                      help for setModerationStatus\n  -i, --ids strings               IDs of comments\n  -s, --moderationStatus string   heldForReview|published|rejected\n  -o, --output string             json|yaml|silent\n      --yes                       Confirm the operation\n"
+}

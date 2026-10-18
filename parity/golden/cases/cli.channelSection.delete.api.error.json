@@ -1,0 +1,43 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.channelSection.delete.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/channelSections",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/channelSections",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to delete channel section\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu channelSection delete -h' to see usage.\n",
+ "stdout": "Channel section id2 deleted\n"
+}

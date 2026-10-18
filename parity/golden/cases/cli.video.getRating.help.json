@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.getRating.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Get video ratings. Use this tool to get video ratings by IDs.\n\nUsage:\n  yutu video getRating [flags]\n\nExamples:\n# Get rating of a video\nyutu video getRating --ids dQw4w9WgXcQ\n# Get ratings of multiple videos in JSON format\nyutu video getRating --ids dQw4w9WgXcQ,abc123 --output json\n\nFlags:\n  -h, --help                            help for getRating\n  -i, --ids strings                     IDs of the videos to get the rating for\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n"
+}

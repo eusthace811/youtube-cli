@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.i18nRegion.list.hl",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/i18nRegions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "hl": [
+     "val-hl"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      GL            NAME        \n id-0    snippet.gl-0  ~           \n id-1    snippet.gl-1  Plain title \n id-2    snippet.gl-2  key: value  \n zero-0                            "
+}

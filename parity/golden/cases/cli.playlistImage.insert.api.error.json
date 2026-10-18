@@ -1,0 +1,30 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.playlistImage.insert.api.error",
+ "requests": [
+  {
+   "body": "--ae333e59f45f291c72190b26dce3dc56a4647869b2d2cdae9260d58c3cca\r\nContent-Type: application/json\r\n\r\n{\"kind\":\"youtube#playlistImages\",\"snippet\":{\"playlistId\":\"val-playlistId\"}}\n\r\n--ae333e59f45f291c72190b26dce3dc56a4647869b2d2cdae9260d58c3cca\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--ae333e59f45f291c72190b26dce3dc56a4647869b2d2cdae9260d58c3cca--\r\n",
+   "ctype": "multipart/related; boundary=ae333e59f45f291c72190b26dce3dc56a4647869b2d2cdae9260d58c3cca",
+   "method": "POST",
+   "path": "/upload/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to insert playlist image\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu playlistImage insert -h' to see usage.\n",
+ "stdout": ""
+}

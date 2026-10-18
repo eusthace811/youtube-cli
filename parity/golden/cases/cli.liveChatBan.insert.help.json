@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatBan.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Create a live chat ban. Use this tool to ban a user from a live chat.\n\nUsage:\n  yutu liveChatBan insert [flags]\n\nExamples:\n# Ban a user permanently\nyutu liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType permanent\n# Ban a user temporarily for 5 minutes\nyutu liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType temporary --banDurationSeconds 300\n\nFlags:\n  -d, --banDurationSeconds uint      Duration of the ban in seconds (only for temporary bans)\n  -t, --banType string               permanent|temporary\n  -b, --bannedUserChannelId string   Channel ID of the user to ban\n  -h, --help                         help for insert\n  -l, --liveChatId string            ID of the live chat\n  -o, --output string                json|yaml|silent\n  -p, --parts strings                Parts to include (default [snippet])\n      --yes                          Confirm the operation\n"
+}

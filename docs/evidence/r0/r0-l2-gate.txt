@@ -1,0 +1,12 @@
+r0 lane 2: PASS
+
+exit: 1
+--- requests (0) ---
+
+--- stdout ---
+
+--- stderr ---
+Create playlist: val-title
+Error: operation not confirmed (pass confirm: true or rerun with --yes)
+Run 'yutu playlist insert -h' to see usage.
+

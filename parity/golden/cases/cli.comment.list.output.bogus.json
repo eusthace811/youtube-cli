@@ -1,0 +1,33 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.list.output.bogus",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/comments",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": ""
+}

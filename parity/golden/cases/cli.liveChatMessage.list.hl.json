@@ -1,0 +1,36 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatMessage.list.hl",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/messages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "hl": [
+     "val-hl"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "snippet",
+     "authorDetails"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TYPE              AUTHOR                       MESSAGE                  \n id-0    invalidType       authorDetails.displayName-0  snippet.displayMessage-0 \n id-1    textMessageEvent  authorDetails.displayName-1  snippet.displayMessage-1 \n id-2    tombstone         authorDetails.displayName-2  snippet.displayMessage-2 \n zero-0                                                                          "
+}

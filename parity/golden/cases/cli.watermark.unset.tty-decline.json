@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.watermark.unset.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Unset watermark for channel val-channelId [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu watermark unset -h' to see usage.\r\n"
+}

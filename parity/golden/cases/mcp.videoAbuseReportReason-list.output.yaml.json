@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.videoAbuseReportReason-list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videoAbuseReportReasons",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:30.846+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"videoAbuseReportReason-list\",\"arguments\":{\"output\":\"yaml\"}}}\ntime=2026-10-18T15:39:30.847+01:00 level=INFO msg=videoAbuseReportReason-list input=\"{\\\"confirmed\\\":false,\\\"parts\\\":[\\\"id\\\",\\\"snippet\\\"],\\\"output\\\":\\\"yaml\\\"}\" output_length=1635\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"- etag: etag-0\\n  id: id-0\\n  kind: kind-0\\n  snippet:\\n    label: snippet.label-0\\n    secondaryreasons:\\n        - id: snippet.secondaryReasons[].id-0\\n          label: snippet.secondaryReasons[].label-0\\n          forcesendfields: []\\n          nullfields: []\\n        - id: snippet.secondaryReasons[].id-1\\n          label: snippet.secondaryReasons[].label-1\\n          forcesendfields: []\\n          nullfields: []\\n    forcesendfields: []\\n    nullfields: []\\n  forcesendfields: []\\n  nullfields: []\\n- etag: etag-1\\n  id: id-1\\n  kind: kind-1\\n  snippet:\\n    label: snippet.label-1\\n    secondaryreasons:\\n        - id: snippet.secondaryReasons[].id-1\\n          label: snippet.secondaryReasons[].label-1\\n          forcesendfields: []\\n          nullfields: []\\n        - id: snippet.secondaryReasons[].id-2\\n          label: snippet.secondaryReasons[].label-2\\n          forcesendfields: []\\n          nullfields: []\\n    forcesendfields: []\\n    nullfields: []\\n  forcesendfields: []\\n  nullfields: []\\n- etag: etag-2\\n  id: id-2\\n  kind: kind-2\\n  snippet:\\n    label: snippet.label-2\\n    secondaryreasons:\\n        - id: snippet.secondaryReasons[].id-2\\n          label: snippet.secondaryReasons[].label-2\\n          forcesendfields: []\\n          nullfields: []\\n        - id: snippet.secondaryReasons[].id-3\\n          label: snippet.secondaryReasons[].label-3\\n          forcesendfields: []\\n          nullfields: []\\n    forcesendfields: []\\n    nullfields: []\\n  forcesendfields: []\\n  nullfields: []\\n- etag: \\\"\\\"\\n  id: zero-0\\n  kind: \\\"\\\"\\n  snippet:\\n    label: \\\"\\\"\\n    secondaryreasons: []\\n    forcesendfields: []\\n    nullfields: []\\n  forcesendfields: []\\n  nullfields: []\\n\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"- etag: etag-0\\n  id: id-0\\n  kind: kind-0\\n  snippet:\\n    label: snippet.label-0\\n    secondaryreasons:\\n        - id: snippet.secondaryReasons[].id-0\\n          label: snippet.secondaryReasons[].label-0\\n          forcesendfields: []\\n          nullfields: []\\n        - id: snippet.secondaryReasons[].id-1\\n          label: snippet.secondaryReasons[].label-1\\n          forcesendfields: []\\n          nullfields: []\\n    forcesendfields: []\\n    nullfields: []\\n  forcesendfields: []\\n  nullfields: []\\n- etag: etag-1\\n  id: id-1\\n  kind: kind-1\\n  snippet:\\n    label: snippet.label-1\\n    secondaryreasons:\\n        - id: snippet.secondaryReasons[].id-1\\n          label: snippet.secondaryReasons[].label-1\\n          forcesendfields: []\\n          nullfields: []\\n        - id: snippet.secondaryReasons[].id-2\\n          label: snippet.secondaryReasons[].label-2\\n          forcesendfields: []\\n          nullfields: []\\n    forcesendfields: []\\n    nullfields: []\\n  forcesendfields: []\\n  nullfields: []\\n- etag: etag-2\\n  id: id-2\\n  kind: kind-2\\n  snippet:\\n    label: snippet.label-2\\n    secondaryreasons:\\n        - id: snippet.secondaryReasons[].id-2\\n          label: snippet.secondaryReasons[].label-2\\n          forcesendfields: []\\n          nullfields: []\\n        - id: snippet.secondaryReasons[].id-3\\n          label: snippet.secondaryReasons[].label-3\\n          forcesendfields: []\\n          nullfields: []\\n    forcesendfields: []\\n    nullfields: []\\n  forcesendfields: []\\n  nullfields: []\\n- etag: \\\"\\\"\\n  id: zero-0\\n  kind: \\\"\\\"\\n  snippet:\\n    label: \\\"\\\"\\n    secondaryreasons: []\\n    forcesendfields: []\\n    nullfields: []\\n  forcesendfields: []\\n  nullfields: []\\n\\n\"}]}}\n"
+}

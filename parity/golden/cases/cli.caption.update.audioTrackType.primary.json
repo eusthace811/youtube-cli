@@ -1,0 +1,46 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.update.audioTrackType.primary",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "videoId": [
+     "val-videoId"
+    ]
+   }
+  },
+  {
+   "body": "{\"etag\":\"etag-0\",\"id\":\"id-0\",\"kind\":\"kind-0\",\"snippet\":{\"audioTrackType\":\"primary\",\"failureReason\":\"unknownFormat\",\"language\":\"snippet.language-0\",\"lastUpdated\":\"2026-01-10T12:34:50Z\",\"name\":\"~\",\"status\":\"serving\",\"trackKind\":\"standard\",\"videoId\":\"val-videoId\"}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Caption updated: id-1\n"
+}

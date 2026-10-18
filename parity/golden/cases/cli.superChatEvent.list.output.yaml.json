@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.superChatEvent.list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/superChatEvents",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "- etag: etag-0\n  id: id-0\n  kind: kind-0\n  snippet:\n    amountmicros: 620\n    channelid: snippet.channelId-0\n    commenttext: snippet.commentText-0\n    createdat: \"2026-01-10T12:34:50Z\"\n    currency: snippet.currency-0\n    displaystring: snippet.displayString-0\n    issuperstickerevent: false\n    messagetype: 19\n    superstickermetadata:\n        alttext: snippet.superStickerMetadata.altText-0\n        alttextlanguage: snippet.superStickerMetadata.altTextLanguage-0\n        stickerid: snippet.superStickerMetadata.stickerId-0\n        forcesendfields: []\n        nullfields: []\n    supporterdetails:\n        channelid: snippet.supporterDetails.channelId-0\n        channelurl: snippet.supporterDetails.channelUrl-0\n        displayname: snippet.supporterDetails.displayName-0\n        profileimageurl: snippet.supporterDetails.profileImageUrl-0\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-1\n  id: id-1\n  kind: kind-1\n  snippet:\n    amountmicros: 8539\n    channelid: snippet.channelId-1\n    commenttext: snippet.commentText-1\n    createdat: \"2026-02-11T12:34:51Z\"\n    currency: snippet.currency-1\n    displaystring: snippet.displayString-1\n    issuperstickerevent: true\n    messagetype: 32\n    superstickermetadata:\n        alttext: snippet.superStickerMetadata.altText-1\n        alttextlanguage: snippet.superStickerMetadata.altTextLanguage-1\n        stickerid: snippet.superStickerMetadata.stickerId-1\n        forcesendfields: []\n        nullfields: []\n    supporterdetails:\n        channelid: snippet.supporterDetails.channelId-1\n        channelurl: snippet.supporterDetails.channelUrl-1\n        displayname: snippet.supporterDetails.displayName-1\n        profileimageurl: snippet.supporterDetails.profileImageUrl-1\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-2\n  id: id-2\n  kind: kind-2\n  snippet:\n    amountmicros: 16458\n    channelid: snippet.channelId-2\n    commenttext: snippet.commentText-2\n    createdat: \"2026-03-12T12:34:52Z\"\n    currency: snippet.currency-2\n    displaystring: snippet.displayString-2\n    issuperstickerevent: false\n    messagetype: 45\n    superstickermetadata:\n        alttext: snippet.superStickerMetadata.altText-2\n        alttextlanguage: snippet.superStickerMetadata.altTextLanguage-2\n        stickerid: snippet.superStickerMetadata.stickerId-2\n        forcesendfields: []\n        nullfields: []\n    supporterdetails:\n        channelid: snippet.supporterDetails.channelId-2\n        channelurl: snippet.supporterDetails.channelUrl-2\n        displayname: snippet.supporterDetails.displayName-2\n        profileimageurl: snippet.supporterDetails.profileImageUrl-2\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: \"\"\n  id: zero-0\n  kind: \"\"\n  snippet:\n    amountmicros: 0\n    channelid: \"\"\n    commenttext: \"\"\n    createdat: \"\"\n    currency: \"\"\n    displaystring: \"\"\n    issuperstickerevent: false\n    messagetype: 0\n    superstickermetadata:\n        alttext: \"\"\n        alttextlanguage: \"\"\n        stickerid: \"\"\n        forcesendfields: []\n        nullfields: []\n    supporterdetails:\n        channelid: \"\"\n        channelurl: \"\"\n        displayname: \"\"\n        profileimageurl: \"\"\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n\n"
+}

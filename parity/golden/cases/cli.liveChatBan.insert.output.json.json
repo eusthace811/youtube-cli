@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatBan.insert.output.json",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"bannedUserDetails\":{\"channelId\":\"val-bannedUserChannelId\"},\"liveChatId\":\"val-liveChatId\",\"type\":\"val-banType\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/bans",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "{\"etag\":\"etag-1\",\"id\":\"id-1\",\"kind\":\"kind-1\",\"snippet\":{\"banDurationSeconds\":\"8725\",\"bannedUserDetails\":{\"channelId\":\"snippet.bannedUserDetails.channelId-1\",\"channelUrl\":\"snippet.bannedUserDetails.channelUrl-1\",\"displayName\":\"snippet.bannedUserDetails.displayName-1\",\"profileImageUrl\":\"snippet.bannedUserDetails.profileImageUrl-1\"},\"liveChatId\":\"snippet.liveChatId-1\",\"type\":\"permanent\"}}\n"
+}

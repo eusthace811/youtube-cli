@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.comment.insert.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Create comment on parent val-parentId [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu comment insert -h' to see usage.\r\n"
+}

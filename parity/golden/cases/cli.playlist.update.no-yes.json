@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.playlist.update.no-yes",
+ "requests": [],
+ "stderr": "Update playlist: id1\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu playlist update -h' to see usage.\n",
+ "stdout": ""
+}

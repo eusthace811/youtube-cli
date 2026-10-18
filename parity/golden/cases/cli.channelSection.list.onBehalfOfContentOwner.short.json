@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.channelSection.list.onBehalfOfContentOwner.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/channelSections",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "onBehalfOfContentOwner": [
+     "val-onBehalfOfContentOwner"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      CHANNEL ID           TITLE                      \n id-0    snippet.channelId-0  @at sign                   \n id-1    snippet.channelId-1  Ünïcödé ✓ 日本語のタイトル \n id-2    snippet.channelId-2  - dash start               \n zero-0                                                  "
+}

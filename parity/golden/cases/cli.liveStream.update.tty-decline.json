@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveStream.update.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update live stream: id1 [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu liveStream update -h' to see usage.\r\n"
+}

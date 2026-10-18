@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.member.list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/members",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "mode": [
+     "all_current"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "- etag: etag-0\n  kind: kind-0\n  snippet:\n    creatorchannelid: snippet.creatorChannelId-0\n    memberdetails:\n        channelid: snippet.memberDetails.channelId-0\n        channelurl: snippet.memberDetails.channelUrl-0\n        displayname: snippet.memberDetails.displayName-0\n        profileimageurl: snippet.memberDetails.profileImageUrl-0\n        forcesendfields: []\n        nullfields: []\n    membershipsdetails:\n        accessiblelevels:\n            - snippet.membershipsDetails.accessibleLevels[]-0\n            - snippet.membershipsDetails.accessibleLevels[]-1\n        highestaccessiblelevel: snippet.membershipsDetails.highestAccessibleLevel-0\n        highestaccessibleleveldisplayname: snippet.membershipsDetails.highestAccessibleLevelDisplayName-0\n        membershipsduration:\n            membersince: snippet.membershipsDetails.membershipsDuration.memberSince-0\n            membertotaldurationmonths: 72\n            forcesendfields: []\n            nullfields: []\n        membershipsdurationatlevels:\n            - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-0\n              membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-0\n              membertotaldurationmonths: 82\n              forcesendfields: []\n              nullfields: []\n            - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-1\n              membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-1\n              membertotaldurationmonths: 95\n              forcesendfields: []\n              nullfields: []\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-1\n  kind: kind-1\n  snippet:\n    creatorchannelid: snippet.creatorChannelId-1\n    memberdetails:\n        channelid: snippet.memberDetails.channelId-1\n        channelurl: snippet.memberDetails.channelUrl-1\n        displayname: snippet.memberDetails.displayName-1\n        profileimageurl: snippet.memberDetails.profileImageUrl-1\n        forcesendfields: []\n        nullfields: []\n    membershipsdetails:\n        accessiblelevels:\n            - snippet.membershipsDetails.accessibleLevels[]-1\n            - snippet.membershipsDetails.accessibleLevels[]-2\n        highestaccessiblelevel: snippet.membershipsDetails.highestAccessibleLevel-1\n        highestaccessibleleveldisplayname: snippet.membershipsDetails.highestAccessibleLevelDisplayName-1\n        membershipsduration:\n            membersince: snippet.membershipsDetails.membershipsDuration.memberSince-1\n            membertotaldurationmonths: 85\n            forcesendfields: []\n            nullfields: []\n        membershipsdurationatlevels:\n            - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-1\n              membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-1\n              membertotaldurationmonths: 95\n              forcesendfields: []\n              nullfields: []\n            - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-2\n              membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-2\n              membertotaldurationmonths: 108\n              forcesendfields: []\n              nullfields: []\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-2\n  kind: kind-2\n  snippet:\n    creatorchannelid: snippet.creatorChannelId-2\n    memberdetails:\n        channelid: snippet.memberDetails.channelId-2\n        channelurl: snippet.memberDetails.channelUrl-2\n        displayname: snippet.memberDetails.displayName-2\n        profileimageurl: snippet.memberDetails.profileImageUrl-2\n        forcesendfields: []\n        nullfields: []\n    membershipsdetails:\n        accessiblelevels:\n            - snippet.membershipsDetails.accessibleLevels[]-2\n            - snippet.membershipsDetails.accessibleLevels[]-3\n        highestaccessiblelevel: snippet.membershipsDetails.highestAccessibleLevel-2\n        highestaccessibleleveldisplayname: snippet.membershipsDetails.highestAccessibleLevelDisplayName-2\n        membershipsduration:\n            membersince: snippet.membershipsDetails.membershipsDuration.memberSince-2\n            membertotaldurationmonths: 98\n            forcesendfields: []\n            nullfields: []\n        membershipsdurationatlevels:\n            - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-2\n              membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-2\n              membertotaldurationmonths: 108\n              forcesendfields: []\n              nullfields: []\n            - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-3\n              membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-3\n              membertotaldurationmonths: 121\n              forcesendfields: []\n              nullfields: []\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: \"\"\n  kind: \"\"\n  snippet:\n    creatorchannelid: \"\"\n    memberdetails:\n        channelid: \"\"\n        channelurl: \"\"\n        displayname: \"\"\n        profileimageurl: \"\"\n        forcesendfields: []\n        nullfields: []\n    membershipsdetails:\n        accessiblelevels: []\n        highestaccessiblelevel: \"\"\n        highestaccessibleleveldisplayname: \"\"\n        membershipsduration:\n            membersince: \"\"\n            membertotaldurationmonths: 0\n            forcesendfields: []\n            nullfields: []\n        membershipsdurationatlevels: []\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n\n"
+}

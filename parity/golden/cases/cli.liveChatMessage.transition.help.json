@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatMessage.transition.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Transition a durable live chat event. Use this tool to change the status of a live chat message (e.g., close a poll).\n\nUsage:\n  yutu liveChatMessage transition [flags]\n\nExamples:\n# Transition a live chat message to closed\nyutu liveChatMessage transition --ids abc123 --status closed\n\nFlags:\n  -h, --help            help for transition\n  -i, --ids strings     IDs of the messages to transition\n  -o, --output string   json|yaml|silent\n  -s, --status string   Status to transition to (closed)\n      --yes             Confirm the operation\n"
+}

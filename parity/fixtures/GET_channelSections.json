@@ -1,0 +1,535 @@
+{
+ "pages": [
+  {
+   "kind": "youtube#channelSectionListResponse",
+   "etag": "etag-page-0",
+   "items": [
+    {
+     "contentDetails": {
+      "channels": [
+       "contentDetails.channels[]-0",
+       "contentDetails.channels[]-1"
+      ],
+      "playlists": [
+       "contentDetails.playlists[]-0",
+       "contentDetails.playlists[]-1"
+      ]
+     },
+     "etag": "etag-0",
+     "id": "id-0",
+     "kind": "kind-0",
+     "localizations": {
+      "kb": {
+       "title": "<b>tags</b> & \"quotes\""
+      },
+      "ka": {
+       "title": "# hash"
+      }
+     },
+     "snippet": {
+      "channelId": "snippet.channelId-0",
+      "defaultLanguage": "snippet.defaultLanguage-0",
+      "localized": {
+       "title": "tab\tand\nnewline"
+      },
+      "position": 16,
+      "style": "channelsectionStyleUnspecified",
+      "title": "@at sign",
+      "type": "channelsectionTypeUndefined"
+     },
+     "targeting": {
+      "countries": [
+       "targeting.countries[]-0",
+       "targeting.countries[]-1"
+      ],
+      "languages": [
+       "targeting.languages[]-0",
+       "targeting.languages[]-1"
+      ],
+      "regions": [
+       "targeting.regions[]-0",
+       "targeting.regions[]-1"
+      ]
+     }
+    },
+    {
+     "contentDetails": {
+      "channels": [
+       "contentDetails.channels[]-1",
+       "contentDetails.channels[]-2"
+      ],
+      "playlists": [
+       "contentDetails.playlists[]-1",
+       "contentDetails.playlists[]-2"
+      ]
+     },
+     "etag": "etag-1",
+     "id": "id-1",
+     "kind": "kind-1",
+     "localizations": {
+      "kb": {
+       "title": "# hash"
+      },
+      "ka": {
+       "title": "trailing space "
+      }
+     },
+     "snippet": {
+      "channelId": "snippet.channelId-1",
+      "defaultLanguage": "snippet.defaultLanguage-1",
+      "localized": {
+       "title": "null"
+      },
+      "position": 29,
+      "style": "horizontalRow",
+      "title": "Ünïcödé ✓ 日本語のタイトル",
+      "type": "singlePlaylist"
+     },
+     "targeting": {
+      "countries": [
+       "targeting.countries[]-1",
+       "targeting.countries[]-2"
+      ],
+      "languages": [
+       "targeting.languages[]-1",
+       "targeting.languages[]-2"
+      ],
+      "regions": [
+       "targeting.regions[]-1",
+       "targeting.regions[]-2"
+      ]
+     }
+    },
+    {
+     "contentDetails": {
+      "channels": [
+       "contentDetails.channels[]-2",
+       "contentDetails.channels[]-3"
+      ],
+      "playlists": [
+       "contentDetails.playlists[]-2",
+       "contentDetails.playlists[]-3"
+      ]
+     },
+     "etag": "etag-2",
+     "id": "id-2",
+     "kind": "kind-2",
+     "localizations": {
+      "kb": {
+       "title": "trailing space "
+      },
+      "ka": {
+       "title": "tab\tand\nnewline"
+      }
+     },
+     "snippet": {
+      "channelId": "snippet.channelId-2",
+      "defaultLanguage": "snippet.defaultLanguage-2",
+      "localized": {
+       "title": "A very long line that keeps going well past eighty characters so that any wrapping logic in an emitter shows up clearly here"
+      },
+      "position": 42,
+      "style": "verticalList",
+      "title": "- dash start",
+      "type": "multiplePlaylists"
+     },
+     "targeting": {
+      "countries": [
+       "targeting.countries[]-2",
+       "targeting.countries[]-3"
+      ],
+      "languages": [
+       "targeting.languages[]-2",
+       "targeting.languages[]-3"
+      ],
+      "regions": [
+       "targeting.regions[]-2",
+       "targeting.regions[]-3"
+      ]
+     }
+    },
+    {
+     "contentDetails": {
+      "channels": [],
+      "playlists": []
+     },
+     "etag": "",
+     "id": "zero-0",
+     "kind": "",
+     "localizations": {},
+     "snippet": {
+      "channelId": "",
+      "defaultLanguage": "",
+      "localized": {
+       "title": ""
+      },
+      "position": 0,
+      "style": "",
+      "title": "",
+      "type": ""
+     },
+     "targeting": {
+      "countries": [],
+      "languages": [],
+      "regions": []
+     }
+    }
+   ],
+   "_token": ""
+  },
+  {
+   "kind": "youtube#channelSectionListResponse",
+   "etag": "etag-page-1",
+   "items": [
+    {
+     "contentDetails": {
+      "channels": [
+       "contentDetails.channels[]-10",
+       "contentDetails.channels[]-11"
+      ],
+      "playlists": [
+       "contentDetails.playlists[]-10",
+       "contentDetails.playlists[]-11"
+      ]
+     },
+     "etag": "etag-10",
+     "id": "id-10",
+     "kind": "kind-10",
+     "localizations": {
+      "kb": {
+       "title": "line sep"
+      },
+      "ka": {
+       "title": "emoji 🎬🎥 mix"
+      }
+     },
+     "snippet": {
+      "channelId": "snippet.channelId-10",
+      "defaultLanguage": "snippet.defaultLanguage-10",
+      "localized": {
+       "title": "multi\nline\ntext\n"
+      },
+      "position": 146,
+      "style": "horizontalRow",
+      "title": "key: value",
+      "type": "liveEvents"
+     },
+     "targeting": {
+      "countries": [
+       "targeting.countries[]-10",
+       "targeting.countries[]-11"
+      ],
+      "languages": [
+       "targeting.languages[]-10",
+       "targeting.languages[]-11"
+      ],
+      "regions": [
+       "targeting.regions[]-10",
+       "targeting.regions[]-11"
+      ]
+     }
+    },
+    {
+     "contentDetails": {
+      "channels": [
+       "contentDetails.channels[]-11",
+       "contentDetails.channels[]-12"
+      ],
+      "playlists": [
+       "contentDetails.playlists[]-11",
+       "contentDetails.playlists[]-12"
+      ]
+     },
+     "etag": "etag-11",
+     "id": "id-11",
+     "kind": "kind-11",
+     "localizations": {
+      "kb": {
+       "title": "emoji 🎬🎥 mix"
+      },
+      "ka": {
+       "title": " leading space"
+      }
+     },
+     "snippet": {
+      "channelId": "snippet.channelId-11",
+      "defaultLanguage": "snippet.defaultLanguage-11",
+      "localized": {
+       "title": "true"
+      },
+      "position": 159,
+      "style": "verticalList",
+      "title": "'single' quoted",
+      "type": "upcomingEvents"
+     },
+     "targeting": {
+      "countries": [
+       "targeting.countries[]-11",
+       "targeting.countries[]-12"
+      ],
+      "languages": [
+       "targeting.languages[]-11",
+       "targeting.languages[]-12"
+      ],
+      "regions": [
+       "targeting.regions[]-11",
+       "targeting.regions[]-12"
+      ]
+     }
+    },
+    {
+     "contentDetails": {
+      "channels": [
+       "contentDetails.channels[]-12",
+       "contentDetails.channels[]-13"
+      ],
+      "playlists": [
+       "contentDetails.playlists[]-12",
+       "contentDetails.playlists[]-13"
+      ]
+     },
+     "etag": "etag-12",
+     "id": "id-12",
+     "kind": "kind-12",
+     "localizations": {
+      "kb": {
+       "title": " leading space"
+      },
+      "ka": {
+       "title": "multi\nline\ntext\n"
+      }
+     },
+     "snippet": {
+      "channelId": "snippet.channelId-12",
+      "defaultLanguage": "snippet.defaultLanguage-12",
+      "localized": {
+       "title": "~"
+      },
+      "position": 172,
+      "style": "channelsectionStyleUnspecified",
+      "title": "<b>tags</b> & \"quotes\"",
+      "type": "completedEvents"
+     },
+     "targeting": {
+      "countries": [
+       "targeting.countries[]-12",
+       "targeting.countries[]-13"
+      ],
+      "languages": [
+       "targeting.languages[]-12",
+       "targeting.languages[]-13"
+      ],
+      "regions": [
+       "targeting.regions[]-12",
+       "targeting.regions[]-13"
+      ]
+     }
+    },
+    {
+     "contentDetails": {
+      "channels": [],
+      "playlists": []
+     },
+     "etag": "",
+     "id": "zero-1",
+     "kind": "",
+     "localizations": {},
+     "snippet": {
+      "channelId": "",
+      "defaultLanguage": "",
+      "localized": {
+       "title": ""
+      },
+      "position": 0,
+      "style": "",
+      "title": "",
+      "type": ""
+     },
+     "targeting": {
+      "countries": [],
+      "languages": [],
+      "regions": []
+     }
+    }
+   ],
+   "_token": "p2"
+  },
+  {
+   "kind": "youtube#channelSectionListResponse",
+   "etag": "etag-page-2",
+   "items": [
+    {
+     "contentDetails": {
+      "channels": [
+       "contentDetails.channels[]-20",
+       "contentDetails.channels[]-21"
+      ],
+      "playlists": [
+       "contentDetails.playlists[]-20",
+       "contentDetails.playlists[]-21"
+      ]
+     },
+     "etag": "etag-20",
+     "id": "id-20",
+     "kind": "kind-20",
+     "localizations": {
+      "kb": {
+       "title": "# hash"
+      },
+      "ka": {
+       "title": "trailing space "
+      }
+     },
+     "snippet": {
+      "channelId": "snippet.channelId-20",
+      "defaultLanguage": "snippet.defaultLanguage-20",
+      "localized": {
+       "title": "null"
+      },
+      "position": 276,
+      "style": "verticalList",
+      "title": "Ünïcödé ✓ 日本語のタイトル",
+      "type": "popularUploads"
+     },
+     "targeting": {
+      "countries": [
+       "targeting.countries[]-20",
+       "targeting.countries[]-21"
+      ],
+      "languages": [
+       "targeting.languages[]-20",
+       "targeting.languages[]-21"
+      ],
+      "regions": [
+       "targeting.regions[]-20",
+       "targeting.regions[]-21"
+      ]
+     }
+    },
+    {
+     "contentDetails": {
+      "channels": [
+       "contentDetails.channels[]-21",
+       "contentDetails.channels[]-22"
+      ],
+      "playlists": [
+       "contentDetails.playlists[]-21",
+       "contentDetails.playlists[]-22"
+      ]
+     },
+     "etag": "etag-21",
+     "id": "id-21",
+     "kind": "kind-21",
+     "localizations": {
+      "kb": {
+       "title": "trailing space "
+      },
+      "ka": {
+       "title": "tab\tand\nnewline"
+      }
+     },
+     "snippet": {
+      "channelId": "snippet.channelId-21",
+      "defaultLanguage": "snippet.defaultLanguage-21",
+      "localized": {
+       "title": "A very long line that keeps going well past eighty characters so that any wrapping logic in an emitter shows up clearly here"
+      },
+      "position": 289,
+      "style": "channelsectionStyleUnspecified",
+      "title": "- dash start",
+      "type": "recentUploads"
+     },
+     "targeting": {
+      "countries": [
+       "targeting.countries[]-21",
+       "targeting.countries[]-22"
+      ],
+      "languages": [
+       "targeting.languages[]-21",
+       "targeting.languages[]-22"
+      ],
+      "regions": [
+       "targeting.regions[]-21",
+       "targeting.regions[]-22"
+      ]
+     }
+    },
+    {
+     "contentDetails": {
+      "channels": [
+       "contentDetails.channels[]-22",
+       "contentDetails.channels[]-23"
+      ],
+      "playlists": [
+       "contentDetails.playlists[]-22",
+       "contentDetails.playlists[]-23"
+      ]
+     },
+     "etag": "etag-22",
+     "id": "id-22",
+     "kind": "kind-22",
+     "localizations": {
+      "kb": {
+       "title": "tab\tand\nnewline"
+      },
+      "ka": {
+       "title": "null"
+      }
+     },
+     "snippet": {
+      "channelId": "snippet.channelId-22",
+      "defaultLanguage": "snippet.defaultLanguage-22",
+      "localized": {
+       "title": "123"
+      },
+      "position": 302,
+      "style": "horizontalRow",
+      "title": "line sep",
+      "type": "likes"
+     },
+     "targeting": {
+      "countries": [
+       "targeting.countries[]-22",
+       "targeting.countries[]-23"
+      ],
+      "languages": [
+       "targeting.languages[]-22",
+       "targeting.languages[]-23"
+      ],
+      "regions": [
+       "targeting.regions[]-22",
+       "targeting.regions[]-23"
+      ]
+     }
+    },
+    {
+     "contentDetails": {
+      "channels": [],
+      "playlists": []
+     },
+     "etag": "",
+     "id": "zero-2",
+     "kind": "",
+     "localizations": {},
+     "snippet": {
+      "channelId": "",
+      "defaultLanguage": "",
+      "localized": {
+       "title": ""
+      },
+      "position": 0,
+      "style": "",
+      "title": "",
+      "type": ""
+     },
+     "targeting": {
+      "countries": [],
+      "languages": [],
+      "regions": []
+     }
+    }
+   ],
+   "_token": "p3"
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.update.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update a live broadcast. Use this tool to update an existing live broadcast's settings.\n\nUsage:\n  yutu liveBroadcast update [flags]\n\nExamples:\n# Update live broadcast title\nyutu liveBroadcast update --id broadcast123 --title \"New Title\"\n# Update privacy status\nyutu liveBroadcast update --id broadcast123 --privacyStatus unlisted\n\nFlags:\n  -d, --description string                     Description of the live broadcast\n  -h, --help                                   help for update\n  -i, --id strings                             ID of the live broadcast to update\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -P, --privacyStatus string                   Privacy status (public, unlisted, private)\n  -E, --scheduledEndTime string                Scheduled end time in RFC 3339 format\n  -S, --scheduledStartTime string              Scheduled start time in RFC 3339 format\n  -t, --title string                           Title of the live broadcast\n      --yes                                    Confirm the operation\n"
+}

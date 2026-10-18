@@ -1,0 +1,28 @@
+{
+ "exit": 0,
+ "files": {
+  "out.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello caption\n"
+ },
+ "id": "mcp.caption-download.tfmt.sbv",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/captions/id1",
+   "query": {
+    "alt": [
+     "media"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "tfmt": [
+     "sbv"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:15.389+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"caption-download\",\"arguments\":{\"ids\":[\"id1\",\"id2\"],\"file\":\"out.srt\",\"tfmt\":\"sbv\"}}}\ntime=2026-10-18T15:39:15.390+01:00 level=INFO msg=caption-download input=\"{\\\"ids\\\":[\\\"id1\\\",\\\"id2\\\"],\\\"confirmed\\\":false,\\\"file\\\":\\\"out.srt\\\",\\\"tfmt\\\":\\\"sbv\\\"}\" output_length=34\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Caption id1 downloaded to out.srt\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Caption id1 downloaded to out.srt\\n\"}]}}\n"
+}

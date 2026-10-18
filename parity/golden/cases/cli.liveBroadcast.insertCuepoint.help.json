@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.insertCuepoint.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Insert a cuepoint into a live broadcast. Use this tool to insert an ad break cuepoint into a currently live broadcast.\n\nUsage:\n  yutu liveBroadcast insertCuepoint [flags]\n\nExamples:\n# Insert an ad cuepoint of 30 seconds\nyutu liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueDurationSecs 30\n# Insert a cuepoint with offset\nyutu liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueInsertionOffsetMs 5000\n\nFlags:\n  -D, --cueDurationSecs int                    Cuepoint duration in seconds\n  -O, --cueInsertionOffsetMs int               Cuepoint insertion offset time in milliseconds\n  -c, --cueType string                         Cue type (cueTypeAd) (default \"cueTypeAd\")\n  -W, --cueWalltimeMs uint                     Cuepoint wall clock time in milliseconds\n  -h, --help                                   help for insertCuepoint\n  -i, --ids strings                            IDs of the broadcasts\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n      --yes                                    Confirm the operation\n"
+}

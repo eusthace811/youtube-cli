@@ -1,0 +1,31 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.activity-list.output.table",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/activities",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "contentDetails"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:15.111+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"activity-list\",\"arguments\":{\"output\":\"table\"}}}\ntime=2026-10-18T15:39:15.113+01:00 level=INFO msg=activity-list input=\"{\\\"confirmed\\\":false,\\\"max_results\\\":5,\\\"parts\\\":[\\\"id\\\",\\\"snippet\\\",\\\"contentDetails\\\"],\\\"output\\\":\\\"table\\\"}\" output_length=393\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\" ID      TITLE                       TYPE             TIME                 \\n id-0    @at sign                    typeUnspecified  2026-01-10T12:34:50Z \\n id-1    Ünïcödé ✓ 日本語のタイトル  upload           2026-02-11T12:34:51Z \\n id-2    - dash start                comment          2026-03-12T12:34:52Z \\n zero-0                                                                    \"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\" ID      TITLE                       TYPE             TIME                 \\n id-0    @at sign                    typeUnspecified  2026-01-10T12:34:50Z \\n id-1    Ünïcödé ✓ 日本語のタイトル  upload           2026-02-11T12:34:51Z \\n id-2    - dash start                comment          2026-03-12T12:34:52Z \\n zero-0                                                                    \"}]}}\n"
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.unknown-flag",
+ "requests": [],
+ "stderr": "Error: unknown flag: --nope\nRun 'yutu video list -h' to see usage.\n",
+ "stdout": ""
+}

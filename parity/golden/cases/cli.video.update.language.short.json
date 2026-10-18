@@ -1,0 +1,51 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.update.language.short",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"id\":\"id-0\",\"snippet\":{\"categoryId\":\"snippet.categoryId-0\",\"defaultLanguage\":\"val-language\",\"description\":\"Plain title snippet.description\",\"tags\":[\"snippet.tags[]-0\",\"snippet.tags[]-1\"],\"title\":\"@at sign\"},\"status\":{\"containsSyntheticMedia\":false,\"embeddable\":false,\"license\":\"youtube\",\"privacyStatus\":\"public\",\"publicStatsViewable\":false,\"publishAt\":\"2026-01-10T12:34:50Z\",\"selfDeclaredMadeForKids\":false}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet,status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Video updated: id-1\n"
+}

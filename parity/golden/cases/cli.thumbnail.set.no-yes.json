@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.thumbnail.set.no-yes",
+ "requests": [],
+ "stderr": "Set thumbnail thumb.png for video val-videoId\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu thumbnail set -h' to see usage.\n",
+ "stdout": ""
+}

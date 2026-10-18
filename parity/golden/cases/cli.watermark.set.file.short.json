@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.watermark.set.file.short",
+ "requests": [
+  {
+   "body": "--8a78e01cd50c28456a17ac9c1db3145511909bf78cc5445129cc4ddd697b\r\nContent-Type: application/json\r\n\r\n{\"position\":{},\"timing\":{}}\n\r\n--8a78e01cd50c28456a17ac9c1db3145511909bf78cc5445129cc4ddd697b\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--8a78e01cd50c28456a17ac9c1db3145511909bf78cc5445129cc4ddd697b--\r\n",
+   "ctype": "multipart/related; boundary=8a78e01cd50c28456a17ac9c1db3145511909bf78cc5445129cc4ddd697b",
+   "method": "POST",
+   "path": "/upload/youtube/v3/watermarks/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelId": [
+     "val-channelId"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Watermark set for channel val-channelId\n"
+}

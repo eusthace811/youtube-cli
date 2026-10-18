@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.delete.tty-accept",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "linkingToken": [
+     "val-linkingToken"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "type": [
+     "val-type"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Delete third-party link(s): val-linkingToken [y/N] y\r\nThird party link deleted: val-linkingToken\r\n"
+}

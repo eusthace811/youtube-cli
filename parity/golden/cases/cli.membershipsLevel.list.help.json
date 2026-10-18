@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.membershipsLevel.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List membership levels. Use this tool to list membership levels.\n\nUsage:\n  yutu membershipsLevel list [flags]\n\nExamples:\n# List membership levels in JSON format\nyutu membershipsLevel list --output json\n\nFlags:\n  -h, --help            help for list\n  -o, --output string   json|yaml|table (default \"table\")\n  -p, --parts strings   Comma separated parts (default [id,snippet])\n"
+}

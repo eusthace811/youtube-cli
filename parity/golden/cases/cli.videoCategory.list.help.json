@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.videoCategory.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List video categories. Use this tool to list available video categories.\n\nUsage:\n  yutu videoCategory list [flags]\n\nFlags:\n  -h, --help                help for list\n  -l, --hl string           Host language\n  -i, --ids strings         IDs of the video categories\n  -o, --output string       json|yaml|table (default \"table\")\n  -p, --parts strings       Comma separated parts (default [id,snippet])\n  -r, --regionCode string   Region code (default \"US\")\n"
+}

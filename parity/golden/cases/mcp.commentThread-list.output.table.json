@@ -1,0 +1,39 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.commentThread-list.output.table",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/commentThreads",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "moderationStatus": [
+     "published"
+    ],
+    "order": [
+     "time"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:19.111+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"commentThread-list\",\"arguments\":{\"output\":\"table\"}}}\ntime=2026-10-18T15:39:19.112+01:00 level=INFO msg=commentThread-list input=\"{\\\"confirmed\\\":false,\\\"max_results\\\":5,\\\"parts\\\":[\\\"id\\\",\\\"snippet\\\"],\\\"output\\\":\\\"table\\\",\\\"moderation_status\\\":\\\"published\\\",\\\"order\\\":\\\"time\\\",\\\"text_format\\\":\\\"html\\\"}\" output_length=898\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\" ID      AUTHOR                                               VIDEO ID                                   TEXT DISPLAY                                                           \\n id-0    snippet.topLevelComment.snippet.authorDisplayName-0  snippet.topLevelComment.snippet.videoId-0  Plain title snippet.topLevelComment.snippet.textDisplay                \\n id-1    snippet.topLevelComment.snippet.authorDisplayName-1  snippet.topLevelComment.snippet.videoId-1  Ünïcödé ✓ 日本語のタイトル snippet.topLevelComment.snippet.textDisplay \\n id-2    snippet.topLevelComment.snippet.authorDisplayName-2  snippet.topLevelComment.snippet.videoId-2  \\u003cb\\u003etags\\u003c/b\\u003e \\u0026 \\\"quotes\\\" snippet.topLevelComment.snippet.textDisplay     \\n zero-0                                                                                                                                                                         \"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\" ID      AUTHOR                                               VIDEO ID                                   TEXT DISPLAY                                                           \\n id-0    snippet.topLevelComment.snippet.authorDisplayName-0  snippet.topLevelComment.snippet.videoId-0  Plain title snippet.topLevelComment.snippet.textDisplay                \\n id-1    snippet.topLevelComment.snippet.authorDisplayName-1  snippet.topLevelComment.snippet.videoId-1  Ünïcödé ✓ 日本語のタイトル snippet.topLevelComment.snippet.textDisplay \\n id-2    snippet.topLevelComment.snippet.authorDisplayName-2  snippet.topLevelComment.snippet.videoId-2  \\u003cb\\u003etags\\u003c/b\\u003e \\u0026 \\\"quotes\\\" snippet.topLevelComment.snippet.textDisplay     \\n zero-0                                                                                                                                                                         \"}]}}\n"
+}

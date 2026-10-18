@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.insert.output.json",
+ "requests": [
+  {
+   "body": "{\"linkingToken\":\"val-linkingToken\",\"snippet\":{\"type\":\"val-type\"},\"status\":{}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "{\"etag\":\"etag-1\",\"kind\":\"kind-1\",\"linkingToken\":\"linkingToken-1\",\"snippet\":{\"channelToAffiliateProgramLink\":{\"merchantId\":\"9407\",\"programStatus\":\"active\",\"statusUpdateReason\":\"snippet.channelToAffiliateProgramLink.statusUpdateReason-1\",\"statusUpdateTime\":\"snippet.channelToAffiliateProgramLink.statusUpdateTime-1\"},\"channelToStoreLink\":{\"billingDetails\":{\"billingStatus\":\"billingStatusPending\"},\"merchantAffiliateProgramDetails\":{\"status\":\"merchantAffiliateProgramStatusEligible\"},\"merchantId\":\"9066\",\"storeName\":\"snippet.channelToStoreLink.storeName-1\",\"storeUrl\":\"snippet.channelToStoreLink.storeUrl-1\"},\"type\":\"channelToStoreLink\"},\"status\":{\"linkStatus\":\"failed\"}}\n"
+}

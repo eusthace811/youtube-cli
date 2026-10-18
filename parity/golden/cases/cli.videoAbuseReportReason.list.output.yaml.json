@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.videoAbuseReportReason.list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videoAbuseReportReasons",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "- etag: etag-0\n  id: id-0\n  kind: kind-0\n  snippet:\n    label: snippet.label-0\n    secondaryreasons:\n        - id: snippet.secondaryReasons[].id-0\n          label: snippet.secondaryReasons[].label-0\n          forcesendfields: []\n          nullfields: []\n        - id: snippet.secondaryReasons[].id-1\n          label: snippet.secondaryReasons[].label-1\n          forcesendfields: []\n          nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-1\n  id: id-1\n  kind: kind-1\n  snippet:\n    label: snippet.label-1\n    secondaryreasons:\n        - id: snippet.secondaryReasons[].id-1\n          label: snippet.secondaryReasons[].label-1\n          forcesendfields: []\n          nullfields: []\n        - id: snippet.secondaryReasons[].id-2\n          label: snippet.secondaryReasons[].label-2\n          forcesendfields: []\n          nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-2\n  id: id-2\n  kind: kind-2\n  snippet:\n    label: snippet.label-2\n    secondaryreasons:\n        - id: snippet.secondaryReasons[].id-2\n          label: snippet.secondaryReasons[].label-2\n          forcesendfields: []\n          nullfields: []\n        - id: snippet.secondaryReasons[].id-3\n          label: snippet.secondaryReasons[].label-3\n          forcesendfields: []\n          nullfields: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: \"\"\n  id: zero-0\n  kind: \"\"\n  snippet:\n    label: \"\"\n    secondaryreasons: []\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n\n"
+}

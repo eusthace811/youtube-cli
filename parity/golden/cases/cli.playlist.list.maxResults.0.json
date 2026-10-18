@@ -1,0 +1,81 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlist.list.maxResults.0",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlists",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlists",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlists",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p3"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      CHANNEL ID            TITLE                      \n id-0    snippet.channelId-0   @at sign                   \n id-1    snippet.channelId-1   Ünïcödé ✓ 日本語のタイトル \n id-2    snippet.channelId-2   - dash start               \n zero-0                                                   \n id-10   snippet.channelId-10  key: value                 \n id-11   snippet.channelId-11  'single' quoted            \n id-12   snippet.channelId-12  <b>tags</b> & \"quotes\"     \n zero-1                                                   \n id-20   snippet.channelId-20  Ünïcödé ✓ 日本語のタイトル \n id-21   snippet.channelId-21  - dash start               \n id-22   snippet.channelId-22  line sep                    \n zero-2                                                   "
+}

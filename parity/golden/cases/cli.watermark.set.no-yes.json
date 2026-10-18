@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.watermark.set.no-yes",
+ "requests": [],
+ "stderr": "Set watermark image.png for channel val-channelId\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu watermark set -h' to see usage.\n",
+ "stdout": ""
+}

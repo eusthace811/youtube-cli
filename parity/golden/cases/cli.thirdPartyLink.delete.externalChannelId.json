@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.delete.externalChannelId",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "externalChannelId": [
+     "val-externalChannelId"
+    ],
+    "linkingToken": [
+     "val-linkingToken"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "type": [
+     "val-type"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Third party link deleted: val-linkingToken\n"
+}

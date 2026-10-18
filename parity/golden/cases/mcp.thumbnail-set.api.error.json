@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.thumbnail-set.api.error",
+ "requests": [
+  {
+   "body": "--1d35ec2cdac054d9e9c7ceca9877da9d41b608c1ee31c236c8073825db9c\r\nContent-Type: application/json\r\n\r\n\r\n--1d35ec2cdac054d9e9c7ceca9877da9d41b608c1ee31c236c8073825db9c\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--1d35ec2cdac054d9e9c7ceca9877da9d41b608c1ee31c236c8073825db9c--\r\n",
+   "ctype": "multipart/related; boundary=1d35ec2cdac054d9e9c7ceca9877da9d41b608c1ee31c236c8073825db9c",
+   "method": "POST",
+   "path": "/upload/youtube/v3/thumbnails/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ],
+    "videoId": [
+     "val-video_id"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:28.859+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"thumbnail-set\",\"arguments\":{\"file\":\"thumb.png\",\"video_id\":\"val-video_id\"}}}\ntime=2026-10-18T15:39:28.860+01:00 level=INFO msg=thumbnail-set input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\",\\\"file\\\":\\\"thumb.png\\\",\\\"video_id\\\":\\\"val-video_id\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Set thumbnail thumb.png for video val-video_id\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:28.860+01:00 level=ERROR msg=\"failed to set thumbnail\\ngoogleapi: Error 403: The request is not allowed., forbidden\" tool=thumbnail-set input=\"{\\\"confirmed\\\":false,\\\"output\\\":\\\"json\\\",\\\"file\\\":\\\"thumb.png\\\",\\\"video_id\\\":\\\"val-video_id\\\"}\"\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"failed to set thumbnail\\ngoogleapi: Error 403: The request is not allowed., forbidden\"}],\"isError\":true}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Set thumbnail thumb.png for video val-video_id\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"failed to set thumbnail\\ngoogleapi: Error 403: The request is not allowed., forbidden\"}],\"isError\":true}}\n"
+}

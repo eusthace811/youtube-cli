@@ -1,0 +1,27 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.videoAbuseReportReason.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videoAbuseReportReasons",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get video abuse report reason\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu videoAbuseReportReason list -h' to see usage.\n",
+ "stdout": ""
+}

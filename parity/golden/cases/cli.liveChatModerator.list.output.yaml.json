@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatModerator.list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "- etag: etag-0\n  id: id-0\n  kind: kind-0\n  snippet:\n    livechatid: snippet.liveChatId-0\n    moderatordetails:\n        channelid: snippet.moderatorDetails.channelId-0\n        channelurl: snippet.moderatorDetails.channelUrl-0\n        displayname: snippet.moderatorDetails.displayName-0\n        profileimageurl: snippet.moderatorDetails.profileImageUrl-0\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- etag: etag-1\n  id: id-1\n  kind: kind-1\n  snippet:\n    livechatid: snippet.liveChatId-1\n    moderatordetails:\n        channelid: snippet.moderatorDetails.channelId-1\n        channelurl: snippet.moderatorDetails.channelUrl-1\n        displayname: snippet.moderatorDetails.displayName-1\n        profileimageurl: snippet.moderatorDetails.profileImageUrl-1\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- etag: etag-2\n  id: id-2\n  kind: kind-2\n  snippet:\n    livechatid: snippet.liveChatId-2\n    moderatordetails:\n        channelid: snippet.moderatorDetails.channelId-2\n        channelurl: snippet.moderatorDetails.channelUrl-2\n        displayname: snippet.moderatorDetails.displayName-2\n        profileimageurl: snippet.moderatorDetails.profileImageUrl-2\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- etag: \"\"\n  id: zero-0\n  kind: \"\"\n  snippet:\n    livechatid: \"\"\n    moderatordetails:\n        channelid: \"\"\n        channelurl: \"\"\n        displayname: \"\"\n        profileimageurl: \"\"\n        forcesendfields: []\n        nullfields: []\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n\n"
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.thumbnail.set.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Set thumbnail thumb.png for video val-videoId [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu thumbnail set -h' to see usage.\r\n"
+}

@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.videoCategory.list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videoCategories",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "regionCode": [
+     "US"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "- etag: etag-0\n  id: id-0\n  kind: kind-0\n  snippet:\n    assignable: false\n    channelid: snippet.channelId-0\n    title: '@at sign'\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-1\n  id: id-1\n  kind: kind-1\n  snippet:\n    assignable: true\n    channelid: snippet.channelId-1\n    title: Ünïcödé ✓ 日本語のタイトル\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: etag-2\n  id: id-2\n  kind: kind-2\n  snippet:\n    assignable: false\n    channelid: snippet.channelId-2\n    title: '- dash start'\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n- etag: \"\"\n  id: zero-0\n  kind: \"\"\n  snippet:\n    assignable: false\n    channelid: \"\"\n    title: \"\"\n    forcesendfields: []\n    nullfields: []\n  forcesendfields: []\n  nullfields: []\n\n"
+}

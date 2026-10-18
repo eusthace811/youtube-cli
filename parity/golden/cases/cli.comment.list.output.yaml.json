@@ -1,0 +1,33 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/comments",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "- etag: etag-0\n  id: id-0\n  kind: kind-0\n  snippet:\n    authorchannelid:\n        value: snippet.authorChannelId.value-0\n        forcesendfields: []\n        nullfields: []\n    authorchannelurl: snippet.authorChannelUrl-0\n    authordisplayname: snippet.authorDisplayName-0\n    authorprofileimageurl: snippet.authorProfileImageUrl-0\n    canrate: false\n    channelid: snippet.channelId-0\n    likecount: 17\n    moderationstatus: published\n    parentid: snippet.parentId-0\n    publishedat: \"2026-01-10T12:34:50Z\"\n    textdisplay: Plain title snippet.textDisplay\n    textoriginal: snippet.textOriginal-0\n    updatedat: \"2026-01-10T12:34:50Z\"\n    videoid: snippet.videoId-0\n    viewerrating: none\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- etag: etag-1\n  id: id-1\n  kind: kind-1\n  snippet:\n    authorchannelid:\n        value: snippet.authorChannelId.value-1\n        forcesendfields: []\n        nullfields: []\n    authorchannelurl: snippet.authorChannelUrl-1\n    authordisplayname: snippet.authorDisplayName-1\n    authorprofileimageurl: snippet.authorProfileImageUrl-1\n    canrate: true\n    channelid: snippet.channelId-1\n    likecount: 30\n    moderationstatus: heldForReview\n    parentid: snippet.parentId-1\n    publishedat: \"2026-02-11T12:34:51Z\"\n    textdisplay: Ünïcödé ✓ 日本語のタイトル snippet.textDisplay\n    textoriginal: snippet.textOriginal-1\n    updatedat: \"2026-02-11T12:34:51Z\"\n    videoid: snippet.videoId-1\n    viewerrating: like\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- etag: etag-2\n  id: id-2\n  kind: kind-2\n  snippet:\n    authorchannelid:\n        value: snippet.authorChannelId.value-2\n        forcesendfields: []\n        nullfields: []\n    authorchannelurl: snippet.authorChannelUrl-2\n    authordisplayname: snippet.authorDisplayName-2\n    authorprofileimageurl: snippet.authorProfileImageUrl-2\n    canrate: false\n    channelid: snippet.channelId-2\n    likecount: 43\n    moderationstatus: likelySpam\n    parentid: snippet.parentId-2\n    publishedat: \"2026-03-12T12:34:52Z\"\n    textdisplay: <b>tags</b> & \"quotes\" snippet.textDisplay\n    textoriginal: snippet.textOriginal-2\n    updatedat: \"2026-03-12T12:34:52Z\"\n    videoid: snippet.videoId-2\n    viewerrating: dislike\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- etag: \"\"\n  id: zero-0\n  kind: \"\"\n  snippet:\n    authorchannelid:\n        value: \"\"\n        forcesendfields: []\n        nullfields: []\n    authorchannelurl: \"\"\n    authordisplayname: \"\"\n    authorprofileimageurl: \"\"\n    canrate: false\n    channelid: \"\"\n    likecount: 0\n    moderationstatus: \"\"\n    parentid: \"\"\n    publishedat: \"\"\n    textdisplay: \"\"\n    textoriginal: \"\"\n    updatedat: \"\"\n    videoid: \"\"\n    viewerrating: \"\"\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n\n"
+}

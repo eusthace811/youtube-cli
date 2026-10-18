@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.i18nRegion.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List i18n regions. Use this tool to list available internationalization regions.\n\nUsage:\n  yutu i18nRegion list [flags]\n\nFlags:\n  -h, --help            help for list\n  -l, --hl string       Host language\n  -o, --output string   json|yaml|table (default \"table\")\n  -p, --parts strings   Comma separated parts (default [id,snippet])\n"
+}

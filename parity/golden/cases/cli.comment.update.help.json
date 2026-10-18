@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.update.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update a comment. Use this tool to update a comment.\n\nUsage:\n  yutu comment update [flags]\n\nExamples:\n# Update comment text\nyutu comment update --id abc123 --textOriginal 'Updated comment'\n# Like a comment\nyutu comment update --id abc123 --viewerRating like\n# Update comment text with rating enabled\nyutu comment update --id abc123 --textOriginal 'New text' --canRate\n\nFlags:\n  -R, --canRate               Whether the viewer can rate the comment\n  -h, --help                  help for update\n  -i, --id strings            ID of the comment\n  -o, --output string         json|yaml|silent\n  -t, --textOriginal string   Text of the comment\n  -r, --viewerRating string   none|like|dislike\n      --yes                   Confirm the operation\n"
+}

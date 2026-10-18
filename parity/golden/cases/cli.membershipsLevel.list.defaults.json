@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.membershipsLevel.list.defaults",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/membershipsLevels",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      DISPLAY NAME                       \n id-0    snippet.levelDetails.displayName-0 \n id-1    snippet.levelDetails.displayName-1 \n id-2    snippet.levelDetails.displayName-2 \n zero-0                                     "
+}

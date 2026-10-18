@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.comment.markAsSpam.no-yes",
+ "requests": [],
+ "stderr": "Mark comment(s) id1, id2 as spam\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu comment markAsSpam -h' to see usage.\n",
+ "stdout": ""
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.update.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update a video. Use this tool to update a video.\n\nUsage:\n  yutu video update [flags]\n\nExamples:\n# Update video title\nyutu video update --id dQw4w9WgXcQ --title 'New Title'\n# Update video description and privacy\nyutu video update --id dQw4w9WgXcQ --description 'Updated description' --privacy public\n# Schedule a private video to publish later\nyutu video update --id dQw4w9WgXcQ --privacy private --publishAt 2026-08-18T15:00:00Z\n# Update video tags and category\nyutu video update --id dQw4w9WgXcQ --tags 'music,pop,2024' --categoryId 10\n\nFlags:\n  -g, --categoryId string        Category of the video\n  -M, --containsSyntheticMedia   Whether the video contains altered or synthetic media\n  -d, --description string       Description of the video\n  -E, --embeddable               Whether the video is embeddable (default true)\n  -h, --help                     help for update\n  -i, --id strings               ID of the video to update\n  -l, --language string          Language of the video\n  -L, --license string           youtube|creativeCommon\n  -o, --output string            json|yaml|silent\n  -y, --playlistId string        Playlist id of the video\n  -p, --privacy string           public|private|unlisted\n  -U, --publishAt string         Datetime when the video is scheduled to publish\n  -D, --recordingDate string     Date and time when the video was recorded\n  -a, --tags strings             Comma separated tags\n  -u, --thumbnail string         Path to the thumbnail file\n  -t, --title string             Title of the video\n      --yes                      Confirm the operation\n"
+}

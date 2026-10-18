@@ -1,0 +1,37 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.video.reportAbuse.api.error",
+ "requests": [
+  {
+   "body": "{\"reasonId\":\"val-reasonId\",\"videoId\":\"id1\"}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/videos/reportAbuse",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"reasonId\":\"val-reasonId\",\"videoId\":\"id2\"}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/videos/reportAbuse",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to report abuse\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu video reportAbuse -h' to see usage.\n",
+ "stdout": "Video id2 reported for abuse"
+}

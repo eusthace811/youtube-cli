@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.channel.update.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update a channel. Use this tool to update a channel.\n\nUsage:\n  yutu channel update [flags]\n\nExamples:\n# Update channel description\nyutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --description 'New description'\n# Update channel title and country\nyutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --title 'New Title' --country US\n# Update channel default language\nyutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --defaultLanguage en\n\nFlags:\n  -c, --country string           Country of the channel\n  -u, --customUrl string         Custom URL of the channel\n  -l, --defaultLanguage string   The language of the channel's default title and description\n  -d, --description string       Description of the channel\n  -h, --help                     help for update\n  -i, --id strings               ID of the channel to update\n  -o, --output string            json|yaml|silent\n  -t, --title string             Title of the channel\n      --yes                      Confirm the operation\n"
+}

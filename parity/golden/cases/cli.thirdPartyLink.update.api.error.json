@@ -1,0 +1,30 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.thirdPartyLink.update.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "linkingToken": [
+     "val-linkingToken"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to update third party link\nfailed to get third party link\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu thirdPartyLink update -h' to see usage.\n",
+ "stdout": ""
+}

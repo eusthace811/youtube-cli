@@ -1,0 +1,34 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.video.update.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to update video\nfailed to get video\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu video update -h' to see usage.\n",
+ "stdout": ""
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.markAsSpam.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Mark comments as spam. Use this tool to mark comments as spam.\n\nUsage:\n  yutu comment markAsSpam [flags]\n\nExamples:\n# Mark a comment as spam\nyutu comment markAsSpam --ids abc123\n# Mark multiple comments as spam\nyutu comment markAsSpam --ids abc123,def456\n\nFlags:\n  -h, --help            help for markAsSpam\n  -i, --ids strings     IDs of comments\n  -o, --output string   json|yaml|silent\n      --yes             Confirm the operation\n"
+}

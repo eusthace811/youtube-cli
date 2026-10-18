@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.insert.output.yaml",
+ "requests": [
+  {
+   "body": "--993b25b8fb60b2b57adbb9696eed36fc9734df6f50fcf533307157fc991b\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"audioTrackType\":\"unknown\",\"trackKind\":\"standard\",\"videoId\":\"val-videoId\"}}\n\r\n--993b25b8fb60b2b57adbb9696eed36fc9734df6f50fcf533307157fc991b\r\nContent-Type: text/plain; charset=utf-8\r\n\r\n1\n00:00:00,000 --> 00:00:01,000\nHello\n\r\n--993b25b8fb60b2b57adbb9696eed36fc9734df6f50fcf533307157fc991b--\r\n",
+   "ctype": "multipart/related; boundary=993b25b8fb60b2b57adbb9696eed36fc9734df6f50fcf533307157fc991b",
+   "method": "POST",
+   "path": "/upload/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "etag: etag-1\nid: id-1\nkind: kind-1\nsnippet:\n    audiotracktype: primary\n    failurereason: unsupportedFormat\n    isautosynced: true\n    iscc: true\n    isdraft: true\n    iseasyreader: true\n    islarge: true\n    language: snippet.language-1\n    lastupdated: \"2026-02-11T12:34:51Z\"\n    name: Plain title\n    status: syncing\n    trackkind: ASR\n    videoid: snippet.videoId-1\n    forcesendfields: []\n    nullfields: []\nserverresponse:\n    httpstatuscode: 200\n    header:\n        Content-Length:\n            - \"391\"\n        Content-Type:\n            - application/json\n        Date:\n            - Sun, 18 Oct 2026 12:00:00 GMT\n        Server:\n            - parity-recorder\nforcesendfields: []\nnullfields: []\n\n"
+}

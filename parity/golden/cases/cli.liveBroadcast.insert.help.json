@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Create a live broadcast. Use this tool to create a live broadcast for the authenticated user.\n\nUsage:\n  yutu liveBroadcast insert [flags]\n\nExamples:\n# Create a public live broadcast\nyutu liveBroadcast insert --title \"My Broadcast\" --privacyStatus public --scheduledStartTime 2026-01-01T00:00:00Z\n# Create a private broadcast with description\nyutu liveBroadcast insert --title \"Test Stream\" --description \"Testing\" --privacyStatus private --scheduledStartTime 2026-01-01T00:00:00Z\n\nFlags:\n  -d, --description string                     Description of the live broadcast\n  -h, --help                                   help for insert\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -p, --parts strings                          Comma separated parts (default [snippet,status,contentDetails])\n  -P, --privacyStatus string                   Privacy status (public, unlisted, private)\n  -E, --scheduledEndTime string                Scheduled end time in RFC 3339 format\n  -S, --scheduledStartTime string              Scheduled start time in RFC 3339 format\n  -t, --title string                           Title of the live broadcast\n      --yes                                    Confirm the operation\n"
+}

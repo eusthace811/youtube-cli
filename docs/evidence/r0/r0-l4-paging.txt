@@ -1,0 +1,24 @@
+r0 lane 4: PASS
+
+page tokens: ['', 'p2', 'p3']
+exit: 0
+--- requests (3) ---
+{"method": "GET", "path": "/youtube/v3/videos", "query": {"alt": ["json"], "maxResults": ["20"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}, "ctype": "", "body": ""}
+{"method": "GET", "path": "/youtube/v3/videos", "query": {"alt": ["json"], "maxResults": ["20"], "pageToken": ["p2"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}, "ctype": "", "body": ""}
+{"method": "GET", "path": "/youtube/v3/videos", "query": {"alt": ["json"], "maxResults": ["20"], "pageToken": ["p3"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}, "ctype": "", "body": ""}
+--- stdout ---
+ ID      TITLE                                     CHANNEL ID             VIEWS 
+ id-0    Plain title snippet.title                 snippet.channelId-0      620 
+ id-1    Ünïcödé ✓ 日本語のタイトル snippet.title  snippet.channelId-1     8539 
+ id-2    <b>tags</b> & "quotes" snippet.title      snippet.channelId-2    16458 
+ zero-0                                                                       0 
+ id-10   Plain title snippet.title                 snippet.channelId-10   79810 
+ id-11   Ünïcödé ✓ 日本語のタイトル snippet.title  snippet.channelId-11   87729 
+ id-12   <b>tags</b> & "quotes" snippet.title      snippet.channelId-12   95648 
+ zero-1                                                                       0 
+ id-20   Plain title snippet.title                 snippet.channelId-20  159000 
+ id-21   Ünïcödé ✓ 日本語のタイトル snippet.title  snippet.channelId-21  166919 
+ id-22   <b>tags</b> & "quotes" snippet.title      snippet.channelId-22  174838 
+ zero-2                                                                       0 
+--- stderr ---
+

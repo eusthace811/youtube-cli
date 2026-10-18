@@ -1,0 +1,52 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.update.output.json",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveBroadcasts",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"id\":\"id-0\",\"snippet\":{\"description\":\"Plain title snippet.description\",\"scheduledEndTime\":\"2026-01-10T12:34:50Z\",\"scheduledStartTime\":\"2026-01-10T12:34:50Z\",\"title\":\"@at sign\"},\"status\":{\"privacyStatus\":\"public\"}}\n",
+   "ctype": "application/json",
+   "method": "PUT",
+   "path": "/youtube/v3/liveBroadcasts",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "{\"contentDetails\":{\"availabilityConfig\":{\"globalConfig\":{\"excludedRegionCodes\":[\"contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-1\",\"contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-2\"],\"interval\":{\"endTime\":\"contentDetails.availabilityConfig.globalConfig.interval.endTime-1\",\"startTime\":\"contentDetails.availabilityConfig.globalConfig.interval.startTime-1\"}},\"regionsConfig\":{\"regionIntervals\":[{\"interval\":{},\"regionCode\":\"contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-1\"},{\"interval\":{},\"regionCode\":\"contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-2\"}]}},\"boundStreamId\":\"contentDetails.boundStreamId-1\",\"boundStreamLastUpdateTimeMs\":\"2026-02-11T12:34:51Z\",\"closedCaptionsType\":\"closedCaptionsDisabled\",\"enableAutoStart\":true,\"enableAutoStop\":true,\"enableClosedCaptions\":true,\"enableContentEncryption\":true,\"enableDvr\":true,\"enableEmbed\":true,\"enableLowLatency\":true,\"latencyPreference\":\"normal\",\"mesh\":\"contentDetails.mesh-1\",\"monitorStream\":{\"broadcastStreamDelayMs\":64,\"embedHtml\":\"contentDetails.monitorStream.embedHtml-1\",\"enableMonitorStream\":true},\"projection\":\"rectangular\",\"recordFromStart\":true,\"startWithSlate\":true,\"stereoLayout\":\"mono\"},\"etag\":\"etag-1\",\"id\":\"id-1\",\"kind\":\"kind-1\",\"monetizationDetails\":{\"cuepointSchedule\":{\"enabled\":true,\"pauseAdsUntil\":\"monetizationDetails.cuepointSchedule.pauseAdsUntil-1\",\"repeatIntervalSecs\":68,\"scheduleStrategy\":\"concurrent\"}},\"snippet\":{\"actualEndTime\":\"2026-02-11T12:34:51Z\",\"actualStartTime\":\"2026-02-11T12:34:51Z\",\"categoryId\":\"snippet.categoryId-1\",\"channelId\":\"snippet.channelId-1\",\"description\":\"Ünïcödé ✓ 日本語のタイトル snippet.description\",\"isDefaultBroadcast\":true,\"liveChatId\":\"snippet.liveChatId-1\",\"publishedAt\":\"2026-02-11T12:34:51Z\",\"scheduledEndTime\":\"2026-02-11T12:34:51Z\",\"scheduledStartTime\":\"2026-02-11T12:34:51Z\",\"thumbnails\":{\"default\":{\"height\":46,\"url\":\"snippet.thumbnails.default.url-1\",\"width\":45},\"fhd\":{\"height\":42,\"url\":\"snippet.thumbnails.fhd.url-1\",\"width\":41},\"high\":{\"height\":43,\"url\":\"snippet.thumbnails.high.url-1\",\"width\":42},\"maxres\":{\"height\":45,\"url\":\"snippet.thumbnails.maxres.url-1\",\"width\":44},\"medium\":{\"height\":45,\"url\":\"snippet.thumbnails.medium.url-1\",\"width\":44},\"qhd\":{\"height\":42,\"url\":\"snippet.thumbnails.qhd.url-1\",\"width\":41},\"standard\":{\"height\":47,\"url\":\"snippet.thumbnails.standard.url-1\",\"width\":46},\"uhd\":{\"height\":42,\"url\":\"snippet.thumbnails.uhd.url-1\",\"width\":41}},\"title\":\"Ünïcödé ✓ 日本語のタイトル\"},\"statistics\":{\"concurrentViewers\":\"8787\"},\"status\":{\"lifeCycleStatus\":\"created\",\"liveBroadcastPriority\":\"low\",\"madeForKids\":true,\"privacyStatus\":\"unlisted\",\"recordingStatus\":\"notRecording\",\"selfDeclaredMadeForKids\":true}}\n"
+}

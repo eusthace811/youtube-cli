@@ -1,0 +1,39 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.commentThread.list.output.bogus",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/commentThreads",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "moderationStatus": [
+     "published"
+    ],
+    "order": [
+     "time"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": ""
+}

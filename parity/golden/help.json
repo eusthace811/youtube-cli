@@ -1,0 +1,587 @@
+{
+ "yutu": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "yutu is a CLI, MCP server, and AI agent that automates your YouTube workflows from the terminal or any AI client.\n\nEnvironment variables:\n  YUTU_CREDENTIAL    Path/Base64/JSON of OAuth client secret (default: client_secret.json)\n  YUTU_CACHE_TOKEN   Path/Base64/JSON of cached OAuth token (default: youtube.token.json)\n  YUTU_ROOT          Root directory for file resolution (default: current working directory)\n  YUTU_LOG_LEVEL     Log level: DEBUG, INFO, WARN, ERROR (default: INFO)\n\nUsage:\n  yutu [flags]\n  yutu [command]\n\nAvailable Commands:\n  abuseReport            Manage YouTube abuse reports\n  activity               Manage YouTube activities\n  agent                  Start an agent to automate YouTube workflows\n  auth                   Authenticate with YouTube APIs\n  caption                Manage YouTube video captions\n  channel                Manage YouTube channels\n  channelBanner          Manage YouTube channel banners\n  channelSection         Manage YouTube channel sections\n  comment                Manage YouTube comments\n  commentThread          Manage YouTube comment threads\n  completion             Generate the autocompletion script for the specified shell\n  help                   Help about any command\n  i18nLanguage           Manage YouTube i18n languages\n  i18nRegion             Manage YouTube i18n regions\n  liveBroadcast          Manage YouTube live broadcasts\n  liveChatBan            Manage YouTube live chat bans\n  liveChatMessage        Manage YouTube live chat messages\n  liveChatModerator      Manage YouTube live chat moderators\n  liveStream             Manage YouTube live streams\n  mcp                    Start MCP server\n  member                 Manage YouTube channel members\n  membershipsLevel       Manage YouTube membership levels\n  playlist               Manage YouTube playlists\n  playlistImage          Manage YouTube playlist images\n  playlistItem           Manage YouTube playlist items\n  search                 Manage YouTube search\n  subscription           Manage YouTube subscriptions\n  superChatEvent         Manage YouTube Super Chat events\n  thirdPartyLink         Manage YouTube third-party links\n  thumbnail              Manage YouTube video thumbnails\n  version                Show the version of yutu\n  video                  Manage YouTube videos\n  videoAbuseReportReason Manage YouTube video abuse report reasons\n  videoCategory          Manage YouTube video categories\n  watermark              Manage YouTube watermarks\n\nFlags:\n  -h, --help   help for yutu\n\nUse \"yutu [command] --help\" for more information about a command.\n"
+ },
+ "yutu abuseReport": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube abuse reports. Use this tool to report abusive content on YouTube.\n\nUsage:\n  yutu abuseReport [flags]\n  yutu abuseReport [command]\n\nAvailable Commands:\n  insert      Create an abuse report\n\nFlags:\n  -h, --help   help for abuseReport\n\nUse \"yutu abuseReport [command] --help\" for more information about a command.\n"
+ },
+ "yutu abuseReport insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Create an abuse report. Use this tool to report abusive content on YouTube such as spam, harassment, or violent content.\n\nUsage:\n  yutu abuseReport insert [flags]\n\nExamples:\n# Report a video as spam\nyutu abuseReport insert --abuseTypes spam --subjectId VIDEO_ID --subjectTypeId video --description \"This video is spam\"\n# Report a comment as harassment\nyutu abuseReport insert --abuseTypes harassment --subjectId COMMENT_ID --subjectTypeId comment --description \"Harassment in comment\"\n\nFlags:\n  -a, --abuseTypes strings       Abuse type IDs (e.g., spam, harassment)\n  -d, --description string       Description of the abuse\n  -h, --help                     help for insert\n  -o, --output string            json|yaml|silent\n  -p, --parts strings            Parts to include (default [snippet])\n  -r, --relatedEntityId string   ID of a related entity\n  -s, --subjectId string         ID of the subject being reported\n  -t, --subjectTypeId string     Type ID of the subject (e.g., video, comment, channel)\n  -u, --subjectUrl string        URL of the subject being reported\n      --yes                      Confirm the operation\n"
+ },
+ "yutu activity": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube activities. Use this tool to list channel activities.\n\nUsage:\n  yutu activity [flags]\n  yutu activity [command]\n\nAvailable Commands:\n  list        List activities\n\nFlags:\n  -h, --help   help for activity\n\nUse \"yutu activity [command] --help\" for more information about a command.\n"
+ },
+ "yutu activity list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List activities. Use this tool to list activities such as uploads, likes, and favorites.\n\nUsage:\n  yutu activity list [flags]\n\nExamples:\n# List my activities\nyutu activity list --for mine\n# List activities by channel ID with limit\nyutu activity list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10\n# List activities after a date in JSON format\nyutu activity list --publishedAfter 2024-01-01T00:00:00Z --output json\n\nFlags:\n  -c, --channelId string         ID of the channel\n  -F, --for string               home|mine\n  -h, --help                     help for list\n  -n, --maxResults int           The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string            json|yaml|table (default \"table\")\n  -p, --parts strings            Comma separated parts (default [id,snippet,contentDetails])\n  -a, --publishedAfter string    Filter on activities published after this date\n  -b, --publishedBefore string   Filter on activities published before this date\n  -r, --regionCode string        Display the content as seen by viewers in this country\n"
+ },
+ "yutu agent": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Start an agent to automate YouTube workflows.\n\nUsage:\n  yutu agent [flags]\n\nExamples:\n# Gemini(compatible) (default)\nyutu agent --provider google --model gemini-3.8-flash --api-key \"YOUR_KEY\"\nyutu agent --provider google --model gemini-3.8-flash --api-key \"YOUR_KEY\" --base-url \"https://custom.endpoint.com/\"\n# OpenAI(compatible) (OpenAI, DeepSeek, Ollama, vLLM, etc.)\nyutu agent --provider openai --model gpt-5.6-terra --api-key \"YOUR_KEY\"\nyutu agent --provider openai --model deepseek-flash --api-key \"YOUR_KEY\" --base-url \"https://api.deepseek.com/\"\n\nFlags:\n      --api-key string       API key for the model provider\n  -a, --args string          Launcher arguments as a single string (default \"console\")\n      --base-url string      Base URL for the model provider's API endpoint\n  -h, --help                 help for agent\n  -i, --instruction string   Override the built-in agent instruction\n  -m, --model string         Model name (default \"gemini-3.8-flash\")\n  -p, --provider string      LLM provider: google for Gemini(compatible), openai for OpenAI(compatible) (default \"google\")\n"
+ },
+ "yutu auth": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Authenticate with YouTube APIs to access and manage YouTube resources.\n\nUsage:\n  yutu auth [flags]\n\nFlags:\n  -t, --cacheToken string   Path to token cache file, or Base64 encoded string, or JSON string (env: YUTU_CACHE_TOKEN) (default \"youtube.token.json\")\n  -c, --credential string   Path to client secret file, or Base64 encoded string, or JSON string (env: YUTU_CREDENTIAL) (default \"client_secret.json\")\n  -h, --help                help for auth\n"
+ },
+ "yutu caption": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube video captions. Use this tool to list, insert, update, download, or delete video captions.\n\nUsage:\n  yutu caption [flags]\n  yutu caption [command]\n\nAvailable Commands:\n  delete      Delete captions\n  download    Download a caption\n  insert      Upload a caption\n  list        List captions\n  update      Update a caption\n\nFlags:\n  -h, --help   help for caption\n\nUse \"yutu caption [command] --help\" for more information about a command.\n"
+ },
+ "yutu caption delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete captions. Use this tool to delete captions of a video by IDs.\n\nUsage:\n  yutu caption delete [flags]\n\nExamples:\n# Delete a caption by ID\nyutu caption delete --ids abc123\n# Delete multiple captions\nyutu caption delete --ids abc123,def456\n\nFlags:\n  -h, --help                            help for delete\n  -i, --ids strings                     IDs of the captions to delete\n  -b, --onBehalfOf string               ID of the YouTube account that the content owner is acting on behalf of\n  -B, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+ },
+ "yutu caption download": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Download a caption. Use this tool to download a caption from a video.\n\nUsage:\n  yutu caption download [flags]\n\nExamples:\n# Download a caption as SRT\nyutu caption download --id abc123 --file subtitle.srt\n# Download a caption as VTT\nyutu caption download --id abc123 --file subtitle.vtt --tfmt vtt\n# Download a caption translated to French\nyutu caption download --id abc123 --file subtitle.srt --tlang fr\n\nFlags:\n  -f, --file string                     Path to save the caption file\n  -h, --help                            help for download\n  -i, --id strings                      ID of the caption to download\n  -b, --onBehalfOf string               ID of the YouTube account that the content owner is acting on behalf of\n  -B, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -t, --tfmt string                     sbv|srt|vtt\n  -l, --tlang string                    Translate the captions into this language\n"
+ },
+ "yutu caption insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Upload a caption. Use this tool to upload a caption to a video.\n\nUsage:\n  yutu caption insert [flags]\n\nExamples:\n# Insert a caption to a video\nyutu caption insert --file subtitle.srt --videoId dQw4w9WgXcQ\n# Insert a caption with language and name\nyutu caption insert --file subtitle.srt --videoId dQw4w9WgXcQ --language en --name English\n# Insert a standard caption and publish immediately\nyutu caption insert --file subtitle.srt --videoId dQw4w9WgXcQ --trackKind standard --isDraft=false\n\nFlags:\n  -a, --audioTrackType string           unknown|primary|commentary|descriptive (default \"unknown\")\n  -f, --file string                     Path to save the caption file\n  -h, --help                            help for insert\n  -A, --isAutoSynced                    Whether YouTube synchronized the caption track to the audio track in the video (default true)\n  -C, --isCC                            Whether the track contains closed captions for the deaf and hard of hearing\n  -D, --isDraft                         whether the caption track is a draft\n  -E, --isEasyReader                    Whether caption track is formatted for 'easy reader'\n  -L, --isLarge                         Whether the caption track uses large text for the vision-impaired\n  -l, --language string                 Language of the caption track\n  -n, --name string                     Name of the caption track\n  -b, --onBehalfOf string               ID of the YouTube account that the content owner is acting on behalf of\n  -B, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|silent\n  -t, --trackKind string                standard|ASR|forced (default \"standard\")\n  -v, --videoId string                  ID of the video\n      --yes                             Confirm the operation\n"
+ },
+ "yutu caption list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List captions. Use this tool to list captions of a video.\n\nUsage:\n  yutu caption list [flags]\n\nExamples:\n# List captions of a video\nyutu caption list --videoId dQw4w9WgXcQ\n# List captions in JSON format\nyutu caption list --videoId dQw4w9WgXcQ --output json\n# List specific captions by IDs\nyutu caption list --ids abc123,def456 --videoId dQw4w9WgXcQ\n\nFlags:\n  -h, --help                            help for list\n  -i, --ids strings                     IDs of the captions to list\n  -b, --onBehalfOf string               ID of the YouTube account that the content owner is acting on behalf of\n  -B, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet])\n  -v, --videoId string                  ID of the video\n"
+ },
+ "yutu caption update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a caption. Use this tool to update a caption.\n\nUsage:\n  yutu caption update [flags]\n\nExamples:\n# Publish a draft caption\nyutu caption update --videoId dQw4w9WgXcQ --isDraft=false\n# Update caption language and name\nyutu caption update --videoId dQw4w9WgXcQ --language en --name English\n# Update caption file\nyutu caption update --videoId dQw4w9WgXcQ --file updated.srt\n\nFlags:\n  -a, --audioTrackType string           unknown|primary|commentary|descriptive (default \"unknown\")\n  -f, --file string                     Path to save the caption file\n  -h, --help                            help for update\n  -A, --isAutoSynced                    Whether YouTube synchronized the caption track to the audio track in the video (default true)\n  -C, --isCC                            Whether the track contains closed captions for the deaf and hard of hearing\n  -D, --isDraft                         whether the caption track is a draft\n  -E, --isEasyReader                    Whether caption track is formatted for 'easy reader'\n  -L, --isLarge                         Whether the caption track uses large text for the vision-impaired\n  -l, --language string                 Language of the caption track\n  -n, --name string                     Name of the caption track\n  -b, --onBehalfOf string               ID of the YouTube account that the content owner is acting on behalf of\n  -B, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|silent\n  -t, --trackKind string                standard|ASR|forced (default \"standard\")\n  -v, --videoId string                  ID of the video\n      --yes                             Confirm the operation\n"
+ },
+ "yutu channel": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube channels. Use this tool to list or update channels.\n\nUsage:\n  yutu channel [flags]\n  yutu channel [command]\n\nAvailable Commands:\n  list        List channels\n  update      Update a channel\n\nFlags:\n  -h, --help   help for channel\n\nUse \"yutu channel [command] --help\" for more information about a command.\n"
+ },
+ "yutu channel list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List channels. Use this tool to list channels.\n\nUsage:\n  yutu channel list [flags]\n\nExamples:\n# List my channel info\nyutu channel list --for mine\n# List channel by handle\nyutu channel list --forHandle @GoogleDevelopers\n# List channel by ID in JSON format\nyutu channel list --ids UC_x5XG1OV2P6uZZ5FSM9Ttw --output json\n# List channels in table format\nyutu channel list --maxResults 10 --output table\n\nFlags:\n  -g, --categoryId string               Return the channels within the specified guide category id\n  -F, --for string                      managedByMe|mine|mySubscribers\n  -d, --forHandle string                Return the channel associated with a YouTube handle\n  -u, --forUsername string              Return the channel associated with a YouTube username\n  -h, --help                            help for list\n  -l, --hl string                       Specifies the localization language of the metadata\n  -i, --ids strings                     Return the channels with the specified Ids\n  -n, --maxResults int                  The maximum number of items that should be returned, 0 for no limit (default 5)\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet,status])\n"
+ },
+ "yutu channel update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a channel. Use this tool to update a channel.\n\nUsage:\n  yutu channel update [flags]\n\nExamples:\n# Update channel description\nyutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --description 'New description'\n# Update channel title and country\nyutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --title 'New Title' --country US\n# Update channel default language\nyutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --defaultLanguage en\n\nFlags:\n  -c, --country string           Country of the channel\n  -u, --customUrl string         Custom URL of the channel\n  -l, --defaultLanguage string   The language of the channel's default title and description\n  -d, --description string       Description of the channel\n  -h, --help                     help for update\n  -i, --id strings               ID of the channel to update\n  -o, --output string            json|yaml|silent\n  -t, --title string             Title of the channel\n      --yes                      Confirm the operation\n"
+ },
+ "yutu channelBanner": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube channel banners. Use this tool to insert or upload channel banners.\n\nUsage:\n  yutu channelBanner [flags]\n  yutu channelBanner [command]\n\nAvailable Commands:\n  insert      Upload a channel banner\n\nFlags:\n  -h, --help   help for channelBanner\n\nUse \"yutu channelBanner [command] --help\" for more information about a command.\n"
+ },
+ "yutu channelBanner insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Upload a channel banner. Use this tool to upload a channel banner.\n\nUsage:\n  yutu channelBanner insert [flags]\n\nExamples:\n# Upload a channel banner\nyutu channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.jpg\n# Upload a channel banner with JSON output\nyutu channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.png --output json\n\nFlags:\n  -c, --channelId string                       ID of the channel to insert the banner for\n  -f, --file string                            Path to the banner image\n  -h, --help                                   help for insert\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -o, --output string                          json|yaml|silent\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu channelSection": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube channel sections. Use this tool to list or delete channel sections.\n\nUsage:\n  yutu channelSection [flags]\n  yutu channelSection [command]\n\nAvailable Commands:\n  delete      Delete channel sections\n  list        List channel sections\n\nFlags:\n  -h, --help   help for channelSection\n\nUse \"yutu channelSection [command] --help\" for more information about a command.\n"
+ },
+ "yutu channelSection delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete channel sections. Use this tool to delete channel sections by IDs.\n\nUsage:\n  yutu channelSection delete [flags]\n\nExamples:\n# Delete a channel section by ID\nyutu channelSection delete --ids abc123\n# Delete multiple channel sections\nyutu channelSection delete --ids abc123,def456\n\nFlags:\n  -h, --help                            help for delete\n  -i, --ids strings                     Delete the channel sections with the given ids\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+ },
+ "yutu channelSection list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List channel sections. Use this tool to list channel sections.\n\nUsage:\n  yutu channelSection list [flags]\n\nExamples:\n# List my channel sections\nyutu channelSection list --mine\n# List channel sections by channel ID\nyutu channelSection list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw\n# List specific channel sections in JSON format\nyutu channelSection list --ids abc123,def456 --output json\n\nFlags:\n  -c, --channelId string                Return the ChannelSections owned by the specified channel id\n  -h, --help                            help for list\n  -l, --hl string                       Return content in specified language\n  -i, --ids strings                     Return the channel sections with the given ids\n  -M, --mine                            Return the ChannelSections owned by the authenticated user\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet])\n"
+ },
+ "yutu comment": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube comments. Use this tool to list, create, update, delete, mark as spam, or set moderation status for comments.\n\nUsage:\n  yutu comment [flags]\n  yutu comment [command]\n\nAvailable Commands:\n  delete              Delete comments\n  insert              Create a comment\n  list                List comments\n  markAsSpam          Mark comments as spam\n  setModerationStatus Set comment moderation status\n  update              Update a comment\n\nFlags:\n  -h, --help   help for comment\n\nUse \"yutu comment [command] --help\" for more information about a command.\n"
+ },
+ "yutu comment delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete comments. Use this tool to delete comments by IDs.\n\nUsage:\n  yutu comment delete [flags]\n\nExamples:\n# Delete a comment by ID\nyutu comment delete --ids abc123\n# Delete multiple comments\nyutu comment delete --ids abc123,def456\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of comments\n      --yes           Confirm the operation\n"
+ },
+ "yutu comment insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Create a comment. Use this tool to create a comment on a video.\n\nUsage:\n  yutu comment insert [flags]\n\nExamples:\n# Reply to a comment\nyutu comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Hello'\n# Reply with rating enabled\nyutu comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Reply' --canRate\n\nFlags:\n  -a, --authorChannelId string   Channel id of the comment author\n  -R, --canRate                  Whether the viewer can rate the comment\n  -c, --channelId string         Channel id of the video owner\n  -h, --help                     help for insert\n  -o, --output string            json|yaml|silent\n  -P, --parentId string          ID of the parent comment\n  -t, --textOriginal string      Text of the comment\n  -v, --videoId string           ID of the video\n      --yes                      Confirm the operation\n"
+ },
+ "yutu comment list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List comments. Use this tool to list comments by IDs.\n\nUsage:\n  yutu comment list [flags]\n\nExamples:\n# List replies to a comment\nyutu comment list --parentId UgyXXXXXXXX --maxResults 10\n# List specific comments in JSON format\nyutu comment list --ids abc123,def456 --output json\n# List a comment in plain text\nyutu comment list --ids abc123 --textFormat plainText\n\nFlags:\n  -h, --help                help for list\n  -i, --ids strings         IDs of comments\n  -n, --maxResults int      The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string       json|yaml|table (default \"table\")\n  -P, --parentId string     Returns replies to the specified comment\n  -p, --parts strings       Comma separated parts (default [id,snippet])\n  -t, --textFormat string   textFormatUnspecified|html|plainText (default \"html\")\n"
+ },
+ "yutu comment markAsSpam": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Mark comments as spam. Use this tool to mark comments as spam.\n\nUsage:\n  yutu comment markAsSpam [flags]\n\nExamples:\n# Mark a comment as spam\nyutu comment markAsSpam --ids abc123\n# Mark multiple comments as spam\nyutu comment markAsSpam --ids abc123,def456\n\nFlags:\n  -h, --help            help for markAsSpam\n  -i, --ids strings     IDs of comments\n  -o, --output string   json|yaml|silent\n      --yes             Confirm the operation\n"
+ },
+ "yutu comment setModerationStatus": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Set comment moderation status. Use this tool to set comment moderation status.\n\nUsage:\n  yutu comment setModerationStatus [flags]\n\nExamples:\n# Publish a held comment\nyutu comment setModerationStatus --ids abc123 --moderationStatus published\n# Hold multiple comments for review\nyutu comment setModerationStatus --ids abc123,def456 --moderationStatus heldForReview\n# Reject a comment and ban author\nyutu comment setModerationStatus --ids abc123 --moderationStatus rejected --banAuthor\n\nFlags:\n  -A, --banAuthor                 If set to true the author of the comment gets added to the ban list\n  -h, --help                      help for setModerationStatus\n  -i, --ids strings               IDs of comments\n  -s, --moderationStatus string   heldForReview|published|rejected\n  -o, --output string             json|yaml|silent\n      --yes                       Confirm the operation\n"
+ },
+ "yutu comment update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a comment. Use this tool to update a comment.\n\nUsage:\n  yutu comment update [flags]\n\nExamples:\n# Update comment text\nyutu comment update --id abc123 --textOriginal 'Updated comment'\n# Like a comment\nyutu comment update --id abc123 --viewerRating like\n# Update comment text with rating enabled\nyutu comment update --id abc123 --textOriginal 'New text' --canRate\n\nFlags:\n  -R, --canRate               Whether the viewer can rate the comment\n  -h, --help                  help for update\n  -i, --id strings            ID of the comment\n  -o, --output string         json|yaml|silent\n  -t, --textOriginal string   Text of the comment\n  -r, --viewerRating string   none|like|dislike\n      --yes                   Confirm the operation\n"
+ },
+ "yutu commentThread": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube comment threads. Use this tool to list or insert new top-level comment threads.\n\nUsage:\n  yutu commentThread [flags]\n  yutu commentThread [command]\n\nAvailable Commands:\n  insert      Create a comment thread\n  list        List comment threads\n\nFlags:\n  -h, --help   help for commentThread\n\nUse \"yutu commentThread [command] --help\" for more information about a command.\n"
+ },
+ "yutu commentThread insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Create a comment thread. Use this tool to create a comment thread.\n\nUsage:\n  yutu commentThread insert [flags]\n\nExamples:\n# Post a comment on a video\nyutu commentThread insert --channelId UC_x5X --videoId dQw4w9WgXcQ --authorChannelId UA_x5X --textOriginal 'Great video!'\n# Post a comment with JSON output\nyutu commentThread insert --channelId UC_x5X --videoId dQw4w9WgXcQ --authorChannelId UA_x5X --textOriginal 'Nice work!' --output json\n\nFlags:\n  -a, --authorChannelId string   Channel id of the comment author\n  -c, --channelId string         Channel id of the video owner\n  -h, --help                     help for insert\n  -o, --output string            json|yaml|silent\n  -t, --textOriginal string      Text of the comment\n  -v, --videoId string           ID of the video\n      --yes                      Confirm the operation\n"
+ },
+ "yutu commentThread list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List comment threads. Use this tool to list comment threads.\n\nUsage:\n  yutu commentThread list [flags]\n\nExamples:\n# List comment threads on a video\nyutu commentThread list --videoId dQw4w9WgXcQ --maxResults 10\n# Search comment threads by terms\nyutu commentThread list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --searchTerms 'hello'\n# List specific comment threads in JSON format\nyutu commentThread list --ids abc123,def456 --output json\n\nFlags:\n  -a, --allThreadsRelatedToChannelId string   Returns the comment threads of all videos of the channel and the channel comments as well\n  -c, --channelId string                      Channel id of the video owner\n  -h, --help                                  help for list\n  -i, --ids strings                           IDs of the comment threads\n  -n, --maxResults int                        The maximum number of items that should be returned, 0 for no limit (default 5)\n  -m, --moderationStatus string               published|heldForReview|likelySpam|rejected (default \"published\")\n  -O, --order string                          orderUnspecified|time|relevance (default \"time\")\n  -o, --output string                         json|yaml|table (default \"table\")\n  -p, --parts strings                         Comma separated parts (default [id,snippet])\n  -s, --searchTerms string                    Search terms\n  -t, --textFormat string                     textFormatUnspecified|html (default \"html\")\n  -v, --videoId string                        Returns the comment threads of the specified video\n"
+ },
+ "yutu completion": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Generate the autocompletion script for yutu for the specified shell.\nSee each sub-command's help for details on how to use the generated script.\n\nUsage:\n  yutu completion [command]\n\nAvailable Commands:\n  bash        Generate the autocompletion script for bash\n  fish        Generate the autocompletion script for fish\n  powershell  Generate the autocompletion script for powershell\n  zsh         Generate the autocompletion script for zsh\n\nFlags:\n  -h, --help   help for completion\n\nUse \"yutu completion [command] --help\" for more information about a command.\n"
+ },
+ "yutu completion bash": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Generate the autocompletion script for the bash shell.\n\nThis script depends on the 'bash-completion' package.\nIf it is not installed already, you can install it via your OS's package manager.\n\nTo load completions in your current shell session:\n\n\tsource <(yutu completion bash)\n\nTo load completions for every new session, execute once:\n\n#### Linux:\n\n\tyutu completion bash > /etc/bash_completion.d/yutu\n\n#### macOS:\n\n\tyutu completion bash > $(brew --prefix)/etc/bash_completion.d/yutu\n\nYou will need to start a new shell for this setup to take effect.\n\nUsage:\n  yutu completion bash\n\nFlags:\n  -h, --help              help for bash\n      --no-descriptions   disable completion descriptions\n"
+ },
+ "yutu completion fish": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Generate the autocompletion script for the fish shell.\n\nTo load completions in your current shell session:\n\n\tyutu completion fish | source\n\nTo load completions for every new session, execute once:\n\n\tyutu completion fish > ~/.config/fish/completions/yutu.fish\n\nYou will need to start a new shell for this setup to take effect.\n\nUsage:\n  yutu completion fish [flags]\n\nFlags:\n  -h, --help              help for fish\n      --no-descriptions   disable completion descriptions\n"
+ },
+ "yutu completion powershell": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Generate the autocompletion script for powershell.\n\nTo load completions in your current shell session:\n\n\tyutu completion powershell | Out-String | Invoke-Expression\n\nTo load completions for every new session, add the output of the above command\nto your powershell profile.\n\nUsage:\n  yutu completion powershell [flags]\n\nFlags:\n  -h, --help              help for powershell\n      --no-descriptions   disable completion descriptions\n"
+ },
+ "yutu completion zsh": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Generate the autocompletion script for the zsh shell.\n\nIf shell completion is not already enabled in your environment you will need\nto enable it.  You can execute the following once:\n\n\techo \"autoload -U compinit; compinit\" >> ~/.zshrc\n\nTo load completions in your current shell session:\n\n\tsource <(yutu completion zsh)\n\nTo load completions for every new session, execute once:\n\n#### Linux:\n\n\tyutu completion zsh > \"${fpath[1]}/_yutu\"\n\n#### macOS:\n\n\tyutu completion zsh > $(brew --prefix)/share/zsh/site-functions/_yutu\n\nYou will need to start a new shell for this setup to take effect.\n\nUsage:\n  yutu completion zsh [flags]\n\nFlags:\n  -h, --help              help for zsh\n      --no-descriptions   disable completion descriptions\n"
+ },
+ "yutu help": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Help provides help for any command in the application.\nSimply type yutu help [path to command] for full details.\n\nUsage:\n  yutu help [command] [flags]\n\nFlags:\n  -h, --help   help for help\n"
+ },
+ "yutu i18nLanguage": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube i18n languages. Use this tool to list available internationalization languages.\n\nUsage:\n  yutu i18nLanguage [flags]\n  yutu i18nLanguage [command]\n\nAvailable Commands:\n  list        List i18n languages\n\nFlags:\n  -h, --help   help for i18nLanguage\n\nUse \"yutu i18nLanguage [command] --help\" for more information about a command.\n"
+ },
+ "yutu i18nLanguage list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List i18n languages. Use this tool to list available internationalization languages.\n\nUsage:\n  yutu i18nLanguage list [flags]\n\nFlags:\n  -h, --help            help for list\n  -l, --hl string       Host language\n  -o, --output string   json|yaml|table (default \"table\")\n  -p, --parts strings   Comma separated parts (default [id,snippet])\n"
+ },
+ "yutu i18nRegion": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube i18n regions. Use this tool to list available internationalization regions.\n\nUsage:\n  yutu i18nRegion [flags]\n  yutu i18nRegion [command]\n\nAvailable Commands:\n  list        List i18n regions\n\nFlags:\n  -h, --help   help for i18nRegion\n\nUse \"yutu i18nRegion [command] --help\" for more information about a command.\n"
+ },
+ "yutu i18nRegion list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List i18n regions. Use this tool to list available internationalization regions.\n\nUsage:\n  yutu i18nRegion list [flags]\n\nFlags:\n  -h, --help            help for list\n  -l, --hl string       Host language\n  -o, --output string   json|yaml|table (default \"table\")\n  -p, --parts strings   Comma separated parts (default [id,snippet])\n"
+ },
+ "yutu liveBroadcast": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube live broadcasts. Use this tool to list, insert, update, delete, bind, transition, or insert cuepoints for live broadcasts.\n\nUsage:\n  yutu liveBroadcast [flags]\n  yutu liveBroadcast [command]\n\nAvailable Commands:\n  bind           Bind a live broadcast to a stream\n  delete         Delete live broadcasts\n  insert         Create a live broadcast\n  insertCuepoint Insert a cuepoint into a live broadcast\n  list           List live broadcasts\n  transition     Transition a live broadcast\n  update         Update a live broadcast\n\nFlags:\n  -h, --help   help for liveBroadcast\n\nUse \"yutu liveBroadcast [command] --help\" for more information about a command.\n"
+ },
+ "yutu liveBroadcast bind": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Bind a live broadcast to a stream. Use this tool to bind or unbind a live stream to/from a live broadcast.\n\nUsage:\n  yutu liveBroadcast bind [flags]\n\nExamples:\n# Bind a broadcast to a stream\nyutu liveBroadcast bind --ids broadcast123 --streamId stream456\n# Unbind a broadcast (omit streamId)\nyutu liveBroadcast bind --ids broadcast123\n\nFlags:\n  -h, --help                                   help for bind\n  -i, --ids strings                            IDs of the broadcasts to bind\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -p, --parts strings                          Comma separated parts (default [id,snippet,contentDetails,status])\n  -s, --streamId string                        ID of the live stream to bind\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu liveBroadcast delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete live broadcasts. Use this tool to delete live broadcasts by their IDs.\n\nUsage:\n  yutu liveBroadcast delete [flags]\n\nExamples:\n# Delete a live broadcast by ID\nyutu liveBroadcast delete --ids broadcast123\n# Delete multiple live broadcasts\nyutu liveBroadcast delete --ids broadcast123,broadcast456\n\nFlags:\n  -h, --help                                   help for delete\n  -i, --ids strings                            IDs of the live broadcasts to delete\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu liveBroadcast insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Create a live broadcast. Use this tool to create a live broadcast for the authenticated user.\n\nUsage:\n  yutu liveBroadcast insert [flags]\n\nExamples:\n# Create a public live broadcast\nyutu liveBroadcast insert --title \"My Broadcast\" --privacyStatus public --scheduledStartTime 2026-01-01T00:00:00Z\n# Create a private broadcast with description\nyutu liveBroadcast insert --title \"Test Stream\" --description \"Testing\" --privacyStatus private --scheduledStartTime 2026-01-01T00:00:00Z\n\nFlags:\n  -d, --description string                     Description of the live broadcast\n  -h, --help                                   help for insert\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -p, --parts strings                          Comma separated parts (default [snippet,status,contentDetails])\n  -P, --privacyStatus string                   Privacy status (public, unlisted, private)\n  -E, --scheduledEndTime string                Scheduled end time in RFC 3339 format\n  -S, --scheduledStartTime string              Scheduled start time in RFC 3339 format\n  -t, --title string                           Title of the live broadcast\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu liveBroadcast insertCuepoint": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Insert a cuepoint into a live broadcast. Use this tool to insert an ad break cuepoint into a currently live broadcast.\n\nUsage:\n  yutu liveBroadcast insertCuepoint [flags]\n\nExamples:\n# Insert an ad cuepoint of 30 seconds\nyutu liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueDurationSecs 30\n# Insert a cuepoint with offset\nyutu liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueInsertionOffsetMs 5000\n\nFlags:\n  -D, --cueDurationSecs int                    Cuepoint duration in seconds\n  -O, --cueInsertionOffsetMs int               Cuepoint insertion offset time in milliseconds\n  -c, --cueType string                         Cue type (cueTypeAd) (default \"cueTypeAd\")\n  -W, --cueWalltimeMs uint                     Cuepoint wall clock time in milliseconds\n  -h, --help                                   help for insertCuepoint\n  -i, --ids strings                            IDs of the broadcasts\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu liveBroadcast list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List live broadcasts. Use this tool to list live broadcasts for the authenticated user.\n\nUsage:\n  yutu liveBroadcast list [flags]\n\nExamples:\n# List my live broadcasts\nyutu liveBroadcast list --mine\n# List live broadcasts by ID\nyutu liveBroadcast list --ids broadcast1,broadcast2\n# List active live broadcasts\nyutu liveBroadcast list --mine --broadcastStatus active --output json\n\nFlags:\n  -s, --broadcastStatus string                 Broadcast status filter (all, active, upcoming, completed)\n  -T, --broadcastType string                   Broadcast type filter (all, event, persistent)\n  -h, --help                                   help for list\n  -i, --ids strings                            Return live broadcasts with the given ids\n  -n, --maxResults int                         The maximum number of items that should be returned, 0 for no limit (default 5)\n  -m, --mine                                   List broadcasts owned by the authenticated user\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|table (default \"table\")\n  -p, --parts strings                          Comma separated parts (default [id,snippet,status])\n"
+ },
+ "yutu liveBroadcast transition": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Transition a live broadcast. Use this tool to change the status of a live broadcast (e.g., go live, end broadcast).\n\nUsage:\n  yutu liveBroadcast transition [flags]\n\nExamples:\n# Transition a broadcast to live\nyutu liveBroadcast transition --ids broadcast123 --broadcastStatus live\n# End a broadcast\nyutu liveBroadcast transition --ids broadcast123 --broadcastStatus complete\n\nFlags:\n  -s, --broadcastStatus string                 Broadcast status to transition to (testing, live, complete)\n  -h, --help                                   help for transition\n  -i, --ids strings                            IDs of the broadcasts to transition\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -p, --parts strings                          Comma separated parts (default [id,snippet,status])\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu liveBroadcast update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a live broadcast. Use this tool to update an existing live broadcast's settings.\n\nUsage:\n  yutu liveBroadcast update [flags]\n\nExamples:\n# Update live broadcast title\nyutu liveBroadcast update --id broadcast123 --title \"New Title\"\n# Update privacy status\nyutu liveBroadcast update --id broadcast123 --privacyStatus unlisted\n\nFlags:\n  -d, --description string                     Description of the live broadcast\n  -h, --help                                   help for update\n  -i, --id strings                             ID of the live broadcast to update\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -P, --privacyStatus string                   Privacy status (public, unlisted, private)\n  -E, --scheduledEndTime string                Scheduled end time in RFC 3339 format\n  -S, --scheduledStartTime string              Scheduled start time in RFC 3339 format\n  -t, --title string                           Title of the live broadcast\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu liveChatBan": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube live chat bans. Use this tool to ban or unban users from a live chat.\n\nUsage:\n  yutu liveChatBan [flags]\n  yutu liveChatBan [command]\n\nAvailable Commands:\n  delete      Delete live chat bans\n  insert      Create a live chat ban\n\nFlags:\n  -h, --help   help for liveChatBan\n\nUse \"yutu liveChatBan [command] --help\" for more information about a command.\n"
+ },
+ "yutu liveChatBan delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete live chat bans. Use this tool to unban users from a live chat by ban IDs.\n\nUsage:\n  yutu liveChatBan delete [flags]\n\nExamples:\n# Delete a live chat ban by ID\nyutu liveChatBan delete --ids abc123\n# Delete multiple live chat bans\nyutu liveChatBan delete --ids abc123,def456\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of the live chat bans to delete\n      --yes           Confirm the operation\n"
+ },
+ "yutu liveChatBan insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Create a live chat ban. Use this tool to ban a user from a live chat.\n\nUsage:\n  yutu liveChatBan insert [flags]\n\nExamples:\n# Ban a user permanently\nyutu liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType permanent\n# Ban a user temporarily for 5 minutes\nyutu liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType temporary --banDurationSeconds 300\n\nFlags:\n  -d, --banDurationSeconds uint      Duration of the ban in seconds (only for temporary bans)\n  -t, --banType string               permanent|temporary\n  -b, --bannedUserChannelId string   Channel ID of the user to ban\n  -h, --help                         help for insert\n  -l, --liveChatId string            ID of the live chat\n  -o, --output string                json|yaml|silent\n  -p, --parts strings                Parts to include (default [snippet])\n      --yes                          Confirm the operation\n"
+ },
+ "yutu liveChatMessage": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube live chat messages. Use this tool to list, send, delete, or transition messages in a live chat.\n\nUsage:\n  yutu liveChatMessage [flags]\n  yutu liveChatMessage [command]\n\nAvailable Commands:\n  delete      Delete live chat messages\n  insert      Send a live chat message\n  list        List live chat messages\n  transition  Transition a live chat message\n\nFlags:\n  -h, --help   help for liveChatMessage\n\nUse \"yutu liveChatMessage [command] --help\" for more information about a command.\n"
+ },
+ "yutu liveChatMessage delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete live chat messages. Use this tool to remove messages from a live chat by their IDs.\n\nUsage:\n  yutu liveChatMessage delete [flags]\n\nExamples:\n# Delete a live chat message by ID\nyutu liveChatMessage delete --ids abc123\n# Delete multiple live chat messages\nyutu liveChatMessage delete --ids abc123,def456\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of the live chat messages to delete\n      --yes           Confirm the operation\n"
+ },
+ "yutu liveChatMessage insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Send a live chat message. Use this tool to post a text message to a live chat.\n\nUsage:\n  yutu liveChatMessage insert [flags]\n\nExamples:\n# Send a message to a live chat\nyutu liveChatMessage insert --liveChatId abc123 --messageText \"Hello everyone!\"\n\nFlags:\n  -h, --help                 help for insert\n  -l, --liveChatId string    ID of the live chat\n  -m, --messageText string   Text of the message to send\n  -o, --output string        json|yaml|silent\n  -p, --parts strings        Parts to include (default [snippet])\n      --yes                  Confirm the operation\n"
+ },
+ "yutu liveChatMessage list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List live chat messages. Use this tool to list messages in a live chat.\n\nUsage:\n  yutu liveChatMessage list [flags]\n\nExamples:\n# List messages for a live chat\nyutu liveChatMessage list --liveChatId abc123\n# List messages with limit\nyutu liveChatMessage list --liveChatId abc123 --maxResults 10\n\nFlags:\n  -h, --help                help for list\n      --hl string           Localization language for system messages\n  -l, --liveChatId string   ID of the live chat\n  -n, --maxResults int      The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string       json|yaml|table (default \"table\")\n  -p, --parts strings       Comma separated parts (default [snippet,authorDetails])\n"
+ },
+ "yutu liveChatMessage transition": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Transition a durable live chat event. Use this tool to change the status of a live chat message (e.g., close a poll).\n\nUsage:\n  yutu liveChatMessage transition [flags]\n\nExamples:\n# Transition a live chat message to closed\nyutu liveChatMessage transition --ids abc123 --status closed\n\nFlags:\n  -h, --help            help for transition\n  -i, --ids strings     IDs of the messages to transition\n  -o, --output string   json|yaml|silent\n  -s, --status string   Status to transition to (closed)\n      --yes             Confirm the operation\n"
+ },
+ "yutu liveChatModerator": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube live chat moderators. Use this tool to list, add, or remove moderators from a live chat.\n\nUsage:\n  yutu liveChatModerator [flags]\n  yutu liveChatModerator [command]\n\nAvailable Commands:\n  delete      Delete live chat moderators\n  insert      Add a live chat moderator\n  list        List live chat moderators\n\nFlags:\n  -h, --help   help for liveChatModerator\n\nUse \"yutu liveChatModerator [command] --help\" for more information about a command.\n"
+ },
+ "yutu liveChatModerator delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete live chat moderators. Use this tool to remove moderators from a live chat by their IDs.\n\nUsage:\n  yutu liveChatModerator delete [flags]\n\nExamples:\n# Delete a live chat moderator by ID\nyutu liveChatModerator delete --ids abc123\n# Delete multiple live chat moderators\nyutu liveChatModerator delete --ids abc123,def456\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of the live chat moderators to delete\n      --yes           Confirm the operation\n"
+ },
+ "yutu liveChatModerator insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Add a live chat moderator. Use this tool to add a moderator to a live chat.\n\nUsage:\n  yutu liveChatModerator insert [flags]\n\nExamples:\n# Add a moderator to a live chat\nyutu liveChatModerator insert --liveChatId abc123 --moderatorChannelId UC_xyz\n\nFlags:\n  -h, --help                        help for insert\n  -l, --liveChatId string           ID of the live chat\n  -m, --moderatorChannelId string   Channel ID of the moderator\n  -o, --output string               json|yaml|silent\n  -p, --parts strings               Parts to include (default [snippet])\n      --yes                         Confirm the operation\n"
+ },
+ "yutu liveChatModerator list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List live chat moderators. Use this tool to list moderators for a live chat.\n\nUsage:\n  yutu liveChatModerator list [flags]\n\nExamples:\n# List moderators for a live chat\nyutu liveChatModerator list --liveChatId abc123\n# List moderators with limit\nyutu liveChatModerator list --liveChatId abc123 --maxResults 10\n\nFlags:\n  -h, --help                help for list\n  -l, --liveChatId string   ID of the live chat\n  -n, --maxResults int      The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string       json|yaml|table (default \"table\")\n  -p, --parts strings       Comma separated parts (default [snippet])\n"
+ },
+ "yutu liveStream": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube live streams. Use this tool to list, insert, update, or delete live streams.\n\nUsage:\n  yutu liveStream [flags]\n  yutu liveStream [command]\n\nAvailable Commands:\n  delete      Delete live streams\n  insert      Create a live stream\n  list        List live streams\n  update      Update a live stream\n\nFlags:\n  -h, --help   help for liveStream\n\nUse \"yutu liveStream [command] --help\" for more information about a command.\n"
+ },
+ "yutu liveStream delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete live streams. Use this tool to delete live streams by their IDs.\n\nUsage:\n  yutu liveStream delete [flags]\n\nExamples:\n# Delete a live stream by ID\nyutu liveStream delete --ids stream123\n# Delete multiple live streams\nyutu liveStream delete --ids stream123,stream456\n\nFlags:\n  -h, --help                                   help for delete\n  -i, --ids strings                            IDs of the live streams to delete\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu liveStream insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Create a live stream. Use this tool to create a live stream.\n\nUsage:\n  yutu liveStream insert [flags]\n\nExamples:\n# Create a live stream with RTMP at 1080p\nyutu liveStream insert --title \"My Stream\" --ingestionType rtmp --resolution 1080p --frameRate 60fps\n# Create a live stream with description\nyutu liveStream insert --title \"Gaming Stream\" --description \"Live gaming session\" --ingestionType rtmp --resolution 720p\n\nFlags:\n  -d, --description string                     Description of the live stream\n  -f, --frameRate string                       Frame rate of the video stream (30fps, 60fps, variable)\n  -h, --help                                   help for insert\n  -I, --ingestionType string                   Ingestion type (rtmp, dash, webrtc, hls)\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -p, --parts strings                          Comma separated parts (default [snippet,cdn,status])\n  -r, --resolution string                      Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)\n  -t, --title string                           Title of the live stream\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu liveStream list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List live streams. Use this tool to list live streams for the authenticated user.\n\nUsage:\n  yutu liveStream list [flags]\n\nExamples:\n# List my live streams\nyutu liveStream list --mine\n# List live streams by ID\nyutu liveStream list --ids stream1,stream2\n# List live streams in JSON format\nyutu liveStream list --mine --output json --maxResults 10\n\nFlags:\n  -h, --help                                   help for list\n  -i, --ids strings                            Return live streams with the given ids\n  -n, --maxResults int                         The maximum number of items that should be returned, 0 for no limit (default 5)\n  -m, --mine                                   List streams owned by the authenticated user\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|table (default \"table\")\n  -p, --parts strings                          Comma separated parts (default [id,snippet,cdn,status])\n"
+ },
+ "yutu liveStream update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a live stream. Use this tool to update an existing live stream's settings.\n\nUsage:\n  yutu liveStream update [flags]\n\nExamples:\n# Update live stream title\nyutu liveStream update --id stream123 --title \"New Title\"\n# Update live stream CDN settings\nyutu liveStream update --id stream123 --resolution 1080p --frameRate 60fps\n\nFlags:\n  -d, --description string                     Description of the live stream\n  -f, --frameRate string                       Frame rate of the video stream (30fps, 60fps, variable)\n  -h, --help                                   help for update\n  -i, --id strings                             ID of the live stream to update\n  -I, --ingestionType string                   Ingestion type (rtmp, dash, webrtc, hls)\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -r, --resolution string                      Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)\n  -t, --title string                           Title of the live stream\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu mcp": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Start MCP server to handle requests from clients\n\nUsage:\n  yutu mcp [flags]\n\nExamples:\n# Start MCP server in stdio mode (default)\nyutu mcp\n\n# Start MCP server in HTTP mode at http://localhost:8216/mcp\n# Requires OAuth (Google account) for all MCP tool calls\nyutu mcp --mode http\n\nFlags:\n  -h, --help          help for mcp\n  -m, --mode string   stdio|http (default \"stdio\")\n"
+ },
+ "yutu member": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube channel members. Use this tool to list information about channel members.\n\nUsage:\n  yutu member [flags]\n  yutu member [command]\n\nAvailable Commands:\n  list        List channel members\n\nFlags:\n  -h, --help   help for member\n\nUse \"yutu member [command] --help\" for more information about a command.\n"
+ },
+ "yutu member list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List channel members. Use this tool to list information about channel members.\n\nUsage:\n  yutu member list [flags]\n\nExamples:\n# List all current members\nyutu member list --mode all_current\n# List members with limit\nyutu member list --maxResults 10\n\nFlags:\n  -a, --hasAccessToLevel string   Filter members in the results set to the ones that have access to a level\n  -h, --help                      help for list\n  -n, --maxResults int            The maximum number of items that should be returned, 0 for no limit (default 5)\n  -c, --memberChannelId string    Comma separated list of channel Ids. Only data about members that are part of this list will be included\n  -m, --mode string               listMembersModeUnknown, updates, or all_current (default \"all_current\")\n  -o, --output string             json|yaml|table (default \"table\")\n  -p, --parts strings             Comma separated parts (default [snippet])\n"
+ },
+ "yutu membershipsLevel": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube membership levels. Use this tool to list membership levels.\n\nUsage:\n  yutu membershipsLevel [flags]\n  yutu membershipsLevel [command]\n\nAvailable Commands:\n  list        List membership levels\n\nFlags:\n  -h, --help   help for membershipsLevel\n\nUse \"yutu membershipsLevel [command] --help\" for more information about a command.\n"
+ },
+ "yutu membershipsLevel list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List membership levels. Use this tool to list membership levels.\n\nUsage:\n  yutu membershipsLevel list [flags]\n\nExamples:\n# List membership levels in JSON format\nyutu membershipsLevel list --output json\n\nFlags:\n  -h, --help            help for list\n  -o, --output string   json|yaml|table (default \"table\")\n  -p, --parts strings   Comma separated parts (default [id,snippet])\n"
+ },
+ "yutu playlist": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube playlists. Use this tool to list, create, update, or delete playlists.\n\nUsage:\n  yutu playlist [flags]\n  yutu playlist [command]\n\nAvailable Commands:\n  delete      Delete playlists\n  insert      Create a playlist\n  list        List playlists\n  update      Update a playlist\n\nFlags:\n  -h, --help   help for playlist\n\nUse \"yutu playlist [command] --help\" for more information about a command.\n"
+ },
+ "yutu playlist delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete playlists. Use this tool to delete playlists by IDs.\n\nUsage:\n  yutu playlist delete [flags]\n\nExamples:\n# Delete a playlist by ID\nyutu playlist delete --ids PLxxxx\n# Delete multiple playlists\nyutu playlist delete --ids PLxxx1,PLxxx2\n\nFlags:\n  -h, --help                            help for delete\n  -i, --ids strings                     IDs of the playlists to delete\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+ },
+ "yutu playlist insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Create a playlist. Use this tool to create a playlist.\n\nUsage:\n  yutu playlist insert [flags]\n\nExamples:\n# Create a public playlist\nyutu playlist insert --title 'My Playlist' --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --privacy public\n# Create a private playlist with description\nyutu playlist insert --title 'Tutorial Series' --channelId UC_x5X --privacy private --description 'My tutorials'\n# Create an unlisted playlist with tags\nyutu playlist insert --title 'Music' --channelId UC_x5X --privacy unlisted --tags 'music,pop'\n\nFlags:\n  -c, --channelId string     Channel id of the playlist\n  -d, --description string   Description of the playlist\n  -h, --help                 help for insert\n  -l, --language string      Language of the playlist\n  -o, --output string        json|yaml|silent\n  -p, --privacy string       public|private|unlisted\n  -a, --tags strings         Comma separated tags\n  -t, --title string         Title of the playlist\n      --yes                  Confirm the operation\n"
+ },
+ "yutu playlist list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List playlists. Use this tool to list playlists.\n\nUsage:\n  yutu playlist list [flags]\n\nExamples:\n# List my playlists\nyutu playlist list --mine\n# List playlists by channel ID with limit\nyutu playlist list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10\n# List specific playlists in JSON format\nyutu playlist list --ids PLxxx1,PLxxx2 --output json\n\nFlags:\n  -c, --channelId string                       Return the playlists owned by the specified channel id\n  -h, --help                                   help for list\n  -l, --hl string                              Return content in specified language\n  -i, --ids strings                            Return the playlists with the given Ids for Stubby or Apiary\n  -n, --maxResults int                         The maximum number of items that should be returned, 0 for no limit (default 5)\n  -M, --mine                                   Return the playlists owned by the authenticated user (default true)\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -o, --output string                          json|yaml|table (default \"table\")\n  -p, --parts strings                          Comma separated parts (default [id,snippet,status])\n"
+ },
+ "yutu playlist update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a playlist. Use this tool to update a playlist.\n\nUsage:\n  yutu playlist update [flags]\n\nExamples:\n# Update playlist title\nyutu playlist update --id PLxxx --title 'Updated Title'\n# Update playlist description and privacy\nyutu playlist update --id PLxxx --description 'New description' --privacy public\n# Update playlist tags\nyutu playlist update --id PLxxx --tags 'music,pop,2024'\n\nFlags:\n  -d, --description string   Description of the playlist\n  -h, --help                 help for update\n  -i, --id strings           ID of the playlist to update\n  -l, --language string      Language of the playlist\n  -o, --output string        json|yaml|silent\n  -p, --privacy string       public|private|unlisted\n  -a, --tags strings         Comma separated tags\n  -t, --title string         Title of the playlist\n      --yes                  Confirm the operation\n"
+ },
+ "yutu playlistImage": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube playlist images. Use this tool to list, insert, update, or delete playlist images.\n\nUsage:\n  yutu playlistImage [flags]\n  yutu playlistImage [command]\n\nAvailable Commands:\n  delete      Delete playlist images\n  insert      Upload a playlist image\n  list        List playlist images\n  update      Update a playlist image\n\nFlags:\n  -h, --help   help for playlistImage\n\nUse \"yutu playlistImage [command] --help\" for more information about a command.\n"
+ },
+ "yutu playlistImage delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete playlist images. Use this tool to delete playlist images by IDs.\n\nUsage:\n  yutu playlistImage delete [flags]\n\nExamples:\n# Delete a playlist image by ID\nyutu playlistImage delete --ids abc123\n# Delete multiple playlist images\nyutu playlistImage delete --ids abc123,def456\n\nFlags:\n  -h, --help                            help for delete\n  -i, --ids strings                     IDs of the playlist images to delete\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+ },
+ "yutu playlistImage insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Upload a playlist image. Use this tool to upload a playlist image.\n\nUsage:\n  yutu playlistImage insert [flags]\n\nExamples:\n# Insert a playlist cover image\nyutu playlistImage insert --file cover.jpg --playlistId PLxxx\n# Insert a hero image\nyutu playlistImage insert --file cover.png --playlistId PLxxx --type hero\n# Insert an image with custom dimensions\nyutu playlistImage insert --file cover.jpg --playlistId PLxxx --width 2048 --height 1152\n\nFlags:\n  -f, --file string                            Path to the image file\n  -H, --height int                             The image height\n  -h, --help                                   help for insert\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -o, --output string                          json|yaml|silent\n  -p, --playlistId string                      ID of the playlist this image is associated with\n  -t, --type string                            The image type (e.g., 'hero')\n  -W, --width int                              The image width\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu playlistImage list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List playlist images. Use this tool to list playlist images.\n\nUsage:\n  yutu playlistImage list [flags]\n\nExamples:\n# List images of a playlist\nyutu playlistImage list --parent PLxxx\n# List playlist images with limit in JSON format\nyutu playlistImage list --parent PLxxx --maxResults 10 --output json\n\nFlags:\n  -h, --help                                   help for list\n  -n, --maxResults int                         The maximum number of items that should be returned, 0 for no limit (default 5)\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -o, --output string                          json|yaml|table (default \"table\")\n  -P, --parent string                          Return PlaylistImages for this playlist id\n  -p, --parts strings                          Comma separated parts (default [id,kind,snippet])\n"
+ },
+ "yutu playlistImage update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a playlist image. Use this tool to update a playlist image.\n\nUsage:\n  yutu playlistImage update [flags]\n\nExamples:\n# Update a playlist image\nyutu playlistImage update --playlistId PLxxx --type hero --width 2048 --height 1152\n\nFlags:\n  -H, --height int                             The image height\n  -h, --help                                   help for update\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -o, --output string                          json|yaml|silent\n  -p, --playlistId string                      ID of the playlist this image is associated with\n  -t, --type string                            The image type (e.g., 'hero')\n  -W, --width int                              The image width\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu playlistItem": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube playlist items. Use this tool to list items in a playlist, add new items, update items, or remove items.\n\nUsage:\n  yutu playlistItem [flags]\n  yutu playlistItem [command]\n\nAvailable Commands:\n  delete      Delete playlist items\n  insert      Add a playlist item\n  list        List playlist items\n  update      Update a playlist item\n\nFlags:\n  -h, --help   help for playlistItem\n\nUse \"yutu playlistItem [command] --help\" for more information about a command.\n"
+ },
+ "yutu playlistItem delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete playlist items. Use this tool to delete playlist items by IDs.\n\nUsage:\n  yutu playlistItem delete [flags]\n\nExamples:\n# Delete a playlist item by ID\nyutu playlistItem delete --ids abc123\n# Delete multiple playlist items\nyutu playlistItem delete --ids abc123,def456\n\nFlags:\n  -h, --help                            help for delete\n  -i, --ids strings                     IDs of the playlist items to delete\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+ },
+ "yutu playlistItem insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Add a playlist item. Use this tool to add a playlist item to a playlist.\n\nUsage:\n  yutu playlistItem insert [flags]\n\nExamples:\n# Add a video to a playlist\nyutu playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9WgXcQ\n# Add a video to a playlist with privacy setting\nyutu playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9 --privacy public\n\nFlags:\n  -c, --channelId string                ID that YouTube uses to uniquely identify the user that added the item to the playlist\n  -d, --description string              Description of the playlist item\n  -h, --help                            help for insert\n  -C, --kChannelId string               ID of the channel if kind is channel\n  -Y, --kPlaylistId string              ID of the playlist if kind is playlist\n  -V, --kVideoId string                 ID of the video if kind is video\n  -k, --kind string                     video|channel|playlist\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|silent\n  -y, --playlistId string               The id that YouTube uses to uniquely identify the playlist that the item is in\n  -p, --privacy string                  public|private|unlisted\n  -t, --title string                    Title of the playlist item\n      --yes                             Confirm the operation\n"
+ },
+ "yutu playlistItem list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List playlist items. Use this tool to list playlist items.\n\nUsage:\n  yutu playlistItem list [flags]\n\nExamples:\n# List items in a playlist\nyutu playlistItem list --playlistId PLxxx\n# List playlist items with limit in JSON format\nyutu playlistItem list --playlistId PLxxx --maxResults 20 --output json\n# List specific playlist items by IDs\nyutu playlistItem list --ids abc123,def456\n\nFlags:\n  -h, --help                            help for list\n  -i, --ids strings                     IDs of the playlist items to list\n  -n, --maxResults int                  The maximum number of items that should be returned, 0 for no limit (default 5)\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet,status])\n  -y, --playlistId string               Return the playlist items within the given playlist\n  -v, --videoId string                  Return the playlist items associated with the given video id\n"
+ },
+ "yutu playlistItem update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a playlist item. Use this tool to update a playlist item.\n\nUsage:\n  yutu playlistItem update [flags]\n\nExamples:\n# Update playlist item title\nyutu playlistItem update --id abc123 --title 'Updated Title'\n# Update playlist item description and privacy\nyutu playlistItem update --id abc123 --description 'New description' --privacy public\n# Update playlist item privacy with JSON output\nyutu playlistItem update --id abc123 --privacy private --output json\n\nFlags:\n  -d, --description string              Description of the playlist item\n  -h, --help                            help for update\n  -i, --id strings                      ID of the playlist item to update\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|silent\n  -p, --privacy string                  public|private|unlisted\n  -t, --title string                    Title of the playlist item\n      --yes                             Confirm the operation\n"
+ },
+ "yutu search": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube search. Use this tool to search for videos, channels, playlists, and other resources.\n\nUsage:\n  yutu search [flags]\n  yutu search [command]\n\nAvailable Commands:\n  list        Search resources\n\nFlags:\n  -h, --help   help for search\n\nUse \"yutu search [command] --help\" for more information about a command.\n"
+ },
+ "yutu search list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Search resources. Use this tool to search for videos, channels, playlists, and other resources.\n\nUsage:\n  yutu search list [flags]\n\nExamples:\n# Search for videos by keyword\nyutu search list --q 'golang tutorial' --maxResults 10\n# Search videos by duration in JSON format\nyutu search list --q 'music' --types video --videoDuration medium --output json\n# List latest videos from a channel\nyutu search list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --order date --maxResults 5\n# Search for live streams\nyutu search list --q 'live coding' --eventType live --types video\n\nFlags:\n      --channelId string                   Filter on resources belonging to this channelId\n      --channelType string                 channelTypeUnspecified|any|show (default \"channelTypeUnspecified\")\n      --eventType string                   none|upcoming|live|completed (default \"none\")\n      --for string                         mine|developer|contentOwner\n  -h, --help                               help for list\n      --location string                    Filter on location of the video\n      --locationRadius string              Filter on distance from the location\n      --maxResults int                     The maximum number of items that should be returned, 0 for no limit (default 5)\n      --onBehalfOfContentOwner string      ID of the content owner, for YouTube content partners\n      --order string                       searchSortUnspecified|date|rating|viewCount|relevance|title|videoCount (default \"relevance\")\n      --output string                      json|yaml|table (default \"table\")\n      --parts strings                      Comma separated parts (default [id,snippet])\n      --publishedAfter string              Filter on resources published after this date\n      --publishedBefore string             Filter on resources published before this date\n      --q string                           Textual search terms to match\n      --regionCode string                  Display the content as seen by viewers in this country\n      --relevanceLanguage string           Return results relevant to this language\n      --safeSearch string                  safeSearchSettingUnspecified|none|moderate|strict (default \"moderate\")\n      --topicId string                     Restrict results to a particular topic\n      --types strings                      Restrict results to a particular set of resource types from One Platform\n      --videoCaption string                videoCaptionUnspecified|any|closedCaption|none (default \"any\")\n      --videoCategoryId string             Filter on videos in a specific category\n      --videoDefinition string             Filter on the definition of the videos\n      --videoDimension string              any|2d|3d (default \"any\")\n      --videoDuration string               videoDurationUnspecified|any|short|medium|long (default \"any\")\n      --videoEmbeddable string             videoEmbeddableUnspecified|any|true\n      --videoLicense string                any|youtube|creativeCommon\n      --videoPaidProductPlacement string   videoPaidProductPlacementUnspecified|any|true\n      --videoSyndicated string             videoSyndicatedUnspecified|any|true\n      --videoType string                   videoTypeUnspecified|any|movie|episode\n"
+ },
+ "yutu subscription": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube subscriptions. Use this tool to list subscriptions/subscribers, subscribe to channels, or unsubscribe.\n\nUsage:\n  yutu subscription [flags]\n  yutu subscription [command]\n\nAvailable Commands:\n  delete      Delete subscriptions\n  insert      Subscribe to a channel\n  list        List subscriptions\n\nFlags:\n  -h, --help   help for subscription\n\nUse \"yutu subscription [command] --help\" for more information about a command.\n"
+ },
+ "yutu subscription delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete subscriptions. Use this tool to delete subscriptions by IDs.\n\nUsage:\n  yutu subscription delete [flags]\n\nExamples:\n# Delete a subscription by ID\nyutu subscription delete --ids abc123\n# Delete multiple subscriptions\nyutu subscription delete --ids abc123,def456\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of the subscriptions to delete\n      --yes           Confirm the operation\n"
+ },
+ "yutu subscription insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Subscribe to a channel. Use this tool to subscribe to a YouTube channel.\n\nUsage:\n  yutu subscription insert [flags]\n\nExamples:\n# Subscribe to a channel\nyutu subscription insert --subscriberChannelId UC_abc --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw\n# Subscribe with a title\nyutu subscription insert --subscriberChannelId UC_abc --channelId UC_x5X --title 'Google Developers'\n\nFlags:\n  -c, --channelId string             ID of the channel to subscribe to\n  -d, --description string           Description of the subscription\n  -h, --help                         help for insert\n  -o, --output string                json|yaml|silent\n  -s, --subscriberChannelId string   Subscriber's channel id\n  -t, --title string                 Title of the subscription\n      --yes                          Confirm the operation\n"
+ },
+ "yutu subscription list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List subscriptions. Use this tool to list subscriptions.\n\nUsage:\n  yutu subscription list [flags]\n\nExamples:\n# List my subscriptions\nyutu subscription list --for mine\n# List subscriptions by channel ID with limit\nyutu subscription list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10\n# List specific subscriptions in JSON format\nyutu subscription list --ids abc123,def456 --output json\n# List subscriptions for a channel alphabetically\nyutu subscription list --forChannelId UC_x5XG1OV2P6uZZ5FSM9Ttw --order alphabetical\n\nFlags:\n  -c, --channelId string                       Return the subscriptions of the given channel owner\n  -F, --for string                             mine|myRecentSubscribers|mySubscribers\n  -C, --forChannelId string                    Return the subscriptions to the subset of these channels that the authenticated user is subscribed to\n  -h, --help                                   help for list\n  -i, --ids strings                            Return the subscriptions with the given ids for Stubby or Apiary\n  -n, --maxResults int                         The maximum number of items that should be returned, 0 for no limit (default 5)\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -O, --order string                           subscriptionOrderUnspecified|relevance|unread|alphabetical (default \"relevance\")\n  -o, --output string                          json|yaml|table (default \"table\")\n  -p, --parts strings                          Comma separated parts (default [id,snippet])\n"
+ },
+ "yutu superChatEvent": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube Super Chat events. Use this tool to list Super Chat events for a channel.\n\nUsage:\n  yutu superChatEvent [flags]\n  yutu superChatEvent [command]\n\nAvailable Commands:\n  list        List Super Chat events\n\nFlags:\n  -h, --help   help for superChatEvent\n\nUse \"yutu superChatEvent [command] --help\" for more information about a command.\n"
+ },
+ "yutu superChatEvent list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List Super Chat events. Use this tool to list Super Chat events.\n\nUsage:\n  yutu superChatEvent list [flags]\n\nExamples:\n# List Super Chat events\nyutu superChatEvent list --maxResults 10\n\nFlags:\n  -h, --help             help for list\n  -l, --hl string        Return rendered funding amounts in specified language\n  -n, --maxResults int   The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string    json|yaml|table (default \"table\")\n  -p, --parts strings    Comma separated parts (default [id,snippet])\n"
+ },
+ "yutu thirdPartyLink": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube third-party links. Use this tool to list, insert, update, or delete links between a YouTube channel and a third-party service.\n\nUsage:\n  yutu thirdPartyLink [flags]\n  yutu thirdPartyLink [command]\n\nAvailable Commands:\n  delete      Delete third-party links\n  insert      Create a third-party link\n  list        List third-party links\n  update      Update a third-party link\n\nFlags:\n  -h, --help   help for thirdPartyLink\n\nUse \"yutu thirdPartyLink [command] --help\" for more information about a command.\n"
+ },
+ "yutu thirdPartyLink delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete third-party links. Use this tool to delete third-party links.\n\nUsage:\n  yutu thirdPartyLink delete [flags]\n\nExamples:\n# Delete a third-party link\nyutu thirdPartyLink delete --linkingToken abc123 --type channelToStoreLink\n\nFlags:\n  -e, --externalChannelId string   Channel ID to which changes should be applied, for delegation\n  -h, --help                       help for delete\n  -l, --linkingToken string        Linking token that identifies the YouTube account and channel\n  -t, --type string                Type of the link: linkUnspecified|channelToStoreLink\n      --yes                        Confirm the operation\n"
+ },
+ "yutu thirdPartyLink insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Create a third-party link. Use this tool to create a third-party link.\n\nUsage:\n  yutu thirdPartyLink insert [flags]\n\nExamples:\n# Insert a new third-party link\nyutu thirdPartyLink insert --linkingToken abc123 --type channelToStoreLink --linkStatus pending --parts snippet,status\n\nFlags:\n  -e, --externalChannelId string   Channel ID to which changes should be applied, for delegation\n  -h, --help                       help for insert\n  -s, --linkStatus string          Status of the link: unknown|failed|pending|linked\n  -l, --linkingToken string        Linking token that identifies the YouTube account and channel\n  -o, --output string              json|yaml|silent\n  -p, --parts strings              Comma separated parts (default [snippet,status])\n  -t, --type string                Type of the link: linkUnspecified|channelToStoreLink\n      --yes                        Confirm the operation\n"
+ },
+ "yutu thirdPartyLink list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List third-party links. Use this tool to list links between a YouTube channel and a third-party service.\n\nUsage:\n  yutu thirdPartyLink list [flags]\n\nExamples:\n# List all third-party links\nyutu thirdPartyLink list --parts snippet,status\n# List links by linking token\nyutu thirdPartyLink list --linkingToken abc123 --parts snippet,status\n# List links by type\nyutu thirdPartyLink list --type channelToStoreLink --parts snippet,status\n\nFlags:\n  -e, --externalChannelId string   Channel ID to which changes should be applied, for delegation\n  -h, --help                       help for list\n  -l, --linkingToken string        Linking token that identifies the YouTube account and channel\n  -o, --output string              json|yaml|table (default \"table\")\n  -p, --parts strings              Comma separated parts (default [snippet,status])\n  -t, --type string                Type of the link: linkUnspecified|channelToStoreLink\n"
+ },
+ "yutu thirdPartyLink update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a third-party link. Use this tool to update the status or type of a link between a YouTube channel and a third-party service.\n\nUsage:\n  yutu thirdPartyLink update [flags]\n\nExamples:\n# Update a third-party link status\nyutu thirdPartyLink update --linkingToken abc123 --linkStatus linked --parts snippet,status\n# Update a third-party link type\nyutu thirdPartyLink update --linkingToken abc123 --type channelToStoreLink --parts snippet,status\n\nFlags:\n  -e, --externalChannelId string   Channel ID to which changes should be applied, for delegation\n  -h, --help                       help for update\n  -s, --linkStatus string          Status of the link: unknown|failed|pending|linked\n  -l, --linkingToken string        Linking token that identifies the YouTube account and channel\n  -o, --output string              json|yaml|silent\n  -p, --parts strings              Comma separated parts (default [snippet,status])\n  -t, --type string                Type of the link: linkUnspecified|channelToStoreLink\n      --yes                        Confirm the operation\n"
+ },
+ "yutu thumbnail": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube video thumbnails. Use this tool to set custom thumbnails for videos.\n\nUsage:\n  yutu thumbnail [flags]\n  yutu thumbnail [command]\n\nAvailable Commands:\n  set         Set a thumbnail for a video\n\nFlags:\n  -h, --help   help for thumbnail\n\nUse \"yutu thumbnail [command] --help\" for more information about a command.\n"
+ },
+ "yutu thumbnail set": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Set a thumbnail for a video. Use this tool to set a thumbnail for a video.\n\nUsage:\n  yutu thumbnail set [flags]\n\nExamples:\n# Set a thumbnail for a video\nyutu thumbnail set --file image.jpg --videoId dQw4w9WgXcQ\n# Set a thumbnail with JSON output\nyutu thumbnail set --file image.png --videoId dQw4w9WgXcQ --output json\n\nFlags:\n  -f, --file string      Path to the thumbnail file\n  -h, --help             help for set\n  -o, --output string    json|yaml|silent\n  -v, --videoId string   ID of the video\n      --yes              Confirm the operation\n"
+ },
+ "yutu version": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Show the version of yutu.\n\nUsage:\n  yutu version [flags]\n\nFlags:\n  -h, --help   help for version\n"
+ },
+ "yutu video": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube videos. Use this tool to list, upload, update, delete, get rating, or report videos.\n\nUsage:\n  yutu video [flags]\n  yutu video [command]\n\nAvailable Commands:\n  delete      Delete videos\n  getRating   Get video ratings\n  insert      Upload a video\n  list        List videos\n  rate        Rate a video\n  reportAbuse Report abuse on a video\n  update      Update a video\n\nFlags:\n  -h, --help   help for video\n\nUse \"yutu video [command] --help\" for more information about a command.\n"
+ },
+ "yutu video delete": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Delete videos. Use this tool to delete videos by IDs.\n\nUsage:\n  yutu video delete [flags]\n\nExamples:\n# Delete a video by ID\nyutu video delete --ids dQw4w9WgXcQ\n# Delete multiple videos\nyutu video delete --ids dQw4w9WgXcQ,abc123\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of the videos to delete\n      --yes           Confirm the operation\n"
+ },
+ "yutu video getRating": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Get video ratings. Use this tool to get video ratings by IDs.\n\nUsage:\n  yutu video getRating [flags]\n\nExamples:\n# Get rating of a video\nyutu video getRating --ids dQw4w9WgXcQ\n# Get ratings of multiple videos in JSON format\nyutu video getRating --ids dQw4w9WgXcQ,abc123 --output json\n\nFlags:\n  -h, --help                            help for getRating\n  -i, --ids strings                     IDs of the videos to get the rating for\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n"
+ },
+ "yutu video insert": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Upload a video. Use this tool to upload a video.\n\nUsage:\n  yutu video insert [flags]\n\nExamples:\n# Upload a public video\nyutu video insert --file video.mp4 --title 'My Video' --categoryId 22 --privacy public\n# Upload a private video with tags\nyutu video insert --file video.mp4 --title 'Tutorial' --categoryId 27 --privacy private --tags 'go,tutorial'\n# Upload an unlisted video with custom thumbnail\nyutu video insert --file video.mp4 --title 'Music Video' --categoryId 10 --privacy unlisted --thumbnail cover.jpg\n\nFlags:\n  -A, --autoLevels                             Should auto-levels be applied to the upload (default true)\n  -g, --categoryId string                      Category of the video\n  -c, --channelId string                       Channel id of the video\n  -M, --containsSyntheticMedia                 Whether the video contains altered or synthetic media\n  -d, --description string                     Description of the video\n  -E, --embeddable                             Whether the video is embeddable (default true)\n  -f, --file string                            Path to the video file\n  -K, --forKids                                Whether the video is for kids\n  -h, --help                                   help for insert\n  -l, --language string                        Language of the video\n  -L, --license string                         youtube|creativeCommon\n  -N, --notifySubscribers                      Notify the channel subscribers about the new video (default true)\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   YouTube channel ID linked to the content owner\n  -o, --output string                          json|yaml|silent\n  -y, --playlistId string                      Playlist id of the video\n  -p, --privacy string                         public|private|unlisted\n  -P, --publicStatsViewable                    Whether the extended video statistics can be viewed by everyone\n  -U, --publishAt string                       Datetime when the video is scheduled to publish\n  -D, --recordingDate string                   Date and time when the video was recorded\n  -S, --stabilize                              Should stabilize be applied to the upload (default true)\n  -a, --tags strings                           Comma separated tags (default [yutu🐰])\n  -u, --thumbnail string                       Path to the thumbnail file\n  -t, --title string                           Title of the video\n      --yes                                    Confirm the operation\n"
+ },
+ "yutu video list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List videos. Use this tool to list videos.\n\nUsage:\n  yutu video list [flags]\n\nExamples:\n# List a video by ID\nyutu video list --ids IBju0NwjQRc\n# List multiple videos in JSON format\nyutu video list --ids IBju0NwjQRc,wZ9z3FUuNvQ --output json\n# List most popular videos by region\nyutu video list --chart mostPopular --regionCode US --maxResults 10\n# List my liked videos\nyutu video list --myRating like --output yaml\n\nFlags:\n  -c, --chart string                    chartUnspecified|mostPopular\n  -h, --help                            help for list\n  -l, --hl string                       Specifies the localization language\n  -i, --ids strings                     Return videos with the given ids\n  -L, --locale string                   Locale of the video metadata to return\n  -H, --maxHeight int                   Max height of the embedded player in pixels\n  -n, --maxResults int                  The maximum number of items that should be returned, 0 for no limit (default 5)\n  -W, --maxWidth int                    Max width of the embedded player in pixels\n  -R, --myRating string                 Return videos liked/disliked by the authenticated user\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet,status,statistics])\n  -r, --regionCode string               Specific to the specified region\n  -g, --videoCategoryId string          Category of the video\n"
+ },
+ "yutu video rate": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Rate a video. Use this tool to rate a video.\n\nUsage:\n  yutu video rate [flags]\n\nExamples:\n# Like a video\nyutu video rate --ids dQw4w9WgXcQ --rating like\n# Dislike multiple videos\nyutu video rate --ids dQw4w9WgXcQ,abc123 --rating dislike\n# Remove rating from a video\nyutu video rate --ids dQw4w9WgXcQ --rating none\n\nFlags:\n  -h, --help            help for rate\n  -i, --ids strings     IDs of the videos to rate\n  -r, --rating string   like|dislike|none\n      --yes             Confirm the operation\n"
+ },
+ "yutu video reportAbuse": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Report abuse on a video. Use this tool to report abuse on a video.\n\nUsage:\n  yutu video reportAbuse [flags]\n\nExamples:\n# Report abuse on a video\nyutu video reportAbuse --ids dQw4w9WgXcQ --reasonId V\n# Report abuse with secondary reason and language\nyutu video reportAbuse --ids dQw4w9WgXcQ --reasonId V --secondaryReasonId V1 --language en\n# Report abuse with comments\nyutu video reportAbuse --ids dQw4w9WgXcQ --reasonId N --comments 'Spam content'\n\nFlags:\n  -c, --comments string                 Additional comments regarding the abuse report\n  -h, --help                            help for reportAbuse\n  -i, --ids strings                     IDs of the videos to report abuse on\n  -l, --language string                 Language that the content was viewed in\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -r, --reasonId string                 ID of the reason for reporting abuse\n  -s, --secondaryReasonId string        ID of the secondary reason for reporting abuse\n      --yes                             Confirm the operation\n"
+ },
+ "yutu video update": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Update a video. Use this tool to update a video.\n\nUsage:\n  yutu video update [flags]\n\nExamples:\n# Update video title\nyutu video update --id dQw4w9WgXcQ --title 'New Title'\n# Update video description and privacy\nyutu video update --id dQw4w9WgXcQ --description 'Updated description' --privacy public\n# Schedule a private video to publish later\nyutu video update --id dQw4w9WgXcQ --privacy private --publishAt 2026-08-18T15:00:00Z\n# Update video tags and category\nyutu video update --id dQw4w9WgXcQ --tags 'music,pop,2024' --categoryId 10\n\nFlags:\n  -g, --categoryId string        Category of the video\n  -M, --containsSyntheticMedia   Whether the video contains altered or synthetic media\n  -d, --description string       Description of the video\n  -E, --embeddable               Whether the video is embeddable (default true)\n  -h, --help                     help for update\n  -i, --id strings               ID of the video to update\n  -l, --language string          Language of the video\n  -L, --license string           youtube|creativeCommon\n  -o, --output string            json|yaml|silent\n  -y, --playlistId string        Playlist id of the video\n  -p, --privacy string           public|private|unlisted\n  -U, --publishAt string         Datetime when the video is scheduled to publish\n  -D, --recordingDate string     Date and time when the video was recorded\n  -a, --tags strings             Comma separated tags\n  -u, --thumbnail string         Path to the thumbnail file\n  -t, --title string             Title of the video\n      --yes                      Confirm the operation\n"
+ },
+ "yutu videoAbuseReportReason": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube video abuse report reasons. Use this tool to list available abuse report reasons.\n\nUsage:\n  yutu videoAbuseReportReason [flags]\n  yutu videoAbuseReportReason [command]\n\nAvailable Commands:\n  list        List video abuse report reasons\n\nFlags:\n  -h, --help   help for videoAbuseReportReason\n\nUse \"yutu videoAbuseReportReason [command] --help\" for more information about a command.\n"
+ },
+ "yutu videoAbuseReportReason list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List video abuse report reasons. Use this tool to list available abuse report reasons.\n\nUsage:\n  yutu videoAbuseReportReason list [flags]\n\nExamples:\n# List video abuse report reasons\nyutu videoAbuseReportReason list --hl en\n\nFlags:\n  -h, --help            help for list\n  -l, --hl string       Host language\n  -o, --output string   json|yaml|table (default \"table\")\n  -p, --parts strings   Comma separated parts (default [id,snippet])\n"
+ },
+ "yutu videoCategory": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube video categories. Use this tool to list available video categories.\n\nUsage:\n  yutu videoCategory [flags]\n  yutu videoCategory [command]\n\nAvailable Commands:\n  list        List video categories\n\nFlags:\n  -h, --help   help for videoCategory\n\nUse \"yutu videoCategory [command] --help\" for more information about a command.\n"
+ },
+ "yutu videoCategory list": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "List video categories. Use this tool to list available video categories.\n\nUsage:\n  yutu videoCategory list [flags]\n\nFlags:\n  -h, --help                help for list\n  -l, --hl string           Host language\n  -i, --ids strings         IDs of the video categories\n  -o, --output string       json|yaml|table (default \"table\")\n  -p, --parts strings       Comma separated parts (default [id,snippet])\n  -r, --regionCode string   Region code (default \"US\")\n"
+ },
+ "yutu watermark": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Manage YouTube watermarks. Use this tool to set or unset watermarks for channel videos.\n\nUsage:\n  yutu watermark [flags]\n  yutu watermark [command]\n\nAvailable Commands:\n  set         Set a channel watermark\n  unset       Unset a channel watermark\n\nFlags:\n  -h, --help   help for watermark\n\nUse \"yutu watermark [command] --help\" for more information about a command.\n"
+ },
+ "yutu watermark set": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Set a channel watermark. Use this tool to set a channel watermark.\n\nUsage:\n  yutu watermark set [flags]\n\nExamples:\n# Set a watermark for a channel\nyutu watermark set --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file watermark.png\n# Set a watermark with position and offset\nyutu watermark set --channelId UC_x5X --file logo.png --inVideoPosition bottomRight --offsetType offsetFromEnd --offsetMs 1000\n# Set a watermark with duration\nyutu watermark set --channelId UC_x5X --file logo.png --durationMs 5000 --offsetMs 2000\n\nFlags:\n  -c, --channelId string                ID of the channel\n  -d, --durationMs uint                 Duration in milliseconds for which the watermark should be displayed\n  -f, --file string                     Path to the watermark file\n  -h, --help                            help for set\n  -p, --inVideoPosition string          topLeft|topRight|bottomLeft|bottomRight\n  -m, --offsetMs uint                   Defines the time at which the watermark will appear\n  -t, --offsetType string               offsetFromStart|offsetFromEnd\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n      --yes                             Confirm the operation\n"
+ },
+ "yutu watermark unset": {
+  "exit": 0,
+  "stderr": "",
+  "stdout": "Unset a channel watermark. Use this tool to unset a channel watermark.\n\nUsage:\n  yutu watermark unset [flags]\n\nExamples:\n# Unset watermark for a channel\nyutu watermark unset --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw\n\nFlags:\n  -c, --channelId string   ID of the channel\n  -h, --help               help for unset\n      --yes                Confirm the operation\n"
+ }
+}

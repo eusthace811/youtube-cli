@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistItem.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List playlist items. Use this tool to list playlist items.\n\nUsage:\n  yutu playlistItem list [flags]\n\nExamples:\n# List items in a playlist\nyutu playlistItem list --playlistId PLxxx\n# List playlist items with limit in JSON format\nyutu playlistItem list --playlistId PLxxx --maxResults 20 --output json\n# List specific playlist items by IDs\nyutu playlistItem list --ids abc123,def456\n\nFlags:\n  -h, --help                            help for list\n  -i, --ids strings                     IDs of the playlist items to list\n  -n, --maxResults int                  The maximum number of items that should be returned, 0 for no limit (default 5)\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet,status])\n  -y, --playlistId string               Return the playlist items within the given playlist\n  -v, --videoId string                  Return the playlist items associated with the given video id\n"
+}

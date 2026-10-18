@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveChatMessage.transition.no-yes",
+ "requests": [],
+ "stderr": "Transition live chat message(s) id1, id2 to val-status\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu liveChatMessage transition -h' to see usage.\n",
+ "stdout": ""
+}

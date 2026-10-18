@@ -1,0 +1,29 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.thirdPartyLink.delete.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "linkingToken": [
+     "val-linkingToken"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "type": [
+     "val-type"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to delete third party link\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu thirdPartyLink delete -h' to see usage.\n",
+ "stdout": ""
+}

@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.channelBanner-insert.defaults",
+ "requests": [
+  {
+   "body": "--0fb244dd5c9e57c250b0bd8da84147f35b6662ed8783a976329e37af1d47\r\nContent-Type: application/json\r\n\r\n{}\n\r\n--0fb244dd5c9e57c250b0bd8da84147f35b6662ed8783a976329e37af1d47\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--0fb244dd5c9e57c250b0bd8da84147f35b6662ed8783a976329e37af1d47--\r\n",
+   "ctype": "multipart/related; boundary=0fb244dd5c9e57c250b0bd8da84147f35b6662ed8783a976329e37af1d47",
+   "method": "POST",
+   "path": "/upload/youtube/v3/channelBanners/insert",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelId": [
+     "val-channel_id"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:17.129+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"channelBanner-insert\",\"arguments\":{\"channel_id\":\"val-channel_id\",\"file\":\"image.png\"}}}\ntime=2026-10-18T15:39:17.129+01:00 level=INFO msg=channelBanner-insert input=\"{\\\"confirmed\\\":false,\\\"channel_id\\\":\\\"val-channel_id\\\",\\\"output\\\":\\\"json\\\",\\\"file\\\":\\\"image.png\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Upload channel banner image.png for channel val-channel_id\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:17.131+01:00 level=INFO msg=channelBanner-insert input=\"{\\\"confirmed\\\":false,\\\"channel_id\\\":\\\"val-channel_id\\\",\\\"output\\\":\\\"json\\\",\\\"file\\\":\\\"image.png\\\"}\" output_length=48\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"etag\\\":\\\"etag-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"url\\\":\\\"url-1\\\"}\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Upload channel banner image.png for channel val-channel_id\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"etag\\\":\\\"etag-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"url\\\":\\\"url-1\\\"}\\n\"}]}}\n"
+}

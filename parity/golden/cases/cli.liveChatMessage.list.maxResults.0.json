@@ -1,0 +1,87 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveChatMessage.list.maxResults.0",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/messages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "part": [
+     "snippet",
+     "authorDetails"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/messages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "snippet",
+     "authorDetails"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveChat/messages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "liveChatId": [
+     "val-liveChatId"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p3"
+    ],
+    "part": [
+     "snippet",
+     "authorDetails"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      TYPE                         AUTHOR                        MESSAGE                   \n id-0    invalidType                  authorDetails.displayName-0   snippet.displayMessage-0  \n id-1    textMessageEvent             authorDetails.displayName-1   snippet.displayMessage-1  \n id-2    tombstone                    authorDetails.displayName-2   snippet.displayMessage-2  \n zero-0                                                                                       \n id-10   giftMembershipReceivedEvent  authorDetails.displayName-10  snippet.displayMessage-10 \n id-11   messageDeletedEvent          authorDetails.displayName-11  snippet.displayMessage-11 \n id-12   messageRetractedEvent        authorDetails.displayName-12  snippet.displayMessage-12 \n zero-1                                                                                       \n id-20   tombstone                    authorDetails.displayName-20  snippet.displayMessage-20 \n id-21   fanFundingEvent              authorDetails.displayName-21  snippet.displayMessage-21 \n id-22   chatEndedEvent               authorDetails.displayName-22  snippet.displayMessage-22 \n zero-2                                                                                       "
+}

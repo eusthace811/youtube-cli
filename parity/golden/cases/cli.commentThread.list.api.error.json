@@ -1,0 +1,39 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.commentThread.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/commentThreads",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "moderationStatus": [
+     "published"
+    ],
+    "order": [
+     "time"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get comment thread\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu commentThread list -h' to see usage.\n",
+ "stdout": ""
+}

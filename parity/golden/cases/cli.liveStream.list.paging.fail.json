@@ -1,0 +1,58 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveStream.list.paging.fail",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get live stream\ngoogleapi: Error 500: Backend Error, backendError\nRun 'yutu liveStream list -h' to see usage.\n",
+ "stdout": "[{\"cdn\":{\"format\":\"cdn.format-0\",\"frameRate\":\"30fps\",\"ingestionInfo\":{\"backupIngestionAddress\":\"cdn.ingestionInfo.backupIngestionAddress-0\",\"ingestionAddress\":\"cdn.ingestionInfo.ingestionAddress-0\",\"rtmpsBackupIngestionAddress\":\"cdn.ingestionInfo.rtmpsBackupIngestionAddress-0\",\"rtmpsIngestionAddress\":\"cdn.ingestionInfo.rtmpsIngestionAddress-0\",\"streamName\":\"cdn.ingestionInfo.streamName-0\"},\"ingestionType\":\"rtmp\",\"resolution\":\"240p\"},\"contentDetails\":{\"closedCaptionsIngestionUrl\":\"contentDetails.closedCaptionsIngestionUrl-0\"},\"etag\":\"etag-0\",\"id\":\"id-0\",\"kind\":\"kind-0\",\"snippet\":{\"channelId\":\"snippet.channelId-0\",\"description\":\"Plain title snippet.description\",\"publishedAt\":\"2026-01-10T12:34:50Z\",\"title\":\"@at sign\"},\"status\":{\"healthStatus\":{\"configurationIssues\":[{\"description\":\"Plain title status.healthStatus.configurationIssues[].description\",\"reason\":\"status.healthStatus.configurationIssues[].reason-0\",\"severity\":\"info\",\"type\":\"gopSizeOver\"},{\"description\":\"Ünïcödé ✓ 日本語のタイトル status.healthStatus.configurationIssues[].description\",\"reason\":\"status.healthStatus.configurationIssues[].reason-1\",\"severity\":\"warning\",\"type\":\"gopSizeLong\"}],\"lastUpdateTimeSeconds\":\"1271\",\"status\":\"good\"},\"streamStatus\":\"created\"}},{\"cdn\":{\"format\":\"cdn.format-1\",\"frameRate\":\"60fps\",\"ingestionInfo\":{\"backupIngestionAddress\":\"cdn.ingestionInfo.backupIngestionAddress-1\",\"ingestionAddress\":\"cdn.ingestionInfo.ingestionAddress-1\",\"rtmpsBackupIngestionAddress\":\"cdn.ingestionInfo.rtmpsBackupIngestionAddress-1\",\"rtmpsIngestionAddress\":\"cdn.ingestionInfo.rtmpsIngestionAddress-1\",\"streamName\":\"cdn.ingestionInfo.streamName-1\"},\"ingestionType\":\"dash\",\"resolution\":\"360p\"},\"contentDetails\":{\"closedCaptionsIngestionUrl\":\"contentDetails.closedCaptionsIngestionUrl-1\",\"isReusable\":true},\"etag\":\"etag-1\",\"id\":\"id-1\",\"kind\":\"kind-1\",\"snippet\":{\"channelId\":\"snippet.channelId-1\",\"description\":\"Ünïcödé ✓ 日本語のタイトル snippet.description\",\"isDefaultStream\":true,\"publishedAt\":\"2026-02-11T12:34:51Z\",\"title\":\"Ünïcödé ✓ 日本語のタイトル\"},\"status\":{\"healthStatus\":{\"configurationIssues\":[{\"description\":\"Ünïcödé ✓ 日本語のタイトル status.healthStatus.configurationIssues[].description\",\"reason\":\"status.healthStatus.configurationIssues[].reason-1\",\"severity\":\"warning\",\"type\":\"gopSizeLong\"},{\"description\":\"<b>tags</b> & \\\"quotes\\\" status.healthStatus.configurationIssues[].description\",\"reason\":\"status.healthStatus.configurationIssues[].reason-2\",\"severity\":\"error\",\"type\":\"gopSizeShort\"}],\"lastUpdateTimeSeconds\":\"9190\",\"status\":\"ok\"},\"streamStatus\":\"ready\"}},{\"cdn\":{\"format\":\"cdn.format-2\",\"frameRate\":\"variable\",\"ingestionInfo\":{\"backupIngestionAddress\":\"cdn.ingestionInfo.backupIngestionAddress-2\",\"ingestionAddress\":\"cdn.ingestionInfo.ingestionAddress-2\",\"rtmpsBackupIngestionAddress\":\"cdn.ingestionInfo.rtmpsBackupIngestionAddress-2\",\"rtmpsIngestionAddress\":\"cdn.ingestionInfo.rtmpsIngestionAddress-2\",\"streamName\":\"cdn.ingestionInfo.streamName-2\"},\"ingestionType\":\"webrtc\",\"resolution\":\"480p\"},\"contentDetails\":{\"closedCaptionsIngestionUrl\":\"contentDetails.closedCaptionsIngestionUrl-2\"},\"etag\":\"etag-2\",\"id\":\"id-2\",\"kind\":\"kind-2\",\"snippet\":{\"channelId\":\"snippet.channelId-2\",\"description\":\"<b>tags</b> & \\\"quotes\\\" snippet.description\",\"publishedAt\":\"2026-03-12T12:34:52Z\",\"title\":\"- dash start\"},\"status\":{\"healthStatus\":{\"configurationIssues\":[{\"description\":\"<b>tags</b> & \\\"quotes\\\" status.healthStatus.configurationIssues[].description\",\"reason\":\"status.healthStatus.configurationIssues[].reason-2\",\"severity\":\"error\",\"type\":\"gopSizeShort\"},{\"description\":\"emoji 🎬🎥 mix status.healthStatus.configurationIssues[].description\",\"reason\":\"status.healthStatus.configurationIssues[].reason-3\",\"severity\":\"info\",\"type\":\"openGop\"}],\"lastUpdateTimeSeconds\":\"17109\",\"status\":\"bad\"},\"streamStatus\":\"active\"}},{\"cdn\":{\"ingestionInfo\":{}},\"contentDetails\":{},\"id\":\"zero-0\",\"snippet\":{},\"status\":{\"healthStatus\":{}}}]\n"
+}

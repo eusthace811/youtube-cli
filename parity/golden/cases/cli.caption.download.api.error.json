@@ -1,0 +1,26 @@
+{
+ "exit": 1,
+ "files": {
+  "out.srt": null,
+  "val-file": null
+ },
+ "id": "cli.caption.download.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/captions/id1",
+   "query": {
+    "alt": [
+     "media"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to download caption\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu caption download -h' to see usage.\n",
+ "stdout": ""
+}

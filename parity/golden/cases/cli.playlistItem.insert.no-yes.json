@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.playlistItem.insert.no-yes",
+ "requests": [],
+ "stderr": "Add playlist item to playlist val-playlistId\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu playlistItem insert -h' to see usage.\n",
+ "stdout": ""
+}

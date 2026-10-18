@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Create a comment. Use this tool to create a comment on a video.\n\nUsage:\n  yutu comment insert [flags]\n\nExamples:\n# Reply to a comment\nyutu comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Hello'\n# Reply with rating enabled\nyutu comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Reply' --canRate\n\nFlags:\n  -a, --authorChannelId string   Channel id of the comment author\n  -R, --canRate                  Whether the viewer can rate the comment\n  -c, --channelId string         Channel id of the video owner\n  -h, --help                     help for insert\n  -o, --output string            json|yaml|silent\n  -P, --parentId string          ID of the parent comment\n  -t, --textOriginal string      Text of the comment\n  -v, --videoId string           ID of the video\n      --yes                      Confirm the operation\n"
+}

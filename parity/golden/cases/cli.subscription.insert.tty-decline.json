@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.subscription.insert.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Subscribe to channel: val-channelId [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu subscription insert -h' to see usage.\r\n"
+}

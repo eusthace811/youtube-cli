@@ -1,0 +1,28 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.liveStream-insert.api.error",
+ "requests": [
+  {
+   "body": "{\"cdn\":{\"ingestionType\":\"rtmp\",\"resolution\":\"240p\"},\"snippet\":{\"title\":\"val-title\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "cdn",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T15:39:22.726+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"liveStream-insert\",\"arguments\":{\"title\":\"val-title\",\"ingestion_type\":\"rtmp\",\"resolution\":\"240p\"}}}\ntime=2026-10-18T15:39:22.727+01:00 level=INFO msg=liveStream-insert input=\"{\\\"confirmed\\\":false,\\\"parts\\\":[\\\"snippet\\\",\\\"cdn\\\",\\\"status\\\"],\\\"output\\\":\\\"json\\\",\\\"title\\\":\\\"val-title\\\",\\\"ingestion_type\\\":\\\"rtmp\\\",\\\"resolution\\\":\\\"240p\\\"}\" mrtr=true\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Create live stream: val-title\"}}\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"action\":\"accept\"}}\ntime=2026-10-18T15:39:22.727+01:00 level=ERROR msg=\"failed to insert live stream\\ngoogleapi: Error 403: The request is not allowed., forbidden\" tool=liveStream-insert input=\"{\\\"confirmed\\\":false,\\\"parts\\\":[\\\"snippet\\\",\\\"cdn\\\",\\\"status\\\"],\\\"output\\\":\\\"json\\\",\\\"title\\\":\\\"val-title\\\",\\\"ingestion_type\\\":\\\"rtmp\\\",\\\"resolution\\\":\\\"240p\\\"}\"\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"failed to insert live stream\\ngoogleapi: Error 403: The request is not allowed., forbidden\"}],\"isError\":true}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"elicitation/create\",\"params\":{\"mode\":\"form\",\"message\":\"Create live stream: val-title\"}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"failed to insert live stream\\ngoogleapi: Error 403: The request is not allowed., forbidden\"}],\"isError\":true}}\n"
+}

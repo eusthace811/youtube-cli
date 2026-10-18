@@ -1,0 +1,59 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveBroadcast.transition.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/transition",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "broadcastStatus": [
+     "val-broadcastStatus"
+    ],
+    "id": [
+     "id1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/transition",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "broadcastStatus": [
+     "val-broadcastStatus"
+    ],
+    "id": [
+     "id2"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to transition live broadcast\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveBroadcast transition -h' to see usage.\n",
+ "stdout": "Live broadcast id2 transitioned to val-broadcastStatus\n"
+}

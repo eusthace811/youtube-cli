@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.thirdPartyLink.delete.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete third-party link(s): val-linkingToken [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu thirdPartyLink delete -h' to see usage.\r\n"
+}

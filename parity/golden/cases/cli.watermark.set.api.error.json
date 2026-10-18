@@ -1,0 +1,29 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.watermark.set.api.error",
+ "requests": [
+  {
+   "body": "--745bf4251afb9a9a38237f17293b31fd3b680c3e7393dc3c9d732b1681be\r\nContent-Type: application/json\r\n\r\n{\"position\":{},\"timing\":{}}\n\r\n--745bf4251afb9a9a38237f17293b31fd3b680c3e7393dc3c9d732b1681be\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--745bf4251afb9a9a38237f17293b31fd3b680c3e7393dc3c9d732b1681be--\r\n",
+   "ctype": "multipart/related; boundary=745bf4251afb9a9a38237f17293b31fd3b680c3e7393dc3c9d732b1681be",
+   "method": "POST",
+   "path": "/upload/youtube/v3/watermarks/set",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelId": [
+     "val-channelId"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to set watermark\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu watermark set -h' to see usage.\n",
+ "stdout": ""
+}

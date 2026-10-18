@@ -1,0 +1,53 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveBroadcast.bind.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/bind",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/bind",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to bind live broadcast\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveBroadcast bind -h' to see usage.\n",
+ "stdout": "Live broadcast id-1 bound to stream \n"
+}

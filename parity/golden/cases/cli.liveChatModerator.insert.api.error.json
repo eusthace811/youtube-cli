@@ -1,0 +1,26 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveChatModerator.insert.api.error",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"liveChatId\":\"val-liveChatId\",\"moderatorDetails\":{\"channelId\":\"val-moderatorChannelId\"}}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveChat/moderators",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to insert live chat moderator\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveChatModerator insert -h' to see usage.\n",
+ "stdout": ""
+}

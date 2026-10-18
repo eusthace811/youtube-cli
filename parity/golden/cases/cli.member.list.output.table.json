@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.member.list.output.table",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/members",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "mode": [
+     "all_current"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " CHANNEL ID                         DISPLAY NAME                        \n snippet.memberDetails.channelId-0  snippet.memberDetails.displayName-0 \n snippet.memberDetails.channelId-1  snippet.memberDetails.displayName-1 \n snippet.memberDetails.channelId-2  snippet.memberDetails.displayName-2 \n                                                                        "
+}

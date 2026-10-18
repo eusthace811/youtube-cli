@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List third-party links. Use this tool to list links between a YouTube channel and a third-party service.\n\nUsage:\n  yutu thirdPartyLink list [flags]\n\nExamples:\n# List all third-party links\nyutu thirdPartyLink list --parts snippet,status\n# List links by linking token\nyutu thirdPartyLink list --linkingToken abc123 --parts snippet,status\n# List links by type\nyutu thirdPartyLink list --type channelToStoreLink --parts snippet,status\n\nFlags:\n  -e, --externalChannelId string   Channel ID to which changes should be applied, for delegation\n  -h, --help                       help for list\n  -l, --linkingToken string        Linking token that identifies the YouTube account and channel\n  -o, --output string              json|yaml|table (default \"table\")\n  -p, --parts strings              Comma separated parts (default [snippet,status])\n  -t, --type string                Type of the link: linkUnspecified|channelToStoreLink\n"
+}

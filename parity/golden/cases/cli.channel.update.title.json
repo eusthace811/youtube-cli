@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.channel.update.title",
+ "requests": [],
+ "stderr": "Error: failed to get channel\nRun 'yutu channel update -h' to see usage.\n",
+ "stdout": ""
+}

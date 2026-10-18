@@ -1,0 +1,54 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.search.list.videoSyndicated.true",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/search",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelType": [
+     "channelTypeUnspecified"
+    ],
+    "eventType": [
+     "none"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "order": [
+     "relevance"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "safeSearch": [
+     "moderate"
+    ],
+    "videoCaption": [
+     "any"
+    ],
+    "videoDimension": [
+     "any"
+    ],
+    "videoDuration": [
+     "any"
+    ],
+    "videoSyndicated": [
+     "true"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get search\njson: cannot unmarshal string into Go struct field .items.3.id of type youtube.ResourceId\nRun 'yutu search list -h' to see usage.\n",
+ "stdout": ""
+}

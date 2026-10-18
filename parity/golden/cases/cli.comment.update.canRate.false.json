@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.comment.update.canRate.false",
+ "requests": [],
+ "stderr": "Error: failed to get comment\nRun 'yutu comment update -h' to see usage.\n",
+ "stdout": ""
+}

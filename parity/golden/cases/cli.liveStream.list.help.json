@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveStream.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List live streams. Use this tool to list live streams for the authenticated user.\n\nUsage:\n  yutu liveStream list [flags]\n\nExamples:\n# List my live streams\nyutu liveStream list --mine\n# List live streams by ID\nyutu liveStream list --ids stream1,stream2\n# List live streams in JSON format\nyutu liveStream list --mine --output json --maxResults 10\n\nFlags:\n  -h, --help                                   help for list\n  -i, --ids strings                            Return live streams with the given ids\n  -n, --maxResults int                         The maximum number of items that should be returned, 0 for no limit (default 5)\n  -m, --mine                                   List streams owned by the authenticated user\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|table (default \"table\")\n  -p, --parts strings                          Comma separated parts (default [id,snippet,cdn,status])\n"
+}

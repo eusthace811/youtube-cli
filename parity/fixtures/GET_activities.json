@@ -1,0 +1,1797 @@
+{
+ "pages": [
+  {
+   "kind": "youtube#activityListResponse",
+   "etag": "etag-page-0",
+   "items": [
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "contentDetails.bulletin.resourceId.channelId-0",
+        "kind": "contentDetails.bulletin.resourceId.kind-0",
+        "playlistId": "contentDetails.bulletin.resourceId.playlistId-0",
+        "videoId": "contentDetails.bulletin.resourceId.videoId-0"
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "contentDetails.channelItem.resourceId.channelId-0",
+        "kind": "contentDetails.channelItem.resourceId.kind-0",
+        "playlistId": "contentDetails.channelItem.resourceId.playlistId-0",
+        "videoId": "contentDetails.channelItem.resourceId.videoId-0"
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "contentDetails.comment.resourceId.channelId-0",
+        "kind": "contentDetails.comment.resourceId.kind-0",
+        "playlistId": "contentDetails.comment.resourceId.playlistId-0",
+        "videoId": "contentDetails.comment.resourceId.videoId-0"
+       }
+      },
+      "playlistItem": {
+       "playlistId": "contentDetails.playlistItem.playlistId-0",
+       "playlistItemId": "contentDetails.playlistItem.playlistItemId-0",
+       "resourceId": {
+        "channelId": "contentDetails.playlistItem.resourceId.channelId-0",
+        "kind": "contentDetails.playlistItem.resourceId.kind-0",
+        "playlistId": "contentDetails.playlistItem.resourceId.playlistId-0",
+        "videoId": "contentDetails.playlistItem.resourceId.videoId-0"
+       }
+      },
+      "promotedItem": {
+       "adTag": "contentDetails.promotedItem.adTag-0",
+       "clickTrackingUrl": "contentDetails.promotedItem.clickTrackingUrl-0",
+       "creativeViewUrl": "contentDetails.promotedItem.creativeViewUrl-0",
+       "ctaType": "ctaTypeUnspecified",
+       "customCtaButtonText": "contentDetails.promotedItem.customCtaButtonText-0",
+       "descriptionText": "contentDetails.promotedItem.descriptionText-0",
+       "destinationUrl": "contentDetails.promotedItem.destinationUrl-0",
+       "forecastingUrl": [
+        "contentDetails.promotedItem.forecastingUrl[]-0",
+        "contentDetails.promotedItem.forecastingUrl[]-1"
+       ],
+       "impressionUrl": [
+        "contentDetails.promotedItem.impressionUrl[]-0",
+        "contentDetails.promotedItem.impressionUrl[]-1"
+       ],
+       "videoId": "contentDetails.promotedItem.videoId-0"
+      },
+      "recommendation": {
+       "reason": "reasonUnspecified",
+       "resourceId": {
+        "channelId": "contentDetails.recommendation.resourceId.channelId-0",
+        "kind": "contentDetails.recommendation.resourceId.kind-0",
+        "playlistId": "contentDetails.recommendation.resourceId.playlistId-0",
+        "videoId": "contentDetails.recommendation.resourceId.videoId-0"
+       },
+       "seedResourceId": {
+        "channelId": "contentDetails.recommendation.seedResourceId.channelId-0",
+        "kind": "contentDetails.recommendation.seedResourceId.kind-0",
+        "playlistId": "contentDetails.recommendation.seedResourceId.playlistId-0",
+        "videoId": "contentDetails.recommendation.seedResourceId.videoId-0"
+       }
+      },
+      "social": {
+       "author": "contentDetails.social.author-0",
+       "imageUrl": "contentDetails.social.imageUrl-0",
+       "referenceUrl": "contentDetails.social.referenceUrl-0",
+       "resourceId": {
+        "channelId": "contentDetails.social.resourceId.channelId-0",
+        "kind": "contentDetails.social.resourceId.kind-0",
+        "playlistId": "contentDetails.social.resourceId.playlistId-0",
+        "videoId": "contentDetails.social.resourceId.videoId-0"
+       },
+       "type": "unspecified"
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "contentDetails.subscription.resourceId.channelId-0",
+        "kind": "contentDetails.subscription.resourceId.kind-0",
+        "playlistId": "contentDetails.subscription.resourceId.playlistId-0",
+        "videoId": "contentDetails.subscription.resourceId.videoId-0"
+       }
+      },
+      "upload": {
+       "videoId": "contentDetails.upload.videoId-0"
+      }
+     },
+     "etag": "etag-0",
+     "id": "id-0",
+     "kind": "kind-0",
+     "snippet": {
+      "channelId": "snippet.channelId-0",
+      "channelTitle": "snippet.channelTitle-0",
+      "description": "Plain title snippet.description",
+      "groupId": "snippet.groupId-0",
+      "publishedAt": "2026-01-10T12:34:50Z",
+      "thumbnails": {
+       "default": {
+        "height": 33,
+        "url": "snippet.thumbnails.default.url-0",
+        "width": 32
+       },
+       "fhd": {
+        "height": 29,
+        "url": "snippet.thumbnails.fhd.url-0",
+        "width": 28
+       },
+       "high": {
+        "height": 30,
+        "url": "snippet.thumbnails.high.url-0",
+        "width": 29
+       },
+       "maxres": {
+        "height": 32,
+        "url": "snippet.thumbnails.maxres.url-0",
+        "width": 31
+       },
+       "medium": {
+        "height": 32,
+        "url": "snippet.thumbnails.medium.url-0",
+        "width": 31
+       },
+       "qhd": {
+        "height": 29,
+        "url": "snippet.thumbnails.qhd.url-0",
+        "width": 28
+       },
+       "standard": {
+        "height": 34,
+        "url": "snippet.thumbnails.standard.url-0",
+        "width": 33
+       },
+       "uhd": {
+        "height": 29,
+        "url": "snippet.thumbnails.uhd.url-0",
+        "width": 28
+       }
+      },
+      "title": "@at sign",
+      "type": "typeUnspecified"
+     }
+    },
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "contentDetails.bulletin.resourceId.channelId-1",
+        "kind": "contentDetails.bulletin.resourceId.kind-1",
+        "playlistId": "contentDetails.bulletin.resourceId.playlistId-1",
+        "videoId": "contentDetails.bulletin.resourceId.videoId-1"
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "contentDetails.channelItem.resourceId.channelId-1",
+        "kind": "contentDetails.channelItem.resourceId.kind-1",
+        "playlistId": "contentDetails.channelItem.resourceId.playlistId-1",
+        "videoId": "contentDetails.channelItem.resourceId.videoId-1"
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "contentDetails.comment.resourceId.channelId-1",
+        "kind": "contentDetails.comment.resourceId.kind-1",
+        "playlistId": "contentDetails.comment.resourceId.playlistId-1",
+        "videoId": "contentDetails.comment.resourceId.videoId-1"
+       }
+      },
+      "playlistItem": {
+       "playlistId": "contentDetails.playlistItem.playlistId-1",
+       "playlistItemId": "contentDetails.playlistItem.playlistItemId-1",
+       "resourceId": {
+        "channelId": "contentDetails.playlistItem.resourceId.channelId-1",
+        "kind": "contentDetails.playlistItem.resourceId.kind-1",
+        "playlistId": "contentDetails.playlistItem.resourceId.playlistId-1",
+        "videoId": "contentDetails.playlistItem.resourceId.videoId-1"
+       }
+      },
+      "promotedItem": {
+       "adTag": "contentDetails.promotedItem.adTag-1",
+       "clickTrackingUrl": "contentDetails.promotedItem.clickTrackingUrl-1",
+       "creativeViewUrl": "contentDetails.promotedItem.creativeViewUrl-1",
+       "ctaType": "visitAdvertiserSite",
+       "customCtaButtonText": "contentDetails.promotedItem.customCtaButtonText-1",
+       "descriptionText": "contentDetails.promotedItem.descriptionText-1",
+       "destinationUrl": "contentDetails.promotedItem.destinationUrl-1",
+       "forecastingUrl": [
+        "contentDetails.promotedItem.forecastingUrl[]-1",
+        "contentDetails.promotedItem.forecastingUrl[]-2"
+       ],
+       "impressionUrl": [
+        "contentDetails.promotedItem.impressionUrl[]-1",
+        "contentDetails.promotedItem.impressionUrl[]-2"
+       ],
+       "videoId": "contentDetails.promotedItem.videoId-1"
+      },
+      "recommendation": {
+       "reason": "videoWatched",
+       "resourceId": {
+        "channelId": "contentDetails.recommendation.resourceId.channelId-1",
+        "kind": "contentDetails.recommendation.resourceId.kind-1",
+        "playlistId": "contentDetails.recommendation.resourceId.playlistId-1",
+        "videoId": "contentDetails.recommendation.resourceId.videoId-1"
+       },
+       "seedResourceId": {
+        "channelId": "contentDetails.recommendation.seedResourceId.channelId-1",
+        "kind": "contentDetails.recommendation.seedResourceId.kind-1",
+        "playlistId": "contentDetails.recommendation.seedResourceId.playlistId-1",
+        "videoId": "contentDetails.recommendation.seedResourceId.videoId-1"
+       }
+      },
+      "social": {
+       "author": "contentDetails.social.author-1",
+       "imageUrl": "contentDetails.social.imageUrl-1",
+       "referenceUrl": "contentDetails.social.referenceUrl-1",
+       "resourceId": {
+        "channelId": "contentDetails.social.resourceId.channelId-1",
+        "kind": "contentDetails.social.resourceId.kind-1",
+        "playlistId": "contentDetails.social.resourceId.playlistId-1",
+        "videoId": "contentDetails.social.resourceId.videoId-1"
+       },
+       "type": "googlePlus"
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "contentDetails.subscription.resourceId.channelId-1",
+        "kind": "contentDetails.subscription.resourceId.kind-1",
+        "playlistId": "contentDetails.subscription.resourceId.playlistId-1",
+        "videoId": "contentDetails.subscription.resourceId.videoId-1"
+       }
+      },
+      "upload": {
+       "videoId": "contentDetails.upload.videoId-1"
+      }
+     },
+     "etag": "etag-1",
+     "id": "id-1",
+     "kind": "kind-1",
+     "snippet": {
+      "channelId": "snippet.channelId-1",
+      "channelTitle": "snippet.channelTitle-1",
+      "description": "Ünïcödé ✓ 日本語のタイトル snippet.description",
+      "groupId": "snippet.groupId-1",
+      "publishedAt": "2026-02-11T12:34:51Z",
+      "thumbnails": {
+       "default": {
+        "height": 46,
+        "url": "snippet.thumbnails.default.url-1",
+        "width": 45
+       },
+       "fhd": {
+        "height": 42,
+        "url": "snippet.thumbnails.fhd.url-1",
+        "width": 41
+       },
+       "high": {
+        "height": 43,
+        "url": "snippet.thumbnails.high.url-1",
+        "width": 42
+       },
+       "maxres": {
+        "height": 45,
+        "url": "snippet.thumbnails.maxres.url-1",
+        "width": 44
+       },
+       "medium": {
+        "height": 45,
+        "url": "snippet.thumbnails.medium.url-1",
+        "width": 44
+       },
+       "qhd": {
+        "height": 42,
+        "url": "snippet.thumbnails.qhd.url-1",
+        "width": 41
+       },
+       "standard": {
+        "height": 47,
+        "url": "snippet.thumbnails.standard.url-1",
+        "width": 46
+       },
+       "uhd": {
+        "height": 42,
+        "url": "snippet.thumbnails.uhd.url-1",
+        "width": 41
+       }
+      },
+      "title": "Ünïcödé ✓ 日本語のタイトル",
+      "type": "upload"
+     }
+    },
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "contentDetails.bulletin.resourceId.channelId-2",
+        "kind": "contentDetails.bulletin.resourceId.kind-2",
+        "playlistId": "contentDetails.bulletin.resourceId.playlistId-2",
+        "videoId": "contentDetails.bulletin.resourceId.videoId-2"
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "contentDetails.channelItem.resourceId.channelId-2",
+        "kind": "contentDetails.channelItem.resourceId.kind-2",
+        "playlistId": "contentDetails.channelItem.resourceId.playlistId-2",
+        "videoId": "contentDetails.channelItem.resourceId.videoId-2"
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "contentDetails.comment.resourceId.channelId-2",
+        "kind": "contentDetails.comment.resourceId.kind-2",
+        "playlistId": "contentDetails.comment.resourceId.playlistId-2",
+        "videoId": "contentDetails.comment.resourceId.videoId-2"
+       }
+      },
+      "playlistItem": {
+       "playlistId": "contentDetails.playlistItem.playlistId-2",
+       "playlistItemId": "contentDetails.playlistItem.playlistItemId-2",
+       "resourceId": {
+        "channelId": "contentDetails.playlistItem.resourceId.channelId-2",
+        "kind": "contentDetails.playlistItem.resourceId.kind-2",
+        "playlistId": "contentDetails.playlistItem.resourceId.playlistId-2",
+        "videoId": "contentDetails.playlistItem.resourceId.videoId-2"
+       }
+      },
+      "promotedItem": {
+       "adTag": "contentDetails.promotedItem.adTag-2",
+       "clickTrackingUrl": "contentDetails.promotedItem.clickTrackingUrl-2",
+       "creativeViewUrl": "contentDetails.promotedItem.creativeViewUrl-2",
+       "ctaType": "ctaTypeUnspecified",
+       "customCtaButtonText": "contentDetails.promotedItem.customCtaButtonText-2",
+       "descriptionText": "contentDetails.promotedItem.descriptionText-2",
+       "destinationUrl": "contentDetails.promotedItem.destinationUrl-2",
+       "forecastingUrl": [
+        "contentDetails.promotedItem.forecastingUrl[]-2",
+        "contentDetails.promotedItem.forecastingUrl[]-3"
+       ],
+       "impressionUrl": [
+        "contentDetails.promotedItem.impressionUrl[]-2",
+        "contentDetails.promotedItem.impressionUrl[]-3"
+       ],
+       "videoId": "contentDetails.promotedItem.videoId-2"
+      },
+      "recommendation": {
+       "reason": "reasonUnspecified",
+       "resourceId": {
+        "channelId": "contentDetails.recommendation.resourceId.channelId-2",
+        "kind": "contentDetails.recommendation.resourceId.kind-2",
+        "playlistId": "contentDetails.recommendation.resourceId.playlistId-2",
+        "videoId": "contentDetails.recommendation.resourceId.videoId-2"
+       },
+       "seedResourceId": {
+        "channelId": "contentDetails.recommendation.seedResourceId.channelId-2",
+        "kind": "contentDetails.recommendation.seedResourceId.kind-2",
+        "playlistId": "contentDetails.recommendation.seedResourceId.playlistId-2",
+        "videoId": "contentDetails.recommendation.seedResourceId.videoId-2"
+       }
+      },
+      "social": {
+       "author": "contentDetails.social.author-2",
+       "imageUrl": "contentDetails.social.imageUrl-2",
+       "referenceUrl": "contentDetails.social.referenceUrl-2",
+       "resourceId": {
+        "channelId": "contentDetails.social.resourceId.channelId-2",
+        "kind": "contentDetails.social.resourceId.kind-2",
+        "playlistId": "contentDetails.social.resourceId.playlistId-2",
+        "videoId": "contentDetails.social.resourceId.videoId-2"
+       },
+       "type": "facebook"
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "contentDetails.subscription.resourceId.channelId-2",
+        "kind": "contentDetails.subscription.resourceId.kind-2",
+        "playlistId": "contentDetails.subscription.resourceId.playlistId-2",
+        "videoId": "contentDetails.subscription.resourceId.videoId-2"
+       }
+      },
+      "upload": {
+       "videoId": "contentDetails.upload.videoId-2"
+      }
+     },
+     "etag": "etag-2",
+     "id": "id-2",
+     "kind": "kind-2",
+     "snippet": {
+      "channelId": "snippet.channelId-2",
+      "channelTitle": "snippet.channelTitle-2",
+      "description": "<b>tags</b> & \"quotes\" snippet.description",
+      "groupId": "snippet.groupId-2",
+      "publishedAt": "2026-03-12T12:34:52Z",
+      "thumbnails": {
+       "default": {
+        "height": 59,
+        "url": "snippet.thumbnails.default.url-2",
+        "width": 58
+       },
+       "fhd": {
+        "height": 55,
+        "url": "snippet.thumbnails.fhd.url-2",
+        "width": 54
+       },
+       "high": {
+        "height": 56,
+        "url": "snippet.thumbnails.high.url-2",
+        "width": 55
+       },
+       "maxres": {
+        "height": 58,
+        "url": "snippet.thumbnails.maxres.url-2",
+        "width": 57
+       },
+       "medium": {
+        "height": 58,
+        "url": "snippet.thumbnails.medium.url-2",
+        "width": 57
+       },
+       "qhd": {
+        "height": 55,
+        "url": "snippet.thumbnails.qhd.url-2",
+        "width": 54
+       },
+       "standard": {
+        "height": 60,
+        "url": "snippet.thumbnails.standard.url-2",
+        "width": 59
+       },
+       "uhd": {
+        "height": 55,
+        "url": "snippet.thumbnails.uhd.url-2",
+        "width": 54
+       }
+      },
+      "title": "- dash start",
+      "type": "comment"
+     }
+    },
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "playlistItem": {
+       "playlistId": "",
+       "playlistItemId": "",
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "promotedItem": {
+       "adTag": "",
+       "clickTrackingUrl": "",
+       "creativeViewUrl": "",
+       "ctaType": "",
+       "customCtaButtonText": "",
+       "descriptionText": "",
+       "destinationUrl": "",
+       "forecastingUrl": [],
+       "impressionUrl": [],
+       "videoId": ""
+      },
+      "recommendation": {
+       "reason": "",
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       },
+       "seedResourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "social": {
+       "author": "",
+       "imageUrl": "",
+       "referenceUrl": "",
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       },
+       "type": ""
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "upload": {
+       "videoId": ""
+      }
+     },
+     "etag": "",
+     "id": "zero-0",
+     "kind": "",
+     "snippet": {
+      "channelId": "",
+      "channelTitle": "",
+      "description": "",
+      "groupId": "",
+      "publishedAt": "",
+      "thumbnails": {
+       "default": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "fhd": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "high": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "maxres": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "medium": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "qhd": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "standard": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "uhd": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       }
+      },
+      "title": "",
+      "type": ""
+     }
+    }
+   ],
+   "pageInfo": {
+    "totalResults": 12,
+    "resultsPerPage": 4
+   },
+   "nextPageToken": "p2",
+   "_token": ""
+  },
+  {
+   "kind": "youtube#activityListResponse",
+   "etag": "etag-page-1",
+   "items": [
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "contentDetails.bulletin.resourceId.channelId-10",
+        "kind": "contentDetails.bulletin.resourceId.kind-10",
+        "playlistId": "contentDetails.bulletin.resourceId.playlistId-10",
+        "videoId": "contentDetails.bulletin.resourceId.videoId-10"
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "contentDetails.channelItem.resourceId.channelId-10",
+        "kind": "contentDetails.channelItem.resourceId.kind-10",
+        "playlistId": "contentDetails.channelItem.resourceId.playlistId-10",
+        "videoId": "contentDetails.channelItem.resourceId.videoId-10"
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "contentDetails.comment.resourceId.channelId-10",
+        "kind": "contentDetails.comment.resourceId.kind-10",
+        "playlistId": "contentDetails.comment.resourceId.playlistId-10",
+        "videoId": "contentDetails.comment.resourceId.videoId-10"
+       }
+      },
+      "playlistItem": {
+       "playlistId": "contentDetails.playlistItem.playlistId-10",
+       "playlistItemId": "contentDetails.playlistItem.playlistItemId-10",
+       "resourceId": {
+        "channelId": "contentDetails.playlistItem.resourceId.channelId-10",
+        "kind": "contentDetails.playlistItem.resourceId.kind-10",
+        "playlistId": "contentDetails.playlistItem.resourceId.playlistId-10",
+        "videoId": "contentDetails.playlistItem.resourceId.videoId-10"
+       }
+      },
+      "promotedItem": {
+       "adTag": "contentDetails.promotedItem.adTag-10",
+       "clickTrackingUrl": "contentDetails.promotedItem.clickTrackingUrl-10",
+       "creativeViewUrl": "contentDetails.promotedItem.creativeViewUrl-10",
+       "ctaType": "ctaTypeUnspecified",
+       "customCtaButtonText": "contentDetails.promotedItem.customCtaButtonText-10",
+       "descriptionText": "contentDetails.promotedItem.descriptionText-10",
+       "destinationUrl": "contentDetails.promotedItem.destinationUrl-10",
+       "forecastingUrl": [
+        "contentDetails.promotedItem.forecastingUrl[]-10",
+        "contentDetails.promotedItem.forecastingUrl[]-11"
+       ],
+       "impressionUrl": [
+        "contentDetails.promotedItem.impressionUrl[]-10",
+        "contentDetails.promotedItem.impressionUrl[]-11"
+       ],
+       "videoId": "contentDetails.promotedItem.videoId-10"
+      },
+      "recommendation": {
+       "reason": "reasonUnspecified",
+       "resourceId": {
+        "channelId": "contentDetails.recommendation.resourceId.channelId-10",
+        "kind": "contentDetails.recommendation.resourceId.kind-10",
+        "playlistId": "contentDetails.recommendation.resourceId.playlistId-10",
+        "videoId": "contentDetails.recommendation.resourceId.videoId-10"
+       },
+       "seedResourceId": {
+        "channelId": "contentDetails.recommendation.seedResourceId.channelId-10",
+        "kind": "contentDetails.recommendation.seedResourceId.kind-10",
+        "playlistId": "contentDetails.recommendation.seedResourceId.playlistId-10",
+        "videoId": "contentDetails.recommendation.seedResourceId.videoId-10"
+       }
+      },
+      "social": {
+       "author": "contentDetails.social.author-10",
+       "imageUrl": "contentDetails.social.imageUrl-10",
+       "referenceUrl": "contentDetails.social.referenceUrl-10",
+       "resourceId": {
+        "channelId": "contentDetails.social.resourceId.channelId-10",
+        "kind": "contentDetails.social.resourceId.kind-10",
+        "playlistId": "contentDetails.social.resourceId.playlistId-10",
+        "videoId": "contentDetails.social.resourceId.videoId-10"
+       },
+       "type": "facebook"
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "contentDetails.subscription.resourceId.channelId-10",
+        "kind": "contentDetails.subscription.resourceId.kind-10",
+        "playlistId": "contentDetails.subscription.resourceId.playlistId-10",
+        "videoId": "contentDetails.subscription.resourceId.videoId-10"
+       }
+      },
+      "upload": {
+       "videoId": "contentDetails.upload.videoId-10"
+      }
+     },
+     "etag": "etag-10",
+     "id": "id-10",
+     "kind": "kind-10",
+     "snippet": {
+      "channelId": "snippet.channelId-10",
+      "channelTitle": "snippet.channelTitle-10",
+      "description": "null snippet.description",
+      "groupId": "snippet.groupId-10",
+      "publishedAt": "2026-02-11T12:34:50Z",
+      "thumbnails": {
+       "default": {
+        "height": 163,
+        "url": "snippet.thumbnails.default.url-10",
+        "width": 162
+       },
+       "fhd": {
+        "height": 159,
+        "url": "snippet.thumbnails.fhd.url-10",
+        "width": 158
+       },
+       "high": {
+        "height": 160,
+        "url": "snippet.thumbnails.high.url-10",
+        "width": 159
+       },
+       "maxres": {
+        "height": 162,
+        "url": "snippet.thumbnails.maxres.url-10",
+        "width": 161
+       },
+       "medium": {
+        "height": 162,
+        "url": "snippet.thumbnails.medium.url-10",
+        "width": 161
+       },
+       "qhd": {
+        "height": 159,
+        "url": "snippet.thumbnails.qhd.url-10",
+        "width": 158
+       },
+       "standard": {
+        "height": 164,
+        "url": "snippet.thumbnails.standard.url-10",
+        "width": 163
+       },
+       "uhd": {
+        "height": 159,
+        "url": "snippet.thumbnails.uhd.url-10",
+        "width": 158
+       }
+      },
+      "title": "key: value",
+      "type": "typeUnspecified"
+     }
+    },
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "contentDetails.bulletin.resourceId.channelId-11",
+        "kind": "contentDetails.bulletin.resourceId.kind-11",
+        "playlistId": "contentDetails.bulletin.resourceId.playlistId-11",
+        "videoId": "contentDetails.bulletin.resourceId.videoId-11"
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "contentDetails.channelItem.resourceId.channelId-11",
+        "kind": "contentDetails.channelItem.resourceId.kind-11",
+        "playlistId": "contentDetails.channelItem.resourceId.playlistId-11",
+        "videoId": "contentDetails.channelItem.resourceId.videoId-11"
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "contentDetails.comment.resourceId.channelId-11",
+        "kind": "contentDetails.comment.resourceId.kind-11",
+        "playlistId": "contentDetails.comment.resourceId.playlistId-11",
+        "videoId": "contentDetails.comment.resourceId.videoId-11"
+       }
+      },
+      "playlistItem": {
+       "playlistId": "contentDetails.playlistItem.playlistId-11",
+       "playlistItemId": "contentDetails.playlistItem.playlistItemId-11",
+       "resourceId": {
+        "channelId": "contentDetails.playlistItem.resourceId.channelId-11",
+        "kind": "contentDetails.playlistItem.resourceId.kind-11",
+        "playlistId": "contentDetails.playlistItem.resourceId.playlistId-11",
+        "videoId": "contentDetails.playlistItem.resourceId.videoId-11"
+       }
+      },
+      "promotedItem": {
+       "adTag": "contentDetails.promotedItem.adTag-11",
+       "clickTrackingUrl": "contentDetails.promotedItem.clickTrackingUrl-11",
+       "creativeViewUrl": "contentDetails.promotedItem.creativeViewUrl-11",
+       "ctaType": "visitAdvertiserSite",
+       "customCtaButtonText": "contentDetails.promotedItem.customCtaButtonText-11",
+       "descriptionText": "contentDetails.promotedItem.descriptionText-11",
+       "destinationUrl": "contentDetails.promotedItem.destinationUrl-11",
+       "forecastingUrl": [
+        "contentDetails.promotedItem.forecastingUrl[]-11",
+        "contentDetails.promotedItem.forecastingUrl[]-12"
+       ],
+       "impressionUrl": [
+        "contentDetails.promotedItem.impressionUrl[]-11",
+        "contentDetails.promotedItem.impressionUrl[]-12"
+       ],
+       "videoId": "contentDetails.promotedItem.videoId-11"
+      },
+      "recommendation": {
+       "reason": "videoWatched",
+       "resourceId": {
+        "channelId": "contentDetails.recommendation.resourceId.channelId-11",
+        "kind": "contentDetails.recommendation.resourceId.kind-11",
+        "playlistId": "contentDetails.recommendation.resourceId.playlistId-11",
+        "videoId": "contentDetails.recommendation.resourceId.videoId-11"
+       },
+       "seedResourceId": {
+        "channelId": "contentDetails.recommendation.seedResourceId.channelId-11",
+        "kind": "contentDetails.recommendation.seedResourceId.kind-11",
+        "playlistId": "contentDetails.recommendation.seedResourceId.playlistId-11",
+        "videoId": "contentDetails.recommendation.seedResourceId.videoId-11"
+       }
+      },
+      "social": {
+       "author": "contentDetails.social.author-11",
+       "imageUrl": "contentDetails.social.imageUrl-11",
+       "referenceUrl": "contentDetails.social.referenceUrl-11",
+       "resourceId": {
+        "channelId": "contentDetails.social.resourceId.channelId-11",
+        "kind": "contentDetails.social.resourceId.kind-11",
+        "playlistId": "contentDetails.social.resourceId.playlistId-11",
+        "videoId": "contentDetails.social.resourceId.videoId-11"
+       },
+       "type": "twitter"
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "contentDetails.subscription.resourceId.channelId-11",
+        "kind": "contentDetails.subscription.resourceId.kind-11",
+        "playlistId": "contentDetails.subscription.resourceId.playlistId-11",
+        "videoId": "contentDetails.subscription.resourceId.videoId-11"
+       }
+      },
+      "upload": {
+       "videoId": "contentDetails.upload.videoId-11"
+      }
+     },
+     "etag": "etag-11",
+     "id": "id-11",
+     "kind": "kind-11",
+     "snippet": {
+      "channelId": "snippet.channelId-11",
+      "channelTitle": "snippet.channelTitle-11",
+      "description": "~ snippet.description",
+      "groupId": "snippet.groupId-11",
+      "publishedAt": "2026-03-12T12:34:51Z",
+      "thumbnails": {
+       "default": {
+        "height": 176,
+        "url": "snippet.thumbnails.default.url-11",
+        "width": 175
+       },
+       "fhd": {
+        "height": 172,
+        "url": "snippet.thumbnails.fhd.url-11",
+        "width": 171
+       },
+       "high": {
+        "height": 173,
+        "url": "snippet.thumbnails.high.url-11",
+        "width": 172
+       },
+       "maxres": {
+        "height": 175,
+        "url": "snippet.thumbnails.maxres.url-11",
+        "width": 174
+       },
+       "medium": {
+        "height": 175,
+        "url": "snippet.thumbnails.medium.url-11",
+        "width": 174
+       },
+       "qhd": {
+        "height": 172,
+        "url": "snippet.thumbnails.qhd.url-11",
+        "width": 171
+       },
+       "standard": {
+        "height": 177,
+        "url": "snippet.thumbnails.standard.url-11",
+        "width": 176
+       },
+       "uhd": {
+        "height": 172,
+        "url": "snippet.thumbnails.uhd.url-11",
+        "width": 171
+       }
+      },
+      "title": "'single' quoted",
+      "type": "upload"
+     }
+    },
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "contentDetails.bulletin.resourceId.channelId-12",
+        "kind": "contentDetails.bulletin.resourceId.kind-12",
+        "playlistId": "contentDetails.bulletin.resourceId.playlistId-12",
+        "videoId": "contentDetails.bulletin.resourceId.videoId-12"
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "contentDetails.channelItem.resourceId.channelId-12",
+        "kind": "contentDetails.channelItem.resourceId.kind-12",
+        "playlistId": "contentDetails.channelItem.resourceId.playlistId-12",
+        "videoId": "contentDetails.channelItem.resourceId.videoId-12"
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "contentDetails.comment.resourceId.channelId-12",
+        "kind": "contentDetails.comment.resourceId.kind-12",
+        "playlistId": "contentDetails.comment.resourceId.playlistId-12",
+        "videoId": "contentDetails.comment.resourceId.videoId-12"
+       }
+      },
+      "playlistItem": {
+       "playlistId": "contentDetails.playlistItem.playlistId-12",
+       "playlistItemId": "contentDetails.playlistItem.playlistItemId-12",
+       "resourceId": {
+        "channelId": "contentDetails.playlistItem.resourceId.channelId-12",
+        "kind": "contentDetails.playlistItem.resourceId.kind-12",
+        "playlistId": "contentDetails.playlistItem.resourceId.playlistId-12",
+        "videoId": "contentDetails.playlistItem.resourceId.videoId-12"
+       }
+      },
+      "promotedItem": {
+       "adTag": "contentDetails.promotedItem.adTag-12",
+       "clickTrackingUrl": "contentDetails.promotedItem.clickTrackingUrl-12",
+       "creativeViewUrl": "contentDetails.promotedItem.creativeViewUrl-12",
+       "ctaType": "ctaTypeUnspecified",
+       "customCtaButtonText": "contentDetails.promotedItem.customCtaButtonText-12",
+       "descriptionText": "contentDetails.promotedItem.descriptionText-12",
+       "destinationUrl": "contentDetails.promotedItem.destinationUrl-12",
+       "forecastingUrl": [
+        "contentDetails.promotedItem.forecastingUrl[]-12",
+        "contentDetails.promotedItem.forecastingUrl[]-13"
+       ],
+       "impressionUrl": [
+        "contentDetails.promotedItem.impressionUrl[]-12",
+        "contentDetails.promotedItem.impressionUrl[]-13"
+       ],
+       "videoId": "contentDetails.promotedItem.videoId-12"
+      },
+      "recommendation": {
+       "reason": "reasonUnspecified",
+       "resourceId": {
+        "channelId": "contentDetails.recommendation.resourceId.channelId-12",
+        "kind": "contentDetails.recommendation.resourceId.kind-12",
+        "playlistId": "contentDetails.recommendation.resourceId.playlistId-12",
+        "videoId": "contentDetails.recommendation.resourceId.videoId-12"
+       },
+       "seedResourceId": {
+        "channelId": "contentDetails.recommendation.seedResourceId.channelId-12",
+        "kind": "contentDetails.recommendation.seedResourceId.kind-12",
+        "playlistId": "contentDetails.recommendation.seedResourceId.playlistId-12",
+        "videoId": "contentDetails.recommendation.seedResourceId.videoId-12"
+       }
+      },
+      "social": {
+       "author": "contentDetails.social.author-12",
+       "imageUrl": "contentDetails.social.imageUrl-12",
+       "referenceUrl": "contentDetails.social.referenceUrl-12",
+       "resourceId": {
+        "channelId": "contentDetails.social.resourceId.channelId-12",
+        "kind": "contentDetails.social.resourceId.kind-12",
+        "playlistId": "contentDetails.social.resourceId.playlistId-12",
+        "videoId": "contentDetails.social.resourceId.videoId-12"
+       },
+       "type": "unspecified"
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "contentDetails.subscription.resourceId.channelId-12",
+        "kind": "contentDetails.subscription.resourceId.kind-12",
+        "playlistId": "contentDetails.subscription.resourceId.playlistId-12",
+        "videoId": "contentDetails.subscription.resourceId.videoId-12"
+       }
+      },
+      "upload": {
+       "videoId": "contentDetails.upload.videoId-12"
+      }
+     },
+     "etag": "etag-12",
+     "id": "id-12",
+     "kind": "kind-12",
+     "snippet": {
+      "channelId": "snippet.channelId-12",
+      "channelTitle": "snippet.channelTitle-12",
+      "description": "@at sign snippet.description",
+      "groupId": "snippet.groupId-12",
+      "publishedAt": "2026-04-13T12:34:52Z",
+      "thumbnails": {
+       "default": {
+        "height": 189,
+        "url": "snippet.thumbnails.default.url-12",
+        "width": 188
+       },
+       "fhd": {
+        "height": 185,
+        "url": "snippet.thumbnails.fhd.url-12",
+        "width": 184
+       },
+       "high": {
+        "height": 186,
+        "url": "snippet.thumbnails.high.url-12",
+        "width": 185
+       },
+       "maxres": {
+        "height": 188,
+        "url": "snippet.thumbnails.maxres.url-12",
+        "width": 187
+       },
+       "medium": {
+        "height": 188,
+        "url": "snippet.thumbnails.medium.url-12",
+        "width": 187
+       },
+       "qhd": {
+        "height": 185,
+        "url": "snippet.thumbnails.qhd.url-12",
+        "width": 184
+       },
+       "standard": {
+        "height": 190,
+        "url": "snippet.thumbnails.standard.url-12",
+        "width": 189
+       },
+       "uhd": {
+        "height": 185,
+        "url": "snippet.thumbnails.uhd.url-12",
+        "width": 184
+       }
+      },
+      "title": "<b>tags</b> & \"quotes\"",
+      "type": "comment"
+     }
+    },
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "playlistItem": {
+       "playlistId": "",
+       "playlistItemId": "",
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "promotedItem": {
+       "adTag": "",
+       "clickTrackingUrl": "",
+       "creativeViewUrl": "",
+       "ctaType": "",
+       "customCtaButtonText": "",
+       "descriptionText": "",
+       "destinationUrl": "",
+       "forecastingUrl": [],
+       "impressionUrl": [],
+       "videoId": ""
+      },
+      "recommendation": {
+       "reason": "",
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       },
+       "seedResourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "social": {
+       "author": "",
+       "imageUrl": "",
+       "referenceUrl": "",
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       },
+       "type": ""
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "upload": {
+       "videoId": ""
+      }
+     },
+     "etag": "",
+     "id": "zero-1",
+     "kind": "",
+     "snippet": {
+      "channelId": "",
+      "channelTitle": "",
+      "description": "",
+      "groupId": "",
+      "publishedAt": "",
+      "thumbnails": {
+       "default": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "fhd": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "high": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "maxres": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "medium": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "qhd": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "standard": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "uhd": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       }
+      },
+      "title": "",
+      "type": ""
+     }
+    }
+   ],
+   "pageInfo": {
+    "totalResults": 12,
+    "resultsPerPage": 4
+   },
+   "nextPageToken": "p3",
+   "_token": "p2"
+  },
+  {
+   "kind": "youtube#activityListResponse",
+   "etag": "etag-page-2",
+   "items": [
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "contentDetails.bulletin.resourceId.channelId-20",
+        "kind": "contentDetails.bulletin.resourceId.kind-20",
+        "playlistId": "contentDetails.bulletin.resourceId.playlistId-20",
+        "videoId": "contentDetails.bulletin.resourceId.videoId-20"
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "contentDetails.channelItem.resourceId.channelId-20",
+        "kind": "contentDetails.channelItem.resourceId.kind-20",
+        "playlistId": "contentDetails.channelItem.resourceId.playlistId-20",
+        "videoId": "contentDetails.channelItem.resourceId.videoId-20"
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "contentDetails.comment.resourceId.channelId-20",
+        "kind": "contentDetails.comment.resourceId.kind-20",
+        "playlistId": "contentDetails.comment.resourceId.playlistId-20",
+        "videoId": "contentDetails.comment.resourceId.videoId-20"
+       }
+      },
+      "playlistItem": {
+       "playlistId": "contentDetails.playlistItem.playlistId-20",
+       "playlistItemId": "contentDetails.playlistItem.playlistItemId-20",
+       "resourceId": {
+        "channelId": "contentDetails.playlistItem.resourceId.channelId-20",
+        "kind": "contentDetails.playlistItem.resourceId.kind-20",
+        "playlistId": "contentDetails.playlistItem.resourceId.playlistId-20",
+        "videoId": "contentDetails.playlistItem.resourceId.videoId-20"
+       }
+      },
+      "promotedItem": {
+       "adTag": "contentDetails.promotedItem.adTag-20",
+       "clickTrackingUrl": "contentDetails.promotedItem.clickTrackingUrl-20",
+       "creativeViewUrl": "contentDetails.promotedItem.creativeViewUrl-20",
+       "ctaType": "ctaTypeUnspecified",
+       "customCtaButtonText": "contentDetails.promotedItem.customCtaButtonText-20",
+       "descriptionText": "contentDetails.promotedItem.descriptionText-20",
+       "destinationUrl": "contentDetails.promotedItem.destinationUrl-20",
+       "forecastingUrl": [
+        "contentDetails.promotedItem.forecastingUrl[]-20",
+        "contentDetails.promotedItem.forecastingUrl[]-21"
+       ],
+       "impressionUrl": [
+        "contentDetails.promotedItem.impressionUrl[]-20",
+        "contentDetails.promotedItem.impressionUrl[]-21"
+       ],
+       "videoId": "contentDetails.promotedItem.videoId-20"
+      },
+      "recommendation": {
+       "reason": "reasonUnspecified",
+       "resourceId": {
+        "channelId": "contentDetails.recommendation.resourceId.channelId-20",
+        "kind": "contentDetails.recommendation.resourceId.kind-20",
+        "playlistId": "contentDetails.recommendation.resourceId.playlistId-20",
+        "videoId": "contentDetails.recommendation.resourceId.videoId-20"
+       },
+       "seedResourceId": {
+        "channelId": "contentDetails.recommendation.seedResourceId.channelId-20",
+        "kind": "contentDetails.recommendation.seedResourceId.kind-20",
+        "playlistId": "contentDetails.recommendation.seedResourceId.playlistId-20",
+        "videoId": "contentDetails.recommendation.seedResourceId.videoId-20"
+       }
+      },
+      "social": {
+       "author": "contentDetails.social.author-20",
+       "imageUrl": "contentDetails.social.imageUrl-20",
+       "referenceUrl": "contentDetails.social.referenceUrl-20",
+       "resourceId": {
+        "channelId": "contentDetails.social.resourceId.channelId-20",
+        "kind": "contentDetails.social.resourceId.kind-20",
+        "playlistId": "contentDetails.social.resourceId.playlistId-20",
+        "videoId": "contentDetails.social.resourceId.videoId-20"
+       },
+       "type": "unspecified"
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "contentDetails.subscription.resourceId.channelId-20",
+        "kind": "contentDetails.subscription.resourceId.kind-20",
+        "playlistId": "contentDetails.subscription.resourceId.playlistId-20",
+        "videoId": "contentDetails.subscription.resourceId.videoId-20"
+       }
+      },
+      "upload": {
+       "videoId": "contentDetails.upload.videoId-20"
+      }
+     },
+     "etag": "etag-20",
+     "id": "id-20",
+     "kind": "kind-20",
+     "snippet": {
+      "channelId": "snippet.channelId-20",
+      "channelTitle": "snippet.channelTitle-20",
+      "description": "emoji 🎬🎥 mix snippet.description",
+      "groupId": "snippet.groupId-20",
+      "publishedAt": "2026-03-12T12:34:50Z",
+      "thumbnails": {
+       "default": {
+        "height": 293,
+        "url": "snippet.thumbnails.default.url-20",
+        "width": 292
+       },
+       "fhd": {
+        "height": 289,
+        "url": "snippet.thumbnails.fhd.url-20",
+        "width": 288
+       },
+       "high": {
+        "height": 290,
+        "url": "snippet.thumbnails.high.url-20",
+        "width": 289
+       },
+       "maxres": {
+        "height": 292,
+        "url": "snippet.thumbnails.maxres.url-20",
+        "width": 291
+       },
+       "medium": {
+        "height": 292,
+        "url": "snippet.thumbnails.medium.url-20",
+        "width": 291
+       },
+       "qhd": {
+        "height": 289,
+        "url": "snippet.thumbnails.qhd.url-20",
+        "width": 288
+       },
+       "standard": {
+        "height": 294,
+        "url": "snippet.thumbnails.standard.url-20",
+        "width": 293
+       },
+       "uhd": {
+        "height": 289,
+        "url": "snippet.thumbnails.uhd.url-20",
+        "width": 288
+       }
+      },
+      "title": "Ünïcödé ✓ 日本語のタイトル",
+      "type": "typeUnspecified"
+     }
+    },
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "contentDetails.bulletin.resourceId.channelId-21",
+        "kind": "contentDetails.bulletin.resourceId.kind-21",
+        "playlistId": "contentDetails.bulletin.resourceId.playlistId-21",
+        "videoId": "contentDetails.bulletin.resourceId.videoId-21"
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "contentDetails.channelItem.resourceId.channelId-21",
+        "kind": "contentDetails.channelItem.resourceId.kind-21",
+        "playlistId": "contentDetails.channelItem.resourceId.playlistId-21",
+        "videoId": "contentDetails.channelItem.resourceId.videoId-21"
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "contentDetails.comment.resourceId.channelId-21",
+        "kind": "contentDetails.comment.resourceId.kind-21",
+        "playlistId": "contentDetails.comment.resourceId.playlistId-21",
+        "videoId": "contentDetails.comment.resourceId.videoId-21"
+       }
+      },
+      "playlistItem": {
+       "playlistId": "contentDetails.playlistItem.playlistId-21",
+       "playlistItemId": "contentDetails.playlistItem.playlistItemId-21",
+       "resourceId": {
+        "channelId": "contentDetails.playlistItem.resourceId.channelId-21",
+        "kind": "contentDetails.playlistItem.resourceId.kind-21",
+        "playlistId": "contentDetails.playlistItem.resourceId.playlistId-21",
+        "videoId": "contentDetails.playlistItem.resourceId.videoId-21"
+       }
+      },
+      "promotedItem": {
+       "adTag": "contentDetails.promotedItem.adTag-21",
+       "clickTrackingUrl": "contentDetails.promotedItem.clickTrackingUrl-21",
+       "creativeViewUrl": "contentDetails.promotedItem.creativeViewUrl-21",
+       "ctaType": "visitAdvertiserSite",
+       "customCtaButtonText": "contentDetails.promotedItem.customCtaButtonText-21",
+       "descriptionText": "contentDetails.promotedItem.descriptionText-21",
+       "destinationUrl": "contentDetails.promotedItem.destinationUrl-21",
+       "forecastingUrl": [
+        "contentDetails.promotedItem.forecastingUrl[]-21",
+        "contentDetails.promotedItem.forecastingUrl[]-22"
+       ],
+       "impressionUrl": [
+        "contentDetails.promotedItem.impressionUrl[]-21",
+        "contentDetails.promotedItem.impressionUrl[]-22"
+       ],
+       "videoId": "contentDetails.promotedItem.videoId-21"
+      },
+      "recommendation": {
+       "reason": "videoWatched",
+       "resourceId": {
+        "channelId": "contentDetails.recommendation.resourceId.channelId-21",
+        "kind": "contentDetails.recommendation.resourceId.kind-21",
+        "playlistId": "contentDetails.recommendation.resourceId.playlistId-21",
+        "videoId": "contentDetails.recommendation.resourceId.videoId-21"
+       },
+       "seedResourceId": {
+        "channelId": "contentDetails.recommendation.seedResourceId.channelId-21",
+        "kind": "contentDetails.recommendation.seedResourceId.kind-21",
+        "playlistId": "contentDetails.recommendation.seedResourceId.playlistId-21",
+        "videoId": "contentDetails.recommendation.seedResourceId.videoId-21"
+       }
+      },
+      "social": {
+       "author": "contentDetails.social.author-21",
+       "imageUrl": "contentDetails.social.imageUrl-21",
+       "referenceUrl": "contentDetails.social.referenceUrl-21",
+       "resourceId": {
+        "channelId": "contentDetails.social.resourceId.channelId-21",
+        "kind": "contentDetails.social.resourceId.kind-21",
+        "playlistId": "contentDetails.social.resourceId.playlistId-21",
+        "videoId": "contentDetails.social.resourceId.videoId-21"
+       },
+       "type": "googlePlus"
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "contentDetails.subscription.resourceId.channelId-21",
+        "kind": "contentDetails.subscription.resourceId.kind-21",
+        "playlistId": "contentDetails.subscription.resourceId.playlistId-21",
+        "videoId": "contentDetails.subscription.resourceId.videoId-21"
+       }
+      },
+      "upload": {
+       "videoId": "contentDetails.upload.videoId-21"
+      }
+     },
+     "etag": "etag-21",
+     "id": "id-21",
+     "kind": "kind-21",
+     "snippet": {
+      "channelId": "snippet.channelId-21",
+      "channelTitle": "snippet.channelTitle-21",
+      "description": "tab\tand\nnewline snippet.description",
+      "groupId": "snippet.groupId-21",
+      "publishedAt": "2026-04-13T12:34:51Z",
+      "thumbnails": {
+       "default": {
+        "height": 306,
+        "url": "snippet.thumbnails.default.url-21",
+        "width": 305
+       },
+       "fhd": {
+        "height": 302,
+        "url": "snippet.thumbnails.fhd.url-21",
+        "width": 301
+       },
+       "high": {
+        "height": 303,
+        "url": "snippet.thumbnails.high.url-21",
+        "width": 302
+       },
+       "maxres": {
+        "height": 305,
+        "url": "snippet.thumbnails.maxres.url-21",
+        "width": 304
+       },
+       "medium": {
+        "height": 305,
+        "url": "snippet.thumbnails.medium.url-21",
+        "width": 304
+       },
+       "qhd": {
+        "height": 302,
+        "url": "snippet.thumbnails.qhd.url-21",
+        "width": 301
+       },
+       "standard": {
+        "height": 307,
+        "url": "snippet.thumbnails.standard.url-21",
+        "width": 306
+       },
+       "uhd": {
+        "height": 302,
+        "url": "snippet.thumbnails.uhd.url-21",
+        "width": 301
+       }
+      },
+      "title": "- dash start",
+      "type": "upload"
+     }
+    },
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "contentDetails.bulletin.resourceId.channelId-22",
+        "kind": "contentDetails.bulletin.resourceId.kind-22",
+        "playlistId": "contentDetails.bulletin.resourceId.playlistId-22",
+        "videoId": "contentDetails.bulletin.resourceId.videoId-22"
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "contentDetails.channelItem.resourceId.channelId-22",
+        "kind": "contentDetails.channelItem.resourceId.kind-22",
+        "playlistId": "contentDetails.channelItem.resourceId.playlistId-22",
+        "videoId": "contentDetails.channelItem.resourceId.videoId-22"
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "contentDetails.comment.resourceId.channelId-22",
+        "kind": "contentDetails.comment.resourceId.kind-22",
+        "playlistId": "contentDetails.comment.resourceId.playlistId-22",
+        "videoId": "contentDetails.comment.resourceId.videoId-22"
+       }
+      },
+      "playlistItem": {
+       "playlistId": "contentDetails.playlistItem.playlistId-22",
+       "playlistItemId": "contentDetails.playlistItem.playlistItemId-22",
+       "resourceId": {
+        "channelId": "contentDetails.playlistItem.resourceId.channelId-22",
+        "kind": "contentDetails.playlistItem.resourceId.kind-22",
+        "playlistId": "contentDetails.playlistItem.resourceId.playlistId-22",
+        "videoId": "contentDetails.playlistItem.resourceId.videoId-22"
+       }
+      },
+      "promotedItem": {
+       "adTag": "contentDetails.promotedItem.adTag-22",
+       "clickTrackingUrl": "contentDetails.promotedItem.clickTrackingUrl-22",
+       "creativeViewUrl": "contentDetails.promotedItem.creativeViewUrl-22",
+       "ctaType": "ctaTypeUnspecified",
+       "customCtaButtonText": "contentDetails.promotedItem.customCtaButtonText-22",
+       "descriptionText": "contentDetails.promotedItem.descriptionText-22",
+       "destinationUrl": "contentDetails.promotedItem.destinationUrl-22",
+       "forecastingUrl": [
+        "contentDetails.promotedItem.forecastingUrl[]-22",
+        "contentDetails.promotedItem.forecastingUrl[]-23"
+       ],
+       "impressionUrl": [
+        "contentDetails.promotedItem.impressionUrl[]-22",
+        "contentDetails.promotedItem.impressionUrl[]-23"
+       ],
+       "videoId": "contentDetails.promotedItem.videoId-22"
+      },
+      "recommendation": {
+       "reason": "reasonUnspecified",
+       "resourceId": {
+        "channelId": "contentDetails.recommendation.resourceId.channelId-22",
+        "kind": "contentDetails.recommendation.resourceId.kind-22",
+        "playlistId": "contentDetails.recommendation.resourceId.playlistId-22",
+        "videoId": "contentDetails.recommendation.resourceId.videoId-22"
+       },
+       "seedResourceId": {
+        "channelId": "contentDetails.recommendation.seedResourceId.channelId-22",
+        "kind": "contentDetails.recommendation.seedResourceId.kind-22",
+        "playlistId": "contentDetails.recommendation.seedResourceId.playlistId-22",
+        "videoId": "contentDetails.recommendation.seedResourceId.videoId-22"
+       }
+      },
+      "social": {
+       "author": "contentDetails.social.author-22",
+       "imageUrl": "contentDetails.social.imageUrl-22",
+       "referenceUrl": "contentDetails.social.referenceUrl-22",
+       "resourceId": {
+        "channelId": "contentDetails.social.resourceId.channelId-22",
+        "kind": "contentDetails.social.resourceId.kind-22",
+        "playlistId": "contentDetails.social.resourceId.playlistId-22",
+        "videoId": "contentDetails.social.resourceId.videoId-22"
+       },
+       "type": "facebook"
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "contentDetails.subscription.resourceId.channelId-22",
+        "kind": "contentDetails.subscription.resourceId.kind-22",
+        "playlistId": "contentDetails.subscription.resourceId.playlistId-22",
+        "videoId": "contentDetails.subscription.resourceId.videoId-22"
+       }
+      },
+      "upload": {
+       "videoId": "contentDetails.upload.videoId-22"
+      }
+     },
+     "etag": "etag-22",
+     "id": "id-22",
+     "kind": "kind-22",
+     "snippet": {
+      "channelId": "snippet.channelId-22",
+      "channelTitle": "snippet.channelTitle-22",
+      "description": "true snippet.description",
+      "groupId": "snippet.groupId-22",
+      "publishedAt": "2026-05-14T12:34:52Z",
+      "thumbnails": {
+       "default": {
+        "height": 319,
+        "url": "snippet.thumbnails.default.url-22",
+        "width": 318
+       },
+       "fhd": {
+        "height": 315,
+        "url": "snippet.thumbnails.fhd.url-22",
+        "width": 314
+       },
+       "high": {
+        "height": 316,
+        "url": "snippet.thumbnails.high.url-22",
+        "width": 315
+       },
+       "maxres": {
+        "height": 318,
+        "url": "snippet.thumbnails.maxres.url-22",
+        "width": 317
+       },
+       "medium": {
+        "height": 318,
+        "url": "snippet.thumbnails.medium.url-22",
+        "width": 317
+       },
+       "qhd": {
+        "height": 315,
+        "url": "snippet.thumbnails.qhd.url-22",
+        "width": 314
+       },
+       "standard": {
+        "height": 320,
+        "url": "snippet.thumbnails.standard.url-22",
+        "width": 319
+       },
+       "uhd": {
+        "height": 315,
+        "url": "snippet.thumbnails.uhd.url-22",
+        "width": 314
+       }
+      },
+      "title": "line sep",
+      "type": "comment"
+     }
+    },
+    {
+     "contentDetails": {
+      "bulletin": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "channelItem": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "comment": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "playlistItem": {
+       "playlistId": "",
+       "playlistItemId": "",
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "promotedItem": {
+       "adTag": "",
+       "clickTrackingUrl": "",
+       "creativeViewUrl": "",
+       "ctaType": "",
+       "customCtaButtonText": "",
+       "descriptionText": "",
+       "destinationUrl": "",
+       "forecastingUrl": [],
+       "impressionUrl": [],
+       "videoId": ""
+      },
+      "recommendation": {
+       "reason": "",
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       },
+       "seedResourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "social": {
+       "author": "",
+       "imageUrl": "",
+       "referenceUrl": "",
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       },
+       "type": ""
+      },
+      "subscription": {
+       "resourceId": {
+        "channelId": "",
+        "kind": "",
+        "playlistId": "",
+        "videoId": ""
+       }
+      },
+      "upload": {
+       "videoId": ""
+      }
+     },
+     "etag": "",
+     "id": "zero-2",
+     "kind": "",
+     "snippet": {
+      "channelId": "",
+      "channelTitle": "",
+      "description": "",
+      "groupId": "",
+      "publishedAt": "",
+      "thumbnails": {
+       "default": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "fhd": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "high": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "maxres": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "medium": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "qhd": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "standard": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       },
+       "uhd": {
+        "height": 0,
+        "url": "",
+        "width": 0
+       }
+      },
+      "title": "",
+      "type": ""
+     }
+    }
+   ],
+   "pageInfo": {
+    "totalResults": 12,
+    "resultsPerPage": 4
+   },
+   "_token": "p3"
+  }
+ ]
+}

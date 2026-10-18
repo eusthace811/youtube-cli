@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.comment.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List comments. Use this tool to list comments by IDs.\n\nUsage:\n  yutu comment list [flags]\n\nExamples:\n# List replies to a comment\nyutu comment list --parentId UgyXXXXXXXX --maxResults 10\n# List specific comments in JSON format\nyutu comment list --ids abc123,def456 --output json\n# List a comment in plain text\nyutu comment list --ids abc123 --textFormat plainText\n\nFlags:\n  -h, --help                help for list\n  -i, --ids strings         IDs of comments\n  -n, --maxResults int      The maximum number of items that should be returned, 0 for no limit (default 5)\n  -o, --output string       json|yaml|table (default \"table\")\n  -P, --parentId string     Returns replies to the specified comment\n  -p, --parts strings       Comma separated parts (default [id,snippet])\n  -t, --textFormat string   textFormatUnspecified|html|plainText (default \"html\")\n"
+}

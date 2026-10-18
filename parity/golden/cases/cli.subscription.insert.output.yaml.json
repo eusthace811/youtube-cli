@@ -1,0 +1,26 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.subscription.insert.output.yaml",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"channelId\":\"val-subscriberChannelId\",\"resourceId\":{\"channelId\":\"val-channelId\"}}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/subscriptions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "contentdetails:\n    activitytype: all\n    newitemcount: 40\n    totalitemcount: 42\n    forcesendfields: []\n    nullfields: []\netag: etag-1\nid: id-1\nkind: kind-1\nsnippet:\n    channelid: snippet.channelId-1\n    description: Ünïcödé ✓ 日本語のタイトル snippet.description\n    publishedat: \"2026-02-11T12:34:51Z\"\n    resourceid:\n        channelid: snippet.resourceId.channelId-1\n        kind: snippet.resourceId.kind-1\n        playlistid: snippet.resourceId.playlistId-1\n        videoid: snippet.resourceId.videoId-1\n        forcesendfields: []\n        nullfields: []\n    thumbnails:\n        default:\n            height: 46\n            url: snippet.thumbnails.default.url-1\n            width: 45\n            forcesendfields: []\n            nullfields: []\n        fhd:\n            height: 42\n            url: snippet.thumbnails.fhd.url-1\n            width: 41\n            forcesendfields: []\n            nullfields: []\n        high:\n            height: 43\n            url: snippet.thumbnails.high.url-1\n            width: 42\n            forcesendfields: []\n            nullfields: []\n        maxres:\n            height: 45\n            url: snippet.thumbnails.maxres.url-1\n            width: 44\n            forcesendfields: []\n            nullfields: []\n        medium:\n            height: 45\n            url: snippet.thumbnails.medium.url-1\n            width: 44\n            forcesendfields: []\n            nullfields: []\n        qhd:\n            height: 42\n            url: snippet.thumbnails.qhd.url-1\n            width: 41\n            forcesendfields: []\n            nullfields: []\n        standard:\n            height: 47\n            url: snippet.thumbnails.standard.url-1\n            width: 46\n            forcesendfields: []\n            nullfields: []\n        uhd:\n            height: 42\n            url: snippet.thumbnails.uhd.url-1\n            width: 41\n            forcesendfields: []\n            nullfields: []\n        forcesendfields: []\n        nullfields: []\n    title: Ünïcödé ✓ 日本語のタイトル\n    forcesendfields: []\n    nullfields: []\nsubscribersnippet:\n    channelid: subscriberSnippet.channelId-1\n    description: Ünïcödé ✓ 日本語のタイトル subscriberSnippet.description\n    thumbnails:\n        default:\n            height: 56\n            url: subscriberSnippet.thumbnails.default.url-1\n            width: 55\n            forcesendfields: []\n            nullfields: []\n        fhd:\n            height: 52\n            url: subscriberSnippet.thumbnails.fhd.url-1\n            width: 51\n            forcesendfields: []\n            nullfields: []\n        high:\n            height: 53\n            url: subscriberSnippet.thumbnails.high.url-1\n            width: 52\n            forcesendfields: []\n            nullfields: []\n        maxres:\n            height: 55\n            url: subscriberSnippet.thumbnails.maxres.url-1\n            width: 54\n            forcesendfields: []\n            nullfields: []\n        medium:\n            height: 55\n            url: subscriberSnippet.thumbnails.medium.url-1\n            width: 54\n            forcesendfields: []\n            nullfields: []\n        qhd:\n            height: 52\n            url: subscriberSnippet.thumbnails.qhd.url-1\n            width: 51\n            forcesendfields: []\n            nullfields: []\n        standard:\n            height: 57\n            url: subscriberSnippet.thumbnails.standard.url-1\n            width: 56\n            forcesendfields: []\n            nullfields: []\n        uhd:\n            height: 52\n            url: subscriberSnippet.thumbnails.uhd.url-1\n            width: 51\n            forcesendfields: []\n            nullfields: []\n        forcesendfields: []\n        nullfields: []\n    title: \"null\"\n    forcesendfields: []\n    nullfields: []\nserverresponse:\n    httpstatuscode: 200\n    header:\n        Content-Length:\n            - \"2227\"\n        Content-Type:\n            - application/json\n        Date:\n            - Sun, 18 Oct 2026 12:00:00 GMT\n        Server:\n            - parity-recorder\nforcesendfields: []\nnullfields: []\n\n"
+}

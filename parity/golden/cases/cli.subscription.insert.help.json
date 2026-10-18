@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.subscription.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Subscribe to a channel. Use this tool to subscribe to a YouTube channel.\n\nUsage:\n  yutu subscription insert [flags]\n\nExamples:\n# Subscribe to a channel\nyutu subscription insert --subscriberChannelId UC_abc --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw\n# Subscribe with a title\nyutu subscription insert --subscriberChannelId UC_abc --channelId UC_x5X --title 'Google Developers'\n\nFlags:\n  -c, --channelId string             ID of the channel to subscribe to\n  -d, --description string           Description of the subscription\n  -h, --help                         help for insert\n  -o, --output string                json|yaml|silent\n  -s, --subscriberChannelId string   Subscriber's channel id\n  -t, --title string                 Title of the subscription\n      --yes                          Confirm the operation\n"
+}

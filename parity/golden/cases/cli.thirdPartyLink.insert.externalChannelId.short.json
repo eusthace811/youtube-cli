@@ -1,0 +1,30 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.insert.externalChannelId.short",
+ "requests": [
+  {
+   "body": "{\"linkingToken\":\"val-linkingToken\",\"snippet\":{\"type\":\"val-type\"},\"status\":{}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/thirdPartyLinks",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "externalChannelId": [
+     "val-externalChannelId"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Third party link inserted: linkingToken-1\n"
+}

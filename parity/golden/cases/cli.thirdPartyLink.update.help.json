@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.thirdPartyLink.update.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update a third-party link. Use this tool to update the status or type of a link between a YouTube channel and a third-party service.\n\nUsage:\n  yutu thirdPartyLink update [flags]\n\nExamples:\n# Update a third-party link status\nyutu thirdPartyLink update --linkingToken abc123 --linkStatus linked --parts snippet,status\n# Update a third-party link type\nyutu thirdPartyLink update --linkingToken abc123 --type channelToStoreLink --parts snippet,status\n\nFlags:\n  -e, --externalChannelId string   Channel ID to which changes should be applied, for delegation\n  -h, --help                       help for update\n  -s, --linkStatus string          Status of the link: unknown|failed|pending|linked\n  -l, --linkingToken string        Linking token that identifies the YouTube account and channel\n  -o, --output string              json|yaml|silent\n  -p, --parts strings              Comma separated parts (default [snippet,status])\n  -t, --type string                Type of the link: linkUnspecified|channelToStoreLink\n      --yes                        Confirm the operation\n"
+}

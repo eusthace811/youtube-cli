@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistItem.update.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update a playlist item. Use this tool to update a playlist item.\n\nUsage:\n  yutu playlistItem update [flags]\n\nExamples:\n# Update playlist item title\nyutu playlistItem update --id abc123 --title 'Updated Title'\n# Update playlist item description and privacy\nyutu playlistItem update --id abc123 --description 'New description' --privacy public\n# Update playlist item privacy with JSON output\nyutu playlistItem update --id abc123 --privacy private --output json\n\nFlags:\n  -d, --description string              Description of the playlist item\n  -h, --help                            help for update\n  -i, --id strings                      ID of the playlist item to update\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|silent\n  -p, --privacy string                  public|private|unlisted\n  -t, --title string                    Title of the playlist item\n      --yes                             Confirm the operation\n"
+}

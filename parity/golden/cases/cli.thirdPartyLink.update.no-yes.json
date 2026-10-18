@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.thirdPartyLink.update.no-yes",
+ "requests": [],
+ "stderr": "Update third-party link: val-linkingToken\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu thirdPartyLink update -h' to see usage.\n",
+ "stdout": ""
+}

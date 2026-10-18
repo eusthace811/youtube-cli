@@ -1,0 +1,31 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistImage.list.output.yaml",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "- id: id-0\n  kind: kind-0\n  snippet:\n    height: 14\n    playlistid: snippet.playlistId-0\n    type: hero\n    width: 13\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- id: id-1\n  kind: kind-1\n  snippet:\n    height: 27\n    playlistid: snippet.playlistId-1\n    type: hero\n    width: 26\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- id: id-2\n  kind: kind-2\n  snippet:\n    height: 40\n    playlistid: snippet.playlistId-2\n    type: hero\n    width: 39\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n- id: zero-0\n  kind: \"\"\n  snippet:\n    height: 0\n    playlistid: \"\"\n    type: \"\"\n    width: 0\n    forcesendfields: []\n    nullfields: []\n  serverresponse:\n    httpstatuscode: 0\n    header: {}\n  forcesendfields: []\n  nullfields: []\n\n"
+}

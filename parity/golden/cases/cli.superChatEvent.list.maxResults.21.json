@@ -1,0 +1,54 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.superChatEvent.list.maxResults.21",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/superChatEvents",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "20"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/superChatEvents",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      AMOUNT                    COMMENT                 SUPPORTER                               \n id-0    snippet.displayString-0   snippet.commentText-0   snippet.supporterDetails.displayName-0  \n id-1    snippet.displayString-1   snippet.commentText-1   snippet.supporterDetails.displayName-1  \n id-2    snippet.displayString-2   snippet.commentText-2   snippet.supporterDetails.displayName-2  \n zero-0                                                                                            \n id-10   snippet.displayString-10  snippet.commentText-10  snippet.supporterDetails.displayName-10 \n id-11   snippet.displayString-11  snippet.commentText-11  snippet.supporterDetails.displayName-11 \n id-12   snippet.displayString-12  snippet.commentText-12  snippet.supporterDetails.displayName-12 \n zero-1                                                                                            "
+}

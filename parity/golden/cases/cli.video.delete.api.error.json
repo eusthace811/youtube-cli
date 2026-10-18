@@ -1,0 +1,43 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.video.delete.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "DELETE",
+   "path": "/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to delete video\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu video delete -h' to see usage.\n",
+ "stdout": "Video id2 deleted"
+}

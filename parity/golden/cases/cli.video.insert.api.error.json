@@ -1,0 +1,29 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.video.insert.api.error",
+ "requests": [
+  {
+   "body": "--c5dbc2ea8d1bf819144c7cceee28a7e85c1506cee21d1cff9f99b05fac6b\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"categoryId\":\"val-categoryId\",\"title\":\"video\"},\"status\":{\"containsSyntheticMedia\":false,\"privacyStatus\":\"val-privacy\",\"selfDeclaredMadeForKids\":false}}\n\r\n--c5dbc2ea8d1bf819144c7cceee28a7e85c1506cee21d1cff9f99b05fac6b\r\nContent-Type: application/octet-stream\r\n\r\n\u0000\u0000\u0000\u0018ftypisom\u0000\u0000\u0002\u0000isomiso2\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\r\n--c5dbc2ea8d1bf819144c7cceee28a7e85c1506cee21d1cff9f99b05fac6b--\r\n",
+   "ctype": "multipart/related; boundary=c5dbc2ea8d1bf819144c7cceee28a7e85c1506cee21d1cff9f99b05fac6b",
+   "method": "POST",
+   "path": "/upload/youtube/v3/videos",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet,status"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to insert video\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu video insert -h' to see usage.\n",
+ "stdout": ""
+}

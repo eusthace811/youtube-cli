@@ -1,0 +1,27 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistItem.insert.privacy.private",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"channelId\":\"val-channelId\",\"playlistId\":\"val-playlistId\"},\"status\":{\"privacyStatus\":\"private\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/playlistItems",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Playlist Item inserted: id-1\n"
+}

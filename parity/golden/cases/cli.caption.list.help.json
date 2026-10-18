@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List captions. Use this tool to list captions of a video.\n\nUsage:\n  yutu caption list [flags]\n\nExamples:\n# List captions of a video\nyutu caption list --videoId dQw4w9WgXcQ\n# List captions in JSON format\nyutu caption list --videoId dQw4w9WgXcQ --output json\n# List specific captions by IDs\nyutu caption list --ids abc123,def456 --videoId dQw4w9WgXcQ\n\nFlags:\n  -h, --help                            help for list\n  -i, --ids strings                     IDs of the captions to list\n  -b, --onBehalfOf string               ID of the YouTube account that the content owner is acting on behalf of\n  -B, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet])\n  -v, --videoId string                  ID of the video\n"
+}

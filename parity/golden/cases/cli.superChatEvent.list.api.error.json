@@ -1,0 +1,30 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.superChatEvent.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/superChatEvents",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get super chat event\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu superChatEvent list -h' to see usage.\n",
+ "stdout": ""
+}

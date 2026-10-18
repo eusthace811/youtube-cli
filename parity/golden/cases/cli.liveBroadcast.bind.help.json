@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.bind.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Bind a live broadcast to a stream. Use this tool to bind or unbind a live stream to/from a live broadcast.\n\nUsage:\n  yutu liveBroadcast bind [flags]\n\nExamples:\n# Bind a broadcast to a stream\nyutu liveBroadcast bind --ids broadcast123 --streamId stream456\n# Unbind a broadcast (omit streamId)\nyutu liveBroadcast bind --ids broadcast123\n\nFlags:\n  -h, --help                                   help for bind\n  -i, --ids strings                            IDs of the broadcasts to bind\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -p, --parts strings                          Comma separated parts (default [id,snippet,contentDetails,status])\n  -s, --streamId string                        ID of the live stream to bind\n      --yes                                    Confirm the operation\n"
+}

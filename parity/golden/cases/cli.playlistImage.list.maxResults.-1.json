@@ -1,0 +1,31 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistImage.list.maxResults.-1",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/playlistImages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "kind",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      KIND    PLAYLIST ID           TYPE \n id-0    kind-0  snippet.playlistId-0  hero \n id-1    kind-1  snippet.playlistId-1  hero \n id-2    kind-2  snippet.playlistId-2  hero \n zero-0                                     "
+}

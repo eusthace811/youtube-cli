@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.liveBroadcast.transition.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Transition a live broadcast. Use this tool to change the status of a live broadcast (e.g., go live, end broadcast).\n\nUsage:\n  yutu liveBroadcast transition [flags]\n\nExamples:\n# Transition a broadcast to live\nyutu liveBroadcast transition --ids broadcast123 --broadcastStatus live\n# End a broadcast\nyutu liveBroadcast transition --ids broadcast123 --broadcastStatus complete\n\nFlags:\n  -s, --broadcastStatus string                 Broadcast status to transition to (testing, live, complete)\n  -h, --help                                   help for transition\n  -i, --ids strings                            IDs of the broadcasts to transition\n  -b, --onBehalfOfContentOwner string          ID of the content owner, for YouTube content partners\n  -B, --onBehalfOfContentOwnerChannel string   Channel ID for content owner operations\n  -o, --output string                          json|yaml|silent\n  -p, --parts strings                          Comma separated parts (default [id,snippet,status])\n      --yes                                    Confirm the operation\n"
+}

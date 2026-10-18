@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.video.update.no-yes",
+ "requests": [],
+ "stderr": "Update video: id1\nError: operation not confirmed (pass confirm: true or rerun with --yes)\nRun 'yutu video update -h' to see usage.\n",
+ "stdout": ""
+}

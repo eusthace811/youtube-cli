@@ -1,0 +1,2 @@
+# Appendix E of the plan. The differ accepts a difference only when the case
+# names one of these ids, and only in the listed fields.

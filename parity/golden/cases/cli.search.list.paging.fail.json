@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.search.list.paging.fail",
+ "requests": [],
+ "stderr": "Error: unknown shorthand flag: 'o' in -o\nRun 'yutu search list -h' to see usage.\n",
+ "stdout": ""
+}

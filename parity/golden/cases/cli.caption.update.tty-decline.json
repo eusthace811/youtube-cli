@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.caption.update.tty-decline",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Update caption for video val-videoId [y/N] n\r\nError: operation not confirmed (pass confirm: true or rerun with --yes)\r\nRun 'yutu caption update -h' to see usage.\r\n"
+}

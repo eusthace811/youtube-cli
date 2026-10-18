@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlistItem.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Add a playlist item. Use this tool to add a playlist item to a playlist.\n\nUsage:\n  yutu playlistItem insert [flags]\n\nExamples:\n# Add a video to a playlist\nyutu playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9WgXcQ\n# Add a video to a playlist with privacy setting\nyutu playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9 --privacy public\n\nFlags:\n  -c, --channelId string                ID that YouTube uses to uniquely identify the user that added the item to the playlist\n  -d, --description string              Description of the playlist item\n  -h, --help                            help for insert\n  -C, --kChannelId string               ID of the channel if kind is channel\n  -Y, --kPlaylistId string              ID of the playlist if kind is playlist\n  -V, --kVideoId string                 ID of the video if kind is video\n  -k, --kind string                     video|channel|playlist\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|silent\n  -y, --playlistId string               The id that YouTube uses to uniquely identify the playlist that the item is in\n  -p, --privacy string                  public|private|unlisted\n  -t, --title string                    Title of the playlist item\n      --yes                             Confirm the operation\n"
+}

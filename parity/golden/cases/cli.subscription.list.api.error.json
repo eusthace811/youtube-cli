@@ -1,0 +1,33 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.subscription.list.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/subscriptions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "order": [
+     "relevance"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to get subscription\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu subscription list -h' to see usage.\n",
+ "stdout": ""
+}

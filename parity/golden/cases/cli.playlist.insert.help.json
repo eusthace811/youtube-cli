@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.playlist.insert.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Create a playlist. Use this tool to create a playlist.\n\nUsage:\n  yutu playlist insert [flags]\n\nExamples:\n# Create a public playlist\nyutu playlist insert --title 'My Playlist' --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --privacy public\n# Create a private playlist with description\nyutu playlist insert --title 'Tutorial Series' --channelId UC_x5X --privacy private --description 'My tutorials'\n# Create an unlisted playlist with tags\nyutu playlist insert --title 'Music' --channelId UC_x5X --privacy unlisted --tags 'music,pop'\n\nFlags:\n  -c, --channelId string     Channel id of the playlist\n  -d, --description string   Description of the playlist\n  -h, --help                 help for insert\n  -l, --language string      Language of the playlist\n  -o, --output string        json|yaml|silent\n  -p, --privacy string       public|private|unlisted\n  -a, --tags strings         Comma separated tags\n  -t, --title string         Title of the playlist\n      --yes                  Confirm the operation\n"
+}

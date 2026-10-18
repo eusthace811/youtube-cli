@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.video.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete videos. Use this tool to delete videos by IDs.\n\nUsage:\n  yutu video delete [flags]\n\nExamples:\n# Delete a video by ID\nyutu video delete --ids dQw4w9WgXcQ\n# Delete multiple videos\nyutu video delete --ids dQw4w9WgXcQ,abc123\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of the videos to delete\n      --yes           Confirm the operation\n"
+}

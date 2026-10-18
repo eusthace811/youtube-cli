@@ -1,0 +1,33 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.list.onBehalfOfContentOwner",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "onBehalfOfContentOwner": [
+     "val-onBehalfOfContentOwner"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "videoId": [
+     ""
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      VIDEO ID           NAME         LANGUAGE           \n id-0    snippet.videoId-0  ~            snippet.language-0 \n id-1    snippet.videoId-1  Plain title  snippet.language-1 \n id-2    snippet.videoId-2  key: value   snippet.language-2 \n zero-0                                                     "
+}

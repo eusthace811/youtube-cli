@@ -1,0 +1,43 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveBroadcast.insertCuepoint.api.error",
+ "requests": [
+  {
+   "body": "{\"cueType\":\"cueTypeAd\"}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/cuepoint",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "{\"cueType\":\"cueTypeAd\"}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/liveBroadcasts/cuepoint",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id2"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to insert cuepoint\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveBroadcast insertCuepoint -h' to see usage.\n",
+ "stdout": "Cuepoint inserted for broadcast id2: id-1\n"
+}

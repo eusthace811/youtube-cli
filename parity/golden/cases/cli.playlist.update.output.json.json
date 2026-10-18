@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.playlist.update.output.json",
+ "requests": [],
+ "stderr": "Error: failed to get playlist\nRun 'yutu playlist update -h' to see usage.\n",
+ "stdout": ""
+}

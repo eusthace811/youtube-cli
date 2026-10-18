@@ -1,0 +1,8 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "core.suggest",
+ "requests": [],
+ "stderr": "Error: unknown command \"vidoe\" for \"yutu\"\n\nDid you mean this?\n\tvideo\n\nRun 'yutu --help' for usage.\nRun 'yutu -h' to see usage.\n",
+ "stdout": ""
+}

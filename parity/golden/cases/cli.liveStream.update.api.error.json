@@ -1,0 +1,34 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.liveStream.update.api.error",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/liveStreams",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "id": [
+     "id1"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "part": [
+     "id",
+     "snippet",
+     "cdn"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to update live stream\nfailed to get live stream\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu liveStream update -h' to see usage.\n",
+ "stdout": ""
+}

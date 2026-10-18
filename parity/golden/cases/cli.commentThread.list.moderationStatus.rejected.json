@@ -1,0 +1,39 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.commentThread.list.moderationStatus.rejected",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/commentThreads",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "maxResults": [
+     "5"
+    ],
+    "moderationStatus": [
+     "rejected"
+    ],
+    "order": [
+     "time"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "textFormat": [
+     "html"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": " ID      AUTHOR                                               VIDEO ID                                   TEXT DISPLAY                                                           \n id-0    snippet.topLevelComment.snippet.authorDisplayName-0  snippet.topLevelComment.snippet.videoId-0  Plain title snippet.topLevelComment.snippet.textDisplay                \n id-1    snippet.topLevelComment.snippet.authorDisplayName-1  snippet.topLevelComment.snippet.videoId-1  Ünïcödé ✓ 日本語のタイトル snippet.topLevelComment.snippet.textDisplay \n id-2    snippet.topLevelComment.snippet.authorDisplayName-2  snippet.topLevelComment.snippet.videoId-2  <b>tags</b> & \"quotes\" snippet.topLevelComment.snippet.textDisplay     \n zero-0                                                                                                                                                                         "
+}

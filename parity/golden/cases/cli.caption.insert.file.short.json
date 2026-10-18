@@ -1,0 +1,29 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.caption.insert.file.short",
+ "requests": [
+  {
+   "body": "--b03052f3b6f378d6d137fbd48dc5b43739ea3f52fee08a427ed2a1a5fb75\r\nContent-Type: application/json\r\n\r\n{\"snippet\":{\"audioTrackType\":\"unknown\",\"trackKind\":\"standard\",\"videoId\":\"val-videoId\"}}\n\r\n--b03052f3b6f378d6d137fbd48dc5b43739ea3f52fee08a427ed2a1a5fb75\r\nContent-Type: text/plain; charset=utf-8\r\n\r\n1\n00:00:00,000 --> 00:00:01,000\nHello\n\r\n--b03052f3b6f378d6d137fbd48dc5b43739ea3f52fee08a427ed2a1a5fb75--\r\n",
+   "ctype": "multipart/related; boundary=b03052f3b6f378d6d137fbd48dc5b43739ea3f52fee08a427ed2a1a5fb75",
+   "method": "POST",
+   "path": "/upload/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "Caption inserted: id-1\n"
+}

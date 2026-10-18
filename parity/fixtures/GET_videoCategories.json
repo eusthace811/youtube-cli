@@ -1,0 +1,159 @@
+{
+ "pages": [
+  {
+   "kind": "youtube#videoCategoryListResponse",
+   "etag": "etag-page-0",
+   "items": [
+    {
+     "etag": "etag-0",
+     "id": "id-0",
+     "kind": "kind-0",
+     "snippet": {
+      "assignable": false,
+      "channelId": "snippet.channelId-0",
+      "title": "@at sign"
+     }
+    },
+    {
+     "etag": "etag-1",
+     "id": "id-1",
+     "kind": "kind-1",
+     "snippet": {
+      "assignable": true,
+      "channelId": "snippet.channelId-1",
+      "title": "Ünïcödé ✓ 日本語のタイトル"
+     }
+    },
+    {
+     "etag": "etag-2",
+     "id": "id-2",
+     "kind": "kind-2",
+     "snippet": {
+      "assignable": false,
+      "channelId": "snippet.channelId-2",
+      "title": "- dash start"
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-0",
+     "kind": "",
+     "snippet": {
+      "assignable": false,
+      "channelId": "",
+      "title": ""
+     }
+    }
+   ],
+   "pageInfo": {
+    "totalResults": 12,
+    "resultsPerPage": 4
+   },
+   "nextPageToken": "p2",
+   "_token": ""
+  },
+  {
+   "kind": "youtube#videoCategoryListResponse",
+   "etag": "etag-page-1",
+   "items": [
+    {
+     "etag": "etag-10",
+     "id": "id-10",
+     "kind": "kind-10",
+     "snippet": {
+      "assignable": false,
+      "channelId": "snippet.channelId-10",
+      "title": "key: value"
+     }
+    },
+    {
+     "etag": "etag-11",
+     "id": "id-11",
+     "kind": "kind-11",
+     "snippet": {
+      "assignable": true,
+      "channelId": "snippet.channelId-11",
+      "title": "'single' quoted"
+     }
+    },
+    {
+     "etag": "etag-12",
+     "id": "id-12",
+     "kind": "kind-12",
+     "snippet": {
+      "assignable": false,
+      "channelId": "snippet.channelId-12",
+      "title": "<b>tags</b> & \"quotes\""
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-1",
+     "kind": "",
+     "snippet": {
+      "assignable": false,
+      "channelId": "",
+      "title": ""
+     }
+    }
+   ],
+   "pageInfo": {
+    "totalResults": 12,
+    "resultsPerPage": 4
+   },
+   "nextPageToken": "p3",
+   "_token": "p2"
+  },
+  {
+   "kind": "youtube#videoCategoryListResponse",
+   "etag": "etag-page-2",
+   "items": [
+    {
+     "etag": "etag-20",
+     "id": "id-20",
+     "kind": "kind-20",
+     "snippet": {
+      "assignable": false,
+      "channelId": "snippet.channelId-20",
+      "title": "Ünïcödé ✓ 日本語のタイトル"
+     }
+    },
+    {
+     "etag": "etag-21",
+     "id": "id-21",
+     "kind": "kind-21",
+     "snippet": {
+      "assignable": true,
+      "channelId": "snippet.channelId-21",
+      "title": "- dash start"
+     }
+    },
+    {
+     "etag": "etag-22",
+     "id": "id-22",
+     "kind": "kind-22",
+     "snippet": {
+      "assignable": false,
+      "channelId": "snippet.channelId-22",
+      "title": "line sep"
+     }
+    },
+    {
+     "etag": "",
+     "id": "zero-2",
+     "kind": "",
+     "snippet": {
+      "assignable": false,
+      "channelId": "",
+      "title": ""
+     }
+    }
+   ],
+   "pageInfo": {
+    "totalResults": 12,
+    "resultsPerPage": 4
+   },
+   "_token": "p3"
+  }
+ ]
+}

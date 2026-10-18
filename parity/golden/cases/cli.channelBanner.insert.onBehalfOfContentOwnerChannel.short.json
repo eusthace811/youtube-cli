@@ -1,0 +1,32 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.channelBanner.insert.onBehalfOfContentOwnerChannel.short",
+ "requests": [
+  {
+   "body": "--83e4059d50ff371dd46a3a5f089aa5284667fd6c111eed28839ef024cb34\r\nContent-Type: application/json\r\n\r\n{}\n\r\n--83e4059d50ff371dd46a3a5f089aa5284667fd6c111eed28839ef024cb34\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\b\u0006\u0000\u0000\u0000\u001f\u0015ĉ\u0000\u0000\u0000\rIDATx�c���?\u0000\u0005�\u0002��֤�\u0000\u0000\u0000\u0000IEND�B`�\r\n--83e4059d50ff371dd46a3a5f089aa5284667fd6c111eed28839ef024cb34--\r\n",
+   "ctype": "multipart/related; boundary=83e4059d50ff371dd46a3a5f089aa5284667fd6c111eed28839ef024cb34",
+   "method": "POST",
+   "path": "/upload/youtube/v3/channelBanners/insert",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelId": [
+     "val-channelId"
+    ],
+    "onBehalfOfContentOwnerChannel": [
+     "val-onBehalfOfContentOwnerChannel"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "uploadType": [
+     "multipart"
+    ]
+   }
+  }
+ ],
+ "stderr": "",
+ "stdout": "ChannelBanner inserted: url-1\n"
+}

@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.subscription.delete.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "Delete subscriptions. Use this tool to delete subscriptions by IDs.\n\nUsage:\n  yutu subscription delete [flags]\n\nExamples:\n# Delete a subscription by ID\nyutu subscription delete --ids abc123\n# Delete multiple subscriptions\nyutu subscription delete --ids abc123,def456\n\nFlags:\n  -h, --help          help for delete\n  -i, --ids strings   IDs of the subscriptions to delete\n      --yes           Confirm the operation\n"
+}

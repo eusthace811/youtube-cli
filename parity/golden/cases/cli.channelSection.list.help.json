@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "cli.channelSection.list.help",
+ "requests": [],
+ "stderr": "",
+ "stdout": "List channel sections. Use this tool to list channel sections.\n\nUsage:\n  yutu channelSection list [flags]\n\nExamples:\n# List my channel sections\nyutu channelSection list --mine\n# List channel sections by channel ID\nyutu channelSection list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw\n# List specific channel sections in JSON format\nyutu channelSection list --ids abc123,def456 --output json\n\nFlags:\n  -c, --channelId string                Return the ChannelSections owned by the specified channel id\n  -h, --help                            help for list\n  -l, --hl string                       Return content in specified language\n  -i, --ids strings                     Return the channel sections with the given ids\n  -M, --mine                            Return the ChannelSections owned by the authenticated user\n  -b, --onBehalfOfContentOwner string   ID of the content owner, for YouTube content partners\n  -o, --output string                   json|yaml|table (default \"table\")\n  -p, --parts strings                   Comma separated parts (default [id,snippet])\n"
+}

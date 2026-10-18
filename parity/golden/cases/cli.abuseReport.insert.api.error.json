@@ -1,0 +1,26 @@
+{
+ "exit": 1,
+ "files": {},
+ "id": "cli.abuseReport.insert.api.error",
+ "requests": [
+  {
+   "body": "{\"abuseTypes\":[{\"id\":\"spam\"},{\"id\":\"violence\"}],\"subject\":{\"id\":\"val-subjectId\",\"typeId\":\"val-subjectTypeId\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/abuseReports",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "Error: failed to insert abuse report\ngoogleapi: Error 403: The request is not allowed., forbidden\nRun 'yutu abuseReport insert -h' to see usage.\n",
+ "stdout": ""
+}
