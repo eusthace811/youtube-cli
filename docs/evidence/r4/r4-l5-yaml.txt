@@ -1,0 +1,42 @@
+r4 lane 5: PASS
+
+identical: True
+--- head yaml (first 1200 bytes) ---
+- agegating:
+    alcoholcontent: false
+    restricted: false
+    videogamerating: anyone
+    forcesendfields: []
+    nullfields: []
+  brandpartner:
+    channelhandle: brandPartner.channelHandle-0
+    channelid: brandPartner.channelId-0
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    caption: "true"
+    contentrating:
+        acbrating: acbUnspecified
+        agcomrating: agcomUnspecified
+        anatelrating: anatelUnspecified
+        bbfcrating: bbfcUnspecified
+        bfvcrating: bfvcUnspecified
+        bmukkrating: bmukkUnspecified
+        catvrating: catvUnspecified
+        catvfrrating: catvfrUnspecified
+        cbfcrating: cbfcUnspecified
+        cccrating: cccUnspecified
+        ccerating: cceUnspecified
+        chfilmrating: chfilmUnspecified
+        chvrsrating: chvrsUnspecified
+        cicfrating: cicfUnspecified
+        cnarating: cnaUnspecified
+        cncrating: cncUnspecified
+        csarating: csaUnspecified
+        cscfrating: cscfUnspecified
+        czfilmrating: czfilmUnspecified
+        djctqrating: djctqUnspecified
+        djctqratingreasons:
+            - djctqRatingReasonUnspecified
+            - djctqViolence
+        ecbmctrating: ecbmctUnspe

@@ -1,0 +1,4 @@
+r4 lane 1: PASS
+
+read cases: 556
+cases: 556, 0 differences

@@ -1,0 +1,5 @@
+r4 lane 9: PASS
+
+-o json: identical True, requests 1
+-o yaml: identical True, requests 1
+-o table: identical True, requests 1

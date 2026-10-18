@@ -1,0 +1,7 @@
+r4 lane 6: PASS
+
+head requests: 3 (the fixture has 3 pages)
+('GET', '/youtube/v3/search', {'alt': ['json'], 'channelType': ['channelTypeUnspecified'], 'eventType': ['none'], 'maxResults': ['20'], 'order': ['relevance'], 'part': ['id', 'snippet'], 'prettyPrint': ['false'], 'q': ['rust'], 'safeSearch': ['moderate'], 'videoCaption': ['any'], 'videoDimension': ['any'], 'videoDuration': ['any']})
+('GET', '/youtube/v3/search', {'alt': ['json'], 'channelType': ['channelTypeUnspecified'], 'eventType': ['none'], 'maxResults': ['20'], 'order': ['relevance'], 'pageToken': ['p2'], 'part': ['id', 'snippet'], 'prettyPrint': ['false'], 'q': ['rust'], 'safeSearch': ['moderate'], 'videoCaption': ['any'], 'videoDimension': ['any'], 'videoDuration': ['any']})
+('GET', '/youtube/v3/search', {'alt': ['json'], 'channelType': ['channelTypeUnspecified'], 'eventType': ['none'], 'maxResults': ['5'], 'order': ['relevance'], 'pageToken': ['p3'], 'part': ['id', 'snippet'], 'prettyPrint': ['false'], 'q': ['rust'], 'safeSearch': ['moderate'], 'videoCaption': ['any'], 'videoDimension': ['any'], 'videoDuration': ['any']})
+requests identical to Go: True

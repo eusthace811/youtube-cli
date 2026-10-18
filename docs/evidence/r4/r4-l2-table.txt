@@ -1,0 +1,15 @@
+r4 lane 2: PASS
+
+SUBSTITUTED: no Google account; the table renders on a pseudo-terminal against the recorder and is compared with Go's.
+--- head (pty) ---
+ ID      TITLE                       CHANNEL ID           VIEWS 
+ id-0    @at sign                    snippet.channelId-0    620 
+ id-1    Ünïcödé ✓ 日本語のタイトル  snippet.channelId-1   8539 
+ id-2    - dash start                snippet.channelId-2  16458 
+ zero-0                                                       0 |<EOF
+--- go (pty) ---
+ ID      TITLE                       CHANNEL ID           VIEWS 
+ id-0    @at sign                    snippet.channelId-0    620 
+ id-1    Ünïcödé ✓ 日本語のタイトル  snippet.channelId-1   8539 
+ id-2    - dash start                snippet.channelId-2  16458 
+ zero-0                                                       0 |<EOF

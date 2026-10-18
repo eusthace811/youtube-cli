@@ -1,0 +1,6 @@
+r4 lane 8: PASS
+
+exit go/head: 1/1
+items printed by head: 4
+stderr head: "Error: failed to get video\ngoogleapi: Error 500: Backend Error, backendError\nRun 'yutu video list -h' to see usage.\n"
+identical: True
