@@ -1,0 +1,9 @@
+/target/
+/.tools/
+/.venv/
+/ref/src/
+/ref/yutu-go
+/ref/yutu-go-harness
+/ref/yutu-go-dump
+__pycache__/
+/parity/out/
