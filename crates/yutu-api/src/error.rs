@@ -29,16 +29,45 @@ pub struct ErrorItem {
     pub message: String,
 }
 
+#[derive(serde::Deserialize)]
+struct Reply {
+    error: Option<ErrorBody>,
+}
+
+#[derive(serde::Deserialize)]
+struct ErrorBody {
+    #[serde(default)]
+    code: i64,
+    #[serde(default)]
+    message: String,
+    #[serde(default)]
+    details: Vec<Json>,
+    #[serde(default)]
+    errors: Vec<Item>,
+}
+
+#[derive(serde::Deserialize)]
+struct Item {
+    #[serde(default)]
+    reason: String,
+    #[serde(default)]
+    message: String,
+}
+
 impl ApiError {
-    /// googleapi.CheckResponseWithBody: parse `{"error": {...}}` when present.
+    /// googleapi.CheckResponseWithBody: a body holding `{"error": {...}}`, or
+    /// an array whose first element does, becomes the structured error; any
+    /// other body, including one with mistyped fields, is kept raw.
     pub fn from_body(status: u16, body: &[u8]) -> ApiError {
         let text = String::from_utf8_lossy(body).into_owned();
-        let parsed: Option<Json> = serde_json::from_slice(body).ok();
-        let err = parsed
-            .as_ref()
-            .and_then(|j| j.get("error"))
-            .filter(|e| e.is_object());
-        let Some(e) = err else {
+        let parsed = if body.first() == Some(&b'[') {
+            serde_json::from_slice::<Vec<Reply>>(body)
+                .ok()
+                .and_then(|v| v.into_iter().next())
+        } else {
+            serde_json::from_slice::<Reply>(body).ok()
+        };
+        let Some(e) = parsed.and_then(|r| r.error) else {
             return ApiError {
                 code: status,
                 message: String::new(),
@@ -47,35 +76,37 @@ impl ApiError {
                 body: text,
             };
         };
-        let code = e
-            .get("code")
-            .and_then(Json::as_u64)
-            .filter(|c| *c != 0)
-            .map(|c| c as u16)
-            .unwrap_or(status);
-        let s = |v: Option<&Json>| v.and_then(Json::as_str).unwrap_or("").to_string();
         ApiError {
-            code,
-            message: s(e.get("message")),
-            details: e
-                .get("details")
-                .and_then(Json::as_array)
-                .cloned()
-                .unwrap_or_default(),
+            code: if e.code == 0 { status } else { e.code as u16 },
+            message: e.message,
+            details: e.details,
             errors: e
-                .get("errors")
-                .and_then(Json::as_array)
-                .map(|a| {
-                    a.iter()
-                        .map(|i| ErrorItem {
-                            reason: s(i.get("reason")),
-                            message: s(i.get("message")),
-                        })
-                        .collect()
+                .errors
+                .into_iter()
+                .map(|i| ErrorItem {
+                    reason: i.reason,
+                    message: i.message,
                 })
-                .unwrap_or_default(),
+                .collect(),
             body: text,
         }
+    }
+}
+
+/// Go marshals decoded `interface{}` maps with sorted keys.
+fn sorted(v: &Json) -> Json {
+    match v {
+        Json::Object(m) => {
+            let mut keys: Vec<_> = m.keys().collect();
+            keys.sort();
+            Json::Object(
+                keys.into_iter()
+                    .map(|k| (k.clone(), sorted(&m[k])))
+                    .collect(),
+            )
+        }
+        Json::Array(a) => Json::Array(a.iter().map(sorted).collect()),
+        other => other.clone(),
     }
 }
 
@@ -90,7 +121,8 @@ impl std::fmt::Display for ApiError {
         }
         let mut buf = format!("googleapi: Error {}: {}", self.code, self.message);
         if !self.details.is_empty() {
-            let mut pretty = serde_json::to_string_pretty(&self.details).unwrap_or_default();
+            let details: Vec<Json> = self.details.iter().map(sorted).collect();
+            let mut pretty = serde_json::to_string_pretty(&details).unwrap_or_default();
             pretty = pretty
                 .replace('<', "\\u003c")
                 .replace('>', "\\u003e")
@@ -142,6 +174,29 @@ mod tests {
         assert_eq!(
             ApiError::from_body(502, b"bad gateway").to_string(),
             "googleapi: got HTTP response code 502 with body: bad gateway"
+        );
+    }
+
+    #[test]
+    fn sorts_detail_keys_like_go() {
+        let body = br#"{"error":{"code":403,"message":"No","details":[{"@type":"t","reason":"R","domain":"d"}]}}"#;
+        assert_eq!(
+            ApiError::from_body(403, body).to_string(),
+            "googleapi: Error 403: No\nDetails:\n[\n  {\n    \"@type\": \"t\",\n    \"domain\": \"d\",\n    \"reason\": \"R\"\n  }\n]"
+        );
+    }
+
+    #[test]
+    fn reads_array_bodies_and_rejects_mistyped_fields() {
+        let array = br#"[{"error":{"code":404,"message":"gone","errors":[{"message":"gone","reason":"notFound"}]}}]"#;
+        assert_eq!(
+            ApiError::from_body(404, array).to_string(),
+            "googleapi: Error 404: gone, notFound"
+        );
+        let mistyped = br#"{"error":{"code":1.5,"message":"x"}}"#;
+        assert_eq!(
+            ApiError::from_body(500, mistyped).to_string(),
+            "googleapi: got HTTP response code 500 with body: {\"error\":{\"code\":1.5,\"message\":\"x\"}}"
         );
     }
 

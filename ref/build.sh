@@ -8,7 +8,7 @@ STAMP_VERSION=${STAMP_VERSION:-v0.11.0}
 STAMP_DATE=${STAMP_DATE:-2026-10-15T00:00:00Z}
 GO=${GO:-$(cd .. && pwd)/.tools/go/bin/go}
 export GOPATH=${GOPATH:-$(cd .. && pwd)/.tools/gopath}
-export GOTOOLCHAIN=local GOFLAGS=-mod=mod CGO_ENABLED=0
+export GOTOOLCHAIN=local GOFLAGS=-mod=readonly CGO_ENABLED=0
 
 "$GO" version | grep -q 'go1.27.1 ' || { echo "need go1.27.1, got $("$GO" version)"; exit 1; }
 if [ ! -d src/.git ]; then git clone --quiet "$REPO" src; fi

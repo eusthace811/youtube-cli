@@ -36,12 +36,21 @@ pub struct Service {
 /// points requests at the local parity recorder instead.
 pub fn endpoint() -> String {
     #[cfg(feature = "parity-endpoint")]
-    if let Ok(e) = std::env::var("YUTU_PARITY_ENDPOINT") {
-        if !e.is_empty() {
-            return format!("{}/", e.trim_end_matches('/'));
-        }
+    if let Ok(e) = std::env::var("YUTU_PARITY_ENDPOINT")
+        && is_loopback_url(&e)
+    {
+        return format!("{}/", e.trim_end_matches('/'));
     }
     DEFAULT_ENDPOINT.to_string()
+}
+
+/// The parity endpoint may only point at this machine, so a stray
+/// environment variable can never send bearer tokens elsewhere.
+#[cfg(feature = "parity-endpoint")]
+fn is_loopback_url(url: &str) -> bool {
+    let rest = url.strip_prefix("http://").unwrap_or("");
+    let host = rest.split(['/', ':']).next().unwrap_or("");
+    matches!(host, "127.0.0.1" | "localhost" | "[::1]")
 }
 
 /// Whether requests go to the parity recorder, which needs no credentials.
@@ -171,10 +180,23 @@ impl Call<'_> {
     }
 
     fn url(&self, path: &str, alt: &str, upload_type: Option<&str>) -> String {
-        let mut path = path.to_string();
-        for (k, v) in &self.path {
-            path = path.replace(&format!("{{{k}}}"), &encode_path(v));
+        let mut filled = String::new();
+        let mut rest = path;
+        while let Some(open) = rest.find('{') {
+            let close = rest[open..]
+                .find('}')
+                .map(|i| open + i)
+                .unwrap_or(rest.len() - 1);
+            let name = &rest[open + 1..close];
+            filled.push_str(&rest[..open]);
+            match self.path.iter().find(|(k, _)| k == name) {
+                Some((_, v)) => filled.push_str(&encode_path(v)),
+                None => filled.push_str(&rest[open..=close]),
+            }
+            rest = &rest[close + 1..];
         }
+        filled.push_str(rest);
+        let path = filled;
         let mut query: Vec<(&str, &str)> = self
             .query
             .iter()
