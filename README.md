@@ -25,7 +25,7 @@ Both install the program as `youtube`. It does not clash with Go yutu, which ins
 
 ## Connect your YouTube account
 
-1. In the Google Cloud console, create a project, enable the **YouTube Data API v3**, and create an **OAuth client ID** of type *Desktop app*. Download its JSON as `client_secret.json`.
+1. In the Google Cloud console, create a project, enable the **YouTube Data API v3**, and create an **OAuth client ID** of type *Desktop app*. Download its JSON as `client_secret.json`. While the consent screen's publishing status is *Testing*, Google expires the sign-in after 7 days, so expect to run `youtube auth` again weekly, or set it to *In production*. Videos uploaded through a project Google has not audited are locked to private, whatever `--privacy` says.
 2. Sign in once. A browser opens for consent and the token is saved with mode 0600:
 
    ```shell
@@ -34,13 +34,13 @@ Both install the program as `youtube`. It does not clash with Go yutu, which ins
 
 Paths resolve from the current directory, as in Go. To use youtube from anywhere, give absolute paths in the environment:
 
-`youtube auth` takes its two paths from `--credential` and `--cacheToken` only, because their defaults count as set (as in Go). Every other command reads the environment variables below.
-
 ```shell
 export YOUTUBE_CLI_CREDENTIAL="$HOME/.config/youtube/client_secret.json"
 export YOUTUBE_CLI_CACHE_TOKEN="$HOME/.config/youtube/youtube.token.json"
 export YOUTUBE_CLI_ROOT="$HOME"
 ```
+
+`youtube auth` takes its two paths from `--credential` and `--cacheToken` only, because their defaults count as set (as in Go). Every other command reads the environment variables above.
 
 `YOUTUBE_CLI_ROOT` is the directory files you name for uploads and caption downloads must stay inside. A token file written by Go yutu works unchanged, and so does one written by youtube-cli for Go.
 

@@ -20,15 +20,25 @@ step "read: your playlists"
 step "write: create a private test playlist"
 created="$("${BIN}" playlist insert --title "youtube-cli check $(date +%s)" \
   --privacy private --channelId "$("${BIN}" channel list --for mine -o json |
-    python3 -c 'import json,sys; print(json.load(sys.stdin)[0]["id"])')" -o json --yes)"
-id="$(printf '%s' "${created}" | python3 -c 'import json,sys; print(json.load(sys.stdin)["id"])')"
+    python3 -I -c 'import json,sys; print(json.load(sys.stdin)[0]["id"])')" -o json --yes)"
+id="$(printf '%s' "${created}" | python3 -I -c 'import json,sys; print(json.load(sys.stdin)["id"])')"
 echo "created ${id}"
+# Whatever happens from here (a failed step, Ctrl-C), delete the playlist.
+trap '"${BIN}" playlist delete --ids "${id}" --yes >/dev/null 2>&1 || true' EXIT
 
 step "wait until YouTube serves the new playlist (lookups lag a few seconds after a create)"
+served=0
 for _ in $(seq 1 15); do
-  if "${BIN}" playlist list --ids "${id}" -o json | grep -q "\"${id}\""; then break; fi
+  if "${BIN}" playlist list --ids "${id}" -o json | grep -q "\"${id}\""; then
+    served=1
+    break
+  fi
   sleep 2
 done
+if [[ "${served}" != 1 ]]; then
+  echo "FAILED: YouTube never served the new playlist" >&2
+  exit 1
+fi
 
 step "update (E18): rename it"
 "${BIN}" playlist update --id "${id}" --title "youtube-cli check (renamed)" --yes
@@ -44,12 +54,12 @@ for _ in $(seq 1 15); do
 done
 if [[ "${renamed}" == 1 ]]; then echo "title is now: youtube-cli check (renamed)"; fi
 if [[ "${renamed}" != 1 ]]; then
-  "${BIN}" playlist delete --ids "${id}" --yes
   echo "FAILED: the title never changed" >&2
   exit 1
 fi
 
 step "delete it"
 "${BIN}" playlist delete --ids "${id}" --yes
+trap - EXIT
 
 step "all steps succeeded"
