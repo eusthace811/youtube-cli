@@ -1,0 +1,374 @@
+- etag: etag-10
+  id: id-10
+  kind: kind-10
+  replies:
+    comments:
+        - etag: replies.comments[].etag-10
+          id: replies.comments[].id-10
+          kind: replies.comments[].kind-10
+          snippet:
+            authorchannelid:
+                value: replies.comments[].snippet.authorChannelId.value-10
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: replies.comments[].snippet.authorChannelUrl-10
+            authordisplayname: replies.comments[].snippet.authorDisplayName-10
+            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-10
+            canrate: false
+            channelid: replies.comments[].snippet.channelId-10
+            likecount: 166
+            moderationstatus: likelySpam
+            parentid: replies.comments[].snippet.parentId-10
+            publishedat: "2026-02-11T12:34:50Z"
+            textdisplay: null replies.comments[].snippet.textDisplay
+            textoriginal: replies.comments[].snippet.textOriginal-10
+            updatedat: "2026-02-11T12:34:50Z"
+            videoid: replies.comments[].snippet.videoId-10
+            viewerrating: like
+            forcesendfields: []
+            nullfields: []
+          serverresponse:
+            httpstatuscode: 0
+            header: {}
+          forcesendfields: []
+          nullfields: []
+        - etag: replies.comments[].etag-11
+          id: replies.comments[].id-11
+          kind: replies.comments[].kind-11
+          snippet:
+            authorchannelid:
+                value: replies.comments[].snippet.authorChannelId.value-11
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: replies.comments[].snippet.authorChannelUrl-11
+            authordisplayname: replies.comments[].snippet.authorDisplayName-11
+            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-11
+            canrate: true
+            channelid: replies.comments[].snippet.channelId-11
+            likecount: 179
+            moderationstatus: rejected
+            parentid: replies.comments[].snippet.parentId-11
+            publishedat: "2026-03-12T12:34:51Z"
+            textdisplay: ~ replies.comments[].snippet.textDisplay
+            textoriginal: replies.comments[].snippet.textOriginal-11
+            updatedat: "2026-03-12T12:34:51Z"
+            videoid: replies.comments[].snippet.videoId-11
+            viewerrating: dislike
+            forcesendfields: []
+            nullfields: []
+          serverresponse:
+            httpstatuscode: 0
+            header: {}
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  snippet:
+    canreply: false
+    channelid: snippet.channelId-10
+    ispublic: false
+    toplevelcomment:
+        etag: snippet.topLevelComment.etag-10
+        id: snippet.topLevelComment.id-10
+        kind: snippet.topLevelComment.kind-10
+        snippet:
+            authorchannelid:
+                value: snippet.topLevelComment.snippet.authorChannelId.value-10
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: snippet.topLevelComment.snippet.authorChannelUrl-10
+            authordisplayname: snippet.topLevelComment.snippet.authorDisplayName-10
+            authorprofileimageurl: snippet.topLevelComment.snippet.authorProfileImageUrl-10
+            canrate: false
+            channelid: snippet.topLevelComment.snippet.channelId-10
+            likecount: 171
+            moderationstatus: likelySpam
+            parentid: snippet.topLevelComment.snippet.parentId-10
+            publishedat: "2026-02-11T12:34:50Z"
+            textdisplay: null snippet.topLevelComment.snippet.textDisplay
+            textoriginal: snippet.topLevelComment.snippet.textOriginal-10
+            updatedat: "2026-02-11T12:34:50Z"
+            videoid: snippet.topLevelComment.snippet.videoId-10
+            viewerrating: like
+            forcesendfields: []
+            nullfields: []
+        serverresponse:
+            httpstatuscode: 0
+            header: {}
+        forcesendfields: []
+        nullfields: []
+    totalreplycount: 153
+    videoid: snippet.videoId-10
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: etag-11
+  id: id-11
+  kind: kind-11
+  replies:
+    comments:
+        - etag: replies.comments[].etag-11
+          id: replies.comments[].id-11
+          kind: replies.comments[].kind-11
+          snippet:
+            authorchannelid:
+                value: replies.comments[].snippet.authorChannelId.value-11
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: replies.comments[].snippet.authorChannelUrl-11
+            authordisplayname: replies.comments[].snippet.authorDisplayName-11
+            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-11
+            canrate: true
+            channelid: replies.comments[].snippet.channelId-11
+            likecount: 179
+            moderationstatus: rejected
+            parentid: replies.comments[].snippet.parentId-11
+            publishedat: "2026-03-12T12:34:51Z"
+            textdisplay: ~ replies.comments[].snippet.textDisplay
+            textoriginal: replies.comments[].snippet.textOriginal-11
+            updatedat: "2026-03-12T12:34:51Z"
+            videoid: replies.comments[].snippet.videoId-11
+            viewerrating: dislike
+            forcesendfields: []
+            nullfields: []
+          serverresponse:
+            httpstatuscode: 0
+            header: {}
+          forcesendfields: []
+          nullfields: []
+        - etag: replies.comments[].etag-12
+          id: replies.comments[].id-12
+          kind: replies.comments[].kind-12
+          snippet:
+            authorchannelid:
+                value: replies.comments[].snippet.authorChannelId.value-12
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: replies.comments[].snippet.authorChannelUrl-12
+            authordisplayname: replies.comments[].snippet.authorDisplayName-12
+            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-12
+            canrate: false
+            channelid: replies.comments[].snippet.channelId-12
+            likecount: 192
+            moderationstatus: published
+            parentid: replies.comments[].snippet.parentId-12
+            publishedat: "2026-04-13T12:34:52Z"
+            textdisplay: '@at sign replies.comments[].snippet.textDisplay'
+            textoriginal: replies.comments[].snippet.textOriginal-12
+            updatedat: "2026-04-13T12:34:52Z"
+            videoid: replies.comments[].snippet.videoId-12
+            viewerrating: none
+            forcesendfields: []
+            nullfields: []
+          serverresponse:
+            httpstatuscode: 0
+            header: {}
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  snippet:
+    canreply: true
+    channelid: snippet.channelId-11
+    ispublic: true
+    toplevelcomment:
+        etag: snippet.topLevelComment.etag-11
+        id: snippet.topLevelComment.id-11
+        kind: snippet.topLevelComment.kind-11
+        snippet:
+            authorchannelid:
+                value: snippet.topLevelComment.snippet.authorChannelId.value-11
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: snippet.topLevelComment.snippet.authorChannelUrl-11
+            authordisplayname: snippet.topLevelComment.snippet.authorDisplayName-11
+            authorprofileimageurl: snippet.topLevelComment.snippet.authorProfileImageUrl-11
+            canrate: true
+            channelid: snippet.topLevelComment.snippet.channelId-11
+            likecount: 184
+            moderationstatus: rejected
+            parentid: snippet.topLevelComment.snippet.parentId-11
+            publishedat: "2026-03-12T12:34:51Z"
+            textdisplay: ~ snippet.topLevelComment.snippet.textDisplay
+            textoriginal: snippet.topLevelComment.snippet.textOriginal-11
+            updatedat: "2026-03-12T12:34:51Z"
+            videoid: snippet.topLevelComment.snippet.videoId-11
+            viewerrating: dislike
+            forcesendfields: []
+            nullfields: []
+        serverresponse:
+            httpstatuscode: 0
+            header: {}
+        forcesendfields: []
+        nullfields: []
+    totalreplycount: 166
+    videoid: snippet.videoId-11
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: etag-12
+  id: id-12
+  kind: kind-12
+  replies:
+    comments:
+        - etag: replies.comments[].etag-12
+          id: replies.comments[].id-12
+          kind: replies.comments[].kind-12
+          snippet:
+            authorchannelid:
+                value: replies.comments[].snippet.authorChannelId.value-12
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: replies.comments[].snippet.authorChannelUrl-12
+            authordisplayname: replies.comments[].snippet.authorDisplayName-12
+            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-12
+            canrate: false
+            channelid: replies.comments[].snippet.channelId-12
+            likecount: 192
+            moderationstatus: published
+            parentid: replies.comments[].snippet.parentId-12
+            publishedat: "2026-04-13T12:34:52Z"
+            textdisplay: '@at sign replies.comments[].snippet.textDisplay'
+            textoriginal: replies.comments[].snippet.textOriginal-12
+            updatedat: "2026-04-13T12:34:52Z"
+            videoid: replies.comments[].snippet.videoId-12
+            viewerrating: none
+            forcesendfields: []
+            nullfields: []
+          serverresponse:
+            httpstatuscode: 0
+            header: {}
+          forcesendfields: []
+          nullfields: []
+        - etag: replies.comments[].etag-13
+          id: replies.comments[].id-13
+          kind: replies.comments[].kind-13
+          snippet:
+            authorchannelid:
+                value: replies.comments[].snippet.authorChannelId.value-13
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: replies.comments[].snippet.authorChannelUrl-13
+            authordisplayname: replies.comments[].snippet.authorDisplayName-13
+            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-13
+            canrate: true
+            channelid: replies.comments[].snippet.channelId-13
+            likecount: 205
+            moderationstatus: heldForReview
+            parentid: replies.comments[].snippet.parentId-13
+            publishedat: "2026-05-14T12:34:53Z"
+            textdisplay: '''single'' quoted replies.comments[].snippet.textDisplay'
+            textoriginal: replies.comments[].snippet.textOriginal-13
+            updatedat: "2026-05-14T12:34:53Z"
+            videoid: replies.comments[].snippet.videoId-13
+            viewerrating: like
+            forcesendfields: []
+            nullfields: []
+          serverresponse:
+            httpstatuscode: 0
+            header: {}
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  snippet:
+    canreply: false
+    channelid: snippet.channelId-12
+    ispublic: false
+    toplevelcomment:
+        etag: snippet.topLevelComment.etag-12
+        id: snippet.topLevelComment.id-12
+        kind: snippet.topLevelComment.kind-12
+        snippet:
+            authorchannelid:
+                value: snippet.topLevelComment.snippet.authorChannelId.value-12
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: snippet.topLevelComment.snippet.authorChannelUrl-12
+            authordisplayname: snippet.topLevelComment.snippet.authorDisplayName-12
+            authorprofileimageurl: snippet.topLevelComment.snippet.authorProfileImageUrl-12
+            canrate: false
+            channelid: snippet.topLevelComment.snippet.channelId-12
+            likecount: 197
+            moderationstatus: published
+            parentid: snippet.topLevelComment.snippet.parentId-12
+            publishedat: "2026-04-13T12:34:52Z"
+            textdisplay: '@at sign snippet.topLevelComment.snippet.textDisplay'
+            textoriginal: snippet.topLevelComment.snippet.textOriginal-12
+            updatedat: "2026-04-13T12:34:52Z"
+            videoid: snippet.topLevelComment.snippet.videoId-12
+            viewerrating: none
+            forcesendfields: []
+            nullfields: []
+        serverresponse:
+            httpstatuscode: 0
+            header: {}
+        forcesendfields: []
+        nullfields: []
+    totalreplycount: 179
+    videoid: snippet.videoId-12
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: ""
+  id: zero-1
+  kind: ""
+  replies:
+    comments: []
+    forcesendfields: []
+    nullfields: []
+  snippet:
+    canreply: false
+    channelid: ""
+    ispublic: false
+    toplevelcomment:
+        etag: ""
+        id: ""
+        kind: ""
+        snippet:
+            authorchannelid:
+                value: ""
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: ""
+            authordisplayname: ""
+            authorprofileimageurl: ""
+            canrate: false
+            channelid: ""
+            likecount: 0
+            moderationstatus: ""
+            parentid: ""
+            publishedat: ""
+            textdisplay: ""
+            textoriginal: ""
+            updatedat: ""
+            videoid: ""
+            viewerrating: ""
+            forcesendfields: []
+            nullfields: []
+        serverresponse:
+            httpstatuscode: 0
+            header: {}
+        forcesendfields: []
+        nullfields: []
+    totalreplycount: 0
+    videoid: ""
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []

@@ -1,0 +1,416 @@
+etag: etag-page-1
+eventid: ""
+items:
+    - contentdetails:
+        itemcount: 154
+        forcesendfields: []
+        nullfields: []
+      etag: etag-10
+      id: id-10
+      kind: kind-10
+      localizations:
+        ka:
+            description: ~ localizations{}.description
+            title: "emoji \U0001F3AC\U0001F3A5 mix"
+            forcesendfields: []
+            nullfields: []
+        kb:
+            description: null localizations{}.description
+            title: 'line                 sep'
+            forcesendfields: []
+            nullfields: []
+      player:
+        embedhtml: player.embedHtml-10
+        forcesendfields: []
+        nullfields: []
+      snippet:
+        channelid: snippet.channelId-10
+        channeltitle: snippet.channelTitle-10
+        defaultlanguage: snippet.defaultLanguage-10
+        description: null snippet.description
+        localized:
+            description: null snippet.localized.description
+            title: |
+                multi
+                line
+                text
+            forcesendfields: []
+            nullfields: []
+        publishedat: "2026-02-11T12:34:50Z"
+        tags:
+            - snippet.tags[]-10
+            - snippet.tags[]-11
+        thumbnailvideoid: snippet.thumbnailVideoId-10
+        thumbnails:
+            default:
+                height: 163
+                url: snippet.thumbnails.default.url-10
+                width: 162
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 159
+                url: snippet.thumbnails.fhd.url-10
+                width: 158
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 160
+                url: snippet.thumbnails.high.url-10
+                width: 159
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 162
+                url: snippet.thumbnails.maxres.url-10
+                width: 161
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 162
+                url: snippet.thumbnails.medium.url-10
+                width: 161
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 159
+                url: snippet.thumbnails.qhd.url-10
+                width: 158
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 164
+                url: snippet.thumbnails.standard.url-10
+                width: 163
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 159
+                url: snippet.thumbnails.uhd.url-10
+                width: 158
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: 'key: value'
+        forcesendfields: []
+        nullfields: []
+      status:
+        podcaststatus: enabled
+        privacystatus: unlisted
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        itemcount: 167
+        forcesendfields: []
+        nullfields: []
+      etag: etag-11
+      id: id-11
+      kind: kind-11
+      localizations:
+        ka:
+            description: '@at sign localizations{}.description'
+            title: ' leading space'
+            forcesendfields: []
+            nullfields: []
+        kb:
+            description: ~ localizations{}.description
+            title: "emoji \U0001F3AC\U0001F3A5 mix"
+            forcesendfields: []
+            nullfields: []
+      player:
+        embedhtml: player.embedHtml-11
+        forcesendfields: []
+        nullfields: []
+      snippet:
+        channelid: snippet.channelId-11
+        channeltitle: snippet.channelTitle-11
+        defaultlanguage: snippet.defaultLanguage-11
+        description: ~ snippet.description
+        localized:
+            description: ~ snippet.localized.description
+            title: "true"
+            forcesendfields: []
+            nullfields: []
+        publishedat: "2026-03-12T12:34:51Z"
+        tags:
+            - snippet.tags[]-11
+            - snippet.tags[]-12
+        thumbnailvideoid: snippet.thumbnailVideoId-11
+        thumbnails:
+            default:
+                height: 176
+                url: snippet.thumbnails.default.url-11
+                width: 175
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 172
+                url: snippet.thumbnails.fhd.url-11
+                width: 171
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 173
+                url: snippet.thumbnails.high.url-11
+                width: 172
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 175
+                url: snippet.thumbnails.maxres.url-11
+                width: 174
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 175
+                url: snippet.thumbnails.medium.url-11
+                width: 174
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 172
+                url: snippet.thumbnails.qhd.url-11
+                width: 171
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 177
+                url: snippet.thumbnails.standard.url-11
+                width: 176
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 172
+                url: snippet.thumbnails.uhd.url-11
+                width: 171
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: '''single'' quoted'
+        forcesendfields: []
+        nullfields: []
+      status:
+        podcaststatus: disabled
+        privacystatus: private
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        itemcount: 180
+        forcesendfields: []
+        nullfields: []
+      etag: etag-12
+      id: id-12
+      kind: kind-12
+      localizations:
+        ka:
+            description: '''single'' quoted localizations{}.description'
+            title: |
+                multi
+                line
+                text
+            forcesendfields: []
+            nullfields: []
+        kb:
+            description: '@at sign localizations{}.description'
+            title: ' leading space'
+            forcesendfields: []
+            nullfields: []
+      player:
+        embedhtml: player.embedHtml-12
+        forcesendfields: []
+        nullfields: []
+      snippet:
+        channelid: snippet.channelId-12
+        channeltitle: snippet.channelTitle-12
+        defaultlanguage: snippet.defaultLanguage-12
+        description: '@at sign snippet.description'
+        localized:
+            description: '@at sign snippet.localized.description'
+            title: "~"
+            forcesendfields: []
+            nullfields: []
+        publishedat: "2026-04-13T12:34:52Z"
+        tags:
+            - snippet.tags[]-12
+            - snippet.tags[]-13
+        thumbnailvideoid: snippet.thumbnailVideoId-12
+        thumbnails:
+            default:
+                height: 189
+                url: snippet.thumbnails.default.url-12
+                width: 188
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 185
+                url: snippet.thumbnails.fhd.url-12
+                width: 184
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 186
+                url: snippet.thumbnails.high.url-12
+                width: 185
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 188
+                url: snippet.thumbnails.maxres.url-12
+                width: 187
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 188
+                url: snippet.thumbnails.medium.url-12
+                width: 187
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 185
+                url: snippet.thumbnails.qhd.url-12
+                width: 184
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 190
+                url: snippet.thumbnails.standard.url-12
+                width: 189
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 185
+                url: snippet.thumbnails.uhd.url-12
+                width: 184
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: <b>tags</b> & "quotes"
+        forcesendfields: []
+        nullfields: []
+      status:
+        podcaststatus: enabled
+        privacystatus: public
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        itemcount: 0
+        forcesendfields: []
+        nullfields: []
+      etag: ""
+      id: zero-1
+      kind: ""
+      localizations: {}
+      player:
+        embedhtml: ""
+        forcesendfields: []
+        nullfields: []
+      snippet:
+        channelid: ""
+        channeltitle: ""
+        defaultlanguage: ""
+        description: ""
+        localized:
+            description: ""
+            title: ""
+            forcesendfields: []
+            nullfields: []
+        publishedat: ""
+        tags: []
+        thumbnailvideoid: ""
+        thumbnails:
+            default:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: ""
+        forcesendfields: []
+        nullfields: []
+      status:
+        podcaststatus: ""
+        privacystatus: ""
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+kind: youtube#playlistListResponse
+nextpagetoken: p3
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+prevpagetoken: ""
+tokenpagination: null
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

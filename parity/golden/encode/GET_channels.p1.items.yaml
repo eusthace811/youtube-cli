@@ -1,0 +1,1078 @@
+- auditdetails:
+    communityguidelinesgoodstanding: false
+    contentidclaimsgoodstanding: false
+    copyrightstrikesgoodstanding: false
+    forcesendfields: []
+    nullfields: []
+  brandingsettings:
+    channel:
+        country: brandingSettings.channel.country-10
+        defaultlanguage: brandingSettings.channel.defaultLanguage-10
+        defaulttab: brandingSettings.channel.defaultTab-10
+        description: null brandingSettings.channel.description
+        featuredchannelstitle: brandingSettings.channel.featuredChannelsTitle-10
+        featuredchannelsurls:
+            - brandingSettings.channel.featuredChannelsUrls[]-10
+            - brandingSettings.channel.featuredChannelsUrls[]-11
+        keywords: brandingSettings.channel.keywords-10
+        moderatecomments: false
+        profilecolor: brandingSettings.channel.profileColor-10
+        showbrowseview: false
+        showrelatedchannels: false
+        title: "true"
+        trackinganalyticsaccountid: brandingSettings.channel.trackingAnalyticsAccountId-10
+        unsubscribedtrailer: brandingSettings.channel.unsubscribedTrailer-10
+        forcesendfields: []
+        nullfields: []
+    hints:
+        - property: brandingSettings.hints[].property-10
+          value: brandingSettings.hints[].value-10
+          forcesendfields: []
+          nullfields: []
+        - property: brandingSettings.hints[].property-11
+          value: brandingSettings.hints[].value-11
+          forcesendfields: []
+          nullfields: []
+    image:
+        backgroundimageurl:
+            default: brandingSettings.image.backgroundImageUrl.default-10
+            defaultlanguage:
+                value: brandingSettings.image.backgroundImageUrl.defaultLanguage.value-10
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.backgroundImageUrl.localized[].language-10
+                  value: brandingSettings.image.backgroundImageUrl.localized[].value-10
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.backgroundImageUrl.localized[].language-11
+                  value: brandingSettings.image.backgroundImageUrl.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        bannerexternalurl: brandingSettings.image.bannerExternalUrl-10
+        bannerimageurl: brandingSettings.image.bannerImageUrl-10
+        bannermobileextrahdimageurl: brandingSettings.image.bannerMobileExtraHdImageUrl-10
+        bannermobilehdimageurl: brandingSettings.image.bannerMobileHdImageUrl-10
+        bannermobileimageurl: brandingSettings.image.bannerMobileImageUrl-10
+        bannermobilelowimageurl: brandingSettings.image.bannerMobileLowImageUrl-10
+        bannermobilemediumhdimageurl: brandingSettings.image.bannerMobileMediumHdImageUrl-10
+        bannertabletextrahdimageurl: brandingSettings.image.bannerTabletExtraHdImageUrl-10
+        bannertablethdimageurl: brandingSettings.image.bannerTabletHdImageUrl-10
+        bannertabletimageurl: brandingSettings.image.bannerTabletImageUrl-10
+        bannertabletlowimageurl: brandingSettings.image.bannerTabletLowImageUrl-10
+        bannertvhighimageurl: brandingSettings.image.bannerTvHighImageUrl-10
+        bannertvimageurl: brandingSettings.image.bannerTvImageUrl-10
+        bannertvlowimageurl: brandingSettings.image.bannerTvLowImageUrl-10
+        bannertvmediumimageurl: brandingSettings.image.bannerTvMediumImageUrl-10
+        largebrandedbannerimageimapscript:
+            default: brandingSettings.image.largeBrandedBannerImageImapScript.default-10
+            defaultlanguage:
+                value: brandingSettings.image.largeBrandedBannerImageImapScript.defaultLanguage.value-10
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].language-10
+                  value: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].value-10
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].language-11
+                  value: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        largebrandedbannerimageurl:
+            default: brandingSettings.image.largeBrandedBannerImageUrl.default-10
+            defaultlanguage:
+                value: brandingSettings.image.largeBrandedBannerImageUrl.defaultLanguage.value-10
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.largeBrandedBannerImageUrl.localized[].language-10
+                  value: brandingSettings.image.largeBrandedBannerImageUrl.localized[].value-10
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.largeBrandedBannerImageUrl.localized[].language-11
+                  value: brandingSettings.image.largeBrandedBannerImageUrl.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        smallbrandedbannerimageimapscript:
+            default: brandingSettings.image.smallBrandedBannerImageImapScript.default-10
+            defaultlanguage:
+                value: brandingSettings.image.smallBrandedBannerImageImapScript.defaultLanguage.value-10
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].language-10
+                  value: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].value-10
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].language-11
+                  value: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        smallbrandedbannerimageurl:
+            default: brandingSettings.image.smallBrandedBannerImageUrl.default-10
+            defaultlanguage:
+                value: brandingSettings.image.smallBrandedBannerImageUrl.defaultLanguage.value-10
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.smallBrandedBannerImageUrl.localized[].language-10
+                  value: brandingSettings.image.smallBrandedBannerImageUrl.localized[].value-10
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.smallBrandedBannerImageUrl.localized[].language-11
+                  value: brandingSettings.image.smallBrandedBannerImageUrl.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        trackingimageurl: brandingSettings.image.trackingImageUrl-10
+        watchiconimageurl: brandingSettings.image.watchIconImageUrl-10
+        forcesendfields: []
+        nullfields: []
+    watch:
+        backgroundcolor: brandingSettings.watch.backgroundColor-10
+        featuredplaylistid: brandingSettings.watch.featuredPlaylistId-10
+        textcolor: brandingSettings.watch.textColor-10
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    relatedplaylists:
+        favorites: contentDetails.relatedPlaylists.favorites-10
+        likes: contentDetails.relatedPlaylists.likes-10
+        uploads: contentDetails.relatedPlaylists.uploads-10
+        watchhistory: contentDetails.relatedPlaylists.watchHistory-10
+        watchlater: contentDetails.relatedPlaylists.watchLater-10
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  contentownerdetails:
+    contentowner: contentOwnerDetails.contentOwner-10
+    timelinked: "2026-02-11T12:34:50Z"
+    forcesendfields: []
+    nullfields: []
+  conversionpings:
+    pings:
+        - context: unsubscribe
+          conversionurl: conversionPings.pings[].conversionUrl-10
+          forcesendfields: []
+          nullfields: []
+        - context: cview
+          conversionurl: conversionPings.pings[].conversionUrl-11
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: etag-10
+  id: id-10
+  kind: kind-10
+  localizations:
+    ka:
+        description: ~ localizations{}.description
+        title: "emoji \U0001F3AC\U0001F3A5 mix"
+        forcesendfields: []
+        nullfields: []
+    kb:
+        description: null localizations{}.description
+        title: 'line             sep'
+        forcesendfields: []
+        nullfields: []
+  snippet:
+    country: snippet.country-10
+    customurl: snippet.customUrl-10
+    defaultlanguage: snippet.defaultLanguage-10
+    description: null snippet.description
+    localized:
+        description: null snippet.localized.description
+        title: |
+            multi
+            line
+            text
+        forcesendfields: []
+        nullfields: []
+    publishedat: "2026-02-11T12:34:50Z"
+    thumbnails:
+        default:
+            height: 163
+            url: snippet.thumbnails.default.url-10
+            width: 162
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 159
+            url: snippet.thumbnails.fhd.url-10
+            width: 158
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 160
+            url: snippet.thumbnails.high.url-10
+            width: 159
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 162
+            url: snippet.thumbnails.maxres.url-10
+            width: 161
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 162
+            url: snippet.thumbnails.medium.url-10
+            width: 161
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 159
+            url: snippet.thumbnails.qhd.url-10
+            width: 158
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 164
+            url: snippet.thumbnails.standard.url-10
+            width: 163
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 159
+            url: snippet.thumbnails.uhd.url-10
+            width: 158
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: 'key: value'
+    forcesendfields: []
+    nullfields: []
+  statistics:
+    commentcount: 79903
+    hiddensubscribercount: false
+    subscribercount: 79996
+    videocount: 79841
+    viewcount: 79810
+    forcesendfields: []
+    nullfields: []
+  status:
+    ischannelmonetizationenabled: false
+    islinked: false
+    longuploadsstatus: eligible
+    madeforkids: false
+    privacystatus: unlisted
+    selfdeclaredmadeforkids: false
+    forcesendfields: []
+    nullfields: []
+  topicdetails:
+    topiccategories:
+        - topicDetails.topicCategories[]-10
+        - topicDetails.topicCategories[]-11
+    topicids:
+        - topicDetails.topicIds[]-10
+        - topicDetails.topicIds[]-11
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- auditdetails:
+    communityguidelinesgoodstanding: true
+    contentidclaimsgoodstanding: true
+    copyrightstrikesgoodstanding: true
+    forcesendfields: []
+    nullfields: []
+  brandingsettings:
+    channel:
+        country: brandingSettings.channel.country-11
+        defaultlanguage: brandingSettings.channel.defaultLanguage-11
+        defaulttab: brandingSettings.channel.defaultTab-11
+        description: ~ brandingSettings.channel.description
+        featuredchannelstitle: brandingSettings.channel.featuredChannelsTitle-11
+        featuredchannelsurls:
+            - brandingSettings.channel.featuredChannelsUrls[]-11
+            - brandingSettings.channel.featuredChannelsUrls[]-12
+        keywords: brandingSettings.channel.keywords-11
+        moderatecomments: true
+        profilecolor: brandingSettings.channel.profileColor-11
+        showbrowseview: true
+        showrelatedchannels: true
+        title: "~"
+        trackinganalyticsaccountid: brandingSettings.channel.trackingAnalyticsAccountId-11
+        unsubscribedtrailer: brandingSettings.channel.unsubscribedTrailer-11
+        forcesendfields: []
+        nullfields: []
+    hints:
+        - property: brandingSettings.hints[].property-11
+          value: brandingSettings.hints[].value-11
+          forcesendfields: []
+          nullfields: []
+        - property: brandingSettings.hints[].property-12
+          value: brandingSettings.hints[].value-12
+          forcesendfields: []
+          nullfields: []
+    image:
+        backgroundimageurl:
+            default: brandingSettings.image.backgroundImageUrl.default-11
+            defaultlanguage:
+                value: brandingSettings.image.backgroundImageUrl.defaultLanguage.value-11
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.backgroundImageUrl.localized[].language-11
+                  value: brandingSettings.image.backgroundImageUrl.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.backgroundImageUrl.localized[].language-12
+                  value: brandingSettings.image.backgroundImageUrl.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        bannerexternalurl: brandingSettings.image.bannerExternalUrl-11
+        bannerimageurl: brandingSettings.image.bannerImageUrl-11
+        bannermobileextrahdimageurl: brandingSettings.image.bannerMobileExtraHdImageUrl-11
+        bannermobilehdimageurl: brandingSettings.image.bannerMobileHdImageUrl-11
+        bannermobileimageurl: brandingSettings.image.bannerMobileImageUrl-11
+        bannermobilelowimageurl: brandingSettings.image.bannerMobileLowImageUrl-11
+        bannermobilemediumhdimageurl: brandingSettings.image.bannerMobileMediumHdImageUrl-11
+        bannertabletextrahdimageurl: brandingSettings.image.bannerTabletExtraHdImageUrl-11
+        bannertablethdimageurl: brandingSettings.image.bannerTabletHdImageUrl-11
+        bannertabletimageurl: brandingSettings.image.bannerTabletImageUrl-11
+        bannertabletlowimageurl: brandingSettings.image.bannerTabletLowImageUrl-11
+        bannertvhighimageurl: brandingSettings.image.bannerTvHighImageUrl-11
+        bannertvimageurl: brandingSettings.image.bannerTvImageUrl-11
+        bannertvlowimageurl: brandingSettings.image.bannerTvLowImageUrl-11
+        bannertvmediumimageurl: brandingSettings.image.bannerTvMediumImageUrl-11
+        largebrandedbannerimageimapscript:
+            default: brandingSettings.image.largeBrandedBannerImageImapScript.default-11
+            defaultlanguage:
+                value: brandingSettings.image.largeBrandedBannerImageImapScript.defaultLanguage.value-11
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].language-11
+                  value: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].language-12
+                  value: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        largebrandedbannerimageurl:
+            default: brandingSettings.image.largeBrandedBannerImageUrl.default-11
+            defaultlanguage:
+                value: brandingSettings.image.largeBrandedBannerImageUrl.defaultLanguage.value-11
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.largeBrandedBannerImageUrl.localized[].language-11
+                  value: brandingSettings.image.largeBrandedBannerImageUrl.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.largeBrandedBannerImageUrl.localized[].language-12
+                  value: brandingSettings.image.largeBrandedBannerImageUrl.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        smallbrandedbannerimageimapscript:
+            default: brandingSettings.image.smallBrandedBannerImageImapScript.default-11
+            defaultlanguage:
+                value: brandingSettings.image.smallBrandedBannerImageImapScript.defaultLanguage.value-11
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].language-11
+                  value: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].language-12
+                  value: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        smallbrandedbannerimageurl:
+            default: brandingSettings.image.smallBrandedBannerImageUrl.default-11
+            defaultlanguage:
+                value: brandingSettings.image.smallBrandedBannerImageUrl.defaultLanguage.value-11
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.smallBrandedBannerImageUrl.localized[].language-11
+                  value: brandingSettings.image.smallBrandedBannerImageUrl.localized[].value-11
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.smallBrandedBannerImageUrl.localized[].language-12
+                  value: brandingSettings.image.smallBrandedBannerImageUrl.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        trackingimageurl: brandingSettings.image.trackingImageUrl-11
+        watchiconimageurl: brandingSettings.image.watchIconImageUrl-11
+        forcesendfields: []
+        nullfields: []
+    watch:
+        backgroundcolor: brandingSettings.watch.backgroundColor-11
+        featuredplaylistid: brandingSettings.watch.featuredPlaylistId-11
+        textcolor: brandingSettings.watch.textColor-11
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    relatedplaylists:
+        favorites: contentDetails.relatedPlaylists.favorites-11
+        likes: contentDetails.relatedPlaylists.likes-11
+        uploads: contentDetails.relatedPlaylists.uploads-11
+        watchhistory: contentDetails.relatedPlaylists.watchHistory-11
+        watchlater: contentDetails.relatedPlaylists.watchLater-11
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  contentownerdetails:
+    contentowner: contentOwnerDetails.contentOwner-11
+    timelinked: "2026-03-12T12:34:51Z"
+    forcesendfields: []
+    nullfields: []
+  conversionpings:
+    pings:
+        - context: cview
+          conversionurl: conversionPings.pings[].conversionUrl-11
+          forcesendfields: []
+          nullfields: []
+        - context: subscribe
+          conversionurl: conversionPings.pings[].conversionUrl-12
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: etag-11
+  id: id-11
+  kind: kind-11
+  localizations:
+    ka:
+        description: '@at sign localizations{}.description'
+        title: ' leading space'
+        forcesendfields: []
+        nullfields: []
+    kb:
+        description: ~ localizations{}.description
+        title: "emoji \U0001F3AC\U0001F3A5 mix"
+        forcesendfields: []
+        nullfields: []
+  snippet:
+    country: snippet.country-11
+    customurl: snippet.customUrl-11
+    defaultlanguage: snippet.defaultLanguage-11
+    description: ~ snippet.description
+    localized:
+        description: ~ snippet.localized.description
+        title: "true"
+        forcesendfields: []
+        nullfields: []
+    publishedat: "2026-03-12T12:34:51Z"
+    thumbnails:
+        default:
+            height: 176
+            url: snippet.thumbnails.default.url-11
+            width: 175
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 172
+            url: snippet.thumbnails.fhd.url-11
+            width: 171
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 173
+            url: snippet.thumbnails.high.url-11
+            width: 172
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 175
+            url: snippet.thumbnails.maxres.url-11
+            width: 174
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 175
+            url: snippet.thumbnails.medium.url-11
+            width: 174
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 172
+            url: snippet.thumbnails.qhd.url-11
+            width: 171
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 177
+            url: snippet.thumbnails.standard.url-11
+            width: 176
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 172
+            url: snippet.thumbnails.uhd.url-11
+            width: 171
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: '''single'' quoted'
+    forcesendfields: []
+    nullfields: []
+  statistics:
+    commentcount: 87822
+    hiddensubscribercount: true
+    subscribercount: 87915
+    videocount: 87760
+    viewcount: 87729
+    forcesendfields: []
+    nullfields: []
+  status:
+    ischannelmonetizationenabled: true
+    islinked: true
+    longuploadsstatus: disallowed
+    madeforkids: true
+    privacystatus: private
+    selfdeclaredmadeforkids: true
+    forcesendfields: []
+    nullfields: []
+  topicdetails:
+    topiccategories:
+        - topicDetails.topicCategories[]-11
+        - topicDetails.topicCategories[]-12
+    topicids:
+        - topicDetails.topicIds[]-11
+        - topicDetails.topicIds[]-12
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- auditdetails:
+    communityguidelinesgoodstanding: false
+    contentidclaimsgoodstanding: false
+    copyrightstrikesgoodstanding: false
+    forcesendfields: []
+    nullfields: []
+  brandingsettings:
+    channel:
+        country: brandingSettings.channel.country-12
+        defaultlanguage: brandingSettings.channel.defaultLanguage-12
+        defaulttab: brandingSettings.channel.defaultTab-12
+        description: '@at sign brandingSettings.channel.description'
+        featuredchannelstitle: brandingSettings.channel.featuredChannelsTitle-12
+        featuredchannelsurls:
+            - brandingSettings.channel.featuredChannelsUrls[]-12
+            - brandingSettings.channel.featuredChannelsUrls[]-13
+        keywords: brandingSettings.channel.keywords-12
+        moderatecomments: false
+        profilecolor: brandingSettings.channel.profileColor-12
+        showbrowseview: false
+        showrelatedchannels: false
+        title: Plain title
+        trackinganalyticsaccountid: brandingSettings.channel.trackingAnalyticsAccountId-12
+        unsubscribedtrailer: brandingSettings.channel.unsubscribedTrailer-12
+        forcesendfields: []
+        nullfields: []
+    hints:
+        - property: brandingSettings.hints[].property-12
+          value: brandingSettings.hints[].value-12
+          forcesendfields: []
+          nullfields: []
+        - property: brandingSettings.hints[].property-13
+          value: brandingSettings.hints[].value-13
+          forcesendfields: []
+          nullfields: []
+    image:
+        backgroundimageurl:
+            default: brandingSettings.image.backgroundImageUrl.default-12
+            defaultlanguage:
+                value: brandingSettings.image.backgroundImageUrl.defaultLanguage.value-12
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.backgroundImageUrl.localized[].language-12
+                  value: brandingSettings.image.backgroundImageUrl.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.backgroundImageUrl.localized[].language-13
+                  value: brandingSettings.image.backgroundImageUrl.localized[].value-13
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        bannerexternalurl: brandingSettings.image.bannerExternalUrl-12
+        bannerimageurl: brandingSettings.image.bannerImageUrl-12
+        bannermobileextrahdimageurl: brandingSettings.image.bannerMobileExtraHdImageUrl-12
+        bannermobilehdimageurl: brandingSettings.image.bannerMobileHdImageUrl-12
+        bannermobileimageurl: brandingSettings.image.bannerMobileImageUrl-12
+        bannermobilelowimageurl: brandingSettings.image.bannerMobileLowImageUrl-12
+        bannermobilemediumhdimageurl: brandingSettings.image.bannerMobileMediumHdImageUrl-12
+        bannertabletextrahdimageurl: brandingSettings.image.bannerTabletExtraHdImageUrl-12
+        bannertablethdimageurl: brandingSettings.image.bannerTabletHdImageUrl-12
+        bannertabletimageurl: brandingSettings.image.bannerTabletImageUrl-12
+        bannertabletlowimageurl: brandingSettings.image.bannerTabletLowImageUrl-12
+        bannertvhighimageurl: brandingSettings.image.bannerTvHighImageUrl-12
+        bannertvimageurl: brandingSettings.image.bannerTvImageUrl-12
+        bannertvlowimageurl: brandingSettings.image.bannerTvLowImageUrl-12
+        bannertvmediumimageurl: brandingSettings.image.bannerTvMediumImageUrl-12
+        largebrandedbannerimageimapscript:
+            default: brandingSettings.image.largeBrandedBannerImageImapScript.default-12
+            defaultlanguage:
+                value: brandingSettings.image.largeBrandedBannerImageImapScript.defaultLanguage.value-12
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].language-12
+                  value: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].language-13
+                  value: brandingSettings.image.largeBrandedBannerImageImapScript.localized[].value-13
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        largebrandedbannerimageurl:
+            default: brandingSettings.image.largeBrandedBannerImageUrl.default-12
+            defaultlanguage:
+                value: brandingSettings.image.largeBrandedBannerImageUrl.defaultLanguage.value-12
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.largeBrandedBannerImageUrl.localized[].language-12
+                  value: brandingSettings.image.largeBrandedBannerImageUrl.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.largeBrandedBannerImageUrl.localized[].language-13
+                  value: brandingSettings.image.largeBrandedBannerImageUrl.localized[].value-13
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        smallbrandedbannerimageimapscript:
+            default: brandingSettings.image.smallBrandedBannerImageImapScript.default-12
+            defaultlanguage:
+                value: brandingSettings.image.smallBrandedBannerImageImapScript.defaultLanguage.value-12
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].language-12
+                  value: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].language-13
+                  value: brandingSettings.image.smallBrandedBannerImageImapScript.localized[].value-13
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        smallbrandedbannerimageurl:
+            default: brandingSettings.image.smallBrandedBannerImageUrl.default-12
+            defaultlanguage:
+                value: brandingSettings.image.smallBrandedBannerImageUrl.defaultLanguage.value-12
+                forcesendfields: []
+                nullfields: []
+            localized:
+                - language: brandingSettings.image.smallBrandedBannerImageUrl.localized[].language-12
+                  value: brandingSettings.image.smallBrandedBannerImageUrl.localized[].value-12
+                  forcesendfields: []
+                  nullfields: []
+                - language: brandingSettings.image.smallBrandedBannerImageUrl.localized[].language-13
+                  value: brandingSettings.image.smallBrandedBannerImageUrl.localized[].value-13
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        trackingimageurl: brandingSettings.image.trackingImageUrl-12
+        watchiconimageurl: brandingSettings.image.watchIconImageUrl-12
+        forcesendfields: []
+        nullfields: []
+    watch:
+        backgroundcolor: brandingSettings.watch.backgroundColor-12
+        featuredplaylistid: brandingSettings.watch.featuredPlaylistId-12
+        textcolor: brandingSettings.watch.textColor-12
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    relatedplaylists:
+        favorites: contentDetails.relatedPlaylists.favorites-12
+        likes: contentDetails.relatedPlaylists.likes-12
+        uploads: contentDetails.relatedPlaylists.uploads-12
+        watchhistory: contentDetails.relatedPlaylists.watchHistory-12
+        watchlater: contentDetails.relatedPlaylists.watchLater-12
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  contentownerdetails:
+    contentowner: contentOwnerDetails.contentOwner-12
+    timelinked: "2026-04-13T12:34:52Z"
+    forcesendfields: []
+    nullfields: []
+  conversionpings:
+    pings:
+        - context: subscribe
+          conversionurl: conversionPings.pings[].conversionUrl-12
+          forcesendfields: []
+          nullfields: []
+        - context: unsubscribe
+          conversionurl: conversionPings.pings[].conversionUrl-13
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: etag-12
+  id: id-12
+  kind: kind-12
+  localizations:
+    ka:
+        description: '''single'' quoted localizations{}.description'
+        title: |
+            multi
+            line
+            text
+        forcesendfields: []
+        nullfields: []
+    kb:
+        description: '@at sign localizations{}.description'
+        title: ' leading space'
+        forcesendfields: []
+        nullfields: []
+  snippet:
+    country: snippet.country-12
+    customurl: snippet.customUrl-12
+    defaultlanguage: snippet.defaultLanguage-12
+    description: '@at sign snippet.description'
+    localized:
+        description: '@at sign snippet.localized.description'
+        title: "~"
+        forcesendfields: []
+        nullfields: []
+    publishedat: "2026-04-13T12:34:52Z"
+    thumbnails:
+        default:
+            height: 189
+            url: snippet.thumbnails.default.url-12
+            width: 188
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 185
+            url: snippet.thumbnails.fhd.url-12
+            width: 184
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 186
+            url: snippet.thumbnails.high.url-12
+            width: 185
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 188
+            url: snippet.thumbnails.maxres.url-12
+            width: 187
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 188
+            url: snippet.thumbnails.medium.url-12
+            width: 187
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 185
+            url: snippet.thumbnails.qhd.url-12
+            width: 184
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 190
+            url: snippet.thumbnails.standard.url-12
+            width: 189
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 185
+            url: snippet.thumbnails.uhd.url-12
+            width: 184
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: <b>tags</b> & "quotes"
+    forcesendfields: []
+    nullfields: []
+  statistics:
+    commentcount: 95741
+    hiddensubscribercount: false
+    subscribercount: 95834
+    videocount: 95679
+    viewcount: 95648
+    forcesendfields: []
+    nullfields: []
+  status:
+    ischannelmonetizationenabled: false
+    islinked: false
+    longuploadsstatus: longUploadsUnspecified
+    madeforkids: false
+    privacystatus: public
+    selfdeclaredmadeforkids: false
+    forcesendfields: []
+    nullfields: []
+  topicdetails:
+    topiccategories:
+        - topicDetails.topicCategories[]-12
+        - topicDetails.topicCategories[]-13
+    topicids:
+        - topicDetails.topicIds[]-12
+        - topicDetails.topicIds[]-13
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- auditdetails:
+    communityguidelinesgoodstanding: false
+    contentidclaimsgoodstanding: false
+    copyrightstrikesgoodstanding: false
+    forcesendfields: []
+    nullfields: []
+  brandingsettings:
+    channel:
+        country: ""
+        defaultlanguage: ""
+        defaulttab: ""
+        description: ""
+        featuredchannelstitle: ""
+        featuredchannelsurls: []
+        keywords: ""
+        moderatecomments: false
+        profilecolor: ""
+        showbrowseview: false
+        showrelatedchannels: false
+        title: ""
+        trackinganalyticsaccountid: ""
+        unsubscribedtrailer: ""
+        forcesendfields: []
+        nullfields: []
+    hints: []
+    image:
+        backgroundimageurl:
+            default: ""
+            defaultlanguage:
+                value: ""
+                forcesendfields: []
+                nullfields: []
+            localized: []
+            forcesendfields: []
+            nullfields: []
+        bannerexternalurl: ""
+        bannerimageurl: ""
+        bannermobileextrahdimageurl: ""
+        bannermobilehdimageurl: ""
+        bannermobileimageurl: ""
+        bannermobilelowimageurl: ""
+        bannermobilemediumhdimageurl: ""
+        bannertabletextrahdimageurl: ""
+        bannertablethdimageurl: ""
+        bannertabletimageurl: ""
+        bannertabletlowimageurl: ""
+        bannertvhighimageurl: ""
+        bannertvimageurl: ""
+        bannertvlowimageurl: ""
+        bannertvmediumimageurl: ""
+        largebrandedbannerimageimapscript:
+            default: ""
+            defaultlanguage:
+                value: ""
+                forcesendfields: []
+                nullfields: []
+            localized: []
+            forcesendfields: []
+            nullfields: []
+        largebrandedbannerimageurl:
+            default: ""
+            defaultlanguage:
+                value: ""
+                forcesendfields: []
+                nullfields: []
+            localized: []
+            forcesendfields: []
+            nullfields: []
+        smallbrandedbannerimageimapscript:
+            default: ""
+            defaultlanguage:
+                value: ""
+                forcesendfields: []
+                nullfields: []
+            localized: []
+            forcesendfields: []
+            nullfields: []
+        smallbrandedbannerimageurl:
+            default: ""
+            defaultlanguage:
+                value: ""
+                forcesendfields: []
+                nullfields: []
+            localized: []
+            forcesendfields: []
+            nullfields: []
+        trackingimageurl: ""
+        watchiconimageurl: ""
+        forcesendfields: []
+        nullfields: []
+    watch:
+        backgroundcolor: ""
+        featuredplaylistid: ""
+        textcolor: ""
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    relatedplaylists:
+        favorites: ""
+        likes: ""
+        uploads: ""
+        watchhistory: ""
+        watchlater: ""
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  contentownerdetails:
+    contentowner: ""
+    timelinked: ""
+    forcesendfields: []
+    nullfields: []
+  conversionpings:
+    pings: []
+    forcesendfields: []
+    nullfields: []
+  etag: ""
+  id: zero-1
+  kind: ""
+  localizations: {}
+  snippet:
+    country: ""
+    customurl: ""
+    defaultlanguage: ""
+    description: ""
+    localized:
+        description: ""
+        title: ""
+        forcesendfields: []
+        nullfields: []
+    publishedat: ""
+    thumbnails:
+        default:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: ""
+    forcesendfields: []
+    nullfields: []
+  statistics:
+    commentcount: 0
+    hiddensubscribercount: false
+    subscribercount: 0
+    videocount: 0
+    viewcount: 0
+    forcesendfields: []
+    nullfields: []
+  status:
+    ischannelmonetizationenabled: false
+    islinked: false
+    longuploadsstatus: ""
+    madeforkids: false
+    privacystatus: ""
+    selfdeclaredmadeforkids: false
+    forcesendfields: []
+    nullfields: []
+  topicdetails:
+    topiccategories: []
+    topicids: []
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []

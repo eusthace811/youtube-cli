@@ -1,0 +1,273 @@
+[
+  {
+    "contentDetails": {
+      "itemCount": 154
+    },
+    "etag": "etag-10",
+    "id": "id-10",
+    "kind": "kind-10",
+    "localizations": {
+      "ka": {
+        "description": "~ localizations{}.description",
+        "title": "emoji 🎬🎥 mix"
+      },
+      "kb": {
+        "description": "null localizations{}.description",
+        "title": "line sep"
+      }
+    },
+    "player": {
+      "embedHtml": "player.embedHtml-10"
+    },
+    "snippet": {
+      "channelId": "snippet.channelId-10",
+      "channelTitle": "snippet.channelTitle-10",
+      "defaultLanguage": "snippet.defaultLanguage-10",
+      "description": "null snippet.description",
+      "localized": {
+        "description": "null snippet.localized.description",
+        "title": "multi\nline\ntext\n"
+      },
+      "publishedAt": "2026-02-11T12:34:50Z",
+      "tags": [
+        "snippet.tags[]-10",
+        "snippet.tags[]-11"
+      ],
+      "thumbnailVideoId": "snippet.thumbnailVideoId-10",
+      "thumbnails": {
+        "default": {
+          "height": 163,
+          "url": "snippet.thumbnails.default.url-10",
+          "width": 162
+        },
+        "fhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.fhd.url-10",
+          "width": 158
+        },
+        "high": {
+          "height": 160,
+          "url": "snippet.thumbnails.high.url-10",
+          "width": 159
+        },
+        "maxres": {
+          "height": 162,
+          "url": "snippet.thumbnails.maxres.url-10",
+          "width": 161
+        },
+        "medium": {
+          "height": 162,
+          "url": "snippet.thumbnails.medium.url-10",
+          "width": 161
+        },
+        "qhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.qhd.url-10",
+          "width": 158
+        },
+        "standard": {
+          "height": 164,
+          "url": "snippet.thumbnails.standard.url-10",
+          "width": 163
+        },
+        "uhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.uhd.url-10",
+          "width": 158
+        }
+      },
+      "title": "key: value"
+    },
+    "status": {
+      "podcastStatus": "enabled",
+      "privacyStatus": "unlisted"
+    }
+  },
+  {
+    "contentDetails": {
+      "itemCount": 167
+    },
+    "etag": "etag-11",
+    "id": "id-11",
+    "kind": "kind-11",
+    "localizations": {
+      "ka": {
+        "description": "@at sign localizations{}.description",
+        "title": " leading space"
+      },
+      "kb": {
+        "description": "~ localizations{}.description",
+        "title": "emoji 🎬🎥 mix"
+      }
+    },
+    "player": {
+      "embedHtml": "player.embedHtml-11"
+    },
+    "snippet": {
+      "channelId": "snippet.channelId-11",
+      "channelTitle": "snippet.channelTitle-11",
+      "defaultLanguage": "snippet.defaultLanguage-11",
+      "description": "~ snippet.description",
+      "localized": {
+        "description": "~ snippet.localized.description",
+        "title": "true"
+      },
+      "publishedAt": "2026-03-12T12:34:51Z",
+      "tags": [
+        "snippet.tags[]-11",
+        "snippet.tags[]-12"
+      ],
+      "thumbnailVideoId": "snippet.thumbnailVideoId-11",
+      "thumbnails": {
+        "default": {
+          "height": 176,
+          "url": "snippet.thumbnails.default.url-11",
+          "width": 175
+        },
+        "fhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.fhd.url-11",
+          "width": 171
+        },
+        "high": {
+          "height": 173,
+          "url": "snippet.thumbnails.high.url-11",
+          "width": 172
+        },
+        "maxres": {
+          "height": 175,
+          "url": "snippet.thumbnails.maxres.url-11",
+          "width": 174
+        },
+        "medium": {
+          "height": 175,
+          "url": "snippet.thumbnails.medium.url-11",
+          "width": 174
+        },
+        "qhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.qhd.url-11",
+          "width": 171
+        },
+        "standard": {
+          "height": 177,
+          "url": "snippet.thumbnails.standard.url-11",
+          "width": 176
+        },
+        "uhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.uhd.url-11",
+          "width": 171
+        }
+      },
+      "title": "'single' quoted"
+    },
+    "status": {
+      "podcastStatus": "disabled",
+      "privacyStatus": "private"
+    }
+  },
+  {
+    "contentDetails": {
+      "itemCount": 180
+    },
+    "etag": "etag-12",
+    "id": "id-12",
+    "kind": "kind-12",
+    "localizations": {
+      "ka": {
+        "description": "'single' quoted localizations{}.description",
+        "title": "multi\nline\ntext\n"
+      },
+      "kb": {
+        "description": "@at sign localizations{}.description",
+        "title": " leading space"
+      }
+    },
+    "player": {
+      "embedHtml": "player.embedHtml-12"
+    },
+    "snippet": {
+      "channelId": "snippet.channelId-12",
+      "channelTitle": "snippet.channelTitle-12",
+      "defaultLanguage": "snippet.defaultLanguage-12",
+      "description": "@at sign snippet.description",
+      "localized": {
+        "description": "@at sign snippet.localized.description",
+        "title": "~"
+      },
+      "publishedAt": "2026-04-13T12:34:52Z",
+      "tags": [
+        "snippet.tags[]-12",
+        "snippet.tags[]-13"
+      ],
+      "thumbnailVideoId": "snippet.thumbnailVideoId-12",
+      "thumbnails": {
+        "default": {
+          "height": 189,
+          "url": "snippet.thumbnails.default.url-12",
+          "width": 188
+        },
+        "fhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.fhd.url-12",
+          "width": 184
+        },
+        "high": {
+          "height": 186,
+          "url": "snippet.thumbnails.high.url-12",
+          "width": 185
+        },
+        "maxres": {
+          "height": 188,
+          "url": "snippet.thumbnails.maxres.url-12",
+          "width": 187
+        },
+        "medium": {
+          "height": 188,
+          "url": "snippet.thumbnails.medium.url-12",
+          "width": 187
+        },
+        "qhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.qhd.url-12",
+          "width": 184
+        },
+        "standard": {
+          "height": 190,
+          "url": "snippet.thumbnails.standard.url-12",
+          "width": 189
+        },
+        "uhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.uhd.url-12",
+          "width": 184
+        }
+      },
+      "title": "<b>tags</b> & \"quotes\""
+    },
+    "status": {
+      "podcastStatus": "enabled",
+      "privacyStatus": "public"
+    }
+  },
+  {
+    "contentDetails": {},
+    "id": "zero-1",
+    "player": {},
+    "snippet": {
+      "localized": {},
+      "thumbnails": {
+        "default": {},
+        "fhd": {},
+        "high": {},
+        "maxres": {},
+        "medium": {},
+        "qhd": {},
+        "standard": {},
+        "uhd": {}
+      }
+    },
+    "status": {}
+  }
+]

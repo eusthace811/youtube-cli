@@ -1,0 +1,84 @@
+etag: etag-page-2
+items:
+    - contentdetails:
+        duration: contentDetails.duration-20
+        forcesendfields: []
+        nullfields: []
+      etag: etag-20
+      id: id-20
+      kind: kind-20
+      snippet:
+        publishtime: snippet.publishTime-20
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        commentcount: 159093
+        likecount: 159000
+        viewcount: 159000
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        duration: contentDetails.duration-21
+        forcesendfields: []
+        nullfields: []
+      etag: etag-21
+      id: id-21
+      kind: kind-21
+      snippet:
+        publishtime: snippet.publishTime-21
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        commentcount: 167012
+        likecount: 166919
+        viewcount: 166919
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        duration: contentDetails.duration-22
+        forcesendfields: []
+        nullfields: []
+      etag: etag-22
+      id: id-22
+      kind: kind-22
+      snippet:
+        publishtime: snippet.publishTime-22
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        commentcount: 174931
+        likecount: 174838
+        viewcount: 174838
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        duration: ""
+        forcesendfields: []
+        nullfields: []
+      etag: ""
+      id: zero-2
+      kind: ""
+      snippet:
+        publishtime: ""
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        commentcount: 0
+        likecount: 0
+        viewcount: 0
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+kind: youtube#batchGetStatsResponse
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

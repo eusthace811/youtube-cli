@@ -1,0 +1,36 @@
+[
+  {
+    "id": "id-0",
+    "kind": "kind-0",
+    "snippet": {
+      "height": 14,
+      "playlistId": "snippet.playlistId-0",
+      "type": "hero",
+      "width": 13
+    }
+  },
+  {
+    "id": "id-1",
+    "kind": "kind-1",
+    "snippet": {
+      "height": 27,
+      "playlistId": "snippet.playlistId-1",
+      "type": "hero",
+      "width": 26
+    }
+  },
+  {
+    "id": "id-2",
+    "kind": "kind-2",
+    "snippet": {
+      "height": 40,
+      "playlistId": "snippet.playlistId-2",
+      "type": "hero",
+      "width": 39
+    }
+  },
+  {
+    "id": "zero-0",
+    "snippet": {}
+  }
+]

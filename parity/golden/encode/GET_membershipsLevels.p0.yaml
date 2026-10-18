@@ -1,0 +1,62 @@
+etag: etag-page-0
+eventid: ""
+items:
+    - etag: etag-0
+      id: id-0
+      kind: kind-0
+      snippet:
+        creatorchannelid: snippet.creatorChannelId-0
+        leveldetails:
+            displayname: snippet.levelDetails.displayName-0
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-1
+      id: id-1
+      kind: kind-1
+      snippet:
+        creatorchannelid: snippet.creatorChannelId-1
+        leveldetails:
+            displayname: snippet.levelDetails.displayName-1
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-2
+      id: id-2
+      kind: kind-2
+      snippet:
+        creatorchannelid: snippet.creatorChannelId-2
+        leveldetails:
+            displayname: snippet.levelDetails.displayName-2
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: ""
+      id: zero-0
+      kind: ""
+      snippet:
+        creatorchannelid: ""
+        leveldetails:
+            displayname: ""
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+kind: youtube#membershipsLevelListResponse
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

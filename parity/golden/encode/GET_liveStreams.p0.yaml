@@ -1,0 +1,238 @@
+etag: etag-page-0
+eventid: ""
+items:
+    - cdn:
+        format: cdn.format-0
+        framerate: 30fps
+        ingestioninfo:
+            backupingestionaddress: cdn.ingestionInfo.backupIngestionAddress-0
+            ingestionaddress: cdn.ingestionInfo.ingestionAddress-0
+            rtmpsbackupingestionaddress: cdn.ingestionInfo.rtmpsBackupIngestionAddress-0
+            rtmpsingestionaddress: cdn.ingestionInfo.rtmpsIngestionAddress-0
+            streamname: cdn.ingestionInfo.streamName-0
+            forcesendfields: []
+            nullfields: []
+        ingestiontype: rtmp
+        resolution: 240p
+        forcesendfields: []
+        nullfields: []
+      contentdetails:
+        closedcaptionsingestionurl: contentDetails.closedCaptionsIngestionUrl-0
+        isreusable: false
+        forcesendfields: []
+        nullfields: []
+      etag: etag-0
+      id: id-0
+      kind: kind-0
+      snippet:
+        channelid: snippet.channelId-0
+        description: Plain title snippet.description
+        isdefaultstream: false
+        publishedat: "2026-01-10T12:34:50Z"
+        title: '@at sign'
+        forcesendfields: []
+        nullfields: []
+      status:
+        healthstatus:
+            configurationissues:
+                - description: Plain title status.healthStatus.configurationIssues[].description
+                  reason: status.healthStatus.configurationIssues[].reason-0
+                  severity: info
+                  type: gopSizeOver
+                  forcesendfields: []
+                  nullfields: []
+                - description: Ünïcödé ✓ 日本語のタイトル status.healthStatus.configurationIssues[].description
+                  reason: status.healthStatus.configurationIssues[].reason-1
+                  severity: warning
+                  type: gopSizeLong
+                  forcesendfields: []
+                  nullfields: []
+            lastupdatetimeseconds: 1271
+            status: good
+            forcesendfields: []
+            nullfields: []
+        streamstatus: created
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - cdn:
+        format: cdn.format-1
+        framerate: 60fps
+        ingestioninfo:
+            backupingestionaddress: cdn.ingestionInfo.backupIngestionAddress-1
+            ingestionaddress: cdn.ingestionInfo.ingestionAddress-1
+            rtmpsbackupingestionaddress: cdn.ingestionInfo.rtmpsBackupIngestionAddress-1
+            rtmpsingestionaddress: cdn.ingestionInfo.rtmpsIngestionAddress-1
+            streamname: cdn.ingestionInfo.streamName-1
+            forcesendfields: []
+            nullfields: []
+        ingestiontype: dash
+        resolution: 360p
+        forcesendfields: []
+        nullfields: []
+      contentdetails:
+        closedcaptionsingestionurl: contentDetails.closedCaptionsIngestionUrl-1
+        isreusable: true
+        forcesendfields: []
+        nullfields: []
+      etag: etag-1
+      id: id-1
+      kind: kind-1
+      snippet:
+        channelid: snippet.channelId-1
+        description: Ünïcödé ✓ 日本語のタイトル snippet.description
+        isdefaultstream: true
+        publishedat: "2026-02-11T12:34:51Z"
+        title: Ünïcödé ✓ 日本語のタイトル
+        forcesendfields: []
+        nullfields: []
+      status:
+        healthstatus:
+            configurationissues:
+                - description: Ünïcödé ✓ 日本語のタイトル status.healthStatus.configurationIssues[].description
+                  reason: status.healthStatus.configurationIssues[].reason-1
+                  severity: warning
+                  type: gopSizeLong
+                  forcesendfields: []
+                  nullfields: []
+                - description: <b>tags</b> & "quotes" status.healthStatus.configurationIssues[].description
+                  reason: status.healthStatus.configurationIssues[].reason-2
+                  severity: error
+                  type: gopSizeShort
+                  forcesendfields: []
+                  nullfields: []
+            lastupdatetimeseconds: 9190
+            status: ok
+            forcesendfields: []
+            nullfields: []
+        streamstatus: ready
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - cdn:
+        format: cdn.format-2
+        framerate: variable
+        ingestioninfo:
+            backupingestionaddress: cdn.ingestionInfo.backupIngestionAddress-2
+            ingestionaddress: cdn.ingestionInfo.ingestionAddress-2
+            rtmpsbackupingestionaddress: cdn.ingestionInfo.rtmpsBackupIngestionAddress-2
+            rtmpsingestionaddress: cdn.ingestionInfo.rtmpsIngestionAddress-2
+            streamname: cdn.ingestionInfo.streamName-2
+            forcesendfields: []
+            nullfields: []
+        ingestiontype: webrtc
+        resolution: 480p
+        forcesendfields: []
+        nullfields: []
+      contentdetails:
+        closedcaptionsingestionurl: contentDetails.closedCaptionsIngestionUrl-2
+        isreusable: false
+        forcesendfields: []
+        nullfields: []
+      etag: etag-2
+      id: id-2
+      kind: kind-2
+      snippet:
+        channelid: snippet.channelId-2
+        description: <b>tags</b> & "quotes" snippet.description
+        isdefaultstream: false
+        publishedat: "2026-03-12T12:34:52Z"
+        title: '- dash start'
+        forcesendfields: []
+        nullfields: []
+      status:
+        healthstatus:
+            configurationissues:
+                - description: <b>tags</b> & "quotes" status.healthStatus.configurationIssues[].description
+                  reason: status.healthStatus.configurationIssues[].reason-2
+                  severity: error
+                  type: gopSizeShort
+                  forcesendfields: []
+                  nullfields: []
+                - description: "emoji \U0001F3AC\U0001F3A5 mix status.healthStatus.configurationIssues[].description"
+                  reason: status.healthStatus.configurationIssues[].reason-3
+                  severity: info
+                  type: openGop
+                  forcesendfields: []
+                  nullfields: []
+            lastupdatetimeseconds: 17109
+            status: bad
+            forcesendfields: []
+            nullfields: []
+        streamstatus: active
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - cdn:
+        format: ""
+        framerate: ""
+        ingestioninfo:
+            backupingestionaddress: ""
+            ingestionaddress: ""
+            rtmpsbackupingestionaddress: ""
+            rtmpsingestionaddress: ""
+            streamname: ""
+            forcesendfields: []
+            nullfields: []
+        ingestiontype: ""
+        resolution: ""
+        forcesendfields: []
+        nullfields: []
+      contentdetails:
+        closedcaptionsingestionurl: ""
+        isreusable: false
+        forcesendfields: []
+        nullfields: []
+      etag: ""
+      id: zero-0
+      kind: ""
+      snippet:
+        channelid: ""
+        description: ""
+        isdefaultstream: false
+        publishedat: ""
+        title: ""
+        forcesendfields: []
+        nullfields: []
+      status:
+        healthstatus:
+            configurationissues: []
+            lastupdatetimeseconds: 0
+            status: ""
+            forcesendfields: []
+            nullfields: []
+        streamstatus: ""
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+kind: youtube#liveStreamListResponse
+nextpagetoken: p2
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+prevpagetoken: ""
+tokenpagination: null
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

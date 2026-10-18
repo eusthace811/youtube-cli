@@ -1,0 +1,52 @@
+- etag: etag-10
+  id: id-10
+  kind: kind-10
+  snippet:
+    creatorchannelid: snippet.creatorChannelId-10
+    leveldetails:
+        displayname: snippet.levelDetails.displayName-10
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: etag-11
+  id: id-11
+  kind: kind-11
+  snippet:
+    creatorchannelid: snippet.creatorChannelId-11
+    leveldetails:
+        displayname: snippet.levelDetails.displayName-11
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: etag-12
+  id: id-12
+  kind: kind-12
+  snippet:
+    creatorchannelid: snippet.creatorChannelId-12
+    leveldetails:
+        displayname: snippet.levelDetails.displayName-12
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: ""
+  id: zero-1
+  kind: ""
+  snippet:
+    creatorchannelid: ""
+    leveldetails:
+        displayname: ""
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []

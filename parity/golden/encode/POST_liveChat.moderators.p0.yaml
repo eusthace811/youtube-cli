@@ -1,0 +1,19 @@
+etag: etag-1
+id: id-1
+kind: kind-1
+snippet:
+    livechatid: snippet.liveChatId-1
+    moderatordetails:
+        channelid: snippet.moderatorDetails.channelId-1
+        channelurl: snippet.moderatorDetails.channelUrl-1
+        displayname: snippet.moderatorDetails.displayName-1
+        profileimageurl: snippet.moderatorDetails.profileImageUrl-1
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

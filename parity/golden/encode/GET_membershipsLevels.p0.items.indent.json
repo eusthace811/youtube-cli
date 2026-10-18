@@ -1,0 +1,41 @@
+[
+  {
+    "etag": "etag-0",
+    "id": "id-0",
+    "kind": "kind-0",
+    "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-0",
+      "levelDetails": {
+        "displayName": "snippet.levelDetails.displayName-0"
+      }
+    }
+  },
+  {
+    "etag": "etag-1",
+    "id": "id-1",
+    "kind": "kind-1",
+    "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-1",
+      "levelDetails": {
+        "displayName": "snippet.levelDetails.displayName-1"
+      }
+    }
+  },
+  {
+    "etag": "etag-2",
+    "id": "id-2",
+    "kind": "kind-2",
+    "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-2",
+      "levelDetails": {
+        "displayName": "snippet.levelDetails.displayName-2"
+      }
+    }
+  },
+  {
+    "id": "zero-0",
+    "snippet": {
+      "levelDetails": {}
+    }
+  }
+]

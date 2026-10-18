@@ -1,0 +1,58 @@
+cdn:
+    format: cdn.format-1
+    framerate: 60fps
+    ingestioninfo:
+        backupingestionaddress: cdn.ingestionInfo.backupIngestionAddress-1
+        ingestionaddress: cdn.ingestionInfo.ingestionAddress-1
+        rtmpsbackupingestionaddress: cdn.ingestionInfo.rtmpsBackupIngestionAddress-1
+        rtmpsingestionaddress: cdn.ingestionInfo.rtmpsIngestionAddress-1
+        streamname: cdn.ingestionInfo.streamName-1
+        forcesendfields: []
+        nullfields: []
+    ingestiontype: dash
+    resolution: 360p
+    forcesendfields: []
+    nullfields: []
+contentdetails:
+    closedcaptionsingestionurl: contentDetails.closedCaptionsIngestionUrl-1
+    isreusable: true
+    forcesendfields: []
+    nullfields: []
+etag: etag-1
+id: id-1
+kind: kind-1
+snippet:
+    channelid: snippet.channelId-1
+    description: Ünïcödé ✓ 日本語のタイトル snippet.description
+    isdefaultstream: true
+    publishedat: "2026-02-11T12:34:51Z"
+    title: Ünïcödé ✓ 日本語のタイトル
+    forcesendfields: []
+    nullfields: []
+status:
+    healthstatus:
+        configurationissues:
+            - description: Ünïcödé ✓ 日本語のタイトル status.healthStatus.configurationIssues[].description
+              reason: status.healthStatus.configurationIssues[].reason-1
+              severity: warning
+              type: gopSizeLong
+              forcesendfields: []
+              nullfields: []
+            - description: <b>tags</b> & "quotes" status.healthStatus.configurationIssues[].description
+              reason: status.healthStatus.configurationIssues[].reason-2
+              severity: error
+              type: gopSizeShort
+              forcesendfields: []
+              nullfields: []
+        lastupdatetimeseconds: 9190
+        status: ok
+        forcesendfields: []
+        nullfields: []
+    streamstatus: ready
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

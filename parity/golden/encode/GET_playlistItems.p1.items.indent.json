@@ -1,0 +1,242 @@
+[
+  {
+    "contentDetails": {
+      "endAt": "contentDetails.endAt-10",
+      "note": "contentDetails.note-10",
+      "startAt": "contentDetails.startAt-10",
+      "videoId": "contentDetails.videoId-10",
+      "videoPublishedAt": "2026-02-11T12:34:50Z"
+    },
+    "etag": "etag-10",
+    "id": "id-10",
+    "kind": "kind-10",
+    "snippet": {
+      "channelId": "snippet.channelId-10",
+      "channelTitle": "snippet.channelTitle-10",
+      "description": "null snippet.description",
+      "playlistId": "snippet.playlistId-10",
+      "position": 146,
+      "publishedAt": "2026-02-11T12:34:50Z",
+      "resourceId": {
+        "channelId": "snippet.resourceId.channelId-10",
+        "kind": "snippet.resourceId.kind-10",
+        "playlistId": "snippet.resourceId.playlistId-10",
+        "videoId": "snippet.resourceId.videoId-10"
+      },
+      "thumbnails": {
+        "default": {
+          "height": 163,
+          "url": "snippet.thumbnails.default.url-10",
+          "width": 162
+        },
+        "fhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.fhd.url-10",
+          "width": 158
+        },
+        "high": {
+          "height": 160,
+          "url": "snippet.thumbnails.high.url-10",
+          "width": 159
+        },
+        "maxres": {
+          "height": 162,
+          "url": "snippet.thumbnails.maxres.url-10",
+          "width": 161
+        },
+        "medium": {
+          "height": 162,
+          "url": "snippet.thumbnails.medium.url-10",
+          "width": 161
+        },
+        "qhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.qhd.url-10",
+          "width": 158
+        },
+        "standard": {
+          "height": 164,
+          "url": "snippet.thumbnails.standard.url-10",
+          "width": 163
+        },
+        "uhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.uhd.url-10",
+          "width": 158
+        }
+      },
+      "title": "key: value",
+      "videoOwnerChannelId": "snippet.videoOwnerChannelId-10",
+      "videoOwnerChannelTitle": "snippet.videoOwnerChannelTitle-10"
+    },
+    "status": {
+      "privacyStatus": "unlisted"
+    }
+  },
+  {
+    "contentDetails": {
+      "endAt": "contentDetails.endAt-11",
+      "note": "contentDetails.note-11",
+      "startAt": "contentDetails.startAt-11",
+      "videoId": "contentDetails.videoId-11",
+      "videoPublishedAt": "2026-03-12T12:34:51Z"
+    },
+    "etag": "etag-11",
+    "id": "id-11",
+    "kind": "kind-11",
+    "snippet": {
+      "channelId": "snippet.channelId-11",
+      "channelTitle": "snippet.channelTitle-11",
+      "description": "~ snippet.description",
+      "playlistId": "snippet.playlistId-11",
+      "position": 159,
+      "publishedAt": "2026-03-12T12:34:51Z",
+      "resourceId": {
+        "channelId": "snippet.resourceId.channelId-11",
+        "kind": "snippet.resourceId.kind-11",
+        "playlistId": "snippet.resourceId.playlistId-11",
+        "videoId": "snippet.resourceId.videoId-11"
+      },
+      "thumbnails": {
+        "default": {
+          "height": 176,
+          "url": "snippet.thumbnails.default.url-11",
+          "width": 175
+        },
+        "fhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.fhd.url-11",
+          "width": 171
+        },
+        "high": {
+          "height": 173,
+          "url": "snippet.thumbnails.high.url-11",
+          "width": 172
+        },
+        "maxres": {
+          "height": 175,
+          "url": "snippet.thumbnails.maxres.url-11",
+          "width": 174
+        },
+        "medium": {
+          "height": 175,
+          "url": "snippet.thumbnails.medium.url-11",
+          "width": 174
+        },
+        "qhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.qhd.url-11",
+          "width": 171
+        },
+        "standard": {
+          "height": 177,
+          "url": "snippet.thumbnails.standard.url-11",
+          "width": 176
+        },
+        "uhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.uhd.url-11",
+          "width": 171
+        }
+      },
+      "title": "'single' quoted",
+      "videoOwnerChannelId": "snippet.videoOwnerChannelId-11",
+      "videoOwnerChannelTitle": "snippet.videoOwnerChannelTitle-11"
+    },
+    "status": {
+      "privacyStatus": "private"
+    }
+  },
+  {
+    "contentDetails": {
+      "endAt": "contentDetails.endAt-12",
+      "note": "contentDetails.note-12",
+      "startAt": "contentDetails.startAt-12",
+      "videoId": "contentDetails.videoId-12",
+      "videoPublishedAt": "2026-04-13T12:34:52Z"
+    },
+    "etag": "etag-12",
+    "id": "id-12",
+    "kind": "kind-12",
+    "snippet": {
+      "channelId": "snippet.channelId-12",
+      "channelTitle": "snippet.channelTitle-12",
+      "description": "@at sign snippet.description",
+      "playlistId": "snippet.playlistId-12",
+      "position": 172,
+      "publishedAt": "2026-04-13T12:34:52Z",
+      "resourceId": {
+        "channelId": "snippet.resourceId.channelId-12",
+        "kind": "snippet.resourceId.kind-12",
+        "playlistId": "snippet.resourceId.playlistId-12",
+        "videoId": "snippet.resourceId.videoId-12"
+      },
+      "thumbnails": {
+        "default": {
+          "height": 189,
+          "url": "snippet.thumbnails.default.url-12",
+          "width": 188
+        },
+        "fhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.fhd.url-12",
+          "width": 184
+        },
+        "high": {
+          "height": 186,
+          "url": "snippet.thumbnails.high.url-12",
+          "width": 185
+        },
+        "maxres": {
+          "height": 188,
+          "url": "snippet.thumbnails.maxres.url-12",
+          "width": 187
+        },
+        "medium": {
+          "height": 188,
+          "url": "snippet.thumbnails.medium.url-12",
+          "width": 187
+        },
+        "qhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.qhd.url-12",
+          "width": 184
+        },
+        "standard": {
+          "height": 190,
+          "url": "snippet.thumbnails.standard.url-12",
+          "width": 189
+        },
+        "uhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.uhd.url-12",
+          "width": 184
+        }
+      },
+      "title": "<b>tags</b> & \"quotes\"",
+      "videoOwnerChannelId": "snippet.videoOwnerChannelId-12",
+      "videoOwnerChannelTitle": "snippet.videoOwnerChannelTitle-12"
+    },
+    "status": {
+      "privacyStatus": "public"
+    }
+  },
+  {
+    "contentDetails": {},
+    "id": "zero-1",
+    "snippet": {
+      "resourceId": {},
+      "thumbnails": {
+        "default": {},
+        "fhd": {},
+        "high": {},
+        "maxres": {},
+        "medium": {},
+        "qhd": {},
+        "standard": {},
+        "uhd": {}
+      }
+    },
+    "status": {}
+  }
+]

@@ -1,0 +1,96 @@
+[
+  {
+    "etag": "etag-20",
+    "kind": "kind-20",
+    "linkingToken": "linkingToken-20",
+    "snippet": {
+      "channelToAffiliateProgramLink": {
+        "merchantId": "159868",
+        "programStatus": "inactive",
+        "statusUpdateReason": "snippet.channelToAffiliateProgramLink.statusUpdateReason-20",
+        "statusUpdateTime": "snippet.channelToAffiliateProgramLink.statusUpdateTime-20"
+      },
+      "channelToStoreLink": {
+        "billingDetails": {
+          "billingStatus": "billingStatusUnspecified"
+        },
+        "merchantAffiliateProgramDetails": {
+          "status": "merchantAffiliateProgramStatusUnspecified"
+        },
+        "merchantId": "159527",
+        "storeName": "snippet.channelToStoreLink.storeName-20",
+        "storeUrl": "snippet.channelToStoreLink.storeUrl-20"
+      },
+      "type": "channelToAffiliateProgramLink"
+    },
+    "status": {
+      "linkStatus": "unknown"
+    }
+  },
+  {
+    "etag": "etag-21",
+    "kind": "kind-21",
+    "linkingToken": "linkingToken-21",
+    "snippet": {
+      "channelToAffiliateProgramLink": {
+        "merchantId": "167787",
+        "programStatus": "affiliateProgramStatusUnspecified",
+        "statusUpdateReason": "snippet.channelToAffiliateProgramLink.statusUpdateReason-21",
+        "statusUpdateTime": "snippet.channelToAffiliateProgramLink.statusUpdateTime-21"
+      },
+      "channelToStoreLink": {
+        "billingDetails": {
+          "billingStatus": "billingStatusPending"
+        },
+        "merchantAffiliateProgramDetails": {
+          "status": "merchantAffiliateProgramStatusEligible"
+        },
+        "merchantId": "167446",
+        "storeName": "snippet.channelToStoreLink.storeName-21",
+        "storeUrl": "snippet.channelToStoreLink.storeUrl-21"
+      },
+      "type": "linkUnspecified"
+    },
+    "status": {
+      "linkStatus": "failed"
+    }
+  },
+  {
+    "etag": "etag-22",
+    "kind": "kind-22",
+    "linkingToken": "linkingToken-22",
+    "snippet": {
+      "channelToAffiliateProgramLink": {
+        "merchantId": "175706",
+        "programStatus": "active",
+        "statusUpdateReason": "snippet.channelToAffiliateProgramLink.statusUpdateReason-22",
+        "statusUpdateTime": "snippet.channelToAffiliateProgramLink.statusUpdateTime-22"
+      },
+      "channelToStoreLink": {
+        "billingDetails": {
+          "billingStatus": "billingStatusActive"
+        },
+        "merchantAffiliateProgramDetails": {
+          "status": "merchantAffiliateProgramStatusActive"
+        },
+        "merchantId": "175365",
+        "storeName": "snippet.channelToStoreLink.storeName-22",
+        "storeUrl": "snippet.channelToStoreLink.storeUrl-22"
+      },
+      "type": "channelToStoreLink"
+    },
+    "status": {
+      "linkStatus": "pending"
+    }
+  },
+  {
+    "snippet": {
+      "channelToAffiliateProgramLink": {},
+      "channelToStoreLink": {
+        "billingDetails": {},
+        "merchantAffiliateProgramDetails": {}
+      }
+    },
+    "status": {}
+  }
+]

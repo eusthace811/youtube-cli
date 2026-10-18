@@ -1,0 +1,692 @@
+- contentdetails:
+    bulletin:
+        resourceid:
+            channelid: contentDetails.bulletin.resourceId.channelId-10
+            kind: contentDetails.bulletin.resourceId.kind-10
+            playlistid: contentDetails.bulletin.resourceId.playlistId-10
+            videoid: contentDetails.bulletin.resourceId.videoId-10
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    channelitem:
+        resourceid:
+            channelid: contentDetails.channelItem.resourceId.channelId-10
+            kind: contentDetails.channelItem.resourceId.kind-10
+            playlistid: contentDetails.channelItem.resourceId.playlistId-10
+            videoid: contentDetails.channelItem.resourceId.videoId-10
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    comment:
+        resourceid:
+            channelid: contentDetails.comment.resourceId.channelId-10
+            kind: contentDetails.comment.resourceId.kind-10
+            playlistid: contentDetails.comment.resourceId.playlistId-10
+            videoid: contentDetails.comment.resourceId.videoId-10
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    playlistitem:
+        playlistid: contentDetails.playlistItem.playlistId-10
+        playlistitemid: contentDetails.playlistItem.playlistItemId-10
+        resourceid:
+            channelid: contentDetails.playlistItem.resourceId.channelId-10
+            kind: contentDetails.playlistItem.resourceId.kind-10
+            playlistid: contentDetails.playlistItem.resourceId.playlistId-10
+            videoid: contentDetails.playlistItem.resourceId.videoId-10
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    promoteditem:
+        adtag: contentDetails.promotedItem.adTag-10
+        clicktrackingurl: contentDetails.promotedItem.clickTrackingUrl-10
+        creativeviewurl: contentDetails.promotedItem.creativeViewUrl-10
+        ctatype: ctaTypeUnspecified
+        customctabuttontext: contentDetails.promotedItem.customCtaButtonText-10
+        descriptiontext: contentDetails.promotedItem.descriptionText-10
+        destinationurl: contentDetails.promotedItem.destinationUrl-10
+        forecastingurl:
+            - contentDetails.promotedItem.forecastingUrl[]-10
+            - contentDetails.promotedItem.forecastingUrl[]-11
+        impressionurl:
+            - contentDetails.promotedItem.impressionUrl[]-10
+            - contentDetails.promotedItem.impressionUrl[]-11
+        videoid: contentDetails.promotedItem.videoId-10
+        forcesendfields: []
+        nullfields: []
+    recommendation:
+        reason: reasonUnspecified
+        resourceid:
+            channelid: contentDetails.recommendation.resourceId.channelId-10
+            kind: contentDetails.recommendation.resourceId.kind-10
+            playlistid: contentDetails.recommendation.resourceId.playlistId-10
+            videoid: contentDetails.recommendation.resourceId.videoId-10
+            forcesendfields: []
+            nullfields: []
+        seedresourceid:
+            channelid: contentDetails.recommendation.seedResourceId.channelId-10
+            kind: contentDetails.recommendation.seedResourceId.kind-10
+            playlistid: contentDetails.recommendation.seedResourceId.playlistId-10
+            videoid: contentDetails.recommendation.seedResourceId.videoId-10
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    social:
+        author: contentDetails.social.author-10
+        imageurl: contentDetails.social.imageUrl-10
+        referenceurl: contentDetails.social.referenceUrl-10
+        resourceid:
+            channelid: contentDetails.social.resourceId.channelId-10
+            kind: contentDetails.social.resourceId.kind-10
+            playlistid: contentDetails.social.resourceId.playlistId-10
+            videoid: contentDetails.social.resourceId.videoId-10
+            forcesendfields: []
+            nullfields: []
+        type: facebook
+        forcesendfields: []
+        nullfields: []
+    subscription:
+        resourceid:
+            channelid: contentDetails.subscription.resourceId.channelId-10
+            kind: contentDetails.subscription.resourceId.kind-10
+            playlistid: contentDetails.subscription.resourceId.playlistId-10
+            videoid: contentDetails.subscription.resourceId.videoId-10
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    upload:
+        videoid: contentDetails.upload.videoId-10
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: etag-10
+  id: id-10
+  kind: kind-10
+  snippet:
+    channelid: snippet.channelId-10
+    channeltitle: snippet.channelTitle-10
+    description: null snippet.description
+    groupid: snippet.groupId-10
+    publishedat: "2026-02-11T12:34:50Z"
+    thumbnails:
+        default:
+            height: 163
+            url: snippet.thumbnails.default.url-10
+            width: 162
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 159
+            url: snippet.thumbnails.fhd.url-10
+            width: 158
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 160
+            url: snippet.thumbnails.high.url-10
+            width: 159
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 162
+            url: snippet.thumbnails.maxres.url-10
+            width: 161
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 162
+            url: snippet.thumbnails.medium.url-10
+            width: 161
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 159
+            url: snippet.thumbnails.qhd.url-10
+            width: 158
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 164
+            url: snippet.thumbnails.standard.url-10
+            width: 163
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 159
+            url: snippet.thumbnails.uhd.url-10
+            width: 158
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: 'key: value'
+    type: typeUnspecified
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    bulletin:
+        resourceid:
+            channelid: contentDetails.bulletin.resourceId.channelId-11
+            kind: contentDetails.bulletin.resourceId.kind-11
+            playlistid: contentDetails.bulletin.resourceId.playlistId-11
+            videoid: contentDetails.bulletin.resourceId.videoId-11
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    channelitem:
+        resourceid:
+            channelid: contentDetails.channelItem.resourceId.channelId-11
+            kind: contentDetails.channelItem.resourceId.kind-11
+            playlistid: contentDetails.channelItem.resourceId.playlistId-11
+            videoid: contentDetails.channelItem.resourceId.videoId-11
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    comment:
+        resourceid:
+            channelid: contentDetails.comment.resourceId.channelId-11
+            kind: contentDetails.comment.resourceId.kind-11
+            playlistid: contentDetails.comment.resourceId.playlistId-11
+            videoid: contentDetails.comment.resourceId.videoId-11
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    playlistitem:
+        playlistid: contentDetails.playlistItem.playlistId-11
+        playlistitemid: contentDetails.playlistItem.playlistItemId-11
+        resourceid:
+            channelid: contentDetails.playlistItem.resourceId.channelId-11
+            kind: contentDetails.playlistItem.resourceId.kind-11
+            playlistid: contentDetails.playlistItem.resourceId.playlistId-11
+            videoid: contentDetails.playlistItem.resourceId.videoId-11
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    promoteditem:
+        adtag: contentDetails.promotedItem.adTag-11
+        clicktrackingurl: contentDetails.promotedItem.clickTrackingUrl-11
+        creativeviewurl: contentDetails.promotedItem.creativeViewUrl-11
+        ctatype: visitAdvertiserSite
+        customctabuttontext: contentDetails.promotedItem.customCtaButtonText-11
+        descriptiontext: contentDetails.promotedItem.descriptionText-11
+        destinationurl: contentDetails.promotedItem.destinationUrl-11
+        forecastingurl:
+            - contentDetails.promotedItem.forecastingUrl[]-11
+            - contentDetails.promotedItem.forecastingUrl[]-12
+        impressionurl:
+            - contentDetails.promotedItem.impressionUrl[]-11
+            - contentDetails.promotedItem.impressionUrl[]-12
+        videoid: contentDetails.promotedItem.videoId-11
+        forcesendfields: []
+        nullfields: []
+    recommendation:
+        reason: videoWatched
+        resourceid:
+            channelid: contentDetails.recommendation.resourceId.channelId-11
+            kind: contentDetails.recommendation.resourceId.kind-11
+            playlistid: contentDetails.recommendation.resourceId.playlistId-11
+            videoid: contentDetails.recommendation.resourceId.videoId-11
+            forcesendfields: []
+            nullfields: []
+        seedresourceid:
+            channelid: contentDetails.recommendation.seedResourceId.channelId-11
+            kind: contentDetails.recommendation.seedResourceId.kind-11
+            playlistid: contentDetails.recommendation.seedResourceId.playlistId-11
+            videoid: contentDetails.recommendation.seedResourceId.videoId-11
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    social:
+        author: contentDetails.social.author-11
+        imageurl: contentDetails.social.imageUrl-11
+        referenceurl: contentDetails.social.referenceUrl-11
+        resourceid:
+            channelid: contentDetails.social.resourceId.channelId-11
+            kind: contentDetails.social.resourceId.kind-11
+            playlistid: contentDetails.social.resourceId.playlistId-11
+            videoid: contentDetails.social.resourceId.videoId-11
+            forcesendfields: []
+            nullfields: []
+        type: twitter
+        forcesendfields: []
+        nullfields: []
+    subscription:
+        resourceid:
+            channelid: contentDetails.subscription.resourceId.channelId-11
+            kind: contentDetails.subscription.resourceId.kind-11
+            playlistid: contentDetails.subscription.resourceId.playlistId-11
+            videoid: contentDetails.subscription.resourceId.videoId-11
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    upload:
+        videoid: contentDetails.upload.videoId-11
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: etag-11
+  id: id-11
+  kind: kind-11
+  snippet:
+    channelid: snippet.channelId-11
+    channeltitle: snippet.channelTitle-11
+    description: ~ snippet.description
+    groupid: snippet.groupId-11
+    publishedat: "2026-03-12T12:34:51Z"
+    thumbnails:
+        default:
+            height: 176
+            url: snippet.thumbnails.default.url-11
+            width: 175
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 172
+            url: snippet.thumbnails.fhd.url-11
+            width: 171
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 173
+            url: snippet.thumbnails.high.url-11
+            width: 172
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 175
+            url: snippet.thumbnails.maxres.url-11
+            width: 174
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 175
+            url: snippet.thumbnails.medium.url-11
+            width: 174
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 172
+            url: snippet.thumbnails.qhd.url-11
+            width: 171
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 177
+            url: snippet.thumbnails.standard.url-11
+            width: 176
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 172
+            url: snippet.thumbnails.uhd.url-11
+            width: 171
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: '''single'' quoted'
+    type: upload
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    bulletin:
+        resourceid:
+            channelid: contentDetails.bulletin.resourceId.channelId-12
+            kind: contentDetails.bulletin.resourceId.kind-12
+            playlistid: contentDetails.bulletin.resourceId.playlistId-12
+            videoid: contentDetails.bulletin.resourceId.videoId-12
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    channelitem:
+        resourceid:
+            channelid: contentDetails.channelItem.resourceId.channelId-12
+            kind: contentDetails.channelItem.resourceId.kind-12
+            playlistid: contentDetails.channelItem.resourceId.playlistId-12
+            videoid: contentDetails.channelItem.resourceId.videoId-12
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    comment:
+        resourceid:
+            channelid: contentDetails.comment.resourceId.channelId-12
+            kind: contentDetails.comment.resourceId.kind-12
+            playlistid: contentDetails.comment.resourceId.playlistId-12
+            videoid: contentDetails.comment.resourceId.videoId-12
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    playlistitem:
+        playlistid: contentDetails.playlistItem.playlistId-12
+        playlistitemid: contentDetails.playlistItem.playlistItemId-12
+        resourceid:
+            channelid: contentDetails.playlistItem.resourceId.channelId-12
+            kind: contentDetails.playlistItem.resourceId.kind-12
+            playlistid: contentDetails.playlistItem.resourceId.playlistId-12
+            videoid: contentDetails.playlistItem.resourceId.videoId-12
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    promoteditem:
+        adtag: contentDetails.promotedItem.adTag-12
+        clicktrackingurl: contentDetails.promotedItem.clickTrackingUrl-12
+        creativeviewurl: contentDetails.promotedItem.creativeViewUrl-12
+        ctatype: ctaTypeUnspecified
+        customctabuttontext: contentDetails.promotedItem.customCtaButtonText-12
+        descriptiontext: contentDetails.promotedItem.descriptionText-12
+        destinationurl: contentDetails.promotedItem.destinationUrl-12
+        forecastingurl:
+            - contentDetails.promotedItem.forecastingUrl[]-12
+            - contentDetails.promotedItem.forecastingUrl[]-13
+        impressionurl:
+            - contentDetails.promotedItem.impressionUrl[]-12
+            - contentDetails.promotedItem.impressionUrl[]-13
+        videoid: contentDetails.promotedItem.videoId-12
+        forcesendfields: []
+        nullfields: []
+    recommendation:
+        reason: reasonUnspecified
+        resourceid:
+            channelid: contentDetails.recommendation.resourceId.channelId-12
+            kind: contentDetails.recommendation.resourceId.kind-12
+            playlistid: contentDetails.recommendation.resourceId.playlistId-12
+            videoid: contentDetails.recommendation.resourceId.videoId-12
+            forcesendfields: []
+            nullfields: []
+        seedresourceid:
+            channelid: contentDetails.recommendation.seedResourceId.channelId-12
+            kind: contentDetails.recommendation.seedResourceId.kind-12
+            playlistid: contentDetails.recommendation.seedResourceId.playlistId-12
+            videoid: contentDetails.recommendation.seedResourceId.videoId-12
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    social:
+        author: contentDetails.social.author-12
+        imageurl: contentDetails.social.imageUrl-12
+        referenceurl: contentDetails.social.referenceUrl-12
+        resourceid:
+            channelid: contentDetails.social.resourceId.channelId-12
+            kind: contentDetails.social.resourceId.kind-12
+            playlistid: contentDetails.social.resourceId.playlistId-12
+            videoid: contentDetails.social.resourceId.videoId-12
+            forcesendfields: []
+            nullfields: []
+        type: unspecified
+        forcesendfields: []
+        nullfields: []
+    subscription:
+        resourceid:
+            channelid: contentDetails.subscription.resourceId.channelId-12
+            kind: contentDetails.subscription.resourceId.kind-12
+            playlistid: contentDetails.subscription.resourceId.playlistId-12
+            videoid: contentDetails.subscription.resourceId.videoId-12
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    upload:
+        videoid: contentDetails.upload.videoId-12
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: etag-12
+  id: id-12
+  kind: kind-12
+  snippet:
+    channelid: snippet.channelId-12
+    channeltitle: snippet.channelTitle-12
+    description: '@at sign snippet.description'
+    groupid: snippet.groupId-12
+    publishedat: "2026-04-13T12:34:52Z"
+    thumbnails:
+        default:
+            height: 189
+            url: snippet.thumbnails.default.url-12
+            width: 188
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 185
+            url: snippet.thumbnails.fhd.url-12
+            width: 184
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 186
+            url: snippet.thumbnails.high.url-12
+            width: 185
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 188
+            url: snippet.thumbnails.maxres.url-12
+            width: 187
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 188
+            url: snippet.thumbnails.medium.url-12
+            width: 187
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 185
+            url: snippet.thumbnails.qhd.url-12
+            width: 184
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 190
+            url: snippet.thumbnails.standard.url-12
+            width: 189
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 185
+            url: snippet.thumbnails.uhd.url-12
+            width: 184
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: <b>tags</b> & "quotes"
+    type: comment
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    bulletin:
+        resourceid:
+            channelid: ""
+            kind: ""
+            playlistid: ""
+            videoid: ""
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    channelitem:
+        resourceid:
+            channelid: ""
+            kind: ""
+            playlistid: ""
+            videoid: ""
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    comment:
+        resourceid:
+            channelid: ""
+            kind: ""
+            playlistid: ""
+            videoid: ""
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    playlistitem:
+        playlistid: ""
+        playlistitemid: ""
+        resourceid:
+            channelid: ""
+            kind: ""
+            playlistid: ""
+            videoid: ""
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    promoteditem:
+        adtag: ""
+        clicktrackingurl: ""
+        creativeviewurl: ""
+        ctatype: ""
+        customctabuttontext: ""
+        descriptiontext: ""
+        destinationurl: ""
+        forecastingurl: []
+        impressionurl: []
+        videoid: ""
+        forcesendfields: []
+        nullfields: []
+    recommendation:
+        reason: ""
+        resourceid:
+            channelid: ""
+            kind: ""
+            playlistid: ""
+            videoid: ""
+            forcesendfields: []
+            nullfields: []
+        seedresourceid:
+            channelid: ""
+            kind: ""
+            playlistid: ""
+            videoid: ""
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    social:
+        author: ""
+        imageurl: ""
+        referenceurl: ""
+        resourceid:
+            channelid: ""
+            kind: ""
+            playlistid: ""
+            videoid: ""
+            forcesendfields: []
+            nullfields: []
+        type: ""
+        forcesendfields: []
+        nullfields: []
+    subscription:
+        resourceid:
+            channelid: ""
+            kind: ""
+            playlistid: ""
+            videoid: ""
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    upload:
+        videoid: ""
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: ""
+  id: zero-1
+  kind: ""
+  snippet:
+    channelid: ""
+    channeltitle: ""
+    description: ""
+    groupid: ""
+    publishedat: ""
+    thumbnails:
+        default:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: ""
+    type: ""
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []

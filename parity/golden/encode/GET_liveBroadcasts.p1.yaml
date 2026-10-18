@@ -1,0 +1,620 @@
+etag: etag-page-1
+eventid: ""
+items:
+    - contentdetails:
+        availabilityconfig:
+            globalconfig:
+                excludedregioncodes:
+                    - contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-10
+                    - contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-11
+                interval:
+                    endtime: contentDetails.availabilityConfig.globalConfig.interval.endTime-10
+                    starttime: contentDetails.availabilityConfig.globalConfig.interval.startTime-10
+                    forcesendfields: []
+                    nullfields: []
+                forcesendfields: []
+                nullfields: []
+            regionsconfig:
+                regionintervals:
+                    - interval:
+                        endtime: ""
+                        starttime: ""
+                        forcesendfields: []
+                        nullfields: []
+                      regioncode: contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-10
+                      forcesendfields: []
+                      nullfields: []
+                    - interval:
+                        endtime: ""
+                        starttime: ""
+                        forcesendfields: []
+                        nullfields: []
+                      regioncode: contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-11
+                      forcesendfields: []
+                      nullfields: []
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        boundstreamid: contentDetails.boundStreamId-10
+        boundstreamlastupdatetimems: "2026-02-11T12:34:50Z"
+        closedcaptionstype: closedCaptionsHttpPost
+        enableautostart: false
+        enableautostop: false
+        enableclosedcaptions: false
+        enablecontentencryption: false
+        enabledvr: false
+        enableembed: false
+        enablelowlatency: false
+        latencypreference: low
+        mesh: contentDetails.mesh-10
+        monitorstream:
+            broadcaststreamdelayms: 181
+            embedhtml: contentDetails.monitorStream.embedHtml-10
+            enablemonitorstream: false
+            forcesendfields: []
+            nullfields: []
+        projection: "360"
+        recordfromstart: false
+        startwithslate: false
+        stereolayout: leftRight
+        forcesendfields: []
+        nullfields: []
+      etag: etag-10
+      id: id-10
+      kind: kind-10
+      monetizationdetails:
+        cuepointschedule:
+            enabled: false
+            pauseadsuntil: monetizationDetails.cuepointSchedule.pauseAdsUntil-10
+            repeatintervalsecs: 185
+            schedulestrategy: concurrent
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      snippet:
+        actualendtime: "2026-02-11T12:34:50Z"
+        actualstarttime: "2026-02-11T12:34:50Z"
+        categoryid: snippet.categoryId-10
+        channelid: snippet.channelId-10
+        description: null snippet.description
+        isdefaultbroadcast: false
+        livechatid: snippet.liveChatId-10
+        publishedat: "2026-02-11T12:34:50Z"
+        scheduledendtime: "2026-02-11T12:34:50Z"
+        scheduledstarttime: "2026-02-11T12:34:50Z"
+        thumbnails:
+            default:
+                height: 163
+                url: snippet.thumbnails.default.url-10
+                width: 162
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 159
+                url: snippet.thumbnails.fhd.url-10
+                width: 158
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 160
+                url: snippet.thumbnails.high.url-10
+                width: 159
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 162
+                url: snippet.thumbnails.maxres.url-10
+                width: 161
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 162
+                url: snippet.thumbnails.medium.url-10
+                width: 161
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 159
+                url: snippet.thumbnails.qhd.url-10
+                width: 158
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 164
+                url: snippet.thumbnails.standard.url-10
+                width: 163
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 159
+                url: snippet.thumbnails.uhd.url-10
+                width: 158
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: 'key: value'
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        concurrentviewers: 80058
+        forcesendfields: []
+        nullfields: []
+      status:
+        lifecyclestatus: created
+        livebroadcastpriority: normal
+        madeforkids: false
+        privacystatus: unlisted
+        recordingstatus: recording
+        selfdeclaredmadeforkids: false
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        availabilityconfig:
+            globalconfig:
+                excludedregioncodes:
+                    - contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-11
+                    - contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-12
+                interval:
+                    endtime: contentDetails.availabilityConfig.globalConfig.interval.endTime-11
+                    starttime: contentDetails.availabilityConfig.globalConfig.interval.startTime-11
+                    forcesendfields: []
+                    nullfields: []
+                forcesendfields: []
+                nullfields: []
+            regionsconfig:
+                regionintervals:
+                    - interval:
+                        endtime: ""
+                        starttime: ""
+                        forcesendfields: []
+                        nullfields: []
+                      regioncode: contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-11
+                      forcesendfields: []
+                      nullfields: []
+                    - interval:
+                        endtime: ""
+                        starttime: ""
+                        forcesendfields: []
+                        nullfields: []
+                      regioncode: contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-12
+                      forcesendfields: []
+                      nullfields: []
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        boundstreamid: contentDetails.boundStreamId-11
+        boundstreamlastupdatetimems: "2026-03-12T12:34:51Z"
+        closedcaptionstype: closedCaptionsEmbedded
+        enableautostart: true
+        enableautostop: true
+        enableclosedcaptions: true
+        enablecontentencryption: true
+        enabledvr: true
+        enableembed: true
+        enablelowlatency: true
+        latencypreference: ultraLow
+        mesh: contentDetails.mesh-11
+        monitorstream:
+            broadcaststreamdelayms: 194
+            embedhtml: contentDetails.monitorStream.embedHtml-11
+            enablemonitorstream: true
+            forcesendfields: []
+            nullfields: []
+        projection: mesh
+        recordfromstart: true
+        startwithslate: true
+        stereolayout: topBottom
+        forcesendfields: []
+        nullfields: []
+      etag: etag-11
+      id: id-11
+      kind: kind-11
+      monetizationdetails:
+        cuepointschedule:
+            enabled: true
+            pauseadsuntil: monetizationDetails.cuepointSchedule.pauseAdsUntil-11
+            repeatintervalsecs: 198
+            schedulestrategy: nonConcurrent
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      snippet:
+        actualendtime: "2026-03-12T12:34:51Z"
+        actualstarttime: "2026-03-12T12:34:51Z"
+        categoryid: snippet.categoryId-11
+        channelid: snippet.channelId-11
+        description: ~ snippet.description
+        isdefaultbroadcast: true
+        livechatid: snippet.liveChatId-11
+        publishedat: "2026-03-12T12:34:51Z"
+        scheduledendtime: "2026-03-12T12:34:51Z"
+        scheduledstarttime: "2026-03-12T12:34:51Z"
+        thumbnails:
+            default:
+                height: 176
+                url: snippet.thumbnails.default.url-11
+                width: 175
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 172
+                url: snippet.thumbnails.fhd.url-11
+                width: 171
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 173
+                url: snippet.thumbnails.high.url-11
+                width: 172
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 175
+                url: snippet.thumbnails.maxres.url-11
+                width: 174
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 175
+                url: snippet.thumbnails.medium.url-11
+                width: 174
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 172
+                url: snippet.thumbnails.qhd.url-11
+                width: 171
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 177
+                url: snippet.thumbnails.standard.url-11
+                width: 176
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 172
+                url: snippet.thumbnails.uhd.url-11
+                width: 171
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: '''single'' quoted'
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        concurrentviewers: 87977
+        forcesendfields: []
+        nullfields: []
+      status:
+        lifecyclestatus: ready
+        livebroadcastpriority: high
+        madeforkids: true
+        privacystatus: private
+        recordingstatus: recorded
+        selfdeclaredmadeforkids: true
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        availabilityconfig:
+            globalconfig:
+                excludedregioncodes:
+                    - contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-12
+                    - contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-13
+                interval:
+                    endtime: contentDetails.availabilityConfig.globalConfig.interval.endTime-12
+                    starttime: contentDetails.availabilityConfig.globalConfig.interval.startTime-12
+                    forcesendfields: []
+                    nullfields: []
+                forcesendfields: []
+                nullfields: []
+            regionsconfig:
+                regionintervals:
+                    - interval:
+                        endtime: ""
+                        starttime: ""
+                        forcesendfields: []
+                        nullfields: []
+                      regioncode: contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-12
+                      forcesendfields: []
+                      nullfields: []
+                    - interval:
+                        endtime: ""
+                        starttime: ""
+                        forcesendfields: []
+                        nullfields: []
+                      regioncode: contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-13
+                      forcesendfields: []
+                      nullfields: []
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        boundstreamid: contentDetails.boundStreamId-12
+        boundstreamlastupdatetimems: "2026-04-13T12:34:52Z"
+        closedcaptionstype: closedCaptionsTypeUnspecified
+        enableautostart: false
+        enableautostop: false
+        enableclosedcaptions: false
+        enablecontentencryption: false
+        enabledvr: false
+        enableembed: false
+        enablelowlatency: false
+        latencypreference: latencyPreferenceUnspecified
+        mesh: contentDetails.mesh-12
+        monitorstream:
+            broadcaststreamdelayms: 207
+            embedhtml: contentDetails.monitorStream.embedHtml-12
+            enablemonitorstream: false
+            forcesendfields: []
+            nullfields: []
+        projection: projectionUnspecified
+        recordfromstart: false
+        startwithslate: false
+        stereolayout: stereoLayoutUnspecified
+        forcesendfields: []
+        nullfields: []
+      etag: etag-12
+      id: id-12
+      kind: kind-12
+      monetizationdetails:
+        cuepointschedule:
+            enabled: false
+            pauseadsuntil: monetizationDetails.cuepointSchedule.pauseAdsUntil-12
+            repeatintervalsecs: 211
+            schedulestrategy: scheduleStrategyUnspecified
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      snippet:
+        actualendtime: "2026-04-13T12:34:52Z"
+        actualstarttime: "2026-04-13T12:34:52Z"
+        categoryid: snippet.categoryId-12
+        channelid: snippet.channelId-12
+        description: '@at sign snippet.description'
+        isdefaultbroadcast: false
+        livechatid: snippet.liveChatId-12
+        publishedat: "2026-04-13T12:34:52Z"
+        scheduledendtime: "2026-04-13T12:34:52Z"
+        scheduledstarttime: "2026-04-13T12:34:52Z"
+        thumbnails:
+            default:
+                height: 189
+                url: snippet.thumbnails.default.url-12
+                width: 188
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 185
+                url: snippet.thumbnails.fhd.url-12
+                width: 184
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 186
+                url: snippet.thumbnails.high.url-12
+                width: 185
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 188
+                url: snippet.thumbnails.maxres.url-12
+                width: 187
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 188
+                url: snippet.thumbnails.medium.url-12
+                width: 187
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 185
+                url: snippet.thumbnails.qhd.url-12
+                width: 184
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 190
+                url: snippet.thumbnails.standard.url-12
+                width: 189
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 185
+                url: snippet.thumbnails.uhd.url-12
+                width: 184
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: <b>tags</b> & "quotes"
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        concurrentviewers: 95896
+        forcesendfields: []
+        nullfields: []
+      status:
+        lifecyclestatus: testing
+        livebroadcastpriority: liveBroadcastPriorityUnspecified
+        madeforkids: false
+        privacystatus: public
+        recordingstatus: liveBroadcastRecordingStatusUnspecified
+        selfdeclaredmadeforkids: false
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        availabilityconfig:
+            globalconfig:
+                excludedregioncodes: []
+                interval:
+                    endtime: ""
+                    starttime: ""
+                    forcesendfields: []
+                    nullfields: []
+                forcesendfields: []
+                nullfields: []
+            regionsconfig:
+                regionintervals: []
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        boundstreamid: ""
+        boundstreamlastupdatetimems: ""
+        closedcaptionstype: ""
+        enableautostart: false
+        enableautostop: false
+        enableclosedcaptions: false
+        enablecontentencryption: false
+        enabledvr: false
+        enableembed: false
+        enablelowlatency: false
+        latencypreference: ""
+        mesh: ""
+        monitorstream:
+            broadcaststreamdelayms: 0
+            embedhtml: ""
+            enablemonitorstream: false
+            forcesendfields: []
+            nullfields: []
+        projection: ""
+        recordfromstart: false
+        startwithslate: false
+        stereolayout: ""
+        forcesendfields: []
+        nullfields: []
+      etag: ""
+      id: zero-1
+      kind: ""
+      monetizationdetails:
+        cuepointschedule:
+            enabled: false
+            pauseadsuntil: ""
+            repeatintervalsecs: 0
+            schedulestrategy: ""
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      snippet:
+        actualendtime: ""
+        actualstarttime: ""
+        categoryid: ""
+        channelid: ""
+        description: ""
+        isdefaultbroadcast: false
+        livechatid: ""
+        publishedat: ""
+        scheduledendtime: ""
+        scheduledstarttime: ""
+        thumbnails:
+            default:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: ""
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        concurrentviewers: 0
+        forcesendfields: []
+        nullfields: []
+      status:
+        lifecyclestatus: ""
+        livebroadcastpriority: ""
+        madeforkids: false
+        privacystatus: ""
+        recordingstatus: ""
+        selfdeclaredmadeforkids: false
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+kind: youtube#liveBroadcastListResponse
+nextpagetoken: p3
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+prevpagetoken: ""
+tokenpagination: null
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

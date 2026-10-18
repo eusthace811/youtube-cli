@@ -1,0 +1,94 @@
+etag: etag-page-2
+eventid: ""
+items:
+    - etag: etag-20
+      id: id-20
+      kind: kind-20
+      snippet:
+        livechatid: snippet.liveChatId-20
+        moderatordetails:
+            channelid: snippet.moderatorDetails.channelId-20
+            channelurl: snippet.moderatorDetails.channelUrl-20
+            displayname: snippet.moderatorDetails.displayName-20
+            profileimageurl: snippet.moderatorDetails.profileImageUrl-20
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-21
+      id: id-21
+      kind: kind-21
+      snippet:
+        livechatid: snippet.liveChatId-21
+        moderatordetails:
+            channelid: snippet.moderatorDetails.channelId-21
+            channelurl: snippet.moderatorDetails.channelUrl-21
+            displayname: snippet.moderatorDetails.displayName-21
+            profileimageurl: snippet.moderatorDetails.profileImageUrl-21
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-22
+      id: id-22
+      kind: kind-22
+      snippet:
+        livechatid: snippet.liveChatId-22
+        moderatordetails:
+            channelid: snippet.moderatorDetails.channelId-22
+            channelurl: snippet.moderatorDetails.channelUrl-22
+            displayname: snippet.moderatorDetails.displayName-22
+            profileimageurl: snippet.moderatorDetails.profileImageUrl-22
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - etag: ""
+      id: zero-2
+      kind: ""
+      snippet:
+        livechatid: ""
+        moderatordetails:
+            channelid: ""
+            channelurl: ""
+            displayname: ""
+            profileimageurl: ""
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+kind: youtube#liveChatModeratorListResponse
+nextpagetoken: ""
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+prevpagetoken: ""
+tokenpagination: null
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

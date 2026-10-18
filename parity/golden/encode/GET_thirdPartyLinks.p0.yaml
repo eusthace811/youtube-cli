@@ -1,0 +1,156 @@
+etag: etag-page-0
+items:
+    - etag: etag-0
+      kind: kind-0
+      linkingtoken: linkingToken-0
+      snippet:
+        channeltoaffiliateprogramlink:
+            merchantid: 1488
+            programstatus: affiliateProgramStatusUnspecified
+            statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-0
+            statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-0
+            forcesendfields: []
+            nullfields: []
+        channeltostorelink:
+            billingdetails:
+                billingstatus: billingStatusUnspecified
+                forcesendfields: []
+                nullfields: []
+            merchantaffiliateprogramdetails:
+                status: merchantAffiliateProgramStatusUnspecified
+                forcesendfields: []
+                nullfields: []
+            merchantid: 1147
+            storename: snippet.channelToStoreLink.storeName-0
+            storeurl: snippet.channelToStoreLink.storeUrl-0
+            forcesendfields: []
+            nullfields: []
+        type: linkUnspecified
+        forcesendfields: []
+        nullfields: []
+      status:
+        linkstatus: unknown
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-1
+      kind: kind-1
+      linkingtoken: linkingToken-1
+      snippet:
+        channeltoaffiliateprogramlink:
+            merchantid: 9407
+            programstatus: active
+            statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-1
+            statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-1
+            forcesendfields: []
+            nullfields: []
+        channeltostorelink:
+            billingdetails:
+                billingstatus: billingStatusPending
+                forcesendfields: []
+                nullfields: []
+            merchantaffiliateprogramdetails:
+                status: merchantAffiliateProgramStatusEligible
+                forcesendfields: []
+                nullfields: []
+            merchantid: 9066
+            storename: snippet.channelToStoreLink.storeName-1
+            storeurl: snippet.channelToStoreLink.storeUrl-1
+            forcesendfields: []
+            nullfields: []
+        type: channelToStoreLink
+        forcesendfields: []
+        nullfields: []
+      status:
+        linkstatus: failed
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-2
+      kind: kind-2
+      linkingtoken: linkingToken-2
+      snippet:
+        channeltoaffiliateprogramlink:
+            merchantid: 17326
+            programstatus: inactive
+            statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-2
+            statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-2
+            forcesendfields: []
+            nullfields: []
+        channeltostorelink:
+            billingdetails:
+                billingstatus: billingStatusActive
+                forcesendfields: []
+                nullfields: []
+            merchantaffiliateprogramdetails:
+                status: merchantAffiliateProgramStatusActive
+                forcesendfields: []
+                nullfields: []
+            merchantid: 16985
+            storename: snippet.channelToStoreLink.storeName-2
+            storeurl: snippet.channelToStoreLink.storeUrl-2
+            forcesendfields: []
+            nullfields: []
+        type: channelToAffiliateProgramLink
+        forcesendfields: []
+        nullfields: []
+      status:
+        linkstatus: pending
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - etag: ""
+      kind: ""
+      linkingtoken: ""
+      snippet:
+        channeltoaffiliateprogramlink:
+            merchantid: 0
+            programstatus: ""
+            statusupdatereason: ""
+            statusupdatetime: ""
+            forcesendfields: []
+            nullfields: []
+        channeltostorelink:
+            billingdetails:
+                billingstatus: ""
+                forcesendfields: []
+                nullfields: []
+            merchantaffiliateprogramdetails:
+                status: ""
+                forcesendfields: []
+                nullfields: []
+            merchantid: 0
+            storename: ""
+            storeurl: ""
+            forcesendfields: []
+            nullfields: []
+        type: ""
+        forcesendfields: []
+        nullfields: []
+      status:
+        linkstatus: ""
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+kind: youtube#thirdPartyLinkListResponse
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

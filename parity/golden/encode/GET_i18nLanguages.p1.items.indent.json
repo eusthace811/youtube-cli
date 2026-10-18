@@ -1,0 +1,33 @@
+[
+  {
+    "etag": "etag-10",
+    "id": "id-10",
+    "kind": "kind-10",
+    "snippet": {
+      "hl": "snippet.hl-10",
+      "name": "123"
+    }
+  },
+  {
+    "etag": "etag-11",
+    "id": "id-11",
+    "kind": "kind-11",
+    "snippet": {
+      "hl": "snippet.hl-11",
+      "name": "@at sign"
+    }
+  },
+  {
+    "etag": "etag-12",
+    "id": "id-12",
+    "kind": "kind-12",
+    "snippet": {
+      "hl": "snippet.hl-12",
+      "name": "Ünïcödé ✓ 日本語のタイトル"
+    }
+  },
+  {
+    "id": "zero-1",
+    "snippet": {}
+  }
+]

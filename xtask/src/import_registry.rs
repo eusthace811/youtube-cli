@@ -19,16 +19,27 @@ pub fn run(_args: &[String]) -> Result<(), String> {
     let mut files: BTreeMap<String, Vec<Value>> = BTreeMap::new();
     let mut visit = vec![(dump["commands"].clone(), Vec::<String>::new())];
     while let Some((node, parent)) = visit.pop() {
-        let name = node["use"].as_str().unwrap().split_whitespace().next().unwrap().to_string();
+        let name = node["use"]
+            .as_str()
+            .unwrap()
+            .split_whitespace()
+            .next()
+            .unwrap()
+            .to_string();
         let mut path = parent.clone();
         if !(parent.is_empty() && name == "yutu") {
             path.push(name);
         }
         let file = match path.first().map(String::as_str) {
-            None | Some("auth" | "mcp" | "agent" | "version" | "completion" | "help") => "core".to_string(),
+            None | Some("auth" | "mcp" | "agent" | "version" | "completion" | "help") => {
+                "core".to_string()
+            }
             Some(resource) => resource.to_string(),
         };
-        files.entry(file).or_default().push(command(&node, &path, &tools));
+        files
+            .entry(file)
+            .or_default()
+            .push(command(&node, &path, &tools));
         if let Some(children) = node["children"].as_array() {
             for c in children.iter().rev() {
                 visit.push((c.clone(), path.clone()));

@@ -1,0 +1,64 @@
+- etag: etag-0
+  id: id-0
+  kind: kind-0
+  snippet:
+    label: snippet.label-0
+    secondaryreasons:
+        - id: snippet.secondaryReasons[].id-0
+          label: snippet.secondaryReasons[].label-0
+          forcesendfields: []
+          nullfields: []
+        - id: snippet.secondaryReasons[].id-1
+          label: snippet.secondaryReasons[].label-1
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: etag-1
+  id: id-1
+  kind: kind-1
+  snippet:
+    label: snippet.label-1
+    secondaryreasons:
+        - id: snippet.secondaryReasons[].id-1
+          label: snippet.secondaryReasons[].label-1
+          forcesendfields: []
+          nullfields: []
+        - id: snippet.secondaryReasons[].id-2
+          label: snippet.secondaryReasons[].label-2
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: etag-2
+  id: id-2
+  kind: kind-2
+  snippet:
+    label: snippet.label-2
+    secondaryreasons:
+        - id: snippet.secondaryReasons[].id-2
+          label: snippet.secondaryReasons[].label-2
+          forcesendfields: []
+          nullfields: []
+        - id: snippet.secondaryReasons[].id-3
+          label: snippet.secondaryReasons[].label-3
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: ""
+  id: zero-0
+  kind: ""
+  snippet:
+    label: ""
+    secondaryreasons: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []

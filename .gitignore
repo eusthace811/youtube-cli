@@ -7,3 +7,5 @@
 /ref/yutu-go-dump
 __pycache__/
 /parity/out/
+/ref/yutu-go-encode
+/.claude/

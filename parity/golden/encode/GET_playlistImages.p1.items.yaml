@@ -1,0 +1,56 @@
+- id: id-10
+  kind: kind-10
+  snippet:
+    height: 144
+    playlistid: snippet.playlistId-10
+    type: hero
+    width: 143
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- id: id-11
+  kind: kind-11
+  snippet:
+    height: 157
+    playlistid: snippet.playlistId-11
+    type: hero
+    width: 156
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- id: id-12
+  kind: kind-12
+  snippet:
+    height: 170
+    playlistid: snippet.playlistId-12
+    type: hero
+    width: 169
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- id: zero-1
+  kind: ""
+  snippet:
+    height: 0
+    playlistid: ""
+    type: ""
+    width: 0
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []

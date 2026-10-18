@@ -1,0 +1,60 @@
+{
+  "etag": "etag-page-0",
+  "items": [
+    {
+      "contentDetails": {
+        "duration": "contentDetails.duration-0"
+      },
+      "etag": "etag-0",
+      "id": "id-0",
+      "kind": "kind-0",
+      "snippet": {
+        "publishTime": "snippet.publishTime-0"
+      },
+      "statistics": {
+        "commentCount": "713",
+        "likeCount": "620",
+        "viewCount": "620"
+      }
+    },
+    {
+      "contentDetails": {
+        "duration": "contentDetails.duration-1"
+      },
+      "etag": "etag-1",
+      "id": "id-1",
+      "kind": "kind-1",
+      "snippet": {
+        "publishTime": "snippet.publishTime-1"
+      },
+      "statistics": {
+        "commentCount": "8632",
+        "likeCount": "8539",
+        "viewCount": "8539"
+      }
+    },
+    {
+      "contentDetails": {
+        "duration": "contentDetails.duration-2"
+      },
+      "etag": "etag-2",
+      "id": "id-2",
+      "kind": "kind-2",
+      "snippet": {
+        "publishTime": "snippet.publishTime-2"
+      },
+      "statistics": {
+        "commentCount": "16551",
+        "likeCount": "16458",
+        "viewCount": "16458"
+      }
+    },
+    {
+      "contentDetails": {},
+      "id": "zero-0",
+      "snippet": {},
+      "statistics": {}
+    }
+  ],
+  "kind": "youtube#batchGetStatsResponse"
+}

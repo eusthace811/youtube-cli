@@ -1,0 +1,36 @@
+abusetypes:
+    - id: abuseTypes[].id-1
+      forcesendfields: []
+      nullfields: []
+    - id: abuseTypes[].id-2
+      forcesendfields: []
+      nullfields: []
+description: Ünïcödé ✓ 日本語のタイトル description
+relatedentities:
+    - entity:
+        id: relatedEntities[].entity.id-1
+        typeid: relatedEntities[].entity.typeId-1
+        url: relatedEntities[].entity.url-1
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - entity:
+        id: relatedEntities[].entity.id-2
+        typeid: relatedEntities[].entity.typeId-2
+        url: relatedEntities[].entity.url-2
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+subject:
+    id: subject.id-1
+    typeid: subject.typeId-1
+    url: subject.url-1
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

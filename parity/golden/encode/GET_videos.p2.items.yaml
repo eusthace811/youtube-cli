@@ -1,0 +1,1402 @@
+- agegating:
+    alcoholcontent: false
+    restricted: false
+    videogamerating: anyone
+    forcesendfields: []
+    nullfields: []
+  brandpartner:
+    channelhandle: brandPartner.channelHandle-20
+    channelid: brandPartner.channelId-20
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    caption: "true"
+    contentrating:
+        acbrating: acbUnspecified
+        agcomrating: agcomUnspecified
+        anatelrating: anatelI
+        bbfcrating: bbfcPg
+        bfvcrating: bfvcE
+        bmukkrating: bmukk6
+        catvrating: catvC8
+        catvfrrating: catvfr16plus
+        cbfcrating: cbfcUA
+        cccrating: ccc18
+        ccerating: cceM16
+        chfilmrating: chfilmUnrated
+        chvrsrating: chvrs18a
+        cicfrating: cicfUnspecified
+        cnarating: cnaUnrated
+        cncrating: cnc10
+        csarating: csa16
+        cscfrating: cscfA
+        czfilmrating: czfilm12
+        djctqrating: djctq1416
+        djctqratingreasons:
+            - djctqSexualContent
+            - djctqNudity
+        ecbmctrating: ecbmctUnspecified
+        eefilmrating: eefilmUnspecified
+        egfilmrating: egfilmUnspecified
+        eirinrating: eirinPg12
+        fcbmrating: fcbmUnspecified
+        fcorating: fcoUnrated
+        fmocrating: fmoc16
+        fpbrating: fpbX18
+        fpbratingreasons:
+            - fpbSexualViolence
+            - fpbHorror
+        fskrating: fskUnrated
+        grfilmrating: grfilmE
+        icaarating: icaa7
+        ifcorating: ifcoUnspecified
+        ilfilmrating: ilfilmUnrated
+        incaarating: incaaUnrated
+        kfcbrating: kfcbPg
+        kijkwijzerrating: kijkwijzer12
+        kmrbrating: kmrbUnrated
+        lsfrating: lsfUnspecified
+        mccaarating: mccaaUnspecified
+        mccyprating: mccyp7
+        mcstrating: mcst0
+        mdarating: mdaNc16
+        medietilsynetrating: medietilsynetUnspecified
+        mekurating: mekuUnrated
+        menampaarating: menaMpaaPg
+        mibacrating: mibacVap
+        mocrating: mocUnspecified
+        moctwrating: moctwR
+        mpaarating: mpaaR
+        mpaatrating: mpaatRb
+        mtrcbrating: mtrcbR16
+        nbcrating: nbcPg
+        nbcplrating: nbcplUnrated
+        nfrcrating: nfrcUnrated
+        nfvcbrating: nfvcbPg
+        nkclvrating: nkclvUnrated
+        nmcrating: nmcPg
+        oflcrating: oflcUnrated
+        pefilmrating: pefilmPg
+        rcnofrating: rcnofIv
+        resorteviolenciarating: resorteviolenciaUnrated
+        rtcrating: rtcB15
+        rterating: rteCh
+        russiarating: russiaUnrated
+        skfilmrating: skfilmP2
+        smaisrating: smais14
+        smsarating: smsa7
+        tvpgrating: tvpgY7
+        ytrating: ytUnspecified
+        forcesendfields: []
+        nullfields: []
+    countryrestriction:
+        allowed: false
+        exception:
+            - contentDetails.countryRestriction.exception[]-20
+            - contentDetails.countryRestriction.exception[]-21
+        forcesendfields: []
+        nullfields: []
+    definition: sd
+    dimension: contentDetails.dimension-20
+    duration: contentDetails.duration-20
+    hascustomthumbnail: false
+    licensedcontent: false
+    projection: rectangular
+    regionrestriction:
+        allowed:
+            - contentDetails.regionRestriction.allowed[]-20
+            - contentDetails.regionRestriction.allowed[]-21
+        blocked:
+            - contentDetails.regionRestriction.blocked[]-20
+            - contentDetails.regionRestriction.blocked[]-21
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: etag-20
+  filedetails:
+    audiostreams:
+        - bitratebps: 159527
+          channelcount: 299
+          codec: fileDetails.audioStreams[].codec-20
+          vendor: fileDetails.audioStreams[].vendor-20
+          forcesendfields: []
+          nullfields: []
+        - bitratebps: 167446
+          channelcount: 312
+          codec: fileDetails.audioStreams[].codec-21
+          vendor: fileDetails.audioStreams[].vendor-21
+          forcesendfields: []
+          nullfields: []
+    bitratebps: 159062
+    container: fileDetails.container-20
+    creationtime: fileDetails.creationTime-20
+    durationms: 159062
+    filename: fileDetails.fileName-20
+    filesize: 159000
+    filetype: other
+    videostreams:
+        - aspectratio: 54
+          bitratebps: 159527
+          codec: fileDetails.videoStreams[].codec-20
+          frameratefps: 54.142857
+          heightpixels: 299
+          rotation: none
+          vendor: fileDetails.videoStreams[].vendor-20
+          widthpixels: 298
+          forcesendfields: []
+          nullfields: []
+        - aspectratio: 56.428571
+          bitratebps: 167446
+          codec: fileDetails.videoStreams[].codec-21
+          frameratefps: 56.571429
+          heightpixels: 312
+          rotation: clockwise
+          vendor: fileDetails.videoStreams[].vendor-21
+          widthpixels: 311
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  id: id-20
+  kind: kind-20
+  livestreamingdetails:
+    activelivechatid: liveStreamingDetails.activeLiveChatId-20
+    actualendtime: "2026-03-12T12:34:50Z"
+    actualstarttime: "2026-03-12T12:34:50Z"
+    concurrentviewers: 159558
+    scheduledendtime: "2026-03-12T12:34:50Z"
+    scheduledstarttime: "2026-03-12T12:34:50Z"
+    forcesendfields: []
+    nullfields: []
+  localizations:
+    ka:
+        description: |-
+            tab	and
+            newline localizations{}.description
+        title: 'trailing space '
+        forcesendfields: []
+        nullfields: []
+    kb:
+        description: "emoji \U0001F3AC\U0001F3A5 mix localizations{}.description"
+        title: '# hash'
+        forcesendfields: []
+        nullfields: []
+  monetizationdetails:
+    access:
+        allowed: false
+        exception:
+            - monetizationDetails.access.exception[]-20
+            - monetizationDetails.access.exception[]-21
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  paidproductplacementdetails:
+    haspaidproductplacement: false
+    forcesendfields: []
+    nullfields: []
+  player:
+    embedheight: 158938
+    embedhtml: player.embedHtml-20
+    embedwidth: 158907
+    forcesendfields: []
+    nullfields: []
+  processingdetails:
+    editorsuggestionsavailability: processingDetails.editorSuggestionsAvailability-20
+    filedetailsavailability: processingDetails.fileDetailsAvailability-20
+    processingfailurereason: uploadFailed
+    processingissuesavailability: processingDetails.processingIssuesAvailability-20
+    processingprogress:
+        partsprocessed: 159961
+        partstotal: 159837
+        timeleftms: 159837
+        forcesendfields: []
+        nullfields: []
+    processingstatus: processing
+    tagsuggestionsavailability: processingDetails.tagSuggestionsAvailability-20
+    thumbnailsavailability: processingDetails.thumbnailsAvailability-20
+    forcesendfields: []
+    nullfields: []
+  projectdetails: {}
+  recordingdetails:
+    location:
+        altitude: 53.428571
+        latitude: 53.428571
+        longitude: 53.571429
+        forcesendfields: []
+        nullfields: []
+    locationdescription: recordingDetails.locationDescription-20
+    recordingdate: "2026-03-12T12:34:50Z"
+    forcesendfields: []
+    nullfields: []
+  snippet:
+    categoryid: snippet.categoryId-20
+    channelid: snippet.channelId-20
+    channeltitle: snippet.channelTitle-20
+    defaultaudiolanguage: snippet.defaultAudioLanguage-20
+    defaultlanguage: snippet.defaultLanguage-20
+    description: "emoji \U0001F3AC\U0001F3A5 mix snippet.description"
+    livebroadcastcontent: none
+    localized:
+        description: "emoji \U0001F3AC\U0001F3A5 mix snippet.localized.description"
+        title: "null"
+        forcesendfields: []
+        nullfields: []
+    publishedat: "2026-03-12T12:34:50Z"
+    tags:
+        - snippet.tags[]-20
+        - snippet.tags[]-21
+    thumbnails:
+        default:
+            height: 293
+            url: snippet.thumbnails.default.url-20
+            width: 292
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 289
+            url: snippet.thumbnails.fhd.url-20
+            width: 288
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 290
+            url: snippet.thumbnails.high.url-20
+            width: 289
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 292
+            url: snippet.thumbnails.maxres.url-20
+            width: 291
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 292
+            url: snippet.thumbnails.medium.url-20
+            width: 291
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 289
+            url: snippet.thumbnails.qhd.url-20
+            width: 288
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 294
+            url: snippet.thumbnails.standard.url-20
+            width: 293
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 289
+            url: snippet.thumbnails.uhd.url-20
+            width: 288
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: Ünïcödé ✓ 日本語のタイトル
+    forcesendfields: []
+    nullfields: []
+  statistics:
+    commentcount: 159093
+    dislikecount: 159093
+    favoritecount: 159124
+    likecount: 159000
+    viewcount: 159000
+    forcesendfields: []
+    nullfields: []
+  status:
+    containssyntheticmedia: false
+    embeddable: false
+    failurereason: emptyFile
+    license: youtube
+    madeforkids: false
+    privacystatus: private
+    publicstatsviewable: false
+    publishat: "2026-03-12T12:34:50Z"
+    rejectionreason: copyright
+    selfdeclaredmadeforkids: false
+    uploadstatus: uploaded
+    forcesendfields: []
+    nullfields: []
+  suggestions:
+    editorsuggestions:
+        - videoAutoLevels
+        - videoStabilize
+    processingerrors:
+        - unsupportedSpatialAudioLayout
+        - audioFile
+    processinghints:
+        - sphericalVideo
+        - spatialAudio
+    processingwarnings:
+        - unsupportedSphericalProjectionType
+        - unsupportedHdrPixelFormat
+    tagsuggestions:
+        - categoryrestricts:
+            - suggestions.tagSuggestions[].categoryRestricts[]-20
+            - suggestions.tagSuggestions[].categoryRestricts[]-21
+          tag: suggestions.tagSuggestions[].tag-20
+          forcesendfields: []
+          nullfields: []
+        - categoryrestricts:
+            - suggestions.tagSuggestions[].categoryRestricts[]-21
+            - suggestions.tagSuggestions[].categoryRestricts[]-22
+          tag: suggestions.tagSuggestions[].tag-21
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  topicdetails:
+    relevanttopicids:
+        - topicDetails.relevantTopicIds[]-20
+        - topicDetails.relevantTopicIds[]-21
+    topiccategories:
+        - topicDetails.topicCategories[]-20
+        - topicDetails.topicCategories[]-21
+    topicids:
+        - topicDetails.topicIds[]-20
+        - topicDetails.topicIds[]-21
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- agegating:
+    alcoholcontent: true
+    restricted: true
+    videogamerating: m15Plus
+    forcesendfields: []
+    nullfields: []
+  brandpartner:
+    channelhandle: brandPartner.channelHandle-21
+    channelid: brandPartner.channelId-21
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    caption: "false"
+    contentrating:
+        acbrating: acbE
+        agcomrating: agcomT
+        anatelrating: anatelI7
+        bbfcrating: bbfc12a
+        bfvcrating: bfvc13
+        bmukkrating: bmukk8
+        catvrating: catvG
+        catvfrrating: catvfr18plus
+        cbfcrating: cbfcUA7plus
+        cccrating: ccc18v
+        ccerating: cceM18
+        chfilmrating: chfilmUnspecified
+        chvrsrating: chvrsR
+        cicfrating: cicfE
+        cnarating: cnaUnspecified
+        cncrating: cnc12
+        csarating: csa18
+        cscfrating: cscf6
+        czfilmrating: czfilm14
+        djctqrating: djctq1418
+        djctqratingreasons:
+            - djctqNudity
+            - djctqSex
+        ecbmctrating: ecbmctG
+        eefilmrating: eefilmPere
+        egfilmrating: egfilmGn
+        eirinrating: eirinR15plus
+        fcbmrating: fcbmU
+        fcorating: fcoUnspecified
+        fmocrating: fmoc18
+        fpbrating: fpbXx
+        fpbratingreasons:
+            - fpbHorror
+            - fpbCriminalTechniques
+        fskrating: fskUnspecified
+        grfilmrating: grfilmK12
+        icaarating: icaa12
+        ifcorating: ifcoG
+        ilfilmrating: ilfilmUnspecified
+        incaarating: incaaUnspecified
+        kfcbrating: kfcb16plus
+        kijkwijzerrating: kijkwijzer16
+        kmrbrating: kmrbUnspecified
+        lsfrating: lsfSu
+        mccaarating: mccaaU
+        mccyprating: mccyp11
+        mcstrating: mcstC13
+        mdarating: mdaM18
+        medietilsynetrating: medietilsynetA
+        mekurating: mekuUnspecified
+        menampaarating: menaMpaaPg13
+        mibacrating: mibacVm6
+        mocrating: mocE
+        moctwrating: moctwUnrated
+        mpaarating: mpaaNc17
+        mpaatrating: mpaatUnspecified
+        mtrcbrating: mtrcbR18
+        nbcrating: nbc12plus
+        nbcplrating: nbcplUnspecified
+        nfrcrating: nfrcUnspecified
+        nfvcbrating: nfvcb12
+        nkclvrating: nkclvUnspecified
+        nmcrating: nmcPg13
+        oflcrating: oflcRp13
+        pefilmrating: pefilm14
+        rcnofrating: rcnofV
+        resorteviolenciarating: resorteviolenciaUnspecified
+        rtcrating: rtcC
+        rterating: rtePs
+        russiarating: russiaUnspecified
+        skfilmrating: skfilmP5
+        smaisrating: smais16
+        smsarating: smsa11
+        tvpgrating: tvpgY7Fv
+        ytrating: ytAgeRestricted
+        forcesendfields: []
+        nullfields: []
+    countryrestriction:
+        allowed: true
+        exception:
+            - contentDetails.countryRestriction.exception[]-21
+            - contentDetails.countryRestriction.exception[]-22
+        forcesendfields: []
+        nullfields: []
+    definition: hd
+    dimension: contentDetails.dimension-21
+    duration: contentDetails.duration-21
+    hascustomthumbnail: true
+    licensedcontent: true
+    projection: "360"
+    regionrestriction:
+        allowed:
+            - contentDetails.regionRestriction.allowed[]-21
+            - contentDetails.regionRestriction.allowed[]-22
+        blocked:
+            - contentDetails.regionRestriction.blocked[]-21
+            - contentDetails.regionRestriction.blocked[]-22
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: etag-21
+  filedetails:
+    audiostreams:
+        - bitratebps: 167446
+          channelcount: 312
+          codec: fileDetails.audioStreams[].codec-21
+          vendor: fileDetails.audioStreams[].vendor-21
+          forcesendfields: []
+          nullfields: []
+        - bitratebps: 175365
+          channelcount: 325
+          codec: fileDetails.audioStreams[].codec-22
+          vendor: fileDetails.audioStreams[].vendor-22
+          forcesendfields: []
+          nullfields: []
+    bitratebps: 166981
+    container: fileDetails.container-21
+    creationtime: fileDetails.creationTime-21
+    durationms: 166981
+    filename: fileDetails.fileName-21
+    filesize: 166919
+    filetype: video
+    videostreams:
+        - aspectratio: 56.428571
+          bitratebps: 167446
+          codec: fileDetails.videoStreams[].codec-21
+          frameratefps: 56.571429
+          heightpixels: 312
+          rotation: clockwise
+          vendor: fileDetails.videoStreams[].vendor-21
+          widthpixels: 311
+          forcesendfields: []
+          nullfields: []
+        - aspectratio: 58.857143
+          bitratebps: 175365
+          codec: fileDetails.videoStreams[].codec-22
+          frameratefps: 59
+          heightpixels: 325
+          rotation: upsideDown
+          vendor: fileDetails.videoStreams[].vendor-22
+          widthpixels: 324
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  id: id-21
+  kind: kind-21
+  livestreamingdetails:
+    activelivechatid: liveStreamingDetails.activeLiveChatId-21
+    actualendtime: "2026-04-13T12:34:51Z"
+    actualstarttime: "2026-04-13T12:34:51Z"
+    concurrentviewers: 167477
+    scheduledendtime: "2026-04-13T12:34:51Z"
+    scheduledstarttime: "2026-04-13T12:34:51Z"
+    forcesendfields: []
+    nullfields: []
+  localizations:
+    ka:
+        description: true localizations{}.description
+        title: |-
+            tab	and
+            newline
+        forcesendfields: []
+        nullfields: []
+    kb:
+        description: |-
+            tab	and
+            newline localizations{}.description
+        title: 'trailing space '
+        forcesendfields: []
+        nullfields: []
+  monetizationdetails:
+    access:
+        allowed: true
+        exception:
+            - monetizationDetails.access.exception[]-21
+            - monetizationDetails.access.exception[]-22
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  paidproductplacementdetails:
+    haspaidproductplacement: true
+    forcesendfields: []
+    nullfields: []
+  player:
+    embedheight: 166857
+    embedhtml: player.embedHtml-21
+    embedwidth: 166826
+    forcesendfields: []
+    nullfields: []
+  processingdetails:
+    editorsuggestionsavailability: processingDetails.editorSuggestionsAvailability-21
+    filedetailsavailability: processingDetails.fileDetailsAvailability-21
+    processingfailurereason: transcodeFailed
+    processingissuesavailability: processingDetails.processingIssuesAvailability-21
+    processingprogress:
+        partsprocessed: 167880
+        partstotal: 167756
+        timeleftms: 167756
+        forcesendfields: []
+        nullfields: []
+    processingstatus: succeeded
+    tagsuggestionsavailability: processingDetails.tagSuggestionsAvailability-21
+    thumbnailsavailability: processingDetails.thumbnailsAvailability-21
+    forcesendfields: []
+    nullfields: []
+  projectdetails: {}
+  recordingdetails:
+    location:
+        altitude: 55.857143
+        latitude: 55.857143
+        longitude: 56
+        forcesendfields: []
+        nullfields: []
+    locationdescription: recordingDetails.locationDescription-21
+    recordingdate: "2026-04-13T12:34:51Z"
+    forcesendfields: []
+    nullfields: []
+  snippet:
+    categoryid: snippet.categoryId-21
+    channelid: snippet.channelId-21
+    channeltitle: snippet.channelTitle-21
+    defaultaudiolanguage: snippet.defaultAudioLanguage-21
+    defaultlanguage: snippet.defaultLanguage-21
+    description: |-
+        tab	and
+        newline snippet.description
+    livebroadcastcontent: upcoming
+    localized:
+        description: |-
+            tab	and
+            newline snippet.localized.description
+        title: A very long line that keeps going well past eighty characters so that any wrapping logic in an emitter shows up clearly here
+        forcesendfields: []
+        nullfields: []
+    publishedat: "2026-04-13T12:34:51Z"
+    tags:
+        - snippet.tags[]-21
+        - snippet.tags[]-22
+    thumbnails:
+        default:
+            height: 306
+            url: snippet.thumbnails.default.url-21
+            width: 305
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 302
+            url: snippet.thumbnails.fhd.url-21
+            width: 301
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 303
+            url: snippet.thumbnails.high.url-21
+            width: 302
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 305
+            url: snippet.thumbnails.maxres.url-21
+            width: 304
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 305
+            url: snippet.thumbnails.medium.url-21
+            width: 304
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 302
+            url: snippet.thumbnails.qhd.url-21
+            width: 301
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 307
+            url: snippet.thumbnails.standard.url-21
+            width: 306
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 302
+            url: snippet.thumbnails.uhd.url-21
+            width: 301
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: '- dash start'
+    forcesendfields: []
+    nullfields: []
+  statistics:
+    commentcount: 167012
+    dislikecount: 167012
+    favoritecount: 167043
+    likecount: 166919
+    viewcount: 166919
+    forcesendfields: []
+    nullfields: []
+  status:
+    containssyntheticmedia: true
+    embeddable: true
+    failurereason: tooSmall
+    license: creativeCommon
+    madeforkids: true
+    privacystatus: public
+    publicstatsviewable: true
+    publishat: "2026-04-13T12:34:51Z"
+    rejectionreason: inappropriate
+    selfdeclaredmadeforkids: true
+    uploadstatus: processed
+    forcesendfields: []
+    nullfields: []
+  suggestions:
+    editorsuggestions:
+        - videoStabilize
+        - videoCrop
+    processingerrors:
+        - audioFile
+        - imageFile
+    processinghints:
+        - spatialAudio
+        - vrVideo
+    processingwarnings:
+        - unsupportedHdrPixelFormat
+        - unsupportedHdrColorMetadata
+    tagsuggestions:
+        - categoryrestricts:
+            - suggestions.tagSuggestions[].categoryRestricts[]-21
+            - suggestions.tagSuggestions[].categoryRestricts[]-22
+          tag: suggestions.tagSuggestions[].tag-21
+          forcesendfields: []
+          nullfields: []
+        - categoryrestricts:
+            - suggestions.tagSuggestions[].categoryRestricts[]-22
+            - suggestions.tagSuggestions[].categoryRestricts[]-23
+          tag: suggestions.tagSuggestions[].tag-22
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  topicdetails:
+    relevanttopicids:
+        - topicDetails.relevantTopicIds[]-21
+        - topicDetails.relevantTopicIds[]-22
+    topiccategories:
+        - topicDetails.topicCategories[]-21
+        - topicDetails.topicCategories[]-22
+    topicids:
+        - topicDetails.topicIds[]-21
+        - topicDetails.topicIds[]-22
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- agegating:
+    alcoholcontent: false
+    restricted: false
+    videogamerating: m16Plus
+    forcesendfields: []
+    nullfields: []
+  brandpartner:
+    channelhandle: brandPartner.channelHandle-22
+    channelid: brandPartner.channelId-22
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    caption: "true"
+    contentrating:
+        acbrating: acbP
+        agcomrating: agcomVm14
+        anatelrating: anatelI10
+        bbfcrating: bbfc12
+        bfvcrating: bfvc15
+        bmukkrating: bmukk10
+        catvrating: catvPg
+        catvfrrating: catvfrUnrated
+        cbfcrating: cbfcUA13plus
+        cccrating: ccc18s
+        ccerating: cceUnrated
+        chfilmrating: chfilm0
+        chvrsrating: chvrsE
+        cicfrating: cicfKtEa
+        cnarating: cnaAp
+        cncrating: cnc16
+        csarating: csaInterdiction
+        cscfrating: cscf9
+        czfilmrating: czfilm18
+        djctqrating: djctq1618
+        djctqratingreasons:
+            - djctqSex
+            - djctqExplicitSex
+        ecbmctrating: ecbmct7a
+        eefilmrating: eefilmL
+        egfilmrating: egfilm18
+        eirinrating: eirinR18plus
+        fcbmrating: fcbmPg13
+        fcorating: fcoI
+        fmocrating: fmocE
+        fpbrating: fpbUnrated
+        fpbratingreasons:
+            - fpbCriminalTechniques
+            - fpbImitativeActsTechniques
+        fskrating: fsk0
+        grfilmrating: grfilmK13
+        icaarating: icaa13
+        ifcorating: ifcoPg
+        ilfilmrating: ilfilmAa
+        incaarating: incaaAtp
+        kfcbrating: kfcbR
+        kijkwijzerrating: kijkwijzer18
+        kmrbrating: kmrbAll
+        lsfrating: lsfA
+        mccaarating: mccaaPg
+        mccyprating: mccyp15
+        mcstrating: mcstC16
+        mdarating: mdaR21
+        medietilsynetrating: medietilsynet6
+        mekurating: mekuS
+        menampaarating: menaMpaaR
+        mibacrating: mibacVm12
+        mocrating: mocT
+        moctwrating: moctwR12
+        mpaarating: mpaaX
+        mpaatrating: mpaatGb
+        mtrcbrating: mtrcbX
+        nbcrating: nbc15plus
+        nbcplrating: nbcplI
+        nfrcrating: nfrcA
+        nfvcbrating: nfvcb12a
+        nkclvrating: nkclvU
+        nmcrating: nmcPg15
+        oflcrating: oflcRp16
+        pefilmrating: pefilm18
+        rcnofrating: rcnofVi
+        resorteviolenciarating: resorteviolenciaA
+        rtcrating: rtcD
+        rterating: rteMa
+        russiarating: russia0
+        skfilmrating: skfilmP8
+        smaisrating: smais18
+        smsarating: smsa15
+        tvpgrating: tvpgG
+        ytrating: ytUnspecified
+        forcesendfields: []
+        nullfields: []
+    countryrestriction:
+        allowed: false
+        exception:
+            - contentDetails.countryRestriction.exception[]-22
+            - contentDetails.countryRestriction.exception[]-23
+        forcesendfields: []
+        nullfields: []
+    definition: sd
+    dimension: contentDetails.dimension-22
+    duration: contentDetails.duration-22
+    hascustomthumbnail: false
+    licensedcontent: false
+    projection: rectangular
+    regionrestriction:
+        allowed:
+            - contentDetails.regionRestriction.allowed[]-22
+            - contentDetails.regionRestriction.allowed[]-23
+        blocked:
+            - contentDetails.regionRestriction.blocked[]-22
+            - contentDetails.regionRestriction.blocked[]-23
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: etag-22
+  filedetails:
+    audiostreams:
+        - bitratebps: 175365
+          channelcount: 325
+          codec: fileDetails.audioStreams[].codec-22
+          vendor: fileDetails.audioStreams[].vendor-22
+          forcesendfields: []
+          nullfields: []
+        - bitratebps: 183284
+          channelcount: 338
+          codec: fileDetails.audioStreams[].codec-23
+          vendor: fileDetails.audioStreams[].vendor-23
+          forcesendfields: []
+          nullfields: []
+    bitratebps: 174900
+    container: fileDetails.container-22
+    creationtime: fileDetails.creationTime-22
+    durationms: 174900
+    filename: fileDetails.fileName-22
+    filesize: 174838
+    filetype: audio
+    videostreams:
+        - aspectratio: 58.857143
+          bitratebps: 175365
+          codec: fileDetails.videoStreams[].codec-22
+          frameratefps: 59
+          heightpixels: 325
+          rotation: upsideDown
+          vendor: fileDetails.videoStreams[].vendor-22
+          widthpixels: 324
+          forcesendfields: []
+          nullfields: []
+        - aspectratio: 61.285714
+          bitratebps: 183284
+          codec: fileDetails.videoStreams[].codec-23
+          frameratefps: 61.428571
+          heightpixels: 338
+          rotation: counterClockwise
+          vendor: fileDetails.videoStreams[].vendor-23
+          widthpixels: 337
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  id: id-22
+  kind: kind-22
+  livestreamingdetails:
+    activelivechatid: liveStreamingDetails.activeLiveChatId-22
+    actualendtime: "2026-05-14T12:34:52Z"
+    actualstarttime: "2026-05-14T12:34:52Z"
+    concurrentviewers: 175396
+    scheduledendtime: "2026-05-14T12:34:52Z"
+    scheduledstarttime: "2026-05-14T12:34:52Z"
+    forcesendfields: []
+    nullfields: []
+  localizations:
+    ka:
+        description: 123 localizations{}.description
+        title: "null"
+        forcesendfields: []
+        nullfields: []
+    kb:
+        description: true localizations{}.description
+        title: |-
+            tab	and
+            newline
+        forcesendfields: []
+        nullfields: []
+  monetizationdetails:
+    access:
+        allowed: false
+        exception:
+            - monetizationDetails.access.exception[]-22
+            - monetizationDetails.access.exception[]-23
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  paidproductplacementdetails:
+    haspaidproductplacement: false
+    forcesendfields: []
+    nullfields: []
+  player:
+    embedheight: 174776
+    embedhtml: player.embedHtml-22
+    embedwidth: 174745
+    forcesendfields: []
+    nullfields: []
+  processingdetails:
+    editorsuggestionsavailability: processingDetails.editorSuggestionsAvailability-22
+    filedetailsavailability: processingDetails.fileDetailsAvailability-22
+    processingfailurereason: streamingFailed
+    processingissuesavailability: processingDetails.processingIssuesAvailability-22
+    processingprogress:
+        partsprocessed: 175799
+        partstotal: 175675
+        timeleftms: 175675
+        forcesendfields: []
+        nullfields: []
+    processingstatus: failed
+    tagsuggestionsavailability: processingDetails.tagSuggestionsAvailability-22
+    thumbnailsavailability: processingDetails.thumbnailsAvailability-22
+    forcesendfields: []
+    nullfields: []
+  projectdetails: {}
+  recordingdetails:
+    location:
+        altitude: 58.285714
+        latitude: 58.285714
+        longitude: 58.428571
+        forcesendfields: []
+        nullfields: []
+    locationdescription: recordingDetails.locationDescription-22
+    recordingdate: "2026-05-14T12:34:52Z"
+    forcesendfields: []
+    nullfields: []
+  snippet:
+    categoryid: snippet.categoryId-22
+    channelid: snippet.channelId-22
+    channeltitle: snippet.channelTitle-22
+    defaultaudiolanguage: snippet.defaultAudioLanguage-22
+    defaultlanguage: snippet.defaultLanguage-22
+    description: true snippet.description
+    livebroadcastcontent: live
+    localized:
+        description: true snippet.localized.description
+        title: "123"
+        forcesendfields: []
+        nullfields: []
+    publishedat: "2026-05-14T12:34:52Z"
+    tags:
+        - snippet.tags[]-22
+        - snippet.tags[]-23
+    thumbnails:
+        default:
+            height: 319
+            url: snippet.thumbnails.default.url-22
+            width: 318
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 315
+            url: snippet.thumbnails.fhd.url-22
+            width: 314
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 316
+            url: snippet.thumbnails.high.url-22
+            width: 315
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 318
+            url: snippet.thumbnails.maxres.url-22
+            width: 317
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 318
+            url: snippet.thumbnails.medium.url-22
+            width: 317
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 315
+            url: snippet.thumbnails.qhd.url-22
+            width: 314
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 320
+            url: snippet.thumbnails.standard.url-22
+            width: 319
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 315
+            url: snippet.thumbnails.uhd.url-22
+            width: 314
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: 'line         sep'
+    forcesendfields: []
+    nullfields: []
+  statistics:
+    commentcount: 174931
+    dislikecount: 174931
+    favoritecount: 174962
+    likecount: 174838
+    viewcount: 174838
+    forcesendfields: []
+    nullfields: []
+  status:
+    containssyntheticmedia: false
+    embeddable: false
+    failurereason: codec
+    license: youtube
+    madeforkids: false
+    privacystatus: unlisted
+    publicstatsviewable: false
+    publishat: "2026-05-14T12:34:52Z"
+    rejectionreason: duplicate
+    selfdeclaredmadeforkids: false
+    uploadstatus: failed
+    forcesendfields: []
+    nullfields: []
+  suggestions:
+    editorsuggestions:
+        - videoCrop
+        - audioQuietAudioSwap
+    processingerrors:
+        - imageFile
+        - projectFile
+    processinghints:
+        - vrVideo
+        - hdrVideo
+    processingwarnings:
+        - unsupportedHdrColorMetadata
+        - problematicHdrLookupTable
+    tagsuggestions:
+        - categoryrestricts:
+            - suggestions.tagSuggestions[].categoryRestricts[]-22
+            - suggestions.tagSuggestions[].categoryRestricts[]-23
+          tag: suggestions.tagSuggestions[].tag-22
+          forcesendfields: []
+          nullfields: []
+        - categoryrestricts:
+            - suggestions.tagSuggestions[].categoryRestricts[]-23
+            - suggestions.tagSuggestions[].categoryRestricts[]-24
+          tag: suggestions.tagSuggestions[].tag-23
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+  topicdetails:
+    relevanttopicids:
+        - topicDetails.relevantTopicIds[]-22
+        - topicDetails.relevantTopicIds[]-23
+    topiccategories:
+        - topicDetails.topicCategories[]-22
+        - topicDetails.topicCategories[]-23
+    topicids:
+        - topicDetails.topicIds[]-22
+        - topicDetails.topicIds[]-23
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- agegating:
+    alcoholcontent: false
+    restricted: false
+    videogamerating: ""
+    forcesendfields: []
+    nullfields: []
+  brandpartner:
+    channelhandle: ""
+    channelid: ""
+    forcesendfields: []
+    nullfields: []
+  contentdetails:
+    caption: ""
+    contentrating:
+        acbrating: ""
+        agcomrating: ""
+        anatelrating: ""
+        bbfcrating: ""
+        bfvcrating: ""
+        bmukkrating: ""
+        catvrating: ""
+        catvfrrating: ""
+        cbfcrating: ""
+        cccrating: ""
+        ccerating: ""
+        chfilmrating: ""
+        chvrsrating: ""
+        cicfrating: ""
+        cnarating: ""
+        cncrating: ""
+        csarating: ""
+        cscfrating: ""
+        czfilmrating: ""
+        djctqrating: ""
+        djctqratingreasons: []
+        ecbmctrating: ""
+        eefilmrating: ""
+        egfilmrating: ""
+        eirinrating: ""
+        fcbmrating: ""
+        fcorating: ""
+        fmocrating: ""
+        fpbrating: ""
+        fpbratingreasons: []
+        fskrating: ""
+        grfilmrating: ""
+        icaarating: ""
+        ifcorating: ""
+        ilfilmrating: ""
+        incaarating: ""
+        kfcbrating: ""
+        kijkwijzerrating: ""
+        kmrbrating: ""
+        lsfrating: ""
+        mccaarating: ""
+        mccyprating: ""
+        mcstrating: ""
+        mdarating: ""
+        medietilsynetrating: ""
+        mekurating: ""
+        menampaarating: ""
+        mibacrating: ""
+        mocrating: ""
+        moctwrating: ""
+        mpaarating: ""
+        mpaatrating: ""
+        mtrcbrating: ""
+        nbcrating: ""
+        nbcplrating: ""
+        nfrcrating: ""
+        nfvcbrating: ""
+        nkclvrating: ""
+        nmcrating: ""
+        oflcrating: ""
+        pefilmrating: ""
+        rcnofrating: ""
+        resorteviolenciarating: ""
+        rtcrating: ""
+        rterating: ""
+        russiarating: ""
+        skfilmrating: ""
+        smaisrating: ""
+        smsarating: ""
+        tvpgrating: ""
+        ytrating: ""
+        forcesendfields: []
+        nullfields: []
+    countryrestriction:
+        allowed: false
+        exception: []
+        forcesendfields: []
+        nullfields: []
+    definition: ""
+    dimension: ""
+    duration: ""
+    hascustomthumbnail: false
+    licensedcontent: false
+    projection: ""
+    regionrestriction:
+        allowed: []
+        blocked: []
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  etag: ""
+  filedetails:
+    audiostreams: []
+    bitratebps: 0
+    container: ""
+    creationtime: ""
+    durationms: 0
+    filename: ""
+    filesize: 0
+    filetype: ""
+    videostreams: []
+    forcesendfields: []
+    nullfields: []
+  id: zero-2
+  kind: ""
+  livestreamingdetails:
+    activelivechatid: ""
+    actualendtime: ""
+    actualstarttime: ""
+    concurrentviewers: 0
+    scheduledendtime: ""
+    scheduledstarttime: ""
+    forcesendfields: []
+    nullfields: []
+  localizations: {}
+  monetizationdetails:
+    access:
+        allowed: false
+        exception: []
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  paidproductplacementdetails:
+    haspaidproductplacement: false
+    forcesendfields: []
+    nullfields: []
+  player:
+    embedheight: 0
+    embedhtml: ""
+    embedwidth: 0
+    forcesendfields: []
+    nullfields: []
+  processingdetails:
+    editorsuggestionsavailability: ""
+    filedetailsavailability: ""
+    processingfailurereason: ""
+    processingissuesavailability: ""
+    processingprogress:
+        partsprocessed: 0
+        partstotal: 0
+        timeleftms: 0
+        forcesendfields: []
+        nullfields: []
+    processingstatus: ""
+    tagsuggestionsavailability: ""
+    thumbnailsavailability: ""
+    forcesendfields: []
+    nullfields: []
+  projectdetails: {}
+  recordingdetails:
+    location:
+        altitude: 0
+        latitude: 0
+        longitude: 0
+        forcesendfields: []
+        nullfields: []
+    locationdescription: ""
+    recordingdate: ""
+    forcesendfields: []
+    nullfields: []
+  snippet:
+    categoryid: ""
+    channelid: ""
+    channeltitle: ""
+    defaultaudiolanguage: ""
+    defaultlanguage: ""
+    description: ""
+    livebroadcastcontent: ""
+    localized:
+        description: ""
+        title: ""
+        forcesendfields: []
+        nullfields: []
+    publishedat: ""
+    tags: []
+    thumbnails:
+        default:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: ""
+    forcesendfields: []
+    nullfields: []
+  statistics:
+    commentcount: 0
+    dislikecount: 0
+    favoritecount: 0
+    likecount: 0
+    viewcount: 0
+    forcesendfields: []
+    nullfields: []
+  status:
+    containssyntheticmedia: false
+    embeddable: false
+    failurereason: ""
+    license: ""
+    madeforkids: false
+    privacystatus: ""
+    publicstatsviewable: false
+    publishat: ""
+    rejectionreason: ""
+    selfdeclaredmadeforkids: false
+    uploadstatus: ""
+    forcesendfields: []
+    nullfields: []
+  suggestions:
+    editorsuggestions: []
+    processingerrors: []
+    processinghints: []
+    processingwarnings: []
+    tagsuggestions: []
+    forcesendfields: []
+    nullfields: []
+  topicdetails:
+    relevanttopicids: []
+    topiccategories: []
+    topicids: []
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []

@@ -1,0 +1,1073 @@
+[
+  {
+    "ageGating": {
+      "videoGameRating": "m16Plus"
+    },
+    "brandPartner": {
+      "channelHandle": "brandPartner.channelHandle-10",
+      "channelId": "brandPartner.channelId-10"
+    },
+    "contentDetails": {
+      "caption": "true",
+      "contentRating": {
+        "acbRating": "acbUnspecified",
+        "agcomRating": "agcomUnspecified",
+        "anatelRating": "anatelF",
+        "bbfcRating": "bbfcU",
+        "bfvcRating": "bfvcG",
+        "bmukkRating": "bmukkAa",
+        "catvRating": "catvC",
+        "catvfrRating": "catvfr8plus",
+        "cbfcRating": "cbfcU",
+        "cccRating": "ccc6",
+        "cceRating": "cceM6",
+        "chfilmRating": "chfilm12",
+        "chvrsRating": "chvrsPg",
+        "cicfRating": "cicfUnspecified",
+        "cnaRating": "cna15",
+        "cncRating": "cncT",
+        "csaRating": "csa10",
+        "cscfRating": "cscfAl",
+        "czfilmRating": "czfilm18",
+        "djctqRating": "djctqL14",
+        "djctqRatingReasons": [
+          "djctqInappropriateLanguage",
+          "djctqCriminalActs"
+        ],
+        "ecbmctRating": "ecbmctUnspecified",
+        "eefilmRating": "eefilmUnspecified",
+        "egfilmRating": "egfilmUnspecified",
+        "eirinRating": "eirinR18plus",
+        "fcbmRating": "fcbmUnspecified",
+        "fcoRating": "fcoIib",
+        "fmocRating": "fmoc10",
+        "fpbRating": "fpbUnrated",
+        "fpbRatingReasons": [
+          "fpbCriminalTechniques",
+          "fpbImitativeActsTechniques"
+        ],
+        "fskRating": "fsk12",
+        "grfilmRating": "grfilmK",
+        "icaaRating": "icaaApta",
+        "ifcoRating": "ifcoUnspecified",
+        "ilfilmRating": "ilfilm14",
+        "incaaRating": "incaaSam16",
+        "kfcbRating": "kfcbR",
+        "kijkwijzerRating": "kijkwijzer6",
+        "kmrbRating": "kmrb15plus",
+        "lsfRating": "lsfUnspecified",
+        "mccaaRating": "mccaaUnspecified",
+        "mccypRating": "mccyp15",
+        "mcstRating": "mcstP",
+        "mdaRating": "mdaPg",
+        "medietilsynetRating": "medietilsynetUnspecified",
+        "mekuRating": "meku12",
+        "menaMpaaRating": "menaMpaaR",
+        "mibacRating": "mibacT",
+        "mocRating": "mocUnspecified",
+        "moctwRating": "moctwP",
+        "mpaaRating": "mpaaPg",
+        "mpaatRating": "mpaatGb",
+        "mtrcbRating": "mtrcbPg",
+        "nbcRating": "nbcG",
+        "nbcplRating": "nbcplIii",
+        "nfrcRating": "nfrcC",
+        "nfvcbRating": "nfvcbG",
+        "nkclvRating": "nkclv12plus",
+        "nmcRating": "nmcG",
+        "oflcRating": "oflcRp16",
+        "pefilmRating": "pefilm18",
+        "rcnofRating": "rcnofIi",
+        "resorteviolenciaRating": "resorteviolenciaC",
+        "rtcRating": "rtcA",
+        "rteRating": "rteMa",
+        "russiaRating": "russia12",
+        "skfilmRating": "skfilmP8",
+        "smaisRating": "smais7",
+        "smsaRating": "smsa15",
+        "tvpgRating": "tvpgY",
+        "ytRating": "ytUnspecified"
+      },
+      "countryRestriction": {
+        "exception": [
+          "contentDetails.countryRestriction.exception[]-10",
+          "contentDetails.countryRestriction.exception[]-11"
+        ]
+      },
+      "definition": "sd",
+      "dimension": "contentDetails.dimension-10",
+      "duration": "contentDetails.duration-10",
+      "projection": "rectangular",
+      "regionRestriction": {
+        "allowed": [
+          "contentDetails.regionRestriction.allowed[]-10",
+          "contentDetails.regionRestriction.allowed[]-11"
+        ],
+        "blocked": [
+          "contentDetails.regionRestriction.blocked[]-10",
+          "contentDetails.regionRestriction.blocked[]-11"
+        ]
+      }
+    },
+    "etag": "etag-10",
+    "fileDetails": {
+      "audioStreams": [
+        {
+          "bitrateBps": "80337",
+          "channelCount": 169,
+          "codec": "fileDetails.audioStreams[].codec-10",
+          "vendor": "fileDetails.audioStreams[].vendor-10"
+        },
+        {
+          "bitrateBps": "88256",
+          "channelCount": 182,
+          "codec": "fileDetails.audioStreams[].codec-11",
+          "vendor": "fileDetails.audioStreams[].vendor-11"
+        }
+      ],
+      "bitrateBps": "79872",
+      "container": "fileDetails.container-10",
+      "creationTime": "fileDetails.creationTime-10",
+      "durationMs": "79872",
+      "fileName": "fileDetails.fileName-10",
+      "fileSize": "79810",
+      "fileType": "archive",
+      "videoStreams": [
+        {
+          "aspectRatio": 29.714286,
+          "bitrateBps": "80337",
+          "codec": "fileDetails.videoStreams[].codec-10",
+          "frameRateFps": 29.857143,
+          "heightPixels": 169,
+          "rotation": "none",
+          "vendor": "fileDetails.videoStreams[].vendor-10",
+          "widthPixels": 168
+        },
+        {
+          "aspectRatio": 32.142857,
+          "bitrateBps": "88256",
+          "codec": "fileDetails.videoStreams[].codec-11",
+          "frameRateFps": 32.285714,
+          "heightPixels": 182,
+          "rotation": "clockwise",
+          "vendor": "fileDetails.videoStreams[].vendor-11",
+          "widthPixels": 181
+        }
+      ]
+    },
+    "id": "id-10",
+    "kind": "kind-10",
+    "liveStreamingDetails": {
+      "activeLiveChatId": "liveStreamingDetails.activeLiveChatId-10",
+      "actualEndTime": "2026-02-11T12:34:50Z",
+      "actualStartTime": "2026-02-11T12:34:50Z",
+      "concurrentViewers": "80368",
+      "scheduledEndTime": "2026-02-11T12:34:50Z",
+      "scheduledStartTime": "2026-02-11T12:34:50Z"
+    },
+    "localizations": {
+      "ka": {
+        "description": "~ localizations{}.description",
+        "title": "emoji 🎬🎥 mix"
+      },
+      "kb": {
+        "description": "null localizations{}.description",
+        "title": "line sep"
+      }
+    },
+    "monetizationDetails": {
+      "access": {
+        "exception": [
+          "monetizationDetails.access.exception[]-10",
+          "monetizationDetails.access.exception[]-11"
+        ]
+      }
+    },
+    "paidProductPlacementDetails": {},
+    "player": {
+      "embedHeight": "79748",
+      "embedHtml": "player.embedHtml-10",
+      "embedWidth": "79717"
+    },
+    "processingDetails": {
+      "editorSuggestionsAvailability": "processingDetails.editorSuggestionsAvailability-10",
+      "fileDetailsAvailability": "processingDetails.fileDetailsAvailability-10",
+      "processingFailureReason": "streamingFailed",
+      "processingIssuesAvailability": "processingDetails.processingIssuesAvailability-10",
+      "processingProgress": {
+        "partsProcessed": "80771",
+        "partsTotal": "80647",
+        "timeLeftMs": "80647"
+      },
+      "processingStatus": "failed",
+      "tagSuggestionsAvailability": "processingDetails.tagSuggestionsAvailability-10",
+      "thumbnailsAvailability": "processingDetails.thumbnailsAvailability-10"
+    },
+    "projectDetails": {},
+    "recordingDetails": {
+      "location": {
+        "altitude": 29.142857,
+        "latitude": 29.142857,
+        "longitude": 29.285714
+      },
+      "locationDescription": "recordingDetails.locationDescription-10",
+      "recordingDate": "2026-02-11T12:34:50Z"
+    },
+    "snippet": {
+      "categoryId": "snippet.categoryId-10",
+      "channelId": "snippet.channelId-10",
+      "channelTitle": "snippet.channelTitle-10",
+      "defaultAudioLanguage": "snippet.defaultAudioLanguage-10",
+      "defaultLanguage": "snippet.defaultLanguage-10",
+      "description": "null snippet.description",
+      "liveBroadcastContent": "live",
+      "localized": {
+        "description": "null snippet.localized.description",
+        "title": "multi\nline\ntext\n"
+      },
+      "publishedAt": "2026-02-11T12:34:50Z",
+      "tags": [
+        "snippet.tags[]-10",
+        "snippet.tags[]-11"
+      ],
+      "thumbnails": {
+        "default": {
+          "height": 163,
+          "url": "snippet.thumbnails.default.url-10",
+          "width": 162
+        },
+        "fhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.fhd.url-10",
+          "width": 158
+        },
+        "high": {
+          "height": 160,
+          "url": "snippet.thumbnails.high.url-10",
+          "width": 159
+        },
+        "maxres": {
+          "height": 162,
+          "url": "snippet.thumbnails.maxres.url-10",
+          "width": 161
+        },
+        "medium": {
+          "height": 162,
+          "url": "snippet.thumbnails.medium.url-10",
+          "width": 161
+        },
+        "qhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.qhd.url-10",
+          "width": 158
+        },
+        "standard": {
+          "height": 164,
+          "url": "snippet.thumbnails.standard.url-10",
+          "width": 163
+        },
+        "uhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.uhd.url-10",
+          "width": 158
+        }
+      },
+      "title": "key: value"
+    },
+    "statistics": {
+      "commentCount": "79903",
+      "dislikeCount": "79903",
+      "favoriteCount": "79934",
+      "likeCount": "79810",
+      "viewCount": "79810"
+    },
+    "status": {
+      "failureReason": "codec",
+      "license": "youtube",
+      "privacyStatus": "unlisted",
+      "publishAt": "2026-02-11T12:34:50Z",
+      "rejectionReason": "copyright",
+      "uploadStatus": "uploaded"
+    },
+    "suggestions": {
+      "editorSuggestions": [
+        "videoCrop",
+        "audioQuietAudioSwap"
+      ],
+      "processingErrors": [
+        "notAVideoFile",
+        "docFile"
+      ],
+      "processingHints": [
+        "vrVideo",
+        "hdrVideo"
+      ],
+      "processingWarnings": [
+        "unsupportedHdrColorMetadata",
+        "problematicHdrLookupTable"
+      ],
+      "tagSuggestions": [
+        {
+          "categoryRestricts": [
+            "suggestions.tagSuggestions[].categoryRestricts[]-10",
+            "suggestions.tagSuggestions[].categoryRestricts[]-11"
+          ],
+          "tag": "suggestions.tagSuggestions[].tag-10"
+        },
+        {
+          "categoryRestricts": [
+            "suggestions.tagSuggestions[].categoryRestricts[]-11",
+            "suggestions.tagSuggestions[].categoryRestricts[]-12"
+          ],
+          "tag": "suggestions.tagSuggestions[].tag-11"
+        }
+      ]
+    },
+    "topicDetails": {
+      "relevantTopicIds": [
+        "topicDetails.relevantTopicIds[]-10",
+        "topicDetails.relevantTopicIds[]-11"
+      ],
+      "topicCategories": [
+        "topicDetails.topicCategories[]-10",
+        "topicDetails.topicCategories[]-11"
+      ],
+      "topicIds": [
+        "topicDetails.topicIds[]-10",
+        "topicDetails.topicIds[]-11"
+      ]
+    }
+  },
+  {
+    "ageGating": {
+      "alcoholContent": true,
+      "restricted": true,
+      "videoGameRating": "m17Plus"
+    },
+    "brandPartner": {
+      "channelHandle": "brandPartner.channelHandle-11",
+      "channelId": "brandPartner.channelId-11"
+    },
+    "contentDetails": {
+      "caption": "false",
+      "contentRating": {
+        "acbRating": "acbE",
+        "agcomRating": "agcomT",
+        "anatelRating": "anatelI",
+        "bbfcRating": "bbfcPg",
+        "bfvcRating": "bfvcE",
+        "bmukkRating": "bmukk6",
+        "catvRating": "catvC8",
+        "catvfrRating": "catvfr13plus",
+        "cbfcRating": "cbfcUA",
+        "cccRating": "ccc14",
+        "cceRating": "cceM12",
+        "chfilmRating": "chfilm16",
+        "chvrsRating": "chvrs14a",
+        "cicfRating": "cicfE",
+        "cnaRating": "cna18",
+        "cncRating": "cnc10",
+        "csaRating": "csa12",
+        "cscfRating": "cscfA",
+        "czfilmRating": "czfilmUnrated",
+        "djctqRating": "djctqL16",
+        "djctqRatingReasons": [
+          "djctqCriminalActs",
+          "djctqImpactingContent"
+        ],
+        "ecbmctRating": "ecbmctG",
+        "eefilmRating": "eefilmPere",
+        "egfilmRating": "egfilmGn",
+        "eirinRating": "eirinUnrated",
+        "fcbmRating": "fcbmU",
+        "fcoRating": "fcoIi",
+        "fmocRating": "fmoc12",
+        "fpbRating": "fpb10",
+        "fpbRatingReasons": [
+          "fpbImitativeActsTechniques",
+          "fpbRatingReasonUnspecified"
+        ],
+        "fskRating": "fsk16",
+        "grfilmRating": "grfilmE",
+        "icaaRating": "icaa7",
+        "ifcoRating": "ifcoG",
+        "ilfilmRating": "ilfilm16",
+        "incaaRating": "incaaSam18",
+        "kfcbRating": "kfcbUnrated",
+        "kijkwijzerRating": "kijkwijzer9",
+        "kmrbRating": "kmrbTeenr",
+        "lsfRating": "lsfSu",
+        "mccaaRating": "mccaaU",
+        "mccypRating": "mccypUnrated",
+        "mcstRating": "mcst0",
+        "mdaRating": "mdaPg13",
+        "medietilsynetRating": "medietilsynetA",
+        "mekuRating": "meku16",
+        "menaMpaaRating": "menaMpaaUnrated",
+        "mibacRating": "mibacVap",
+        "mocRating": "mocE",
+        "moctwRating": "moctwPg",
+        "mpaaRating": "mpaaPg13",
+        "mpaatRating": "mpaatRb",
+        "mtrcbRating": "mtrcbR13",
+        "nbcRating": "nbcPg",
+        "nbcplRating": "nbcplIv",
+        "nfrcRating": "nfrcD",
+        "nfvcbRating": "nfvcbPg",
+        "nkclvRating": "nkclv16plus",
+        "nmcRating": "nmcPg",
+        "oflcRating": "oflcRp18",
+        "pefilmRating": "pefilmUnrated",
+        "rcnofRating": "rcnofIii",
+        "resorteviolenciaRating": "resorteviolenciaD",
+        "rtcRating": "rtcB",
+        "rteRating": "rteUnrated",
+        "russiaRating": "russia16",
+        "skfilmRating": "skfilmUnrated",
+        "smaisRating": "smais12",
+        "smsaRating": "smsaUnrated",
+        "tvpgRating": "tvpgY7",
+        "ytRating": "ytAgeRestricted"
+      },
+      "countryRestriction": {
+        "allowed": true,
+        "exception": [
+          "contentDetails.countryRestriction.exception[]-11",
+          "contentDetails.countryRestriction.exception[]-12"
+        ]
+      },
+      "definition": "hd",
+      "dimension": "contentDetails.dimension-11",
+      "duration": "contentDetails.duration-11",
+      "hasCustomThumbnail": true,
+      "licensedContent": true,
+      "projection": "360",
+      "regionRestriction": {
+        "allowed": [
+          "contentDetails.regionRestriction.allowed[]-11",
+          "contentDetails.regionRestriction.allowed[]-12"
+        ],
+        "blocked": [
+          "contentDetails.regionRestriction.blocked[]-11",
+          "contentDetails.regionRestriction.blocked[]-12"
+        ]
+      }
+    },
+    "etag": "etag-11",
+    "fileDetails": {
+      "audioStreams": [
+        {
+          "bitrateBps": "88256",
+          "channelCount": 182,
+          "codec": "fileDetails.audioStreams[].codec-11",
+          "vendor": "fileDetails.audioStreams[].vendor-11"
+        },
+        {
+          "bitrateBps": "96175",
+          "channelCount": 195,
+          "codec": "fileDetails.audioStreams[].codec-12",
+          "vendor": "fileDetails.audioStreams[].vendor-12"
+        }
+      ],
+      "bitrateBps": "87791",
+      "container": "fileDetails.container-11",
+      "creationTime": "fileDetails.creationTime-11",
+      "durationMs": "87791",
+      "fileName": "fileDetails.fileName-11",
+      "fileSize": "87729",
+      "fileType": "document",
+      "videoStreams": [
+        {
+          "aspectRatio": 32.142857,
+          "bitrateBps": "88256",
+          "codec": "fileDetails.videoStreams[].codec-11",
+          "frameRateFps": 32.285714,
+          "heightPixels": 182,
+          "rotation": "clockwise",
+          "vendor": "fileDetails.videoStreams[].vendor-11",
+          "widthPixels": 181
+        },
+        {
+          "aspectRatio": 34.571429,
+          "bitrateBps": "96175",
+          "codec": "fileDetails.videoStreams[].codec-12",
+          "frameRateFps": 34.714286,
+          "heightPixels": 195,
+          "rotation": "upsideDown",
+          "vendor": "fileDetails.videoStreams[].vendor-12",
+          "widthPixels": 194
+        }
+      ]
+    },
+    "id": "id-11",
+    "kind": "kind-11",
+    "liveStreamingDetails": {
+      "activeLiveChatId": "liveStreamingDetails.activeLiveChatId-11",
+      "actualEndTime": "2026-03-12T12:34:51Z",
+      "actualStartTime": "2026-03-12T12:34:51Z",
+      "concurrentViewers": "88287",
+      "scheduledEndTime": "2026-03-12T12:34:51Z",
+      "scheduledStartTime": "2026-03-12T12:34:51Z"
+    },
+    "localizations": {
+      "ka": {
+        "description": "@at sign localizations{}.description",
+        "title": " leading space"
+      },
+      "kb": {
+        "description": "~ localizations{}.description",
+        "title": "emoji 🎬🎥 mix"
+      }
+    },
+    "monetizationDetails": {
+      "access": {
+        "allowed": true,
+        "exception": [
+          "monetizationDetails.access.exception[]-11",
+          "monetizationDetails.access.exception[]-12"
+        ]
+      }
+    },
+    "paidProductPlacementDetails": {
+      "hasPaidProductPlacement": true
+    },
+    "player": {
+      "embedHeight": "87667",
+      "embedHtml": "player.embedHtml-11",
+      "embedWidth": "87636"
+    },
+    "processingDetails": {
+      "editorSuggestionsAvailability": "processingDetails.editorSuggestionsAvailability-11",
+      "fileDetailsAvailability": "processingDetails.fileDetailsAvailability-11",
+      "processingFailureReason": "other",
+      "processingIssuesAvailability": "processingDetails.processingIssuesAvailability-11",
+      "processingProgress": {
+        "partsProcessed": "88690",
+        "partsTotal": "88566",
+        "timeLeftMs": "88566"
+      },
+      "processingStatus": "terminated",
+      "tagSuggestionsAvailability": "processingDetails.tagSuggestionsAvailability-11",
+      "thumbnailsAvailability": "processingDetails.thumbnailsAvailability-11"
+    },
+    "projectDetails": {},
+    "recordingDetails": {
+      "location": {
+        "altitude": 31.571429,
+        "latitude": 31.571429,
+        "longitude": 31.714286
+      },
+      "locationDescription": "recordingDetails.locationDescription-11",
+      "recordingDate": "2026-03-12T12:34:51Z"
+    },
+    "snippet": {
+      "categoryId": "snippet.categoryId-11",
+      "channelId": "snippet.channelId-11",
+      "channelTitle": "snippet.channelTitle-11",
+      "defaultAudioLanguage": "snippet.defaultAudioLanguage-11",
+      "defaultLanguage": "snippet.defaultLanguage-11",
+      "description": "~ snippet.description",
+      "liveBroadcastContent": "completed",
+      "localized": {
+        "description": "~ snippet.localized.description",
+        "title": "true"
+      },
+      "publishedAt": "2026-03-12T12:34:51Z",
+      "tags": [
+        "snippet.tags[]-11",
+        "snippet.tags[]-12"
+      ],
+      "thumbnails": {
+        "default": {
+          "height": 176,
+          "url": "snippet.thumbnails.default.url-11",
+          "width": 175
+        },
+        "fhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.fhd.url-11",
+          "width": 171
+        },
+        "high": {
+          "height": 173,
+          "url": "snippet.thumbnails.high.url-11",
+          "width": 172
+        },
+        "maxres": {
+          "height": 175,
+          "url": "snippet.thumbnails.maxres.url-11",
+          "width": 174
+        },
+        "medium": {
+          "height": 175,
+          "url": "snippet.thumbnails.medium.url-11",
+          "width": 174
+        },
+        "qhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.qhd.url-11",
+          "width": 171
+        },
+        "standard": {
+          "height": 177,
+          "url": "snippet.thumbnails.standard.url-11",
+          "width": 176
+        },
+        "uhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.uhd.url-11",
+          "width": 171
+        }
+      },
+      "title": "'single' quoted"
+    },
+    "statistics": {
+      "commentCount": "87822",
+      "dislikeCount": "87822",
+      "favoriteCount": "87853",
+      "likeCount": "87729",
+      "viewCount": "87729"
+    },
+    "status": {
+      "containsSyntheticMedia": true,
+      "embeddable": true,
+      "failureReason": "uploadAborted",
+      "license": "creativeCommon",
+      "madeForKids": true,
+      "privacyStatus": "private",
+      "publicStatsViewable": true,
+      "publishAt": "2026-03-12T12:34:51Z",
+      "rejectionReason": "inappropriate",
+      "selfDeclaredMadeForKids": true,
+      "uploadStatus": "processed"
+    },
+    "suggestions": {
+      "editorSuggestions": [
+        "audioQuietAudioSwap",
+        "videoAutoLevels"
+      ],
+      "processingErrors": [
+        "docFile",
+        "archiveFile"
+      ],
+      "processingHints": [
+        "hdrVideo",
+        "nonStreamableMov"
+      ],
+      "processingWarnings": [
+        "problematicHdrLookupTable",
+        "unknownContainer"
+      ],
+      "tagSuggestions": [
+        {
+          "categoryRestricts": [
+            "suggestions.tagSuggestions[].categoryRestricts[]-11",
+            "suggestions.tagSuggestions[].categoryRestricts[]-12"
+          ],
+          "tag": "suggestions.tagSuggestions[].tag-11"
+        },
+        {
+          "categoryRestricts": [
+            "suggestions.tagSuggestions[].categoryRestricts[]-12",
+            "suggestions.tagSuggestions[].categoryRestricts[]-13"
+          ],
+          "tag": "suggestions.tagSuggestions[].tag-12"
+        }
+      ]
+    },
+    "topicDetails": {
+      "relevantTopicIds": [
+        "topicDetails.relevantTopicIds[]-11",
+        "topicDetails.relevantTopicIds[]-12"
+      ],
+      "topicCategories": [
+        "topicDetails.topicCategories[]-11",
+        "topicDetails.topicCategories[]-12"
+      ],
+      "topicIds": [
+        "topicDetails.topicIds[]-11",
+        "topicDetails.topicIds[]-12"
+      ]
+    }
+  },
+  {
+    "ageGating": {
+      "videoGameRating": "anyone"
+    },
+    "brandPartner": {
+      "channelHandle": "brandPartner.channelHandle-12",
+      "channelId": "brandPartner.channelId-12"
+    },
+    "contentDetails": {
+      "caption": "true",
+      "contentRating": {
+        "acbRating": "acbP",
+        "agcomRating": "agcomVm14",
+        "anatelRating": "anatelI7",
+        "bbfcRating": "bbfc12a",
+        "bfvcRating": "bfvc13",
+        "bmukkRating": "bmukk8",
+        "catvRating": "catvG",
+        "catvfrRating": "catvfr16plus",
+        "cbfcRating": "cbfcUA7plus",
+        "cccRating": "ccc18",
+        "cceRating": "cceM16",
+        "chfilmRating": "chfilm18",
+        "chvrsRating": "chvrs18a",
+        "cicfRating": "cicfKtEa",
+        "cnaRating": "cna18plus",
+        "cncRating": "cnc12",
+        "csaRating": "csa16",
+        "cscfRating": "cscf6",
+        "czfilmRating": "czfilmUnspecified",
+        "djctqRating": "djctqL18",
+        "djctqRatingReasons": [
+          "djctqImpactingContent",
+          "djctqFear"
+        ],
+        "ecbmctRating": "ecbmct7a",
+        "eefilmRating": "eefilmL",
+        "egfilmRating": "egfilm18",
+        "eirinRating": "eirinUnspecified",
+        "fcbmRating": "fcbmPg13",
+        "fcoRating": "fcoIii",
+        "fmocRating": "fmoc16",
+        "fpbRating": "fpbUnspecified",
+        "fpbRatingReasons": [
+          "fpbRatingReasonUnspecified",
+          "fpbBlasphemy"
+        ],
+        "fskRating": "fsk18",
+        "grfilmRating": "grfilmK12",
+        "icaaRating": "icaa12",
+        "ifcoRating": "ifcoPg",
+        "ilfilmRating": "ilfilm18",
+        "incaaRating": "incaaC",
+        "kfcbRating": "kfcbUnspecified",
+        "kijkwijzerRating": "kijkwijzer12",
+        "kmrbRating": "kmrbR",
+        "lsfRating": "lsfA",
+        "mccaaRating": "mccaaPg",
+        "mccypRating": "mccypUnspecified",
+        "mcstRating": "mcstC13",
+        "mdaRating": "mdaNc16",
+        "medietilsynetRating": "medietilsynet6",
+        "mekuRating": "meku18",
+        "menaMpaaRating": "menaMpaaUnspecified",
+        "mibacRating": "mibacVm6",
+        "mocRating": "mocT",
+        "moctwRating": "moctwR",
+        "mpaaRating": "mpaaR",
+        "mpaatRating": "mpaatUnspecified",
+        "mtrcbRating": "mtrcbR16",
+        "nbcRating": "nbc12plus",
+        "nbcplRating": "nbcpl18plus",
+        "nfrcRating": "nfrcX",
+        "nfvcbRating": "nfvcb12",
+        "nkclvRating": "nkclv18plus",
+        "nmcRating": "nmcPg13",
+        "oflcRating": "oflcUnspecified",
+        "pefilmRating": "pefilmUnspecified",
+        "rcnofRating": "rcnofIv",
+        "resorteviolenciaRating": "resorteviolenciaE",
+        "rtcRating": "rtcB15",
+        "rteRating": "rteUnspecified",
+        "russiaRating": "russia18",
+        "skfilmRating": "skfilmUnspecified",
+        "smaisRating": "smais14",
+        "smsaRating": "smsaUnspecified",
+        "tvpgRating": "tvpgY7Fv",
+        "ytRating": "ytUnspecified"
+      },
+      "countryRestriction": {
+        "exception": [
+          "contentDetails.countryRestriction.exception[]-12",
+          "contentDetails.countryRestriction.exception[]-13"
+        ]
+      },
+      "definition": "sd",
+      "dimension": "contentDetails.dimension-12",
+      "duration": "contentDetails.duration-12",
+      "projection": "rectangular",
+      "regionRestriction": {
+        "allowed": [
+          "contentDetails.regionRestriction.allowed[]-12",
+          "contentDetails.regionRestriction.allowed[]-13"
+        ],
+        "blocked": [
+          "contentDetails.regionRestriction.blocked[]-12",
+          "contentDetails.regionRestriction.blocked[]-13"
+        ]
+      }
+    },
+    "etag": "etag-12",
+    "fileDetails": {
+      "audioStreams": [
+        {
+          "bitrateBps": "96175",
+          "channelCount": 195,
+          "codec": "fileDetails.audioStreams[].codec-12",
+          "vendor": "fileDetails.audioStreams[].vendor-12"
+        },
+        {
+          "bitrateBps": "104094",
+          "channelCount": 208,
+          "codec": "fileDetails.audioStreams[].codec-13",
+          "vendor": "fileDetails.audioStreams[].vendor-13"
+        }
+      ],
+      "bitrateBps": "95710",
+      "container": "fileDetails.container-12",
+      "creationTime": "fileDetails.creationTime-12",
+      "durationMs": "95710",
+      "fileName": "fileDetails.fileName-12",
+      "fileSize": "95648",
+      "fileType": "project",
+      "videoStreams": [
+        {
+          "aspectRatio": 34.571429,
+          "bitrateBps": "96175",
+          "codec": "fileDetails.videoStreams[].codec-12",
+          "frameRateFps": 34.714286,
+          "heightPixels": 195,
+          "rotation": "upsideDown",
+          "vendor": "fileDetails.videoStreams[].vendor-12",
+          "widthPixels": 194
+        },
+        {
+          "aspectRatio": 37,
+          "bitrateBps": "104094",
+          "codec": "fileDetails.videoStreams[].codec-13",
+          "frameRateFps": 37.142857,
+          "heightPixels": 208,
+          "rotation": "counterClockwise",
+          "vendor": "fileDetails.videoStreams[].vendor-13",
+          "widthPixels": 207
+        }
+      ]
+    },
+    "id": "id-12",
+    "kind": "kind-12",
+    "liveStreamingDetails": {
+      "activeLiveChatId": "liveStreamingDetails.activeLiveChatId-12",
+      "actualEndTime": "2026-04-13T12:34:52Z",
+      "actualStartTime": "2026-04-13T12:34:52Z",
+      "concurrentViewers": "96206",
+      "scheduledEndTime": "2026-04-13T12:34:52Z",
+      "scheduledStartTime": "2026-04-13T12:34:52Z"
+    },
+    "localizations": {
+      "ka": {
+        "description": "'single' quoted localizations{}.description",
+        "title": "multi\nline\ntext\n"
+      },
+      "kb": {
+        "description": "@at sign localizations{}.description",
+        "title": " leading space"
+      }
+    },
+    "monetizationDetails": {
+      "access": {
+        "exception": [
+          "monetizationDetails.access.exception[]-12",
+          "monetizationDetails.access.exception[]-13"
+        ]
+      }
+    },
+    "paidProductPlacementDetails": {},
+    "player": {
+      "embedHeight": "95586",
+      "embedHtml": "player.embedHtml-12",
+      "embedWidth": "95555"
+    },
+    "processingDetails": {
+      "editorSuggestionsAvailability": "processingDetails.editorSuggestionsAvailability-12",
+      "fileDetailsAvailability": "processingDetails.fileDetailsAvailability-12",
+      "processingFailureReason": "uploadFailed",
+      "processingIssuesAvailability": "processingDetails.processingIssuesAvailability-12",
+      "processingProgress": {
+        "partsProcessed": "96609",
+        "partsTotal": "96485",
+        "timeLeftMs": "96485"
+      },
+      "processingStatus": "processing",
+      "tagSuggestionsAvailability": "processingDetails.tagSuggestionsAvailability-12",
+      "thumbnailsAvailability": "processingDetails.thumbnailsAvailability-12"
+    },
+    "projectDetails": {},
+    "recordingDetails": {
+      "location": {
+        "altitude": 34,
+        "latitude": 34,
+        "longitude": 34.142857
+      },
+      "locationDescription": "recordingDetails.locationDescription-12",
+      "recordingDate": "2026-04-13T12:34:52Z"
+    },
+    "snippet": {
+      "categoryId": "snippet.categoryId-12",
+      "channelId": "snippet.channelId-12",
+      "channelTitle": "snippet.channelTitle-12",
+      "defaultAudioLanguage": "snippet.defaultAudioLanguage-12",
+      "defaultLanguage": "snippet.defaultLanguage-12",
+      "description": "@at sign snippet.description",
+      "liveBroadcastContent": "none",
+      "localized": {
+        "description": "@at sign snippet.localized.description",
+        "title": "~"
+      },
+      "publishedAt": "2026-04-13T12:34:52Z",
+      "tags": [
+        "snippet.tags[]-12",
+        "snippet.tags[]-13"
+      ],
+      "thumbnails": {
+        "default": {
+          "height": 189,
+          "url": "snippet.thumbnails.default.url-12",
+          "width": 188
+        },
+        "fhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.fhd.url-12",
+          "width": 184
+        },
+        "high": {
+          "height": 186,
+          "url": "snippet.thumbnails.high.url-12",
+          "width": 185
+        },
+        "maxres": {
+          "height": 188,
+          "url": "snippet.thumbnails.maxres.url-12",
+          "width": 187
+        },
+        "medium": {
+          "height": 188,
+          "url": "snippet.thumbnails.medium.url-12",
+          "width": 187
+        },
+        "qhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.qhd.url-12",
+          "width": 184
+        },
+        "standard": {
+          "height": 190,
+          "url": "snippet.thumbnails.standard.url-12",
+          "width": 189
+        },
+        "uhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.uhd.url-12",
+          "width": 184
+        }
+      },
+      "title": "<b>tags</b> & \"quotes\""
+    },
+    "statistics": {
+      "commentCount": "95741",
+      "dislikeCount": "95741",
+      "favoriteCount": "95772",
+      "likeCount": "95648",
+      "viewCount": "95648"
+    },
+    "status": {
+      "failureReason": "conversion",
+      "license": "youtube",
+      "privacyStatus": "public",
+      "publishAt": "2026-04-13T12:34:52Z",
+      "rejectionReason": "duplicate",
+      "uploadStatus": "failed"
+    },
+    "suggestions": {
+      "editorSuggestions": [
+        "videoAutoLevels",
+        "videoStabilize"
+      ],
+      "processingErrors": [
+        "archiveFile",
+        "unsupportedSpatialAudioLayout"
+      ],
+      "processingHints": [
+        "nonStreamableMov",
+        "sendBestQualityVideo"
+      ],
+      "processingWarnings": [
+        "unknownContainer",
+        "unknownVideoCodec"
+      ],
+      "tagSuggestions": [
+        {
+          "categoryRestricts": [
+            "suggestions.tagSuggestions[].categoryRestricts[]-12",
+            "suggestions.tagSuggestions[].categoryRestricts[]-13"
+          ],
+          "tag": "suggestions.tagSuggestions[].tag-12"
+        },
+        {
+          "categoryRestricts": [
+            "suggestions.tagSuggestions[].categoryRestricts[]-13",
+            "suggestions.tagSuggestions[].categoryRestricts[]-14"
+          ],
+          "tag": "suggestions.tagSuggestions[].tag-13"
+        }
+      ]
+    },
+    "topicDetails": {
+      "relevantTopicIds": [
+        "topicDetails.relevantTopicIds[]-12",
+        "topicDetails.relevantTopicIds[]-13"
+      ],
+      "topicCategories": [
+        "topicDetails.topicCategories[]-12",
+        "topicDetails.topicCategories[]-13"
+      ],
+      "topicIds": [
+        "topicDetails.topicIds[]-12",
+        "topicDetails.topicIds[]-13"
+      ]
+    }
+  },
+  {
+    "ageGating": {},
+    "brandPartner": {},
+    "contentDetails": {
+      "contentRating": {},
+      "countryRestriction": {},
+      "regionRestriction": {}
+    },
+    "fileDetails": {},
+    "id": "zero-1",
+    "liveStreamingDetails": {},
+    "monetizationDetails": {
+      "access": {}
+    },
+    "paidProductPlacementDetails": {},
+    "player": {},
+    "processingDetails": {
+      "processingProgress": {}
+    },
+    "projectDetails": {},
+    "recordingDetails": {
+      "location": {}
+    },
+    "snippet": {
+      "localized": {},
+      "thumbnails": {
+        "default": {},
+        "fhd": {},
+        "high": {},
+        "maxres": {},
+        "medium": {},
+        "qhd": {},
+        "standard": {},
+        "uhd": {}
+      }
+    },
+    "statistics": {},
+    "status": {},
+    "suggestions": {},
+    "topicDetails": {}
+  }
+]

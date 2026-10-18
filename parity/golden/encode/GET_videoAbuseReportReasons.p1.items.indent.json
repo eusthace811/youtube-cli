@@ -1,0 +1,60 @@
+[
+  {
+    "etag": "etag-10",
+    "id": "id-10",
+    "kind": "kind-10",
+    "snippet": {
+      "label": "snippet.label-10",
+      "secondaryReasons": [
+        {
+          "id": "snippet.secondaryReasons[].id-10",
+          "label": "snippet.secondaryReasons[].label-10"
+        },
+        {
+          "id": "snippet.secondaryReasons[].id-11",
+          "label": "snippet.secondaryReasons[].label-11"
+        }
+      ]
+    }
+  },
+  {
+    "etag": "etag-11",
+    "id": "id-11",
+    "kind": "kind-11",
+    "snippet": {
+      "label": "snippet.label-11",
+      "secondaryReasons": [
+        {
+          "id": "snippet.secondaryReasons[].id-11",
+          "label": "snippet.secondaryReasons[].label-11"
+        },
+        {
+          "id": "snippet.secondaryReasons[].id-12",
+          "label": "snippet.secondaryReasons[].label-12"
+        }
+      ]
+    }
+  },
+  {
+    "etag": "etag-12",
+    "id": "id-12",
+    "kind": "kind-12",
+    "snippet": {
+      "label": "snippet.label-12",
+      "secondaryReasons": [
+        {
+          "id": "snippet.secondaryReasons[].id-12",
+          "label": "snippet.secondaryReasons[].label-12"
+        },
+        {
+          "id": "snippet.secondaryReasons[].id-13",
+          "label": "snippet.secondaryReasons[].label-13"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zero-1",
+    "snippet": {}
+  }
+]

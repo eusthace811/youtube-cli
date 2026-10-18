@@ -1,0 +1,14 @@
+{
+  "etag": "etag-1",
+  "id": "id-1",
+  "kind": "kind-1",
+  "snippet": {
+    "liveChatId": "snippet.liveChatId-1",
+    "moderatorDetails": {
+      "channelId": "snippet.moderatorDetails.channelId-1",
+      "channelUrl": "snippet.moderatorDetails.channelUrl-1",
+      "displayName": "snippet.moderatorDetails.displayName-1",
+      "profileImageUrl": "snippet.moderatorDetails.profileImageUrl-1"
+    }
+  }
+}

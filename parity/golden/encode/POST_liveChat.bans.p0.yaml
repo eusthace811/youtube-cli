@@ -1,0 +1,21 @@
+etag: etag-1
+id: id-1
+kind: kind-1
+snippet:
+    bandurationseconds: 8725
+    banneduserdetails:
+        channelid: snippet.bannedUserDetails.channelId-1
+        channelurl: snippet.bannedUserDetails.channelUrl-1
+        displayname: snippet.bannedUserDetails.displayName-1
+        profileimageurl: snippet.bannedUserDetails.profileImageUrl-1
+        forcesendfields: []
+        nullfields: []
+    livechatid: snippet.liveChatId-1
+    type: permanent
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

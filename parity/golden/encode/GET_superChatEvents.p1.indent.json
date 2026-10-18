@@ -1,0 +1,94 @@
+{
+  "etag": "etag-page-1",
+  "items": [
+    {
+      "etag": "etag-10",
+      "id": "id-10",
+      "kind": "kind-10",
+      "snippet": {
+        "amountMicros": "79810",
+        "channelId": "snippet.channelId-10",
+        "commentText": "snippet.commentText-10",
+        "createdAt": "2026-02-11T12:34:50Z",
+        "currency": "snippet.currency-10",
+        "displayString": "snippet.displayString-10",
+        "messageType": 149,
+        "superStickerMetadata": {
+          "altText": "snippet.superStickerMetadata.altText-10",
+          "altTextLanguage": "snippet.superStickerMetadata.altTextLanguage-10",
+          "stickerId": "snippet.superStickerMetadata.stickerId-10"
+        },
+        "supporterDetails": {
+          "channelId": "snippet.supporterDetails.channelId-10",
+          "channelUrl": "snippet.supporterDetails.channelUrl-10",
+          "displayName": "snippet.supporterDetails.displayName-10",
+          "profileImageUrl": "snippet.supporterDetails.profileImageUrl-10"
+        }
+      }
+    },
+    {
+      "etag": "etag-11",
+      "id": "id-11",
+      "kind": "kind-11",
+      "snippet": {
+        "amountMicros": "87729",
+        "channelId": "snippet.channelId-11",
+        "commentText": "snippet.commentText-11",
+        "createdAt": "2026-03-12T12:34:51Z",
+        "currency": "snippet.currency-11",
+        "displayString": "snippet.displayString-11",
+        "isSuperStickerEvent": true,
+        "messageType": 162,
+        "superStickerMetadata": {
+          "altText": "snippet.superStickerMetadata.altText-11",
+          "altTextLanguage": "snippet.superStickerMetadata.altTextLanguage-11",
+          "stickerId": "snippet.superStickerMetadata.stickerId-11"
+        },
+        "supporterDetails": {
+          "channelId": "snippet.supporterDetails.channelId-11",
+          "channelUrl": "snippet.supporterDetails.channelUrl-11",
+          "displayName": "snippet.supporterDetails.displayName-11",
+          "profileImageUrl": "snippet.supporterDetails.profileImageUrl-11"
+        }
+      }
+    },
+    {
+      "etag": "etag-12",
+      "id": "id-12",
+      "kind": "kind-12",
+      "snippet": {
+        "amountMicros": "95648",
+        "channelId": "snippet.channelId-12",
+        "commentText": "snippet.commentText-12",
+        "createdAt": "2026-04-13T12:34:52Z",
+        "currency": "snippet.currency-12",
+        "displayString": "snippet.displayString-12",
+        "messageType": 175,
+        "superStickerMetadata": {
+          "altText": "snippet.superStickerMetadata.altText-12",
+          "altTextLanguage": "snippet.superStickerMetadata.altTextLanguage-12",
+          "stickerId": "snippet.superStickerMetadata.stickerId-12"
+        },
+        "supporterDetails": {
+          "channelId": "snippet.supporterDetails.channelId-12",
+          "channelUrl": "snippet.supporterDetails.channelUrl-12",
+          "displayName": "snippet.supporterDetails.displayName-12",
+          "profileImageUrl": "snippet.supporterDetails.profileImageUrl-12"
+        }
+      }
+    },
+    {
+      "id": "zero-1",
+      "snippet": {
+        "superStickerMetadata": {},
+        "supporterDetails": {}
+      }
+    }
+  ],
+  "kind": "youtube#superChatEventListResponse",
+  "nextPageToken": "p3",
+  "pageInfo": {
+    "resultsPerPage": 4,
+    "totalResults": 12
+  }
+}

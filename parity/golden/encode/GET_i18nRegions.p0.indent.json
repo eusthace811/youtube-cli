@@ -1,0 +1,37 @@
+{
+  "etag": "etag-page-0",
+  "items": [
+    {
+      "etag": "etag-0",
+      "id": "id-0",
+      "kind": "kind-0",
+      "snippet": {
+        "gl": "snippet.gl-0",
+        "name": "~"
+      }
+    },
+    {
+      "etag": "etag-1",
+      "id": "id-1",
+      "kind": "kind-1",
+      "snippet": {
+        "gl": "snippet.gl-1",
+        "name": "Plain title"
+      }
+    },
+    {
+      "etag": "etag-2",
+      "id": "id-2",
+      "kind": "kind-2",
+      "snippet": {
+        "gl": "snippet.gl-2",
+        "name": "key: value"
+      }
+    },
+    {
+      "id": "zero-0",
+      "snippet": {}
+    }
+  ],
+  "kind": "youtube#i18nRegionListResponse"
+}

@@ -1,0 +1,76 @@
+- etag: etag-10
+  id: id-10
+  kind: kind-10
+  snippet:
+    livechatid: snippet.liveChatId-10
+    moderatordetails:
+        channelid: snippet.moderatorDetails.channelId-10
+        channelurl: snippet.moderatorDetails.channelUrl-10
+        displayname: snippet.moderatorDetails.displayName-10
+        profileimageurl: snippet.moderatorDetails.profileImageUrl-10
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: etag-11
+  id: id-11
+  kind: kind-11
+  snippet:
+    livechatid: snippet.liveChatId-11
+    moderatordetails:
+        channelid: snippet.moderatorDetails.channelId-11
+        channelurl: snippet.moderatorDetails.channelUrl-11
+        displayname: snippet.moderatorDetails.displayName-11
+        profileimageurl: snippet.moderatorDetails.profileImageUrl-11
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: etag-12
+  id: id-12
+  kind: kind-12
+  snippet:
+    livechatid: snippet.liveChatId-12
+    moderatordetails:
+        channelid: snippet.moderatorDetails.channelId-12
+        channelurl: snippet.moderatorDetails.channelUrl-12
+        displayname: snippet.moderatorDetails.displayName-12
+        profileimageurl: snippet.moderatorDetails.profileImageUrl-12
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: ""
+  id: zero-1
+  kind: ""
+  snippet:
+    livechatid: ""
+    moderatordetails:
+        channelid: ""
+        channelurl: ""
+        displayname: ""
+        profileimageurl: ""
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []

@@ -1,0 +1,130 @@
+authordetails:
+    channelid: authorDetails.channelId-1
+    channelurl: authorDetails.channelUrl-1
+    displayname: authorDetails.displayName-1
+    ischatmoderator: true
+    ischatowner: true
+    ischatsponsor: true
+    isverified: true
+    profileimageurl: authorDetails.profileImageUrl-1
+    forcesendfields: []
+    nullfields: []
+etag: etag-1
+id: id-1
+kind: kind-1
+snippet:
+    authorchannelid: snippet.authorChannelId-1
+    displaymessage: snippet.displayMessage-1
+    fanfundingeventdetails:
+        amountdisplaystring: snippet.fanFundingEventDetails.amountDisplayString-1
+        amountmicros: 9252
+        currency: snippet.fanFundingEventDetails.currency-1
+        usercomment: snippet.fanFundingEventDetails.userComment-1
+        forcesendfields: []
+        nullfields: []
+    giftdetails:
+        alttext: snippet.giftDetails.altText-1
+        combocount: 43
+        giftduration: snippet.giftDetails.giftDuration-1
+        giftname: snippet.giftDetails.giftName-1
+        gifturl: snippet.giftDetails.giftUrl-1
+        hasvisualeffect: true
+        jewelsamount: 45
+        language: snippet.giftDetails.language-1
+        forcesendfields: []
+        nullfields: []
+    giftmembershipreceiveddetails:
+        associatedmembershipgiftingmessageid: snippet.giftMembershipReceivedDetails.associatedMembershipGiftingMessageId-1
+        gifterchannelid: snippet.giftMembershipReceivedDetails.gifterChannelId-1
+        memberlevelname: snippet.giftMembershipReceivedDetails.memberLevelName-1
+        forcesendfields: []
+        nullfields: []
+    hasdisplaycontent: true
+    livechatid: snippet.liveChatId-1
+    membermilestonechatdetails:
+        memberlevelname: snippet.memberMilestoneChatDetails.memberLevelName-1
+        membermonth: 59
+        usercomment: snippet.memberMilestoneChatDetails.userComment-1
+        forcesendfields: []
+        nullfields: []
+    membershipgiftingdetails:
+        giftmembershipscount: 66
+        giftmembershipslevelname: snippet.membershipGiftingDetails.giftMembershipsLevelName-1
+        forcesendfields: []
+        nullfields: []
+    messagedeleteddetails:
+        deletedmessageid: snippet.messageDeletedDetails.deletedMessageId-1
+        forcesendfields: []
+        nullfields: []
+    messageretracteddetails:
+        retractedmessageid: snippet.messageRetractedDetails.retractedMessageId-1
+        forcesendfields: []
+        nullfields: []
+    newsponsordetails:
+        isupgrade: true
+        memberlevelname: snippet.newSponsorDetails.memberLevelName-1
+        forcesendfields: []
+        nullfields: []
+    polldetails:
+        metadata:
+            options:
+                - optiontext: snippet.pollDetails.metadata.options[].optionText-1
+                  tally: 9283
+                  forcesendfields: []
+                  nullfields: []
+                - optiontext: snippet.pollDetails.metadata.options[].optionText-2
+                  tally: 17202
+                  forcesendfields: []
+                  nullfields: []
+            questiontext: snippet.pollDetails.metadata.questionText-1
+            forcesendfields: []
+            nullfields: []
+        status: active
+        forcesendfields: []
+        nullfields: []
+    publishedat: "2026-02-11T12:34:51Z"
+    superchatdetails:
+        amountdisplaystring: snippet.superChatDetails.amountDisplayString-1
+        amountmicros: 9066
+        currency: snippet.superChatDetails.currency-1
+        tier: 42
+        usercomment: snippet.superChatDetails.userComment-1
+        forcesendfields: []
+        nullfields: []
+    superstickerdetails:
+        amountdisplaystring: snippet.superStickerDetails.amountDisplayString-1
+        amountmicros: 9159
+        currency: snippet.superStickerDetails.currency-1
+        superstickermetadata:
+            alttext: snippet.superStickerDetails.superStickerMetadata.altText-1
+            alttextlanguage: snippet.superStickerDetails.superStickerMetadata.altTextLanguage-1
+            stickerid: snippet.superStickerDetails.superStickerMetadata.stickerId-1
+            forcesendfields: []
+            nullfields: []
+        tier: 45
+        forcesendfields: []
+        nullfields: []
+    textmessagedetails:
+        messagetext: snippet.textMessageDetails.messageText-1
+        forcesendfields: []
+        nullfields: []
+    type: textMessageEvent
+    userbanneddetails:
+        bandurationseconds: 9283
+        bantype: temporary
+        banneduserdetails:
+            channelid: snippet.userBannedDetails.bannedUserDetails.channelId-1
+            channelurl: snippet.userBannedDetails.bannedUserDetails.channelUrl-1
+            displayname: snippet.userBannedDetails.bannedUserDetails.displayName-1
+            profileimageurl: snippet.userBannedDetails.bannedUserDetails.profileImageUrl-1
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

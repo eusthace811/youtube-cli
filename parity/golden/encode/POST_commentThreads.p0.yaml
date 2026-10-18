@@ -1,0 +1,108 @@
+etag: etag-1
+id: id-1
+kind: kind-1
+replies:
+    comments:
+        - etag: replies.comments[].etag-1
+          id: replies.comments[].id-1
+          kind: replies.comments[].kind-1
+          snippet:
+            authorchannelid:
+                value: replies.comments[].snippet.authorChannelId.value-1
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: replies.comments[].snippet.authorChannelUrl-1
+            authordisplayname: replies.comments[].snippet.authorDisplayName-1
+            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-1
+            canrate: true
+            channelid: replies.comments[].snippet.channelId-1
+            likecount: 49
+            moderationstatus: heldForReview
+            parentid: replies.comments[].snippet.parentId-1
+            publishedat: "2026-02-11T12:34:51Z"
+            textdisplay: Ünïcödé ✓ 日本語のタイトル replies.comments[].snippet.textDisplay
+            textoriginal: replies.comments[].snippet.textOriginal-1
+            updatedat: "2026-02-11T12:34:51Z"
+            videoid: replies.comments[].snippet.videoId-1
+            viewerrating: like
+            forcesendfields: []
+            nullfields: []
+          serverresponse:
+            httpstatuscode: 0
+            header: {}
+          forcesendfields: []
+          nullfields: []
+        - etag: replies.comments[].etag-2
+          id: replies.comments[].id-2
+          kind: replies.comments[].kind-2
+          snippet:
+            authorchannelid:
+                value: replies.comments[].snippet.authorChannelId.value-2
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: replies.comments[].snippet.authorChannelUrl-2
+            authordisplayname: replies.comments[].snippet.authorDisplayName-2
+            authorprofileimageurl: replies.comments[].snippet.authorProfileImageUrl-2
+            canrate: false
+            channelid: replies.comments[].snippet.channelId-2
+            likecount: 62
+            moderationstatus: likelySpam
+            parentid: replies.comments[].snippet.parentId-2
+            publishedat: "2026-03-12T12:34:52Z"
+            textdisplay: <b>tags</b> & "quotes" replies.comments[].snippet.textDisplay
+            textoriginal: replies.comments[].snippet.textOriginal-2
+            updatedat: "2026-03-12T12:34:52Z"
+            videoid: replies.comments[].snippet.videoId-2
+            viewerrating: dislike
+            forcesendfields: []
+            nullfields: []
+          serverresponse:
+            httpstatuscode: 0
+            header: {}
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+snippet:
+    canreply: true
+    channelid: snippet.channelId-1
+    ispublic: true
+    toplevelcomment:
+        etag: snippet.topLevelComment.etag-1
+        id: snippet.topLevelComment.id-1
+        kind: snippet.topLevelComment.kind-1
+        snippet:
+            authorchannelid:
+                value: snippet.topLevelComment.snippet.authorChannelId.value-1
+                forcesendfields: []
+                nullfields: []
+            authorchannelurl: snippet.topLevelComment.snippet.authorChannelUrl-1
+            authordisplayname: snippet.topLevelComment.snippet.authorDisplayName-1
+            authorprofileimageurl: snippet.topLevelComment.snippet.authorProfileImageUrl-1
+            canrate: true
+            channelid: snippet.topLevelComment.snippet.channelId-1
+            likecount: 54
+            moderationstatus: heldForReview
+            parentid: snippet.topLevelComment.snippet.parentId-1
+            publishedat: "2026-02-11T12:34:51Z"
+            textdisplay: Ünïcödé ✓ 日本語のタイトル snippet.topLevelComment.snippet.textDisplay
+            textoriginal: snippet.topLevelComment.snippet.textOriginal-1
+            updatedat: "2026-02-11T12:34:51Z"
+            videoid: snippet.topLevelComment.snippet.videoId-1
+            viewerrating: like
+            forcesendfields: []
+            nullfields: []
+        serverresponse:
+            httpstatuscode: 0
+            header: {}
+        forcesendfields: []
+        nullfields: []
+    totalreplycount: 36
+    videoid: snippet.videoId-1
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

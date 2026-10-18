@@ -1,6 +1,7 @@
 #![forbid(unsafe_code)]
 
 mod egress;
+mod gen_api;
 mod import_registry;
 
 use std::process::ExitCode;
@@ -10,7 +11,10 @@ fn main() -> ExitCode {
     let result = match args.first().map(String::as_str) {
         Some("egress") => egress::run(&args[1..]),
         Some("import-registry") => import_registry::run(&args[1..]),
-        _ => Err("usage: xtask <egress BINARY... | import-registry>".to_string()),
+        Some("gen-api") => gen_api::run(&args[1..]),
+        _ => {
+            Err("usage: xtask <egress BINARY... | import-registry | gen-api [--check]>".to_string())
+        }
     };
     match result {
         Ok(()) => ExitCode::SUCCESS,

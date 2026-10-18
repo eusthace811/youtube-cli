@@ -1,0 +1,368 @@
+agegating:
+    alcoholcontent: true
+    restricted: true
+    videogamerating: m15Plus
+    forcesendfields: []
+    nullfields: []
+brandpartner:
+    channelhandle: brandPartner.channelHandle-1
+    channelid: brandPartner.channelId-1
+    forcesendfields: []
+    nullfields: []
+contentdetails:
+    caption: "false"
+    contentrating:
+        acbrating: acbE
+        agcomrating: agcomT
+        anatelrating: anatelF
+        bbfcrating: bbfcU
+        bfvcrating: bfvcG
+        bmukkrating: bmukkAa
+        catvrating: catvC
+        catvfrrating: catvfrG
+        cbfcrating: cbfcU
+        cccrating: cccTe
+        ccerating: cceM4
+        chfilmrating: chfilm0
+        chvrsrating: chvrsG
+        cicfrating: cicfE
+        cnarating: cnaAp
+        cncrating: cncT
+        csarating: csaT
+        cscfrating: cscfAl
+        czfilmrating: czfilmU
+        djctqrating: djctqL
+        djctqratingreasons:
+            - djctqViolence
+            - djctqExtremeViolence
+        ecbmctrating: ecbmctG
+        eefilmrating: eefilmPere
+        egfilmrating: egfilmGn
+        eirinrating: eirinG
+        fcbmrating: fcbmU
+        fcorating: fcoI
+        fmocrating: fmocU
+        fpbrating: fpbA
+        fpbratingreasons:
+            - fpbBlasphemy
+            - fpbLanguage
+        fskrating: fsk0
+        grfilmrating: grfilmK
+        icaarating: icaaApta
+        ifcorating: ifcoG
+        ilfilmrating: ilfilmAa
+        incaarating: incaaAtp
+        kfcbrating: kfcbG
+        kijkwijzerrating: kijkwijzerAl
+        kmrbrating: kmrbAll
+        lsfrating: lsfSu
+        mccaarating: mccaaU
+        mccyprating: mccypA
+        mcstrating: mcstP
+        mdarating: mdaG
+        medietilsynetrating: medietilsynetA
+        mekurating: mekuS
+        menampaarating: menaMpaaG
+        mibacrating: mibacT
+        mocrating: mocE
+        moctwrating: moctwG
+        mpaarating: mpaaG
+        mpaatrating: mpaatGb
+        mtrcbrating: mtrcbG
+        nbcrating: nbcG
+        nbcplrating: nbcplI
+        nfrcrating: nfrcA
+        nfvcbrating: nfvcbG
+        nkclvrating: nkclvU
+        nmcrating: nmcG
+        oflcrating: oflcG
+        pefilmrating: pefilmPt
+        rcnofrating: rcnofI
+        resorteviolenciarating: resorteviolenciaA
+        rtcrating: rtcAa
+        rterating: rteGa
+        russiarating: russia0
+        skfilmrating: skfilmG
+        smaisrating: smaisL
+        smsarating: smsaA
+        tvpgrating: tvpgY
+        ytrating: ytAgeRestricted
+        forcesendfields: []
+        nullfields: []
+    countryrestriction:
+        allowed: true
+        exception:
+            - contentDetails.countryRestriction.exception[]-1
+            - contentDetails.countryRestriction.exception[]-2
+        forcesendfields: []
+        nullfields: []
+    definition: hd
+    dimension: contentDetails.dimension-1
+    duration: contentDetails.duration-1
+    hascustomthumbnail: true
+    licensedcontent: true
+    projection: "360"
+    regionrestriction:
+        allowed:
+            - contentDetails.regionRestriction.allowed[]-1
+            - contentDetails.regionRestriction.allowed[]-2
+        blocked:
+            - contentDetails.regionRestriction.blocked[]-1
+            - contentDetails.regionRestriction.blocked[]-2
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+etag: etag-1
+filedetails:
+    audiostreams:
+        - bitratebps: 9066
+          channelcount: 52
+          codec: fileDetails.audioStreams[].codec-1
+          vendor: fileDetails.audioStreams[].vendor-1
+          forcesendfields: []
+          nullfields: []
+        - bitratebps: 16985
+          channelcount: 65
+          codec: fileDetails.audioStreams[].codec-2
+          vendor: fileDetails.audioStreams[].vendor-2
+          forcesendfields: []
+          nullfields: []
+    bitratebps: 8601
+    container: fileDetails.container-1
+    creationtime: fileDetails.creationTime-1
+    durationms: 8601
+    filename: fileDetails.fileName-1
+    filesize: 8539
+    filetype: audio
+    videostreams:
+        - aspectratio: 7.857143
+          bitratebps: 9066
+          codec: fileDetails.videoStreams[].codec-1
+          frameratefps: 8
+          heightpixels: 52
+          rotation: clockwise
+          vendor: fileDetails.videoStreams[].vendor-1
+          widthpixels: 51
+          forcesendfields: []
+          nullfields: []
+        - aspectratio: 10.285714
+          bitratebps: 16985
+          codec: fileDetails.videoStreams[].codec-2
+          frameratefps: 10.428571
+          heightpixels: 65
+          rotation: upsideDown
+          vendor: fileDetails.videoStreams[].vendor-2
+          widthpixels: 64
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+id: id-1
+kind: kind-1
+livestreamingdetails:
+    activelivechatid: liveStreamingDetails.activeLiveChatId-1
+    actualendtime: "2026-02-11T12:34:51Z"
+    actualstarttime: "2026-02-11T12:34:51Z"
+    concurrentviewers: 9097
+    scheduledendtime: "2026-02-11T12:34:51Z"
+    scheduledstarttime: "2026-02-11T12:34:51Z"
+    forcesendfields: []
+    nullfields: []
+localizations:
+    ka:
+        description: <b>tags</b> & "quotes" localizations{}.description
+        title: 'trailing space '
+        forcesendfields: []
+        nullfields: []
+    kb:
+        description: Ünïcödé ✓ 日本語のタイトル localizations{}.description
+        title: '# hash'
+        forcesendfields: []
+        nullfields: []
+monetizationdetails:
+    access:
+        allowed: true
+        exception:
+            - monetizationDetails.access.exception[]-1
+            - monetizationDetails.access.exception[]-2
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+paidproductplacementdetails:
+    haspaidproductplacement: true
+    forcesendfields: []
+    nullfields: []
+player:
+    embedheight: 8477
+    embedhtml: player.embedHtml-1
+    embedwidth: 8446
+    forcesendfields: []
+    nullfields: []
+processingdetails:
+    editorsuggestionsavailability: processingDetails.editorSuggestionsAvailability-1
+    filedetailsavailability: processingDetails.fileDetailsAvailability-1
+    processingfailurereason: transcodeFailed
+    processingissuesavailability: processingDetails.processingIssuesAvailability-1
+    processingprogress:
+        partsprocessed: 9500
+        partstotal: 9376
+        timeleftms: 9376
+        forcesendfields: []
+        nullfields: []
+    processingstatus: succeeded
+    tagsuggestionsavailability: processingDetails.tagSuggestionsAvailability-1
+    thumbnailsavailability: processingDetails.thumbnailsAvailability-1
+    forcesendfields: []
+    nullfields: []
+projectdetails: {}
+recordingdetails:
+    location:
+        altitude: 7.285714
+        latitude: 7.285714
+        longitude: 7.428571
+        forcesendfields: []
+        nullfields: []
+    locationdescription: recordingDetails.locationDescription-1
+    recordingdate: "2026-02-11T12:34:51Z"
+    forcesendfields: []
+    nullfields: []
+snippet:
+    categoryid: snippet.categoryId-1
+    channelid: snippet.channelId-1
+    channeltitle: snippet.channelTitle-1
+    defaultaudiolanguage: snippet.defaultAudioLanguage-1
+    defaultlanguage: snippet.defaultLanguage-1
+    description: Ünïcödé ✓ 日本語のタイトル snippet.description
+    livebroadcastcontent: upcoming
+    localized:
+        description: Ünïcödé ✓ 日本語のタイトル snippet.localized.description
+        title: "null"
+        forcesendfields: []
+        nullfields: []
+    publishedat: "2026-02-11T12:34:51Z"
+    tags:
+        - snippet.tags[]-1
+        - snippet.tags[]-2
+    thumbnails:
+        default:
+            height: 46
+            url: snippet.thumbnails.default.url-1
+            width: 45
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 42
+            url: snippet.thumbnails.fhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 43
+            url: snippet.thumbnails.high.url-1
+            width: 42
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 45
+            url: snippet.thumbnails.maxres.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 45
+            url: snippet.thumbnails.medium.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 42
+            url: snippet.thumbnails.qhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 47
+            url: snippet.thumbnails.standard.url-1
+            width: 46
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 42
+            url: snippet.thumbnails.uhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: Ünïcödé ✓ 日本語のタイトル
+    forcesendfields: []
+    nullfields: []
+statistics:
+    commentcount: 8632
+    dislikecount: 8632
+    favoritecount: 8663
+    likecount: 8539
+    viewcount: 8539
+    forcesendfields: []
+    nullfields: []
+status:
+    containssyntheticmedia: true
+    embeddable: true
+    failurereason: invalidFile
+    license: creativeCommon
+    madeforkids: true
+    privacystatus: unlisted
+    publicstatsviewable: true
+    publishat: "2026-02-11T12:34:51Z"
+    rejectionreason: inappropriate
+    selfdeclaredmadeforkids: true
+    uploadstatus: processed
+    forcesendfields: []
+    nullfields: []
+suggestions:
+    editorsuggestions:
+        - videoStabilize
+        - videoCrop
+    processingerrors:
+        - imageFile
+        - projectFile
+    processinghints:
+        - sendBestQualityVideo
+        - sphericalVideo
+    processingwarnings:
+        - unknownVideoCodec
+        - unknownAudioCodec
+    tagsuggestions:
+        - categoryrestricts:
+            - suggestions.tagSuggestions[].categoryRestricts[]-1
+            - suggestions.tagSuggestions[].categoryRestricts[]-2
+          tag: suggestions.tagSuggestions[].tag-1
+          forcesendfields: []
+          nullfields: []
+        - categoryrestricts:
+            - suggestions.tagSuggestions[].categoryRestricts[]-2
+            - suggestions.tagSuggestions[].categoryRestricts[]-3
+          tag: suggestions.tagSuggestions[].tag-2
+          forcesendfields: []
+          nullfields: []
+    forcesendfields: []
+    nullfields: []
+topicdetails:
+    relevanttopicids:
+        - topicDetails.relevantTopicIds[]-1
+        - topicDetails.relevantTopicIds[]-2
+    topiccategories:
+        - topicDetails.topicCategories[]-1
+        - topicDetails.topicCategories[]-2
+    topicids:
+        - topicDetails.topicIds[]-1
+        - topicDetails.topicIds[]-2
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

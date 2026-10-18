@@ -1,0 +1,155 @@
+contentdetails:
+    availabilityconfig:
+        globalconfig:
+            excludedregioncodes:
+                - contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-1
+                - contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-2
+            interval:
+                endtime: contentDetails.availabilityConfig.globalConfig.interval.endTime-1
+                starttime: contentDetails.availabilityConfig.globalConfig.interval.startTime-1
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        regionsconfig:
+            regionintervals:
+                - interval:
+                    endtime: ""
+                    starttime: ""
+                    forcesendfields: []
+                    nullfields: []
+                  regioncode: contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-1
+                  forcesendfields: []
+                  nullfields: []
+                - interval:
+                    endtime: ""
+                    starttime: ""
+                    forcesendfields: []
+                    nullfields: []
+                  regioncode: contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-2
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    boundstreamid: contentDetails.boundStreamId-1
+    boundstreamlastupdatetimems: "2026-02-11T12:34:51Z"
+    closedcaptionstype: closedCaptionsDisabled
+    enableautostart: true
+    enableautostop: true
+    enableclosedcaptions: true
+    enablecontentencryption: true
+    enabledvr: true
+    enableembed: true
+    enablelowlatency: true
+    latencypreference: normal
+    mesh: contentDetails.mesh-1
+    monitorstream:
+        broadcaststreamdelayms: 64
+        embedhtml: contentDetails.monitorStream.embedHtml-1
+        enablemonitorstream: true
+        forcesendfields: []
+        nullfields: []
+    projection: rectangular
+    recordfromstart: true
+    startwithslate: true
+    stereolayout: mono
+    forcesendfields: []
+    nullfields: []
+etag: etag-1
+id: id-1
+kind: kind-1
+monetizationdetails:
+    cuepointschedule:
+        enabled: true
+        pauseadsuntil: monetizationDetails.cuepointSchedule.pauseAdsUntil-1
+        repeatintervalsecs: 68
+        schedulestrategy: concurrent
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+snippet:
+    actualendtime: "2026-02-11T12:34:51Z"
+    actualstarttime: "2026-02-11T12:34:51Z"
+    categoryid: snippet.categoryId-1
+    channelid: snippet.channelId-1
+    description: Ünïcödé ✓ 日本語のタイトル snippet.description
+    isdefaultbroadcast: true
+    livechatid: snippet.liveChatId-1
+    publishedat: "2026-02-11T12:34:51Z"
+    scheduledendtime: "2026-02-11T12:34:51Z"
+    scheduledstarttime: "2026-02-11T12:34:51Z"
+    thumbnails:
+        default:
+            height: 46
+            url: snippet.thumbnails.default.url-1
+            width: 45
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 42
+            url: snippet.thumbnails.fhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 43
+            url: snippet.thumbnails.high.url-1
+            width: 42
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 45
+            url: snippet.thumbnails.maxres.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 45
+            url: snippet.thumbnails.medium.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 42
+            url: snippet.thumbnails.qhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 47
+            url: snippet.thumbnails.standard.url-1
+            width: 46
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 42
+            url: snippet.thumbnails.uhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: Ünïcödé ✓ 日本語のタイトル
+    forcesendfields: []
+    nullfields: []
+statistics:
+    concurrentviewers: 8787
+    forcesendfields: []
+    nullfields: []
+status:
+    lifecyclestatus: created
+    livebroadcastpriority: low
+    madeforkids: true
+    privacystatus: unlisted
+    recordingstatus: notRecording
+    selfdeclaredmadeforkids: true
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

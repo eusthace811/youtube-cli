@@ -1,0 +1,51 @@
+contentdetails:
+    channels:
+        - contentDetails.channels[]-1
+        - contentDetails.channels[]-2
+    playlists:
+        - contentDetails.playlists[]-1
+        - contentDetails.playlists[]-2
+    forcesendfields: []
+    nullfields: []
+etag: etag-1
+id: id-1
+kind: kind-1
+localizations:
+    ka:
+        title: 'trailing space '
+        forcesendfields: []
+        nullfields: []
+    kb:
+        title: '# hash'
+        forcesendfields: []
+        nullfields: []
+snippet:
+    channelid: snippet.channelId-1
+    defaultlanguage: snippet.defaultLanguage-1
+    localized:
+        title: "null"
+        forcesendfields: []
+        nullfields: []
+    position: 29
+    style: horizontalRow
+    title: Ünïcödé ✓ 日本語のタイトル
+    type: singlePlaylist
+    forcesendfields: []
+    nullfields: []
+targeting:
+    countries:
+        - targeting.countries[]-1
+        - targeting.countries[]-2
+    languages:
+        - targeting.languages[]-1
+        - targeting.languages[]-2
+    regions:
+        - targeting.regions[]-1
+        - targeting.regions[]-2
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

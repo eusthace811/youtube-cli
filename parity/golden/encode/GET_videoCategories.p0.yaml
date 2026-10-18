@@ -1,0 +1,62 @@
+etag: etag-page-0
+eventid: ""
+items:
+    - etag: etag-0
+      id: id-0
+      kind: kind-0
+      snippet:
+        assignable: false
+        channelid: snippet.channelId-0
+        title: '@at sign'
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-1
+      id: id-1
+      kind: kind-1
+      snippet:
+        assignable: true
+        channelid: snippet.channelId-1
+        title: Ünïcödé ✓ 日本語のタイトル
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-2
+      id: id-2
+      kind: kind-2
+      snippet:
+        assignable: false
+        channelid: snippet.channelId-2
+        title: '- dash start'
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: ""
+      id: zero-0
+      kind: ""
+      snippet:
+        assignable: false
+        channelid: ""
+        title: ""
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+kind: youtube#videoCategoryListResponse
+nextpagetoken: p2
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+prevpagetoken: ""
+tokenpagination: null
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

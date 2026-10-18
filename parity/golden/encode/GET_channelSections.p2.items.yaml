@@ -1,0 +1,190 @@
+- contentdetails:
+    channels:
+        - contentDetails.channels[]-20
+        - contentDetails.channels[]-21
+    playlists:
+        - contentDetails.playlists[]-20
+        - contentDetails.playlists[]-21
+    forcesendfields: []
+    nullfields: []
+  etag: etag-20
+  id: id-20
+  kind: kind-20
+  localizations:
+    ka:
+        title: 'trailing space '
+        forcesendfields: []
+        nullfields: []
+    kb:
+        title: '# hash'
+        forcesendfields: []
+        nullfields: []
+  snippet:
+    channelid: snippet.channelId-20
+    defaultlanguage: snippet.defaultLanguage-20
+    localized:
+        title: "null"
+        forcesendfields: []
+        nullfields: []
+    position: 276
+    style: verticalList
+    title: Ünïcödé ✓ 日本語のタイトル
+    type: popularUploads
+    forcesendfields: []
+    nullfields: []
+  targeting:
+    countries:
+        - targeting.countries[]-20
+        - targeting.countries[]-21
+    languages:
+        - targeting.languages[]-20
+        - targeting.languages[]-21
+    regions:
+        - targeting.regions[]-20
+        - targeting.regions[]-21
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    channels:
+        - contentDetails.channels[]-21
+        - contentDetails.channels[]-22
+    playlists:
+        - contentDetails.playlists[]-21
+        - contentDetails.playlists[]-22
+    forcesendfields: []
+    nullfields: []
+  etag: etag-21
+  id: id-21
+  kind: kind-21
+  localizations:
+    ka:
+        title: |-
+            tab	and
+            newline
+        forcesendfields: []
+        nullfields: []
+    kb:
+        title: 'trailing space '
+        forcesendfields: []
+        nullfields: []
+  snippet:
+    channelid: snippet.channelId-21
+    defaultlanguage: snippet.defaultLanguage-21
+    localized:
+        title: A very long line that keeps going well past eighty characters so that any wrapping logic in an emitter shows up clearly here
+        forcesendfields: []
+        nullfields: []
+    position: 289
+    style: channelsectionStyleUnspecified
+    title: '- dash start'
+    type: recentUploads
+    forcesendfields: []
+    nullfields: []
+  targeting:
+    countries:
+        - targeting.countries[]-21
+        - targeting.countries[]-22
+    languages:
+        - targeting.languages[]-21
+        - targeting.languages[]-22
+    regions:
+        - targeting.regions[]-21
+        - targeting.regions[]-22
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    channels:
+        - contentDetails.channels[]-22
+        - contentDetails.channels[]-23
+    playlists:
+        - contentDetails.playlists[]-22
+        - contentDetails.playlists[]-23
+    forcesendfields: []
+    nullfields: []
+  etag: etag-22
+  id: id-22
+  kind: kind-22
+  localizations:
+    ka:
+        title: "null"
+        forcesendfields: []
+        nullfields: []
+    kb:
+        title: |-
+            tab	and
+            newline
+        forcesendfields: []
+        nullfields: []
+  snippet:
+    channelid: snippet.channelId-22
+    defaultlanguage: snippet.defaultLanguage-22
+    localized:
+        title: "123"
+        forcesendfields: []
+        nullfields: []
+    position: 302
+    style: horizontalRow
+    title: 'line         sep'
+    type: likes
+    forcesendfields: []
+    nullfields: []
+  targeting:
+    countries:
+        - targeting.countries[]-22
+        - targeting.countries[]-23
+    languages:
+        - targeting.languages[]-22
+        - targeting.languages[]-23
+    regions:
+        - targeting.regions[]-22
+        - targeting.regions[]-23
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    channels: []
+    playlists: []
+    forcesendfields: []
+    nullfields: []
+  etag: ""
+  id: zero-2
+  kind: ""
+  localizations: {}
+  snippet:
+    channelid: ""
+    defaultlanguage: ""
+    localized:
+        title: ""
+        forcesendfields: []
+        nullfields: []
+    position: 0
+    style: ""
+    title: ""
+    type: ""
+    forcesendfields: []
+    nullfields: []
+  targeting:
+    countries: []
+    languages: []
+    regions: []
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
