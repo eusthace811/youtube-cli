@@ -7,10 +7,10 @@ and the license frontmatter (Go says MIT; every file ships under Apache-2.0); E1
 files are first mapped to the new names, and the setup guide and skill metadata point at
 youtube-cli's install methods instead of Go yutu's.
 
-$ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/skills/youtube /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube
+$ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.f0rlZAMlnO/go-src/skills/youtube /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube
 exit: 1
 --- stdout ---
-diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube/SKILL.md
+diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.f0rlZAMlnO/go-src/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube/SKILL.md
 4,5c4,5
 < license: MIT
 < compatibility: Requires the youtube CLI binary (installable via npm, brew, or winget) and Google Cloud OAuth credentials for YouTube Data API v3.
@@ -38,7 +38,7 @@ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/s
 > ### Local file (writes a file on this machine — confirm the path with user first)
 > 
 > - `caption-download`
-diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/skills/youtube/references/setup.md /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube/references/setup.md
+diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.f0rlZAMlnO/go-src/skills/youtube/references/setup.md /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube/references/setup.md
 31c31
 < Install `youtube` using one of these methods:
 ---
@@ -47,15 +47,12 @@ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/s
 < # Node.js (all platforms)
 < npm i -g @eat-pray-ai/youtube
 ---
-> # Node.js
-> npm i -g @youtube-cli/youtube
-37,38c37,38
-< # macOS
-< brew install youtube
----
 > # Shell script, with checksum and provenance checks (OWNER/REPO: the youtube-cli repository)
 > curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash
-40,44c40,41
+37,44c37,38
+< # macOS
+< brew install youtube
+< 
 < # Linux / macOS (shell script)
 < curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/youtube/main/scripts/install.sh | bash
 < 
@@ -64,30 +61,30 @@ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/s
 ---
 > # From source
 > cargo build --release --locked -p youtube
-47,50d43
+47,50d40
 < ### Other platforms
 < 
 < Download a prebuilt binary from the [releases page](https://github.com/eat-pray-ai/youtube/releases/latest) and place it in your PATH.
 < 
-86c79
+86c76
 < npx skills add eat-pray-ai/youtube --skill youtube
 ---
 > npx skills add OWNER/REPO --skill youtube   # OWNER/REPO: the youtube-cli repository
-98c91
+98c88
 < For more details, see the [README](https://github.com/eat-pray-ai/youtube#readme).
 ---
 > For more details, see the youtube-cli README.
 --- stderr ---
 
-$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/cmd/agent/INSTRUCTION.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/youtube-agent/assets/INSTRUCTION.md
+$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.f0rlZAMlnO/go-src/cmd/agent/INSTRUCTION.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/youtube-agent/assets/INSTRUCTION.md
 exit: 0
 --- stdout ---
 --- stderr ---
 
-$ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/cmd/agent/skills /Users/juan/Projects/youtube-cli/youtube-cli/crates/youtube-agent/assets/skills
+$ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.f0rlZAMlnO/go-src/cmd/agent/skills /Users/juan/Projects/youtube-cli/youtube-cli/crates/youtube-agent/assets/skills
 exit: 1
 --- stdout ---
-diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/cmd/agent/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/youtube-agent/assets/skills/youtube/SKILL.md
+diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.f0rlZAMlnO/go-src/cmd/agent/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/youtube-agent/assets/skills/youtube/SKILL.md
 4c4
 < license: MIT
 ---
@@ -116,7 +113,7 @@ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/go-src/c
 --- stderr ---
 
 Distinct changed lines vs the expected set:
-$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/expected /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DSLIymqjL6/changed
+$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.f0rlZAMlnO/expected /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.f0rlZAMlnO/changed
 exit: 0
 --- stdout ---
 --- stderr ---

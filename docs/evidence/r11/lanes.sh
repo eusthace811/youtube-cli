@@ -99,14 +99,12 @@ lane1() {
 < npx skills add eat-pray-ai/youtube --skill youtube
 < winget install youtube
 > # From source
-> # Node.js
 > # Shell script, with checksum and provenance checks (OWNER/REPO: the youtube-cli repository)
 > For more details, see the youtube-cli README.
 > Install `youtube` (youtube-cli, macOS or Linux) using one of these methods:
 > cargo build --release --locked -p youtube
 > compatibility: Requires the youtube CLI binary from youtube-cli (installable via npm, its install script, or from source) and Google Cloud OAuth credentials for YouTube Data API v3.
 > curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash
-> npm i -g @youtube-cli/youtube
 > npx skills add OWNER/REPO --skill youtube   # OWNER/REPO: the youtube-cli repository
 >
 > - `caption-download`

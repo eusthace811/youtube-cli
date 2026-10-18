@@ -89,7 +89,7 @@ Two skills ship in `skills/`, generated from the same command registry as the pr
 Install the one you use, not both:
 
 ```shell
-cp -R skills/youtube-cli ~/.claude/skills/youtube-cli   # command line
+ln -sfn "$PWD/skills/youtube-cli" ~/.claude/skills/youtube-cli   # command line (a symlink follows regenerations)
 cp -R skills/youtube ~/.claude/skills/youtube           # MCP
 ```
 

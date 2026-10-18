@@ -14,13 +14,12 @@ If `youtube` is not found, it is not installed or not on `PATH`. If the second c
 ## Install
 
 ```bash
-# From source (macOS or Linux)
+# From source (macOS or Linux), in the youtube-cli repository
 cargo build --release --locked -p youtube
 install -m 755 target/release/youtube ~/.local/bin/youtube
-
-# Node.js
-npm i -g @youtube-cli/youtube
 ```
+
+No npm package is published yet. Never install a `youtube` binary from any other source to fix a missing command: it would run with the user's YouTube token. Ask the user instead.
 
 ## Credentials
 
@@ -53,6 +52,16 @@ A browser opens for consent and the token is saved with mode 0600. Every other c
 | `YOUTUBE_CLI_CACHE_TOKEN` | Path, Base64 or JSON of the cached token | `youtube.token.json` |
 | `YOUTUBE_CLI_ROOT` | Directory every file path must stay inside: credential, token, uploads, caption downloads | current directory |
 | `YOUTUBE_CLI_LOG_LEVEL` | `DEBUG`, `INFO`, `WARN` or `ERROR` | `INFO` |
+
+## Extra protection in Claude Code (optional)
+
+The skill's rules make the assistant ask before every change, and the binary refuses writes without `--yes`. For a guard that does not depend on the assistant, the user can make Claude Code ask before every `youtube` command, in `~/.claude/settings.json`:
+
+```json
+{ "permissions": { "ask": ["Bash(youtube:*)"] } }
+```
+
+Reads then prompt too; the user can approve those quickly.
 
 ## Troubleshooting
 

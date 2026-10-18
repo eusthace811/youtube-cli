@@ -493,7 +493,7 @@ Manage YouTube i18n languages.
 
 ### `youtube i18nLanguage list`
 
-List i18n languages.
+List i18n languages. Read only.
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
@@ -507,7 +507,7 @@ Manage YouTube i18n regions.
 
 ### `youtube i18nRegion list`
 
-List i18n regions.
+List i18n regions. Read only.
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|
@@ -1702,7 +1702,7 @@ Manage YouTube video categories.
 
 ### `youtube videoCategory list`
 
-List video categories.
+List video categories. Read only.
 
 | Flag | Type | Default | Description |
 |------|------|---------|-------------|

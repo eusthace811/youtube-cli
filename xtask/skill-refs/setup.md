@@ -31,9 +31,6 @@ An account on [Google Cloud Platform](https://console.cloud.google.com/) is requ
 Install `youtube` (youtube-cli, macOS or Linux) using one of these methods:
 
 ```bash
-# Node.js
-npm i -g @youtube-cli/youtube
-
 # Shell script, with checksum and provenance checks (OWNER/REPO: the youtube-cli repository)
 curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash
 
