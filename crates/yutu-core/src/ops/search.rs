@@ -1,9 +1,9 @@
 //! Port of pkg/search and cmd/search.
 
-use super::common::{Fields, cli_max_results, finish_list, paginate};
+use super::common::{Fields, cli_max_results};
 use super::playlist_item::resource_id;
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list};
+use crate::output::Cell;
 use serde::Deserialize;
 use yutu_api::client::BoxFuture;
 
@@ -106,22 +106,22 @@ impl Search {
             }
             c
         };
-        let fetched = paginate(self.fields.max_results, call, ERR_GET).await;
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &self.fields.output,
-                items,
-                &["Kind", "Title", "Resource ID"],
-                |r| {
-                    vec![
-                        Cell::from(r.str("id.kind")),
-                        Cell::from(r.str("snippet.title")),
-                        Cell::from(resource_id(r, "id")),
-                    ]
-                },
-            )
-        })
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output,
+            &["Kind", "Title", "Resource ID"],
+            |r| {
+                vec![
+                    Cell::from(r.str("id.kind")),
+                    Cell::from(r.str("snippet.title")),
+                    Cell::from(resource_id(r, "id")),
+                ]
+            },
+        );
+        let err = super::common::paginate_to(self.fields.max_results, call, ERR_GET, &mut sink)
+            .await
+            .1;
+        sink.finish(err)
     }
 }
 

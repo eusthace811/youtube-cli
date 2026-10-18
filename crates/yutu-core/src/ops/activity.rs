@@ -1,8 +1,8 @@
 //! Port of pkg/activity and cmd/activity.
 
-use super::common::{Fields, cli_max_results, finish_list, paginate};
+use super::common::{Fields, cli_max_results};
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list};
+use crate::output::Cell;
 use serde::Deserialize;
 use yutu_api::client::BoxFuture;
 
@@ -46,23 +46,23 @@ impl Activity {
             }
             c
         };
-        let fetched = paginate(self.fields.max_results, call, ERR_GET).await;
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &self.fields.output,
-                items,
-                &["ID", "Title", "Type", "Time"],
-                |a| {
-                    vec![
-                        Cell::from(a.str("id")),
-                        Cell::from(a.str("snippet.title")),
-                        Cell::from(a.str("snippet.type")),
-                        Cell::from(a.str("snippet.publishedAt")),
-                    ]
-                },
-            )
-        })
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output,
+            &["ID", "Title", "Type", "Time"],
+            |a| {
+                vec![
+                    Cell::from(a.str("id")),
+                    Cell::from(a.str("snippet.title")),
+                    Cell::from(a.str("snippet.type")),
+                    Cell::from(a.str("snippet.publishedAt")),
+                ]
+            },
+        );
+        let err = super::common::paginate_to(self.fields.max_results, call, ERR_GET, &mut sink)
+            .await
+            .1;
+        sink.finish(err)
     }
 }
 

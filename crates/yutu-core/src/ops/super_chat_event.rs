@@ -1,8 +1,8 @@
 //! Port of pkg/superChatEvent and cmd/superChatEvent.
 
-use super::common::{Fields, cli_max_results, finish_list, paginate};
+use super::common::{Fields, cli_max_results};
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list};
+use crate::output::Cell;
 use serde::Deserialize;
 use yutu_api::client::BoxFuture;
 
@@ -27,23 +27,23 @@ impl SuperChatEvent {
             }
             c
         };
-        let fetched = paginate(self.fields.max_results, call, ERR_GET).await;
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &self.fields.output,
-                items,
-                &["ID", "Amount", "Comment", "Supporter"],
-                |e| {
-                    vec![
-                        Cell::from(e.str("id")),
-                        Cell::from(e.str("snippet.displayString")),
-                        Cell::from(e.str("snippet.commentText")),
-                        Cell::from(e.str("snippet.supporterDetails.displayName")),
-                    ]
-                },
-            )
-        })
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output,
+            &["ID", "Amount", "Comment", "Supporter"],
+            |e| {
+                vec![
+                    Cell::from(e.str("id")),
+                    Cell::from(e.str("snippet.displayString")),
+                    Cell::from(e.str("snippet.commentText")),
+                    Cell::from(e.str("snippet.supporterDetails.displayName")),
+                ]
+            },
+        );
+        let err = super::common::paginate_to(self.fields.max_results, call, ERR_GET, &mut sink)
+            .await
+            .1;
+        sink.finish(err)
     }
 }
 

@@ -1,9 +1,9 @@
 //! Port of pkg/liveChatMessage and cmd/liveChatMessage.
 
-use super::common::{Fields, cli_max_results, finish_list, paginate};
+use super::common::{Fields, cli_max_results};
 use super::live_broadcast::shared_parts;
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list, print_result};
+use crate::output::{Cell, print_result};
 use serde::Deserialize;
 use yutu_api::Value;
 use yutu_api::client::BoxFuture;
@@ -128,23 +128,23 @@ impl LiveChatMessage {
             }
             c
         };
-        let fetched = paginate(self.fields.max_results, call, ERR_GET).await;
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &self.fields.output,
-                items,
-                &["ID", "Type", "Author", "Message"],
-                |msg| {
-                    vec![
-                        Cell::from(msg.str("id")),
-                        Cell::from(msg.str("snippet.type")),
-                        Cell::from(msg.str("authorDetails.displayName")),
-                        Cell::from(msg.str("snippet.displayMessage")),
-                    ]
-                },
-            )
-        })
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output,
+            &["ID", "Type", "Author", "Message"],
+            |msg| {
+                vec![
+                    Cell::from(msg.str("id")),
+                    Cell::from(msg.str("snippet.type")),
+                    Cell::from(msg.str("authorDetails.displayName")),
+                    Cell::from(msg.str("snippet.displayMessage")),
+                ]
+            },
+        );
+        let err = super::common::paginate_to(self.fields.max_results, call, ERR_GET, &mut sink)
+            .await
+            .1;
+        sink.finish(err)
     }
 
     async fn insert(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {

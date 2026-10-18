@@ -1,8 +1,8 @@
 //! Port of pkg/commentThread and cmd/commentThread.
 
-use super::common::{Fields, cli_max_results, finish_list, paginate};
+use super::common::{Fields, cli_max_results};
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list, print_result};
+use crate::output::{Cell, print_result};
 use serde::Deserialize;
 use yutu_api::Value;
 use yutu_api::client::BoxFuture;
@@ -130,23 +130,23 @@ impl CommentThread {
             }
             c
         };
-        let fetched = paginate(self.fields.max_results, call, ERR_GET).await;
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &self.fields.output,
-                items,
-                &["ID", "Author", "Video ID", "Text Display"],
-                |t| {
-                    vec![
-                        Cell::from(t.str("id")),
-                        Cell::from(t.str("snippet.topLevelComment.snippet.authorDisplayName")),
-                        Cell::from(t.str("snippet.topLevelComment.snippet.videoId")),
-                        Cell::from(t.str("snippet.topLevelComment.snippet.textDisplay")),
-                    ]
-                },
-            )
-        })
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output,
+            &["ID", "Author", "Video ID", "Text Display"],
+            |t| {
+                vec![
+                    Cell::from(t.str("id")),
+                    Cell::from(t.str("snippet.topLevelComment.snippet.authorDisplayName")),
+                    Cell::from(t.str("snippet.topLevelComment.snippet.videoId")),
+                    Cell::from(t.str("snippet.topLevelComment.snippet.textDisplay")),
+                ]
+            },
+        );
+        let err = super::common::paginate_to(self.fields.max_results, call, ERR_GET, &mut sink)
+            .await
+            .1;
+        sink.finish(err)
     }
 
     async fn insert(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {

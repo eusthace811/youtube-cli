@@ -1,9 +1,9 @@
 //! Port of pkg/liveStream and cmd/liveStream.
 
-use super::common::{Fields, cli_max_results, finish_list, paginate};
+use super::common::{Fields, cli_max_results};
 use super::live_broadcast::shared_parts;
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list, print_result};
+use crate::output::{Cell, print_result};
 use serde::Deserialize;
 use yutu_api::client::BoxFuture;
 use yutu_api::generated::LIVE_STREAM;
@@ -129,6 +129,16 @@ impl Invoke for Bound {
 impl LiveStream {
     async fn get(&self, ctx: &mut Ctx<'_>) -> Result<(Vec<Value>, Option<OpError>), OpError> {
         let svc = ctx.service().await?;
+        let mut all = super::common::Collect::default();
+        let err = self.pages(&svc, &mut all).await;
+        Ok((all.items, err))
+    }
+
+    async fn pages(
+        &self,
+        svc: &yutu_api::Service,
+        sink: &mut dyn super::common::PageSink,
+    ) -> Option<OpError> {
         let call = || {
             let mut c = svc
                 .call("youtube.liveStreams.list")
@@ -141,7 +151,9 @@ impl LiveStream {
             }
             self.owner_params(c)
         };
-        Ok(paginate(self.fields.max_results, call, ERR_GET).await)
+        super::common::paginate_to(self.fields.max_results, call, ERR_GET, sink)
+            .await
+            .1
     }
 
     fn owner_params<'s>(&self, mut c: Call<'s>) -> Call<'s> {
@@ -161,22 +173,21 @@ impl LiveStream {
     }
 
     async fn list(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
-        let fetched = self.get(ctx).await?;
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &self.fields.output,
-                items,
-                &["ID", "Title", "Status"],
-                |s| {
-                    vec![
-                        Cell::from(s.str("id")),
-                        Cell::from(s.str("snippet.title")),
-                        Cell::from(s.str("status.streamStatus")),
-                    ]
-                },
-            )
-        })
+        let svc = ctx.service().await?;
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output,
+            &["ID", "Title", "Status"],
+            |s| {
+                vec![
+                    Cell::from(s.str("id")),
+                    Cell::from(s.str("snippet.title")),
+                    Cell::from(s.str("status.streamStatus")),
+                ]
+            },
+        );
+        let err = self.pages(&svc, &mut sink).await;
+        sink.finish(err)
     }
 
     async fn insert(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {

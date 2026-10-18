@@ -1,8 +1,8 @@
 //! Port of pkg/comment and cmd/comment.
 
-use super::common::{Fields, cli_max_results, finish_list, paginate};
+use super::common::{Fields, cli_max_results};
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, Out, print_list, print_result};
+use crate::output::{Cell, Out, print_result};
 use serde::Deserialize;
 use yutu_api::Value;
 use yutu_api::client::BoxFuture;
@@ -174,6 +174,16 @@ impl Invoke for Bound {
 impl Comment {
     async fn get(&self, ctx: &mut Ctx<'_>) -> Result<(Vec<Value>, Option<OpError>), OpError> {
         let svc = ctx.service().await?;
+        let mut all = super::common::Collect::default();
+        let err = self.pages(&svc, &mut all).await;
+        Ok((all.items, err))
+    }
+
+    async fn pages(
+        &self,
+        svc: &yutu_api::Service,
+        sink: &mut dyn super::common::PageSink,
+    ) -> Option<OpError> {
         let call = || {
             let mut c = svc
                 .call("youtube.comments.list")
@@ -189,28 +199,28 @@ impl Comment {
             }
             c
         };
-        Ok(paginate(self.fields.max_results, call, ERR_GET).await)
+        super::common::paginate_to(self.fields.max_results, call, ERR_GET, sink)
+            .await
+            .1
     }
 
     async fn list(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
-        let fetched = self.get(ctx).await?;
-        let output = self.fields.output.clone();
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &output,
-                items,
-                &["ID", "Author", "Video ID", "Text Display"],
-                |cm| {
-                    vec![
-                        Cell::from(cm.str("id")),
-                        Cell::from(cm.str("snippet.authorDisplayName")),
-                        Cell::from(cm.str("snippet.videoId")),
-                        Cell::from(cm.str("snippet.textDisplay")),
-                    ]
-                },
-            )
-        })
+        let svc = ctx.service().await?;
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output.clone(),
+            &["ID", "Author", "Video ID", "Text Display"],
+            |cm| {
+                vec![
+                    Cell::from(cm.str("id")),
+                    Cell::from(cm.str("snippet.authorDisplayName")),
+                    Cell::from(cm.str("snippet.videoId")),
+                    Cell::from(cm.str("snippet.textDisplay")),
+                ]
+            },
+        );
+        let err = self.pages(&svc, &mut sink).await;
+        sink.finish(err)
     }
 
     async fn insert(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {

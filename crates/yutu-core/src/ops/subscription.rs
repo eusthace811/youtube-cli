@@ -1,9 +1,9 @@
 //! Port of pkg/subscription and cmd/subscription.
 
-use super::common::{Fields, cli_max_results, finish_list, paginate};
+use super::common::{Fields, cli_max_results};
 use super::playlist_item::resource_id;
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list, print_result};
+use crate::output::{Cell, print_result};
 use serde::Deserialize;
 use yutu_api::Value;
 use yutu_api::client::BoxFuture;
@@ -149,23 +149,23 @@ impl Subscription {
             }
             c
         };
-        let fetched = paginate(self.fields.max_results, call, ERR_GET).await;
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &self.fields.output,
-                items,
-                &["ID", "Kind", "Resource ID", "Channel Title"],
-                |sub| {
-                    vec![
-                        Cell::from(sub.str("id")),
-                        Cell::from(sub.str("snippet.resourceId.kind")),
-                        Cell::from(resource_id(sub, "snippet.resourceId")),
-                        Cell::from(sub.str("snippet.title")),
-                    ]
-                },
-            )
-        })
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output,
+            &["ID", "Kind", "Resource ID", "Channel Title"],
+            |sub| {
+                vec![
+                    Cell::from(sub.str("id")),
+                    Cell::from(sub.str("snippet.resourceId.kind")),
+                    Cell::from(resource_id(sub, "snippet.resourceId")),
+                    Cell::from(sub.str("snippet.title")),
+                ]
+            },
+        );
+        let err = super::common::paginate_to(self.fields.max_results, call, ERR_GET, &mut sink)
+            .await
+            .1;
+        sink.finish(err)
     }
 
     async fn insert(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {

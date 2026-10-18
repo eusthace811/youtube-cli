@@ -1,8 +1,8 @@
 //! Port of pkg/channel and cmd/channel.
 
-use super::common::{Fields, cli_max_results, finish_list, paginate};
+use super::common::{Fields, cli_max_results};
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list, print_result};
+use crate::output::{Cell, print_result};
 use serde::Deserialize;
 use yutu_api::Value;
 use yutu_api::client::BoxFuture;
@@ -113,6 +113,16 @@ impl Invoke for Bound {
 impl Channel {
     async fn get(&self, ctx: &mut Ctx<'_>) -> Result<(Vec<Value>, Option<OpError>), OpError> {
         let svc = ctx.service().await?;
+        let mut all = super::common::Collect::default();
+        let err = self.pages(&svc, &mut all).await;
+        Ok((all.items, err))
+    }
+
+    async fn pages(
+        &self,
+        svc: &yutu_api::Service,
+        sink: &mut dyn super::common::PageSink,
+    ) -> Option<OpError> {
         let call = || {
             let mut c = svc
                 .call("youtube.channels.list")
@@ -144,27 +154,27 @@ impl Channel {
             }
             c
         };
-        Ok(paginate(self.fields.max_results, call, ERR_GET).await)
+        super::common::paginate_to(self.fields.max_results, call, ERR_GET, sink)
+            .await
+            .1
     }
 
     async fn list(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
-        let fetched = self.get(ctx).await?;
-        let output = self.fields.output.clone();
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &output,
-                items,
-                &["ID", "Title", "Country"],
-                |ch| {
-                    vec![
-                        Cell::from(ch.str("id")),
-                        Cell::from(ch.str("snippet.title")),
-                        Cell::from(ch.str("snippet.country")),
-                    ]
-                },
-            )
-        })
+        let svc = ctx.service().await?;
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output.clone(),
+            &["ID", "Title", "Country"],
+            |ch| {
+                vec![
+                    Cell::from(ch.str("id")),
+                    Cell::from(ch.str("snippet.title")),
+                    Cell::from(ch.str("snippet.country")),
+                ]
+            },
+        );
+        let err = self.pages(&svc, &mut sink).await;
+        sink.finish(err)
     }
 
     async fn update(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {

@@ -1,6 +1,6 @@
 //! Port of pkg/video and cmd/video.
 
-use super::common::{Fields, cli_max_results, finish_list, open_media, paginate};
+use super::common::{Fields, cli_max_results, open_media};
 use super::{Ctx, Entry, FlagValues, Invoke, OpError, playlist_item_insert, thumbnail_set};
 use crate::output::{Cell, print_list, print_result};
 use serde::Deserialize;
@@ -265,6 +265,16 @@ impl Invoke for Bound {
 impl Video {
     async fn get(&self, ctx: &mut Ctx<'_>) -> Result<(Vec<Value>, Option<OpError>), OpError> {
         let svc = ctx.service().await?;
+        let mut all = super::common::Collect::default();
+        let err = self.pages(&svc, &mut all).await;
+        Ok((all.items, err))
+    }
+
+    async fn pages(
+        &self,
+        svc: &yutu_api::Service,
+        sink: &mut dyn super::common::PageSink,
+    ) -> Option<OpError> {
         let call = || {
             let mut c = svc
                 .call("youtube.videos.list")
@@ -298,31 +308,31 @@ impl Video {
             }
             c
         };
-        Ok(paginate(self.fields.max_results, call, ERR_GET).await)
+        super::common::paginate_to(self.fields.max_results, call, ERR_GET, sink)
+            .await
+            .1
     }
 
     async fn list(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
-        let fetched = self.get(ctx).await?;
-        let output = self.fields.output.clone();
-        finish_list(fetched, |items| {
-            print_list(
-                &mut ctx.out,
-                &output,
-                items,
-                &["ID", "Title", "Channel ID", "Views"],
-                |v| {
-                    vec![
-                        Cell::from(v.str("id")),
-                        Cell::from(v.str("snippet.title")),
-                        Cell::from(v.str("snippet.channelId")),
-                        Cell::Uint(match v.at("statistics.viewCount") {
-                            Some(Value::Uint(n)) => *n,
-                            _ => 0,
-                        }),
-                    ]
-                },
-            )
-        })
+        let svc = ctx.service().await?;
+        let mut sink = super::common::ListSink::new(
+            &mut ctx.out,
+            &self.fields.output.clone(),
+            &["ID", "Title", "Channel ID", "Views"],
+            |v| {
+                vec![
+                    Cell::from(v.str("id")),
+                    Cell::from(v.str("snippet.title")),
+                    Cell::from(v.str("snippet.channelId")),
+                    Cell::Uint(match v.at("statistics.viewCount") {
+                        Some(Value::Uint(n)) => *n,
+                        _ => 0,
+                    }),
+                ]
+            },
+        );
+        let err = self.pages(&svc, &mut sink).await;
+        sink.finish(err)
     }
 
     async fn insert(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
