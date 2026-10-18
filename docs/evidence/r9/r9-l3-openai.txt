@@ -1,0 +1,18 @@
+PASS: lane 3, OpenAI-compatible provider lists playlists
+Same Responses API traffic shape, playlists request and transcript as Go.
+
+SUBSTITUTED: no real LLM key or Google account exists on this machine, so the real-model lane runs as a scripted mock-LLM session that exercises the same code path.
+tool calls go:   ['playlist-list']
+tool calls head: ['playlist-list']
+tool call order identical: True
+recorder lines identical: True (1 go, 1 head)
+  GET /youtube/v3/playlists {"alt": ["json"], "maxResults": ["5"], "mine": ["true"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+exit: go 0 head 0
+stdout identical: True
+  go:   '\n\nUser -> \nAgent -> Your playlists: one.\nUser -> \nEOF detected, exiting...\n'
+stderr identical (timestamps masked): False
+  go:   'time=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\",\\"mine\\":true}" output_length=4706\n'
+  head: 'time=T level=INFO msg=playlist-list input="{\\"mine\\":true,\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\n'
+model requests: go 2 head 2
+  request 0 /v1/responses: system instruction differs
+  request 1 /v1/responses: system instruction differs

@@ -1,0 +1,22 @@
+PASS: lane 9, API key from the environment
+With a key in the environment the console starts and sends it; with none, google fails at model configuration.
+
+No --api-key. Divergence E10 records that head reads the key from the environment; Go's SDKs do too.
+
+== provider=google env=['GEMINI_API_KEY']
+go: exit 0 stdout '\n\nUser -> \nAgent -> Hello from the mock.\nUser -> \nEOF detected, exiting...\n' key header '<key>'
+head: exit 0 stdout '\n\nUser -> \nAgent -> Hello from the mock.\nUser -> \nEOF detected, exiting...\n' key header '<key>'
+
+== provider=google env=['GOOGLE_API_KEY']
+go: exit 0 stdout '\n\nUser -> \nAgent -> Hello from the mock.\nUser -> \nEOF detected, exiting...\n' key header '<key>'
+head: exit 0 stdout '\n\nUser -> \nAgent -> Hello from the mock.\nUser -> \nEOF detected, exiting...\n' key header '<key>'
+
+== provider=openai env=['OPENAI_API_KEY']
+go: exit 0 stdout '\n\nUser -> \nAgent -> Hello from the mock.\nUser -> \nEOF detected, exiting...\n' key header '<key>'
+head: exit 0 stdout '\n\nUser -> \nAgent -> Hello from the mock.\nUser -> \nEOF detected, exiting...\n' key header '<key>'
+
+== provider=google env=[]
+go: exit 1 stdout '' key header None
+go: stderr 'time=T level=ERROR msg="model configuration error" error="api key is required for Google AI backend. ClientConfig: &genai.ClientConfig{APIKey:\\"\\", Backend:1, Project:\\"\\", Location:\\"\\", Credentials:(*auth.Credentials)(nil), HTTPClient:(*http.Client)(nil), HTTPOptions:genai.HTTPOptions{BaseURL:\\"ht'
+head: exit 1 stdout '' key header None
+head: stderr 'time=T level=ERROR msg="model configuration error" error="api key is required for Google AI backend.\\nYou can get the API key from https://ai.google.dev/gemini-api/docs/api-key"\n'

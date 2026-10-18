@@ -91,3 +91,13 @@ summary = "install.sh verifies checksums and attestations and installs the skill
 prs = ["R11"]
 fields = []
 proof = "xtask/tests/install.rs"
+
+# Not in Appendix E yet: found in R9. Go embeds cmd/agent/skills as a
+# directory named "skills", so ADK's file-system source sees no SKILL.md at
+# its root and the agent's skill toolset is always empty. The instruction
+# tells the model to consult the youtube skill, so head loads it.
+[divergence.agent-skills]
+summary = "the agent's embedded youtube skill loads: list_skills names it, load_skill and load_skill_resource return it, and the toolset's skill block joins the system instruction"
+prs = ["R9"]
+fields = []
+proof = "crates/yutu-agent/src/skills.rs tests; r9 lane 8"

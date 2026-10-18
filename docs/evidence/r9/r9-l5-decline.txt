@@ -1,0 +1,13 @@
+PASS: lane 5, decline a playlist delete
+Answering n sent no DELETE and the model got the cancellation result; answering y sent it.
+
+SUBSTITUTED: no real LLM key or Google account exists on this machine, so the lane (it needs a real test playlist) runs as a scripted mock-LLM session that exercises the same code path.
+stdout: '\n\nUser -> \nAgent -> \nTool call needs approval: playlist-delete {"ids":["PLtest"]}\nDelete playlist(s): PLtest [y/N] Not deleted.\nUser -> \nEOF detected, exiting...\n'
+recorder:
+  GET /youtube/v3/playlists {"alt": ["json"], "maxResults": ["5"], "mine": ["true"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+function responses: [["playlist-list", {"output": "[{\"contentDetails\":{\"itemCount\":24},\"etag\":\"etag-0\",\"id\":\"id-0\",\"kind\":\"kind-0\",\"localizations\":{\"ka\":{\"description\":\"\u00dcn\u00efc\u00f6d\u00e9 \u2713 \u65e5\u672c\u8a9e\u306e\u30bf\u30a4\u30c8\u30eb localizations{}.description\",\"title\":\"# hash\"},\"kb\":{\"description\":\"Plain title localizations{}.description\",\"title\":\"<b>tags</b> 
+
+Control: the same session answered y.
+  GET /youtube/v3/playlists {"alt": ["json"], "maxResults": ["5"], "mine": ["true"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+  DELETE /youtube/v3/playlists {"alt": ["json"], "id": ["PLtest"], "prettyPrint": ["false"]}
+function responses: [["playlist-delete", {"output": "Playlist PLtest deleted"}]]

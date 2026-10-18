@@ -1,0 +1,8 @@
+PASS: lane 8, load the embedded skill
+The trace shows load_skill returning the youtube SKILL.md instructions.
+
+SUBSTITUTED: no real LLM key or Google account exists on this machine, so the real-model lane runs as a scripted mock-LLM session that exercises the same code path.
+Go embeds skills/ under an extra directory level, so its skill toolset finds no skill (observed below).
+Head loads the youtube skill; registered as divergence agent-skills in parity/divergences.toml.
+go response:   [["load_skill", {"error": "load frontmatter for skill \"youtube\": skill not found"}]]
+head response: [["load_skill", {"skill_name": "youtube", "instructions": "\n# YouTube\n\nManage YouTube resources via MCP tool calls \u2014 abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, i18nLanguage, i18nRegion, liveBroadcast, liveChatBan, liveChatMessage, liveChat
