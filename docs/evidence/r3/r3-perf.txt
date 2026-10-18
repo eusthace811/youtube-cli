@@ -1,0 +1,6 @@
+r3 perf: PASS
+
+Metric: wall time of `channel list --for mine -o json` with a valid cached token against the recorder (60 interleaved runs).
+Trunk is the Go harness, which bypasses auth; head loads and uses the token file (YUTU_PARITY_AUTH=1): 63 head requests carried the cached bearer.
+Trunk median 13.89 ms, head median 4.94 ms (0.36x).
+Rule: head <= 0.5x trunk.

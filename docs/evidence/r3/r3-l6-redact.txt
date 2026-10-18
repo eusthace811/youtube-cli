@@ -1,0 +1,7 @@
+r3 lane 6: PASS
+
+secret present in stderr: False; in stdout: False
+--- stderr ---
+time=2026-10-18T16:58:10.220+01:00 level=DEBUG msg="Root directory set" dir=/private/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmpk2sr1x_9/root
+time=2026-10-18T16:58:10.220+01:00 level=WARN msg="failed to parse token" error="illegal base64 data at input byte 6"
+

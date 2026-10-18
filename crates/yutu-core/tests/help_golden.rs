@@ -28,9 +28,15 @@ fn every_help_text_matches_the_go_oracle() {
         args.push("--help".to_string());
         let (mut out, mut err) = (Vec::new(), Vec::new());
         let code = execute_with(args, &NoApp, &mut out, &mut err);
+        let mut want_stdout = want["stdout"].as_str().unwrap().to_string();
+        if command == "yutu caption download" {
+            // Divergence E1: caption download is confirmation-gated, so its
+            // help gains exactly the --yes line Go's gated commands show.
+            want_stdout.push_str("      --yes                             Confirm the operation\n");
+        }
         assert_eq!(
             String::from_utf8(out).unwrap(),
-            want["stdout"].as_str().unwrap(),
+            want_stdout,
             "stdout of {command} --help"
         );
         assert_eq!(

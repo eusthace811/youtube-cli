@@ -1,0 +1,12 @@
+r3 lane 8: PASS
+
+no consent given; exited after 120.0 s
+$ yutu auth
+exit: 1
+--- stdout ---
+Your browser has been opened to an authorization URL. yutu will resume once authorization has been provided.
+http://127.0.0.1:59497/auth?access_type=offline&client_id=lane-client.apps.googleusercontent.com&code_challenge=xFCtAMa7ZYyec-lHvON9Ur7WgzdmRjCeHK1jcqEo0NI&code_challenge_method=S256&prompt=consent&redirect_uri=http%3A%2F%2Flocalhost%3A8216&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.force-ssl+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.channel-memberships.creator&state=qw_TGULLAkJtcfvBqd6VpVmuAt3rqIei2D3wULCflHil7jWIoRimvy_fGdb7VGRq-Q5vwAVDKJ6FcxXd5sD4vKEGPPQDB4ZLTTuIJ5XHu914XtT_GqA_JkUJrL6XHFAF-411nZvckhU0n3LAFxOiINur5CdnQIf-A_cUo4RQBSw%3D
+
+--- stderr ---
+time=2026-10-18T17:00:28.000+01:00 level=ERROR msg="authentication failed" error="authorization timed out after 2m0s"
+

@@ -1,0 +1,12 @@
+r3 lane 1: PASS
+
+SUBSTITUTED: no Google account exists here, so Go writes the token file with its own json.MarshalWrite (ref/yutu-go-tokenwrite) instead of `yutu-go auth`.
+Go-written token file: {"access_token":"go-written-token","token_type":"Bearer","refresh_token":"go-refresh","expiry":"2030-01-01T00:00:00Z","expires_in":3599}
+Authorization headers seen by the recorder: ['Bearer go-written-token']
+login attempted: False
+$ yutu channel list --for mine -o json
+exit: 0
+--- stdout ---
+[{"auditDetails":{},"brandingSettings":{"channel":{"country":"brandingSettings.channel.country-0","defaultLanguage":"brandingSettings.channel.defaultLanguage-0","defaultTab":"brandingSettings.channel.defaultTab-0","description":"Plain title brandingSettings.channel.description","featuredChannelsTitl
+--- stderr ---
+

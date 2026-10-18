@@ -1,0 +1,18 @@
+r3 lane 3: PASS
+
+browser open fails, the code is pasted on stdin with the 4%2F prefix; exchanged code: ['4/pasted-code']
+$ yutu auth (stdin: 4%2Fpasted-code)
+exit: 0
+--- stdout ---
+It seems that your browser is not open. Go to the following link in your browser:
+http://127.0.0.1:59468/auth?access_type=offline&client_id=lane-client.apps.googleusercontent.com&code_challenge=ss1_lpPCH7wDpOC99bsdnlzGrcI9PDqif2wr74FUkD8&code_challenge_method=S256&prompt=consent&redirect_uri=http%3A%2F%2Flocalhost%3A8216&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.force-ssl+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.channel-memberships.creator&state=0f6FzNhTJgWLsiehxSMzxZPV9dOHApn1N05j-BfKDuvcMmYiKo6u-rRq-RnU6caVXFUchXnFfskDvXOEQD6LHYVnBIucMjmSKVUoEPsYux6a_ODDcUc6xeiFK8vBYGq2VcW7efU7BvMKRBOQURfbhgENvj75dKiLM8PWSqjmAQk%3D
+
+After completing the authorization flow, enter the authorization code on command line.
+
+If you end up in an error page after completing the authorization flow,
+and the url in the address bar is in the form of
+'http://localhost:8216/?state=DONOT-COPY&code=COPY-THIS&scope=DONOT-COPY'
+ONLY 'COPY-THIS' part is the code you need to enter on command line.
+
+--- stderr ---
+

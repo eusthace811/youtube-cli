@@ -1,0 +1,9 @@
+r3 lane 5: PASS
+
+Authorization headers: ['Bearer b64-token']
+$ YUTU_CACHE_TOKEN=<base64> yutu channel list --for mine
+exit: 0
+--- stdout ---
+[{"auditDetails":{},"brandingSettings":{"channel":{"country":"brandingSettings.channel.country-0","defaultLanguage":"brandingSettings.channel.defaultLanguage-0","defaultTab":"brandingSettings.channel.defaultTab-0","description":"Plain title brandingSettings.channel.description","featuredChannelsTitl
+--- stderr ---
+
