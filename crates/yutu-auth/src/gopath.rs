@@ -19,9 +19,7 @@ pub fn clean(path: &str) -> String {
         dotdot = 1;
     }
     while r < n {
-        if p[r] == b'/' {
-            r += 1;
-        } else if p[r] == b'.' && (r + 1 == n || p[r + 1] == b'/') {
+        if p[r] == b'/' || (p[r] == b'.' && (r + 1 == n || p[r + 1] == b'/')) {
             r += 1;
         } else if p[r] == b'.' && p[r + 1] == b'.' && (r + 2 == n || p[r + 2] == b'/') {
             r += 2;
@@ -129,14 +127,12 @@ pub fn ext(path: &str) -> &str {
 /// answer, so a symlinked working directory resolves like it does in Go.
 pub fn getwd() -> io::Result<String> {
     let dot = std::fs::metadata(".")?;
-    if let Ok(pwd) = std::env::var("PWD") {
-        if pwd.starts_with('/') {
-            if let Ok(m) = std::fs::metadata(&pwd) {
-                if same_file(&m, &dot) {
-                    return Ok(pwd);
-                }
-            }
-        }
+    if let Ok(pwd) = std::env::var("PWD")
+        && pwd.starts_with('/')
+        && let Ok(m) = std::fs::metadata(&pwd)
+        && same_file(&m, &dot)
+    {
+        return Ok(pwd);
     }
     std::env::current_dir()?
         .into_os_string()

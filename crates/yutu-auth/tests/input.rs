@@ -122,7 +122,10 @@ fn garbage_token_is_logged_without_its_text() {
 #[test]
 fn secrets_never_format() {
     let secret = Secret::new(TOKEN);
-    assert_eq!(format!("{secret} {secret:?}"), "[redacted] Secret([redacted])");
+    assert_eq!(
+        format!("{secret} {secret:?}"),
+        "[redacted] Secret([redacted])"
+    );
     let dir = TempDir::new();
     let token = resolve_cache_token(&root(&dir), TOKEN);
     assert!(!format!("{token:?}").contains("SECRET"));
@@ -157,8 +160,12 @@ fn child_case() {
         return;
     };
     let root = RootDir::open(&yutu_auth::gopath::getwd().unwrap()).unwrap();
-    let ((cred, token), logs) =
-        log::capture(|| (resolve_credential(&root, &flag), resolve_cache_token(&root, &flag)));
+    let ((cred, token), logs) = log::capture(|| {
+        (
+            resolve_credential(&root, &flag),
+            resolve_cache_token(&root, &flag),
+        )
+    });
     let cred = cred.map(|s| String::from_utf8(s.expose().to_vec()).unwrap());
     let json = String::from_utf8(token.json.expose().to_vec()).unwrap();
     println!("CHILD cred={cred:?}");
@@ -189,7 +196,10 @@ fn defaults_resolve_against_the_working_directory() {
 fn env_applies_only_when_the_flag_is_empty() {
     let dir = TempDir::new();
     let env_token = gobase64::std_encode(TOKEN.as_bytes());
-    let envs = [("YUTU_CREDENTIAL", CRED), ("YUTU_CACHE_TOKEN", env_token.as_str())];
+    let envs = [
+        ("YUTU_CREDENTIAL", CRED),
+        ("YUTU_CACHE_TOKEN", env_token.as_str()),
+    ];
     assert_eq!(
         in_child(&dir, "", &envs),
         format!("cred=Ok({CRED:?})\ntoken={TOKEN:?} file=None")

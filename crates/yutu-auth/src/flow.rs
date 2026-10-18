@@ -38,7 +38,9 @@ fn browser_opened_hint(url: &str) -> String {
 }
 
 fn open_browser_hint(url: &str) -> String {
-    format!("It seems that your browser is not open. Go to the following link in your browser:\n{url}\n")
+    format!(
+        "It seems that your browser is not open. Go to the following link in your browser:\n{url}\n"
+    )
 }
 
 fn manual_input_hint(redirect_url: &str) -> String {
@@ -100,13 +102,21 @@ impl ClientConfig {
         let top = match &value {
             Value::Null => return Err("oauth2/google: no credentials found".to_string()),
             Value::Object(m) => m,
-            other => return Err(format!("json: cannot unmarshal {} into Go value", kind(other))),
+            other => {
+                return Err(format!(
+                    "json: cannot unmarshal {} into Go value",
+                    kind(other)
+                ));
+            }
         };
         let entry = |name: &str| -> Result<Option<&serde_json::Map<String, Value>>, String> {
             match field(top, name) {
                 None | Some(Value::Null) => Ok(None),
                 Some(Value::Object(m)) => Ok(Some(m)),
-                Some(other) => Err(format!("json: cannot unmarshal {} into Go struct field .{name}", kind(other))),
+                Some(other) => Err(format!(
+                    "json: cannot unmarshal {} into Go struct field .{name}",
+                    kind(other)
+                )),
             }
         };
         let (web, installed) = (entry("web")?, entry("installed")?);
@@ -117,7 +127,10 @@ impl ClientConfig {
             match field(cred, name) {
                 None | Some(Value::Null) => Ok(String::new()),
                 Some(Value::String(s)) => Ok(s.clone()),
-                Some(other) => Err(format!("json: cannot unmarshal {} into Go struct field cred.{name} of type string", kind(other))),
+                Some(other) => Err(format!(
+                    "json: cannot unmarshal {} into Go struct field cred.{name} of type string",
+                    kind(other)
+                )),
             }
         };
         let redirect_uris = match field(cred, "redirect_uris") {
@@ -169,7 +182,11 @@ impl ClientConfig {
         if !state.is_empty() {
             v.push(("state", state.to_string()));
         }
-        let sep = if self.auth_url.contains('?') { '&' } else { '?' };
+        let sep = if self.auth_url.contains('?') {
+            '&'
+        } else {
+            '?'
+        };
         format!("{}{sep}{}", self.auth_url, encode_form(v))
     }
 }
@@ -199,7 +216,9 @@ pub fn query_escape(s: &str) -> String {
     let mut out = String::with_capacity(s.len());
     for b in s.bytes() {
         match b {
-            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'_' | b'.' | b'~' => out.push(b as char),
+            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'_' | b'.' | b'~' => {
+                out.push(b as char)
+            }
             b' ' => out.push('+'),
             _ => out.push_str(&format!("%{b:02X}")),
         }
@@ -229,7 +248,9 @@ fn unescape_query(s: &str) -> Result<String, String> {
     while i < b.len() {
         match b[i] {
             b'%' => {
-                let hex = b.get(i + 1..i + 3).filter(|h| h.iter().all(u8::is_ascii_hexdigit));
+                let hex = b
+                    .get(i + 1..i + 3)
+                    .filter(|h| h.iter().all(u8::is_ascii_hexdigit));
                 let Some(hex) = hex else {
                     let end = (i + 3).min(b.len());
                     return Err(format!(
@@ -302,7 +323,9 @@ pub fn generate_verifier() -> Result<String, String> {
 }
 
 pub fn s256_challenge(verifier: &str) -> String {
-    gobase64::raw_url_encode(ring::digest::digest(&ring::digest::SHA256, verifier.as_bytes()).as_ref())
+    gobase64::raw_url_encode(
+        ring::digest::digest(&ring::digest::SHA256, verifier.as_bytes()).as_ref(),
+    )
 }
 
 /// Compares without an early exit, so response timing does not reveal how
@@ -318,9 +341,11 @@ fn constant_time_eq(a: &[u8], b: &[u8]) -> bool {
     std::hint::black_box(diff) == 0
 }
 
+pub type OpenUrl = Box<dyn Fn(&str) -> io::Result<()> + Send + Sync>;
+
 /// Where the flow sends its hints and reads a pasted code.
 pub struct Prompt {
-    pub open_url: Box<dyn Fn(&str) -> io::Result<()> + Send + Sync>,
+    pub open_url: OpenUrl,
     pub out: Box<dyn Write + Send>,
     /// `None` never reads a pasted code and waits only for the callback.
     pub input: Option<Box<dyn Read + Send>>,
@@ -361,7 +386,9 @@ pub fn open_browser(url: &str) -> io::Result<()> {
         c.arg(url);
         c
     } else {
-        return Err(io::Error::other(format!("cannot open URL {url} on this platform")));
+        return Err(io::Error::other(format!(
+            "cannot open URL {url} on this platform"
+        )));
     };
     let mut child = cmd
         .stdin(std::process::Stdio::null())
@@ -384,7 +411,11 @@ pub fn go_duration(d: Duration) -> String {
         let unit = 10u128.pow(digits);
         let f = format!("{:0width$}", v % unit, width = digits as usize);
         let f = f.trim_end_matches('0');
-        if f.is_empty() { format!("{}", v / unit) } else { format!("{}.{f}", v / unit) }
+        if f.is_empty() {
+            format!("{}", v / unit)
+        } else {
+            format!("{}.{f}", v / unit)
+        }
     };
     if ns < 1_000 {
         return format!("{ns}ns");
@@ -461,7 +492,10 @@ impl CallbackServer {
     async fn wait(&mut self, timeout: Duration) -> Result<String, String> {
         match tokio::time::timeout(timeout, self.codes.recv()).await {
             Ok(Some(code)) => Ok(code),
-            _ => Err(format!("authorization timed out after {}", go_duration(timeout))),
+            _ => Err(format!(
+                "authorization timed out after {}",
+                go_duration(timeout)
+            )),
         }
     }
 }
@@ -522,11 +556,21 @@ async fn serve(mut stream: TcpStream, cb: Arc<Callback>) {
 
 /// `http.Error`.
 fn http_error(code: u16, reason: &str, msg: &str) -> String {
-    http_response(code, reason, "text/plain; charset=utf-8", true, &format!("{msg}\n"))
+    http_response(
+        code,
+        reason,
+        "text/plain; charset=utf-8",
+        true,
+        &format!("{msg}\n"),
+    )
 }
 
 fn http_response(code: u16, reason: &str, content_type: &str, nosniff: bool, body: &str) -> String {
-    let nosniff = if nosniff { "X-Content-Type-Options: nosniff\r\n" } else { "" };
+    let nosniff = if nosniff {
+        "X-Content-Type-Options: nosniff\r\n"
+    } else {
+        ""
+    };
     format!(
         "HTTP/1.1 {code} {reason}\r\nContent-Type: {content_type}\r\n{nosniff}Content-Length: {}\r\nConnection: close\r\n\r\n{body}",
         body.len()
@@ -632,7 +676,10 @@ pub async fn refresh(config: &ClientConfig, refresh_token: &str) -> Result<Token
 
 /// `internal.RetrieveToken`: basic auth first, then form parameters, and
 /// the style that worked is kept for this config.
-async fn retrieve_token(config: &ClientConfig, v: Vec<(&'static str, String)>) -> Result<Token, String> {
+async fn retrieve_token(
+    config: &ClientConfig,
+    v: Vec<(&'static str, String)>,
+) -> Result<Token, String> {
     let known = *config.in_params.lock().expect("auth style lock");
     let mut result = round_trip(config, &v, known.unwrap_or(false)).await;
     if known.is_none() {
@@ -648,7 +695,9 @@ async fn retrieve_token(config: &ClientConfig, v: Vec<(&'static str, String)>) -
     let mut token = result?;
     if token.refresh_token.is_empty() {
         token.refresh_token = query_get(
-            &v.iter().map(|(k, val)| (k.to_string(), val.clone())).collect::<Vec<_>>(),
+            &v.iter()
+                .map(|(k, val)| (k.to_string(), val.clone()))
+                .collect::<Vec<_>>(),
             "refresh_token",
         );
     }
@@ -712,59 +761,68 @@ async fn round_trip(
     }
     let failure = !status.is_success();
     let mut err = RetrieveError {
-        status: format!("{} {}", status.as_u16(), status.canonical_reason().unwrap_or_default()),
+        status: format!(
+            "{} {}",
+            status.as_u16(),
+            status.canonical_reason().unwrap_or_default()
+        ),
         body: String::from_utf8_lossy(&body).into_owned(),
         code: String::new(),
         description: String::new(),
         uri: String::new(),
     };
 
-    let token = if content_type == "application/x-www-form-urlencoded" || content_type == "text/plain" {
-        let (vals, parse_err) = parse_query(&String::from_utf8_lossy(&body));
-        if let Some(e) = parse_err {
-            return Err(if failure {
-                err.to_string()
-            } else {
-                format!("oauth2: cannot parse response: {e}")
-            });
-        }
-        err.code = query_get(&vals, "error");
-        err.description = query_get(&vals, "error_description");
-        err.uri = query_get(&vals, "error_uri");
-        let expires = query_get(&vals, "expires_in").parse::<i64>().unwrap_or(0);
-        Token {
-            access_token: query_get(&vals, "access_token"),
-            token_type: query_get(&vals, "token_type"),
-            refresh_token: query_get(&vals, "refresh_token"),
-            expiry: if expires != 0 { GoTime::now_plus(expires) } else { GoTime::ZERO },
-            expires_in: 0,
-        }
-    } else {
-        let tj = match TokenJson::parse(&body) {
-            Ok(tj) => tj,
-            Err(e) => {
+    let token =
+        if content_type == "application/x-www-form-urlencoded" || content_type == "text/plain" {
+            let (vals, parse_err) = parse_query(&String::from_utf8_lossy(&body));
+            if let Some(e) = parse_err {
                 return Err(if failure {
                     err.to_string()
                 } else {
-                    format!("oauth2: cannot parse json: {e}")
+                    format!("oauth2: cannot parse response: {e}")
                 });
             }
+            err.code = query_get(&vals, "error");
+            err.description = query_get(&vals, "error_description");
+            err.uri = query_get(&vals, "error_uri");
+            let expires = query_get(&vals, "expires_in").parse::<i64>().unwrap_or(0);
+            Token {
+                access_token: query_get(&vals, "access_token"),
+                token_type: query_get(&vals, "token_type"),
+                refresh_token: query_get(&vals, "refresh_token"),
+                expiry: if expires != 0 {
+                    GoTime::now_plus(expires)
+                } else {
+                    GoTime::ZERO
+                },
+                expires_in: 0,
+            }
+        } else {
+            let tj = match TokenJson::parse(&body) {
+                Ok(tj) => tj,
+                Err(e) => {
+                    return Err(if failure {
+                        err.to_string()
+                    } else {
+                        format!("oauth2: cannot parse json: {e}")
+                    });
+                }
+            };
+            err.code = tj.error;
+            err.description = tj.error_description;
+            err.uri = tj.error_uri;
+            Token {
+                access_token: tj.access_token,
+                token_type: tj.token_type,
+                refresh_token: tj.refresh_token,
+                expiry: if tj.expires_in != 0 {
+                    GoTime::now_plus(tj.expires_in)
+                } else {
+                    GoTime::ZERO
+                },
+                expires_in: tj.expires_in,
+            }
         };
-        err.code = tj.error;
-        err.description = tj.error_description;
-        err.uri = tj.error_uri;
-        Token {
-            access_token: tj.access_token,
-            token_type: tj.token_type,
-            refresh_token: tj.refresh_token,
-            expiry: if tj.expires_in != 0 {
-                GoTime::now_plus(tj.expires_in)
-            } else {
-                GoTime::ZERO
-            },
-            expires_in: tj.expires_in,
-        }
-    };
     if failure || !err.code.is_empty() {
         return Err(err.to_string());
     }
@@ -786,7 +844,11 @@ struct RetrieveError {
 impl fmt::Display for RetrieveError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         if self.code.is_empty() {
-            return write!(f, "oauth2: cannot fetch token: {}\nResponse: {}", self.status, self.body);
+            return write!(
+                f,
+                "oauth2: cannot fetch token: {}\nResponse: {}",
+                self.status, self.body
+            );
         }
         write!(f, "oauth2: {}", log::quote(&self.code))?;
         if !self.description.is_empty() {
@@ -817,7 +879,12 @@ impl TokenJson {
         let map = match value {
             Value::Null => return Ok(TokenJson::default()),
             Value::Object(m) => m,
-            other => return Err(format!("json: cannot unmarshal {} into Go value of type internal.tokenJSON", kind(&other))),
+            other => {
+                return Err(format!(
+                    "json: cannot unmarshal {} into Go value of type internal.tokenJSON",
+                    kind(&other)
+                ));
+            }
         };
         let text = |name: &str| -> Result<String, String> {
             match field(&map, name) {
@@ -833,15 +900,34 @@ impl TokenJson {
         // caps the value at MaxInt32.
         let expires_in = match field(&map, "expires_in") {
             None | Some(Value::Null) => 0,
-            Some(Value::Number(n)) => n.as_i64().ok_or_else(|| format!("strconv.ParseInt: parsing {}: invalid syntax", log::quote(&n.to_string())))?,
-            Some(Value::String(s)) => s.parse::<i64>().map_err(|_| format!("strconv.ParseInt: parsing {}: invalid syntax", log::quote(s)))?,
-            Some(other) => return Err(format!("json: cannot unmarshal {} into Go struct field tokenJSON.expires_in", kind(other))),
+            Some(Value::Number(n)) => n.as_i64().ok_or_else(|| {
+                format!(
+                    "strconv.ParseInt: parsing {}: invalid syntax",
+                    log::quote(&n.to_string())
+                )
+            })?,
+            Some(Value::String(s)) => s.parse::<i64>().map_err(|_| {
+                format!(
+                    "strconv.ParseInt: parsing {}: invalid syntax",
+                    log::quote(s)
+                )
+            })?,
+            Some(other) => {
+                return Err(format!(
+                    "json: cannot unmarshal {} into Go struct field tokenJSON.expires_in",
+                    kind(other)
+                ));
+            }
         };
         Ok(TokenJson {
             access_token: text("access_token")?,
             token_type: text("token_type")?,
             refresh_token: text("refresh_token")?,
-            expires_in: i64::from(i32::try_from(expires_in).unwrap_or(if expires_in > 0 { i32::MAX } else { expires_in as i32 })),
+            expires_in: i64::from(i32::try_from(expires_in).unwrap_or(if expires_in > 0 {
+                i32::MAX
+            } else {
+                expires_in as i32
+            })),
             error: text("error")?,
             error_description: text("error_description")?,
             error_uri: text("error_uri")?,
@@ -881,7 +967,10 @@ mod tests {
             br#"{"installed":{"redirect_uris":["a"]},"WEB":{"client_id":"w","redirect_uris":["b"]}}"#,
         )
         .unwrap();
-        assert_eq!((web.client_id.as_str(), web.redirect_url.as_str()), ("w", "b"));
+        assert_eq!(
+            (web.client_id.as_str(), web.redirect_url.as_str()),
+            ("w", "b")
+        );
     }
 
     #[test]

@@ -58,7 +58,10 @@ async fn wrong_state_gets_400_and_no_exchange() {
     );
     let user = async {
         let url = urls.recv().await.unwrap();
-        assert_eq!(query_value(&url, "redirect_uri"), format!("http://127.0.0.1:{port}"));
+        assert_eq!(
+            query_value(&url, "redirect_uri"),
+            format!("http://127.0.0.1:{port}")
+        );
         get(port, "/?state=forged&code=4/stolen").await
     };
     let (result, response) = tokio::join!(flow, user);
@@ -131,13 +134,19 @@ async fn code_is_exchanged_with_the_verifier_and_refreshes_persist() {
         ])
     );
     // oauth2 tries HTTP basic auth first: base64("cid.apps.googleusercontent.com:sec").
-    assert!(recorded[0].head.contains(
-        "authorization: Basic Y2lkLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOnNlYw=="
-    ));
+    assert!(
+        recorded[0]
+            .head
+            .contains("authorization: Basic Y2lkLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOnNlYw==")
+    );
 
     let saved = Token::from_go_json(&std::fs::read(&token_file).unwrap()).unwrap();
     assert_eq!(
-        (saved.access_token.as_str(), saved.refresh_token.as_str(), saved.expires_in),
+        (
+            saved.access_token.as_str(),
+            saved.refresh_token.as_str(),
+            saved.expires_in
+        ),
         ("at-1", "1//rt", 11)
     );
     let mode = |p: &std::path::Path| std::fs::metadata(p).unwrap().permissions().mode() & 0o777;
@@ -151,11 +160,18 @@ async fn code_is_exchanged_with_the_verifier_and_refreshes_persist() {
 
     let recorded = mock.recorded();
     assert_eq!(recorded.len(), 2);
-    assert_eq!(recorded[1].body, "grant_type=refresh_token&refresh_token=1%2F%2Frt");
+    assert_eq!(
+        recorded[1].body,
+        "grant_type=refresh_token&refresh_token=1%2F%2Frt"
+    );
     let bytes = std::fs::read(&token_file).unwrap();
     let refreshed = Token::from_go_json(&bytes).unwrap();
     assert_eq!(
-        (refreshed.access_token.as_str(), refreshed.refresh_token.as_str(), refreshed.expires_in),
+        (
+            refreshed.access_token.as_str(),
+            refreshed.refresh_token.as_str(),
+            refreshed.expires_in
+        ),
         ("at-2", "1//rt", 3599)
     );
     assert_eq!(refreshed.to_go_json(), bytes);
@@ -183,9 +199,15 @@ async fn pasted_code_is_used_when_the_browser_fails() {
         input: Some(Box::new(&b"\n  4%2Fpasted extra\n"[..])),
     };
     let secret = client_secret(&mock.url);
-    let source = authorize(root, &secret, "", options(port, Duration::from_secs(5)), prompt)
-        .await
-        .unwrap();
+    let source = authorize(
+        root,
+        &secret,
+        "",
+        options(port, Duration::from_secs(5)),
+        prompt,
+    )
+    .await
+    .unwrap();
     assert_eq!(source.token().await.unwrap(), "at-1");
     assert!(mock.recorded()[0].body.starts_with("code=4%2Fpasted&"));
     let text = out.text();
@@ -217,7 +239,13 @@ async fn without_stdin_the_flow_waits_for_the_callback() {
         input: None,
     };
     let secret = client_secret(&mock.url);
-    let flow = authorize(root, &secret, "", options(port, Duration::from_secs(5)), prompt);
+    let flow = authorize(
+        root,
+        &secret,
+        "",
+        options(port, Duration::from_secs(5)),
+        prompt,
+    );
     let user = async {
         let url = urls.recv().await.unwrap();
         let state = query_value(&url, "state");
@@ -228,21 +256,34 @@ async fn without_stdin_the_flow_waits_for_the_callback() {
     assert!(response.starts_with("HTTP/1.1 200 OK\r\n"));
     assert_eq!(source.unwrap().token().await.unwrap(), "at-1");
     assert!(mock.recorded()[0].body.starts_with("code=cb&"));
-    assert!(out.text().starts_with("It seems that your browser is not open."));
+    assert!(
+        out.text()
+            .starts_with("It seems that your browser is not open.")
+    );
 }
 
 #[tokio::test(flavor = "current_thread")]
 async fn expired_token_without_a_file_fails_like_go() {
-    let mock = MockTokenEndpoint::start(vec![r#"{"error":"invalid_grant","error_description":"Bad Request"}"#, r#"{"error":"invalid_grant","error_description":"Bad Request"}"#]).await;
+    let mock = MockTokenEndpoint::start(vec![
+        r#"{"error":"invalid_grant","error_description":"Bad Request"}"#,
+        r#"{"error":"invalid_grant","error_description":"Bad Request"}"#,
+    ])
+    .await;
     let dir = TempDir::new();
     let root = Arc::new(RootDir::open(dir.str()).unwrap());
     let (prompt, _urls, _) = browser_prompt();
     let expired = r#"{"access_token":"old","refresh_token":"1//rt","expiry":"2020-01-01T00:00:00Z","expires_in":0}"#;
     let secret = client_secret(&mock.url);
-    let err = authorize(root, &secret, expired, options(free_port(), Duration::from_secs(1)), prompt)
-        .await
-        .err()
-        .unwrap();
+    let err = authorize(
+        root,
+        &secret,
+        expired,
+        options(free_port(), Duration::from_secs(1)),
+        prompt,
+    )
+    .await
+    .err()
+    .unwrap();
     assert_eq!(
         err,
         "failed to refresh token, please re-authenticate in cli: oauth2: \"invalid_grant\" \"Bad Request\""
@@ -264,7 +305,13 @@ async fn other_paths_get_404() {
     let port = free_port();
     let (prompt, mut urls, _) = browser_prompt();
     let secret = client_secret(&mock.url);
-    let flow = authorize(root, &secret, "", options(port, Duration::from_millis(300)), prompt);
+    let flow = authorize(
+        root,
+        &secret,
+        "",
+        options(port, Duration::from_millis(300)),
+        prompt,
+    );
     let user = async {
         urls.recv().await.unwrap();
         get(port, "/favicon.ico").await

@@ -141,7 +141,10 @@ impl RootDir {
 
 /// `io/fs.ValidPath`.
 fn valid_fs_path(name: &str) -> bool {
-    name == "." || name.split('/').all(|e| !e.is_empty() && e != "." && e != "..")
+    name == "."
+        || name
+            .split('/')
+            .all(|e| !e.is_empty() && e != "." && e != "..")
 }
 
 /// An `io::Error` that prints like Go's `*fs.PathError`, e.g.
