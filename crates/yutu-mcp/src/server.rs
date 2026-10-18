@@ -26,7 +26,7 @@ pub const NAME: &str = "yutu";
 pub const INSTRUCTIONS: &str = "Automate YouTube operations";
 
 /// go-sdk's supported versions, newest first.
-const PROTOCOL_VERSIONS: &[&str] = &[
+pub(crate) const PROTOCOL_VERSIONS: &[&str] = &[
     "2026-07-28",
     "2025-11-25",
     "2025-06-18",
@@ -35,11 +35,17 @@ const PROTOCOL_VERSIONS: &[&str] = &[
 ];
 /// The first version whose clients take `inputRequests` instead of
 /// server-initiated requests.
-const MRTR_VERSION: &str = "2026-07-28";
+pub(crate) const MRTR_VERSION: &str = "2026-07-28";
 
-const METHOD_NOT_FOUND: i64 = -32601;
+pub(crate) const METHOD_NOT_FOUND: i64 = -32601;
 const INVALID_REQUEST: i64 = -32600;
-const INVALID_PARAMS: i64 = -32602;
+pub(crate) const INVALID_PARAMS: i64 = -32602;
+const UNSUPPORTED_PROTOCOL_VERSION: i64 = -32022;
+
+const META_PROTOCOL_VERSION: &str = "io.modelcontextprotocol/protocolVersion";
+const META_CLIENT_INFO: &str = "io.modelcontextprotocol/clientInfo";
+const META_CLIENT_CAPABILITIES: &str = "io.modelcontextprotocol/clientCapabilities";
+const META_SERVER_INFO: &str = "io.modelcontextprotocol/serverInfo";
 
 /// A JSON-RPC error. Code 0 is what go-sdk sends for plain Go errors.
 #[derive(Debug, Clone, PartialEq)]
@@ -287,12 +293,12 @@ pub struct Session {
 }
 
 /// How a method may be called, from go-sdk's `serverMethodInfos`.
-struct MethodInfo {
-    notification: bool,
-    params_optional: bool,
+pub(crate) struct MethodInfo {
+    pub notification: bool,
+    pub params_optional: bool,
 }
 
-fn method_info(method: &str) -> Option<MethodInfo> {
+pub(crate) fn method_info(method: &str) -> Option<MethodInfo> {
     let (notification, params_optional) = match method {
         "initialize"
         | "completion/complete"
@@ -353,6 +359,20 @@ impl Session {
         })
     }
 
+    /// A stateless HTTP session that skips `initialize`, as go-sdk
+    /// synthesizes it: the client asked for `version` and declared no
+    /// capabilities, so it has no elicitation back channel.
+    pub fn preinitialized(server: Arc<Server>, version: &str) -> Arc<Session> {
+        Arc::new(Session {
+            server,
+            client: Mutex::new(Some(Client {
+                requested_version: version.to_string(),
+                elicitation: None,
+            })),
+            peer: None,
+        })
+    }
+
     fn client(&self) -> Option<Client> {
         self.client
             .lock()
@@ -392,7 +412,65 @@ impl Session {
         }
     }
 
+    /// go-sdk's per-request protocol detection (SEP-2575) around the method
+    /// dispatch: a call whose `_meta` names 2026-07-28 or later skips the
+    /// initialization gate, and its result names the server.
     async fn request(&self, method: &str, raw: Option<Box<RawValue>>) -> Reply {
+        let Some(meta) = request_meta(raw.as_deref().map(RawValue::get))? else {
+            return self.dispatch(method, raw).await;
+        };
+        if !PROTOCOL_VERSIONS.contains(&meta.requested_version.as_str()) {
+            return Err(RpcError {
+                code: UNSUPPORTED_PROTOCOL_VERSION,
+                message: "unsupported protocol version".into(),
+                data: Some(json!({
+                    "supported": PROTOCOL_VERSIONS,
+                    "requested": meta.requested_version,
+                })),
+            });
+        }
+        match method {
+            "initialize"
+            | "ping"
+            | "logging/setLevel"
+            | "resources/subscribe"
+            | "resources/unsubscribe" => return Err(RpcError::new(METHOD_NOT_FOUND, "")),
+            _ => {}
+        }
+        {
+            let mut client = self.client.lock().unwrap_or_else(PoisonError::into_inner);
+            if client.is_none() {
+                *client = Some(meta);
+            }
+        }
+        let text = if method == "server/discover" {
+            json!({
+                "ttlMs": 0,
+                "cacheScope": "public",
+                "supportedVersions": PROTOCOL_VERSIONS,
+                "capabilities": capabilities(),
+                "instructions": INSTRUCTIONS,
+            })
+            .to_string()
+        } else {
+            self.dispatch(method, raw).await?
+        };
+        let mut result: Value =
+            serde_json::from_str(&text).map_err(|e| RpcError::plain(e.to_string()))?;
+        if let Value::Object(m) = &mut result
+            && !m.is_empty()
+        {
+            m.entry("resultType").or_insert(json!("complete"));
+            let meta = m.entry("_meta").or_insert_with(|| json!({}));
+            if let Value::Object(meta) = meta {
+                meta.entry(META_SERVER_INFO)
+                    .or_insert_with(|| json!({"name": NAME, "version": self.server.version}));
+            }
+        }
+        reply(result)
+    }
+
+    async fn dispatch(&self, method: &str, raw: Option<Box<RawValue>>) -> Reply {
         if !allowed_before_init(method) && self.client().is_none() {
             return Err(RpcError::plain(format!(
                 "method {} is invalid during session initialization",
@@ -500,11 +578,7 @@ impl Session {
             });
         }
         reply(json!({
-            "capabilities": {
-                "logging": {},
-                "resources": {"listChanged": true},
-                "tools": {"listChanged": true},
-            },
+            "capabilities": capabilities(),
             "instructions": INSTRUCTIONS,
             "protocolVersion": negotiate(&requested),
             "serverInfo": {"name": NAME, "version": self.server.version},
@@ -649,6 +723,53 @@ impl Session {
             }
         }
     }
+}
+
+fn capabilities() -> Value {
+    json!({
+        "logging": {},
+        "resources": {"listChanged": true},
+        "tools": {"listChanged": true},
+    })
+}
+
+/// go-sdk's `validateRequestMeta`: the client a new-protocol call describes
+/// in its `_meta`, or `None` for an old-protocol call.
+fn request_meta(raw: Option<&str>) -> Result<Option<Client>, RpcError> {
+    #[derive(Deserialize)]
+    struct Params {
+        #[serde(rename = "_meta")]
+        meta: Option<Map<String, Value>>,
+    }
+    let Some(meta) = raw
+        .and_then(|r| serde_json::from_str::<Params>(r).ok())
+        .and_then(|p| p.meta)
+    else {
+        return Ok(None);
+    };
+    let version = match meta.get(META_PROTOCOL_VERSION) {
+        Some(Value::String(v)) if v.as_str() >= MRTR_VERSION => v.clone(),
+        _ => return Ok(None),
+    };
+    let invalid = |key: &str, prefix: &str| {
+        RpcError::new(
+            INVALID_PARAMS,
+            format!("{prefix}invalid _meta field {}", go_quote(key)),
+        )
+    };
+    if !matches!(
+        meta.get(META_CLIENT_INFO),
+        None | Some(Value::Null | Value::Object(_))
+    ) {
+        return Err(invalid(META_CLIENT_INFO, ""));
+    }
+    let Some(Value::Object(caps)) = meta.get(META_CLIENT_CAPABILITIES) else {
+        return Err(invalid(META_CLIENT_CAPABILITIES, "missing or "));
+    };
+    Ok(Some(Client {
+        requested_version: version,
+        elicitation: caps.get("elicitation").and_then(Value::as_object).cloned(),
+    }))
 }
 
 /// go-sdk's `negotiatedVersion`: the client's version when supported and
