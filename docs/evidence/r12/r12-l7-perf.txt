@@ -1,20 +1,20 @@
 r12 lane 7: PASS
 
-Every perf probe rerun at the final head, on a parity-endpoint release build with the dev UI stored
+Every perf probe rerun at the final head (690b7fc), on a parity-endpoint release build with the dev UI stored
 brotli-compressed, the machine otherwise idle (load average about 3 from desktop apps, none from this
 work). Each probe interleaves Go and head runs on this machine and keeps its own evidence file; docs/PERF.md
 is generated from them by parity/perfdoc.py.
 
-  R1  startup        `yutu version` median 3.50 ms vs Go 12.13 ms; RSS 6.5 MB; binary 7.2 MB (rule <= 4.0 ms, 12 MB, 15 MB)
-  R2  decode         500 videos (4.2 MB) decoded and re-encoded: 12.49 ms vs Go 30.20 ms
-  R3  token setup    head 5.06 ms vs trunk 14.01 ms (0.36x, rule <= 0.5x)
-  R4  4,000 videos   183.9 ms (0.55x), peak RSS 10.5 MB (0.04x)
-  R5  100 writes     0.37 s per batch (0.28x)
-  R6  2 GiB upload   7,490 MB/s, peak RSS 14.4 MB vs Go 3,078 MB/s, 58.3 MB
-  R7  MCP            initialize 2.81 ms, tools/list 0.69 ms vs Go 11.62 / 1.52 ms
-  R8  HTTP MCP       36,024 req/s vs Go 4,442 (8.11x), p50 1.29 ms vs 10.61 ms
-  R9  agent loop     50 tool calls 0.31 s vs Go 0.48 s; peak RSS 18 MiB vs 58 MiB
-  R10 web launcher   idle RSS 10.94 MiB vs 36.97 MiB (0.30x); /run p50 at or below Go; 120 s idle soak flat
+  R1  startup        `yutu version` median 3.58 ms vs Go 12.11 ms; RSS 6.5 MB; binary 7.2 MB (rule <= 4.0 ms, 12 MB, 15 MB)
+  R2  decode         500 videos (4.2 MB) decoded and re-encoded: 12.12 ms vs Go 29.74 ms
+  R3  token setup    head 5.01 ms vs trunk 13.92 ms (0.36x, rule <= 0.5x)
+  R4  4,000 videos   178.6 ms (0.54x), peak RSS 10.8 MB (0.04x)
+  R5  100 writes     0.37 s per batch (0.27x)
+  R6  2 GiB upload   7,185 MB/s, peak RSS 14.3 MB vs Go 2,980 MB/s, 58.0 MB
+  R7  MCP            initialize 2.65 ms, tools/list 0.69 ms vs Go 11.32 / 1.52 ms
+  R8  HTTP MCP       41,707 req/s vs Go 4,580 (9.11x), p50 1.17 ms vs 10.24 ms
+  R9  agent loop     50 tool calls 0.27 s vs Go 0.44 s; peak RSS 18 MiB vs 58 MiB
+  R10 web launcher   idle RSS 11.03 MiB vs 36.83 MiB (0.30x); /run p50 at or below Go; 120 s idle soak flat
   R11 download size  shipped binary 7,167,296 B (0.126x Go); npm tarball 0.281x; image estimate 0.125x (rule <= 0.3x)
 
 Why R1 reads 3.5 ms where the R1 evidence once read 1.89 ms (inferred, not separately measured): R1 measured

@@ -2,4 +2,4 @@ r12 lane 5: PASS
 
 every corpus case runs under sandbox-exec with only loopback networking allowed (loopback-only.sb).
 control: curl to youtube.googleapis.com under the same profile exits 6: curl: (6) Could not resolve host: youtube.googleapis.com
-cases: 2814, 0 differences
+cases: 2830, 0 differences

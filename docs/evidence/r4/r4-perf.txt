@@ -3,6 +3,6 @@ r4 perf: PASS
 Metric: `video list --maxResults 0 -o json` over 200 pages of 20 items (34.7 MB) from the recorder; wall time from 10 interleaved runs
 after 3 warmups, timed directly (no /usr/bin/time wrapper, whose fixed cost would compress the ratio); peak RSS from 3 separate /usr/bin/time -l runs.
 Spawn floor /usr/bin/true: 2.5 ms. The recorder (Python, same machine) serves 34.7 MB per run in about 90 ms, a floor shared by both.
-Trunk (Go harness): median 334.4 ms, peak RSS 277.0 MB
-Head: median 183.9 ms (0.55x), peak RSS 10.5 MB (0.04x)
+Trunk (Go harness): median 333.6 ms, peak RSS 257.6 MB
+Head: median 178.6 ms (0.54x), peak RSS 10.8 MB (0.04x)
 Rule: head <= 0.6x trunk wall time and <= 0.4x trunk RSS.
