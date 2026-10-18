@@ -12,9 +12,9 @@ short = "Delete comments"
 long = "Delete comments. Use this tool to delete comments by IDs."
 example = """
 # Delete a comment by ID
-yutu comment delete --ids abc123
+youtube comment delete --ids abc123
 # Delete multiple comments
-yutu comment delete --ids abc123,def456"""
+youtube comment delete --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -62,9 +62,9 @@ short = "Create a comment"
 long = "Create a comment. Use this tool to create a comment on a video."
 example = """
 # Reply to a comment
-yutu comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Hello'
+youtube comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Hello'
 # Reply with rating enabled
-yutu comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Reply' --canRate"""
+youtube comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Reply' --canRate"""
 runnable = true
 
 [command.tool]
@@ -184,11 +184,11 @@ short = "List comments"
 long = "List comments. Use this tool to list comments by IDs."
 example = """
 # List replies to a comment
-yutu comment list --parentId UgyXXXXXXXX --maxResults 10
+youtube comment list --parentId UgyXXXXXXXX --maxResults 10
 # List specific comments in JSON format
-yutu comment list --ids abc123,def456 --output json
+youtube comment list --ids abc123,def456 --output json
 # List a comment in plain text
-yutu comment list --ids abc123 --textFormat plainText"""
+youtube comment list --ids abc123 --textFormat plainText"""
 runnable = true
 
 [command.tool]
@@ -301,9 +301,9 @@ short = "Mark comments as spam"
 long = "Mark comments as spam. Use this tool to mark comments as spam."
 example = """
 # Mark a comment as spam
-yutu comment markAsSpam --ids abc123
+youtube comment markAsSpam --ids abc123
 # Mark multiple comments as spam
-yutu comment markAsSpam --ids abc123,def456"""
+youtube comment markAsSpam --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -368,11 +368,11 @@ short = "Set comment moderation status"
 long = "Set comment moderation status. Use this tool to set comment moderation status."
 example = """
 # Publish a held comment
-yutu comment setModerationStatus --ids abc123 --moderationStatus published
+youtube comment setModerationStatus --ids abc123 --moderationStatus published
 # Hold multiple comments for review
-yutu comment setModerationStatus --ids abc123,def456 --moderationStatus heldForReview
+youtube comment setModerationStatus --ids abc123,def456 --moderationStatus heldForReview
 # Reject a comment and ban author
-yutu comment setModerationStatus --ids abc123 --moderationStatus rejected --banAuthor"""
+youtube comment setModerationStatus --ids abc123 --moderationStatus rejected --banAuthor"""
 runnable = true
 
 [command.tool]
@@ -467,11 +467,11 @@ short = "Update a comment"
 long = "Update a comment. Use this tool to update a comment."
 example = """
 # Update comment text
-yutu comment update --id abc123 --textOriginal 'Updated comment'
+youtube comment update --id abc123 --textOriginal 'Updated comment'
 # Like a comment
-yutu comment update --id abc123 --viewerRating like
+youtube comment update --id abc123 --viewerRating like
 # Update comment text with rating enabled
-yutu comment update --id abc123 --textOriginal 'New text' --canRate"""
+youtube comment update --id abc123 --textOriginal 'New text' --canRate"""
 runnable = true
 
 [command.tool]

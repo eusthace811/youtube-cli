@@ -21,7 +21,7 @@ from recorder import Recorder  # noqa: E402
 
 GO = str(ROOT / "ref" / "yutu-go")
 HARNESS = str(ROOT / "ref" / "yutu-go-harness")
-HEAD = os.environ.get("YUTU_HEAD", str(ROOT / "target" / "release" / "yutu"))
+HEAD = os.environ.get("YOUTUBE_CLI_HEAD", str(ROOT / "target" / "release" / "youtube"))
 LANES = {}
 
 
@@ -144,7 +144,7 @@ def r0_l8():
 @lane("r0", 9, "r0-l9-version.txt")
 def r0_l9():
     code, out, err = sh([GO, "version"], env={"PATH": "/usr/bin:/bin"})
-    return code == 0 and out == "" and "yutu v0.11.0" in err, fmt("yutu-go version", code, out, err)
+    return code == 0 and out == "" and "youtube v0.11.0" in err, fmt("yutu-go version", code, out, err)
 
 
 @lane("r0", 10, "r0-l10-formats.txt")
@@ -168,26 +168,26 @@ def both(args, env=None):
 @lane("r1", 1, "r1-l1-version.txt")
 def r1_l1():
     g, h = both(["version"])
-    return g == h, fmt("yutu-go version", *g) + fmt("yutu version", *h)
+    return g == h, fmt("yutu-go version", *g) + fmt("youtube version", *h)
 
 
 @lane("r1", 2, "r1-l2-help.txt")
 def r1_l2():
     g, h = both(["--help"])
-    return g == h, fmt("yutu-go --help", *g) + fmt("yutu --help", *h)
+    return g == h, fmt("yutu-go --help", *g) + fmt("youtube --help", *h)
 
 
 @lane("r1", 3, "r1-l3-unknown.txt")
 def r1_l3():
     g, h = both(["nope"])
-    return g[0] == h[0] and g[2] == h[2], fmt("yutu-go nope", *g) + fmt("yutu nope", *h)
+    return g[0] == h[0] and g[2] == h[2], fmt("yutu-go nope", *g) + fmt("youtube nope", *h)
 
 
 @lane("r1", 4, "r1-l4-ban.txt")
 def r1_l4():
     d = Path(tempfile.mkdtemp())
     sh(["git", "clone", "--quiet", "--branch", sh(["git", "-C", str(ROOT), "rev-parse", "--abbrev-ref", "HEAD"])[1].strip(), str(ROOT), str(d / "c")])
-    toml = d / "c" / "crates" / "yutu-core" / "Cargo.toml"
+    toml = d / "c" / "crates" / "youtube-core" / "Cargo.toml"
     toml.write_text(toml.read_text().replace("[dependencies]\n", "[dependencies]\ntracing-opentelemetry = \"0.32\"\n", 1))
     code, out, err = sh(["cargo", "deny", "check", "bans"], cwd=d / "c")
     named = "tracing-opentelemetry" in out + err
@@ -197,7 +197,7 @@ def r1_l4():
 @lane("r1", 5, "r1-l5-egress.txt")
 def r1_l5():
     code, out, err = sh(["cargo", "run", "-q", "-p", "xtask", "--", "egress", HEAD], cwd=ROOT)
-    return code == 0 and "egress: 0 unexpected hosts" in out + err, fmt("xtask egress target/release/yutu", code, out, err)
+    return code == 0 and "egress: 0 unexpected hosts" in out + err, fmt("xtask egress target/release/youtube", code, out, err)
 
 
 @lane("r1", 6, "r1-l6-offline.txt")
@@ -205,7 +205,7 @@ def r1_l6():
     profile = "(version 1)(allow default)(deny network*)"
     code, out, err = sh(["sandbox-exec", "-p", profile, HEAD, "version"], env={"PATH": "/usr/bin:/bin"})
     g = sh([GO, "version"], env={"PATH": "/usr/bin:/bin"})
-    return code == 0 and err == g[2], fmt("sandbox-exec (deny network*) yutu version", code, out, err)
+    return code == 0 and err == g[2], fmt("sandbox-exec (deny network*) youtube version", code, out, err)
 
 
 @lane("r1", 7, "r1-l7-repro.txt")
@@ -214,8 +214,8 @@ def r1_l7():
     log = ""
     for i in range(2):
         target = Path(tempfile.mkdtemp()) / "target"
-        code, out, err = sh(["cargo", "build", "--release", "--locked", "--target-dir", str(target), "-p", "yutu"], cwd=ROOT)
-        h = sh(["shasum", "-a", "256", str(target / "release" / "yutu")])[1].split()[0] if code == 0 else "build failed"
+        code, out, err = sh(["cargo", "build", "--release", "--locked", "--target-dir", str(target), "-p", "youtube"], cwd=ROOT)
+        h = sh(["shasum", "-a", "256", str(target / "release" / "youtube")])[1].split()[0] if code == 0 else "build failed"
         hashes.append(h)
         log += f"build {i + 1}: exit {code} sha256 {h}\n{err[-500:]}\n"
     return len(set(hashes)) == 1 and "failed" not in hashes[0], log
@@ -224,7 +224,7 @@ def r1_l7():
 @lane("r1", 8, "r1-l8-help-sub.txt")
 def r1_l8():
     g, h = both(["help", "video"])
-    return g == h, fmt("yutu-go help video", *g) + fmt("yutu help video", *h)
+    return g == h, fmt("yutu-go help video", *g) + fmt("youtube help video", *h)
 
 
 @lane("r1", 9, "r1-l9-unsafe.txt")
@@ -240,7 +240,7 @@ def r1_l9():
 def r1_l10():
     steps = [["cargo", "fmt", "--all", "--check"], ["cargo", "clippy", "--workspace", "--all-targets", "--locked", "--", "-D", "warnings"],
              ["cargo", "test", "--workspace", "--locked"], ["cargo", "build", "--release", "--locked"],
-             ["cargo", "run", "--locked", "-p", "xtask", "--", "egress", "target/release/yutu"], ["cargo", "deny", "check"]]
+             ["cargo", "run", "--locked", "-p", "xtask", "--", "egress", "target/release/youtube"], ["cargo", "deny", "check"]]
     log, ok = "SUBSTITUTED: no GitHub repository exists (operator chose a local repo), so the ci.yml steps run locally on macOS; the Linux job cannot run here (no Docker).\n", True
     for s in steps:
         code, out, err = sh(s, cwd=ROOT)
@@ -256,7 +256,7 @@ ENCODE = str(ROOT / "ref" / "yutu-go-encode")
 
 
 def build_examples(features=""):
-    args = ["cargo", "build", "-q", "--release", "-p", "yutu-api", "--examples"]
+    args = ["cargo", "build", "-q", "--release", "-p", "youtube-api", "--examples"]
     if features:
         args += ["--features", features]
     return sh(args, cwd=ROOT)
@@ -299,7 +299,7 @@ def r2_l1():
 @lane("r2", 2, "r2-l2-determinism.txt")
 def r2_l2():
     code, out, err = sh(["cargo", "run", "-q", "-p", "xtask", "--", "gen-api"], cwd=ROOT)
-    d = sh(["git", "diff", "--exit-code", "--stat", "crates/yutu-api/src/generated.rs"], cwd=ROOT)
+    d = sh(["git", "diff", "--exit-code", "--stat", "crates/youtube-api/src/generated.rs"], cwd=ROOT)
     return code == 0 and d[0] == 0, fmt("xtask gen-api", code, out, err) + fmt("git diff --exit-code generated.rs", *d)
 
 
@@ -400,7 +400,7 @@ def r2_l9():
 @lane("r2", 10, "r2-l10-gates.txt")
 def r2_l10():
     a = sh(["cargo", "deny", "check"], cwd=ROOT)
-    b = sh(["cargo", "build", "-q", "--release", "-p", "yutu"], cwd=ROOT)
+    b = sh(["cargo", "build", "-q", "--release", "-p", "youtube"], cwd=ROOT)
     c = sh(["cargo", "run", "-q", "-p", "xtask", "--", "egress", HEAD], cwd=ROOT)
     ok = a[0] == 0 and c[0] == 0 and "0 unexpected hosts" in c[1] + c[2]
     return ok, fmt("cargo deny check", *a) + fmt("xtask egress", *c)
@@ -479,7 +479,7 @@ def r3_l1():
     ok = code == 0 and auth and all(a == "Bearer go-written-token" for a in auth) and not w.oauth.requests and not w.open_log.exists()
     w.close()
     return ok, ("SUBSTITUTED: no Google account exists here, so Go writes the token file with its own json.MarshalWrite (ref/yutu-go-tokenwrite) instead of `yutu-go auth`.\n"
-                f"Go-written token file: {go_bytes}\nAuthorization headers seen by the recorder: {auth}\nlogin attempted: {bool(w.oauth.requests) or w.open_log.exists()}\n" + fmt("yutu channel list --for mine -o json", code, out[:300], err))
+                f"Go-written token file: {go_bytes}\nAuthorization headers seen by the recorder: {auth}\nlogin attempted: {bool(w.oauth.requests) or w.open_log.exists()}\n" + fmt("youtube channel list --for mine -o json", code, out[:300], err))
 
 
 @lane("r3", 2, "r3-l2-consent.txt")
@@ -500,7 +500,7 @@ def r3_l2():
           and q.get("code_challenge") == [challenge] and q.get("code_challenge_method") == ["S256"] and w.oauth.requests[0]["code"] == ["lane-code"])
     text = (f"consent URL (fake browser): {url}\ncallback: {status} {body!r}\ntoken exchange form: {w.oauth.requests}\n"
             f"PKCE S256 challenge matches verifier: {q.get('code_challenge') == [challenge]}\ntoken file mode: {mode(token_file) if token_file.exists() else 'missing'}\n"
-            f"token file: {token_file.read_text() if token_file.exists() else ''}\n" + fmt("yutu auth", p.returncode, out, err))
+            f"token file: {token_file.read_text() if token_file.exists() else ''}\n" + fmt("youtube auth", p.returncode, out, err))
     w.close()
     return ok, "SUBSTITUTED: a fake `open` records the consent URL and the lane plays the browser redirect against a mock token endpoint.\n" + text
 
@@ -515,7 +515,7 @@ def r3_l3():
     got = w.oauth.requests[0]["code"] if w.oauth.requests else None
     ok = code == 0 and token_file.exists() and got == ["4/pasted-code"] and "Go to the following link in your browser" in out
     w.close()
-    return ok, f"browser open fails, the code is pasted on stdin with the 4%2F prefix; exchanged code: {got}\n" + fmt("yutu auth (stdin: 4%2Fpasted-code)", code, out, err)
+    return ok, f"browser open fails, the code is pasted on stdin with the 4%2F prefix; exchanged code: {got}\n" + fmt("youtube auth (stdin: 4%2Fpasted-code)", code, out, err)
 
 
 @lane("r3", 4, "r3-l4-csrf.txt")
@@ -538,18 +538,18 @@ def r3_l5():
     import base64
     w = AuthWorld()
     token = json.dumps({"access_token": "b64-token", "token_type": "Bearer", "refresh_token": "r", "expiry": "2030-01-01T00:00:00Z"})
-    code, out, err = w.run(["channel", "list", "--for", "mine", "-o", "json"], env={"YUTU_CACHE_TOKEN": base64.b64encode(token.encode()).decode()})
+    code, out, err = w.run(["channel", "list", "--for", "mine", "-o", "json"], env={"YOUTUBE_CLI_CACHE_TOKEN": base64.b64encode(token.encode()).decode()})
     auth = [r.get("authorization") for r in w.rec.requests]
     ok = code == 0 and auth == ["Bearer b64-token"]
     w.close()
-    return ok, f"Authorization headers: {auth}\n" + fmt("YUTU_CACHE_TOKEN=<base64> yutu channel list --for mine", code, out[:300], err)
+    return ok, f"Authorization headers: {auth}\n" + fmt("YOUTUBE_CLI_CACHE_TOKEN=<base64> youtube channel list --for mine", code, out[:300], err)
 
 
 @lane("r3", 6, "r3-l6-redact.txt")
 def r3_l6():
     w = AuthWorld()
     secret = "SECRET-not-a-token-%%%"
-    p = w.spawn(["channel", "list", "--for", "mine"], env={"YUTU_CACHE_TOKEN": secret, "YUTU_LOG_LEVEL": "DEBUG"})
+    p = w.spawn(["channel", "list", "--for", "mine"], env={"YOUTUBE_CLI_CACHE_TOKEN": secret, "YOUTUBE_CLI_LOG_LEVEL": "DEBUG"})
     w.consent_url(wait=5)
     p.kill()
     out, err = p.communicate()
@@ -569,7 +569,7 @@ def r3_l7():
     ok = code == 0 and w.oauth.refreshes == 1 and auth == ["Bearer refreshed-1", "Bearer refreshed-1"] and '"access_token":"refreshed-1"' in after and mode(w.root / "youtube.token.json") == "0o600"
     w.close()
     return ok, ("One process makes two API calls (video update: GET then PUT) with an expired token; the MCP-session variant is r3 lane 10's setup.\n"
-                f"refreshes: {w.oauth.refreshes}\nAuthorization headers: {auth}\nbefore: {before}\nafter:  {after}\n" + fmt("yutu video update", code, out, err))
+                f"refreshes: {w.oauth.refreshes}\nAuthorization headers: {auth}\nbefore: {before}\nafter:  {after}\n" + fmt("youtube video update", code, out, err))
 
 
 @lane("r3", 8, "r3-l8-timeout.txt")
@@ -580,7 +580,7 @@ def r3_l8():
     elapsed = time.time() - t
     ok = code == 1 and "authorization timed out after 2m0s" in err and 119 <= elapsed <= 130
     w.close()
-    return ok, f"no consent given; exited after {elapsed:.1f} s\n" + fmt("yutu auth", code, out, err)
+    return ok, f"no consent given; exited after {elapsed:.1f} s\n" + fmt("youtube auth", code, out, err)
 
 
 @lane("r3", 9, "r3-l9-perms.txt")
@@ -778,7 +778,7 @@ def sub_lane(steps):
         o = both_rec(argv)
         same = o["go"] == o["head"]
         ok &= same
-        log += f"$ yutu {' '.join(argv)}\n  exit {o['head'][0]}, requests {[(m, p) for m, p, _ in o['head'][3]]}, identical to Go: {o['go'] == o['head']}\n  stdout: {o['head'][1][:200]!r}\n"
+        log += f"$ youtube {' '.join(argv)}\n  exit {o['head'][0]}, requests {[(m, p) for m, p, _ in o['head'][3]]}, identical to Go: {o['go'] == o['head']}\n  stdout: {o['head'][1][:200]!r}\n"
         if o["head"][0] != 0:
             log += f"  stderr: {o['head'][2]!r}\n  Go fails the same way; this is a Go defect reproduced for parity (see docs/PARITY.md, known Go defects).\n"
     return ok, log
@@ -884,7 +884,7 @@ def same_media(argv, files, note):
     o = both_files(argv, files)
     g, h = o["go"], o["head"]
     ok = g[:4] == h[:4] and h[0] == 0
-    return ok, f"{note}\n$ yutu {' '.join(argv)}\nexit {h[0]}; identical requests, stdout, stderr and exit to Go: {g[:4] == h[:4]}\nstdout: {h[1]!r}\nrequests: {[(r['method'], r['path'], r['ctype']) for r in h[3]]}\n"
+    return ok, f"{note}\n$ youtube {' '.join(argv)}\nexit {h[0]}; identical requests, stdout, stderr and exit to Go: {g[:4] == h[:4]}\nstdout: {h[1]!r}\nrequests: {[(r['method'], r['path'], r['ctype']) for r in h[3]]}\n"
 
 
 @lane("r6", 2, "r6-l2-upload.txt")
@@ -1008,7 +1008,7 @@ def r6_l9():
     ok = upload.returncode == 0 and received() == size and bool(status_queries) and resumed.startswith(f"bytes {killed_at}-")
     return ok, (f"recorder SIGKILLed with {killed_at} bytes acknowledged, restarted on the same port 2 s later from its persisted session\n"
                 f"chunk requests seen: {len(ranges)}; status query after restart: {[ranges[i] for i in status_queries]}; next chunk: {resumed}\n"
-                f"final acknowledged bytes: {received()} of {size}\n" + fmt("yutu video insert (200 MiB)", upload.returncode, out, err))
+                f"final acknowledged bytes: {received()} of {size}\n" + fmt("youtube video insert (200 MiB)", upload.returncode, out, err))
 
 
 @lane("r6", 10, "r6-l10-cleanup.txt")
@@ -1090,7 +1090,7 @@ def r7_l8():
     rec = Recorder()
     errs = {}
     for name, binary in (("go", HARNESS), ("head", HEAD)):
-        p = subprocess.run([binary, "mcp"], input="".join(json.dumps(m) + "\n" for m in msgs), env=rec_env(rec, {"YUTU_LOG_LEVEL": "INFO"}), capture_output=True, text=True, timeout=30)
+        p = subprocess.run([binary, "mcp"], input="".join(json.dumps(m) + "\n" for m in msgs), env=rec_env(rec, {"YOUTUBE_CLI_LOG_LEVEL": "INFO"}), capture_output=True, text=True, timeout=30)
         errs[name] = p.stderr
     rec.close()
     ok = '"jsonrpc"' not in errs["head"] and '"jsonrpc"' in errs["go"]
@@ -1151,7 +1151,7 @@ class Http:
         self.env = {"PATH": "/usr/bin:/bin", "HOME": str(self.dir), "YUTU_PARITY_ENDPOINT": self.rec.url,
                     "YUTU_PARITY_TOKENINFO": self.ti.url, **(env or {})}
         argv = [binary, "mcp", "--mode", "http"] + (["--port", str(port)] if port else [])
-        self.cmd = " ".join(["yutu-go-harness" if binary == HARNESS else "yutu"] + argv[1:])
+        self.cmd = " ".join(["yutu-go-harness" if binary == HARNESS else "youtube"] + argv[1:])
         self.err = tempfile.TemporaryFile()
         self.p = subprocess.Popen(argv, env=self.env, cwd=self.dir, stdout=subprocess.DEVNULL, stderr=self.err)
         if not runner.wait_listening(self.port, self.p):
@@ -1292,16 +1292,16 @@ def r8_l8():
 @lane("r8", 9, "r8-l9-aud.txt")
 def r8_l9():
     ping = r8_post({"jsonrpc": "2.0", "id": 2, "method": "ping", "params": {}})
-    other = {"YUTU_MCP_ALLOWED_CLIENT_IDS": "client-b.apps.googleusercontent.com"}
-    listed = {"YUTU_MCP_ALLOWED_CLIENT_IDS": "client-b.apps.googleusercontent.com, client-a.apps.googleusercontent.com"}
+    other = {"YOUTUBE_CLI_MCP_ALLOWED_CLIENT_IDS": "client-b.apps.googleusercontent.com"}
+    listed = {"YOUTUBE_CLI_MCP_ALLOWED_CLIENT_IDS": "client-b.apps.googleusercontent.com, client-a.apps.googleusercontent.com"}
     g, h, text = both_http(ping, other)
     with Http(HEAD, runner.free_port(), listed) as s:
         allowed = s.send(ping)
     ok = h["status"] == 401 and h["body"] == "invalid token: audience not allowed\n" and allowed["status"] == 200
     return ok, ("The test token's aud and azp are client-a.apps.googleusercontent.com (parity/tokeninfo.py).\n"
-                f"Pass rule: with YUTU_MCP_ALLOWED_CLIENT_IDS={other['YUTU_MCP_ALLOWED_CLIENT_IDS']} head returns 401 (E4).\n"
+                f"Pass rule: with YOUTUBE_CLI_MCP_ALLOWED_CLIENT_IDS={other['YOUTUBE_CLI_MCP_ALLOWED_CLIENT_IDS']} head returns 401 (E4).\n"
                 "Go ignores the variable.\n" + text
-                + exchange_text(f"head with YUTU_MCP_ALLOWED_CLIENT_IDS={listed['YUTU_MCP_ALLOWED_CLIENT_IDS']}", ping, allowed))
+                + exchange_text(f"head with YOUTUBE_CLI_MCP_ALLOWED_CLIENT_IDS={listed['YOUTUBE_CLI_MCP_ALLOWED_CLIENT_IDS']}", ping, allowed))
 
 
 @lane("r8", 10, "r8-l10-post.txt")
@@ -1366,7 +1366,7 @@ def r12_l4():
 def r12_l5():
     profile = ROOT / "parity" / "loopback-only.sb"
     profile.write_text('(version 1)\n(allow default)\n(deny network*)\n(allow network* (remote ip "localhost:*"))\n(allow network* (local ip "localhost:*"))\n')
-    wrapper = Path(tempfile.mkdtemp()) / "yutu"
+    wrapper = Path(tempfile.mkdtemp()) / "youtube"
     wrapper.write_text(f'#!/bin/sh\nexec /usr/bin/sandbox-exec -f {profile} {HEAD} "$@"\n')
     wrapper.chmod(0o755)
     code, out, err = sh([sys.executable, "-I", "parity/run.py", "--bin", str(wrapper), "--all", "--compare"], cwd=ROOT)
@@ -1388,7 +1388,7 @@ def r12_l8():
         o = both_files(argv, files)
         same = o["go"][:4] == o["head"][:4] and o["head"][0] == 0
         ok &= same
-        log += f"$ yutu {' '.join(argv)}: exit {o['head'][0]}, identical to Go {o['go'][:4] == o['head'][:4]}, stdout {o['head'][1]!r}\n"
+        log += f"$ youtube {' '.join(argv)}: exit {o['head'][0]}, identical to Go {o['go'][:4] == o['head'][:4]}, stdout {o['head'][1]!r}\n"
     return ok, log
 
 
@@ -1400,8 +1400,8 @@ def r12_l9():
     hashes, log = [], "macOS only: no Linux host or CI runner is available here; the CI release job builds Linux with the same --locked flags.\n"
     for i in range(2):
         target = d / f"t{i}"
-        code, out, err = sh(["cargo", "build", "--release", "--locked", "-p", "yutu", "--target-dir", str(target)], cwd=d / "clone")
-        h = sh(["shasum", "-a", "256", str(target / "release/yutu")])[1].split()[0] if code == 0 else "failed"
+        code, out, err = sh(["cargo", "build", "--release", "--locked", "-p", "youtube", "--target-dir", str(target)], cwd=d / "clone")
+        h = sh(["shasum", "-a", "256", str(target / "release/youtube")])[1].split()[0] if code == 0 else "failed"
         hashes.append(h)
         log += f"fresh clone build {i + 1}: exit {code}, sha256 {h}\n"
         shutil.rmtree(target, ignore_errors=True)

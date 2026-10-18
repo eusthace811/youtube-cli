@@ -1,8 +1,8 @@
 <!-- Keep in sync with README.md Prerequisites and Installation sections. -->
 
-# Yutu Setup Guide
+# Youtube Setup Guide
 
-Before using any yutu skill, you need to install `yutu` and configure YouTube API credentials.
+Before using any youtube skill, you need to install `youtube` and configure YouTube API credentials.
 
 ## Prerequisites
 
@@ -21,27 +21,27 @@ An account on [Google Cloud Platform](https://console.cloud.google.com/) is requ
 3. **Authenticate**:
 
    ```bash
-   yutu auth --credential client_secret.json
+   youtube auth --credential client_secret.json
    ```
 
    A browser window will open for you to grant YouTube access. After granting permission, a token is saved to `youtube.token.json`.
 
 ## Installation
 
-Install `yutu` using one of these methods:
+Install `youtube` using one of these methods:
 
 ```bash
 # Node.js (all platforms)
 npm i -g @eat-pray-ai/yutu
 
 # macOS
-brew install yutu
+brew install youtube
 
 # Linux / macOS (shell script)
 curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/yutu/main/scripts/install.sh | bash
 
 # Windows
-winget install yutu
+winget install youtube
 ```
 
 ### Other platforms
@@ -50,31 +50,31 @@ Download a prebuilt binary from the [releases page](https://github.com/eat-pray-
 
 ## MCP Server
 
-Add `yutu` as an MCP server after installation and authentication:
+Add `youtube` as an MCP server after installation and authentication:
 
 ```bash
 # Claude Code
-claude mcp add -e YUTU_CREDENTIAL=/absolute/path/to/client_secret.json \
-  -e YUTU_CACHE_TOKEN=/absolute/path/to/youtube.token.json \
-  yutu -- yutu mcp
+claude mcp add -e YOUTUBE_CLI_CREDENTIAL=/absolute/path/to/client_secret.json \
+  -e YOUTUBE_CLI_CACHE_TOKEN=/absolute/path/to/youtube.token.json \
+  youtube -- youtube mcp
 
 # Codex
-codex mcp add --env YUTU_CREDENTIAL=/absolute/path/to/client_secret.json \
-  --env YUTU_CACHE_TOKEN=/absolute/path/to/youtube.token.json \
-  yutu -- yutu mcp
+codex mcp add --env YOUTUBE_CLI_CREDENTIAL=/absolute/path/to/client_secret.json \
+  --env YOUTUBE_CLI_CACHE_TOKEN=/absolute/path/to/youtube.token.json \
+  youtube -- youtube mcp
 ```
 
 For VS Code, Cursor, or other tools, add to your MCP settings:
 
 ```json
 {
-  "yutu": {
+  "youtube": {
     "type": "stdio",
-    "command": "yutu",
+    "command": "youtube",
     "args": ["mcp"],
     "env": {
-      "YUTU_CREDENTIAL": "/absolute/path/to/client_secret.json",
-      "YUTU_CACHE_TOKEN": "/absolute/path/to/youtube.token.json"
+      "YOUTUBE_CLI_CREDENTIAL": "/absolute/path/to/client_secret.json",
+      "YOUTUBE_CLI_CACHE_TOKEN": "/absolute/path/to/youtube.token.json"
     }
   }
 }
@@ -90,9 +90,9 @@ npx skills add eat-pray-ai/yutu --skill youtube
 
 | Variable | Description                                  | Default |
 |----------|----------------------------------------------|---------|
-| `YUTU_CREDENTIAL` | Path, Base64, or JSON of OAuth client secret | `client_secret.json` |
-| `YUTU_CACHE_TOKEN` | Path, Base64, or JSON of cached OAuth token  | `youtube.token.json` |
-| `YUTU_ROOT` | Root directory for file resolution           | Current working directory |
-| `YUTU_LOG_LEVEL` | Log level: `DEBUG`, `INFO`, `WARN`, `ERROR`  | `INFO` |
+| `YOUTUBE_CLI_CREDENTIAL` | Path, Base64, or JSON of OAuth client secret | `client_secret.json` |
+| `YOUTUBE_CLI_CACHE_TOKEN` | Path, Base64, or JSON of cached OAuth token  | `youtube.token.json` |
+| `YOUTUBE_CLI_ROOT` | Root directory for file resolution           | Current working directory |
+| `YOUTUBE_CLI_LOG_LEVEL` | Log level: `DEBUG`, `INFO`, `WARN`, `ERROR`  | `INFO` |
 
 For more details, see the [README](https://github.com/eat-pray-ai/yutu#readme).

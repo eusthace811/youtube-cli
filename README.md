@@ -1,6 +1,6 @@
-# yutu-rs
+# youtube-cli
 
-A Rust rewrite of [yutu](https://github.com/eat-pray-ai/yutu) v0.11.0, the CLI, MCP server and AI agent for YouTube. It behaves like Go yutu, command for command and byte for byte (`docs/PARITY.md`), with deliberate fixes listed in `docs/MIGRATING.md`. It has no telemetry. It starts in about 3.5 ms where Go takes about 12 ms, and the binary is about 7 MB where Go's is 57 MB (`docs/PERF.md`).
+A Rust rewrite of [youtube](https://github.com/eat-pray-ai/yutu) v0.11.0, the CLI, MCP server and AI agent for YouTube. It behaves like Go yutu, command for command and byte for byte (`docs/PARITY.md`), with deliberate fixes listed in `docs/MIGRATING.md`. It has no telemetry. It starts in about 3.5 ms where Go takes about 12 ms, and the binary is about 7 MB where Go's is 57 MB (`docs/PERF.md`).
 
 Every write to your channel needs your approval: `--yes` or a `y` typed at a terminal on the CLI, an accepted elicitation over MCP, and a human `y` or browser click in the agent (`docs/SECURITY.md`).
 
@@ -11,17 +11,17 @@ macOS and Linux, on amd64 and arm64. Windows is not supported yet; keep Go yutu 
 From a release, with the checksum and build-provenance checks in `install.sh`:
 
 ```shell
-curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YUTU_REPO=OWNER/REPO bash
+curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash
 ```
 
 From source, with the Rust toolchain that `rust-toolchain.toml` pins:
 
 ```shell
-cargo build --release --locked -p yutu
-cp target/release/yutu ~/.local/bin/yutu
+cargo build --release --locked -p youtube
+cp target/release/youtube ~/.local/bin/youtube
 ```
 
-Both install the program as `yutu`, the same name as Go yutu. Remove Go yutu from your `PATH`, or put yutu-rs ahead of it. `yutu version` prints the same banner for both.
+Both install the program as `youtube`, the same name as Go yutu. Remove Go yutu from your `PATH`, or put youtube-cli ahead of it. `youtube version` prints the same banner for both.
 
 ## Connect your YouTube account
 
@@ -29,53 +29,53 @@ Both install the program as `yutu`, the same name as Go yutu. Remove Go yutu fro
 2. Sign in once. A browser opens for consent and the token is saved with mode 0600:
 
    ```shell
-   yutu auth --credential client_secret.json --cacheToken youtube.token.json
+   youtube auth --credential client_secret.json --cacheToken youtube.token.json
    ```
 
-Paths resolve from the current directory, as in Go. To use yutu from anywhere, give absolute paths in the environment:
+Paths resolve from the current directory, as in Go. To use youtube from anywhere, give absolute paths in the environment:
 
 ```shell
-export YUTU_CREDENTIAL="$HOME/.config/yutu/client_secret.json"
-export YUTU_CACHE_TOKEN="$HOME/.config/yutu/youtube.token.json"
-export YUTU_ROOT="$HOME"
+export YOUTUBE_CLI_CREDENTIAL="$HOME/.config/youtube/client_secret.json"
+export YOUTUBE_CLI_CACHE_TOKEN="$HOME/.config/youtube/youtube.token.json"
+export YOUTUBE_CLI_ROOT="$HOME"
 ```
 
-`YUTU_ROOT` is the directory files you name for uploads and caption downloads must stay inside. A token file written by Go yutu works unchanged, and so does one written by yutu-rs for Go.
+`YOUTUBE_CLI_ROOT` is the directory files you name for uploads and caption downloads must stay inside. A token file written by Go yutu works unchanged, and so does one written by youtube-cli for Go.
 
 ## Use it
 
 ```shell
-yutu channel list --for mine
-yutu playlist list --mine
-yutu playlist update --id PL... --title "New title"     # asks before writing
-yutu video delete --ids VIDEO_ID --yes                  # --yes skips the question
+youtube channel list --for mine
+youtube playlist list --mine
+youtube playlist update --id PL... --title "New title"     # asks before writing
+youtube video delete --ids VIDEO_ID --yes                  # --yes skips the question
 ```
 
-`yutu --help` lists all 35 commands, and `yutu <command> --help` shows each one's flags.
+`youtube --help` lists all 35 commands, and `youtube <command> --help` shows each one's flags.
 
 ## MCP server
 
 ```shell
-claude mcp add yutu -- yutu mcp          # stdio, for Claude Code
-yutu mcp --mode http                     # streamable HTTP at http://localhost:8216/mcp
+claude mcp add youtube -- youtube mcp          # stdio, for Claude Code
+youtube mcp --mode http                     # streamable HTTP at http://localhost:8216/mcp
 ```
 
-The HTTP mode needs a Google bearer token on every request. Set `YUTU_MCP_ALLOWED_CLIENT_IDS` to accept only your own OAuth clients. To run it in a container, see `dist/README.md`.
+The HTTP mode needs a Google bearer token on every request. Set `YOUTUBE_CLI_MCP_ALLOWED_CLIENT_IDS` to accept only your own OAuth clients. To run it in a container, see `dist/README.md`.
 
 ## Agent
 
 ```shell
-yutu agent --provider claude-code -m sonnet   # your signed-in Claude Code
-yutu agent --provider codex                   # your signed-in Codex CLI
-yutu agent --api-key "$GEMINI_API_KEY"        # Gemini (the default provider)
-yutu agent --provider openai --model gpt-5.6-terra --api-key "$OPENAI_API_KEY"
+youtube agent --provider claude-code -m sonnet   # your signed-in Claude Code
+youtube agent --provider codex                   # your signed-in Codex CLI
+youtube agent --api-key "$GEMINI_API_KEY"        # Gemini (the default provider)
+youtube agent --provider openai --model gpt-5.6-terra --api-key "$OPENAI_API_KEY"
 ```
 
-The Claude Code and Codex providers need no API key. yutu runs the CLI only as a model, with its own tools, connectors and plugins off. `YUTU_CLAUDE_BIN` or `YUTU_CODEX_BIN` can point at the executable.
+The Claude Code and Codex providers need no API key. youtube runs the CLI only as a model, with its own tools, connectors and plugins off. `YOUTUBE_CLI_CLAUDE_BIN` or `YOUTUBE_CLI_CODEX_BIN` can point at the executable.
 
 The agent asks `Tool call needs approval: ... [y/N]` before every change. Only a `y` typed at a terminal after the question appears counts.
 
-For the dev web UI, run `yutu agent --args "web webui api"` and open the sign-in link printed at start.
+For the dev web UI, run `youtube agent --args "web webui api"` and open the sign-in link printed at start.
 
 ## Documentation
 

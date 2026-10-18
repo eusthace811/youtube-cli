@@ -6,7 +6,7 @@ use std::os::unix::fs::PermissionsExt;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Output};
 
-const FAKE_YUTU: &str = "#!/bin/sh\necho \"yutu v9.9.9-test $1\"\n";
+const FAKE_YUTU: &str = "#!/bin/sh\necho \"youtube v9.9.9-test $1\"\n";
 
 fn asset() -> String {
     let os = match std::env::consts::OS {
@@ -18,7 +18,7 @@ fn asset() -> String {
         "x86_64" => "amd64",
         arch => arch,
     };
-    format!("yutu-{os}-{arch}")
+    format!("youtube-{os}-{arch}")
 }
 
 fn sha256(path: &Path) -> String {
@@ -41,7 +41,7 @@ fn release(name: &str, listed: &[u8], shipped: &[u8]) -> PathBuf {
     let bin = rel.join(asset());
     fs::write(&bin, listed).unwrap();
     let sums = format!(
-        "{}  {}\n{}  yutu-other-arch\n",
+        "{}  {}\n{}  youtube-other-arch\n",
         sha256(&bin),
         asset(),
         "0".repeat(64)
@@ -71,13 +71,13 @@ fn install(dir: &Path, args: &[&str]) -> Output {
         .args(args)
         .env("PATH", path)
         .env(
-            "YUTU_RELEASE_URL",
+            "YOUTUBE_CLI_RELEASE_URL",
             format!("file://{}", dir.join("release").display()),
         )
         .env("XDG_BIN_HOME", dir.join("bin"))
         .env("HOME", dir.join("home"))
-        .env("YUTU_SKIP_ATTESTATION", "1")
-        .env("YUTU_REPO", "owner/yutu-rs")
+        .env("YOUTUBE_CLI_SKIP_ATTESTATION", "1")
+        .env("YOUTUBE_CLI_REPO", "owner/youtube-cli")
         .output()
         .unwrap()
 }
@@ -92,7 +92,7 @@ fn a_tampered_binary_fails_with_checksum_mismatch() {
         stderr.starts_with(&format!("checksum mismatch: {} has sha256 ", asset())),
         "{stderr}"
     );
-    assert!(!dir.join("bin/yutu").exists());
+    assert!(!dir.join("bin/youtube").exists());
 }
 
 #[test]
@@ -106,13 +106,13 @@ fn a_clean_release_installs_and_prints_the_version() {
         "{}",
         String::from_utf8_lossy(&out.stderr)
     );
-    let bin = dir.join("bin/yutu");
+    let bin = dir.join("bin/youtube");
     let expected = format!(
         "checksum verified: {asset} sha256 {sum}\n\
-         attestation skipped: YUTU_SKIP_ATTESTATION=1\n\
-         yutu v9.9.9-test version\n\
+         attestation skipped: YOUTUBE_CLI_SKIP_ATTESTATION=1\n\
+         youtube v9.9.9-test version\n\
          \n\
-         yutu🐰 installed:\n  {bin}\n\nAdd {dir} to PATH if needed.\n",
+         youtube🐰 installed:\n  {bin}\n\nAdd {dir} to PATH if needed.\n",
         asset = asset(),
         sum = sha256(&bin),
         bin = bin.display(),
@@ -142,7 +142,7 @@ fn with_skill_installs_the_skill_through_npx() {
     );
     assert_eq!(
         fs::read_to_string(dir.join("npx.log")).unwrap(),
-        "--yes skills add owner/yutu-rs --skill youtube -y\n"
+        "--yes skills add owner/youtube-cli --skill youtube -y\n"
     );
 }
 
@@ -150,14 +150,14 @@ fn with_skill_installs_the_skill_through_npx() {
 fn without_a_repository_it_refuses_to_guess() {
     let out = Command::new("bash")
         .arg(Path::new(env!("CARGO_MANIFEST_DIR")).join("../install.sh"))
-        .env_remove("YUTU_REPO")
-        .env_remove("YUTU_RELEASE_URL")
+        .env_remove("YOUTUBE_CLI_REPO")
+        .env_remove("YOUTUBE_CLI_RELEASE_URL")
         .output()
         .unwrap();
     assert_eq!(out.status.code(), Some(2));
     assert_eq!(
         String::from_utf8(out.stderr).unwrap(),
-        "Set YUTU_REPO to the GitHub repository of the yutu-rs releases (owner/name).\n\
+        "Set YOUTUBE_CLI_REPO to the GitHub repository of the youtube-cli releases (owner/name).\n\
          The Go project's releases (eat-pray-ai/yutu) are a different program.\n"
     );
 }

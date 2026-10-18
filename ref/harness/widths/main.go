@@ -1,5 +1,5 @@
 // Command yutu-go-widths prints go-pretty's per-rune display widths as Rust
-// range tables, for the table renderer in crates/yutu-core.
+// range tables, for the table renderer in crates/youtube-core.
 package main
 
 import (

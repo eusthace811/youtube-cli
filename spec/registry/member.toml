@@ -12,9 +12,9 @@ short = "List channel members"
 long = "List channel members. Use this tool to list information about channel members."
 example = """
 # List all current members
-yutu member list --mode all_current
+youtube member list --mode all_current
 # List members with limit
-yutu member list --maxResults 10"""
+youtube member list --maxResults 10"""
 runnable = true
 
 [command.tool]

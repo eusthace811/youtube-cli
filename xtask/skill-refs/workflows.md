@@ -1,6 +1,6 @@
 # YouTube Workflows
 
-End-to-end workflows for managing YouTube content using the `yutu` CLI.
+End-to-end workflows for managing YouTube content using the `youtube` CLI.
 
 ## Publishing Video Pipeline
 
@@ -11,15 +11,15 @@ Videos go through a staging queue before publishing. The "Unlisted" playlist act
 Upload a video as unlisted. Use the `--description` field to describe the video content for AI context (what happens, tone, subjects) — this will be rewritten for SEO before publishing.
 
 ```bash
-CHANNEL_ID=$(yutu channel list --for mine --output json | jq -r '.[0].id')
+CHANNEL_ID=$(youtube channel list --for mine --output json | jq -r '.[0].id')
 
-VIDEO_ID=$(yutu video insert --file video.mp4 \
+VIDEO_ID=$(youtube video insert --file video.mp4 \
   --title 'Draft title' \
   --description 'A husky finds an octopus in shallow water. Every time it gets close, the octopus sprays water at it. Funny and playful tone.' \
   --categoryId 22 --privacy unlisted --yes \
   --output json | jq -r '.id')
 
-yutu playlistItem insert --kind video \
+youtube playlistItem insert --kind video \
   --playlistId UNLISTED_PLAYLIST_ID --channelId "$CHANNEL_ID" \
   --kVideoId "$VIDEO_ID" --yes
 ```
@@ -29,7 +29,7 @@ yutu playlistItem insert --kind video \
 Read the staged video's description to understand its content, then generate optimized title, description, tags, and thumbnail.
 
 ```bash
-yutu video list --ids VIDEO_ID --parts id,snippet,status --output json
+youtube video list --ids VIDEO_ID --parts id,snippet,status --output json
 ```
 
 The AI uses the description as a content brief to generate:
@@ -43,27 +43,27 @@ The AI uses the description as a content brief to generate:
 Overwrite all fields with SEO-optimized versions, change privacy to public, add to a themed playlist, and remove from the "Unlisted" queue.
 
 ```bash
-CHANNEL_ID=$(yutu channel list --for mine --output json | jq -r '.[0].id')
+CHANNEL_ID=$(youtube channel list --for mine --output json | jq -r '.[0].id')
 
 # Update video metadata and publish
-yutu video update --id VIDEO_ID \
+youtube video update --id VIDEO_ID \
   --title 'Husky vs Octopus Water Fight!' \
   --description 'Watch this hilarious husky get sprayed by an octopus...' \
   --tags 'husky,octopus,funny animals,pets' \
   --privacy public --yes
 
 # Set thumbnail
-yutu thumbnail set --file thumbnail.jpg --videoId VIDEO_ID
+youtube thumbnail set --file thumbnail.jpg --videoId VIDEO_ID
 
 # Add to target playlist
-yutu playlistItem insert --kind video \
+youtube playlistItem insert --kind video \
   --playlistId TARGET_PLAYLIST_ID --channelId "$CHANNEL_ID" \
   --kVideoId VIDEO_ID --yes
 
 # Remove from "Unlisted" queue (find the playlistItem ID first)
-ITEM_ID=$(yutu playlistItem list --playlistId UNLISTED_PLAYLIST_ID --maxResults 0 --output json \
+ITEM_ID=$(youtube playlistItem list --playlistId UNLISTED_PLAYLIST_ID --maxResults 0 --output json \
   | jq -r '.[] | select(.snippet.resourceId.videoId == "VIDEO_ID") | .id')
-yutu playlistItem delete --ids "$ITEM_ID" --yes
+youtube playlistItem delete --ids "$ITEM_ID" --yes
 ```
 
 ## Find Unlisted/Private Videos
@@ -72,16 +72,16 @@ The search API only returns public videos. To find unlisted or private videos, u
 
 ```bash
 # 1. Get the uploads playlist ID (replace UC→UU in channel ID)
-UPLOADS=$(yutu channel list --for mine --parts id,contentDetails --output json \
+UPLOADS=$(youtube channel list --for mine --parts id,contentDetails --output json \
   | jq -r '.[0].contentDetails.relatedPlaylists.uploads')
 
 # 2. List all videos in the uploads playlist
-yutu playlistItem list --playlistId "$UPLOADS" --maxResults 0 --output json > uploads.json
+youtube playlistItem list --playlistId "$UPLOADS" --maxResults 0 --output json > uploads.json
 
 # 3. Extract video IDs and query privacy status in batches of 50
 cat uploads.json | jq -r '.[].snippet.resourceId.videoId' | \
   xargs -n50 | while read BATCH; do
-    yutu video list --ids "$(echo $BATCH | tr ' ' ',')" \
+    youtube video list --ids "$(echo $BATCH | tr ' ' ',')" \
       --parts id,snippet,status --output json
   done | jq '.[] | select(.status.privacyStatus == "unlisted") | {id, title: .snippet.title, published: .snippet.publishedAt}'
 ```

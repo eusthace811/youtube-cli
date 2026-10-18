@@ -1,4 +1,4 @@
-// Package bench measures what `yutu video list -o json` does with a response:
+// Package bench measures what `youtube video list -o json` does with a response:
 // decode a VideoListResponse and re-encode its items with encoding/json/v2.
 package bench
 

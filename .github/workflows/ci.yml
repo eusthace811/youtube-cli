@@ -26,7 +26,7 @@ jobs:
       - run: cargo clippy --workspace --all-targets --locked -- -D warnings
       - run: cargo test --workspace --locked
       - run: cargo build --release --locked
-      - run: cargo run --locked -p xtask -- egress --release target/release/yutu
+      - run: cargo run --locked -p xtask -- egress --release target/release/youtube
       - run: cargo run --locked -p xtask -- gen-api --check
       - name: cargo deny
         run: |
@@ -38,4 +38,4 @@ jobs:
           cargo audit
       - run: cargo run --locked -p xtask -- skillgen --check
       - run: cargo run --locked -p xtask -- smokegen --check
-      - run: ./scripts/command-test.sh target/release/yutu
+      - run: ./scripts/command-test.sh target/release/youtube

@@ -12,9 +12,9 @@ short = "Delete captions"
 long = "Delete captions. Use this tool to delete captions of a video by IDs."
 example = """
 # Delete a caption by ID
-yutu caption delete --ids abc123
+youtube caption delete --ids abc123
 # Delete multiple captions
-yutu caption delete --ids abc123,def456"""
+youtube caption delete --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -84,11 +84,11 @@ short = "Download a caption"
 long = "Download a caption. Use this tool to download a caption from a video."
 example = """
 # Download a caption as SRT
-yutu caption download --id abc123 --file subtitle.srt
+youtube caption download --id abc123 --file subtitle.srt
 # Download a caption as VTT
-yutu caption download --id abc123 --file subtitle.vtt --tfmt vtt
+youtube caption download --id abc123 --file subtitle.vtt --tfmt vtt
 # Download a caption translated to French
-yutu caption download --id abc123 --file subtitle.srt --tlang fr"""
+youtube caption download --id abc123 --file subtitle.srt --tlang fr"""
 runnable = true
 
 [command.tool]
@@ -198,11 +198,11 @@ short = "Upload a caption"
 long = "Upload a caption. Use this tool to upload a caption to a video."
 example = """
 # Insert a caption to a video
-yutu caption insert --file subtitle.srt --videoId dQw4w9WgXcQ
+youtube caption insert --file subtitle.srt --videoId dQw4w9WgXcQ
 # Insert a caption with language and name
-yutu caption insert --file subtitle.srt --videoId dQw4w9WgXcQ --language en --name English
+youtube caption insert --file subtitle.srt --videoId dQw4w9WgXcQ --language en --name English
 # Insert a standard caption and publish immediately
-yutu caption insert --file subtitle.srt --videoId dQw4w9WgXcQ --trackKind standard --isDraft=false"""
+youtube caption insert --file subtitle.srt --videoId dQw4w9WgXcQ --trackKind standard --isDraft=false"""
 runnable = true
 
 [command.tool]
@@ -416,11 +416,11 @@ short = "List captions"
 long = "List captions. Use this tool to list captions of a video."
 example = """
 # List captions of a video
-yutu caption list --videoId dQw4w9WgXcQ
+youtube caption list --videoId dQw4w9WgXcQ
 # List captions in JSON format
-yutu caption list --videoId dQw4w9WgXcQ --output json
+youtube caption list --videoId dQw4w9WgXcQ --output json
 # List specific captions by IDs
-yutu caption list --ids abc123,def456 --videoId dQw4w9WgXcQ"""
+youtube caption list --ids abc123,def456 --videoId dQw4w9WgXcQ"""
 runnable = true
 
 [command.tool]
@@ -525,11 +525,11 @@ short = "Update a caption"
 long = "Update a caption. Use this tool to update a caption."
 example = """
 # Publish a draft caption
-yutu caption update --videoId dQw4w9WgXcQ --isDraft=false
+youtube caption update --videoId dQw4w9WgXcQ --isDraft=false
 # Update caption language and name
-yutu caption update --videoId dQw4w9WgXcQ --language en --name English
+youtube caption update --videoId dQw4w9WgXcQ --language en --name English
 # Update caption file
-yutu caption update --videoId dQw4w9WgXcQ --file updated.srt"""
+youtube caption update --videoId dQw4w9WgXcQ --file updated.srt"""
 runnable = true
 
 [command.tool]

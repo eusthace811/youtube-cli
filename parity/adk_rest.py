@@ -1,13 +1,13 @@
-"""Records the ADK REST, A2A, trigger and web UI surface of `yutu agent
+"""Records the ADK REST, A2A, trigger and web UI surface of `youtube agent
 --args "web ..."` and diffs two binaries on it.
 
 `record` runs the corpus below against the Go harness and writes the
-normalized exchanges to crates/yutu-agent/tests/fixtures/adk-rest.json, which
-crates/yutu-agent/tests/api.rs replays against head. `compare` runs the corpus
+normalized exchanges to crates/youtube-agent/tests/fixtures/adk-rest.json, which
+crates/youtube-agent/tests/api.rs replays against head. `compare` runs the corpus
 on two binaries and prints every exchange that differs.
 
     python3 -I parity/adk_rest.py record --go ref/yutu-go-harness
-    python3 -I parity/adk_rest.py compare --go ref/yutu-go-harness --head /tmp/yutu
+    python3 -I parity/adk_rest.py compare --go ref/yutu-go-harness --head /tmp/youtube
 """
 import argparse
 import hashlib
@@ -20,7 +20,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from web_server import WebAgent  # noqa: E402
 
-FIXTURE = HERE.parent / "crates/yutu-agent/tests/fixtures/adk-rest.json"
+FIXTURE = HERE.parent / "crates/youtube-agent/tests/fixtures/adk-rest.json"
 ARGS = "web webui api a2a pubsub eventarc"
 PORT = 18481
 

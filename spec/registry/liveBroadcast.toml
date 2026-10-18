@@ -12,9 +12,9 @@ short = "Bind a live broadcast to a stream"
 long = "Bind a live broadcast to a stream. Use this tool to bind or unbind a live stream to/from a live broadcast."
 example = """
 # Bind a broadcast to a stream
-yutu liveBroadcast bind --ids broadcast123 --streamId stream456
+youtube liveBroadcast bind --ids broadcast123 --streamId stream456
 # Unbind a broadcast (omit streamId)
-yutu liveBroadcast bind --ids broadcast123"""
+youtube liveBroadcast bind --ids broadcast123"""
 runnable = true
 
 [command.tool]
@@ -132,9 +132,9 @@ short = "Delete live broadcasts"
 long = "Delete live broadcasts. Use this tool to delete live broadcasts by their IDs."
 example = """
 # Delete a live broadcast by ID
-yutu liveBroadcast delete --ids broadcast123
+youtube liveBroadcast delete --ids broadcast123
 # Delete multiple live broadcasts
-yutu liveBroadcast delete --ids broadcast123,broadcast456"""
+youtube liveBroadcast delete --ids broadcast123,broadcast456"""
 runnable = true
 
 [command.tool]
@@ -204,9 +204,9 @@ short = "Create a live broadcast"
 long = "Create a live broadcast. Use this tool to create a live broadcast for the authenticated user."
 example = """
 # Create a public live broadcast
-yutu liveBroadcast insert --title "My Broadcast" --privacyStatus public --scheduledStartTime 2026-01-01T00:00:00Z
+youtube liveBroadcast insert --title "My Broadcast" --privacyStatus public --scheduledStartTime 2026-01-01T00:00:00Z
 # Create a private broadcast with description
-yutu liveBroadcast insert --title "Test Stream" --description "Testing" --privacyStatus private --scheduledStartTime 2026-01-01T00:00:00Z"""
+youtube liveBroadcast insert --title "Test Stream" --description "Testing" --privacyStatus private --scheduledStartTime 2026-01-01T00:00:00Z"""
 runnable = true
 
 [command.tool]
@@ -360,9 +360,9 @@ short = "Insert a cuepoint into a live broadcast"
 long = "Insert a cuepoint into a live broadcast. Use this tool to insert an ad break cuepoint into a currently live broadcast."
 example = """
 # Insert an ad cuepoint of 30 seconds
-yutu liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueDurationSecs 30
+youtube liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueDurationSecs 30
 # Insert a cuepoint with offset
-yutu liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueInsertionOffsetMs 5000"""
+youtube liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueInsertionOffsetMs 5000"""
 runnable = true
 
 [command.tool]
@@ -499,11 +499,11 @@ short = "List live broadcasts"
 long = "List live broadcasts. Use this tool to list live broadcasts for the authenticated user."
 example = """
 # List my live broadcasts
-yutu liveBroadcast list --mine
+youtube liveBroadcast list --mine
 # List live broadcasts by ID
-yutu liveBroadcast list --ids broadcast1,broadcast2
+youtube liveBroadcast list --ids broadcast1,broadcast2
 # List active live broadcasts
-yutu liveBroadcast list --mine --broadcastStatus active --output json"""
+youtube liveBroadcast list --mine --broadcastStatus active --output json"""
 runnable = true
 
 [command.tool]
@@ -656,9 +656,9 @@ short = "Transition a live broadcast"
 long = "Transition a live broadcast. Use this tool to change the status of a live broadcast (e.g., go live, end broadcast)."
 example = """
 # Transition a broadcast to live
-yutu liveBroadcast transition --ids broadcast123 --broadcastStatus live
+youtube liveBroadcast transition --ids broadcast123 --broadcastStatus live
 # End a broadcast
-yutu liveBroadcast transition --ids broadcast123 --broadcastStatus complete"""
+youtube liveBroadcast transition --ids broadcast123 --broadcastStatus complete"""
 runnable = true
 
 [command.tool]
@@ -782,9 +782,9 @@ short = "Update a live broadcast"
 long = "Update a live broadcast. Use this tool to update an existing live broadcast's settings."
 example = """
 # Update live broadcast title
-yutu liveBroadcast update --id broadcast123 --title "New Title"
+youtube liveBroadcast update --id broadcast123 --title "New Title"
 # Update privacy status
-yutu liveBroadcast update --id broadcast123 --privacyStatus unlisted"""
+youtube liveBroadcast update --id broadcast123 --privacyStatus unlisted"""
 runnable = true
 
 [command.tool]

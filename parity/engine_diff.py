@@ -1,7 +1,7 @@
 """Runs command lines that exercise the cobra/pflag engine against the Go
 oracle and a Rust binary, and prints every difference.
 
-    python3 -I parity/engine_diff.py --go ref/yutu-go --bin target/release/yutu
+    python3 -I parity/engine_diff.py --go ref/yutu-go --bin target/release/youtube
 
 The cases in engine-cases.json cover parsing errors, help routing,
 suggestions, `__complete` and the version banner's terminal heuristics.

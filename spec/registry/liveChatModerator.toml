@@ -12,9 +12,9 @@ short = "Delete live chat moderators"
 long = "Delete live chat moderators. Use this tool to remove moderators from a live chat by their IDs."
 example = """
 # Delete a live chat moderator by ID
-yutu liveChatModerator delete --ids abc123
+youtube liveChatModerator delete --ids abc123
 # Delete multiple live chat moderators
-yutu liveChatModerator delete --ids abc123,def456"""
+youtube liveChatModerator delete --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -62,7 +62,7 @@ short = "Add a live chat moderator"
 long = "Add a live chat moderator. Use this tool to add a moderator to a live chat."
 example = """
 # Add a moderator to a live chat
-yutu liveChatModerator insert --liveChatId abc123 --moderatorChannelId UC_xyz"""
+youtube liveChatModerator insert --liveChatId abc123 --moderatorChannelId UC_xyz"""
 runnable = true
 
 [command.tool]
@@ -154,9 +154,9 @@ short = "List live chat moderators"
 long = "List live chat moderators. Use this tool to list moderators for a live chat."
 example = """
 # List moderators for a live chat
-yutu liveChatModerator list --liveChatId abc123
+youtube liveChatModerator list --liveChatId abc123
 # List moderators with limit
-yutu liveChatModerator list --liveChatId abc123 --maxResults 10"""
+youtube liveChatModerator list --liveChatId abc123 --maxResults 10"""
 runnable = true
 
 [command.tool]

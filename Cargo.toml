@@ -1,7 +1,7 @@
 [workspace]
 resolver = "3"
 members = ["crates/*", "xtask"]
-default-members = ["crates/yutu"]
+default-members = ["crates/youtube"]
 
 [workspace.package]
 version = "0.11.0"
@@ -11,11 +11,11 @@ rust-version = "1.99.1"
 repository = "https://github.com/eat-pray-ai/yutu"
 
 [workspace.dependencies]
-yutu-api = { path = "crates/yutu-api" }
-yutu-auth = { path = "crates/yutu-auth" }
-yutu-core = { path = "crates/yutu-core" }
-yutu-mcp = { path = "crates/yutu-mcp" }
-yutu-agent = { path = "crates/yutu-agent" }
+youtube-api = { path = "crates/youtube-api" }
+youtube-auth = { path = "crates/youtube-auth" }
+youtube-core = { path = "crates/youtube-core" }
+youtube-mcp = { path = "crates/youtube-mcp" }
+youtube-agent = { path = "crates/youtube-agent" }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["preserve_order"] }
 toml = "0.9"
@@ -27,7 +27,7 @@ strip = true
 panic = "abort"
 opt-level = 3
 
-# Build scripts run optimized: yutu-agent's compresses the dev UI bundle.
+# Build scripts run optimized: youtube-agent's compresses the dev UI bundle.
 [profile.release.build-override]
 opt-level = 3
 

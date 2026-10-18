@@ -1,4 +1,4 @@
-// Command yutu-go-tokenwrite writes a token file exactly as yutu's Go
+// Command yutu-go-tokenwrite writes a token file exactly as youtube's Go
 // saveToken does, for the lanes that check Go and Rust share token files.
 //
 //	yutu-go-tokenwrite <file> <access-token> <refresh-token> <expiry RFC3339>

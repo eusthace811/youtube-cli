@@ -12,7 +12,7 @@ short = "List Super Chat events"
 long = "List Super Chat events. Use this tool to list Super Chat events."
 example = """
 # List Super Chat events
-yutu superChatEvent list --maxResults 10"""
+youtube superChatEvent list --maxResults 10"""
 runnable = true
 
 [command.tool]

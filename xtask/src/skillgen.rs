@@ -12,7 +12,7 @@ const SEO_GUIDE: &str = include_str!("../skill-refs/seo-guide.md");
 
 const DESCRIPTION: &str = "Use whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, and more.";
 
-const COMPATIBILITY: &str = "Requires the yutu CLI binary (installable via npm, brew, or winget) and Google Cloud OAuth credentials for YouTube Data API v3.";
+const COMPATIBILITY: &str = "Requires the youtube CLI binary (installable via npm, brew, or winget) and Google Cloud OAuth credentials for YouTube Data API v3.";
 
 const SAFETY_RULES: &str = "- **Confirm before deleting**: Always list exactly what will be deleted and get explicit user confirmation before calling any destructive tool.
 - **Verify targets**: Before modifying or deleting, use a read tool to confirm the resource exists and matches the user's intent.
@@ -55,7 +55,7 @@ const SECTIONS: [(Effect, &str); 4] = [
 ];
 
 /// The external skill ships setup instructions; the agent's embedded copy
-/// runs inside an installed yutu and does not.
+/// runs inside an installed youtube and does not.
 #[derive(Clone, Copy, PartialEq)]
 enum Target {
     External,
@@ -79,21 +79,21 @@ fn generate(registry: &Registry) -> Vec<Generated> {
         file("skills/youtube/references/workflows.md", WORKFLOWS.into()),
         file("skills/youtube/references/seo-guide.md", SEO_GUIDE.into()),
         // Go writes the agent's copies under cmd/agent. They move to
-        // crates/yutu-agent/assets once that crate embeds them.
+        // crates/youtube-agent/assets once that crate embeds them.
         file(
-            "crates/yutu-agent/assets/INSTRUCTION.md",
+            "crates/youtube-agent/assets/INSTRUCTION.md",
             INSTRUCTION.into(),
         ),
         file(
-            "crates/yutu-agent/assets/skills/youtube/SKILL.md",
+            "crates/youtube-agent/assets/skills/youtube/SKILL.md",
             skill(registry, Target::Agent),
         ),
         file(
-            "crates/yutu-agent/assets/skills/youtube/references/workflows.md",
+            "crates/youtube-agent/assets/skills/youtube/references/workflows.md",
             WORKFLOWS.into(),
         ),
         file(
-            "crates/yutu-agent/assets/skills/youtube/references/seo-guide.md",
+            "crates/youtube-agent/assets/skills/youtube/references/seo-guide.md",
             SEO_GUIDE.into(),
         ),
     ]
@@ -136,7 +136,7 @@ fn skill(registry: &Registry, target: Target) -> String {
     )
     .unwrap();
     if target == Target::External {
-        b.push_str("## Setup\n\nEnsure `yutu` is installed and running as an MCP server. See [references/setup.md](references/setup.md).\n\n");
+        b.push_str("## Setup\n\nEnsure `youtube` is installed and running as an MCP server. See [references/setup.md](references/setup.md).\n\n");
     }
     writeln!(b, "## Key Principles\n\n{SAFETY_RULES}\n").unwrap();
     b.push_str("## Tools\n");

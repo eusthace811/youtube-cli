@@ -1,5 +1,5 @@
 //! The slice of spec/registry/*.toml the generators need: command paths,
-//! short help, and each tool's name and effect. yutu-core's build script
+//! short help, and each tool's name and effect. youtube-core's build script
 //! reads the same files, so the generators and the binary share one source.
 
 use serde::Deserialize;

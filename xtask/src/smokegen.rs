@@ -12,31 +12,31 @@ const HEADER: &str = r#"#!/usr/bin/env bash
 
 set -euo pipefail
 
-# Accept yutu executable path as first parameter
-YUTU_PATH="${1:-}"
+# Accept youtube executable path as first parameter
+YOUTUBE_CLI_PATH="${1:-}"
 
-# If no path provided, build yutu
-if [[ -z "$YUTU_PATH" ]]; then
-    echo "No yutu path provided, building yutu..."
-    cargo build --release --locked -p yutu
-    YUTU_PATH="${CARGO_TARGET_DIR:-target}/release/yutu"
+# If no path provided, build youtube
+if [[ -z "$YOUTUBE_CLI_PATH" ]]; then
+    echo "No youtube path provided, building youtube..."
+    cargo build --release --locked -p youtube
+    YOUTUBE_CLI_PATH="${CARGO_TARGET_DIR:-target}/release/youtube"
 else
     # Verify the provided path exists and is executable
-    if [[ ! -f "$YUTU_PATH" ]]; then
-        echo "Error: yutu executable not found at: $YUTU_PATH"
+    if [[ ! -f "$YOUTUBE_CLI_PATH" ]]; then
+        echo "Error: youtube executable not found at: $YOUTUBE_CLI_PATH"
         exit 1
     fi
-    if [[ ! -x "$YUTU_PATH" ]]; then
-        echo "Error: $YUTU_PATH is not executable"
+    if [[ ! -x "$YOUTUBE_CLI_PATH" ]]; then
+        echo "Error: $YOUTUBE_CLI_PATH is not executable"
         exit 1
     fi
-    echo "Using yutu at: $YUTU_PATH"
+    echo "Using youtube at: $YOUTUBE_CLI_PATH"
 fi
 
-# Run tests with the yutu executable
-"$YUTU_PATH" help
-"$YUTU_PATH" completion
-"$YUTU_PATH" version
+# Run tests with the youtube executable
+"$YOUTUBE_CLI_PATH" help
+"$YOUTUBE_CLI_PATH" completion
+"$YOUTUBE_CLI_PATH" version
 "#;
 
 pub fn run(args: &[String]) -> Result<(), String> {
@@ -51,24 +51,24 @@ pub fn run(args: &[String]) -> Result<(), String> {
 
 fn generate(registry: &Registry) -> String {
     let mut b = String::from(HEADER);
-    b.push_str("\n# yutu\n");
+    b.push_str("\n# youtube\n");
     for c in registry.children("") {
         let name = c.name();
         if ["help", "completion", "version"].contains(&name) || c.short.starts_with("Manage") {
             continue;
         }
         writeln!(b, "echo \"======= {name} =======\"").unwrap();
-        writeln!(b, "\"$YUTU_PATH\" {name} --help\n").unwrap();
+        writeln!(b, "\"$YOUTUBE_CLI_PATH\" {name} --help\n").unwrap();
     }
     b.push_str("# youtube api\n");
     for r in registry.resources() {
         let name = r.name();
         writeln!(b, "echo \"======= {name} =======\"").unwrap();
-        writeln!(b, "\"$YUTU_PATH\" {name} --help").unwrap();
+        writeln!(b, "\"$YOUTUBE_CLI_PATH\" {name} --help").unwrap();
         for sub in registry.children(&r.path) {
             let verb = sub.name();
             writeln!(b, "echo \"------- {verb} -------\"").unwrap();
-            writeln!(b, "\"$YUTU_PATH\" {name} {verb} --help").unwrap();
+            writeln!(b, "\"$YOUTUBE_CLI_PATH\" {name} {verb} --help").unwrap();
         }
         b.push('\n');
     }

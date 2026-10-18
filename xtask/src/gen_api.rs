@@ -1,4 +1,4 @@
-//! Generates crates/yutu-api/src/generated.rs from spec/youtube-v3.json and
+//! Generates crates/youtube-api/src/generated.rs from spec/youtube-v3.json and
 //! the Go struct layout in parity/golden/go-dump.json. The output is the type
 //! table the codec walks and the method table the client builds requests from.
 
@@ -21,7 +21,7 @@ pub fn run(args: &[String]) -> Result<(), String> {
     )
     .map_err(|e| e.to_string())?;
     let (text, methods, schemas) = generate(&spec, &dump)?;
-    let path = root.join("crates/yutu-api/src/generated.rs");
+    let path = root.join("crates/youtube-api/src/generated.rs");
     if args.iter().any(|a| a == "--check") {
         let current = fs::read_to_string(&path).unwrap_or_default();
         if current != text {

@@ -1,8 +1,8 @@
 """R10 lanes for the web launchers: Go harness vs head on the same mock LLM
 and YouTube recorder. Writes docs/evidence/r10.
 
-    python3 -I parity/web_lane.py --go ref/yutu-go-harness --head /tmp/yutu-parity \\
-        --shipped /tmp/yutu [--lanes 1,3] [--soak 120]
+    python3 -I parity/web_lane.py --go ref/yutu-go-harness --head /tmp/youtube-parity \\
+        --shipped /tmp/youtube [--lanes 1,3] [--soak 120]
 """
 import argparse
 import json
@@ -219,22 +219,22 @@ def lane8(head, shipped, xtask_cmd):
                         "console -otel_to_cloud"], input=b"", capture_output=True, timeout=60)
     cnotice = [l for l in p.stderr.decode().splitlines() if "telemetry" in l]
     ev(f"console: {cnotice}")
-    ok = len(notice) == 1 and "telemetry is not supported in yutu-rs" in notice[0] and len(cnotice) == 1
+    ok = len(notice) == 1 and "telemetry is not supported in youtube-cli" in notice[0] and len(cnotice) == 1
     ev()
     ev(f"$ cargo run -p xtask -- egress {shipped}")
     e = subprocess.run(xtask_cmd + ["egress", str(shipped)], capture_output=True, text=True, cwd=ROOT)
     ev((e.stdout + e.stderr).rstrip())
     ev(f"exit {e.returncode}")
-    bundle = sorted((ROOT / "crates/yutu-agent/assets/webui/distr").rglob("*"))
+    bundle = sorted((ROOT / "crates/youtube-agent/assets/webui/distr").rglob("*"))
     b = subprocess.run(xtask_cmd + ["egress"] + [str(f) for f in bundle if f.is_file()], capture_output=True,
                        text=True, cwd=ROOT)
     hosts = lambda s: sorted(re.findall(r"unexpected host (\S+):", s))  # noqa: E731
     ev()
-    ev("The same check over the vendored dev UI bundle files alone (crates/yutu-agent/assets/webui/distr):")
+    ev("The same check over the vendored dev UI bundle files alone (crates/youtube-agent/assets/webui/distr):")
     ev(f"unexpected hosts: {hosts(b.stdout)}")
     rest = sorted(set(hosts(e.stdout)) - set(hosts(b.stdout)))
     ev(f"hosts in the binary but not in the bundle: {rest}")
-    ev("  ai.google.dev: the R9 API-key error text (crates/yutu-agent/src/lib.rs at aaa60ff), printed, never fetched.")
+    ev("  ai.google.dev: the R9 API-key error text (crates/youtube-agent/src/lib.rs at aaa60ff), printed, never fetched.")
     ev("  docs.rs: rustls's own error texts, present since R9; R11 (e5992d4) lists both as display-only.")
     ev("google.github.io is also the A2A extension URI ADK puts on the card and task metadata, an identifier R10")
     ev("adds; the bundle names the same host in its docs links.")
@@ -242,7 +242,7 @@ def lane8(head, shipped, xtask_cmd):
     why = ("The notice prints in both launchers and xtask egress passes." if ok else
            "The notice prints in both launchers, but xtask egress FAILS. The hosts R10 adds are the embedded dev UI "
            "bundle's URLs, served to the browser (the browser fetches fonts.googleapis.com and fonts.gstatic.com when "
-           "the UI loads; the rest are doc links and XML namespaces), plus the A2A extension URI. yutu's code fetches "
+           "the UI loads; the rest are doc links and XML namespaces), plus the A2A extension URI. youtube's code fetches "
            "none of them. The remaining two hosts predate R10. Needs a root decision: an xtask category for the served "
            "bundle and the A2A identifier, or a modified bundle.")
     return ev.save(ok, why)
@@ -424,5 +424,5 @@ def main():
 
 
 if __name__ == "__main__":
-    os.environ.setdefault("YUTU_LOG_LEVEL", "INFO")
+    os.environ.setdefault("YOUTUBE_CLI_LOG_LEVEL", "INFO")
     main()

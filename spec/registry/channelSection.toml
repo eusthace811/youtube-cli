@@ -12,9 +12,9 @@ short = "Delete channel sections"
 long = "Delete channel sections. Use this tool to delete channel sections by IDs."
 example = """
 # Delete a channel section by ID
-yutu channelSection delete --ids abc123
+youtube channelSection delete --ids abc123
 # Delete multiple channel sections
-yutu channelSection delete --ids abc123,def456"""
+youtube channelSection delete --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -73,11 +73,11 @@ short = "List channel sections"
 long = "List channel sections. Use this tool to list channel sections."
 example = """
 # List my channel sections
-yutu channelSection list --mine
+youtube channelSection list --mine
 # List channel sections by channel ID
-yutu channelSection list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw
+youtube channelSection list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw
 # List specific channel sections in JSON format
-yutu channelSection list --ids abc123,def456 --output json"""
+youtube channelSection list --ids abc123,def456 --output json"""
 runnable = true
 
 [command.tool]

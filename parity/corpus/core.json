@@ -513,7 +513,7 @@
    "auth"
   ],
   "env": {
-   "YUTU_CREDENTIAL": "%%%"
+   "YOUTUBE_CLI_CREDENTIAL": "%%%"
   }
  },
  {

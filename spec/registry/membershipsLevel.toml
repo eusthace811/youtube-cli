@@ -12,7 +12,7 @@ short = "List membership levels"
 long = "List membership levels. Use this tool to list membership levels."
 example = """
 # List membership levels in JSON format
-yutu membershipsLevel list --output json"""
+youtube membershipsLevel list --output json"""
 runnable = true
 
 [command.tool]

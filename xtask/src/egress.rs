@@ -1,5 +1,5 @@
 //! `xtask egress BINARY...`: fails when a binary's strings name a network
-//! host outside the hosts yutu is allowed to reach.
+//! host outside the hosts youtube is allowed to reach.
 
 use std::collections::BTreeMap;
 
@@ -14,7 +14,7 @@ const ALLOWED: &[&str] = &[
     "127.0.0.1",
 ];
 
-/// URLs yutu prints but never requests, each with the text that carries
+/// URLs youtube prints but never requests, each with the text that carries
 /// it. An occurrence is exempt only when the binary spells out the whole
 /// URL and does not extend its path, so other URLs on the same host fail.
 const DISPLAY_ONLY: &[(&str, &str)] = &[
@@ -36,7 +36,7 @@ const DISPLAY_ONLY: &[(&str, &str)] = &[
     ),
     (
         "https://github.com/eat-pray-ai/yutu",
-        "the `yutu version` banner link",
+        "the `youtube version` banner link",
     ),
     (
         "https://github.com/spf13/cobra/issues/1279",
@@ -48,7 +48,7 @@ const DISPLAY_ONLY: &[(&str, &str)] = &[
     ),
     (
         "https://github.com/eat-pray-ai/yutu#prerequisites",
-        "the yutu-auth error that points at the README's credential setup",
+        "the youtube-auth error that points at the README's credential setup",
     ),
     (
         "https://docs.rs/rustls/latest/rustls/#cryptography-providers",
@@ -60,11 +60,11 @@ const DISPLAY_ONLY: &[(&str, &str)] = &[
     ),
     (
         "https://custom.endpoint.com/",
-        "the `yutu agent --help` example of --base-url",
+        "the `youtube agent --help` example of --base-url",
     ),
     (
         "https://api.deepseek.com/",
-        "the `yutu agent --help` example of --base-url",
+        "the `youtube agent --help` example of --base-url",
     ),
 ];
 

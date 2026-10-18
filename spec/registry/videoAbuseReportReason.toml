@@ -12,7 +12,7 @@ short = "List video abuse report reasons"
 long = "List video abuse report reasons. Use this tool to list available abuse report reasons."
 example = """
 # List video abuse report reasons
-yutu videoAbuseReportReason list --hl en"""
+youtube videoAbuseReportReason list --hl en"""
 runnable = true
 
 [command.tool]

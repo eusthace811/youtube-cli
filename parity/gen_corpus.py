@@ -182,7 +182,7 @@ def core_cases():
     c.append({"id": "core.help-unknown", "group": "help", "effect": "core", "argv": ["help", "nope"]})
     for name, argv, env in (("bad-json", ["auth", "-c", '{"bad":1}'], {}),
                             ("missing-file", ["auth", "-c", "nonexistent.json"], {}),
-                            ("env-garbage", ["auth"], {"YUTU_CREDENTIAL": "%%%"}),
+                            ("env-garbage", ["auth"], {"YOUTUBE_CLI_CREDENTIAL": "%%%"}),
                             ("default-missing", ["auth"], {})):
         c.append({"id": f"core.auth.{name}", "group": "auth", "effect": "core", "argv": argv, "env": env})
     for sh in ("bash", "zsh", "fish", "powershell"):

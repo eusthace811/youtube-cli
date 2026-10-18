@@ -1,6 +1,6 @@
 """Generates parity/corpus/mcp-http.json from the MCP corpus.
 
-Each case is a list of HTTP exchanges against `yutu mcp --mode http`, with
+Each case is a list of HTTP exchanges against `youtube mcp --mode http`, with
 tokens the mock tokeninfo (parity/tokeninfo.py) knows. It covers every
 tool's defaults call, the lists and resources, a few gated writes over both
 protocols, and the transport's auth, routing and error paths.

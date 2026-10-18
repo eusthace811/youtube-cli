@@ -12,9 +12,9 @@ short = "Delete live streams"
 long = "Delete live streams. Use this tool to delete live streams by their IDs."
 example = """
 # Delete a live stream by ID
-yutu liveStream delete --ids stream123
+youtube liveStream delete --ids stream123
 # Delete multiple live streams
-yutu liveStream delete --ids stream123,stream456"""
+youtube liveStream delete --ids stream123,stream456"""
 runnable = true
 
 [command.tool]
@@ -84,9 +84,9 @@ short = "Create a live stream"
 long = "Create a live stream. Use this tool to create a live stream."
 example = """
 # Create a live stream with RTMP at 1080p
-yutu liveStream insert --title "My Stream" --ingestionType rtmp --resolution 1080p --frameRate 60fps
+youtube liveStream insert --title "My Stream" --ingestionType rtmp --resolution 1080p --frameRate 60fps
 # Create a live stream with description
-yutu liveStream insert --title "Gaming Stream" --description "Live gaming session" --ingestionType rtmp --resolution 720p"""
+youtube liveStream insert --title "Gaming Stream" --description "Live gaming session" --ingestionType rtmp --resolution 720p"""
 runnable = true
 
 [command.tool]
@@ -258,11 +258,11 @@ short = "List live streams"
 long = "List live streams. Use this tool to list live streams for the authenticated user."
 example = """
 # List my live streams
-yutu liveStream list --mine
+youtube liveStream list --mine
 # List live streams by ID
-yutu liveStream list --ids stream1,stream2
+youtube liveStream list --ids stream1,stream2
 # List live streams in JSON format
-yutu liveStream list --mine --output json --maxResults 10"""
+youtube liveStream list --mine --output json --maxResults 10"""
 runnable = true
 
 [command.tool]
@@ -383,9 +383,9 @@ short = "Update a live stream"
 long = "Update a live stream. Use this tool to update an existing live stream's settings."
 example = """
 # Update live stream title
-yutu liveStream update --id stream123 --title "New Title"
+youtube liveStream update --id stream123 --title "New Title"
 # Update live stream CDN settings
-yutu liveStream update --id stream123 --resolution 1080p --frameRate 60fps"""
+youtube liveStream update --id stream123 --resolution 1080p --frameRate 60fps"""
 runnable = true
 
 [command.tool]

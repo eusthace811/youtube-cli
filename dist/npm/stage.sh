@@ -8,9 +8,9 @@
 #
 # Usage: dist/npm/stage.sh VERSION BIN_DIR OUT_DIR [PACKAGE...]
 #   VERSION   version without the leading v, e.g. 0.11.0
-#   BIN_DIR   directory holding the release assets (yutu-darwin-arm64, ...)
+#   BIN_DIR   directory holding the release assets (youtube-darwin-arm64, ...)
 #   PACKAGE   platform packages to stage (default: all four); the wrapper
-#             package yutu is always staged
+#             package youtube is always staged
 
 set -euo pipefail
 
@@ -26,15 +26,15 @@ LICENSE="${NPM_DIR}/../LICENSE"
 # script runs on macOS's bash 3.2.
 asset_of() {
   case "$1" in
-    yutu-darwin-arm64) echo "yutu-darwin-arm64" ;;
-    yutu-darwin-x64) echo "yutu-darwin-amd64" ;;
-    yutu-linux-arm64) echo "yutu-linux-arm64" ;;
-    yutu-linux-x64) echo "yutu-linux-amd64" ;;
+    youtube-darwin-arm64) echo "youtube-darwin-arm64" ;;
+    youtube-darwin-x64) echo "youtube-darwin-amd64" ;;
+    youtube-linux-arm64) echo "youtube-linux-arm64" ;;
+    youtube-linux-x64) echo "youtube-linux-amd64" ;;
   esac
 }
 
 if [[ $# -eq 0 ]]; then
-  set -- yutu-darwin-arm64 yutu-darwin-x64 yutu-linux-arm64 yutu-linux-x64
+  set -- youtube-darwin-arm64 youtube-darwin-x64 youtube-linux-arm64 youtube-linux-x64
 fi
 
 stage() {
@@ -47,8 +47,8 @@ stage() {
   rm -f "${dest}/package.json.bak"
 }
 
-stage yutu
-echo "staged ${OUT_DIR}/yutu"
+stage youtube
+echo "staged ${OUT_DIR}/youtube"
 
 for pkg in "$@"; do
   asset="$(asset_of "${pkg}")"
@@ -61,7 +61,7 @@ for pkg in "$@"; do
     exit 1
   fi
   stage "${pkg}"
-  bin="yutu"
+  bin="youtube"
   mkdir -p "${OUT_DIR}/${pkg}/bin"
   cp "${BIN_DIR}/${asset}" "${OUT_DIR}/${pkg}/bin/${bin}"
   chmod +x "${OUT_DIR}/${pkg}/bin/${bin}"

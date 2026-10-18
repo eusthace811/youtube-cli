@@ -12,9 +12,9 @@ short = "Delete playlists"
 long = "Delete playlists. Use this tool to delete playlists by IDs."
 example = """
 # Delete a playlist by ID
-yutu playlist delete --ids PLxxxx
+youtube playlist delete --ids PLxxxx
 # Delete multiple playlists
-yutu playlist delete --ids PLxxx1,PLxxx2"""
+youtube playlist delete --ids PLxxx1,PLxxx2"""
 runnable = true
 
 [command.tool]
@@ -73,11 +73,11 @@ short = "Create a playlist"
 long = "Create a playlist. Use this tool to create a playlist."
 example = """
 # Create a public playlist
-yutu playlist insert --title 'My Playlist' --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --privacy public
+youtube playlist insert --title 'My Playlist' --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --privacy public
 # Create a private playlist with description
-yutu playlist insert --title 'Tutorial Series' --channelId UC_x5X --privacy private --description 'My tutorials'
+youtube playlist insert --title 'Tutorial Series' --channelId UC_x5X --privacy private --description 'My tutorials'
 # Create an unlisted playlist with tags
-yutu playlist insert --title 'Music' --channelId UC_x5X --privacy unlisted --tags 'music,pop'"""
+youtube playlist insert --title 'Music' --channelId UC_x5X --privacy unlisted --tags 'music,pop'"""
 runnable = true
 
 [command.tool]
@@ -206,11 +206,11 @@ short = "List playlists"
 long = "List playlists. Use this tool to list playlists."
 example = """
 # List my playlists
-yutu playlist list --mine
+youtube playlist list --mine
 # List playlists by channel ID with limit
-yutu playlist list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10
+youtube playlist list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10
 # List specific playlists in JSON format
-yutu playlist list --ids PLxxx1,PLxxx2 --output json"""
+youtube playlist list --ids PLxxx1,PLxxx2 --output json"""
 runnable = true
 
 [command.tool]
@@ -352,11 +352,11 @@ short = "Update a playlist"
 long = "Update a playlist. Use this tool to update a playlist."
 example = """
 # Update playlist title
-yutu playlist update --id PLxxx --title 'Updated Title'
+youtube playlist update --id PLxxx --title 'Updated Title'
 # Update playlist description and privacy
-yutu playlist update --id PLxxx --description 'New description' --privacy public
+youtube playlist update --id PLxxx --description 'New description' --privacy public
 # Update playlist tags
-yutu playlist update --id PLxxx --tags 'music,pop,2024'"""
+youtube playlist update --id PLxxx --tags 'music,pop,2024'"""
 runnable = true
 
 [command.tool]

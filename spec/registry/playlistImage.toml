@@ -12,9 +12,9 @@ short = "Delete playlist images"
 long = "Delete playlist images. Use this tool to delete playlist images by IDs."
 example = """
 # Delete a playlist image by ID
-yutu playlistImage delete --ids abc123
+youtube playlistImage delete --ids abc123
 # Delete multiple playlist images
-yutu playlistImage delete --ids abc123,def456"""
+youtube playlistImage delete --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -73,11 +73,11 @@ short = "Upload a playlist image"
 long = "Upload a playlist image. Use this tool to upload a playlist image."
 example = """
 # Insert a playlist cover image
-yutu playlistImage insert --file cover.jpg --playlistId PLxxx
+youtube playlistImage insert --file cover.jpg --playlistId PLxxx
 # Insert a hero image
-yutu playlistImage insert --file cover.png --playlistId PLxxx --type hero
+youtube playlistImage insert --file cover.png --playlistId PLxxx --type hero
 # Insert an image with custom dimensions
-yutu playlistImage insert --file cover.jpg --playlistId PLxxx --width 2048 --height 1152"""
+youtube playlistImage insert --file cover.jpg --playlistId PLxxx --width 2048 --height 1152"""
 runnable = true
 
 [command.tool]
@@ -209,9 +209,9 @@ short = "List playlist images"
 long = "List playlist images. Use this tool to list playlist images."
 example = """
 # List images of a playlist
-yutu playlistImage list --parent PLxxx
+youtube playlistImage list --parent PLxxx
 # List playlist images with limit in JSON format
-yutu playlistImage list --parent PLxxx --maxResults 10 --output json"""
+youtube playlistImage list --parent PLxxx --maxResults 10 --output json"""
 runnable = true
 
 [command.tool]
@@ -316,7 +316,7 @@ short = "Update a playlist image"
 long = "Update a playlist image. Use this tool to update a playlist image."
 example = """
 # Update a playlist image
-yutu playlistImage update --playlistId PLxxx --type hero --width 2048 --height 1152"""
+youtube playlistImage update --playlistId PLxxx --type hero --width 2048 --height 1152"""
 runnable = true
 
 [command.tool]

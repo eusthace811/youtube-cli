@@ -1,6 +1,6 @@
 """Minimal MCP client for lanes and benchmarks, over stdio or streamable HTTP.
 
-    python3 -I parity/mcp_client.py --stdio target/release/yutu call video-list '{"ids":["a"]}'
+    python3 -I parity/mcp_client.py --stdio target/release/youtube call video-list '{"ids":["a"]}'
     python3 -I parity/mcp_client.py --http http://localhost:8216/mcp --token T list
 """
 import argparse

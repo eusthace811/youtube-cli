@@ -1,0 +1,20 @@
+[package]
+name = "youtube"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[features]
+parity-endpoint = ["youtube-api/parity-endpoint", "youtube-mcp/parity-endpoint"]
+
+[dependencies]
+youtube-api.workspace = true
+youtube-auth.workspace = true
+youtube-core.workspace = true
+youtube-mcp.workspace = true
+youtube-agent.workspace = true
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "time"] }
+
+[dev-dependencies]
+serde_json.workspace = true

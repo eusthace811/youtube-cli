@@ -12,9 +12,9 @@ short = "Delete live chat bans"
 long = "Delete live chat bans. Use this tool to unban users from a live chat by ban IDs."
 example = """
 # Delete a live chat ban by ID
-yutu liveChatBan delete --ids abc123
+youtube liveChatBan delete --ids abc123
 # Delete multiple live chat bans
-yutu liveChatBan delete --ids abc123,def456"""
+youtube liveChatBan delete --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -62,9 +62,9 @@ short = "Create a live chat ban"
 long = "Create a live chat ban. Use this tool to ban a user from a live chat."
 example = """
 # Ban a user permanently
-yutu liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType permanent
+youtube liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType permanent
 # Ban a user temporarily for 5 minutes
-yutu liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType temporary --banDurationSeconds 300"""
+youtube liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType temporary --banDurationSeconds 300"""
 runnable = true
 
 [command.tool]

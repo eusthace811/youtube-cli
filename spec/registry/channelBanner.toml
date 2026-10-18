@@ -12,9 +12,9 @@ short = "Upload a channel banner"
 long = "Upload a channel banner. Use this tool to upload a channel banner."
 example = """
 # Upload a channel banner
-yutu channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.jpg
+youtube channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.jpg
 # Upload a channel banner with JSON output
-yutu channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.png --output json"""
+youtube channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.png --output json"""
 runnable = true
 
 [command.tool]

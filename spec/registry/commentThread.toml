@@ -12,9 +12,9 @@ short = "Create a comment thread"
 long = "Create a comment thread. Use this tool to create a comment thread."
 example = """
 # Post a comment on a video
-yutu commentThread insert --channelId UC_x5X --videoId dQw4w9WgXcQ --authorChannelId UA_x5X --textOriginal 'Great video!'
+youtube commentThread insert --channelId UC_x5X --videoId dQw4w9WgXcQ --authorChannelId UA_x5X --textOriginal 'Great video!'
 # Post a comment with JSON output
-yutu commentThread insert --channelId UC_x5X --videoId dQw4w9WgXcQ --authorChannelId UA_x5X --textOriginal 'Nice work!' --output json"""
+youtube commentThread insert --channelId UC_x5X --videoId dQw4w9WgXcQ --authorChannelId UA_x5X --textOriginal 'Nice work!' --output json"""
 runnable = true
 
 [command.tool]
@@ -113,11 +113,11 @@ short = "List comment threads"
 long = "List comment threads. Use this tool to list comment threads."
 example = """
 # List comment threads on a video
-yutu commentThread list --videoId dQw4w9WgXcQ --maxResults 10
+youtube commentThread list --videoId dQw4w9WgXcQ --maxResults 10
 # Search comment threads by terms
-yutu commentThread list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --searchTerms 'hello'
+youtube commentThread list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --searchTerms 'hello'
 # List specific comment threads in JSON format
-yutu commentThread list --ids abc123,def456 --output json"""
+youtube commentThread list --ids abc123,def456 --output json"""
 runnable = true
 
 [command.tool]

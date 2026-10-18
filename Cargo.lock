@@ -1804,20 +1804,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "yutu"
+name = "youtube"
 version = "0.11.0"
 dependencies = [
  "serde_json",
  "tokio",
- "yutu-agent",
- "yutu-api",
- "yutu-auth",
- "yutu-core",
- "yutu-mcp",
+ "youtube-agent",
+ "youtube-api",
+ "youtube-auth",
+ "youtube-core",
+ "youtube-mcp",
 ]
 
 [[package]]
-name = "yutu-agent"
+name = "youtube-agent"
 version = "0.11.0"
 dependencies = [
  "brotli",
@@ -1836,14 +1836,14 @@ dependencies = [
  "rustls",
  "serde_json",
  "tokio",
- "yutu-api",
- "yutu-auth",
- "yutu-core",
- "yutu-mcp",
+ "youtube-api",
+ "youtube-auth",
+ "youtube-core",
+ "youtube-mcp",
 ]
 
 [[package]]
-name = "yutu-api"
+name = "youtube-api"
 version = "0.11.0"
 dependencies = [
  "bytes",
@@ -1858,7 +1858,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "yutu-auth"
+name = "youtube-auth"
 version = "0.11.0"
 dependencies = [
  "cap-std",
@@ -1868,11 +1868,11 @@ dependencies = [
  "ring",
  "serde_json",
  "tokio",
- "yutu-api",
+ "youtube-api",
 ]
 
 [[package]]
-name = "yutu-core"
+name = "youtube-core"
 version = "0.11.0"
 dependencies = [
  "cap-std",
@@ -1880,12 +1880,12 @@ dependencies = [
  "serde_json",
  "tokio",
  "toml",
- "yutu-api",
- "yutu-auth",
+ "youtube-api",
+ "youtube-auth",
 ]
 
 [[package]]
-name = "yutu-mcp"
+name = "youtube-mcp"
 version = "0.11.0"
 dependencies = [
  "bytes",
@@ -1898,9 +1898,9 @@ dependencies = [
  "serde",
  "serde_json",
  "tokio",
- "yutu-api",
- "yutu-auth",
- "yutu-core",
+ "youtube-api",
+ "youtube-auth",
+ "youtube-core",
 ]
 
 [[package]]

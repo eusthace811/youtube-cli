@@ -50,7 +50,7 @@ fn passes_allowed_and_display_only_urls() {
         egress(&path),
         (
             Some(0),
-            "egress: display-only https://github.com/eat-pray-ai/yutu (the `yutu version` banner link)\negress: 0 unexpected hosts\n"
+            "egress: display-only https://github.com/eat-pray-ai/yutu (the `youtube version` banner link)\negress: 0 unexpected hosts\n"
                 .to_string(),
             String::new()
         )

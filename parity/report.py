@@ -2,7 +2,7 @@
 text compared against the Go oracle, with one row per Appendix E
 divergence. Exits 1 when any difference is not registered.
 
-    python3 -I parity/report.py --bin target/release/yutu
+    python3 -I parity/report.py --bin target/release/youtube
 """
 import argparse
 import inspect
@@ -22,7 +22,7 @@ from recorder import Recorder  # noqa: E402
 KNOWN_GO_DEFECTS = [
     ("comment markAsSpam / setModerationStatus", "print the input struct itself, including \"confirmed\":false"),
     ("liveBroadcast bind", "prints the response id and an empty stream id when --streamId is unset"),
-    ("agent skill toolset", "list_skills is empty and load_skill finds nothing, because yutu's embed nests the skill one directory deeper than ADK reads; `Skills::embedded()` in crates/yutu-agent is the ready fix"),
+    ("agent skill toolset", "list_skills is empty and load_skill finds nothing, because youtube's embed nests the skill one directory deeper than ADK reads; `Skills::embedded()` in crates/youtube-agent is the ready fix"),
 ]
 
 # Where Go would crash, the port fails safe instead. No corpus case can
@@ -47,7 +47,7 @@ def run_corpus(binary):
 
 def contract_and_help(binary):
     p = subprocess.run([sys.executable, "-I", str(PARITY / "contract.py"), "--bin", binary, "--compare", str(PARITY / "golden/mcp-contract.json"),
-                        "--allow", "E1=$help.yutu caption download,E16=$help.yutu agent.stdout"], capture_output=True, text=True)
+                        "--allow", "E1=$help.youtube caption download,E16=$help.youtube agent.stdout"], capture_output=True, text=True)
     unregistered = [l for l in p.stdout.splitlines() if l and not l.startswith(("registered", "contract:"))]
     registered = [l for l in p.stdout.splitlines() if l.startswith("registered")]
     return unregistered, registered

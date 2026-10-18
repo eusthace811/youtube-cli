@@ -12,9 +12,9 @@ short = "Delete subscriptions"
 long = "Delete subscriptions. Use this tool to delete subscriptions by IDs."
 example = """
 # Delete a subscription by ID
-yutu subscription delete --ids abc123
+youtube subscription delete --ids abc123
 # Delete multiple subscriptions
-yutu subscription delete --ids abc123,def456"""
+youtube subscription delete --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -62,9 +62,9 @@ short = "Subscribe to a channel"
 long = "Subscribe to a channel. Use this tool to subscribe to a YouTube channel."
 example = """
 # Subscribe to a channel
-yutu subscription insert --subscriberChannelId UC_abc --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw
+youtube subscription insert --subscriberChannelId UC_abc --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw
 # Subscribe with a title
-yutu subscription insert --subscriberChannelId UC_abc --channelId UC_x5X --title 'Google Developers'"""
+youtube subscription insert --subscriberChannelId UC_abc --channelId UC_x5X --title 'Google Developers'"""
 runnable = true
 
 [command.tool]
@@ -161,13 +161,13 @@ short = "List subscriptions"
 long = "List subscriptions. Use this tool to list subscriptions."
 example = """
 # List my subscriptions
-yutu subscription list --for mine
+youtube subscription list --for mine
 # List subscriptions by channel ID with limit
-yutu subscription list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10
+youtube subscription list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10
 # List specific subscriptions in JSON format
-yutu subscription list --ids abc123,def456 --output json
+youtube subscription list --ids abc123,def456 --output json
 # List subscriptions for a channel alphabetically
-yutu subscription list --forChannelId UC_x5XG1OV2P6uZZ5FSM9Ttw --order alphabetical"""
+youtube subscription list --forChannelId UC_x5XG1OV2P6uZZ5FSM9Ttw --order alphabetical"""
 runnable = true
 
 [command.tool]

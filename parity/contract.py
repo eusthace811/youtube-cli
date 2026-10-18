@@ -1,7 +1,7 @@
 """Dumps or compares the MCP contract and every command's --help text.
 
     python3 -I parity/contract.py --bin ref/yutu-go            # writes golden
-    python3 -I parity/contract.py --bin target/release/yutu --compare parity/golden/mcp-contract.json
+    python3 -I parity/contract.py --bin target/release/youtube --compare parity/golden/mcp-contract.json
 """
 import argparse
 import json
@@ -39,7 +39,7 @@ def mcp_contract(binary):
 
 
 def command_paths(node, prefix=()):
-    path = prefix + ((node["use"].split()[0],) if prefix or node["use"] != "yutu" else ())
+    path = prefix + ((node["use"].split()[0],) if prefix or node["use"] != "youtube" else ())
     yield path
     for c in node.get("children") or []:
         yield from command_paths(c, path)
@@ -51,7 +51,7 @@ def help_texts(binary):
     env = {"PATH": "/usr/bin:/bin", "HOME": "/tmp"}
     for path in command_paths(tree):
         p = subprocess.run([binary, *path, "--help"], capture_output=True, text=True, env=env)
-        out[" ".join(("yutu",) + path)] = {"stdout": p.stdout, "stderr": p.stderr, "exit": p.returncode}
+        out[" ".join(("youtube",) + path)] = {"stdout": p.stdout, "stderr": p.stderr, "exit": p.returncode}
     return out
 
 

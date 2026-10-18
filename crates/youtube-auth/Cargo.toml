@@ -1,0 +1,16 @@
+[package]
+name = "youtube-auth"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+youtube-api.workspace = true
+serde_json.workspace = true
+cap-std = "4"
+chrono = { version = "0.4.45", default-features = false, features = ["clock", "std"] }
+getrandom = "0.3"
+reqwest = { version = "0.13", default-features = false }
+ring = { version = "0.17", default-features = false }
+tokio = { version = "1", features = ["rt", "net", "io-util", "time", "sync", "macros"] }

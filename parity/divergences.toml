@@ -6,25 +6,25 @@
 summary = "caption download is confirmation-gated and writes only through the sandbox, so it can never overwrite a token or secret"
 prs = ["R4", "R6", "R12"]
 fields = ["requests", "stdout", "stderr", "exit", "files"]
-proof = "cli.caption.download.*.yes cases match Go's golden for the ungated command; crates/yutu-core/tests/fsroot.rs refuses youtube.token.json and fsroot_token_env.rs a token named by an absolute path"
+proof = "cli.caption.download.*.yes cases match Go's golden for the ungated command; crates/youtube-core/tests/fsroot.rs refuses youtube.token.json and fsroot_token_env.rs a token named by an absolute path"
 
 [divergence.E2]
 summary = "a login triggered during stdio MCP prints only to stderr and never reads stdin"
 prs = ["R3"]
 fields = []
-proof = "r3 lane 10 and crates/yutu-auth flow tests"
+proof = "r3 lane 10 and crates/youtube-auth flow tests"
 
 [divergence.E3]
 summary = "every token refresh is persisted atomically"
 prs = ["R3"]
 fields = []
-proof = "crates/yutu-auth/tests/flow.rs refresh persistence test"
+proof = "crates/youtube-auth/tests/flow.rs refresh persistence test"
 
 [divergence.E4]
 summary = "the HTTP token verifier posts the token, caches verified tokens until expiry, and supports an audience allowlist"
 prs = ["R8"]
 fields = ["tokeninfo"]
-proof = "crates/yutu-mcp/tests/http.rs and r8 lanes 9 and 10"
+proof = "crates/youtube-mcp/tests/http.rs and r8 lanes 9 and 10"
 
 [divergence.E5]
 summary = "stdio MCP traffic is logged only at DEBUG"
@@ -48,13 +48,13 @@ proof = "r6 lanes 8 and 9"
 summary = "the HTTP MCP server sets timeouts and rejects non-loopback Origin headers"
 prs = ["R8"]
 fields = ["stdout"]
-proof = "crates/yutu-mcp/tests/http.rs and r8 lanes 5 and 7"
+proof = "crates/youtube-mcp/tests/http.rs and r8 lanes 5 and 7"
 
 [divergence.E9]
 summary = "the agent cannot approve its own writes; a human approves each one, and approval questions (also MCP elicitation messages) escape control, bidi and zero-width characters"
 prs = ["R9", "R10", "R12"]
 fields = []
-proof = "crates/yutu-agent/tests/confirm.rs (including type-ahead and no-terminal declines), crates/yutu-agent/tests/web_confirm.rs (including a program answering the browser's confirmation) and r10 lane 9"
+proof = "crates/youtube-agent/tests/confirm.rs (including type-ahead and no-terminal declines), crates/youtube-agent/tests/web_confirm.rs (including a program answering the browser's confirmation) and r10 lane 9"
 
 [divergence.E10]
 summary = "the agent reads API keys from environment variables when the flag is absent"
@@ -66,7 +66,7 @@ proof = "r9 lane 9"
 summary = "agent web launchers require a per-launch bearer token for programs and a separate per-launch token for the dev UI's browser"
 prs = ["R10", "R12"]
 fields = []
-proof = "crates/yutu-agent/tests/auth.rs"
+proof = "crates/youtube-agent/tests/auth.rs"
 
 [divergence.E12]
 summary = "--otel_to_cloud is accepted and ignored with a notice"
@@ -96,13 +96,13 @@ proof = "xtask/tests/install.rs"
 summary = "the agent also runs on the Claude Code and Codex CLIs (--provider claude-code|codex), with their tools off or read-only and the same human approval for writes"
 prs = ["R12"]
 fields = ["stdout", "stderr"]
-proof = "crates/yutu-agent/tests/cli_provider.rs, crates/yutu-core/tests/help_golden.rs and r9 lane 10"
+proof = "crates/youtube-agent/tests/cli_provider.rs, crates/youtube-core/tests/help_golden.rs and r9 lane 10"
 
 [divergence.E17]
 summary = "max_results 0 in an MCP or agent tool call means no limit, as every tool schema says; Go fetched nothing"
 prs = ["R12"]
 fields = ["requests", "stdout"]
-proof = "crates/yutu-agent/tests/max_results.rs; found by the E16 real-model lane"
+proof = "crates/youtube-agent/tests/max_results.rs; found by the E16 real-model lane"
 
 [divergence.E18]
 summary = "playlist, playlistItem, channel and comment update fetch the item they change with requests the API accepts (channel update writes brandingSettings and refuses customUrl); Go's lookup fetched nothing, so every such update failed with \"failed to get ...\""

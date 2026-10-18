@@ -1,4 +1,4 @@
-// Command yutu-go-harness runs yutu's real command tree with every YouTube API
+// Command yutu-go-harness runs youtube's real command tree with every YouTube API
 // call sent to the parity recorder named by YUTU_PARITY_ENDPOINT.
 package main
 

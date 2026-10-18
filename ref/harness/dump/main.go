@@ -1,4 +1,4 @@
-// Command yutu-go-dump writes yutu's cobra command tree and the Go layout of
+// Command yutu-go-dump writes youtube's cobra command tree and the Go layout of
 // every YouTube API type as JSON, so the Rust port derives from exact data.
 package main
 

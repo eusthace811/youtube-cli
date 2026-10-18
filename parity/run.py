@@ -1,7 +1,7 @@
 """Runs parity cases against one binary under the recorder.
 
     python3 -I parity/run.py --bin ref/yutu-go-harness --all
-    python3 -I parity/run.py --bin target/release/yutu --only version,help --compare
+    python3 -I parity/run.py --bin target/release/youtube --only version,help --compare
 
 Without --compare the results become the golden set. With --compare they are
 diffed against parity/golden/cases and only differences are reported.
@@ -29,7 +29,7 @@ import diff as differ  # noqa: E402
 PARITY = Path(__file__).resolve().parent
 CORPUS = PARITY / "corpus"
 GOLDEN = PARITY / "golden" / "cases"
-WORK = Path(os.environ.get("YUTU_PARITY_WORK", "/tmp/yutu-parity"))
+WORK = Path(os.environ.get("YUTU_PARITY_WORK", "/tmp/youtube-parity"))
 
 
 def load_cases(only=None, effects=None, no_media=False):

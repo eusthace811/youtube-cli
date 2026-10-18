@@ -12,13 +12,13 @@ short = "List channels"
 long = "List channels. Use this tool to list channels."
 example = """
 # List my channel info
-yutu channel list --for mine
+youtube channel list --for mine
 # List channel by handle
-yutu channel list --forHandle @GoogleDevelopers
+youtube channel list --forHandle @GoogleDevelopers
 # List channel by ID in JSON format
-yutu channel list --ids UC_x5XG1OV2P6uZZ5FSM9Ttw --output json
+youtube channel list --ids UC_x5XG1OV2P6uZZ5FSM9Ttw --output json
 # List channels in table format
-yutu channel list --maxResults 10 --output table"""
+youtube channel list --maxResults 10 --output table"""
 runnable = true
 
 [command.tool]
@@ -176,11 +176,11 @@ short = "Update a channel"
 long = "Update a channel. Use this tool to update a channel."
 example = """
 # Update channel description
-yutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --description 'New description'
+youtube channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --description 'New description'
 # Update channel title and country
-yutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --title 'New Title' --country US
+youtube channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --title 'New Title' --country US
 # Update channel default language
-yutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --defaultLanguage en"""
+youtube channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --defaultLanguage en"""
 runnable = true
 
 [command.tool]

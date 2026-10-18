@@ -4,7 +4,7 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
-/// spec/registry/*.toml, the source yutu-core compiles its registry from:
+/// spec/registry/*.toml, the source youtube-core compiles its registry from:
 /// every command path, and every tool's (name, effect).
 struct Registry {
     paths: Vec<String>,
@@ -53,7 +53,7 @@ fn markdown_files(dir: &Path, out: &mut Vec<PathBuf>) {
 fn skill_files() -> Vec<(PathBuf, String)> {
     let mut paths = Vec::new();
     markdown_files(&repo().join("skills"), &mut paths);
-    markdown_files(&repo().join("crates/yutu-agent/assets/skills"), &mut paths);
+    markdown_files(&repo().join("crates/youtube-agent/assets/skills"), &mut paths);
     paths.sort();
     paths
         .into_iter()
@@ -125,12 +125,12 @@ fn every_cli_example_names_a_registry_command() {
             if !in_code {
                 continue;
             }
-            // `$(yutu video list` and `| yutu ...` invoke yutu too.
+            // `$(youtube video list` and `| youtube ...` invoke youtube too.
             let words: Vec<&str> = line
                 .split(|c: char| !(c.is_ascii_alphanumeric() || "-_/.@".contains(c)))
                 .filter(|w| !w.is_empty())
                 .collect();
-            for (i, _) in words.iter().enumerate().filter(|(_, w)| **w == "yutu") {
+            for (i, _) in words.iter().enumerate().filter(|(_, w)| **w == "youtube") {
                 let cmd: Vec<&str> = words[i + 1..]
                     .iter()
                     .take(2)
@@ -143,7 +143,7 @@ fn every_cli_example_names_a_registry_command() {
                 let found = exists(&cmd.join(" ")) || exists(cmd[0]);
                 assert!(
                     found,
-                    "{}: `yutu {}` is not a command",
+                    "{}: `youtube {}` is not a command",
                     path.display(),
                     cmd.join(" ")
                 );
@@ -171,7 +171,7 @@ fn heading(effect: &str) -> &'static str {
 fn each_tool_is_listed_under_its_registry_effect() {
     for skill in [
         "skills/youtube/SKILL.md",
-        "crates/yutu-agent/assets/skills/youtube/SKILL.md",
+        "crates/youtube-agent/assets/skills/youtube/SKILL.md",
     ] {
         let text = fs::read_to_string(repo().join(skill)).unwrap();
         let mut section = "";

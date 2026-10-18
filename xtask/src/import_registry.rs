@@ -27,7 +27,7 @@ pub fn run(_args: &[String]) -> Result<(), String> {
             .unwrap()
             .to_string();
         let mut path = parent.clone();
-        if !(parent.is_empty() && name == "yutu") {
+        if !(parent.is_empty() && name == "youtube") {
             path.push(name);
         }
         let file = match path.first().map(String::as_str) {

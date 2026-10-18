@@ -30,7 +30,7 @@ Median: 86.00 s. Rule: under 180 s. Verdict: PASS.
 Verdict: PASS
 
 ```
-Metric: `yutu version` wall time over 60 interleaved runs, peak RSS, stripped binary size.
+Metric: `youtube version` wall time over 60 interleaved runs, peak RSS, stripped binary size.
 Spawn floor /usr/bin/true: median 1.31 ms, p90 1.38 ms
 Trunk (Go):  median 12.07 ms, p90 13.17 ms, RSS 36.8 MB, binary 57.1 MB
 Head (Rust): median 3.52 ms, p90 3.84 ms, RSS 6.5 MB, binary 7.2 MB
@@ -46,7 +46,7 @@ Metric: decode a 500-video VideoListResponse (4188444 bytes) and re-encode its i
 Probe: Go `go test -bench` (20 iterations, ns/op) and Rust `cargo bench --bench decode` (median of 20), alternated 5 times.
 Go runs (ms):   29.24, 29.42, 29.46, 29.52, 29.46 -> median 29.46 ms
 Rust runs (ms): 12.27, 12.18, 12.23, 12.20, 12.20 -> median 12.20 ms
-Binary: target/release/yutu 7.22 MB (yutu-api not yet linked into the CLI at this PR).
+Binary: target/release/youtube 7.22 MB (youtube-api not yet linked into the CLI at this PR).
 Rule: head median <= Go median and binary <= 15 MB.
 ```
 
@@ -114,7 +114,7 @@ Verdict: PASS
 
 ```
 Metric: requests/second and p50 latency for `tools/call video-list` (ids=[v1]) over stateless HTTP,
-50 keep-alive HTTP/1.1 clients (crates/yutu-mcp/examples/loadgen, 3 s per run), Go harness and head
+50 keep-alive HTTP/1.1 clients (crates/youtube-mcp/examples/loadgen, 3 s per run), Go harness and head
 alternated, three rounds. `ab` was dropped: it speaks HTTP/1.0, and Go closes the connection after
 every chunked reply, so `ab` would time Go's TCP handshakes.
 Rounds are 3 s, not the plan's 30 s: Go's http.DefaultClient keeps 2 idle connections per host, so it
@@ -122,10 +122,10 @@ opens and closes upstream connections on most calls and exhausts macOS's 16,384 
 (TIME_WAIT lasts 30 s) within about 4 s, after which its calls fail with EADDRNOTAVAIL. Each run
 starts after a 35 s cooldown. A reply counts as failed unless it is HTTP 200 without
 "isError":true, and the first reply of each server is checked to be a successful video list.
-Upstream: crates/yutu-mcp/examples/perfmock answers tokeninfo and videos.list (114489 byte fixture,
+Upstream: crates/youtube-mcp/examples/perfmock answers tokeninfo and videos.list (114489 byte fixture,
 first page) from memory; parity/recorder.py tops out near 2,100 req/s and would cap both servers.
 Go calls tokeninfo on every request; head verifies the token once and caches it (E4).
-Machine: 12 logical CPUs, default YUTU_LOG_LEVEL (one INFO line per call on both).
+Machine: 12 logical CPUs, default YOUTUBE_CLI_LOG_LEVEL (one INFO line per call on both).
 Round 1: Go 4575 req/s p50 10.31 ms (13762 done, 0 failed); head 41193 req/s p50 1.19 ms (123630 done, 0 failed)
 Round 2: Go 4527 req/s p50 10.40 ms (13614 done, 0 failed); head 41802 req/s p50 1.17 ms (125461 done, 0 failed)
 Round 3: Go 4614 req/s p50 10.25 ms (13882 done, 0 failed); head 42034 req/s p50 1.17 ms (126152 done, 0 failed)
@@ -181,14 +181,14 @@ Verdict: PASS
 ```
 Rule: head <= 0.3x Go on every channel. Sizes in bytes.
 
-raw binary (yutu-darwin-arm64)
+raw binary (youtube-darwin-arm64)
   Go v0.11.0 stamped build /Users/juan/Projects/youtube-cli/youtube-cli/ref/yutu-go: 57083794
-  head /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped: 7216960
+  head /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/youtube-shipped: 7216960
   ratio vs stamped build: 0.126
 
-npm platform tarball (@*/yutu-darwin-arm64@0.11.0)
+npm platform tarball (@*/youtube-darwin-arm64@0.11.0)
   Go @eat-pray-ai tarball from registry.npmjs.org: 16678530
-  head @yutu-rs tarball from npm pack: 4707972
+  head @youtube-cli tarball from npm pack: 4707972
   ratio: 0.282
 
 Docker image (SUBSTITUTED: no Docker here; estimated as uncompressed layer bytes)

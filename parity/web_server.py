@@ -1,4 +1,4 @@
-"""Starts `yutu agent --args "web ..."` (Go harness or Rust head) against the
+"""Starts `youtube agent --args "web ..."` (Go harness or Rust head) against the
 mock LLM and the YouTube recorder, waits for its port, and offers a small
 HTTP client that carries head's per-launch bearer token (divergence E11).
 

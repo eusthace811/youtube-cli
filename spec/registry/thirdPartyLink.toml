@@ -12,7 +12,7 @@ short = "Delete third-party links"
 long = "Delete third-party links. Use this tool to delete third-party links."
 example = """
 # Delete a third-party link
-yutu thirdPartyLink delete --linkingToken abc123 --type channelToStoreLink"""
+youtube thirdPartyLink delete --linkingToken abc123 --type channelToStoreLink"""
 runnable = true
 
 [command.tool]
@@ -85,7 +85,7 @@ short = "Create a third-party link"
 long = "Create a third-party link. Use this tool to create a third-party link."
 example = """
 # Insert a new third-party link
-yutu thirdPartyLink insert --linkingToken abc123 --type channelToStoreLink --linkStatus pending --parts snippet,status"""
+youtube thirdPartyLink insert --linkingToken abc123 --type channelToStoreLink --linkStatus pending --parts snippet,status"""
 runnable = true
 
 [command.tool]
@@ -210,11 +210,11 @@ short = "List third-party links"
 long = "List third-party links. Use this tool to list links between a YouTube channel and a third-party service."
 example = """
 # List all third-party links
-yutu thirdPartyLink list --parts snippet,status
+youtube thirdPartyLink list --parts snippet,status
 # List links by linking token
-yutu thirdPartyLink list --linkingToken abc123 --parts snippet,status
+youtube thirdPartyLink list --linkingToken abc123 --parts snippet,status
 # List links by type
-yutu thirdPartyLink list --type channelToStoreLink --parts snippet,status"""
+youtube thirdPartyLink list --type channelToStoreLink --parts snippet,status"""
 runnable = true
 
 [command.tool]
@@ -309,9 +309,9 @@ short = "Update a third-party link"
 long = "Update a third-party link. Use this tool to update the status or type of a link between a YouTube channel and a third-party service."
 example = """
 # Update a third-party link status
-yutu thirdPartyLink update --linkingToken abc123 --linkStatus linked --parts snippet,status
+youtube thirdPartyLink update --linkingToken abc123 --linkStatus linked --parts snippet,status
 # Update a third-party link type
-yutu thirdPartyLink update --linkingToken abc123 --type channelToStoreLink --parts snippet,status"""
+youtube thirdPartyLink update --linkingToken abc123 --type channelToStoreLink --parts snippet,status"""
 runnable = true
 
 [command.tool]

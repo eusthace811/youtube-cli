@@ -1,0 +1,21 @@
+[package]
+name = "youtube-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+youtube-api.workspace = true
+youtube-auth.workspace = true
+cap-std = "4"
+serde.workspace = true
+serde_json.workspace = true
+
+[build-dependencies]
+serde.workspace = true
+toml.workspace = true
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt"] }
+youtube-api = { workspace = true, features = ["parity-endpoint"] }

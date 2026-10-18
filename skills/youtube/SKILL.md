@@ -2,7 +2,7 @@
 name: youtube
 description: "Use whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, and more."
 license: Apache-2.0
-compatibility: Requires the yutu CLI binary (installable via npm, brew, or winget) and Google Cloud OAuth credentials for YouTube Data API v3.
+compatibility: Requires the youtube CLI binary (installable via npm, brew, or winget) and Google Cloud OAuth credentials for YouTube Data API v3.
 metadata:
   author: eat-pray-ai
   homepage: "https://github.com/eat-pray-ai/yutu"
@@ -14,7 +14,7 @@ Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, 
 
 ## Setup
 
-Ensure `yutu` is installed and running as an MCP server. See [references/setup.md](references/setup.md).
+Ensure `youtube` is installed and running as an MCP server. See [references/setup.md](references/setup.md).
 
 ## Key Principles
 

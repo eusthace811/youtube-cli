@@ -12,9 +12,9 @@ short = "Delete live chat messages"
 long = "Delete live chat messages. Use this tool to remove messages from a live chat by their IDs."
 example = """
 # Delete a live chat message by ID
-yutu liveChatMessage delete --ids abc123
+youtube liveChatMessage delete --ids abc123
 # Delete multiple live chat messages
-yutu liveChatMessage delete --ids abc123,def456"""
+youtube liveChatMessage delete --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -62,7 +62,7 @@ short = "Send a live chat message"
 long = "Send a live chat message. Use this tool to post a text message to a live chat."
 example = """
 # Send a message to a live chat
-yutu liveChatMessage insert --liveChatId abc123 --messageText "Hello everyone!""""
+youtube liveChatMessage insert --liveChatId abc123 --messageText "Hello everyone!""""
 runnable = true
 
 [command.tool]
@@ -154,9 +154,9 @@ short = "List live chat messages"
 long = "List live chat messages. Use this tool to list messages in a live chat."
 example = """
 # List messages for a live chat
-yutu liveChatMessage list --liveChatId abc123
+youtube liveChatMessage list --liveChatId abc123
 # List messages with limit
-yutu liveChatMessage list --liveChatId abc123 --maxResults 10"""
+youtube liveChatMessage list --liveChatId abc123 --maxResults 10"""
 runnable = true
 
 [command.tool]
@@ -252,7 +252,7 @@ short = "Transition a live chat message"
 long = "Transition a durable live chat event. Use this tool to change the status of a live chat message (e.g., close a poll)."
 example = """
 # Transition a live chat message to closed
-yutu liveChatMessage transition --ids abc123 --status closed"""
+youtube liveChatMessage transition --ids abc123 --status closed"""
 runnable = true
 
 [command.tool]

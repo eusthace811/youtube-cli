@@ -12,9 +12,9 @@ short = "Delete playlist items"
 long = "Delete playlist items. Use this tool to delete playlist items by IDs."
 example = """
 # Delete a playlist item by ID
-yutu playlistItem delete --ids abc123
+youtube playlistItem delete --ids abc123
 # Delete multiple playlist items
-yutu playlistItem delete --ids abc123,def456"""
+youtube playlistItem delete --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -73,9 +73,9 @@ short = "Add a playlist item"
 long = "Add a playlist item. Use this tool to add a playlist item to a playlist."
 example = """
 # Add a video to a playlist
-yutu playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9WgXcQ
+youtube playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9WgXcQ
 # Add a video to a playlist with privacy setting
-yutu playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9 --privacy public"""
+youtube playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9 --privacy public"""
 runnable = true
 
 [command.tool]
@@ -250,11 +250,11 @@ short = "List playlist items"
 long = "List playlist items. Use this tool to list playlist items."
 example = """
 # List items in a playlist
-yutu playlistItem list --playlistId PLxxx
+youtube playlistItem list --playlistId PLxxx
 # List playlist items with limit in JSON format
-yutu playlistItem list --playlistId PLxxx --maxResults 20 --output json
+youtube playlistItem list --playlistId PLxxx --maxResults 20 --output json
 # List specific playlist items by IDs
-yutu playlistItem list --ids abc123,def456"""
+youtube playlistItem list --ids abc123,def456"""
 runnable = true
 
 [command.tool]
@@ -373,11 +373,11 @@ short = "Update a playlist item"
 long = "Update a playlist item. Use this tool to update a playlist item."
 example = """
 # Update playlist item title
-yutu playlistItem update --id abc123 --title 'Updated Title'
+youtube playlistItem update --id abc123 --title 'Updated Title'
 # Update playlist item description and privacy
-yutu playlistItem update --id abc123 --description 'New description' --privacy public
+youtube playlistItem update --id abc123 --description 'New description' --privacy public
 # Update playlist item privacy with JSON output
-yutu playlistItem update --id abc123 --privacy private --output json"""
+youtube playlistItem update --id abc123 --privacy private --output json"""
 runnable = true
 
 [command.tool]

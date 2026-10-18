@@ -12,9 +12,9 @@ short = "Set a thumbnail for a video"
 long = "Set a thumbnail for a video. Use this tool to set a thumbnail for a video."
 example = """
 # Set a thumbnail for a video
-yutu thumbnail set --file image.jpg --videoId dQw4w9WgXcQ
+youtube thumbnail set --file image.jpg --videoId dQw4w9WgXcQ
 # Set a thumbnail with JSON output
-yutu thumbnail set --file image.png --videoId dQw4w9WgXcQ --output json"""
+youtube thumbnail set --file image.png --videoId dQw4w9WgXcQ --output json"""
 runnable = true
 
 [command.tool]

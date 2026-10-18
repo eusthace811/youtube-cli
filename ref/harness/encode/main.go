@@ -1,5 +1,5 @@
 // Command yutu-go-encode decodes every parity fixture into its Go API type and
-// writes the JSON and YAML that yutu would print, so the Rust codec can be
+// writes the JSON and YAML that youtube would print, so the Rust codec can be
 // checked against real Go output.
 package main
 
