@@ -78,7 +78,14 @@ def main():
     ap.add_argument("--bin", required=True)
     ap.add_argument("--compare")
     ap.add_argument("--allow", default="", help="contract paths accepted as Appendix E differences, as id=path-prefix pairs")
+    ap.add_argument("--help-only", action="store_true", help="compare only the --help texts against golden")
     args = ap.parse_args()
+    if args.help_only:
+        found = diff(json.loads((GOLDEN / "help.json").read_text()), help_texts(args.bin), "$help")
+        for d in found:
+            print(d)
+        print(f"help: {len(found)} differences")
+        sys.exit(1 if found else 0)
     contract = mcp_contract(args.bin)
     helps = help_texts(args.bin)
     if not args.compare:
