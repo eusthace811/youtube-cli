@@ -200,13 +200,6 @@ impl Flags {
         &self.entries
     }
 
-    fn entry(&self, name: &str) -> &Entry {
-        self.entries
-            .iter()
-            .find(|e| e.spec.name == name)
-            .unwrap_or_else(|| panic!("flag accessed but not defined: {name}"))
-    }
-
     pub(crate) fn lookup(&self, name: &str) -> Option<&Entry> {
         self.entries.iter().find(|e| e.spec.name == name)
     }
@@ -215,43 +208,43 @@ impl Flags {
         self.entries.iter().find(|e| e.spec.short.as_bytes() == [c])
     }
 
+    // Like pflag's GetString and friends, a flag the command does not define,
+    // or one of another type, reads as the zero value; Go callers ignore the
+    // returned error.
     pub fn string(&self, name: &str) -> &str {
-        match &self.entry(name).value {
-            Value::Str(s) => s,
-            other => panic!("flag {name} is not a string: {other:?}"),
+        match self.lookup(name).map(|e| &e.value) {
+            Some(Value::Str(s)) => s,
+            _ => "",
         }
     }
 
     pub fn bool(&self, name: &str) -> bool {
-        match self.entry(name).value {
-            Value::Bool(b) => b,
-            ref other => panic!("flag {name} is not a bool: {other:?}"),
-        }
+        matches!(self.lookup(name).map(|e| &e.value), Some(Value::Bool(true)))
     }
 
     pub fn strings(&self, name: &str) -> &[String] {
-        match &self.entry(name).value {
-            Value::Strings(v) => v,
-            other => panic!("flag {name} is not a string slice: {other:?}"),
+        match self.lookup(name).map(|e| &e.value) {
+            Some(Value::Strings(v)) => v,
+            _ => &[],
         }
     }
 
     pub fn i64(&self, name: &str) -> i64 {
-        match self.entry(name).value {
-            Value::Int(n) => n,
-            ref other => panic!("flag {name} is not an int: {other:?}"),
+        match self.lookup(name).map(|e| &e.value) {
+            Some(Value::Int(n)) => *n,
+            _ => 0,
         }
     }
 
     pub fn u64(&self, name: &str) -> u64 {
-        match self.entry(name).value {
-            Value::Uint(n) => n,
-            ref other => panic!("flag {name} is not a uint: {other:?}"),
+        match self.lookup(name).map(|e| &e.value) {
+            Some(Value::Uint(n)) => *n,
+            _ => 0,
         }
     }
 
     pub fn changed(&self, name: &str) -> bool {
-        self.entry(name).changed
+        self.lookup(name).is_some_and(|e| e.changed)
     }
 
     /// Required flags left unset, in cobra's sorted order.
