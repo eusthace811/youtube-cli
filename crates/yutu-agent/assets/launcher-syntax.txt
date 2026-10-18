@@ -1,0 +1,84 @@
+Arguments: Specify one of the following:
+  * console - runs an agent in console mode.
+  * web - starts web server with additional sub-servers specified by sublaunchers
+Details:
+  console
+  -otel_to_cloud
+    	Enables/disables OpenTelemetry export to GCP: telemetry.googleapis.com. See adk-go/telemetry package for details about supported options, credentials and environment variables.
+  -shutdown-timeout duration
+    	Console shutdown timeout (i.e. '10s', '2m' - see time.ParseDuration for details) - for waiting for active requests to finish during shutdown (default 2s)
+  -streaming_mode string
+    	defines streaming mode (none|sse)
+
+  web
+  -h2c
+    	Enable prior-knowledge cleartext HTTP/2 (h2c; no HTTP/1.1 Upgrade) on the web server listener. Cleartext is insecure; do not expose it to untrusted networks. Long-lived streaming responses may require increasing --write-timeout.
+  -host string
+    	Host/IP to bind the web server to. Defaults to 127.0.0.1 (loopback only) so the server is not exposed to the network. Use 0.0.0.0 to listen on all interfaces, which may be required when running adk web inside a container. An empty value is treated as the default. (default "127.0.0.1")
+  -idle-timeout duration
+    	Server idle timeout (i.e. '10s', '2m' - see time.ParseDuration for details) - for waiting for the next request (only when keep-alive is enabled) (default 1m0s)
+  -max_request_body_size int
+    	Maximum request body size in bytes. Larger requests are rejected with HTTP 400. 0 uses the default (10 MiB) or a value set by an embedder. Applied to the base router so all sublauncher and trigger routes are covered.
+  -otel_to_cloud
+    	Enables/disables OpenTelemetry export to GCP: telemetry.googleapis.com. See adk-go/telemetry package for details about supported options, credentials and environment variables.
+  -port int
+    	Port for the web server (default 8080)
+  -read-timeout duration
+    	Server read timeout (i.e. '10s', '2m' - see time.ParseDuration for details) - for reading the whole request including body (default 15s)
+  -shutdown-timeout duration
+    	Server shutdown timeout (i.e. '10s', '2m' - see time.ParseDuration for details) - for waiting for active requests to finish during shutdown (default 15s)
+  -write-timeout duration
+    	Server write timeout (i.e. '10s', '2m' - see time.ParseDuration for details) - for writing the response after reading the headers & body (default 15s)
+  You may specify sublaunchers:
+    * webui - starts ADK Web UI server which provides UI for interacting with ADK REST API
+    * a2a - starts A2A server which handles jsonrpc requests on /a2a/v1/invoke path
+    * pubsub - starts ADK PubSub trigger endpoint server
+    * eventarc - starts ADK Eventarc trigger endpoint server
+    * api - starts ADK REST API server, accepting origins specified by webui_address (CORS)
+  Sublaunchers syntax:
+    webui
+    -api_server_address string
+    	ADK REST API server address as seen from the user browser. Please specify the whole URL, i.e. 'http://localhost:8080/api'. (default "http://localhost:8080/api")
+
+    a2a
+    -a2a_agent_url string
+    	A2A host URL as advertised in the public agent card. It is used by A2A clients as a connection endpoint. (default "http://localhost:8080")
+
+    pubsub
+    -path_prefix string
+    	Path prefix for the PubSub trigger endpoint. Default is '/api'. (default "/api")
+  -trigger_base_delay duration
+    	Base delay for trigger retry exponential backoff (default 1s)
+  -trigger_max_concurrent_runs int
+    	Maximum concurrent trigger runs (default 100)
+  -trigger_max_delay duration
+    	Maximum delay for trigger retry exponential backoff (default 10s)
+  -trigger_max_retries int
+    	Maximum retries for HTTP 429 errors from triggers (default 3)
+
+    eventarc
+    -path_prefix string
+    	Path prefix for the Eventarc trigger endpoint. Default is '/api'. (default "/api")
+  -trigger_base_delay duration
+    	Base delay for trigger retry exponential backoff (default 1s)
+  -trigger_max_concurrent_runs int
+    	Maximum concurrent trigger runs (default 100)
+  -trigger_max_delay duration
+    	Maximum delay for trigger retry exponential backoff (default 10s)
+  -trigger_max_retries int
+    	Maximum retries for HTTP 429 errors from triggers (default 3)
+
+    api
+    -include_debug_api
+    	Serve the debug trace and agent graph endpoints, which expose tool-call arguments, responses and tool names. The web UI's Traces and agent structure panels need them. !!! WARNING !!! : debug endpoints are not safe to be used in production environment, do not set them to true in production.
+  -path_prefix string
+    	ADK REST API path prefix. Default is '/api'. (default "/api")
+  -sse-write-timeout duration
+    	SSE server write timeout (i.e. '10s', '2m' - see time.ParseDuration for details) - for writing the SSE response after reading the headers & body (default 2m0s)
+  -trace_capacity int
+    	Maximum number of traces to keep in memory. (default 10000)
+  -webui_address string
+    	ADK WebUI origin as seen from the user browser. It is sent as the CORS allowed origin and is accepted by the REST server's origin check; every other cross-origin browser request is refused with 403. Accepts a full origin such as 'http://localhost:8080'; a bare hostname and optional port is read as http. '*' allows any origin and turns the origin check off - do not use it on a server reachable from an untrusted network, since these endpoints are unauthenticated. (default "localhost:8080")
+
+
+
