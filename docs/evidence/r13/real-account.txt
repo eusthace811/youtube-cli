@@ -1,0 +1,20 @@
+Real-account checks, 2026-10-18, operator's channel (channel name and id withheld), release build of r12.
+The operator created the Google Cloud project and Desktop OAuth client and approved consent in the browser.
+
+PASS  sign-in: `youtube auth --credential ... --cacheToken ...` opened the browser (PKCE, loopback); token saved -rw-------.
+      Note: `auth` takes its paths from the flags only (their defaults count as set, as in Go); README now says so.
+PASS  token refresh: a copy of the token with its expiry set in the past was refreshed with Google before a read;
+      new expiry saved, refresh token kept, file still -rw-------.
+PASS  reads: channel list --for mine, playlist list --mine, playlist list --ids.
+PASS  writes: playlist insert (private), playlist update (E18: the fixed lookup; title confirmed changed),
+      playlist delete. scripts/real-account-check.sh: "all steps succeeded".
+      Observed: YouTube serves a stale copy for about 3 s after a create or update; the first run updated a playlist
+      created a moment earlier and got "failed to get playlist". Retried a few seconds later it succeeded, and the
+      title then read back consistently in snippet.title and localized.title. The script now waits for each write.
+PASS  real API error: playlist delete of a nonexistent id printed "googleapi: Error 404: Playlist not found.,
+      playlistNotFound" under Go's error lines.
+PASS  HTTP MCP: the real access token was verified against Google's tokeninfo and initialize returned 200;
+      a made-up token got 401 "invalid token: tokeninfo returned 400".
+
+Not run (they change existing channel content; left to the operator): video upload, playlistItem privacy,
+channel update through brandingSettings, caption download.

@@ -24,11 +24,30 @@ created="$("${BIN}" playlist insert --title "youtube-cli check $(date +%s)" \
 id="$(printf '%s' "${created}" | python3 -c 'import json,sys; print(json.load(sys.stdin)["id"])')"
 echo "created ${id}"
 
+step "wait until YouTube serves the new playlist (lookups lag a few seconds after a create)"
+for _ in $(seq 1 15); do
+  if "${BIN}" playlist list --ids "${id}" -o json | grep -q "\"${id}\""; then break; fi
+  sleep 2
+done
+
 step "update (E18): rename it"
 "${BIN}" playlist update --id "${id}" --title "youtube-cli check (renamed)" --yes
 
-step "confirm the new title"
-"${BIN}" playlist list --ids "${id}" -o table
+step "confirm the new title (reads also lag a few seconds after a write)"
+renamed=0
+for _ in $(seq 1 15); do
+  if "${BIN}" playlist list --ids "${id}" -o json | grep -q '"title":"youtube-cli check (renamed)"'; then
+    renamed=1
+    break
+  fi
+  sleep 2
+done
+if [[ "${renamed}" == 1 ]]; then echo "title is now: youtube-cli check (renamed)"; fi
+if [[ "${renamed}" != 1 ]]; then
+  "${BIN}" playlist delete --ids "${id}" --yes
+  echo "FAILED: the title never changed" >&2
+  exit 1
+fi
 
 step "delete it"
 "${BIN}" playlist delete --ids "${id}" --yes

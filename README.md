@@ -34,6 +34,8 @@ Both install the program as `youtube`. It does not clash with Go yutu, which ins
 
 Paths resolve from the current directory, as in Go. To use youtube from anywhere, give absolute paths in the environment:
 
+`youtube auth` takes its two paths from `--credential` and `--cacheToken` only, because their defaults count as set (as in Go). Every other command reads the environment variables below.
+
 ```shell
 export YOUTUBE_CLI_CREDENTIAL="$HOME/.config/youtube/client_secret.json"
 export YOUTUBE_CLI_CACHE_TOKEN="$HOME/.config/youtube/youtube.token.json"
