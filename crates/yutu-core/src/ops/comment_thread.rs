@@ -2,11 +2,14 @@
 
 use super::common::{Fields, cli_max_results, finish_list, paginate};
 use super::{Ctx, Entry, FlagValues, Invoke, OpError};
-use crate::output::{Cell, print_list};
+use crate::output::{Cell, print_list, print_result};
 use serde::Deserialize;
+use yutu_api::Value;
 use yutu_api::client::BoxFuture;
+use yutu_api::generated::COMMENT_THREAD;
 
 const ERR_GET: &str = "failed to get comment thread";
+const ERR_INSERT: &str = "failed to insert comment thread";
 
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(default)]
@@ -26,6 +29,7 @@ pub struct CommentThread {
 #[derive(Debug, Clone, Copy, PartialEq)]
 enum Verb {
     List,
+    Insert,
 }
 
 struct Bound(Verb, CommentThread);
@@ -50,6 +54,13 @@ fn cli(verb: Verb, f: &dyn FlagValues) -> Box<dyn Invoke> {
             c.fields.parts = f.strings("parts");
             c.fields.output = f.string("output");
         }
+        Verb::Insert => {
+            c.author_channel_id = f.string("authorChannelId");
+            c.fields.channel_id = f.string("channelId");
+            c.text_original = f.string("textOriginal");
+            c.video_id = f.string("videoId");
+            c.fields.output = f.string("output");
+        }
     }
     Box::new(Bound(verb, c))
 }
@@ -59,15 +70,23 @@ fn mcp(verb: Verb, args: serde_json::Value) -> Result<Box<dyn Invoke>, String> {
     Ok(Box::new(Bound(verb, c)))
 }
 
-pub static ENTRIES: [Entry; 1] = [Entry {
-    path: "commentThread list",
-    cli: |f| cli(Verb::List, f),
-    mcp: |a| mcp(Verb::List, a),
-}];
+pub static ENTRIES: [Entry; 2] = [
+    Entry {
+        path: "commentThread insert",
+        cli: |f| cli(Verb::Insert, f),
+        mcp: |a| mcp(Verb::Insert, a),
+    },
+    Entry {
+        path: "commentThread list",
+        cli: |f| cli(Verb::List, f),
+        mcp: |a| mcp(Verb::List, a),
+    },
+];
 
 impl Invoke for Bound {
     fn confirm(&self) -> String {
         match self.0 {
+            Verb::Insert => format!("Create comment thread on video {}", self.1.video_id),
             Verb::List => String::new(),
         }
     }
@@ -77,6 +96,7 @@ impl Invoke for Bound {
         Box::pin(async move {
             match self.0 {
                 Verb::List => c.list(ctx).await,
+                Verb::Insert => c.insert(ctx).await,
             }
         })
     }
@@ -127,5 +147,33 @@ impl CommentThread {
                 },
             )
         })
+    }
+
+    async fn insert(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
+        let svc = ctx.service().await?;
+        let mut ct = Value::new_struct(COMMENT_THREAD);
+        ct.ensure("snippet")
+            .set_str("channelId", &self.fields.channel_id);
+        ct.ensure("snippet.topLevelComment.snippet")
+            .set_str("channelId", &self.fields.channel_id)
+            .set_str("textOriginal", &self.text_original)
+            .set_str("videoId", &self.video_id);
+        ct.ensure("snippet.topLevelComment.snippet.authorChannelId")
+            .set_str("value", &self.author_channel_id);
+        let res = svc
+            .call("youtube.commentThreads.insert")
+            .params("part", &["snippet".into()])
+            .body(&ct)
+            .send()
+            .await
+            .map_err(|e| OpError::wrap(ERR_INSERT, e))?;
+        let id = res.str("id").to_string();
+        print_result(
+            &mut ctx.out,
+            &self.fields.output,
+            &res,
+            &format!("CommentThread inserted: {id}\n"),
+        )
+        .map_err(OpError::new)
     }
 }
