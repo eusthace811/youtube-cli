@@ -25,7 +25,10 @@ impl ServiceProvider for CliService {
             if yutu_api::client::parity_mode()
                 && std::env::var("YUTU_PARITY_AUTH").as_deref() != Ok("1")
             {
-                return Ok(Service::new(None));
+                // One client for the process, so the agent's and the MCP
+                // server's calls reuse connections like Go's default client.
+                static SERVICE: std::sync::OnceLock<Service> = std::sync::OnceLock::new();
+                return Ok(SERVICE.get_or_init(|| Service::new(None)).clone());
             }
             let tokens = yutu_auth::default_token_source().await?;
             Ok(Service::new(Some(tokens)))
@@ -86,6 +89,21 @@ impl App for Yutu {
                 Ok(())
             } else {
                 Err(CmdError::Exit(code))
+            };
+        }
+        if inv.command.path == "agent" {
+            let f = &inv.flags;
+            let opts = yutu_agent::Options {
+                args: f.string("args").to_string(),
+                provider: f.string("provider").to_string(),
+                model: f.string("model").to_string(),
+                api_key: f.string("api-key").to_string(),
+                base_url: f.string("base-url").to_string(),
+                instruction: f.string("instruction").to_string(),
+            };
+            return match yutu_agent::run(&opts, std::sync::Arc::new(CliService)) {
+                0 => Ok(()),
+                code => Err(CmdError::Exit(code)),
             };
         }
         if inv.command.path == "version" {
