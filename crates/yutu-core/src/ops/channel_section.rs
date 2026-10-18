@@ -7,6 +7,7 @@ use serde::Deserialize;
 use yutu_api::client::BoxFuture;
 
 const ERR_GET: &str = "failed to get channel section";
+const ERR_DELETE: &str = "failed to delete channel section";
 
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(default)]
@@ -19,6 +20,7 @@ pub struct ChannelSection {
 #[derive(Debug, Clone, Copy, PartialEq)]
 enum Verb {
     List,
+    Delete,
 }
 
 struct Bound(Verb, ChannelSection);
@@ -43,6 +45,10 @@ fn cli(verb: Verb, f: &dyn FlagValues) -> Box<dyn Invoke> {
             cs.fields.parts = f.strings("parts");
             cs.fields.output = f.string("output");
         }
+        Verb::Delete => {
+            cs.fields.ids = ids(f, "ids");
+            cs.fields.on_behalf_of_content_owner = f.string("onBehalfOfContentOwner");
+        }
     }
     Box::new(Bound(verb, cs))
 }
@@ -52,15 +58,26 @@ fn mcp(verb: Verb, args: serde_json::Value) -> Result<Box<dyn Invoke>, String> {
     Ok(Box::new(Bound(verb, cs)))
 }
 
-pub static ENTRIES: [Entry; 1] = [Entry {
-    path: "channelSection list",
-    cli: |f| cli(Verb::List, f),
-    mcp: |a| mcp(Verb::List, a),
-}];
+pub static ENTRIES: [Entry; 2] = [
+    Entry {
+        path: "channelSection delete",
+        cli: |f| cli(Verb::Delete, f),
+        mcp: |a| mcp(Verb::Delete, a),
+    },
+    Entry {
+        path: "channelSection list",
+        cli: |f| cli(Verb::List, f),
+        mcp: |a| mcp(Verb::List, a),
+    },
+];
 
 impl Invoke for Bound {
     fn confirm(&self) -> String {
         match self.0 {
+            Verb::Delete => format!(
+                "Delete channel section(s): {}",
+                self.1.fields.ids.join(", ")
+            ),
             Verb::List => String::new(),
         }
     }
@@ -70,6 +87,7 @@ impl Invoke for Bound {
         Box::pin(async move {
             match self.0 {
                 Verb::List => cs.list(ctx).await,
+                Verb::Delete => cs.delete(ctx).await,
             }
         })
     }
@@ -118,5 +136,34 @@ impl ChannelSection {
             },
         )
         .map_err(OpError::new)
+    }
+
+    async fn delete(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
+        let svc = ctx.service().await?;
+        let mut errs = OpError::default();
+        for id in &self.fields.ids {
+            let mut call = svc.call("youtube.channelSections.delete").param("id", id);
+            if !self.fields.on_behalf_of_content_owner.is_empty() {
+                call = call.param(
+                    "onBehalfOfContentOwner",
+                    &self.fields.on_behalf_of_content_owner,
+                );
+            }
+            match call.send_empty().await {
+                Err(e) => {
+                    errs.push(ERR_DELETE);
+                    errs.push(e.to_string());
+                }
+                Ok(()) => {
+                    if let Err(e) = ctx
+                        .out
+                        .write_str(&format!("Channel section {id} deleted\n"))
+                    {
+                        errs.push(e);
+                    }
+                }
+            }
+        }
+        errs.into_result()
     }
 }
