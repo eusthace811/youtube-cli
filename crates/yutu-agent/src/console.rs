@@ -82,6 +82,26 @@ impl Console<'_> {
         let _ = self.out.flush();
     }
 
+    /// Prints text the model wrote. On a terminal its control characters
+    /// are shown as escapes rather than obeyed, so a reply cannot restyle,
+    /// recolour, move or hide what the console prints after it, the
+    /// approval question above all. Piped output keeps it as written, like
+    /// Go.
+    fn print_model(&mut self, s: &str) {
+        if !self.interactive {
+            return self.print(s);
+        }
+        let safe: String = s
+            .chars()
+            .map(|c| match c {
+                '\n' | '\t' => c.to_string(),
+                c if c.is_control() => format!("\\u{{{:x}}}", u32::from(c)),
+                c => c.to_string(),
+            })
+            .collect();
+        self.print(&safe);
+    }
+
     /// Discards terminal input until none has arrived for 150 ms, so the
     /// tail of a paste cannot answer the question about to be asked; lines
     /// already read stay queued for the REPL. False when input never stops
@@ -125,14 +145,14 @@ impl Frontend for Console<'_> {
             if let Part::Text { text, .. } = part
                 && !text.is_empty()
             {
-                self.print(text);
+                self.print_model(text);
             }
         }
     }
 
     fn content(&mut self, content: &Content, _: Option<&Meta>) {
         if !self.stream && content.role == Role::Model {
-            self.print(&content.text());
+            self.print_model(&content.text());
         }
     }
 

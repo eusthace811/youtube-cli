@@ -45,7 +45,12 @@ impl Kind {
     /// home), passed through beside the basic process environment.
     fn env_prefixes(self) -> &'static [&'static str] {
         match self {
-            Kind::ClaudeCode => &["ANTHROPIC_", "CLAUDE_CONFIG_DIR", "CLAUDE_CODE_USE_"],
+            Kind::ClaudeCode => &[
+                "ANTHROPIC_",
+                "CLAUDE_CONFIG_DIR",
+                "CLAUDE_CODE_USE_",
+                "CLAUDE_CODE_OAUTH_TOKEN",
+            ],
             Kind::Codex => &["OPENAI_", "CODEX_"],
         }
     }

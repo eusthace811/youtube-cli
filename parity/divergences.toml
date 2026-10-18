@@ -105,7 +105,7 @@ fields = ["requests", "stdout"]
 proof = "crates/yutu-agent/tests/max_results.rs; found by the E16 real-model lane"
 
 [divergence.E18]
-summary = "playlist, playlistItem, channel and comment update fetch the item they change; Go's lookup fetched nothing, so every such update failed with \"failed to get ...\""
+summary = "playlist, playlistItem, channel and comment update fetch the item they change with requests the API accepts (channel update writes brandingSettings and refuses customUrl); Go's lookup fetched nothing, so every such update failed with \"failed to get ...\""
 prs = ["R12"]
 fields = ["requests", "stdout", "stderr", "exit"]
 proof = "the cli.*.update and mcp.*-update corpus cases, tagged E18, run head against Go's golden"

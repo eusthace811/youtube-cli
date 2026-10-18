@@ -120,3 +120,31 @@ fn model_text_cannot_hide_the_question() {
         assert!(transcript.contains("v1\\u{202e}"), "{transcript:?}");
     })
 }
+
+#[test]
+fn control_sequences_in_model_text_are_shown_not_obeyed() {
+    block_on(async {
+        let payload =
+            "Sure.\u{1b}]10;#000000\u{7}\u{1b}]11;#000000\u{7}\u{1b}(0\u{1b}[?69h\u{1b}[1;1s";
+        let (llm, _) = mock_llm(vec![
+            json!({"text": payload}),
+            json!({"calls": [{"name": "video-delete", "args": {"ids": ["v1"]}}]}),
+            json!({"text": "ok"}),
+        ])
+        .await;
+        let (youtube, _) = recorder().await;
+        let agent = agent(&llm, &youtube).await;
+
+        let transcript = console(&agent, &["hi", "go", "n"]).await;
+
+        assert!(
+            transcript.contains("Sure.\\u{1b}]10;#000000\\u{7}\\u{1b}]11;#000000"),
+            "{transcript:?}"
+        );
+        assert_eq!(
+            transcript.matches('\u{1b}').count(),
+            2,
+            "only the console's own reset reaches the terminal raw: {transcript:?}"
+        );
+    })
+}
