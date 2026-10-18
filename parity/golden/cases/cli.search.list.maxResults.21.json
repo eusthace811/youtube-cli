@@ -1,5 +1,5 @@
 {
- "exit": 1,
+ "exit": 0,
  "files": {},
  "id": "cli.search.list.maxResults.21",
  "requests": [
@@ -44,8 +44,53 @@
      "any"
     ]
    }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/search",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "channelType": [
+     "channelTypeUnspecified"
+    ],
+    "eventType": [
+     "none"
+    ],
+    "maxResults": [
+     "1"
+    ],
+    "order": [
+     "relevance"
+    ],
+    "pageToken": [
+     "p2"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "safeSearch": [
+     "moderate"
+    ],
+    "videoCaption": [
+     "any"
+    ],
+    "videoDimension": [
+     "any"
+    ],
+    "videoDuration": [
+     "any"
+    ]
+   }
   }
  ],
- "stderr": "Error: failed to get search\njson: cannot unmarshal string into Go struct field .items.3.id of type youtube.ResourceId\nRun 'yutu search list -h' to see usage.\n",
- "stdout": ""
+ "stderr": "",
+ "stdout": " KIND        TITLE                       RESOURCE ID \n id.kind-0   @at sign                                \n id.kind-1   Ünïcödé ✓ 日本語のタイトル              \n id.kind-2   - dash start                            \n                                                     \n id.kind-10  key: value                              \n id.kind-11  'single' quoted                         \n id.kind-12  <b>tags</b> & \"quotes\"                  \n                                                     "
 }
