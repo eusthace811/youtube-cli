@@ -31,6 +31,18 @@ const DISPLAY_ONLY: &[(&str, &str)] = &[
         "a comment in cobra's bash completion script",
     ),
     (
+        "https://github.com/eat-pray-ai/yutu#prerequisites",
+        "the yutu-auth error that points at the README's credential setup",
+    ),
+    (
+        "https://docs.rs/rustls/latest/rustls/#cryptography-providers",
+        "rustls's missing-crypto-provider panic message",
+    ),
+    (
+        "https://docs.rs/rustls/latest/rustls/manual/_03_howto/index.html#unexpected-eof",
+        "rustls's missing close_notify error message",
+    ),
+    (
         "https://custom.endpoint.com/",
         "the `yutu agent --help` example of --base-url",
     ),
