@@ -4248,10 +4248,7 @@
    "id1"
   ],
   "media": false,
-  "files": {},
-  "divergences": [
-   "E18"
-  ]
+  "files": {}
  },
  {
   "id": "cli.channel.update.tty-decline",
@@ -4266,10 +4263,7 @@
   "media": false,
   "files": {},
   "tty": true,
-  "stdin": "n\n",
-  "divergences": [
-   "E18"
-  ]
+  "stdin": "n\n"
  },
  {
   "id": "cli.channel.update.tty-accept",
@@ -4620,9 +4614,6 @@
    "channel",
    "update",
    "--help"
-  ],
-  "divergences": [
-   "E18"
   ]
  },
  {
@@ -6779,10 +6770,7 @@
    "id1"
   ],
   "media": false,
-  "files": {},
-  "divergences": [
-   "E18"
-  ]
+  "files": {}
  },
  {
   "id": "cli.comment.update.tty-decline",
@@ -6797,10 +6785,7 @@
   "media": false,
   "files": {},
   "tty": true,
-  "stdin": "n\n",
-  "divergences": [
-   "E18"
-  ]
+  "stdin": "n\n"
  },
  {
   "id": "cli.comment.update.tty-accept",
@@ -7092,9 +7077,6 @@
    "comment",
    "update",
    "--help"
-  ],
-  "divergences": [
-   "E18"
   ]
  },
  {
@@ -15316,10 +15298,7 @@
    "id1"
   ],
   "media": false,
-  "files": {},
-  "divergences": [
-   "E18"
-  ]
+  "files": {}
  },
  {
   "id": "cli.playlist.update.tty-decline",
@@ -15334,10 +15313,7 @@
   "media": false,
   "files": {},
   "tty": true,
-  "stdin": "n\n",
-  "divergences": [
-   "E18"
-  ]
+  "stdin": "n\n"
  },
  {
   "id": "cli.playlist.update.tty-accept",
@@ -15707,9 +15683,6 @@
    "playlist",
    "update",
    "--help"
-  ],
-  "divergences": [
-   "E18"
   ]
  },
  {
@@ -18465,10 +18438,7 @@
    "id1"
   ],
   "media": false,
-  "files": {},
-  "divergences": [
-   "E18"
-  ]
+  "files": {}
  },
  {
   "id": "cli.playlistItem.update.tty-decline",
@@ -18483,10 +18453,7 @@
   "media": false,
   "files": {},
   "tty": true,
-  "stdin": "n\n",
-  "divergences": [
-   "E18"
-  ]
+  "stdin": "n\n"
  },
  {
   "id": "cli.playlistItem.update.tty-accept",
@@ -18818,9 +18785,6 @@
    "playlistItem",
    "update",
    "--help"
-  ],
-  "divergences": [
-   "E18"
   ]
  },
  {

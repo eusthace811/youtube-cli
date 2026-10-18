@@ -191,7 +191,12 @@ pub async fn serve<H, F>(
                     let local = s.local_addr().unwrap_or_else(|_| ([127, 0, 0, 1], 0).into());
                     (s, local)
                 }
-                Err(_) => continue,
+                Err(_) => {
+                    // Accept errors (out of descriptors, mostly) persist
+                    // until connections close; retrying at once would spin.
+                    tokio::time::sleep(Duration::from_millis(100)).await;
+                    continue;
+                }
             },
         };
         while conns.try_join_next().is_some() {}

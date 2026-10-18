@@ -1,8 +1,8 @@
 PASS: lane 8, -otel_to_cloud and xtask egress
 The notice prints in both launchers and xtask egress passes.
 
-web: ['time=2026-10-18T20:28:02.515+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']  (server still serves: GET /api/list-apps -> 200)
-console: ['time=2026-10-18T20:28:03.519+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']
+web: ['time=2026-10-18T20:58:20.910+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']  (server still serves: GET /api/list-apps -> 200)
+console: ['time=2026-10-18T20:58:21.910+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']
 
 $ cargo run -p xtask -- egress /Users/juan/Projects/youtube-cli/youtube-cli/target/release/yutu
 egress: masked the brotli static dictionary (RFC 7932 Appendix A, 122784 bytes of word fragments the dev UI's decompressor carries)

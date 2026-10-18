@@ -35,6 +35,9 @@ pub struct Session {
     pub id: String,
     data: Mutex<Data>,
     turn: tokio::sync::Mutex<Slot>,
+    /// Set once the session is deleted; a turn still running stops at its
+    /// next approval instead of waiting for an answer nobody can send.
+    deleted: std::sync::atomic::AtomicBool,
 }
 
 struct Data {
@@ -111,6 +114,7 @@ impl Store {
                 updated: wire::unix_now(),
             }),
             turn: tokio::sync::Mutex::new(Slot::Idle(Vec::new())),
+            deleted: std::sync::atomic::AtomicBool::new(false),
         });
         sessions.insert(key, s.clone());
         Ok(s)
@@ -139,17 +143,20 @@ impl Store {
             .collect()
     }
 
-    /// Removes a session; a turn it left waiting for approval is stopped,
-    /// so its task and history do not outlive it.
+    /// Removes a session and stops its turn, so the task and history do
+    /// not outlive it: dropping the turn's channels stops a paused turn,
+    /// discards one queued to pause, and makes a running one stop at its
+    /// next approval.
     pub fn delete(&self, app: &str, user: &str, id: &str) {
         let key = (app.to_string(), user.to_string(), id.to_string());
         let removed = self.sessions.lock().unwrap().remove(&key);
-        if let Some(session) = removed
-            && let Ok(mut slot) = session.turn.try_lock()
-            && let Slot::Busy { pending, .. } = &mut *slot
-            && let Some(p) = pending.take()
-        {
-            let _ = p.answer.send(Verdict::Stop);
+        if let Some(session) = removed {
+            session
+                .deleted
+                .store(true, std::sync::atomic::Ordering::SeqCst);
+            if let Ok(mut slot) = session.turn.try_lock() {
+                *slot = Slot::Idle(Vec::new());
+            }
         }
     }
 }
@@ -619,6 +626,13 @@ impl Frontend for Web {
         Box::pin(async move {
             if !self.human {
                 return Verdict::Decline;
+            }
+            if self
+                .session
+                .deleted
+                .load(std::sync::atomic::Ordering::SeqCst)
+            {
+                return Verdict::Stop;
             }
             let call_id = self.ids.get(position).cloned().unwrap_or_default();
             let mut hint = format!(

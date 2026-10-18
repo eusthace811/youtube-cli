@@ -172,13 +172,6 @@ impl Invoke for Bound {
 }
 
 impl Comment {
-    async fn get(&self, ctx: &mut Ctx<'_>) -> Result<(Vec<Value>, Option<OpError>), OpError> {
-        let svc = ctx.service().await?;
-        let mut all = super::common::Collect::default();
-        let err = self.pages(&svc, &mut all).await;
-        Ok((all.items, err))
-    }
-
     async fn pages(
         &self,
         svc: &yutu_api::Service,
@@ -260,13 +253,19 @@ impl Comment {
         ctx.service().await?;
         let mut q = self.clone();
         q.fields.parts = vec!["id".into(), "snippet".into()];
-        // Divergence E18: the lookup fetches the one item; Go left the
-        // count at 0, so it fetched nothing and every update failed.
-        q.fields.max_results = 1;
-        let (comments, err) = q.get(ctx).await.map_err(|e| prefixed(ERR_UPDATE, e))?;
-        if let Some(e) = err {
-            return Err(prefixed(ERR_UPDATE, e));
-        }
+        // Divergence E18: one comments.list call by id fetches the item.
+        // Go paged with a count of 0, so it fetched nothing and every
+        // update failed; maxResults is left out, since the API does not
+        // take it together with id.
+        let svc = ctx.service().await?;
+        let mut res = svc
+            .call("youtube.comments.list")
+            .params("part", &q.fields.parts)
+            .params("id", &q.fields.ids)
+            .send()
+            .await
+            .map_err(|e| prefixed(ERR_UPDATE, OpError::wrap(ERR_GET, e)))?;
+        let comments = super::common::take_items(&mut res);
         let Some(mut comment) = comments.into_iter().next() else {
             return Err(OpError::new(ERR_GET));
         };

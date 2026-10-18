@@ -289,6 +289,11 @@ E18_UPDATES = tuple(f"cli.{r}.update." for r in ("playlist", "playlistItem", "ch
     f"mcp.{r}-update." for r in ("playlist", "playlistItem", "channel", "comment"))
 
 
+# Help and declined-approval cases never reach the lookup, so they still
+# match Go exactly and stay fully compared.
+E18_UNCHANGED = (".help", ".no-yes", ".tty-decline", ".decline", ".no-elicitation", ".mrtr.decline")
+
+
 def tag_divergences(cases):
     """Marks the cases a registered Appendix E divergence changes, and adds the
     head-only cases that prove the new behavior against Go's golden."""
@@ -301,7 +306,7 @@ def tag_divergences(cases):
                 extra.append({**c, "id": cid + ".yes", "argv": c["argv"] + ["--yes"], "golden_from": cid, "divergences": []})
         if cid.startswith("mcp.") and cid.endswith(".max_results.zero"):
             c["divergences"] = sorted(set(c.get("divergences", [])) | {"E17"})
-        if cid.startswith(E18_UPDATES):
+        if cid.startswith(E18_UPDATES) and not cid.endswith(E18_UNCHANGED):
             c["divergences"] = sorted(set(c.get("divergences", [])) | {"E18"})
         if cid == "mcp.resource.video.category.ja":
             c["divergences"] = ["E6"]

@@ -7462,7 +7462,6 @@
   ],
   "elicit": "decline",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -7510,7 +7509,6 @@
   ],
   "elicit": "error",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -7642,7 +7640,6 @@
   ],
   "elicit": "decline",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -12954,7 +12951,6 @@
   ],
   "elicit": "decline",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -13002,7 +12998,6 @@
   ],
   "elicit": "error",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -13134,7 +13129,6 @@
   ],
   "elicit": "decline",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -31996,7 +31990,6 @@
   ],
   "elicit": "decline",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -32044,7 +32037,6 @@
   ],
   "elicit": "error",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -32176,7 +32168,6 @@
   ],
   "elicit": "decline",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -37645,7 +37636,6 @@
   ],
   "elicit": "decline",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -37693,7 +37683,6 @@
   ],
   "elicit": "error",
   "divergences": [
-   "E18",
    "E5"
   ]
  },
@@ -37825,7 +37814,6 @@
   ],
   "elicit": "decline",
   "divergences": [
-   "E18",
    "E5"
   ]
  },

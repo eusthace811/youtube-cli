@@ -9,7 +9,7 @@
 # Usage: dist/npm/stage.sh VERSION BIN_DIR OUT_DIR [PACKAGE...]
 #   VERSION   version without the leading v, e.g. 0.11.0
 #   BIN_DIR   directory holding the release assets (yutu-darwin-arm64, ...)
-#   PACKAGE   platform packages to stage (default: all six); the wrapper
+#   PACKAGE   platform packages to stage (default: all four); the wrapper
 #             package yutu is always staged
 
 set -euo pipefail

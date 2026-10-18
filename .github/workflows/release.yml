@@ -1,6 +1,6 @@
 name: release
 
-# A tag push builds the six release binaries under Go's asset names, then
+# A tag push builds the four release binaries (macOS and Linux) under Go's asset names, then
 # publishes them with SHA256SUMS, a CycloneDX SBOM, and a build-provenance
 # attestation per binary. install.sh verifies the sums and attestations.
 
@@ -116,5 +116,5 @@ jobs:
           [[ "${GITHUB_REF_NAME}" == *-* ]] && prerelease="--prerelease"
           gh release create "${GITHUB_REF_NAME}" --repo "${GITHUB_REPOSITORY}" --verify-tag \
             ${prerelease} --title "${GITHUB_REF_NAME}" \
-            --notes "Install: \`curl -sSfL https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/install.sh | YUTU_REPO=${GITHUB_REPOSITORY} bash\`. Verify a binary: \`gh attestation verify yutu-linux-amd64 --repo ${GITHUB_REPOSITORY}\`." \
+            --notes "Install: \`curl -sSfL https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/install.sh | YUTU_REPO=${GITHUB_REPOSITORY} YUTU_RELEASE_URL=https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME} bash\`. Verify a binary: \`gh attestation verify yutu-linux-amd64 --repo ${GITHUB_REPOSITORY}\`." \
             dist-out/yutu-*-* dist-out/yutu.cdx.json dist-out/SHA256SUMS

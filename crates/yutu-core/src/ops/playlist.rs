@@ -264,8 +264,10 @@ impl Playlist {
     async fn update(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
         ctx.service().await?;
         let mut q = self.clone();
-        // Divergence E18: the lookup fetches the one item; Go left the
-        // count at 0, so it fetched nothing and every update failed.
+        // Divergence E18: the lookup fetches the one item, with the parts
+        // the API requires; Go sent no part and a count of 0, so it fetched
+        // nothing and every update failed.
+        q.fields.parts = vec!["id".into(), "snippet".into(), "status".into()];
         q.fields.max_results = 1;
         let (playlists, err) = q.get(ctx).await?;
         if let Some(e) = err {

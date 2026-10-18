@@ -44,7 +44,7 @@ Only these, each one function in `parity/diff.py`:
 | E15 | install.sh verifies checksums and attestations and installs the skill only on request | R11 | 0 | xtask/tests/install.rs |
 | E16 | the agent also runs on the Claude Code and Codex CLIs (--provider claude-code|codex), with their tools off or read-only and the same human approval for writes | R12 | 0 | crates/yutu-agent/tests/cli_provider.rs, crates/yutu-core/tests/help_golden.rs and r9 lane 10 |
 | E17 | max_results 0 in an MCP or agent tool call means no limit, as every tool schema says; Go fetched nothing | R12 | 16 | crates/yutu-agent/tests/max_results.rs; found by the E16 real-model lane |
-| E18 | playlist, playlistItem, channel and comment update fetch the item they change; Go's lookup fetched nothing, so every such update failed with "failed to get ..." | R12 | 153 | the cli.*.update and mcp.*-update corpus cases, tagged E18, run head against Go's golden |
+| E18 | playlist, playlistItem, channel and comment update fetch the item they change; Go's lookup fetched nothing, so every such update failed with "failed to get ..." | R12 | 129 | the cli.*.update and mcp.*-update corpus cases, tagged E18, run head against Go's golden |
 
 Contract or help differences accepted under a registered id:
 

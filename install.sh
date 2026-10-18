@@ -21,11 +21,6 @@
 set -euo pipefail
 
 REPO="${YUTU_REPO:-}"
-if [[ -z "${REPO}" && -z "${YUTU_RELEASE_URL:-}" ]]; then
-  echo "Set YUTU_REPO to the GitHub repository of the yutu-rs releases (owner/name)." >&2
-  echo "The Go project's releases (eat-pray-ai/yutu) are a different program." >&2
-  exit 2
-fi
 BASE_URL="${YUTU_RELEASE_URL:-https://github.com/${REPO}/releases/latest/download}"
 INSTALL_DIR="${XDG_BIN_HOME:-${HOME}/.local/bin}"
 WITH_SKILL=0
@@ -43,6 +38,12 @@ for arg in "$@"; do
       ;;
   esac
 done
+
+if [[ -z "${REPO}" && -z "${YUTU_RELEASE_URL:-}" ]]; then
+  echo "Set YUTU_REPO to the GitHub repository of the yutu-rs releases (owner/name)." >&2
+  echo "The Go project's releases (eat-pray-ai/yutu) are a different program." >&2
+  exit 2
+fi
 
 ARCH="UNKNOWN"
 case $(uname -m) in

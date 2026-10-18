@@ -178,10 +178,18 @@ impl Channel {
     }
 
     async fn update(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
+        // Divergence E18: channels.update accepts only the brandingSettings
+        // (or invideoPromotion) part, where the editable title,
+        // description, country and language live. Go sent snippet, which
+        // the API refuses, and its lookup fetched nothing. The custom URL
+        // has no field the API can change.
+        if !self.custom_url.is_empty() {
+            return Err(OpError::new(
+                "customUrl cannot be changed through the YouTube API; change it in YouTube Studio",
+            ));
+        }
         let mut q = self.clone();
-        q.fields.parts = vec!["snippet".into()];
-        // Divergence E18: the lookup fetches the one item; Go left the
-        // count at 0, so it fetched nothing and every update failed.
+        q.fields.parts = vec!["brandingSettings".into()];
         q.fields.max_results = 1;
         let (channels, err) = match q.get(ctx).await {
             Ok(fetched) => fetched,
@@ -194,12 +202,9 @@ impl Channel {
             return Err(OpError::new(ERR_GET));
         };
         {
-            let s = cha.ensure("snippet");
+            let s = cha.ensure("brandingSettings.channel");
             if let Some(c) = &self.country {
                 s.set_str("country", c);
-            }
-            if !self.custom_url.is_empty() {
-                s.set_str("customUrl", &self.custom_url);
             }
             if let Some(l) = &self.default_language {
                 s.set_str("defaultLanguage", l);

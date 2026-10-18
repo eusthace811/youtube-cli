@@ -55,9 +55,9 @@ pub fn stdin_lines() -> Lines {
             pending.extend_from_slice(&buf[..n]);
             while let Some(end) = pending.iter().position(|&b| b == b'\n') {
                 let bytes: Vec<u8> = pending.drain(..=end).collect();
-                let Ok(text) = String::from_utf8(bytes) else {
-                    return;
-                };
+                // Go's console reads bytes, so a malformed line still
+                // reaches the model instead of ending the session.
+                let text = String::from_utf8_lossy(&bytes).into_owned();
                 if tx.send(Line { text, at }).is_err() {
                     return;
                 }
