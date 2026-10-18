@@ -73,6 +73,7 @@ async fn queued_session(stdin: &[&str], interactive: bool) -> (String, usize) {
         &mut out,
         yutu_agent::launcher::Streaming::None,
         interactive,
+        interactive,
     )
     .await;
     let writes = api_log.lock().unwrap().len();
@@ -146,5 +147,37 @@ fn control_sequences_in_model_text_are_shown_not_obeyed() {
             2,
             "only the console's own reset reaches the terminal raw: {transcript:?}"
         );
+    })
+}
+
+#[test]
+fn piped_input_with_terminal_output_still_escapes_model_text() {
+    block_on(async {
+        let (llm, _) = mock_llm(vec![
+            json!({"text": "hi\u{1b}]52;c;Zm9v\u{7}\u{1b}[8m hidden"}),
+        ])
+        .await;
+        let (youtube, _) = recorder().await;
+        let agent = agent(&llm, &youtube).await;
+        let (tx, rx) = tokio::sync::mpsc::unbounded_channel();
+        tx.send(yutu_agent::console::Line::now("go\n")).unwrap();
+        drop(tx);
+        let mut out: Vec<u8> = Vec::new();
+        yutu_agent::console::run(
+            &agent,
+            rx,
+            &mut out,
+            yutu_agent::launcher::Streaming::None,
+            false,
+            true,
+        )
+        .await;
+        let transcript = String::from_utf8(out).unwrap();
+
+        assert!(
+            transcript.contains("hi\\u{1b}]52;c;Zm9v\\u{7}\\u{1b}[8m hidden"),
+            "{transcript:?}"
+        );
+        assert!(!transcript.contains('\u{1b}'), "{transcript:?}");
     })
 }

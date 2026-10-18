@@ -73,7 +73,10 @@ struct Console<'a> {
     /// Lines queued before an approval prompt, kept for the REPL.
     ahead: VecDeque<String>,
     stream: bool,
+    /// A person at a terminal can answer approvals (stdin is one, CI unset).
     interactive: bool,
+    /// Output goes to a terminal, so text from the model is escaped.
+    escape: bool,
 }
 
 impl Console<'_> {
@@ -85,10 +88,10 @@ impl Console<'_> {
     /// Prints text the model wrote. On a terminal its control characters
     /// are shown as escapes rather than obeyed, so a reply cannot restyle,
     /// recolour, move or hide what the console prints after it, the
-    /// approval question above all. Piped output keeps it as written, like
-    /// Go.
+    /// approval question above all. Output to a pipe or file keeps it as
+    /// written, like Go.
     fn print_model(&mut self, s: &str) {
-        if !self.interactive {
+        if !self.escape {
             return self.print(s);
         }
         let safe: String = s
@@ -175,7 +178,7 @@ impl Frontend for Console<'_> {
             // On a terminal, end any control sequence the model's text left
             // open (CAN, then ST) and reset attributes, so its output cannot
             // hide or disguise the question.
-            if self.interactive {
+            if self.escape {
                 self.print("\u{18}\u{1b}\\\u{1b}[0m");
             }
             self.print(&format!(
@@ -201,13 +204,15 @@ impl Frontend for Console<'_> {
 }
 
 /// Runs the REPL until EOF. `stream` is the resolved streaming mode;
-/// `interactive` says stdin is a terminal a person can answer approvals on.
+/// `interactive` says stdin is a terminal a person can answer approvals on;
+/// `escape` says `out` is a terminal, where model text must not act.
 pub async fn run(
     agent: &Agent,
     mut lines: Lines,
     out: &mut (dyn Write + Send),
     stream: Streaming,
     interactive: bool,
+    escape: bool,
 ) {
     let mut history: Vec<Content> = Vec::new();
     let mut console = Console {
@@ -216,6 +221,7 @@ pub async fn run(
         ahead: VecDeque::new(),
         stream: stream == Streaming::Sse,
         interactive,
+        escape,
     };
     console.print("\n\nUser -> ");
     loop {
@@ -232,7 +238,12 @@ pub async fn run(
         {
             // Errors can carry text the model chose (a tool name, the CLI's
             // own message), so they get the same treatment as its replies.
-            console.print_model(&format!("\nAGENT_ERROR: {e}\n"));
+            let e = if console.escape {
+                yutu_core::confirm::printable(&e)
+            } else {
+                e
+            };
+            console.print(&format!("\nAGENT_ERROR: {e}\n"));
         }
         console.print("\nUser -> ");
     }

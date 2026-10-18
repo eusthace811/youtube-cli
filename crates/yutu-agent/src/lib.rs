@@ -211,8 +211,9 @@ pub fn run(opts: &Options, provider: Arc<dyn ServiceProvider>) -> i32 {
             Streaming::None
         });
         let interactive = yutu_core::confirm::interactive(std::io::stdin().is_terminal());
+        let escape = stdout.is_terminal();
         tokio::select! {
-            () = console::run(&agent, console::stdin_lines(), &mut stdout, streaming, interactive) => {}
+            () = console::run(&agent, console::stdin_lines(), &mut stdout, streaming, interactive, escape) => {}
             _ = tokio::signal::ctrl_c() => {}
         }
         0

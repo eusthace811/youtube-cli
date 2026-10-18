@@ -216,7 +216,7 @@ pub async fn console(agent: &Agent, stdin: &[&str]) -> String {
         pending: stdin.iter().map(|l| format!("{l}\n")).collect(),
         tx: Some(tx),
     };
-    yutu_agent::console::run(agent, rx, &mut out, Streaming::None, true).await;
+    yutu_agent::console::run(agent, rx, &mut out, Streaming::None, true, true).await;
     String::from_utf8(out.out).unwrap()
 }
 
