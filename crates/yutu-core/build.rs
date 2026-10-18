@@ -63,7 +63,10 @@ fn main() {
     let dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../spec/registry");
     println!("cargo:rerun-if-changed={}", dir.display());
     let mut commands = Vec::new();
-    let mut names: Vec<_> = std::fs::read_dir(&dir).unwrap().map(|e| e.unwrap().path()).collect();
+    let mut names: Vec<_> = std::fs::read_dir(&dir)
+        .unwrap()
+        .map(|e| e.unwrap().path())
+        .collect();
     names.sort();
     for p in names {
         println!("cargo:rerun-if-changed={}", p.display());
@@ -78,11 +81,19 @@ fn main() {
     writeln!(out, "pub static COMMANDS: &[Command] = &[").unwrap();
     for c in &commands {
         let parent = c.path.rsplit_once(' ').map(|(p, _)| p).unwrap_or("");
-        let parent = if c.path.is_empty() { "None".to_string() } else { format!("Some({})", index(parent)) };
+        let parent = if c.path.is_empty() {
+            "None".to_string()
+        } else {
+            format!("Some({})", index(parent))
+        };
         let mut children: Vec<_> = commands
             .iter()
             .enumerate()
-            .filter(|(_, o)| !o.path.is_empty() && o.path.rsplit_once(' ').map(|(p, _)| p).unwrap_or("") == c.path && o.path != c.path)
+            .filter(|(_, o)| {
+                !o.path.is_empty()
+                    && o.path.rsplit_once(' ').map(|(p, _)| p).unwrap_or("") == c.path
+                    && o.path != c.path
+            })
             .map(|(i, _)| i)
             .collect();
         children.sort_by(|a, b| commands[*a].use_line.cmp(&commands[*b].use_line));

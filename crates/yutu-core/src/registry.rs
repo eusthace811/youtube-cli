@@ -91,9 +91,14 @@ pub fn root() -> &'static Command {
 }
 
 pub fn find(path: &str) -> Option<&'static Command> {
-    COMMANDS.binary_search_by(|c| c.path.cmp(path)).ok().map(|i| &COMMANDS[i])
+    COMMANDS
+        .binary_search_by(|c| c.path.cmp(path))
+        .ok()
+        .map(|i| &COMMANDS[i])
 }
 
 pub fn tools() -> impl Iterator<Item = (&'static Command, &'static Tool)> {
-    COMMANDS.iter().filter_map(|c| c.tool.as_ref().map(|t| (c, t)))
+    COMMANDS
+        .iter()
+        .filter_map(|c| c.tool.as_ref().map(|t| (c, t)))
 }
