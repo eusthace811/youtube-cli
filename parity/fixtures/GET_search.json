@@ -186,7 +186,12 @@
     },
     {
      "etag": "",
-     "id": "zero-0",
+     "id": {
+      "channelId": "",
+      "kind": "",
+      "playlistId": "",
+      "videoId": ""
+     },
      "kind": "",
      "snippet": {
       "channelId": "",
@@ -433,7 +438,12 @@
     },
     {
      "etag": "",
-     "id": "zero-1",
+     "id": {
+      "channelId": "",
+      "kind": "",
+      "playlistId": "",
+      "videoId": ""
+     },
      "kind": "",
      "snippet": {
       "channelId": "",
@@ -680,7 +690,12 @@
     },
     {
      "etag": "",
-     "id": "zero-2",
+     "id": {
+      "channelId": "",
+      "kind": "",
+      "playlistId": "",
+      "videoId": ""
+     },
      "kind": "",
      "snippet": {
       "channelId": "",

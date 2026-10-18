@@ -1,5 +1,5 @@
 {
- "exit": 1,
+ "exit": 0,
  "files": {},
  "id": "cli.search.list.videoSyndicated.videoSyndicatedUnspecified",
  "requests": [
@@ -49,6 +49,6 @@
    }
   }
  ],
- "stderr": "Error: failed to get search\njson: cannot unmarshal string into Go struct field .items.3.id of type youtube.ResourceId\nRun 'yutu search list -h' to see usage.\n",
- "stdout": ""
+ "stderr": "",
+ "stdout": " KIND       TITLE                       RESOURCE ID \n id.kind-0  @at sign                                \n id.kind-1  Ünïcödé ✓ 日本語のタイトル              \n id.kind-2  - dash start                            \n                                                    "
 }

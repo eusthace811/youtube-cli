@@ -77,7 +77,8 @@ def list_fixture(resp_ref):
     pages = []
     for p in range(3):
         items = [obj(item_ref, "", p * 10 + i, 0, False) for i in range(3)]
-        items.append(obj(item_ref, "", 0, 0, True) | {"id": f"zero-{p}"} if "id" in SCHEMAS[item_ref].get("properties", {}) else obj(item_ref, "", 0, 0, True))
+        zero_id = SCHEMAS[item_ref].get("properties", {}).get("id", {}).get("type") == "string"
+        items.append(obj(item_ref, "", 0, 0, True) | {"id": f"zero-{p}"} if zero_id else obj(item_ref, "", 0, 0, True))
         page = {"kind": f"youtube#{resp_ref[0].lower()}{resp_ref[1:]}", "etag": f"etag-page-{p}", "items": items}
         if "pageInfo" in SCHEMAS[resp_ref]["properties"]:
             page["pageInfo"] = {"totalResults": 12, "resultsPerPage": 4}
@@ -88,7 +89,16 @@ def list_fixture(resp_ref):
     return {"pages": pages}
 
 
+def big_videos(path, count=500):
+    """A single VideoListResponse page with `count` fully populated videos."""
+    items = [obj("Video", "", i, 0, False) for i in range(count)]
+    Path(path).write_text(json.dumps({"kind": "youtube#videoListResponse", "etag": "big", "items": items}, ensure_ascii=False))
+
+
 def main():
+    if len(sys.argv) == 3 and sys.argv[1] == "--big":
+        big_videos(sys.argv[2])
+        return
     OUT.mkdir(parents=True, exist_ok=True)
     written = 0
     for m in methods(SPEC["resources"]):
