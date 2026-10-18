@@ -1,0 +1,24 @@
+[package]
+name = "yutu-auth-fuzz"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+yutu-auth = { path = ".." }
+
+# Its own workspace, so nightly-only fuzz builds stay out of the main one.
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "input"
+path = "fuzz_targets/input.rs"
+test = false
+doc = false
+bench = false
