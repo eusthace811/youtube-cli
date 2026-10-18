@@ -485,13 +485,7 @@ mod tests {
         assert_eq!(skill.frontmatter.license, "Apache-2.0");
         assert_eq!(
             skill.frontmatter.metadata,
-            vec![
-                ("author".to_string(), "eat-pray-ai".to_string()),
-                (
-                    "homepage".to_string(),
-                    "https://github.com/eat-pray-ai/yutu".to_string()
-                ),
-            ]
+            vec![("author".to_string(), "youtube-cli".to_string())]
         );
         assert!(skill.instructions.starts_with("\n# YouTube\n"));
     }

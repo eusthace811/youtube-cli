@@ -99,6 +99,36 @@ def mcp_by_value(text):
     return [json.loads(line) for line in text.splitlines() if line.strip()]
 
 
+def rename_go(text):
+    """Divergence E19: Go's output under youtube-cli's names. The command
+    yutu is youtube, YUTU_ variables are YOUTUBE_CLI_ (the harness's own
+    YUTU_PARITY_ protocol keeps its name), and the setup link in the auth
+    hint points at the README."""
+    text = text.replace("https://github.com/eat-pray-ai/yutu#prerequisites",
+                        "README.md (Connect your YouTube account)")
+    text = text.replace("YUTU_PARITY_", "\0").replace("YUTU_", "YOUTUBE_CLI_").replace("\0", "YUTU_PARITY_")
+    # Go's video-insert default tag, yutu🐰, which youtube-cli drops: in its
+    # MCP schema (compact and spaced JSON), its --tags help, and the bound
+    # input its logs print.
+    text = text.replace(',"default":["yutu🐰"]', "").replace('"default": ["yutu🐰"], ', "")
+    text = text.replace(" (default [yutu🐰])", "")
+    tag = r'\\"tags\\":\[\\"yutu(?:🐰|\\\\ud83d\\\\udc30)\\"\]'
+    text = re.sub("," + tag + "(?=[,}])", "", text)
+    text = re.sub(tag + ",", "", text)
+    return text.replace("yutu", "youtube")
+
+
+def drop_go_upload_tag(value):
+    """Divergence E19: Go tags an upload given no tags with its own name,
+    yutu🐰; youtube-cli sends none, so that one default tag list is dropped
+    from Go's recorded request bodies."""
+    if isinstance(value, dict):
+        return {k: drop_go_upload_tag(v) for k, v in value.items() if not (k == "tags" and v == ["yutu🐰"])}
+    if isinstance(value, list):
+        return [drop_go_upload_tag(v) for v in value]
+    return value
+
+
 def normalize_request(req):
     ctype, body = body_value(req)
     return {"method": req["method"], "path": req["path"], "query": split_part(req["query"]),
@@ -122,7 +152,7 @@ def compare(golden, head, case, allowed=()):
             raise ValueError(f"case {case['id']} names unregistered divergence {d}")
     skip = {field for d in accepted for field in known[d].get("fields", [])}
     out = []
-    g_reqs = [normalize_request(r) for r in golden["requests"]]
+    g_reqs = [drop_go_upload_tag(normalize_request(r)) for r in golden["requests"]]
     h_reqs = [normalize_request(r) for r in head["requests"]]
     if "requests" not in skip:
         if len(g_reqs) != len(h_reqs):
@@ -140,7 +170,7 @@ def compare(golden, head, case, allowed=()):
     for field, norm in (("stdout", mask_port), ("stderr", stderr_norm)):
         if field in skip:
             continue
-        g, h = norm(golden[field]), norm(head[field])
+        g, h = norm(rename_go(golden[field])), norm(head[field])
         if mcp and field == "stdout":
             g, h = mcp_by_value(g), mcp_by_value(h)
             for i, (a, b) in enumerate(zip(g, h)):

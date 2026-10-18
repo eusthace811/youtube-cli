@@ -186,7 +186,10 @@ impl FlagSet {
             };
             if f.default != zero {
                 if f.kind == Kind::Str {
-                    line.push_str(&format!(" (default {})", youtube_auth::log::quote(f.default)));
+                    line.push_str(&format!(
+                        " (default {})",
+                        youtube_auth::log::quote(f.default)
+                    ));
                 } else {
                     line.push_str(&format!(" (default {})", f.default));
                 }

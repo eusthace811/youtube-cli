@@ -46,7 +46,7 @@ fn url_safe_base64_is_rejected() {
     );
     assert_eq!(
         without_time(&logs),
-        "level=ERROR msg=\"failed to parse client secret\" hint=\"Please configure client secret as described in https://github.com/eat-pray-ai/yutu#prerequisites\" error=\"illegal base64 data at input byte 3\""
+        "level=ERROR msg=\"failed to parse client secret\" hint=\"Please configure client secret as described in README.md (Connect your YouTube account)\" error=\"illegal base64 data at input byte 3\""
     );
 }
 
@@ -182,7 +182,7 @@ fn defaults_resolve_against_the_working_directory() {
         in_child(&dir, "", &[]),
         "cred=Err(\"failed to parse client secret: illegal base64 data at input byte 6\")\n\
          token=\"\" file=Some(\"youtube.token.json\")\n\
-         level=ERROR msg=\"failed to parse client secret\" hint=\"Please configure client secret as described in https://github.com/eat-pray-ai/yutu#prerequisites\" error=\"illegal base64 data at input byte 6\""
+         level=ERROR msg=\"failed to parse client secret\" hint=\"Please configure client secret as described in README.md (Connect your YouTube account)\" error=\"illegal base64 data at input byte 6\""
     );
     std::fs::write(dir.join("client_secret.json"), CRED).unwrap();
     std::fs::write(dir.join("youtube.token.json"), TOKEN).unwrap();

@@ -9,6 +9,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from diff import rename_go  # noqa: E402
+
 PARITY = Path(__file__).resolve().parent
 GOLDEN = PARITY / "golden"
 LISTS = [("tools", "tools/list"), ("resources", "resources/list"),
@@ -46,7 +49,7 @@ def command_paths(node, prefix=()):
 
 
 def help_texts(binary):
-    tree = json.loads((GOLDEN / "go-dump.json").read_text())["commands"]
+    tree = json.loads(rename_go((GOLDEN / "go-dump.json").read_text()))["commands"]
     out = {}
     env = {"PATH": "/usr/bin:/bin", "HOME": "/tmp"}
     for path in command_paths(tree):
@@ -85,7 +88,7 @@ def main():
         ap.error("--mcp-only needs --compare")
     allowed = [tuple(x.split("=", 1)) for x in args.allow.split(",") if x]
     if args.help_only:
-        found = diff(json.loads((GOLDEN / "help.json").read_text()), help_texts(args.bin), "$help")
+        found = diff(json.loads(rename_go((GOLDEN / "help.json").read_text())), help_texts(args.bin), "$help")
         rest = []
         for d in found:
             hit = next((i for i, prefix in allowed if d.startswith(prefix)), None)
@@ -104,9 +107,9 @@ def main():
         tools = contract["tools"]["result"]["tools"]
         print(f"contract: {len(tools)} tools, {sum(len(t['inputSchema'].get('properties', {})) for t in tools)} properties, {len(helps)} help texts")
         return
-    found = diff(json.loads(Path(args.compare).read_text()), contract)
+    found = diff(json.loads(rename_go(Path(args.compare).read_text())), contract)
     if not args.mcp_only:
-        golden_help = json.loads((GOLDEN / "help.json").read_text())
+        golden_help = json.loads(rename_go((GOLDEN / "help.json").read_text()))
         found += diff(golden_help, helps, "$help")
     registered, rest = [], []
     for d in found:

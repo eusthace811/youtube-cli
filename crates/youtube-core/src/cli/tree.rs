@@ -370,7 +370,11 @@ mod tests {
     fn find_walks_subcommands_around_flags() {
         assert_eq!(
             find(&["video", "list", "-o", "json"]),
-            ("youtube video list".into(), strings(&["-o", "json"]), Ok(()))
+            (
+                "youtube video list".into(),
+                strings(&["-o", "json"]),
+                Ok(())
+            )
         );
         assert_eq!(
             find(&["-h", "video"]),
@@ -386,7 +390,11 @@ mod tests {
         );
         assert_eq!(
             find(&["playlist", "--mine", "list"]),
-            ("youtube playlist".into(), strings(&["--mine", "list"]), Ok(()))
+            (
+                "youtube playlist".into(),
+                strings(&["--mine", "list"]),
+                Ok(())
+            )
         );
     }
 
@@ -395,7 +403,9 @@ mod tests {
         let (_, _, checked) = find(&["vidoe"]);
         assert_eq!(
             checked,
-            Err("unknown command \"vidoe\" for \"youtube\"\n\nDid you mean this?\n\tvideo\n".into())
+            Err(
+                "unknown command \"vidoe\" for \"youtube\"\n\nDid you mean this?\n\tvideo\n".into()
+            )
         );
         let (_, _, checked) = find(&["c"]);
         assert_eq!(
@@ -403,7 +413,10 @@ mod tests {
             "unknown command \"c\" for \"youtube\"\n\nDid you mean this?\n\tmcp\n\tcaption\n\tchannel\n\tchannelBanner\n\tchannelSection\n\tcomment\n\tcommentThread\n\tcompletion\n"
         );
         let (_, _, checked) = find(&["he"]);
-        assert_eq!(checked, Err("unknown command \"he\" for \"youtube\"".into()));
+        assert_eq!(
+            checked,
+            Err("unknown command \"he\" for \"youtube\"".into())
+        );
     }
 
     #[test]

@@ -217,7 +217,12 @@ impl<F: Fn(&Value) -> Vec<Cell> + Send> PageSink for ListSink<'_, '_, F> {
             match self.output.as_str() {
                 "json" => {
                     let mut s = String::new();
-                    youtube_api::json::list_item(&item, self.out.interactive, self.count == 0, &mut s);
+                    youtube_api::json::list_item(
+                        &item,
+                        self.out.interactive,
+                        self.count == 0,
+                        &mut s,
+                    );
                     self.write(&s);
                 }
                 "yaml" => {

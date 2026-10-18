@@ -3,7 +3,7 @@
 #
 # Usage: docs/evidence/r11/lanes.sh [LANE...]   (default: all)
 # Environment:
-#   YUTU_BIN   head release binary (default $CARGO_TARGET_DIR/release/yutu)
+#   YOUTUBE_CLI_BIN   head release binary (default $CARGO_TARGET_DIR/release/youtube)
 #   GO_SRC     Go yutu checkout (default ../yutu next to the repository's parent)
 #   GO_BIN     stamped Go v0.11.0 build (default ref/yutu-go)
 #   GO_ASSET   official Go v0.11.0 darwin-arm64 release asset, if present
@@ -14,7 +14,7 @@ set -uo pipefail
 ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
 OUT="${ROOT}/docs/evidence/r11"
 TARGET_DIR="${CARGO_TARGET_DIR:-${ROOT}/target}"
-BIN="${YUTU_BIN:-${TARGET_DIR}/release/yutu}"
+BIN="${YOUTUBE_CLI_BIN:-${TARGET_DIR}/release/youtube}"
 GO_SRC="${GO_SRC:-/Users/juan/Projects/youtube-cli/yutu}"
 GO_BIN="${GO_BIN:-/Users/juan/Projects/youtube-cli/youtube-cli/ref/yutu-go}"
 GO_ASSET="${GO_ASSET:-}"
@@ -22,10 +22,10 @@ TMP="$(mktemp -d)"
 trap 'rm -rf "${TMP}"' EXIT
 
 case "$(uname -s)-$(uname -m)" in
-  Darwin-arm64) ASSET=yutu-darwin-arm64 NPM_PKG=yutu-darwin-arm64 ;;
-  Darwin-x86_64) ASSET=yutu-darwin-amd64 NPM_PKG=yutu-darwin-x64 ;;
-  Linux-aarch64) ASSET=yutu-linux-arm64 NPM_PKG=yutu-linux-arm64 ;;
-  Linux-x86_64) ASSET=yutu-linux-amd64 NPM_PKG=yutu-linux-x64 ;;
+  Darwin-arm64) ASSET=youtube-darwin-arm64 NPM_PKG=youtube-darwin-arm64 ;;
+  Darwin-x86_64) ASSET=youtube-darwin-amd64 NPM_PKG=youtube-darwin-x64 ;;
+  Linux-aarch64) ASSET=youtube-linux-arm64 NPM_PKG=youtube-linux-arm64 ;;
+  Linux-x86_64) ASSET=youtube-linux-amd64 NPM_PKG=youtube-linux-x64 ;;
 esac
 
 # run CMD...: echo the command, run it, and print its exit code and output.
@@ -54,16 +54,24 @@ lane1() {
     echo "Generated skills/ against Go's skills/youtube and cmd/agent (INSTRUCTION.md, skills/)."
     echo "Expected differences: E13 (no i18nLanguage-list, i18nRegion-list, videoCategory-list;"
     echo "caption-download under a local-file heading; resources line lists only resources with tools)"
-    echo "and the license frontmatter (Go says MIT; every file ships under Apache-2.0)."
+    echo "and the license frontmatter (Go says MIT; every file ships under Apache-2.0); E19: Go's"
+    echo "files are first mapped to the new names, and the setup guide and skill metadata point at"
+    echo "youtube-cli's install methods instead of Go yutu's."
     echo
-    run diff -r "${GO_SRC}/skills/youtube" "${ROOT}/skills/youtube"
-    run diff "${GO_SRC}/cmd/agent/INSTRUCTION.md" "${ROOT}/crates/yutu-agent/assets/INSTRUCTION.md"
-    run diff -r "${GO_SRC}/cmd/agent/skills" "${ROOT}/crates/yutu-agent/assets/skills"
+    # E19: Go's files under youtube-cli's names first, as parity/diff.py rename_go.
+    rm -rf "${TMP}/go-src" && mkdir -p "${TMP}/go-src/cmd/agent"
+    cp -R "${GO_SRC}/skills" "${TMP}/go-src/skills"
+    cp -R "${GO_SRC}/cmd/agent/skills" "${GO_SRC}/cmd/agent/INSTRUCTION.md" "${TMP}/go-src/cmd/agent/"
+    find "${TMP}/go-src" -type f -exec sed -i '' -e 's/YUTU_/YOUTUBE_CLI_/g' -e 's/Yutu/Youtube/g' -e 's/yutu/youtube/g' {} +
+    G="${TMP}/go-src"
+    run diff -r "${G}/skills/youtube" "${ROOT}/skills/youtube"
+    run diff "${G}/cmd/agent/INSTRUCTION.md" "${ROOT}/crates/youtube-agent/assets/INSTRUCTION.md"
+    run diff -r "${G}/cmd/agent/skills" "${ROOT}/crates/youtube-agent/assets/skills"
   } >"${body}"
   # Every changed line, deduplicated, must be one of the expected ones.
-  diff -r "${GO_SRC}/skills/youtube" "${ROOT}/skills/youtube" >"${TMP}/d1"
-  diff -r "${GO_SRC}/cmd/agent/skills" "${ROOT}/crates/yutu-agent/assets/skills" >>"${TMP}/d1"
-  diff "${GO_SRC}/cmd/agent/INSTRUCTION.md" "${ROOT}/crates/yutu-agent/assets/INSTRUCTION.md" >>"${TMP}/d1"
+  diff -r "${G}/skills/youtube" "${ROOT}/skills/youtube" >"${TMP}/d1"
+  diff -r "${G}/cmd/agent/skills" "${ROOT}/crates/youtube-agent/assets/skills" >>"${TMP}/d1"
+  diff "${G}/cmd/agent/INSTRUCTION.md" "${ROOT}/crates/youtube-agent/assets/INSTRUCTION.md" >>"${TMP}/d1"
   grep -E '^[<>]' "${TMP}/d1" | sort -u >"${TMP}/changed"
   cat >"${TMP}/expected" <<'EOF'
 < - `caption-download`
@@ -72,6 +80,34 @@ lane1() {
 < - `videoCategory-list`
 < Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, i18nLanguage, i18nRegion, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, videoCategory, watermark.
 < license: MIT
+<   author: eat-pray-ai
+<   homepage: "https://github.com/eat-pray-ai/youtube"
+>   author: youtube-cli
+< 
+< # Linux / macOS (shell script)
+< # Node.js (all platforms)
+< # Windows
+< # macOS
+< ### Other platforms
+< Download a prebuilt binary from the [releases page](https://github.com/eat-pray-ai/youtube/releases/latest) and place it in your PATH.
+< For more details, see the [README](https://github.com/eat-pray-ai/youtube#readme).
+< Install `youtube` using one of these methods:
+< brew install youtube
+< compatibility: Requires the youtube CLI binary (installable via npm, brew, or winget) and Google Cloud OAuth credentials for YouTube Data API v3.
+< curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/youtube/main/scripts/install.sh | bash
+< npm i -g @eat-pray-ai/youtube
+< npx skills add eat-pray-ai/youtube --skill youtube
+< winget install youtube
+> # From source
+> # Node.js
+> # Shell script, with checksum and provenance checks (OWNER/REPO: the youtube-cli repository)
+> For more details, see the youtube-cli README.
+> Install `youtube` (youtube-cli, macOS or Linux) using one of these methods:
+> cargo build --release --locked -p youtube
+> compatibility: Requires the youtube CLI binary from youtube-cli (installable via npm, its install script, or from source) and Google Cloud OAuth credentials for YouTube Data API v3.
+> curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash
+> npm i -g @youtube-cli/youtube
+> npx skills add OWNER/REPO --skill youtube   # OWNER/REPO: the youtube-cli repository
 >
 > - `caption-download`
 > ### Local file (writes a file on this machine — confirm the path with user first)
@@ -93,24 +129,30 @@ lane2() {
   {
     echo "Generated scripts/command-test.sh against the head release binary."
     echo "The script runs under set -e, so exit 0 means every invocation exited 0."
-    echo "invocations: $(grep -c '^"\$YUTU_PATH"' "${ROOT}/scripts/command-test.sh")"
+    echo "invocations: $(grep -c '^"\$YOUTUBE_CLI_PATH"' "${ROOT}/scripts/command-test.sh")"
     echo
     "${ROOT}/scripts/command-test.sh" "${BIN}" >"${TMP}/rust.out" 2>&1
     echo "exit: $?"
     echo
     echo "Same script against Go v0.11.0 (${GO_BIN}), output diffed with head's."
-    echo "Expected differences: the 'Using yutu at' path, 'caption download --help' listing"
-    echo "--yes, because Rust gates caption download (divergence E1), and 'agent --help' naming the"
-    echo "claude-code and codex providers (divergence E16)."
-    "${ROOT}/scripts/command-test.sh" "${GO_BIN}" >"${TMP}/go.out" 2>&1
+    echo "Expected differences: the 'Using youtube at' path, 'caption download --help' listing"
+    echo "--yes, because Rust gates caption download (divergence E1), 'agent --help' naming the"
+    echo "claude-code and codex providers (divergence E16), and the version banner (divergence E19)."
+    echo "Go's output is first mapped to the new names (E19), as parity/diff.py rename_go does."
+    "${ROOT}/scripts/command-test.sh" "${GO_BIN}" >"${TMP}/go.raw" 2>&1
     echo "go exit: $?"
+    # E19: Go's output under youtube-cli's names, as parity/diff.py rename_go.
+    sed -e 's/YUTU_/YOUTUBE_CLI_/g' -e 's/yutu/youtube/g' -e 's/ (default \[youtube🐰\])//' "${TMP}/go.raw" >"${TMP}/go.out"
     run diff "${TMP}/go.out" "${TMP}/rust.out"
     echo "The subcommand whose help holds line 257 of head's output: $(sed -n '1,257p' "${TMP}/rust.out" |
       grep -E -- '^(=======|-------) ' | tail -2 | tr '\n' ' ')"
     echo "unexpected differences: $(diff "${TMP}/go.out" "${TMP}/rust.out" | grep -E '^[<>]' |
-      grep -v -e '^[<>] Using yutu at: ' -e '^> *--yes  *Confirm the operation$' \
-        -e '^> # Claude Code or Codex CLI, signed in already$' -e '^> yutu agent --provider \(claude-code\|codex\)$' \
-        -e '^[<>]   -p, --provider string  ' | wc -l | tr -d ' ')"
+      grep -v -e '^[<>] Using youtube at: ' -e '^> *--yes  *Confirm the operation$' \
+        -e '^> # Claude Code or Codex CLI, signed in already$' -e '^> youtube agent --provider \(claude-code\|codex\)$' \
+        -e '^[<>]   -p, --provider string  ' |
+      grep -v -F -e '_(\_/)_' -e '│   ▶   │' -e '│ • x • │' -e '╰─/───\─╯' |
+      grep -v -E -e '^> youtube-cli v' -e '^> CLI, MCP server, and AI agent to automate YouTube workflows$' -e '^> build: ' |
+      wc -l | tr -d ' ')"
     echo "--- head output, first 40 lines ---"
     head -40 "${TMP}/rust.out"
   } >"${body}"
@@ -124,20 +166,20 @@ lane3() {
   cp "${BIN}" "${rel}/${ASSET}"
   (cd "${rel}" && shasum -a 256 "${ASSET}" >SHA256SUMS)
   {
-    echo "install.sh from a local release dir (YUTU_RELEASE_URL=file://...) holding the head binary as ${ASSET}."
+    echo "install.sh from a local release dir (YOUTUBE_CLI_RELEASE_URL=file://...) holding the head binary as ${ASSET}."
     echo "SHA256SUMS:"
     cat "${rel}/SHA256SUMS"
     echo
-    echo "1. gh is installed and signed in, so install.sh runs gh attestation verify against YUTU_REPO."
+    echo "1. gh is installed and signed in, so install.sh runs gh attestation verify against YOUTUBE_CLI_REPO."
     echo "   The local build has no published attestation, so this must fail closed:"
-    run env YUTU_RELEASE_URL="file://${rel}" YUTU_REPO=yutu-rs/yutu-rs XDG_BIN_HOME="${TMP}/bin1" "${ROOT}/install.sh"
+    run env YOUTUBE_CLI_RELEASE_URL="file://${rel}" YOUTUBE_CLI_REPO=youtube-cli/youtube-cli XDG_BIN_HOME="${TMP}/bin1" "${ROOT}/install.sh"
     echo "2. Without an attestation to check, skipped explicitly:"
-    run env YUTU_RELEASE_URL="file://${rel}" XDG_BIN_HOME="${TMP}/bin2" YUTU_SKIP_ATTESTATION=1 "${ROOT}/install.sh"
+    run env YOUTUBE_CLI_RELEASE_URL="file://${rel}" XDG_BIN_HOME="${TMP}/bin2" YOUTUBE_CLI_SKIP_ATTESTATION=1 "${ROOT}/install.sh"
     echo "3. Tampered binary:"
     printf 'tampered' >>"${rel}/${ASSET}"
-    run env YUTU_RELEASE_URL="file://${rel}" XDG_BIN_HOME="${TMP}/bin3" YUTU_SKIP_ATTESTATION=1 "${ROOT}/install.sh"
-    echo "installed by run 2: $(ls -l "${TMP}/bin2/yutu" | awk '{print $1, $5}')"
-    echo "installed by run 3: $(ls "${TMP}/bin3/yutu" 2>&1)"
+    run env YOUTUBE_CLI_RELEASE_URL="file://${rel}" XDG_BIN_HOME="${TMP}/bin3" YOUTUBE_CLI_SKIP_ATTESTATION=1 "${ROOT}/install.sh"
+    echo "installed by run 2: $(ls -l "${TMP}/bin2/youtube" | awk '{print $1, $5}')"
+    echo "installed by run 3: $(ls "${TMP}/bin3/youtube" 2>&1)"
   } >"${body}"
   grep -q '^checksum verified: ' "${body}" &&
     grep -q '^attestation failed: ' "${body}" &&
@@ -151,26 +193,26 @@ lane4() {
   cp "${BIN}" "${bins}/${ASSET}"
   {
     run "${ROOT}/dist/npm/stage.sh" 0.11.0 "${bins}" "${TMP}/stage" "${NPM_PKG}"
-    (cd "${tgz}" && run npm pack "${TMP}/stage/yutu" "${TMP}/stage/${NPM_PKG}")
+    (cd "${tgz}" && run npm pack "${TMP}/stage/youtube" "${TMP}/stage/${NPM_PKG}")
     ls -l "${tgz}"
     echo
     echo "Offline global install from the two tarballs; --foreground-scripts would print any lifecycle script."
     run npm i -g --offline --foreground-scripts --loglevel info --prefix "${prefix}" \
-      "${tgz}/yutu-rs-yutu-0.11.0.tgz" "${tgz}/yutu-rs-${NPM_PKG}-0.11.0.tgz"
+      "${tgz}/youtube-cli-youtube-0.11.0.tgz" "${tgz}/youtube-cli-${NPM_PKG}-0.11.0.tgz"
     echo "scripts field of every installed package.json:"
-    for p in "${prefix}"/lib/node_modules/@yutu-rs/*/package.json; do
+    for p in "${prefix}"/lib/node_modules/@youtube-cli/*/package.json; do
       echo "  ${p#"${prefix}"/lib/node_modules/}: $(node -e 'console.log(JSON.stringify(require(process.argv[1]).scripts ?? null))' "${p}")"
     done
     echo "hasInstallScript in the lockfile view: $(npm ls -g --prefix "${prefix}" --json --long 2>/dev/null | grep -c '"hasInstallScript": true')"
     echo
-    run "${prefix}/bin/yutu" version
+    run "${prefix}/bin/youtube" version
     echo "Exit-code propagation, wrapper vs the binary, for an unknown command:"
-    "${prefix}/bin/yutu" nosuchcommand >/dev/null 2>&1
+    "${prefix}/bin/youtube" nosuchcommand >/dev/null 2>&1
     echo "  wrapper exit: $?"
     "${BIN}" nosuchcommand >/dev/null 2>&1
     echo "  binary exit:  $?"
   } >"${body}"
-  grep -q 'yutu v0.11.0' "${body}" && ! grep -qiE 'postinstall|preinstall|"install"' "${body}" || verdict=FAIL
+  grep -q 'youtube-cli v0.11.0' "${body}" && ! grep -qiE 'postinstall|preinstall|"install"' "${body}" || verdict=FAIL
   write 4 npm "${verdict}" "${body}"
 }
 
@@ -183,7 +225,7 @@ lane5() {
     echo "--- dist/Dockerfile ---"
     cat "${ROOT}/dist/Dockerfile"
     echo
-    echo "The documented container command is: yutu mcp --mode http --host 0.0.0.0 --port 8216"
+    echo "The documented container command is: youtube mcp --mode http --host 0.0.0.0 --port 8216"
     echo "\$ ${BIN} mcp --mode http --host 0.0.0.0 --port 18216"
     "${BIN}" mcp --mode http --host 0.0.0.0 --port 18216 >"${TMP}/l5.out" 2>&1 &
     local pid=$!
@@ -203,10 +245,10 @@ lane5() {
 lane6() {
   local body="${TMP}/l6"
   {
-    echo "SUBSTITUTED: attesting needs a tag push on a GitHub repository; none exists for yutu-rs yet."
+    echo "SUBSTITUTED: attesting needs a tag push on a GitHub repository; none exists for youtube-cli yet."
     echo "Evidence will come from the first tag push: release.yml's release job runs"
     echo "actions/attest-build-provenance on the six binaries, then"
-    echo "  gh attestation verify yutu-<os>-<arch> --repo <repo> --signer-workflow <repo>/.github/workflows/release.yml"
+    echo "  gh attestation verify youtube-<os>-<arch> --repo <repo> --signer-workflow <repo>/.github/workflows/release.yml"
     echo "which is the command install.sh runs, must print verified."
     echo
     echo "--- release.yml attest and publish steps ---"
@@ -221,13 +263,13 @@ lane6() {
     fi
     if [[ -n "${CDX:-}" ]]; then
       echo "The SBOM step, run locally (cargo-cyclonedx 0.5.9):"
-      PATH="${CDX}:${PATH}" run cargo cyclonedx --manifest-path "${ROOT}/crates/yutu/Cargo.toml" \
-        --format json --spec-version 1.5 --target all --no-build-deps --override-filename yutu.cdx
-      if [[ -f "${ROOT}/crates/yutu/yutu.cdx.json" ]]; then
-        node -e 'const b=require(process.argv[1]);console.log("bomFormat", b.bomFormat, "specVersion", b.specVersion, "components", b.components.length, "top", b.metadata.component.name)' "${ROOT}/crates/yutu/yutu.cdx.json"
+      PATH="${CDX}:${PATH}" run cargo cyclonedx --manifest-path "${ROOT}/crates/youtube/Cargo.toml" \
+        --format json --spec-version 1.5 --target all --no-build-deps --override-filename youtube.cdx
+      if [[ -f "${ROOT}/crates/youtube/youtube.cdx.json" ]]; then
+        node -e 'const b=require(process.argv[1]);console.log("bomFormat", b.bomFormat, "specVersion", b.specVersion, "components", b.components.length, "top", b.metadata.component.name)' "${ROOT}/crates/youtube/youtube.cdx.json"
       fi
-      # cargo-cyclonedx writes one SBOM per workspace member; release.yml keeps crates/yutu's.
-      rm -f "${ROOT}"/crates/*/yutu.cdx.json "${ROOT}/xtask/yutu.cdx.json"
+      # cargo-cyclonedx writes one SBOM per workspace member; release.yml keeps crates/youtube's.
+      rm -f "${ROOT}"/crates/*/youtube.cdx.json "${ROOT}/xtask/youtube.cdx.json"
     fi
   } >"${body}" 2>&1
   write 6 attest SUBSTITUTED "${body}"
@@ -236,15 +278,15 @@ lane6() {
 lane7() {
   local body="${TMP}/l7" verdict=PASS
   {
-    echo "The zsh script from 'yutu completion zsh' asks the binary through __complete,"
-    echo "so these two calls are what zsh runs for 'yutu vid<TAB>' and 'yutu video l<TAB>':"
+    echo "The zsh script from 'youtube completion zsh' asks the binary through __complete,"
+    echo "so these two calls are what zsh runs for 'youtube vid<TAB>' and 'youtube video l<TAB>':"
     run "${BIN}" __complete vid
     run "${BIN}" __complete video l
     echo "The generated zsh script calls __complete:"
     "${BIN}" completion zsh | grep -n '__complete' | head -5
     echo
     echo "zsh, non-interactive: source the script and check the completion function is defined:"
-    run zsh -c "autoload -U compinit && compinit -u -d ${TMP}/zcompdump; source <(\"${BIN}\" completion zsh); whence -w _yutu"
+    run zsh -c "autoload -U compinit && compinit -u -d ${TMP}/zcompdump; source <(\"${BIN}\" completion zsh); whence -w _youtube"
   } >"${body}" 2>&1
   grep -q '^video	' "${body}" && grep -q '^list	' "${body}" || verdict=FAIL
   write 7 completion "${verdict}" "${body}"
@@ -274,7 +316,7 @@ EOF
     echo "Validating dist/server.json, and Go's server.json as a control:"
     run env PYTHONPATH="${TMP}/pylib" python3 "${TMP}/scripts/validate.py" \
       "${schema}" "${ROOT}/dist/server.json" "${GO_SRC}/server.json"
-    echo "mcpName of the wrapper: $(node -e 'console.log(require(process.argv[1]).mcpName)' "${ROOT}/dist/npm/yutu/package.json")"
+    echo "mcpName of the wrapper: $(node -e 'console.log(require(process.argv[1]).mcpName)' "${ROOT}/dist/npm/youtube/package.json")"
     echo "name in server.json:    $(node -e 'console.log(require(process.argv[1]).name)' "${ROOT}/dist/server.json")"
   } >"${body}" 2>&1
   grep -q 'dist/server.json: 0 errors' "${body}" || verdict=FAIL
@@ -302,7 +344,7 @@ lane10() {
   {
     echo "Host release binary only; release.yml runs the same check on all six before publishing."
     echo "At b82bce4 this failed on three display-only error-message URLs (two rustls docs.rs"
-    echo "links, the yutu-auth README#prerequisites link). R11 lists them exactly in DISPLAY_ONLY."
+    echo "links, the youtube-auth README#prerequisites link). R11 lists them exactly in DISPLAY_ONLY."
     (cd "${ROOT}" && run cargo run -q --locked -p xtask -- egress "${BIN}")
   } >"${body}" 2>&1
   grep -q 'egress: 0 unexpected hosts' "${body}" || verdict=FAIL
@@ -318,8 +360,9 @@ perf() {
   cp "${BIN}" "${TMP}/pt/bins/${ASSET}"
   "${ROOT}/dist/npm/stage.sh" 0.11.0 "${TMP}/pt/bins" "${TMP}/pt/stage" "${NPM_PKG}" >/dev/null
   (cd "${TMP}/pt/tgz" && npm pack --silent "${TMP}/pt/stage/${NPM_PKG}" >/dev/null 2>&1)
-  rs_tgz=$(wc -c <"${TMP}/pt/tgz/yutu-rs-${NPM_PKG}-0.11.0.tgz" | tr -d ' ')
-  go_tgz=$(curl -sSfL "https://registry.npmjs.org/@eat-pray-ai/${NPM_PKG}/-/${NPM_PKG}-0.11.0.tgz" | wc -c | tr -d ' ')
+  rs_tgz=$(wc -c <"${TMP}/pt/tgz/youtube-cli-${NPM_PKG}-0.11.0.tgz" | tr -d ' ')
+  local go_pkg="${NPM_PKG/youtube/yutu}"
+  go_tgz=$(curl -sSfL "https://registry.npmjs.org/@eat-pray-ai/${go_pkg}/-/${go_pkg}-0.11.0.tgz" | wc -c | tr -d ' ')
   certs=$(curl -sSfL https://curl.se/ca/cacert.pem | wc -c | tr -d ' ')
   ratio() { awk -v a="$1" -v b="$2" 'BEGIN { printf "%.3f", a / b }'; }
   check() { awk -v r="$1" 'BEGIN { exit !(r <= 0.3) }' || verdict=FAIL; }
@@ -338,7 +381,7 @@ perf() {
     echo
     echo "npm platform tarball (@*/${NPM_PKG}@0.11.0)"
     echo "  Go @eat-pray-ai tarball from registry.npmjs.org: ${go_tgz}"
-    echo "  head @yutu-rs tarball from npm pack: ${rs_tgz}"
+    echo "  head @youtube-cli tarball from npm pack: ${rs_tgz}"
     echo "  ratio: $(ratio "${rs_tgz}" "${go_tgz}")"
     echo
     echo "Docker image (SUBSTITUTED: no Docker here; estimated as uncompressed layer bytes)"

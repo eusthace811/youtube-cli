@@ -338,10 +338,9 @@ impl Video {
     async fn insert(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
         let svc = ctx.service().await?;
         let media = open_media(&self.file).map_err(|e| OpError::wrap(ERR_INSERT, e))?;
-        let tags = self
-            .tags
-            .clone()
-            .unwrap_or_else(|| vec!["youtube🐰".to_string()]);
+        // Divergence E19: an upload without tags carries none. Go tagged
+        // it with its own name, which would brand the user's video.
+        let tags = self.tags.clone().unwrap_or_default();
         let title = if self.title.is_empty() {
             file_stem(&self.file)
         } else {

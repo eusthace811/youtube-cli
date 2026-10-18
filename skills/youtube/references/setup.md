@@ -28,25 +28,18 @@ An account on [Google Cloud Platform](https://console.cloud.google.com/) is requ
 
 ## Installation
 
-Install `youtube` using one of these methods:
+Install `youtube` (youtube-cli, macOS or Linux) using one of these methods:
 
 ```bash
-# Node.js (all platforms)
-npm i -g @eat-pray-ai/yutu
+# Node.js
+npm i -g @youtube-cli/youtube
 
-# macOS
-brew install youtube
+# Shell script, with checksum and provenance checks (OWNER/REPO: the youtube-cli repository)
+curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash
 
-# Linux / macOS (shell script)
-curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/yutu/main/scripts/install.sh | bash
-
-# Windows
-winget install youtube
+# From source
+cargo build --release --locked -p youtube
 ```
-
-### Other platforms
-
-Download a prebuilt binary from the [releases page](https://github.com/eat-pray-ai/yutu/releases/latest) and place it in your PATH.
 
 ## MCP Server
 
@@ -83,7 +76,7 @@ For VS Code, Cursor, or other tools, add to your MCP settings:
 ## Skills
 
 ```bash
-npx skills add eat-pray-ai/yutu --skill youtube
+npx skills add OWNER/REPO --skill youtube   # OWNER/REPO: the youtube-cli repository
 ```
 
 ## Environment Variables
@@ -95,4 +88,4 @@ npx skills add eat-pray-ai/yutu --skill youtube
 | `YOUTUBE_CLI_ROOT` | Root directory for file resolution           | Current working directory |
 | `YOUTUBE_CLI_LOG_LEVEL` | Log level: `DEBUG`, `INFO`, `WARN`, `ERROR`  | `INFO` |
 
-For more details, see the [README](https://github.com/eat-pray-ai/yutu#readme).
+For more details, see the youtube-cli README.

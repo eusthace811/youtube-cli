@@ -246,7 +246,10 @@ pub async fn run(app: Arc<App>) -> Result<(), String> {
         youtube_auth::log::warn("telemetry is not supported in youtube-cli", &[]);
     }
     if cfg.h2c {
-        youtube_auth::log::warn("-h2c is not supported in youtube-cli; serving HTTP/1.1", &[]);
+        youtube_auth::log::warn(
+            "-h2c is not supported in youtube-cli; serving HTTP/1.1",
+            &[],
+        );
     }
     info(&format!(
         "Starting the web server: &{{port:{} host:{} writeTimeout:{} readTimeout:{} idleTimeout:{} shutdownTimeout:{} otelToCloud:{} useH2C:{} maxPayloadSize:{}}}",

@@ -10,7 +10,8 @@ use std::io;
 pub const DEFAULT_CREDENTIAL: &str = "client_secret.json";
 pub const DEFAULT_CACHE_TOKEN: &str = "youtube.token.json";
 
-const AUTH_HINT: &str = "Please configure client secret as described in https://github.com/eat-pray-ai/yutu#prerequisites";
+const AUTH_HINT: &str =
+    "Please configure client secret as described in README.md (Connect your YouTube account)";
 
 /// Credential or token bytes. `Debug` and `Display` never show them, so a
 /// secret cannot reach a log line by formatting.

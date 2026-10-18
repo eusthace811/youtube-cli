@@ -106,7 +106,10 @@ fn every_route_needs_the_token() {
             for headers in refusals {
                 let r = http(w.port, method, path, headers, b"").await;
                 assert_eq!(r.status, 401, "{method} {path} with {headers:?}");
-                assert_eq!(r.header("www-authenticate"), Some("Bearer realm=\"youtube\""));
+                assert_eq!(
+                    r.header("www-authenticate"),
+                    Some("Bearer realm=\"youtube\"")
+                );
                 if *method != "HEAD" {
                     assert_eq!(r.text(), "unauthorized\n");
                 }

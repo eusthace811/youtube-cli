@@ -53,7 +53,10 @@ fn markdown_files(dir: &Path, out: &mut Vec<PathBuf>) {
 fn skill_files() -> Vec<(PathBuf, String)> {
     let mut paths = Vec::new();
     markdown_files(&repo().join("skills"), &mut paths);
-    markdown_files(&repo().join("crates/youtube-agent/assets/skills"), &mut paths);
+    markdown_files(
+        &repo().join("crates/youtube-agent/assets/skills"),
+        &mut paths,
+    );
     paths.sort();
     paths
         .into_iter()

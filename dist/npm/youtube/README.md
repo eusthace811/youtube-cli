@@ -1,6 +1,6 @@
 # youtube
 
-CLI, MCP server, and AI agent to automate YouTube workflows. This is the Rust build of [youtube](https://github.com/eat-pray-ai/yutu).
+CLI, MCP server, and AI agent to automate YouTube workflows. A Rust rewrite of [yutu](https://github.com/eat-pray-ai/yutu).
 
 ```shell
 npm i -g @youtube-cli/youtube
@@ -15,4 +15,4 @@ Run it as an MCP server:
 youtube mcp
 ```
 
-See the [README](https://github.com/eat-pray-ai/yutu#readme) for credentials and every command.
+See the [README](https://github.com/OWNER/youtube-cli#readme) for credentials and every command.

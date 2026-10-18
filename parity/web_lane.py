@@ -424,5 +424,7 @@ def main():
 
 
 if __name__ == "__main__":
+    # Go reads YUTU_LOG_LEVEL, youtube-cli YOUTUBE_CLI_LOG_LEVEL (E19).
     os.environ.setdefault("YOUTUBE_CLI_LOG_LEVEL", "INFO")
+    os.environ.setdefault("YUTU_LOG_LEVEL", "INFO")
     main()

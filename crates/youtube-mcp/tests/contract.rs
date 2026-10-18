@@ -16,12 +16,36 @@ impl ServiceProvider for NoService {
     }
 }
 
+/// Go's recorded contract under youtube-cli's names (divergence E19), as
+/// parity/diff.py's `rename_go` maps it.
 fn golden() -> Value {
     let path = concat!(
         env!("CARGO_MANIFEST_DIR"),
         "/../../parity/golden/mcp-contract.json"
     );
-    serde_json::from_str(&std::fs::read_to_string(path).unwrap()).unwrap()
+    let text = std::fs::read_to_string(path)
+        .unwrap()
+        .replace("YUTU_", "YOUTUBE_CLI_")
+        .replace("yutu", "youtube");
+    let mut golden: Value = serde_json::from_str(&text).unwrap();
+    drop_default_upload_tag(&mut golden);
+    golden
+}
+
+/// E19: video-insert's `tags` has no default; Go's was its own name.
+fn drop_default_upload_tag(v: &mut Value) {
+    match v {
+        Value::Object(m) => {
+            if let Some(Value::Object(tags)) = m.get_mut("tags")
+                && tags.get("default") == Some(&json!(["youtube🐰"]))
+            {
+                tags.remove("default");
+            }
+            m.values_mut().for_each(drop_default_upload_tag);
+        }
+        Value::Array(a) => a.iter_mut().for_each(drop_default_upload_tag),
+        _ => {}
+    }
 }
 
 async fn ask(s: &Session, frame: Value) -> Value {

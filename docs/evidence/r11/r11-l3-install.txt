@@ -1,44 +1,43 @@
 r11 lane 3: PASS
 
-install.sh from a local release dir (YUTU_RELEASE_URL=file://...) holding the head binary as yutu-darwin-arm64.
+install.sh from a local release dir (YOUTUBE_CLI_RELEASE_URL=file://...) holding the head binary as youtube-darwin-arm64.
 SHA256SUMS:
-689619611eaebcd0c4a32dd85f0db3304424caa878650ed8b5b95325cc6f57c2  yutu-darwin-arm64
+26b346525c9e57332393d97b453fe0ba8c5a248b4582e9b4496b3baa62b39084  youtube-darwin-arm64
 
-1. gh is installed and signed in, so install.sh runs gh attestation verify against YUTU_REPO.
+1. gh is installed and signed in, so install.sh runs gh attestation verify against YOUTUBE_CLI_REPO.
    The local build has no published attestation, so this must fail closed:
-$ env YUTU_RELEASE_URL=file:///var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/release YUTU_REPO=yutu-rs/yutu-rs XDG_BIN_HOME=/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/bin1 /Users/juan/Projects/youtube-cli/youtube-cli/install.sh
+$ env YOUTUBE_CLI_RELEASE_URL=file:///var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/release YOUTUBE_CLI_REPO=youtube-cli/youtube-cli XDG_BIN_HOME=/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/bin1 /Users/juan/Projects/youtube-cli/youtube-cli/install.sh
 exit: 1
 --- stdout ---
-checksum verified: yutu-darwin-arm64 sha256 689619611eaebcd0c4a32dd85f0db3304424caa878650ed8b5b95325cc6f57c2
+checksum verified: youtube-darwin-arm64 sha256 26b346525c9e57332393d97b453fe0ba8c5a248b4582e9b4496b3baa62b39084
 --- stderr ---
 
-Error: HTTP 404: Not Found (https://api.github.com/repos/yutu-rs/yutu-rs/attestations/sha256:689619611eaebcd0c4a32dd85f0db3304424caa878650ed8b5b95325cc6f57c2?per_page=30&predicate_type=https%3A%2F%2Fslsa.dev%2Fprovenance%2Fv1)
-attestation failed: yutu-darwin-arm64 has no valid build-provenance attestation from yutu-rs/yutu-rs
-Set YUTU_SKIP_ATTESTATION=1 to install without it.
+Error: HTTP 404: Not Found (https://api.github.com/repos/youtube-cli/youtube-cli/attestations/sha256:26b346525c9e57332393d97b453fe0ba8c5a248b4582e9b4496b3baa62b39084?per_page=30&predicate_type=https%3A%2F%2Fslsa.dev%2Fprovenance%2Fv1)
+attestation failed: youtube-darwin-arm64 has no valid build-provenance attestation from youtube-cli/youtube-cli
+Set YOUTUBE_CLI_SKIP_ATTESTATION=1 to install without it.
 
 2. Without an attestation to check, skipped explicitly:
-$ env YUTU_RELEASE_URL=file:///var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/release XDG_BIN_HOME=/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/bin2 YUTU_SKIP_ATTESTATION=1 /Users/juan/Projects/youtube-cli/youtube-cli/install.sh
+$ env YOUTUBE_CLI_RELEASE_URL=file:///var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/release XDG_BIN_HOME=/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/bin2 YOUTUBE_CLI_SKIP_ATTESTATION=1 /Users/juan/Projects/youtube-cli/youtube-cli/install.sh
 exit: 0
 --- stdout ---
-checksum verified: yutu-darwin-arm64 sha256 689619611eaebcd0c4a32dd85f0db3304424caa878650ed8b5b95325cc6f57c2
-attestation skipped: YUTU_SKIP_ATTESTATION=1
+checksum verified: youtube-darwin-arm64 sha256 26b346525c9e57332393d97b453fe0ba8c5a248b4582e9b4496b3baa62b39084
+attestation skipped: YOUTUBE_CLI_SKIP_ATTESTATION=1
 
-yutu🐰 installed:
-  /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/bin2/yutu
+youtube-cli installed:
+  /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/bin2/youtube
 
-Add /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/bin2 to PATH if needed.
+Add /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/bin2 to PATH if needed.
 --- stderr ---
-  _(\_/)_     yutu v0.11.0 darwin/arm64
- │   ▶   │    CLI, MCP server, and AI agent to automate YouTube workflows
- │ • x • │    📦 build: Gopher-2026-10-15T00:00:00Z
- ╰─/───\─╯    🌟 Star:  ]8;;https://github.com/eat-pray-ai/yutuGithub/eat-pray-ai/yutu]8;;[0m
+youtube-cli v0.11.0 darwin/arm64
+CLI, MCP server, and AI agent to automate YouTube workflows
+build: Gopher-2026-10-15T00:00:00Z
 
 3. Tampered binary:
-$ env YUTU_RELEASE_URL=file:///var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/release XDG_BIN_HOME=/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/bin3 YUTU_SKIP_ATTESTATION=1 /Users/juan/Projects/youtube-cli/youtube-cli/install.sh
+$ env YOUTUBE_CLI_RELEASE_URL=file:///var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/release XDG_BIN_HOME=/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/bin3 YOUTUBE_CLI_SKIP_ATTESTATION=1 /Users/juan/Projects/youtube-cli/youtube-cli/install.sh
 exit: 1
 --- stdout ---
 --- stderr ---
-checksum mismatch: yutu-darwin-arm64 has sha256 d4b9a0bc5beaf2986487934650484e258aa7ab35126d82468f7e91b9d9a9ac6d, SHA256SUMS lists 689619611eaebcd0c4a32dd85f0db3304424caa878650ed8b5b95325cc6f57c2
+checksum mismatch: youtube-darwin-arm64 has sha256 8af6270e801f2113ad909ef01af27d1de0cbf58d68dd20d5f5051cf8e08afa5f, SHA256SUMS lists 26b346525c9e57332393d97b453fe0ba8c5a248b4582e9b4496b3baa62b39084
 
-installed by run 2: -rwxr-xr-x@ 7200448
-installed by run 3: ls: /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/bin3/yutu: No such file or directory
+installed by run 2: -rwxr-xr-x@ 7200432
+installed by run 3: ls: /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/bin3/youtube: No such file or directory

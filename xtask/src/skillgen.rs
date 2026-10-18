@@ -12,7 +12,7 @@ const SEO_GUIDE: &str = include_str!("../skill-refs/seo-guide.md");
 
 const DESCRIPTION: &str = "Use whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, and more.";
 
-const COMPATIBILITY: &str = "Requires the youtube CLI binary (installable via npm, brew, or winget) and Google Cloud OAuth credentials for YouTube Data API v3.";
+const COMPATIBILITY: &str = "Requires the youtube CLI binary from youtube-cli (installable via npm, its install script, or from source) and Google Cloud OAuth credentials for YouTube Data API v3.";
 
 const SAFETY_RULES: &str = "- **Confirm before deleting**: Always list exactly what will be deleted and get explicit user confirmation before calling any destructive tool.
 - **Verify targets**: Before modifying or deleting, use a read tool to confirm the resource exists and matches the user's intent.
@@ -125,9 +125,7 @@ fn skill(registry: &Registry, target: Target) -> String {
     if target == Target::External {
         writeln!(b, "compatibility: {COMPATIBILITY}").unwrap();
     }
-    b.push_str(
-        "metadata:\n  author: eat-pray-ai\n  homepage: \"https://github.com/eat-pray-ai/yutu\"\n---\n\n",
-    );
+    b.push_str("metadata:\n  author: youtube-cli\n---\n\n");
     b.push_str("# YouTube\n\n");
     writeln!(
         b,

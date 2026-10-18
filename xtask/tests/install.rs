@@ -112,7 +112,7 @@ fn a_clean_release_installs_and_prints_the_version() {
          attestation skipped: YOUTUBE_CLI_SKIP_ATTESTATION=1\n\
          youtube v9.9.9-test version\n\
          \n\
-         youtube🐰 installed:\n  {bin}\n\nAdd {dir} to PATH if needed.\n",
+         youtube-cli installed:\n  {bin}\n\nAdd {dir} to PATH if needed.\n",
         asset = asset(),
         sum = sha256(&bin),
         bin = bin.display(),

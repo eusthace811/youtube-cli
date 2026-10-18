@@ -3,8 +3,7 @@ name: youtube
 description: "Use whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, and more."
 license: Apache-2.0
 metadata:
-  author: eat-pray-ai
-  homepage: "https://github.com/eat-pray-ai/yutu"
+  author: youtube-cli
 ---
 
 # YouTube

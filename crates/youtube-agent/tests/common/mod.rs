@@ -199,8 +199,9 @@ pub async fn cli_agent(provider: &str, program: &str, youtube_url: &str) -> Agen
     };
     let provider = Arc::new(At(youtube_url.to_string()));
     let program = program.to_string();
-    let env =
-        move |k: &str| matches!(k, "YOUTUBE_CLI_CLAUDE_BIN" | "YOUTUBE_CLI_CODEX_BIN").then(|| program.clone());
+    let env = move |k: &str| {
+        matches!(k, "YOUTUBE_CLI_CLAUDE_BIN" | "YOUTUBE_CLI_CODEX_BIN").then(|| program.clone())
+    };
     match youtube_agent::build(&opts, provider, &env).await {
         Ok(a) => a,
         Err((msg, e)) => panic!("{msg}: {e}"),
@@ -269,8 +270,10 @@ pub async fn web(args: &str, script: Vec<Value>) -> Web {
     let (llm, model) = mock_llm(script).await;
     let (yt, youtube) = parity_youtube().await;
     let agent = agent(&llm, &yt).await;
-    let parsed =
-        youtube_agent::launcher::parse(&youtube_agent::launcher::fields(args), &mut std::io::sink());
+    let parsed = youtube_agent::launcher::parse(
+        &youtube_agent::launcher::fields(args),
+        &mut std::io::sink(),
+    );
     let Ok(youtube_agent::Launch::Web(cfg)) = parsed else {
         panic!("not a web launch: {parsed:?}");
     };

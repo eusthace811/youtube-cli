@@ -14,5 +14,5 @@ stderr identical (timestamps masked): False
   go:   'time=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23454\n'
   head: 'time=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"parts\\":[\\"statistics\\"],\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\"}" output_length=23454\n'
 model requests: go 2 head 2
-  request 0 /v1beta/models/gemini-3.8-flash:generateContent: identical
-  request 1 /v1beta/models/gemini-3.8-flash:generateContent: identical
+  request 0 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs
+  request 1 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs

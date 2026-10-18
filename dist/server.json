@@ -1,19 +1,10 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "title": "youtube-cli",
-  "name": "io.github.eat-pray-ai/yutu-rs",
+  "name": "io.github.OWNER/youtube-cli",
   "description": "CLI, MCP server, and AI agent to automate YouTube workflows (Rust build)",
-  "icons": [
-    {
-      "mimeType": "image/svg+xml",
-      "sizes": [
-        "any"
-      ],
-      "src": "https://raw.githubusercontent.com/eat-pray-ai/yutu/main/assets/youtube-ico.svg"
-    }
-  ],
   "repository": {
-    "url": "https://github.com/eat-pray-ai/yutu",
+    "url": "https://github.com/OWNER/youtube-cli",
     "source": "github"
   },
   "version": "0.0.0-dev",

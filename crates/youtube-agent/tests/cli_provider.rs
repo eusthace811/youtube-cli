@@ -15,7 +15,8 @@ struct Fake {
 
 impl Fake {
     fn new(name: &str, replies: &[&str]) -> Fake {
-        let dir = std::env::temp_dir().join(format!("youtube-fakecli-{name}-{}", std::process::id()));
+        let dir =
+            std::env::temp_dir().join(format!("youtube-fakecli-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&dir);
         std::fs::create_dir_all(&dir).unwrap();
         for (i, r) in replies.iter().enumerate() {

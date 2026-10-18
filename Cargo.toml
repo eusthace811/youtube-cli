@@ -8,7 +8,6 @@ version = "0.11.0"
 edition = "2024"
 license = "Apache-2.0"
 rust-version = "1.99.1"
-repository = "https://github.com/eat-pray-ai/yutu"
 
 [workspace.dependencies]
 youtube-api = { path = "crates/youtube-api" }

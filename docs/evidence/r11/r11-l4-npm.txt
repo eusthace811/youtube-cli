@@ -1,77 +1,76 @@
 r11 lane 4: PASS
 
-$ /Users/juan/Projects/youtube-cli/youtube-cli/dist/npm/stage.sh 0.11.0 /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/npm-bins /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage yutu-darwin-arm64
+$ /Users/juan/Projects/youtube-cli/youtube-cli/dist/npm/stage.sh 0.11.0 /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/npm-bins /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/stage youtube-darwin-arm64
 exit: 0
 --- stdout ---
-staged /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage/yutu
-staged /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage/yutu-darwin-arm64 from yutu-darwin-arm64
+staged /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/stage/youtube
+staged /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/stage/youtube-darwin-arm64 from youtube-darwin-arm64
 --- stderr ---
 
-$ npm pack /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage/yutu /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage/yutu-darwin-arm64
+$ npm pack /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/stage/youtube /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/stage/youtube-darwin-arm64
 exit: 0
 --- stdout ---
-yutu-rs-yutu-0.11.0.tgz
-yutu-rs-yutu-darwin-arm64-0.11.0.tgz
+youtube-cli-youtube-0.11.0.tgz
+youtube-cli-youtube-darwin-arm64-0.11.0.tgz
 --- stderr ---
 npm notice
-npm notice 📦  @yutu-rs/yutu@0.11.0
+npm notice 📦  @youtube-cli/youtube@0.11.0
 npm notice Tarball Contents
 npm notice 11.4kB LICENSE
-npm notice 531B README.md
-npm notice 1.9kB bin/yutu
-npm notice 894B package.json
+npm notice 550B README.md
+npm notice 1.9kB bin/youtube
+npm notice 944B package.json
 npm notice Tarball Details
-npm notice name: @yutu-rs/yutu
+npm notice name: @youtube-cli/youtube
 npm notice version: 0.11.0
-npm notice filename: yutu-rs-yutu-0.11.0.tgz
+npm notice filename: youtube-cli-youtube-0.11.0.tgz
 npm notice package size: 5.4 kB
-npm notice unpacked size: 14.6 kB
-npm notice shasum: a15459e9e8d1707e482345bc00ef75d01f83a715
-npm notice integrity: sha512-0Wc8+YHuhT4ll[...]jk7OAsdfYirUA==
+npm notice unpacked size: 14.8 kB
+npm notice shasum: 30a9b38826db708036417380614261c41b973ff7
+npm notice integrity: sha512-vkXEZ3XhYFJx4[...]5eKg7yGATwRwA==
 npm notice total files: 4
 npm notice
-npm notice 📦  @yutu-rs/yutu-darwin-arm64@0.11.0
+npm notice 📦  @youtube-cli/youtube-darwin-arm64@0.11.0
 npm notice 11.4kB LICENSE
-npm notice 7.2MB bin/yutu
-npm notice 371B package.json
-npm notice name: @yutu-rs/yutu-darwin-arm64
-npm notice filename: yutu-rs-yutu-darwin-arm64-0.11.0.tgz
+npm notice 7.2MB bin/youtube
+npm notice 382B package.json
+npm notice name: @youtube-cli/youtube-darwin-arm64
+npm notice filename: youtube-cli-youtube-darwin-arm64-0.11.0.tgz
 npm notice package size: 4.7 MB
 npm notice unpacked size: 7.2 MB
-npm notice shasum: e680eaa973da0ec397c394795ba9469994c0b1ad
-npm notice integrity: sha512-M9RTZI98Fv9c2[...]RwMmqbCbnl+eg==
+npm notice shasum: 06b4ba6d4216f290cb66a62c24ce9808aee1c0f8
+npm notice integrity: sha512-1QH8KeGvEi/nF[...]516lvk2NwicQA==
 npm notice total files: 3
 
-total 9216
--rw-r--r--@ 1 juan  staff     5418 Oct 18 20:32 yutu-rs-yutu-0.11.0.tgz
--rw-r--r--@ 1 juan  staff  4706821 Oct 18 20:32 yutu-rs-yutu-darwin-arm64-0.11.0.tgz
+total 9208
+-rw-r--r--@ 1 juan  staff     5428 Oct 18 22:15 youtube-cli-youtube-0.11.0.tgz
+-rw-r--r--@ 1 juan  staff  4705712 Oct 18 22:15 youtube-cli-youtube-darwin-arm64-0.11.0.tgz
 
 Offline global install from the two tarballs; --foreground-scripts would print any lifecycle script.
-$ npm i -g --offline --foreground-scripts --loglevel info --prefix /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/prefix /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/tgz/yutu-rs-yutu-0.11.0.tgz /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/tgz/yutu-rs-yutu-darwin-arm64-0.11.0.tgz
+$ npm i -g --offline --foreground-scripts --loglevel info --prefix /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/prefix /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/tgz/youtube-cli-youtube-0.11.0.tgz /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/tgz/youtube-cli-youtube-darwin-arm64-0.11.0.tgz
 exit: 0
 --- stdout ---
 
-added 2 packages in 141ms
+added 2 packages in 136ms
 --- stderr ---
 npm info using npm@11.12.1
 npm info using node@v25.9.0
-npm http cache @yutu-rs/yutu-darwin-arm64@file:/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/tgz/yutu-rs-yutu-darwin-arm64-0.11.0.tgz 0ms (cache hit)
-npm http cache @yutu-rs/yutu@file:/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/tgz/yutu-rs-yutu-0.11.0.tgz 0ms (cache hit)
+npm http cache @youtube-cli/youtube-darwin-arm64@file:/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/tgz/youtube-cli-youtube-darwin-arm64-0.11.0.tgz 0ms (cache hit)
+npm http cache @youtube-cli/youtube@file:/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/tgz/youtube-cli-youtube-0.11.0.tgz 0ms (cache hit)
 npm info ok
 
 scripts field of every installed package.json:
-  @yutu-rs/yutu-darwin-arm64/package.json: null
-  @yutu-rs/yutu/package.json: null
+  @youtube-cli/youtube-darwin-arm64/package.json: null
+  @youtube-cli/youtube/package.json: null
 hasInstallScript in the lockfile view: 0
 
-$ /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/prefix/bin/yutu version
+$ /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/prefix/bin/youtube version
 exit: 0
 --- stdout ---
 --- stderr ---
-  _(\_/)_     yutu v0.11.0 darwin/arm64
- │   ▶   │    CLI, MCP server, and AI agent to automate YouTube workflows
- │ • x • │    📦 build: Gopher-2026-10-15T00:00:00Z
- ╰─/───\─╯    🌟 Star:  ]8;;https://github.com/eat-pray-ai/yutuGithub/eat-pray-ai/yutu]8;;[0m
+youtube-cli v0.11.0 darwin/arm64
+CLI, MCP server, and AI agent to automate YouTube workflows
+build: Gopher-2026-10-15T00:00:00Z
 
 Exit-code propagation, wrapper vs the binary, for an unknown command:
   wrapper exit: 1

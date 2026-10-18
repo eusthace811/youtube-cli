@@ -61,6 +61,11 @@ def case_env(case, root, endpoint):
     env = {"PATH": "/usr/bin:/bin", "HOME": str(root), "LANG": "C.UTF-8",
            "YUTU_PARITY_ENDPOINT": endpoint}
     env.update(case.get("env", {}))
+    # The Go oracle reads YUTU_ where youtube-cli reads YOUTUBE_CLI_ (E19);
+    # each ignores the other's name, so both get every case variable.
+    for k, v in list(env.items()):
+        if k.startswith("YOUTUBE_CLI_"):
+            env["YUTU_" + k[len("YOUTUBE_CLI_"):]] = v
     return {k: v for k, v in env.items() if v is not None}
 
 

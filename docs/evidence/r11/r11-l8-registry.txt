@@ -1,18 +1,18 @@
 r11 lane 8: PASS
 
-$ curl -sSfL https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json -o /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/schema/server.schema.json
+$ curl -sSfL https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json -o /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/schema/server.schema.json
 exit: 0
 --- stdout ---
 --- stderr ---
 
 schema sha256: 3fba09590c99f61735d234822279f4223fab9e300c0a81e81c91ab62a4114de0
 Validating dist/server.json, and Go's server.json as a control:
-$ env PYTHONPATH=/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/pylib python3 /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/scripts/validate.py /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/schema/server.schema.json /Users/juan/Projects/youtube-cli/youtube-cli/dist/server.json /Users/juan/Projects/youtube-cli/yutu/server.json
+$ env PYTHONPATH=/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/pylib python3 /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/scripts/validate.py /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/schema/server.schema.json /Users/juan/Projects/youtube-cli/youtube-cli/dist/server.json /Users/juan/Projects/youtube-cli/yutu/server.json
 exit: 0
 --- stdout ---
 /Users/juan/Projects/youtube-cli/youtube-cli/dist/server.json: 0 errors
 /Users/juan/Projects/youtube-cli/yutu/server.json: 0 errors
 --- stderr ---
 
-mcpName of the wrapper: io.github.eat-pray-ai/yutu-rs
-name in server.json:    io.github.eat-pray-ai/yutu-rs
+mcpName of the wrapper: io.github.OWNER/youtube-cli
+name in server.json:    io.github.OWNER/youtube-cli

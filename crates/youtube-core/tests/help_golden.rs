@@ -14,6 +14,13 @@ impl App for NoApp {
     }
 }
 
+/// Divergence E19: Go's help under youtube-cli's names, as
+/// parity/diff.py's `rename_go` maps it.
+fn rename_go(text: &str) -> String {
+    text.replace("YUTU_", "YOUTUBE_CLI_")
+        .replace("yutu", "youtube")
+}
+
 #[test]
 fn every_help_text_matches_the_go_oracle() {
     let path = format!(
@@ -23,16 +30,21 @@ fn every_help_text_matches_the_go_oracle() {
     let golden: serde_json::Map<String, serde_json::Value> =
         serde_json::from_str(&std::fs::read_to_string(path).unwrap()).unwrap();
     assert_eq!(golden.len(), 117);
-    for (command, want) in &golden {
+    for (go_command, want) in &golden {
+        let command = &rename_go(go_command);
         let mut args: Vec<String> = command.split(' ').skip(1).map(String::from).collect();
         args.push("--help".to_string());
         let (mut out, mut err) = (Vec::new(), Vec::new());
         let code = execute_with(args, &NoApp, &mut out, &mut err);
-        let mut want_stdout = want["stdout"].as_str().unwrap().to_string();
+        let mut want_stdout = rename_go(want["stdout"].as_str().unwrap());
         if command == "youtube caption download" {
             // Divergence E1: caption download is confirmation-gated, so its
             // help gains exactly the --yes line Go's gated commands show.
             want_stdout.push_str("      --yes                             Confirm the operation\n");
+        }
+        if command == "youtube video insert" {
+            // Divergence E19: uploads get no default tag naming the program.
+            want_stdout = want_stdout.replace(" (default [youtube🐰])", "");
         }
         if command == "youtube agent" {
             // Divergence E16: the agent also runs on the Claude Code and
@@ -54,7 +66,7 @@ fn every_help_text_matches_the_go_oracle() {
         );
         assert_eq!(
             String::from_utf8(err).unwrap(),
-            want["stderr"].as_str().unwrap(),
+            rename_go(want["stderr"].as_str().unwrap()),
             "stderr of {command} --help"
         );
         assert_eq!(

@@ -22,6 +22,13 @@ Only these, each one function in `parity/diff.py`:
 - `mask_time`: Replaces slog `time=` stamps in stderr with a fixed token.
 - `mask_port`: Replaces the recorder's random loopback port with a fixed token.
 - `mcp_by_value`: Parses each JSON-RPC reply line so MCP stdout compares by value, not key order.
+- `rename_go`: Divergence E19: Go's output under youtube-cli's names. The command
+yutu is youtube, YUTU_ variables are YOUTUBE_CLI_ (the harness's own
+YUTU_PARITY_ protocol keeps its name), and the setup link in the auth
+hint points at the README.
+- `drop_go_upload_tag`: Divergence E19: Go tags an upload given no tags with its own name,
+yutu🐰; youtube-cli sends none, so that one default tag list is dropped
+from Go's recorded request bodies.
 
 ## Registered divergences (Appendix E)
 
@@ -45,11 +52,13 @@ Only these, each one function in `parity/diff.py`:
 | E16 | the agent also runs on the Claude Code and Codex CLIs (--provider claude-code|codex), with their tools off or read-only and the same human approval for writes | R12 | 0 | crates/youtube-agent/tests/cli_provider.rs, crates/youtube-core/tests/help_golden.rs and r9 lane 10 |
 | E17 | max_results 0 in an MCP or agent tool call means no limit, as every tool schema says; Go fetched nothing | R12 | 16 | crates/youtube-agent/tests/max_results.rs; found by the E16 real-model lane |
 | E18 | playlist, playlistItem, channel and comment update fetch the item they change with requests the API accepts (channel update writes brandingSettings and refuses customUrl); Go's lookup fetched nothing, so every such update failed with "failed to get ..." | R12 | 129 | the cli.*.update and mcp.*-update corpus cases, tagged E18, run head against Go's golden |
+| E19 | the program is named youtube-cli with the command youtube: YUTU_ variables become YOUTUBE_CLI_, the MCP server name is youtube, and the version banner is plain text without yutu's mascot or the Go project's link | R13 | 5 | parity/diff.py rename_go maps Go's recorded output to the new names for every case; the version cases, whose banner changed, are tagged |
 
 Contract or help differences accepted under a registered id:
 
-- registered E16: $help.youtube agent.stdout: "Start an agent to automate YouTube workflows.\n\nUsage:\n  youtube agent [flags]\n\nExamples:\n# Gemini(compatible) (default)\nyoutube agent --provider google --mod
-- registered E1: $help.youtube caption download.stdout: "Download a caption. Use this tool to download a caption from a video.\n\nUsage:\n  youtube caption download [flags]\n\nExamples:\n# Download a caption 
+- registered E19: $.tools.result.tools[66].inputSchema.properties.tags.default: only in golden
+- registered E16: $help.youtube agent.stdout: "Start an agent to automate YouTube workflows.\n\nUsage:\n  youtube agent [flags]\n\nExamples:\n# Gemini(compatible) (default)\nyoutube agent --provider goo
+- registered E1: $help.youtube caption download.stdout: "Download a caption. Use this tool to download a caption from a video.\n\nUsage:\n  youtube caption download [flags]\n\nExamples:\n# Download a ca
 
 ## Known Go defects reproduced on purpose
 
@@ -64,4 +73,4 @@ Go is the oracle, so these behave as Go does. They are candidates for fixes afte
 - **several list tables**: Go dereferences nil nested fields and would crash; the port prints empty cells (never reachable with real API responses)
 - **MCP tools/call with "arguments": null**: Go panics ("assignment to entry in nil map", exit 2, no reply); the port treats it as {}
 
-cases: 2831, differences: 0, divergences: 18, all registered
+cases: 2831, differences: 0, divergences: 19, all registered

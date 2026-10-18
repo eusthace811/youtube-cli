@@ -43,6 +43,6 @@ ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 USER 65532:65532
 WORKDIR /app
 EXPOSE 8216/tcp
-LABEL io.modelcontextprotocol.server.name="io.github.eat-pray-ai/yutu-rs"
+LABEL io.modelcontextprotocol.server.name="io.github.OWNER/youtube-cli"
 ENTRYPOINT ["/youtube"]
 CMD ["--help"]

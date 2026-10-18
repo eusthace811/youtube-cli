@@ -12,29 +12,29 @@ recorder lines identical: True (4 go, 4 head)
   GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}
   GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
   GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
-  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
+  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["youtube"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
 function response 8 (no-such-tool) differs:
-  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: thumbnail-set, liveChatModerator-delete, liveBroadcast-delete, member-list, subscription-insert, liveStream-insert, liveBroadcast-insertCuepoint, playlistItem-insert, liveStream-list, liveChatBan-insert, thirdPartyLink-list, caption-downloa
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: comment-markAsSpam, liveChatMessage-insert, search-list, liveBroadcast-insertCuepoint, channelSection-list, subscription-insert, caption-download, playlistImage-delete, commentThread-list, liveChatModerator-delete, abuseReport-insert, super
   head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
 exit: go 0 head 0
 stdout identical: True
   go:   '\n\nUser -> \nAgent -> Here is what I found.\nUser -> \nEOF detected, exiting...\n'
 stderr identical (timestamps masked): False
-  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"yutu\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
-  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"yutu\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"youtube\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"youtube\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
 model requests: go 10 head 10
-  request 0 /v1beta/models/gemini-3.8-flash:generateContent: identical
-  request 1 /v1beta/models/gemini-3.8-flash:generateContent: identical
-  request 2 /v1beta/models/gemini-3.8-flash:generateContent: identical
-  request 3 /v1beta/models/gemini-3.8-flash:generateContent: identical
-  request 4 /v1beta/models/gemini-3.8-flash:generateContent: identical
-  request 5 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs
-  request 6 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs
-  request 7 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs
-  request 8 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs
-  request 9 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs
+  request 0 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs
+  request 1 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs
+  request 2 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs
+  request 3 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs
+  request 4 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs
+  request 5 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs; body key 'tools' differs
+  request 6 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs; body key 'tools' differs
+  request 7 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs; body key 'tools' differs
+  request 8 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs; body key 'tools' differs
+  request 9 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs; body key 'tools' differs
 request headers go:   {'user-agent': 'google-adk/2.5.0 gl-go/1.27.1 google-genai-sdk/1.71.0 gl-go/go1.27.1', 'content-type': 'application/json', 'x-goog-api-client': 'google-adk/2.5.0 gl-go/1.27.1 google-genai-sdk/1.71.0 gl-go/go1.27.1', 'x-goog-api-key': '<key>', 'accept-encoding': 'gzip'}
-request headers head: {'content-type': 'application/json', 'x-goog-api-key': '<key>', 'accept': '*/*', 'user-agent': 'yutu-rs/0.11.0', 'accept-encoding': 'gzip'}
+request headers head: {'content-type': 'application/json', 'x-goog-api-key': '<key>', 'accept': '*/*', 'user-agent': 'youtube-cli/0.11.0', 'accept-encoding': 'gzip'}
 
 == reads, skills and error paths: provider=google streaming_mode=sse
 tool calls go:   ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
@@ -44,27 +44,27 @@ recorder lines identical: True (4 go, 4 head)
   GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}
   GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
   GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
-  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
+  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["youtube"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
 function response 8 (no-such-tool) differs:
-  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: liveChatMessage-transition, video-list, channelSection-list, playlist-update, commentThread-insert, watermark-set, liveChatModerator-delete, superChatEvent-list, load_skill, liveChatMessage-list, subscription-list, activity-list, watermark-
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: caption-download, comment-delete, liveStream-update, playlist-list, liveBroadcast-delete, load_skill, comment-insert, caption-delete, playlistItem-list, watermark-set, playlistItem-delete, liveBroadcast-bind, liveChatMessage-list, liveChatM
   head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
 exit: go 0 head 0
 stdout identical: True
   go:   '\n\nUser -> \nAgent -> Here is what I found.\nUser -> \nEOF detected, exiting...\n'
 stderr identical (timestamps masked): False
-  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"yutu\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
-  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"yutu\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"youtube\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"youtube\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
 model requests: go 10 head 10
-  request 0 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: identical
-  request 1 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: identical
-  request 2 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: identical
-  request 3 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: identical
-  request 4 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: identical
-  request 5 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs
-  request 6 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs
-  request 7 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs
-  request 8 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs
-  request 9 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs
+  request 0 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'tools' differs
+  request 1 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'tools' differs
+  request 2 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'tools' differs
+  request 3 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'tools' differs
+  request 4 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'tools' differs
+  request 5 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs; body key 'tools' differs
+  request 6 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs; body key 'tools' differs
+  request 7 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs; body key 'tools' differs
+  request 8 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs; body key 'tools' differs
+  request 9 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: body key 'contents' differs; body key 'tools' differs
 
 == reads, skills and error paths: provider=openai streaming_mode=none
 tool calls go:   ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
@@ -74,27 +74,27 @@ recorder lines identical: True (4 go, 4 head)
   GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}
   GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
   GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
-  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
+  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["youtube"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
 function response 8 (no-such-tool) differs:
-  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: activity-list, thirdPartyLink-update, playlistItem-insert, load_skill_resource, video-insert, abuseReport-insert, video-list, channelSection-list, comment-delete, caption-insert, liveChatMessage-transition, commentThread-insert, subscriptio
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: playlist-delete, channel-update, channel-list, list_skills, watermark-unset, liveStream-insert, video-list, comment-insert, activity-list, load_skill, video-reportAbuse, thirdPartyLink-update, video-update, liveBroadcast-list, playlistImage
   head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
 exit: go 0 head 0
 stdout identical: True
   go:   '\n\nUser -> \nAgent -> Here is what I found.\nUser -> \nEOF detected, exiting...\n'
 stderr identical (timestamps masked): False
-  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"yutu\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
-  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"yutu\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"youtube\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"youtube\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
 model requests: go 10 head 10
-  request 0 /v1/responses: identical
-  request 1 /v1/responses: identical
-  request 2 /v1/responses: identical
-  request 3 /v1/responses: identical
-  request 4 /v1/responses: identical
-  request 5 /v1/responses: identical
-  request 6 /v1/responses: identical
-  request 7 /v1/responses: identical
-  request 8 /v1/responses: identical
-  request 9 /v1/responses: body key 'input' differs
+  request 0 /v1/responses: body key 'tools' differs
+  request 1 /v1/responses: body key 'tools' differs
+  request 2 /v1/responses: body key 'tools' differs
+  request 3 /v1/responses: body key 'tools' differs
+  request 4 /v1/responses: body key 'tools' differs
+  request 5 /v1/responses: body key 'tools' differs
+  request 6 /v1/responses: body key 'tools' differs
+  request 7 /v1/responses: body key 'tools' differs
+  request 8 /v1/responses: body key 'tools' differs
+  request 9 /v1/responses: body key 'input' differs; body key 'tools' differs
 
 == reads, skills and error paths: provider=openai streaming_mode=sse
 tool calls go:   ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
@@ -104,27 +104,27 @@ recorder lines identical: True (4 go, 4 head)
   GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}
   GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
   GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
-  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
+  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["youtube"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
 function response 8 (no-such-tool) differs:
-  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: playlist-insert, liveStream-insert, channelBanner-insert, playlist-delete, liveStream-update, thirdPartyLink-insert, liveBroadcast-insertCuepoint, comment-markAsSpam, caption-download, commentThread-list, comment-update, liveChatMessage-del
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: thirdPartyLink-delete, comment-delete, abuseReport-insert, comment-list, video-rate, liveChatBan-delete, videoAbuseReportReason-list, liveChatModerator-delete, commentThread-list, channelBanner-insert, liveChatMessage-insert, superChatEvent
   head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
 exit: go 0 head 0
 stdout identical: True
   go:   '\n\nUser -> \nAgent -> Here is what I found.\nUser -> \nEOF detected, exiting...\n'
 stderr identical (timestamps masked): False
-  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"yutu\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
-  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"yutu\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"youtube\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"youtube\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
 model requests: go 10 head 10
-  request 0 /v1/responses: identical
-  request 1 /v1/responses: identical
-  request 2 /v1/responses: identical
-  request 3 /v1/responses: identical
-  request 4 /v1/responses: identical
-  request 5 /v1/responses: identical
-  request 6 /v1/responses: identical
-  request 7 /v1/responses: identical
-  request 8 /v1/responses: identical
-  request 9 /v1/responses: body key 'input' differs
+  request 0 /v1/responses: body key 'tools' differs
+  request 1 /v1/responses: body key 'tools' differs
+  request 2 /v1/responses: body key 'tools' differs
+  request 3 /v1/responses: body key 'tools' differs
+  request 4 /v1/responses: body key 'tools' differs
+  request 5 /v1/responses: body key 'tools' differs
+  request 6 /v1/responses: body key 'tools' differs
+  request 7 /v1/responses: body key 'tools' differs
+  request 8 /v1/responses: body key 'tools' differs
+  request 9 /v1/responses: body key 'input' differs; body key 'tools' differs
 
 == a gated write: Go's in-memory MCP client cannot answer the confirmation, head asks the human (E9)
 tool calls go:   ['playlist-list', 'playlist-delete']
@@ -138,23 +138,23 @@ function response 1 (playlist-delete) differs:
 exit: go 0 head 0
 stdout identical: False
   go:   '\n\nUser -> \nAgent -> ok\nUser -> \nEOF detected, exiting...\n'
-  head: '\n\nUser -> \nAgent -> \x18\x1b\\\x1b[0m\nTool call needs approval: playlist-delete {"ids":["p1"]}\nDelete playlist(s): p1 [y/N] ok\nUser -> \nEOF detected, exiting...\n'
+  head: '\n\nUser -> \nAgent -> \nTool call needs approval: playlist-delete {"ids":["p1"]}\nDelete playlist(s): p1 [y/N] ok\nUser -> \nEOF detected, exiting...\n'
 stderr identical (timestamps masked): False
   go:   'time=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\",\\"mine\\":true}" output_length=4706\ntime=T level=INFO msg=playlist-delete input="{\\"ids\\":[\\"p1\\"],\\"confirmed\\":false}" mrtr=true\n'
   head: 'time=T level=INFO msg=playlist-list input="{\\"mine\\":true,\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\n'
 model requests: go 3 head 3
-  request 0 /v1beta/models/gemini-3.8-flash:generateContent: identical
-  request 1 /v1beta/models/gemini-3.8-flash:generateContent: identical
-  request 2 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs
+  request 0 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs
+  request 1 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs
+  request 2 /v1beta/models/gemini-3.8-flash:generateContent: body key 'contents' differs; body key 'tools' differs
 
 == every difference above, classified
 - playlist-delete response, the approval prompt on stdout, Go's mrtr=true log line: E9. Go's in-memory
   MCP client declares no elicitation, so every gated tool fails with 'client does not support
   elicitation' and no write can ever run; head asks the human and sends 'canceled by user' on no.
 - no-such-tool 'Available tools' order: nondeterministic in Go (map order); head lists declarations in order.
-- stderr tool log lines: yutu-mcp (R7) logs the bound input without Go's 'confirmed':false and in
+- stderr tool log lines: youtube-mcp (R7) logs the bound input without Go's 'confirmed':false and in
   schema order; the agent adds nothing to stderr. Not E9/E10.
-- request headers: head sends User-Agent yutu-rs/<version> and none of the SDK identification headers
+- request headers: head sends User-Agent youtube-cli/<version> and none of the SDK identification headers
   (x-goog-api-client, X-Stainless-*); the key header is the same. Not E9/E10.
 - Parallel calls in one model turn run sequentially in head (approvals are serial); Go runs them
   concurrently, so its recorder order for such turns is nondeterministic. The scripts here issue one call per turn.

@@ -1,7 +1,7 @@
 r12 lane 8: PASS
 
 SUBSTITUTED: no test channel; each step runs on Go and head against the recorder and must match exactly.
-$ yutu video insert --file clip.mp4 --categoryId 22 --privacy private --yes: exit 0, identical to Go True, stdout 'Video inserted: id-1\n'
-$ yutu caption insert --videoId v1 --file c.srt --yes: exit 0, identical to Go True, stdout 'Caption inserted: id-1\n'
-$ yutu thumbnail set --videoId v1 --file t.png --yes: exit 0, identical to Go True, stdout 'Thumbnail set for video v1'
-$ yutu video delete --ids v1 --yes: exit 0, identical to Go True, stdout 'Video v1 deleted'
+$ youtube video insert --file clip.mp4 --categoryId 22 --privacy private --yes: exit 0, identical to Go True, stdout 'Video inserted: id-1\n'
+$ youtube caption insert --videoId v1 --file c.srt --yes: exit 0, identical to Go True, stdout 'Caption inserted: id-1\n'
+$ youtube thumbnail set --videoId v1 --file t.png --yes: exit 0, identical to Go True, stdout 'Thumbnail set for video v1'
+$ youtube video delete --ids v1 --yes: exit 0, identical to Go True, stdout 'Video v1 deleted'

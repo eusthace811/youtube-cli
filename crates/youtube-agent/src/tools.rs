@@ -98,7 +98,9 @@ impl Toolbox {
             return None;
         }
         let args = Value::Object(call.args.clone()).to_string();
-        let bound = youtube_mcp::tools::find(&call.name)?.bind(Some(&args)).ok()?;
+        let bound = youtube_mcp::tools::find(&call.name)?
+            .bind(Some(&args))
+            .ok()?;
         let message = youtube_core::confirm::printable(&bound.invoke.confirm());
         Some(Approval {
             tool: call.name.clone(),

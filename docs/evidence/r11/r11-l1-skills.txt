@@ -3,59 +3,112 @@ r11 lane 1: PASS
 Generated skills/ against Go's skills/youtube and cmd/agent (INSTRUCTION.md, skills/).
 Expected differences: E13 (no i18nLanguage-list, i18nRegion-list, videoCategory-list;
 caption-download under a local-file heading; resources line lists only resources with tools)
-and the license frontmatter (Go says MIT; every file ships under Apache-2.0).
+and the license frontmatter (Go says MIT; every file ships under Apache-2.0); E19: Go's
+files are first mapped to the new names, and the setup guide and skill metadata point at
+youtube-cli's install methods instead of Go yutu's.
 
-$ diff -r /Users/juan/Projects/youtube-cli/yutu/skills/youtube /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube
+$ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/go-src/skills/youtube /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube
 exit: 1
 --- stdout ---
-diff -r /Users/juan/Projects/youtube-cli/yutu/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube/SKILL.md
-4c4
+diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/go-src/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube/SKILL.md
+4,5c4,5
 < license: MIT
+< compatibility: Requires the youtube CLI binary (installable via npm, brew, or winget) and Google Cloud OAuth credentials for YouTube Data API v3.
 ---
 > license: Apache-2.0
-13c13
+> compatibility: Requires the youtube CLI binary from youtube-cli (installable via npm, its install script, or from source) and Google Cloud OAuth credentials for YouTube Data API v3.
+7,8c7
+<   author: eat-pray-ai
+<   homepage: "https://github.com/eat-pray-ai/youtube"
+---
+>   author: youtube-cli
+13c12
 < Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, i18nLanguage, i18nRegion, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, videoCategory, watermark.
 ---
 > Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, watermark.
-31d30
+31d29
 < - `caption-download`
-37,38d35
+37,38d34
 < - `i18nLanguage-list`
 < - `i18nRegion-list`
-55d51
+55d50
 < - `videoCategory-list`
-94a91,94
+94a90,93
 > 
 > ### Local file (writes a file on this machine — confirm the path with user first)
 > 
 > - `caption-download`
+diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/go-src/skills/youtube/references/setup.md /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube/references/setup.md
+31c31
+< Install `youtube` using one of these methods:
+---
+> Install `youtube` (youtube-cli, macOS or Linux) using one of these methods:
+34,35c34,35
+< # Node.js (all platforms)
+< npm i -g @eat-pray-ai/youtube
+---
+> # Node.js
+> npm i -g @youtube-cli/youtube
+37,38c37,38
+< # macOS
+< brew install youtube
+---
+> # Shell script, with checksum and provenance checks (OWNER/REPO: the youtube-cli repository)
+> curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash
+40,44c40,41
+< # Linux / macOS (shell script)
+< curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/youtube/main/scripts/install.sh | bash
+< 
+< # Windows
+< winget install youtube
+---
+> # From source
+> cargo build --release --locked -p youtube
+47,50d43
+< ### Other platforms
+< 
+< Download a prebuilt binary from the [releases page](https://github.com/eat-pray-ai/youtube/releases/latest) and place it in your PATH.
+< 
+86c79
+< npx skills add eat-pray-ai/youtube --skill youtube
+---
+> npx skills add OWNER/REPO --skill youtube   # OWNER/REPO: the youtube-cli repository
+98c91
+< For more details, see the [README](https://github.com/eat-pray-ai/youtube#readme).
+---
+> For more details, see the youtube-cli README.
 --- stderr ---
 
-$ diff /Users/juan/Projects/youtube-cli/yutu/cmd/agent/INSTRUCTION.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-agent/assets/INSTRUCTION.md
+$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/go-src/cmd/agent/INSTRUCTION.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/youtube-agent/assets/INSTRUCTION.md
 exit: 0
 --- stdout ---
 --- stderr ---
 
-$ diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills /Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-agent/assets/skills
+$ diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/go-src/cmd/agent/skills /Users/juan/Projects/youtube-cli/youtube-cli/crates/youtube-agent/assets/skills
 exit: 1
 --- stdout ---
-diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-agent/assets/skills/youtube/SKILL.md
+diff -r /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/go-src/cmd/agent/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/youtube-agent/assets/skills/youtube/SKILL.md
 4c4
 < license: MIT
 ---
 > license: Apache-2.0
-12c12
+6,7c6
+<   author: eat-pray-ai
+<   homepage: "https://github.com/eat-pray-ai/youtube"
+---
+>   author: youtube-cli
+12c11
 < Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, i18nLanguage, i18nRegion, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, videoCategory, watermark.
 ---
 > Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, watermark.
-26d25
+26d24
 < - `caption-download`
-32,33d30
+32,33d29
 < - `i18nLanguage-list`
 < - `i18nRegion-list`
-50d46
+50d45
 < - `videoCategory-list`
-89a86,89
+89a85,88
 > 
 > ### Local file (writes a file on this machine — confirm the path with user first)
 > 
@@ -63,7 +116,7 @@ diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills/youtube/SKILL.md 
 --- stderr ---
 
 Distinct changed lines vs the expected set:
-$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/expected /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/changed
+$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/expected /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/changed
 exit: 0
 --- stdout ---
 --- stderr ---

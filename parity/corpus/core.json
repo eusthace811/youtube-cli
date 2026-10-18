@@ -5,6 +5,9 @@
   "effect": "core",
   "argv": [
    "version"
+  ],
+  "divergences": [
+   "E19"
   ]
  },
  {
@@ -16,7 +19,10 @@
   ],
   "env": {
    "FORCE_HYPERLINK": "1"
-  }
+  },
+  "divergences": [
+   "E19"
+  ]
  },
  {
   "id": "core.version.iterm",
@@ -28,7 +34,10 @@
   "env": {
    "TERM_PROGRAM": "iTerm.app",
    "TERM_PROGRAM_VERSION": "3.5.2"
-  }
+  },
+  "divergences": [
+   "E19"
+  ]
  },
  {
   "id": "core.version.vte-old",
@@ -39,7 +48,10 @@
   ],
   "env": {
    "VTE_VERSION": "5000"
-  }
+  },
+  "divergences": [
+   "E19"
+  ]
  },
  {
   "id": "core.root",
@@ -174,6 +186,9 @@
   "argv": [
    "version",
    "extra"
+  ],
+  "divergences": [
+   "E19"
   ]
  },
  {

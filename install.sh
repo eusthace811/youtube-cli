@@ -137,7 +137,7 @@ fi
 
 cat <<EOF
 
-youtube🐰 installed:
+youtube-cli installed:
   ${INSTALL_DIR}/youtube
 
 Add ${INSTALL_DIR} to PATH if needed.

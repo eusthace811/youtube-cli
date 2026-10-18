@@ -14,5 +14,5 @@ stderr identical (timestamps masked): False
   go:   'time=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\",\\"mine\\":true}" output_length=4706\n'
   head: 'time=T level=INFO msg=playlist-list input="{\\"mine\\":true,\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\n'
 model requests: go 2 head 2
-  request 0 /v1/responses: identical
-  request 1 /v1/responses: identical
+  request 0 /v1/responses: body key 'tools' differs
+  request 1 /v1/responses: body key 'tools' differs

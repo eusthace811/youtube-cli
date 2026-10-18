@@ -1,6 +1,6 @@
 # youtube-cli
 
-A Rust rewrite of [youtube](https://github.com/eat-pray-ai/yutu) v0.11.0, the CLI, MCP server and AI agent for YouTube. It behaves like Go yutu, command for command and byte for byte (`docs/PARITY.md`), with deliberate fixes listed in `docs/MIGRATING.md`. It has no telemetry. It starts in about 3.5 ms where Go takes about 12 ms, and the binary is about 7 MB where Go's is 57 MB (`docs/PERF.md`).
+A CLI, MCP server and AI agent for YouTube, installed as the `youtube` command. It is a Rust rewrite of [yutu](https://github.com/eat-pray-ai/yutu) v0.11.0 and behaves like it command for command, apart from the program's name and the deliberate fixes listed in `docs/MIGRATING.md` (`docs/PARITY.md`). It has no telemetry. It starts in about 3.5 ms where Go takes about 12 ms, and the binary is about 7 MB where Go's is 57 MB (`docs/PERF.md`).
 
 Every write to your channel needs your approval: `--yes` or a `y` typed at a terminal on the CLI, an accepted elicitation over MCP, and a human `y` or browser click in the agent (`docs/SECURITY.md`).
 
@@ -11,7 +11,7 @@ macOS and Linux, on amd64 and arm64. Windows is not supported yet; keep Go yutu 
 From a release, with the checksum and build-provenance checks in `install.sh`:
 
 ```shell
-curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash
+curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash   # OWNER/REPO: your youtube-cli repository
 ```
 
 From source, with the Rust toolchain that `rust-toolchain.toml` pins:
@@ -21,7 +21,7 @@ cargo build --release --locked -p youtube
 cp target/release/youtube ~/.local/bin/youtube
 ```
 
-Both install the program as `youtube`, the same name as Go yutu. Remove Go yutu from your `PATH`, or put youtube-cli ahead of it. `youtube version` prints the same banner for both.
+Both install the program as `youtube`. It does not clash with Go yutu, which installs as `yutu`. Its environment variables use the `YOUTUBE_CLI_` prefix where yutu used `YUTU_`; the files they point to are unchanged.
 
 ## Connect your YouTube account
 

@@ -47,7 +47,7 @@ def run_corpus(binary):
 
 def contract_and_help(binary):
     p = subprocess.run([sys.executable, "-I", str(PARITY / "contract.py"), "--bin", binary, "--compare", str(PARITY / "golden/mcp-contract.json"),
-                        "--allow", "E1=$help.youtube caption download,E16=$help.youtube agent.stdout"], capture_output=True, text=True)
+                        "--allow", "E1=$help.youtube caption download,E16=$help.youtube agent.stdout,E19=$help.youtube video insert.stdout,E19=$.tools.result.tools[66].inputSchema.properties.tags.default"], capture_output=True, text=True)
     unregistered = [l for l in p.stdout.splitlines() if l and not l.startswith(("registered", "contract:"))]
     registered = [l for l in p.stdout.splitlines() if l.startswith("registered")]
     return unregistered, registered
@@ -70,7 +70,7 @@ def build(results, unregistered_contract, registered_contract):
         lines.append(f"| {s} | {n} | {d} |")
     lines += [f"| MCP contract and all {117} help texts | 1 | {len(unregistered_contract)} |", "",
               "## Normalizations", "", "Only these, each one function in `parity/diff.py`:", ""]
-    for name in ("split_part", "mask_boundary", "multipart_parts", "body_value", "mask_time", "mask_port", "mcp_by_value"):
+    for name in ("split_part", "mask_boundary", "multipart_parts", "body_value", "mask_time", "mask_port", "mcp_by_value", "rename_go", "drop_go_upload_tag"):
         lines.append(f"- `{name}`: {inspect.getdoc(getattr(differ, name))}")
     lines += ["", "## Registered divergences (Appendix E)", "", "| Id | Change | PRs | Corpus cases tagged | Proof |", "|---|---|---|---|---|"]
     for k in sorted(divergences, key=lambda x: int(x[1:])):

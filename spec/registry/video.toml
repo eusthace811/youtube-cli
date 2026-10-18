@@ -247,9 +247,6 @@ input_schema = """
       "type": "boolean"
     },
     "tags": {
-      "default": [
-        "youtube🐰"
-      ],
       "description": "Comma separated tags",
       "items": {
         "type": "string"
@@ -427,7 +424,7 @@ usage = "Should stabilize be applied to the upload"
 name = "tags"
 short = "a"
 type = "stringSlice"
-default = "[youtube🐰]"
+default = "[]"
 usage = "Comma separated tags"
 
 [[command.flag]]

@@ -35,8 +35,18 @@ mod tests {
     #[test]
     fn the_banner_names_the_program_and_build() {
         let b = super::banner();
-        assert!(b.starts_with(&format!("youtube-cli {} ", super::VERSION)), "{b}");
-        assert!(b.ends_with(&format!("build: {}-{}\n", super::BUILDER, super::COMMIT_DATE)), "{b}");
+        assert!(
+            b.starts_with(&format!("youtube-cli {} ", super::VERSION)),
+            "{b}"
+        );
+        assert!(
+            b.ends_with(&format!(
+                "build: {}-{}\n",
+                super::BUILDER,
+                super::COMMIT_DATE
+            )),
+            "{b}"
+        );
         assert!(!b.contains("eat-pray-ai"), "{b}");
     }
 }

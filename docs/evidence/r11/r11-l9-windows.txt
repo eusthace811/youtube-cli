@@ -6,8 +6,33 @@ use Unix APIs with no Windows port yet, and no Windows host was available to bui
 ci.yml and release.yml build macOS and Linux only; npm ships no win32 packages; no winget manifest.
 
 The help-parity diff the Windows job would have run, on this host:
-$ diff -u /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.2cZX9vOMgl/go-help /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.2cZX9vOMgl/rs-help
-exit: 0
+$ diff -u /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/go-help /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/rs-help
+exit: 1
 --- stdout ---
+--- /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/go-help	2026-10-18 22:15:41
++++ /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/rs-help	2026-10-18 22:15:41
+@@ -1,17 +1,17 @@
+ List videos. Use this tool to list videos.
+ 
+ Usage:
+-  yutu video list [flags]
++  youtube video list [flags]
+ 
+ Examples:
+ # List a video by ID
+-yutu video list --ids IBju0NwjQRc
++youtube video list --ids IBju0NwjQRc
+ # List multiple videos in JSON format
+-yutu video list --ids IBju0NwjQRc,wZ9z3FUuNvQ --output json
++youtube video list --ids IBju0NwjQRc,wZ9z3FUuNvQ --output json
+ # List most popular videos by region
+-yutu video list --chart mostPopular --regionCode US --maxResults 10
++youtube video list --chart mostPopular --regionCode US --maxResults 10
+ # List my liked videos
+-yutu video list --myRating like --output yaml
++youtube video list --myRating like --output yaml
+ 
+ Flags:
+   -c, --chart string                    chartUnspecified|mostPopular
 --- stderr ---
 

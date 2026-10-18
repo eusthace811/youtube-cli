@@ -304,6 +304,8 @@ def tag_divergences(cases):
             c["divergences"] = ["E1"]
             if cid.startswith("cli.") and not cid.endswith((".help", ".no-yes", ".tty-decline", ".tty-accept")):
                 extra.append({**c, "id": cid + ".yes", "argv": c["argv"] + ["--yes"], "golden_from": cid, "divergences": []})
+        if cid.startswith("core.version") or cid == "core.extra-arg":
+            c["divergences"] = sorted(set(c.get("divergences", [])) | {"E19"})
         if cid.startswith("mcp.") and cid.endswith(".max_results.zero"):
             c["divergences"] = sorted(set(c.get("divergences", [])) | {"E17"})
         if cid.startswith(E18_UPDATES) and not cid.endswith(E18_UNCHANGED):

@@ -1,19 +1,19 @@
 r11 lane 6: SUBSTITUTED
 
-SUBSTITUTED: attesting needs a tag push on a GitHub repository; none exists for yutu-rs yet.
+SUBSTITUTED: attesting needs a tag push on a GitHub repository; none exists for youtube-cli yet.
 Evidence will come from the first tag push: release.yml's release job runs
 actions/attest-build-provenance on the six binaries, then
-  gh attestation verify yutu-<os>-<arch> --repo <repo> --signer-workflow <repo>/.github/workflows/release.yml
+  gh attestation verify youtube-<os>-<arch> --repo <repo> --signer-workflow <repo>/.github/workflows/release.yml
 which is the command install.sh runs, must print verified.
 
 --- release.yml attest and publish steps ---
       - uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
           subject-path: |
-            dist-out/yutu-darwin-amd64
-            dist-out/yutu-darwin-arm64
-            dist-out/yutu-linux-amd64
-            dist-out/yutu-linux-arm64
+            dist-out/youtube-darwin-amd64
+            dist-out/youtube-darwin-arm64
+            dist-out/youtube-linux-amd64
+            dist-out/youtube-linux-arm64
       - name: Publish the GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -22,6 +22,6 @@ which is the command install.sh runs, must print verified.
           [[ "${GITHUB_REF_NAME}" == *-* ]] && prerelease="--prerelease"
           gh release create "${GITHUB_REF_NAME}" --repo "${GITHUB_REPOSITORY}" --verify-tag \
             ${prerelease} --title "${GITHUB_REF_NAME}" \
-            --notes "Install: \`curl -sSfL https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/install.sh | YUTU_REPO=${GITHUB_REPOSITORY} bash\`. Verify a binary: \`gh attestation verify yutu-linux-amd64 --repo ${GITHUB_REPOSITORY}\`." \
-            dist-out/yutu-*-* dist-out/yutu.cdx.json dist-out/SHA256SUMS
+            --notes "Install: \`curl -sSfL https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/install.sh | YOUTUBE_CLI_REPO=${GITHUB_REPOSITORY} YOUTUBE_CLI_RELEASE_URL=https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME} bash\`. Verify a binary: \`gh attestation verify youtube-linux-amd64 --repo ${GITHUB_REPOSITORY}\`." \
+            dist-out/youtube-*-* dist-out/youtube.cdx.json dist-out/SHA256SUMS
 

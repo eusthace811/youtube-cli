@@ -1,30 +1,28 @@
 PASS: lane 8, -otel_to_cloud and xtask egress
 The notice prints in both launchers and xtask egress passes.
 
-web: ['time=2026-10-18T21:07:28.424+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']  (server still serves: GET /api/list-apps -> 200)
-console: ['time=2026-10-18T21:07:29.424+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']
+web: ['time=2026-10-18T22:16:50.977+01:00 level=WARN msg="telemetry is not supported in youtube-cli"']  (server still serves: GET /api/list-apps -> 200)
+console: ['time=2026-10-18T22:16:51.985+01:00 level=WARN msg="telemetry is not supported in youtube-cli"']
 
-$ cargo run -p xtask -- egress /Users/juan/Projects/youtube-cli/youtube-cli/target/release/yutu
+$ cargo run -p xtask -- egress /Users/juan/Projects/youtube-cli/youtube-cli/target/release/youtube
 egress: masked the brotli static dictionary (RFC 7932 Appendix A, 122784 bytes of word fragments the dev UI's decompressor carries)
 egress: display-only http://[ (the format string for bracketed IPv6 listener URLs)
 egress: display-only https://accounts.google.com (the authorization server in the HTTP MCP protected-resource metadata, packed against the next literal)
 egress: display-only https://ai.google.dev/gemini-api/docs/api-key (the agent's missing Gemini key error, as Go's genai prints it)
-egress: display-only https://api.deepseek.com/ (the `yutu agent --help` example of --base-url)
-egress: display-only https://custom.endpoint.com/ (the `yutu agent --help` example of --base-url)
+egress: display-only https://api.deepseek.com/ (the `youtube agent --help` example of --base-url)
+egress: display-only https://custom.endpoint.com/ (the `youtube agent --help` example of --base-url)
 egress: display-only https://docs.rs/rustls/latest/rustls/#cryptography-providers (rustls's missing-crypto-provider panic message)
 egress: display-only https://docs.rs/rustls/latest/rustls/manual/_03_howto/index.html#unexpected-eof (rustls's missing close_notify error message)
-egress: display-only https://github.com/eat-pray-ai/yutu (the `yutu version` banner link)
-egress: display-only https://github.com/eat-pray-ai/yutu#prerequisites (the yutu-auth error that points at the README's credential setup)
 egress: display-only https://github.com/spf13/cobra/issues/1279 (a comment in cobra's fish completion script)
 egress: display-only https://github.com/spf13/cobra/issues/1508 (a comment in cobra's bash completion script)
 egress: display-only https://google.github.io/adk-docs/a2a/a2a-extension/ (the A2A extension identifier ADK puts on the agent card)
 egress: 0 unexpected hosts
 exit 0
 
-The same check over the vendored dev UI bundle files alone (crates/yutu-agent/assets/webui/distr):
+The same check over the vendored dev UI bundle files alone (crates/youtube-agent/assets/webui/distr):
 unexpected hosts: ['angular.dev', 'chevrotain.io', 'en.wikipedia.org', 'fonts.googleapis.com', 'fonts.gstatic.com', 'github.com', 'google.github.io', 'json-schema.org', 'jsonquerylang.org', 'langium.org', 'svelte.dev', 'www.apache.org', 'www.w3.org']
 hosts in the binary but not in the bundle: []
-  ai.google.dev: the R9 API-key error text (crates/yutu-agent/src/lib.rs at aaa60ff), printed, never fetched.
+  ai.google.dev: the R9 API-key error text (crates/youtube-agent/src/lib.rs at aaa60ff), printed, never fetched.
   docs.rs: rustls's own error texts, present since R9; R11 (e5992d4) lists both as display-only.
 google.github.io is also the A2A extension URI ADK puts on the card and task metadata, an identifier R10
 adds; the bundle names the same host in its docs links.

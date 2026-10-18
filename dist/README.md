@@ -1,6 +1,6 @@
 # Distribution
 
-Every channel ships the same release binaries that `.github/workflows/release.yml` builds on a tag push. The assets keep Go yutu's names, `youtube-{darwin,linux}-{amd64,arm64}`. Windows is not built yet: the file sandbox, the console approval and the CLI-provider process handling use Unix APIs that have no Windows port, and no Windows host was available to test one. Each release also carries `SHA256SUMS`, a CycloneDX SBOM (`youtube.cdx.json`), and a GitHub build-provenance attestation per binary. Linux binaries are static musl builds, so they run on any distribution and in a `scratch` image.
+Every channel ships the same release binaries that `.github/workflows/release.yml` builds on a tag push. The assets follow Go yutu's naming pattern under the new name: `youtube-{darwin,linux}-{amd64,arm64}`. Windows is not built yet: the file sandbox, the console approval and the CLI-provider process handling use Unix APIs that have no Windows port, and no Windows host was available to test one. Each release also carries `SHA256SUMS`, a CycloneDX SBOM (`youtube.cdx.json`), and a GitHub build-provenance attestation per binary. Linux binaries are static musl builds, so they run on any distribution and in a `scratch` image.
 
 Nothing in this directory publishes anything. Publishing to npm, a container registry, or the MCP registry is a separate, operator-run step; the release workflow only creates the GitHub release.
 
@@ -19,7 +19,7 @@ curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUB
 
 `npm/` holds the wrapper package `@youtube-cli/youtube` and four platform packages `@youtube-cli/youtube-{darwin,linux}-{arm64,x64}`, with Go's layout. The wrapper lists the platform packages as optional dependencies, so npm installs only the one whose `os` and `cpu` match. Its `bin/youtube` resolves that package and runs the binary with inherited stdio, propagating the exit code. No package has an install or postinstall script.
 
-The scope is new because `@eat-pray-ai` is the Go package's scope, and publishing the Rust build there would replace Go's binaries for every existing user. `@youtube-cli` keeps the two installable side by side until cutover. The scope must be created on npm by the operator before the first publish.
+`@youtube-cli` is a new scope, separate from Go yutu's `@eat-pray-ai` packages, so both can be installed side by side. The operator must create the scope on npm before the first publish.
 
 `npm/stage.sh VERSION BIN_DIR OUT_DIR [PACKAGE...]` copies the packages to `OUT_DIR`, stamps the version, and adds the binaries and `LICENSE`, leaving the sources untouched. `npm pack` or `npm publish` then runs in each staged directory.
 
@@ -45,4 +45,4 @@ The server is then at `http://127.0.0.1:8216/mcp`. Binding `0.0.0.0` makes the s
 
 ## MCP registry
 
-`server.json` is the registry entry for `io.github.eat-pray-ai/yutu-rs`, on schema 2025-12-11, mirroring Go's entry with a stdio and a streamable-HTTP package, both `@youtube-cli/youtube`. The wrapper's `mcpName` matches it. Before publishing, set `version` (replacing `0.0.0-dev`) to the release version and run `mcp-publisher publish`; no workflow does this yet. The `io.github.eat-pray-ai` namespace belongs to the Go project, so publish under the namespace of the repository that hosts youtube-cli. `YOUTUBE_CLI_LOG_LEVEL` lists `WARN`, the spelling youtube reads, where Go's entry listed `WARNING`, which youtube treats as `INFO`.
+`server.json` is the registry entry for `io.github.OWNER/youtube-cli`, on schema 2025-12-11, mirroring Go's entry with a stdio and a streamable-HTTP package, both `@youtube-cli/youtube`. The wrapper's `mcpName` matches it. Before publishing, set `version` (replacing `0.0.0-dev`) to the release version and run `mcp-publisher publish`; no workflow does this yet. Replace `OWNER` with the GitHub owner of the repository that hosts youtube-cli, here and in the npm `package.json` files and the Dockerfile label. `YOUTUBE_CLI_LOG_LEVEL` lists `WARN`, the spelling youtube reads, where Go's entry listed `WARNING`, which youtube treats as `INFO`.

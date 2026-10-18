@@ -12,8 +12,8 @@ tool call order identical: True
 recorder lines identical: True (0 go, 0 head)
 exit: go 0 head 0
 stdout identical: True
-  go:   '\n\nUser -> \nAgent -> The search says yutu is a YouTube CLI.\nUser -> \nEOF detected, exiting...\n'
+  go:   '\n\nUser -> \nAgent -> The search says youtube is a YouTube CLI.\nUser -> \nEOF detected, exiting...\n'
 stderr identical (timestamps masked): True
   go:   ''
 model requests: go 1 head 1
-  request 0 /v1beta/models/gemini-3.8-flash:generateContent: identical
+  request 0 /v1beta/models/gemini-3.8-flash:generateContent: body key 'tools' differs

@@ -7,44 +7,54 @@ invocations: 112
 exit: 0
 
 Same script against Go v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/ref/yutu-go), output diffed with head's.
-Expected differences: the 'Using yutu at' path, 'caption download --help' listing
---yes, because Rust gates caption download (divergence E1), and 'agent --help' naming the
-claude-code and codex providers (divergence E16).
+Expected differences: the 'Using youtube at' path, 'caption download --help' listing
+--yes, because Rust gates caption download (divergence E1), 'agent --help' naming the
+claude-code and codex providers (divergence E16), and the version banner (divergence E19).
+Go's output is first mapped to the new names (E19), as parity/diff.py rename_go does.
 go exit: 0
-$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/go.out /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/rust.out
+$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/go.out /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.QNQpaHydz3/rust.out
 exit: 1
 --- stdout ---
 1c1
-< Using yutu at: /Users/juan/Projects/youtube-cli/youtube-cli/ref/yutu-go
+< Using youtube at: /Users/juan/Projects/youtube-cli/youtube-cli/ref/youtube-go
 ---
-> Using yutu at: /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped
-87a88,90
+> Using youtube at: /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/youtube-shipped
+71,74c71,73
+<   _(\_/)_     youtube v0.11.0 darwin/arm64
+<  │   ▶   │    CLI, MCP server, and AI agent to automate YouTube workflows
+<  │ • x • │    📦 build: Gopher-2026-10-15T00:00:00Z
+<  ╰─/───\─╯    🌟 Star:  ]8;;https://github.com/eat-pray-ai/youtubeGithub/eat-pray-ai/youtube]8;;[0m
+---
+> youtube-cli v0.11.0 darwin/arm64
+> CLI, MCP server, and AI agent to automate YouTube workflows
+> build: Gopher-2026-10-15T00:00:00Z
+87a87,89
 > # Claude Code or Codex CLI, signed in already
-> yutu agent --provider claude-code
-> yutu agent --provider codex
-96c99
+> youtube agent --provider claude-code
+> youtube agent --provider codex
+96c98
 <   -p, --provider string      LLM provider: google for Gemini(compatible), openai for OpenAI(compatible) (default "google")
 ---
 >   -p, --provider string      LLM provider: google for Gemini(compatible), openai for OpenAI(compatible), claude-code or codex to use that CLI's own sign-in (default "google")
-256a260
+256a259
 >       --yes                             Confirm the operation
 --- stderr ---
 
 The subcommand whose help holds line 257 of head's output: ------- delete ------- ------- download ------- 
 unexpected differences: 0
 --- head output, first 40 lines ---
-Using yutu at: /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped
-yutu is a CLI, MCP server, and AI agent that automates your YouTube workflows from the terminal or any AI client.
+Using youtube at: /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/youtube-shipped
+youtube is a CLI, MCP server, and AI agent that automates your YouTube workflows from the terminal or any AI client.
 
 Environment variables:
-  YUTU_CREDENTIAL    Path/Base64/JSON of OAuth client secret (default: client_secret.json)
-  YUTU_CACHE_TOKEN   Path/Base64/JSON of cached OAuth token (default: youtube.token.json)
-  YUTU_ROOT          Root directory for file resolution (default: current working directory)
-  YUTU_LOG_LEVEL     Log level: DEBUG, INFO, WARN, ERROR (default: INFO)
+  YOUTUBE_CLI_CREDENTIAL    Path/Base64/JSON of OAuth client secret (default: client_secret.json)
+  YOUTUBE_CLI_CACHE_TOKEN   Path/Base64/JSON of cached OAuth token (default: youtube.token.json)
+  YOUTUBE_CLI_ROOT          Root directory for file resolution (default: current working directory)
+  YOUTUBE_CLI_LOG_LEVEL     Log level: DEBUG, INFO, WARN, ERROR (default: INFO)
 
 Usage:
-  yutu [flags]
-  yutu [command]
+  youtube [flags]
+  youtube [command]
 
 Available Commands:
   abuseReport            Manage YouTube abuse reports

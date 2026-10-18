@@ -4,7 +4,7 @@
   "description": "The macOS x64 binary for youtube",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eat-pray-ai/yutu.git"
+    "url": "git+https://github.com/OWNER/youtube-cli.git"
   },
   "license": "Apache-2.0",
   "preferUnplugged": true,

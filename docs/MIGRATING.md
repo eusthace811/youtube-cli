@@ -1,14 +1,14 @@
-# Moving from youtube (Go) to youtube-cli
+# Moving from yutu (Go) to youtube-cli
 
-youtube-cli is a drop-in replacement for the Go `youtube` v0.11.0 binary. Every command, flag, default, MCP tool, MCP resource and agent mode keeps its name and behavior, and the output is byte-for-byte the same except for the deliberate changes listed below. `docs/PARITY.md` shows the comparison that backs this.
+youtube-cli replaces the Go `yutu` v0.11.0 binary under a new name: the command is `youtube`, and its environment variables start with `YOUTUBE_CLI_` instead of `YUTU_` (E19). Every command, flag, default, MCP tool, MCP resource and agent mode keeps its name and behavior. Apart from the program's name, the output is byte-for-byte the same except for the deliberate changes listed below. `docs/PARITY.md` shows the comparison that backs this.
 
 ## What carries over unchanged
 
 - **Your OAuth client** (`client_secret.json`) and **your token file** (`youtube.token.json`). youtube-cli reads and writes the token in exactly the bytes Go's `json.MarshalWrite` produces, so the same file works with both binaries in either direction.
-- **Environment variables**: `YOUTUBE_CLI_CREDENTIAL`, `YOUTUBE_CLI_CACHE_TOKEN`, `YOUTUBE_CLI_ROOT` and `YOUTUBE_CLI_LOG_LEVEL` mean what they mean in Go, with the same precedence (a non-empty flag wins over the variable).
+- **Environment variables**: `YOUTUBE_CLI_CREDENTIAL`, `YOUTUBE_CLI_CACHE_TOKEN`, `YOUTUBE_CLI_ROOT` and `YOUTUBE_CLI_LOG_LEVEL` mean what Go's `YUTU_CREDENTIAL`, `YUTU_CACHE_TOKEN`, `YUTU_ROOT` and `YUTU_LOG_LEVEL` mean, with the same precedence (a non-empty flag wins over the variable). Rename them in your shell profile.
 - **Credential and token arguments**: a file path under the root, a standard base64 string, or inline JSON, resolved in that order.
 - **Scopes and redirect**: the same three YouTube scopes and the `http://localhost:8216` loopback redirect, so an OAuth client configured for Go keeps working.
-- **MCP**: the server name, version string, instructions, all 74 tool names, descriptions, input schemas, defaults and annotations, the `i18n://hl` resource and its templates. A Claude Code or other MCP configuration only needs the binary path changed.
+- **MCP**: the version string, instructions, all 74 tool names, descriptions, input schemas, defaults and annotations, the `i18n://hl` resource and its templates. The server reports its name as `youtube` instead of `yutu`. A Claude Code or other MCP configuration needs the command changed to `youtube mcp` and the variables renamed.
 - **Scripts**: exit codes (0 and 1), the `Error: ...` and `Run '... -h' to see usage.` lines, JSON/YAML/table output and the human success lines, including Go's quirks such as `Video <id> deleted` without a trailing newline.
 
 ## What changes, on purpose (Appendix E of the plan)
@@ -33,6 +33,7 @@ youtube-cli is a drop-in replacement for the Go `youtube` v0.11.0 binary. Every 
 | E16 | `youtube agent --provider claude-code` or `--provider codex` runs the agent on an installed, signed-in Claude Code or Codex CLI. No API key is needed, `--model` is optional, and `YOUTUBE_CLI_CLAUDE_BIN` or `YOUTUBE_CLI_CODEX_BIN` can name the executable. The CLI only answers as the model: its own tools, connectors, plugins and sub-agents are off, it runs in an empty directory with an allowlisted environment, and youtube runs every YouTube tool behind the usual approval. A multi-step turn can take 20 s or more, longer than the web launcher's default 15 s write timeout for `/api/run`; the dev UI's streaming `/api/run_sse` has its own 2-minute limit; raise them with `-write-timeout 5m` in `--args`. `-m haiku` or `-m sonnet` keeps Claude Code cheaper than its default model. | Use an existing Claude or ChatGPT subscription instead of a separate API key. |
 | E17 | An MCP or agent tool call with `max_results: 0` lists everything, as every tool schema says ("0 for no limit") and as `--maxResults 0` does on the CLI. | Go fetched nothing and returned `[]`, so a model following the schema told users they had no playlists. A server that repeats a page token now ends the listing instead of looping forever. |
 | E18 | `playlist update`, `playlistItem update` and `comment update` work, from the CLI, MCP and the agent. `channel update` writes the title, description, country and default language through `brandingSettings`, the only part `channels.update` accepts, and refuses `--customUrl`, which the API cannot change. | Go's lookup of the item to change never fetched anything (and for playlists sent no `part`), and its channel update wrote `snippet`, which the API rejects, so every such update failed. |
+| E19 | The program is named youtube-cli and its command is `youtube`. The `YUTU_` environment variables become `YOUTUBE_CLI_`, the MCP server name becomes `youtube`, and `youtube version` prints a plain banner without yutu's mascot or a link to the Go project. Shell completion scripts use the new name. | A separate name, so the two programs never overwrite each other. |
 
 ## Platforms
 
