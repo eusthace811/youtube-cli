@@ -78,9 +78,12 @@ def main():
     ap.add_argument("--bin", required=True)
     ap.add_argument("--compare")
     ap.add_argument("--allow", default="", help="contract paths accepted as Appendix E differences, as id=path-prefix pairs")
+    ap.add_argument("--mcp-only", action="store_true", help="compare only the MCP contract, not --help texts")
     args = ap.parse_args()
+    if args.mcp_only and not args.compare:
+        ap.error("--mcp-only needs --compare")
     contract = mcp_contract(args.bin)
-    helps = help_texts(args.bin)
+    helps = {} if args.mcp_only else help_texts(args.bin)
     if not args.compare:
         (GOLDEN / "mcp-contract.json").write_text(json.dumps(contract, indent=1, sort_keys=True, ensure_ascii=False) + "\n")
         (GOLDEN / "help.json").write_text(json.dumps(helps, indent=1, sort_keys=True, ensure_ascii=False) + "\n")
@@ -89,8 +92,9 @@ def main():
         return
     allowed = [tuple(x.split("=", 1)) for x in args.allow.split(",") if x]
     found = diff(json.loads(Path(args.compare).read_text()), contract)
-    golden_help = json.loads((GOLDEN / "help.json").read_text())
-    found += diff(golden_help, helps, "$help")
+    if not args.mcp_only:
+        golden_help = json.loads((GOLDEN / "help.json").read_text())
+        found += diff(golden_help, helps, "$help")
     registered, rest = [], []
     for d in found:
         hit = next((i for i, prefix in allowed if d.startswith(prefix)), None)
