@@ -13,20 +13,22 @@ use yutu_core::output::Out;
 
 struct Yutu;
 
-/// The service for CLI commands: the parity recorder when this build has the
-/// `parity-endpoint` feature and the variable is set, otherwise OAuth.
+/// The service for CLI and stdio MCP commands, as Go's file-based
+/// `defaultYouTubeService`: credentials and token from flags, env or defaults
+/// under the root. Builds with `parity-endpoint` that point at the recorder
+/// skip OAuth unless `YUTU_PARITY_AUTH=1` asks the lanes to exercise it.
 struct CliService;
 
 impl ServiceProvider for CliService {
     fn service(&self) -> BoxFuture<'_, Result<Service, String>> {
         Box::pin(async {
-            if yutu_api::client::parity_mode() {
+            if yutu_api::client::parity_mode()
+                && std::env::var("YUTU_PARITY_AUTH").as_deref() != Ok("1")
+            {
                 return Ok(Service::new(None));
             }
-            Err(
-                "failed to create YouTube service: authentication is not available in this build"
-                    .to_string(),
-            )
+            let tokens = yutu_auth::default_token_source().await?;
+            Ok(Service::new(Some(tokens)))
         })
     }
 }
