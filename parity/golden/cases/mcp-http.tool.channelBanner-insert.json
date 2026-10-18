@@ -1,0 +1,17 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.tool.channelBanner-insert",
+ "requests": [],
+ "stderr": "time=2026-10-18T17:09:56.068+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:09:56.069+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:09:56.081+01:00 level=INFO msg=channelBanner-insert input=\"{\\\"confirmed\\\":false,\\\"channel_id\\\":\\\"val-channel_id\\\",\\\"output\\\":\\\"json\\\",\\\"file\\\":\\\"image.png\\\"}\" mrtr=true\n",
+ "stdout": "{\"body\": {\"error\": {\"code\": 0, \"message\": \"multi-round-trip: fulfilling input request \\\"confirm\\\": client does not support elicitation\"}, \"id\": 2, \"jsonrpc\": \"2.0\"}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

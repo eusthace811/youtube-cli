@@ -8,11 +8,13 @@ diffed against parity/golden/cases and only differences are reported.
 """
 import argparse
 import base64
+import http.client
 import json
 import os
 import pty
 import select
 import shutil
+import socket
 import subprocess
 import sys
 import tempfile
@@ -21,6 +23,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from recorder import Recorder  # noqa: E402
+from tokeninfo import TokenInfo  # noqa: E402
 import diff as differ  # noqa: E402
 
 PARITY = Path(__file__).resolve().parent
@@ -150,12 +153,121 @@ def mcp_session(argv, env, cwd, messages, timeout, elicit="accept"):
     return "".join(replies), err, 0
 
 
+HTTP_HEADERS = ("content-type", "www-authenticate", "allow", "cache-control", "x-content-type-options",
+                "access-control-allow-origin", "access-control-allow-methods", "access-control-allow-headers")
+
+
+def free_port():
+    with socket.socket() as s:
+        s.bind(("127.0.0.1", 0))
+        return s.getsockname()[1]
+
+
+def padded_ping(size):
+    head, tail = b'{"jsonrpc":"2.0","id":1,"method":"ping","params":{"x":"', b'"}}'
+    return head + b"a" * (size - len(head) - len(tail)) + tail
+
+
+def http_exchange(port, ex, timeout):
+    """Sends one request on a fresh connection and records the status, the
+    headers go-sdk sets, and the body (by value when it is JSON)."""
+    if "pad" in ex:
+        data = padded_ping(ex["pad"])
+    elif ex.get("body") is None:
+        data = None
+    elif isinstance(ex["body"], str):
+        data = ex["body"].encode()
+    else:
+        data = json.dumps(ex["body"]).encode()
+    headers = {"Host": f"localhost:{port}", **ex["headers"]}
+    conn = http.client.HTTPConnection("127.0.0.1", port, timeout=timeout)
+    try:
+        conn.putrequest(ex["method"], ex["path"], skip_host=True, skip_accept_encoding=True)
+        for k, v in headers.items():
+            conn.putheader(k, v)
+        if data is not None:
+            conn.putheader("Content-Length", str(len(data)))
+        try:
+            conn.endheaders(data)
+        except (BrokenPipeError, ConnectionResetError):
+            pass  # a server refusing an oversized body may answer before reading it all
+        resp = conn.getresponse()
+        raw = resp.read()
+    except (ConnectionError, socket.timeout) as e:
+        return {"error": type(e).__name__}
+    finally:
+        conn.close()
+    text = raw.decode("utf-8", "replace")
+    body = text
+    if (resp.getheader("Content-Type") or "").startswith("application/json"):
+        try:
+            body = json.loads(text)
+        except ValueError:
+            pass
+    return {"status": resp.status, "body": body,
+            "headers": {h: resp.getheader(h) for h in HTTP_HEADERS if resp.getheader(h) is not None}}
+
+
+def wait_listening(port, p, timeout=10):
+    deadline = time.time() + timeout
+    while time.time() < deadline and p.poll() is None:
+        try:
+            socket.create_connection(("127.0.0.1", port), timeout=0.2).close()
+            return True
+        except OSError:
+            time.sleep(0.02)
+    return False
+
+
+def mcp_http_session(argv, env, cwd, exchanges, timeout):
+    """Starts `mcp --mode http` on a free port and records each exchange as
+    one JSON line. The port is masked so Go and head compare."""
+    port = free_port()
+    errfile = tempfile.TemporaryFile()
+    p = subprocess.Popen(argv + ["mcp", "--mode", "http", "--port", str(port)], stdin=subprocess.DEVNULL,
+                         stdout=subprocess.DEVNULL, stderr=errfile, env=env, cwd=cwd)
+    lines = []
+    try:
+        if not wait_listening(port, p):
+            lines.append(json.dumps({"parity": "server did not listen"}))
+        else:
+            for ex in exchanges:
+                lines.append(json.dumps(http_exchange(port, ex, timeout), ensure_ascii=False, sort_keys=True))
+    finally:
+        time.sleep(0.05)
+        p.terminate()
+        try:
+            p.wait(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            p.kill()
+            p.wait()
+    errfile.seek(0)
+    err = errfile.read().decode("utf-8", "replace")
+    out = "".join(line + "\n" for line in lines)
+    return out.replace(f":{port}", ":PORT"), err.replace(f":{port}", ":PORT"), 0
+
+
+_TOKENINFO = []
+
+
+def tokeninfo():
+    if not _TOKENINFO:
+        _TOKENINFO.append(TokenInfo())
+    return _TOKENINFO[0]
+
+
 def run_case(binary, case, rec, timeout=30):
     rec.reset(fail=case.get("fail"), overrides=case.get("fixtures"))
     root = prepare_root(case)
     env = case_env(case, root, rec.url)
     argv = [str(Path(binary).resolve())] + case.get("argv", [])
-    if case.get("surface") == "mcp":
+    ti = None
+    if case.get("surface") == "mcp-http":
+        ti = tokeninfo()
+        ti.reset()
+        env["YUTU_PARITY_TOKENINFO"] = ti.url
+        stdout, stderr, code = mcp_http_session(argv, env, root, case["exchanges"], timeout)
+    elif case.get("surface") == "mcp":
         stdout, stderr, code = mcp_session(argv, env, root, case["messages"], timeout, case.get("elicit", "accept"))
     elif case.get("tty"):
         stdout, stderr, code = run_tty(argv, env, root, case.get("stdin"), timeout)
@@ -167,8 +279,11 @@ def run_case(binary, case, rec, timeout=30):
     for name in case.get("collect", []):
         p = root / name
         files[name] = p.read_text() if p.exists() else None
-    return {"id": case["id"], "requests": list(rec.requests), "stdout": stdout,
-            "stderr": stderr, "exit": code, "files": files}
+    result = {"id": case["id"], "requests": list(rec.requests), "stdout": stdout,
+              "stderr": stderr, "exit": code, "files": files}
+    if ti is not None:
+        result["tokeninfo"] = ti.taken()
+    return result
 
 
 def main():

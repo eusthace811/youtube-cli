@@ -1,0 +1,45 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.batch",
+ "requests": [],
+ "stderr": "time=2026-10-18T17:10:02.055+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:10:02.055+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\n",
+ "stdout": "{\"body\": [{\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {}}, {\"id\": 3, \"jsonrpc\": \"2.0\", \"result\": {}}], \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": [{\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {}}], \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": [{\"id\": 1, \"jsonrpc\": \"2.0\", \"result\": {\"capabilities\": {\"logging\": {}, \"resources\": {\"listChanged\": true}, \"tools\": {\"listChanged\": true}}, \"instructions\": \"Automate YouTube operations\", \"protocolVersion\": \"2025-06-18\", \"serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}}, {\"error\": {\"code\": 0, \"message\": \"duplicate \\\"initialize\\\" received\"}, \"id\": 2, \"jsonrpc\": \"2.0\"}], \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": \"JSON-RPC batching is not supported in 2025-06-18 and later (request version: 2025-06-18)\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n{\"body\": \"malformed payload: empty batch\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"x-content-type-options\": \"nosniff\"}, \"status\": 400}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

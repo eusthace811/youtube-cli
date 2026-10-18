@@ -1,0 +1,57 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.tool.playlist-insert",
+ "requests": [
+  {
+   "body": "{\"snippet\":{\"channelId\":\"val-channel_id\",\"title\":\"val-title\"},\"status\":{\"privacyStatus\":\"public\"}}\n",
+   "ctype": "application/json",
+   "method": "POST",
+   "path": "/youtube/v3/playlists",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "snippet",
+     "status"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T17:09:58.922+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:09:58.923+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:09:58.929+01:00 level=INFO msg=playlist-insert input=\"{\\\"confirmed\\\":false,\\\"channel_id\\\":\\\"val-channel_id\\\",\\\"output\\\":\\\"json\\\",\\\"title\\\":\\\"val-title\\\",\\\"privacy\\\":\\\"public\\\"}\" mrtr=true\ntime=2026-10-18T17:09:58.930+01:00 level=INFO msg=playlist-insert input=\"{\\\"confirmed\\\":false,\\\"channel_id\\\":\\\"val-channel_id\\\",\\\"output\\\":\\\"json\\\",\\\"title\\\":\\\"val-title\\\",\\\"privacy\\\":\\\"public\\\"}\" mrtr=true\ntime=2026-10-18T17:09:58.931+01:00 level=INFO msg=playlist-insert input=\"{\\\"confirmed\\\":false,\\\"channel_id\\\":\\\"val-channel_id\\\",\\\"output\\\":\\\"json\\\",\\\"title\\\":\\\"val-title\\\",\\\"privacy\\\":\\\"public\\\"}\" output_length=1517\ntime=2026-10-18T17:09:58.932+01:00 level=INFO msg=playlist-insert input=\"{\\\"confirmed\\\":false,\\\"channel_id\\\":\\\"val-channel_id\\\",\\\"output\\\":\\\"json\\\",\\\"title\\\":\\\"val-title\\\",\\\"privacy\\\":\\\"public\\\"}\" mrtr=true\n",
+ "stdout": "{\"body\": {\"error\": {\"code\": 0, \"message\": \"multi-round-trip: fulfilling input request \\\"confirm\\\": client does not support elicitation\"}, \"id\": 2, \"jsonrpc\": \"2.0\"}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"_meta\": {\"io.modelcontextprotocol/serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}, \"content\": null, \"inputRequests\": {\"confirm\": {\"method\": \"elicitation/create\", \"params\": {\"message\": \"Create playlist: val-title\", \"mode\": \"form\"}}}, \"requestState\": \"awaiting_confirm\", \"resultType\": \"input_required\"}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": {\"id\": 3, \"jsonrpc\": \"2.0\", \"result\": {\"_meta\": {\"io.modelcontextprotocol/serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}, \"content\": [{\"text\": \"{\\\"contentDetails\\\":{\\\"itemCount\\\":37},\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"localizations\\\":{\\\"ka\\\":{\\\"description\\\":\\\"<b>tags</b> & \\\\\\\"quotes\\\\\\\" localizations{}.description\\\",\\\"title\\\":\\\"trailing space \\\"},\\\"kb\\\":{\\\"description\\\":\\\"Ünïcödé ✓ 日本語のタイトル localizations{}.description\\\",\\\"title\\\":\\\"# hash\\\"}},\\\"player\\\":{\\\"embedHtml\\\":\\\"player.embedHtml-1\\\"},\\\"snippet\\\":{\\\"channelId\\\":\\\"snippet.channelId-1\\\",\\\"channelTitle\\\":\\\"snippet.channelTitle-1\\\",\\\"defaultLanguage\\\":\\\"snippet.defaultLanguage-1\\\",\\\"description\\\":\\\"Ünïcödé ✓ 日本語のタイトル snippet.description\\\",\\\"localized\\\":{\\\"description\\\":\\\"Ünïcödé ✓ 日本語のタイトル snippet.localized.description\\\",\\\"title\\\":\\\"null\\\"},\\\"publishedAt\\\":\\\"2026-02-11T12:34:51Z\\\",\\\"tags\\\":[\\\"snippet.tags[]-1\\\",\\\"snippet.tags[]-2\\\"],\\\"thumbnailVideoId\\\":\\\"snippet.thumbnailVideoId-1\\\",\\\"thumbnails\\\":{\\\"default\\\":{\\\"height\\\":46,\\\"url\\\":\\\"snippet.thumbnails.default.url-1\\\",\\\"width\\\":45},\\\"fhd\\\":{\\\"height\\\":42,\\\"url\\\":\\\"snippet.thumbnails.fhd.url-1\\\",\\\"width\\\":41},\\\"high\\\":{\\\"height\\\":43,\\\"url\\\":\\\"snippet.thumbnails.high.url-1\\\",\\\"width\\\":42},\\\"maxres\\\":{\\\"height\\\":45,\\\"url\\\":\\\"snippet.thumbnails.maxres.url-1\\\",\\\"width\\\":44},\\\"medium\\\":{\\\"height\\\":45,\\\"url\\\":\\\"snippet.thumbnails.medium.url-1\\\",\\\"width\\\":44},\\\"qhd\\\":{\\\"height\\\":42,\\\"url\\\":\\\"snippet.thumbnails.qhd.url-1\\\",\\\"width\\\":41},\\\"standard\\\":{\\\"height\\\":47,\\\"url\\\":\\\"snippet.thumbnails.standard.url-1\\\",\\\"width\\\":46},\\\"uhd\\\":{\\\"height\\\":42,\\\"url\\\":\\\"snippet.thumbnails.uhd.url-1\\\",\\\"width\\\":41}},\\\"title\\\":\\\"Ünïcödé ✓ 日本語のタイトル\\\"},\\\"status\\\":{\\\"podcastStatus\\\":\\\"disabled\\\",\\\"privacyStatus\\\":\\\"unlisted\\\"}}\\n\", \"type\": \"text\"}], \"resultType\": \"complete\"}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": {\"id\": 4, \"jsonrpc\": \"2.0\", \"result\": {\"_meta\": {\"io.modelcontextprotocol/serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}, \"content\": [{\"text\": \"canceled by user\", \"type\": \"text\"}], \"isError\": true, \"resultType\": \"complete\"}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

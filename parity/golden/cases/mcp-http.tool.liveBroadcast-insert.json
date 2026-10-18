@@ -1,0 +1,17 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.tool.liveBroadcast-insert",
+ "requests": [],
+ "stderr": "time=2026-10-18T17:09:57.172+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:09:57.173+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:09:57.174+01:00 level=INFO msg=liveBroadcast-insert input=\"{\\\"confirmed\\\":false,\\\"parts\\\":[\\\"snippet\\\",\\\"status\\\",\\\"contentDetails\\\"],\\\"output\\\":\\\"json\\\",\\\"title\\\":\\\"val-title\\\",\\\"scheduled_start_time\\\":\\\"2026-01-02T03:04:05Z\\\"}\" mrtr=true\n",
+ "stdout": "{\"body\": {\"error\": {\"code\": 0, \"message\": \"multi-round-trip: fulfilling input request \\\"confirm\\\": client does not support elicitation\"}, \"id\": 2, \"jsonrpc\": \"2.0\"}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

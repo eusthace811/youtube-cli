@@ -1,0 +1,39 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.tool.caption-list",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/captions",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ],
+    "videoId": [
+     ""
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T17:09:55.734+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:09:55.734+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:09:55.741+01:00 level=INFO msg=caption-list input=\"{\\\"confirmed\\\":false,\\\"parts\\\":[\\\"id\\\",\\\"snippet\\\"],\\\"output\\\":\\\"json\\\"}\" output_length=941\n",
+ "stdout": "{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"content\": [{\"text\": \"[{\\\"etag\\\":\\\"etag-0\\\",\\\"id\\\":\\\"id-0\\\",\\\"kind\\\":\\\"kind-0\\\",\\\"snippet\\\":{\\\"audioTrackType\\\":\\\"unknown\\\",\\\"failureReason\\\":\\\"unknownFormat\\\",\\\"language\\\":\\\"snippet.language-0\\\",\\\"lastUpdated\\\":\\\"2026-01-10T12:34:50Z\\\",\\\"name\\\":\\\"~\\\",\\\"status\\\":\\\"serving\\\",\\\"trackKind\\\":\\\"standard\\\",\\\"videoId\\\":\\\"snippet.videoId-0\\\"}},{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"audioTrackType\\\":\\\"primary\\\",\\\"failureReason\\\":\\\"unsupportedFormat\\\",\\\"isAutoSynced\\\":true,\\\"isCC\\\":true,\\\"isDraft\\\":true,\\\"isEasyReader\\\":true,\\\"isLarge\\\":true,\\\"language\\\":\\\"snippet.language-1\\\",\\\"lastUpdated\\\":\\\"2026-02-11T12:34:51Z\\\",\\\"name\\\":\\\"Plain title\\\",\\\"status\\\":\\\"syncing\\\",\\\"trackKind\\\":\\\"ASR\\\",\\\"videoId\\\":\\\"snippet.videoId-1\\\"}},{\\\"etag\\\":\\\"etag-2\\\",\\\"id\\\":\\\"id-2\\\",\\\"kind\\\":\\\"kind-2\\\",\\\"snippet\\\":{\\\"audioTrackType\\\":\\\"commentary\\\",\\\"failureReason\\\":\\\"processingFailed\\\",\\\"language\\\":\\\"snippet.language-2\\\",\\\"lastUpdated\\\":\\\"2026-03-12T12:34:52Z\\\",\\\"name\\\":\\\"key: value\\\",\\\"status\\\":\\\"failed\\\",\\\"trackKind\\\":\\\"forced\\\",\\\"videoId\\\":\\\"snippet.videoId-2\\\"}},{\\\"id\\\":\\\"zero-0\\\",\\\"snippet\\\":{}}]\\n\", \"type\": \"text\"}]}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.resource.i18n.hl",
+ "requests": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/i18nLanguages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/youtube/v3/i18nLanguages",
+   "query": {
+    "alt": [
+     "json"
+    ],
+    "part": [
+     "id",
+     "snippet"
+    ],
+    "prettyPrint": [
+     "false"
+    ]
+   }
+  }
+ ],
+ "stderr": "time=2026-10-18T17:10:01.550+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:10:01.550+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\ntime=2026-10-18T17:10:01.563+01:00 level=INFO msg=\"resource read\" resource=i18nHostLanguages uri=i18n://hl\ntime=2026-10-18T17:10:01.564+01:00 level=INFO msg=\"resource read\" resource=i18nHostLanguages uri=i18n://hl\n",
+ "stdout": "{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"cacheScope\": \"public\", \"contents\": [{\"mimeType\": \"application/json\", \"text\": \"[{\\\"etag\\\":\\\"etag-0\\\",\\\"id\\\":\\\"id-0\\\",\\\"kind\\\":\\\"kind-0\\\",\\\"snippet\\\":{\\\"hl\\\":\\\"snippet.hl-0\\\",\\\"name\\\":\\\"~\\\"}},{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"hl\\\":\\\"snippet.hl-1\\\",\\\"name\\\":\\\"Plain title\\\"}},{\\\"etag\\\":\\\"etag-2\\\",\\\"id\\\":\\\"id-2\\\",\\\"kind\\\":\\\"kind-2\\\",\\\"snippet\\\":{\\\"hl\\\":\\\"snippet.hl-2\\\",\\\"name\\\":\\\"key: value\\\"}},{\\\"id\\\":\\\"zero-0\\\",\\\"snippet\\\":{}}]\\n\", \"uri\": \"i18n://hl\"}], \"ttlMs\": 0}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {\"_meta\": {\"io.modelcontextprotocol/serverInfo\": {\"name\": \"yutu\", \"version\": \"v0.11.0\"}}, \"cacheScope\": \"public\", \"contents\": [{\"mimeType\": \"application/json\", \"text\": \"[{\\\"etag\\\":\\\"etag-0\\\",\\\"id\\\":\\\"id-0\\\",\\\"kind\\\":\\\"kind-0\\\",\\\"snippet\\\":{\\\"hl\\\":\\\"snippet.hl-0\\\",\\\"name\\\":\\\"~\\\"}},{\\\"etag\\\":\\\"etag-1\\\",\\\"id\\\":\\\"id-1\\\",\\\"kind\\\":\\\"kind-1\\\",\\\"snippet\\\":{\\\"hl\\\":\\\"snippet.hl-1\\\",\\\"name\\\":\\\"Plain title\\\"}},{\\\"etag\\\":\\\"etag-2\\\",\\\"id\\\":\\\"id-2\\\",\\\"kind\\\":\\\"kind-2\\\",\\\"snippet\\\":{\\\"hl\\\":\\\"snippet.hl-2\\\",\\\"name\\\":\\\"key: value\\\"}},{\\\"id\\\":\\\"zero-0\\\",\\\"snippet\\\":{}}]\\n\", \"uri\": \"i18n://hl\"}], \"resultType\": \"complete\", \"ttlMs\": 0}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}

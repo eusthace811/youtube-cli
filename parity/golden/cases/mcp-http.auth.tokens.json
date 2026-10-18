@@ -1,0 +1,45 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.auth.tokens",
+ "requests": [],
+ "stderr": "time=2026-10-18T17:10:02.790+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:10:02.790+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\n",
+ "stdout": "{\"body\": \"invalid token: tokeninfo returned 400\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"www-authenticate\": \"Bearer resource_metadata=\\\"http://localhost:PORT/.well-known/oauth-protected-resource\\\", scope=\\\"https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.channel-memberships.creator\\\"\", \"x-content-type-options\": \"nosniff\"}, \"status\": 401}\n{\"body\": \"insufficient scope\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"www-authenticate\": \"Bearer resource_metadata=\\\"http://localhost:PORT/.well-known/oauth-protected-resource\\\", scope=\\\"https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.channel-memberships.creator\\\"\", \"x-content-type-options\": \"nosniff\"}, \"status\": 403}\n{\"body\": \"token expired\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"www-authenticate\": \"Bearer resource_metadata=\\\"http://localhost:PORT/.well-known/oauth-protected-resource\\\", scope=\\\"https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.channel-memberships.creator\\\"\", \"x-content-type-options\": \"nosniff\"}, \"status\": 401}\n{\"body\": \"invalid token: invalid_token\\n\", \"headers\": {\"content-type\": \"text/plain; charset=utf-8\", \"www-authenticate\": \"Bearer resource_metadata=\\\"http://localhost:PORT/.well-known/oauth-protected-resource\\\", scope=\\\"https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.channel-memberships.creator\\\"\", \"x-content-type-options\": \"nosniff\"}, \"status\": 401}\n{\"body\": {\"id\": 2, \"jsonrpc\": \"2.0\", \"result\": {}}, \"headers\": {\"cache-control\": \"no-cache, no-transform\", \"content-type\": \"application/json\"}, \"status\": 200}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=nope"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=few-scopes"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=no-expiry"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=error-field"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token-2"
+  }
+ ]
+}

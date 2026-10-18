@@ -1,0 +1,24 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp-http.no-call",
+ "requests": [],
+ "stderr": "time=2026-10-18T17:10:02.143+01:00 level=INFO msg=\"starting MCP server\" mode=http version=v0.11.0\ntime=2026-10-18T17:10:02.143+01:00 level=INFO msg=\"http server configuration\" url=http://localhost:PORT/mcp auth=true\n",
+ "stdout": "{\"body\": \"\", \"headers\": {}, \"status\": 202}\n{\"body\": \"\", \"headers\": {}, \"status\": 202}\n",
+ "tokeninfo": [
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  },
+  {
+   "body": "",
+   "ctype": "",
+   "method": "GET",
+   "path": "/tokeninfo",
+   "query": "access_token=good-token"
+  }
+ ]
+}
