@@ -29,3 +29,7 @@ private-only lock on uploads from unaudited projects; this file names the passin
 which change existing channel content and await the operator's approval: video upload, playlistItem privacy
 (the reviewer expects YouTube to ignore it, since an item follows its video's privacy), channel update
 through brandingSettings, caption download.
+
+Operator decision, 2026-10-18: the channel is live, with existing content and subscribers, so the four
+content-changing checks (video upload, playlistItem privacy, channel update, caption download) are not run.
+They remain untested on a real account by the operator's choice.
