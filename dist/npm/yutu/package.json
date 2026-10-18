@@ -1,0 +1,42 @@
+{
+  "name": "@yutu-rs/yutu",
+  "version": "0.0.0",
+  "mcpName": "io.github.eat-pray-ai/yutu-rs",
+  "description": "CLI, MCP server, and AI agent to automate YouTube workflows",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eat-pray-ai/yutu.git"
+  },
+  "author": {
+    "name": "OpenWaygate"
+  },
+  "homepage": "https://github.com/eat-pray-ai/yutu",
+  "bugs": {
+    "url": "https://github.com/eat-pray-ai/yutu/issues"
+  },
+  "license": "Apache-2.0",
+  "bin": {
+    "yutu": "bin/yutu"
+  },
+  "keywords": [
+    "cli",
+    "youtube",
+    "mcp",
+    "ai-agent",
+    "video",
+    "automation",
+    "agent-skills",
+    "oauth2"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "optionalDependencies": {
+    "@yutu-rs/yutu-darwin-arm64": "0.0.0",
+    "@yutu-rs/yutu-darwin-x64": "0.0.0",
+    "@yutu-rs/yutu-linux-arm64": "0.0.0",
+    "@yutu-rs/yutu-linux-x64": "0.0.0",
+    "@yutu-rs/yutu-win32-arm64": "0.0.0",
+    "@yutu-rs/yutu-win32-x64": "0.0.0"
+  }
+}

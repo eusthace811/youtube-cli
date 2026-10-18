@@ -1,0 +1,140 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "title": "yutu-rs",
+  "name": "io.github.eat-pray-ai/yutu-rs",
+  "description": "CLI, MCP server, and AI agent to automate YouTube workflows (Rust build)",
+  "icons": [
+    {
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ],
+      "src": "https://raw.githubusercontent.com/eat-pray-ai/yutu/main/assets/yutu-ico.svg"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/eat-pray-ai/yutu",
+    "source": "github"
+  },
+  "version": "0.0.0-dev",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@yutu-rs/yutu",
+      "version": "0.0.0-dev",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        },
+        {
+          "type": "named",
+          "name": "--mode",
+          "value": "stdio"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "description": "GCP project credential for yutu, Base64 encoded JSON or path to JSON file",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "YUTU_CREDENTIAL"
+        },
+        {
+          "description": "YouTube authentication token, Base64 encoded JSON or path to JSON file",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "YUTU_CACHE_TOKEN"
+        },
+        {
+          "description": "Log level",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false,
+          "name": "YUTU_LOG_LEVEL",
+          "default": "INFO",
+          "choices": [
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR"
+          ]
+        }
+      ]
+    },
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@yutu-rs/yutu",
+      "version": "0.0.0-dev",
+      "transport": {
+        "type": "streamable-http",
+        "url": "http://localhost:{--port}/mcp",
+        "authorization": {
+          "type": "oauth2",
+          "authorizationServers": [
+            "https://accounts.google.com"
+          ],
+          "scopes": [
+            "https://www.googleapis.com/auth/youtube",
+            "https://www.googleapis.com/auth/youtube.force-ssl",
+            "https://www.googleapis.com/auth/youtube.channel-memberships.creator"
+          ]
+        }
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        },
+        {
+          "type": "named",
+          "name": "--mode",
+          "value": "http"
+        },
+        {
+          "type": "named",
+          "name": "--port",
+          "description": "Port to listen on for HTTP mode",
+          "default": "8216"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "description": "GCP project credential for yutu, Base64 encoded JSON or path to JSON file",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "YUTU_CREDENTIAL"
+        },
+        {
+          "description": "YouTube authentication token, Base64 encoded JSON or path to JSON file",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "YUTU_CACHE_TOKEN"
+        },
+        {
+          "description": "Log level",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false,
+          "name": "YUTU_LOG_LEVEL",
+          "default": "INFO",
+          "choices": [
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR"
+          ]
+        }
+      ]
+    }
+  ]
+}

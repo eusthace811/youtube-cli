@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.10.0.schema.json
+PackageIdentifier: eat-pray-ai.yutu-rs
+PackageVersion: ${VERSION}
+PackageLocale: en-US
+Publisher: eat-pray-ai
+PublisherUrl: https://github.com/eat-pray-ai
+PublisherSupportUrl: https://github.com/${REPO}/issues
+PackageName: yutu-rs
+PackageUrl: https://github.com/${REPO}
+License: Apache-2.0
+LicenseUrl: https://github.com/${REPO}/blob/main/LICENSE
+ShortDescription: CLI, MCP server, and AI agent to automate YouTube workflows (Rust build)
+Moniker: yutu-rs
+Tags:
+  - cli
+  - youtube
+  - mcp
+  - ai-agent
+ReleaseNotesUrl: https://github.com/${REPO}/releases/tag/v${VERSION}
+ManifestType: defaultLocale
+ManifestVersion: 1.10.0
