@@ -1320,6 +1320,95 @@ def r8_l10():
                 + "".join(f"--- {n} ---\n" + "\n".join(json.dumps(r) for r in reqs) + "\n" for n, reqs in seen.items()))
 
 
+# R12 --------------------------------------------------------------------
+
+@lane("r12", 1, "r12-l1-full.txt")
+def r12_l1():
+    code, out, err = sh([sys.executable, "-I", "parity/run.py", "--bin", HEAD, "--all", "--compare"], cwd=ROOT)
+    return code == 0 and out.strip().endswith(", 0 differences"), out[-3000:] + err[-500:]
+
+
+@lane("r12", 2, "r12-l2-day.txt")
+def r12_l2():
+    from mcp_client import Stdio
+    tasks = [("channel-list", {"for": "mine"}), ("playlist-list", {"mine": True}), ("video-list", {"chart": "mostPopular", "region_code": "US"}),
+             ("search-list", {"q": "rust", "max_results": 10}), ("video-getRating", {"ids": ["v1"]}), ("commentThread-list", {"video_id": "v1"}),
+             ("comment-list", {"parent_id": "c1"}), ("playlistItem-list", {"playlist_id": "p1"}), ("subscription-list", {"for": "mine"}),
+             ("activity-list", {"for": "mine"}), ("caption-list", {"video_id": "v1"}), ("liveBroadcast-list", {"mine": True}),
+             ("liveStream-list", {"mine": True}), ("member-list", {}), ("membershipsLevel-list", {}), ("superChatEvent-list", {}),
+             ("playlist-insert", {"title": "Day", "channel_id": "UC1", "privacy": "private"}),
+             ("playlistItem-insert", {"kind": "video", "k_video_id": "v1", "playlist_id": "p1", "channel_id": "UC1"}),
+             ("video-rate", {"ids": ["v1"], "rating": "like"}), ("playlist-delete", {"ids": ["p9"]})]
+    rec = Recorder()
+    c = Stdio(HEAD, env=rec_env(rec))
+    log, fails = "", 0
+    for name, args in tasks:
+        r = c.request("tools/call", {"name": name, "arguments": args})
+        bad = bool(r.get("error") or r.get("result", {}).get("isError"))
+        fails += bad
+        log += f"{'FAIL' if bad else 'ok  '} {name} {json.dumps(args)}\n"
+    c.close()
+    writes = [(r["method"], r["path"]) for r in rec.requests if r["method"] != "GET"]
+    rec.close()
+    return fails == 0, ("SUBSTITUTED: the operator's Claude Code config and a test channel are not touched; a 20-task MCP session over stdio runs against the recorder,\n"
+                        "with the client accepting each confirmation as a user would.\n" + log + f"write requests seen: {writes}\n")
+
+
+@lane("r12", 4, "r12-l4-audit.txt")
+def r12_l4():
+    a = sh(["cargo", "audit"], cwd=ROOT)
+    d = sh(["cargo", "deny", "check"], cwd=ROOT)
+    ok = a[0] == 0 and d[0] == 0
+    return ok, fmt("cargo audit", a[0], a[1][-2000:], a[2][-2000:]) + fmt("cargo deny check", d[0], d[1][-1000:], d[2][-1500:])
+
+
+@lane("r12", 5, "r12-l5-egress.txt")
+def r12_l5():
+    profile = ROOT / "parity" / "loopback-only.sb"
+    profile.write_text('(version 1)\n(allow default)\n(deny network*)\n(allow network* (remote ip "localhost:*"))\n(allow network* (local ip "localhost:*"))\n')
+    wrapper = Path(tempfile.mkdtemp()) / "yutu"
+    wrapper.write_text(f'#!/bin/sh\nexec /usr/bin/sandbox-exec -f {profile} {HEAD} "$@"\n')
+    wrapper.chmod(0o755)
+    code, out, err = sh([sys.executable, "-I", "parity/run.py", "--bin", str(wrapper), "--all", "--compare"], cwd=ROOT)
+    probe = sh(["/usr/bin/sandbox-exec", "-f", str(profile), "/usr/bin/curl", "-sS", "-m", "5", "https://youtube.googleapis.com/"])
+    ok = code == 0 and out.strip().endswith(", 0 differences") and probe[0] != 0
+    return ok, (f"every corpus case runs under sandbox-exec with only loopback networking allowed ({profile.name}).\n"
+                f"control: curl to youtube.googleapis.com under the same profile exits {probe[0]}: {probe[2].strip()[:200]}\n" + out[-1500:] + err[-500:])
+
+
+@lane("r12", 8, "r12-l8-media.txt")
+def r12_l8():
+    srt = b"1\n00:00:00,000 --> 00:00:01,000\nHi\n"
+    steps = [(["video", "insert", "--file", "clip.mp4", "--categoryId", "22", "--privacy", "private", "--yes"], {"clip.mp4": MP4}),
+             (["caption", "insert", "--videoId", "v1", "--file", "c.srt", "--yes"], {"c.srt": srt}),
+             (["thumbnail", "set", "--videoId", "v1", "--file", "t.png", "--yes"], {"t.png": PNG}),
+             (["video", "delete", "--ids", "v1", "--yes"], {})]
+    log, ok = "SUBSTITUTED: no test channel; each step runs on Go and head against the recorder and must match exactly.\n", True
+    for argv, files in steps:
+        o = both_files(argv, files)
+        same = o["go"][:4] == o["head"][:4] and o["head"][0] == 0
+        ok &= same
+        log += f"$ yutu {' '.join(argv)}: exit {o['head'][0]}, identical to Go {o['go'][:4] == o['head'][:4]}, stdout {o['head'][1]!r}\n"
+    return ok, log
+
+
+@lane("r12", 9, "r12-l9-repro.txt")
+def r12_l9():
+    d = Path(tempfile.mkdtemp())
+    branch = sh(["git", "-C", str(ROOT), "rev-parse", "--abbrev-ref", "HEAD"])[1].strip()
+    sh(["git", "clone", "--quiet", "--branch", branch, str(ROOT), str(d / "clone")])
+    hashes, log = [], "macOS only: no Linux host or CI runner is available here; the CI release job builds Linux with the same --locked flags.\n"
+    for i in range(2):
+        target = d / f"t{i}"
+        code, out, err = sh(["cargo", "build", "--release", "--locked", "-p", "yutu", "--target-dir", str(target)], cwd=d / "clone")
+        h = sh(["shasum", "-a", "256", str(target / "release/yutu")])[1].split()[0] if code == 0 else "failed"
+        hashes.append(h)
+        log += f"fresh clone build {i + 1}: exit {code}, sha256 {h}\n"
+        shutil.rmtree(target, ignore_errors=True)
+    shutil.rmtree(d, ignore_errors=True)
+    return len(set(hashes)) == 1 and "failed" not in hashes, log
+
+
 def main():
     pr = sys.argv[1]
     only = set(sys.argv[2:])

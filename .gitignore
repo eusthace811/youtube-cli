@@ -11,3 +11,7 @@ __pycache__/
 /.claude/
 /ref/yutu-go-tokenwrite
 /target-shared/
+/crates/*/fuzz/target/
+/crates/*/fuzz/corpus/
+/crates/*/fuzz/artifacts/
+/crates/*/fuzz/Cargo.lock

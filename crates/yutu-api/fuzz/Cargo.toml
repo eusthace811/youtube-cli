@@ -1,0 +1,24 @@
+[package]
+name = "yutu-api-fuzz"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+yutu-api = { path = ".." }
+
+# Its own workspace, so nightly-only fuzz builds stay out of the main one.
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "decode"
+path = "fuzz_targets/decode.rs"
+test = false
+doc = false
+bench = false

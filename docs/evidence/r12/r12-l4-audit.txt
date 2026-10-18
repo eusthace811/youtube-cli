@@ -1,0 +1,31 @@
+r12 lane 4: PASS
+
+$ cargo audit
+exit: 0
+--- stdout ---
+
+--- stderr ---
+    Fetching advisory database from `https://github.com/RustSec/advisory-db.git`
+      Loaded 1338 security advisories (from /Users/juan/.cargo/advisory-db)
+    Updating crates.io index
+    Scanning Cargo.lock for vulnerabilities (198 crate dependencies)
+
+$ cargo deny check
+exit: 0
+--- stdout ---
+advisories ok, bans ok, licenses ok, sources ok
+
+--- stderr ---
+warning[license-not-encountered]: license was not encountered
+   ┌─ /Users/juan/Projects/youtube-cli/youtube-cli/deny.toml:18:6
+   │
+18 │     "BSD-2-Clause",
+   │      ━━━━━━━━━━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /Users/juan/Projects/youtube-cli/youtube-cli/deny.toml:17:6
+   │
+17 │     "MIT-0",
+   │      ━━━━━ unmatched license allowance
+
+

@@ -1,0 +1,25 @@
+r12 lane 2: PASS
+
+SUBSTITUTED: the operator's Claude Code config and a test channel are not touched; a 20-task MCP session over stdio runs against the recorder,
+with the client accepting each confirmation as a user would.
+ok   channel-list {"for": "mine"}
+ok   playlist-list {"mine": true}
+ok   video-list {"chart": "mostPopular", "region_code": "US"}
+ok   search-list {"q": "rust", "max_results": 10}
+ok   video-getRating {"ids": ["v1"]}
+ok   commentThread-list {"video_id": "v1"}
+ok   comment-list {"parent_id": "c1"}
+ok   playlistItem-list {"playlist_id": "p1"}
+ok   subscription-list {"for": "mine"}
+ok   activity-list {"for": "mine"}
+ok   caption-list {"video_id": "v1"}
+ok   liveBroadcast-list {"mine": true}
+ok   liveStream-list {"mine": true}
+ok   member-list {}
+ok   membershipsLevel-list {}
+ok   superChatEvent-list {}
+ok   playlist-insert {"title": "Day", "channel_id": "UC1", "privacy": "private"}
+ok   playlistItem-insert {"kind": "video", "k_video_id": "v1", "playlist_id": "p1", "channel_id": "UC1"}
+ok   video-rate {"ids": ["v1"], "rating": "like"}
+ok   playlist-delete {"ids": ["p9"]}
+write requests seen: [('POST', '/youtube/v3/playlists'), ('POST', '/youtube/v3/playlistItems'), ('POST', '/youtube/v3/videos/rate'), ('DELETE', '/youtube/v3/playlists')]
