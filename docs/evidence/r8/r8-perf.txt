@@ -13,8 +13,8 @@ Upstream: crates/yutu-mcp/examples/perfmock answers tokeninfo and videos.list (1
 first page) from memory; parity/recorder.py tops out near 2,100 req/s and would cap both servers.
 Go calls tokeninfo on every request; head verifies the token once and caches it (E4).
 Machine: 12 logical CPUs, default YUTU_LOG_LEVEL (one INFO line per call on both).
-Round 1: Go 4579 req/s p50 10.24 ms (13768 done, 0 failed); head 41447 req/s p50 1.18 ms (124385 done, 0 failed)
-Round 2: Go 4580 req/s p50 10.33 ms (13776 done, 0 failed); head 41707 req/s p50 1.17 ms (125165 done, 0 failed)
-Round 3: Go 4644 req/s p50 10.18 ms (13967 done, 0 failed); head 41787 req/s p50 1.17 ms (125405 done, 0 failed)
-Median: Go 4580 req/s p50 10.24 ms; head 41707 req/s p50 1.17 ms (9.11x throughput).
+Round 1: Go 4575 req/s p50 10.31 ms (13762 done, 0 failed); head 41193 req/s p50 1.19 ms (123630 done, 0 failed)
+Round 2: Go 4527 req/s p50 10.40 ms (13614 done, 0 failed); head 41802 req/s p50 1.17 ms (125461 done, 0 failed)
+Round 3: Go 4614 req/s p50 10.25 ms (13882 done, 0 failed); head 42034 req/s p50 1.17 ms (126152 done, 0 failed)
+Median: Go 4575 req/s p50 10.31 ms; head 41802 req/s p50 1.17 ms (9.14x throughput).
 Rule: head throughput >= 2x Go and head p50 <= Go p50, with no failed requests.

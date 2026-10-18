@@ -2,17 +2,17 @@ PASS: lane 10, idle soak of `web webui api`, 120 s
 CPU under 1% and RSS flat (range under 1 MiB).
 
 SHORTENED: the plan asks for 10 minutes; this run soaks 120 s, as the brief allows.
-t=   0.0s  RSS  11.30 MiB  CPU time 0.00s
-t=  10.0s  RSS  11.30 MiB  CPU time 0.00s
-t=  20.1s  RSS  11.30 MiB  CPU time 0.00s
-t=  30.1s  RSS  11.30 MiB  CPU time 0.00s
-t=  40.1s  RSS  11.30 MiB  CPU time 0.00s
-t=  50.1s  RSS  11.30 MiB  CPU time 0.00s
-t=  60.1s  RSS  11.30 MiB  CPU time 0.00s
-t=  70.1s  RSS  11.30 MiB  CPU time 0.00s
-t=  80.2s  RSS  11.30 MiB  CPU time 0.00s
-t=  90.2s  RSS  11.30 MiB  CPU time 0.00s
-t= 100.2s  RSS  11.30 MiB  CPU time 0.00s
-t= 110.2s  RSS  11.30 MiB  CPU time 0.00s
-t= 120.2s  RSS  11.30 MiB  CPU time 0.00s
+t=   0.0s  RSS  11.12 MiB  CPU time 0.00s
+t=  10.0s  RSS  11.12 MiB  CPU time 0.00s
+t=  20.0s  RSS  11.12 MiB  CPU time 0.00s
+t=  30.1s  RSS  11.12 MiB  CPU time 0.00s
+t=  40.1s  RSS  11.12 MiB  CPU time 0.00s
+t=  50.1s  RSS  11.12 MiB  CPU time 0.00s
+t=  60.1s  RSS  11.12 MiB  CPU time 0.00s
+t=  70.1s  RSS  11.12 MiB  CPU time 0.00s
+t=  80.1s  RSS  11.12 MiB  CPU time 0.00s
+t=  90.2s  RSS  11.12 MiB  CPU time 0.00s
+t= 100.2s  RSS  11.12 MiB  CPU time 0.00s
+t= 110.2s  RSS  11.12 MiB  CPU time 0.00s
+t= 120.2s  RSS  11.12 MiB  CPU time 0.00s
 CPU over the soak: 0.000%  RSS range 0.00 MiB

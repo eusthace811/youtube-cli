@@ -1,27 +1,27 @@
 r12 lane 7: PASS
 
-Every perf probe rerun at the final head (690b7fc), on a parity-endpoint release build with the dev UI stored
+Every perf probe rerun at the final head (c36e61c), on a parity-endpoint release build with the dev UI stored
 brotli-compressed, the machine otherwise idle (load average about 3 from desktop apps, none from this
 work). Each probe interleaves Go and head runs on this machine and keeps its own evidence file; docs/PERF.md
 is generated from them by parity/perfdoc.py.
 
-  R1  startup        `yutu version` median 3.58 ms vs Go 12.11 ms; RSS 6.5 MB; binary 7.2 MB (rule <= 4.0 ms, 12 MB, 15 MB)
-  R2  decode         500 videos (4.2 MB) decoded and re-encoded: 12.12 ms vs Go 29.74 ms
-  R3  token setup    head 5.01 ms vs trunk 13.92 ms (0.36x, rule <= 0.5x)
-  R4  4,000 videos   178.6 ms (0.54x), peak RSS 10.8 MB (0.04x)
-  R5  100 writes     0.37 s per batch (0.27x)
-  R6  2 GiB upload   7,185 MB/s, peak RSS 14.3 MB vs Go 2,980 MB/s, 58.0 MB
-  R7  MCP            initialize 2.65 ms, tools/list 0.69 ms vs Go 11.32 / 1.52 ms
-  R8  HTTP MCP       41,707 req/s vs Go 4,580 (9.11x), p50 1.17 ms vs 10.24 ms
-  R9  agent loop     50 tool calls 0.27 s vs Go 0.44 s; peak RSS 18 MiB vs 58 MiB
-  R10 web launcher   idle RSS 11.03 MiB vs 36.83 MiB (0.30x); /run p50 at or below Go; 120 s idle soak flat
-  R11 download size  shipped binary 7,167,296 B (0.126x Go); npm tarball 0.281x; image estimate 0.125x (rule <= 0.3x)
+  R1  startup        `yutu version` median 3.52 ms vs Go 12.07 ms; RSS 6.5 MB; binary 7.2 MB (rule <= 4.0 ms, 12 MB, 15 MB)
+  R2  decode         500 videos (4.2 MB) decoded and re-encoded: 12.20 ms vs Go 29.46 ms
+  R3  token setup    head 5.01 ms vs trunk 13.89 ms (rule <= 0.5x)
+  R4  4,000 videos   177.9 ms (0.54x), peak RSS 10.4 MB (0.04x)
+  R5  100 writes     0.36 s per batch (0.27x)
+  R6  2 GiB upload   7,540 MB/s, peak RSS 14.3 MB vs Go 3,112 MB/s, 58.3 MB
+  R7  MCP            initialize 2.67 ms, tools/list 0.67 ms vs Go 11.13 / 1.56 ms
+  R8  HTTP MCP       41,802 req/s vs Go 4,575 (9.14x), p50 1.17 ms vs 10.31 ms
+  R9  agent loop     50 tool calls 0.30 s vs Go 0.47 s; peak RSS 18 MiB vs 58 MiB
+  R10 web launcher   idle RSS 10.98 MiB vs 36.70 MiB; /run p50 at or below Go; 120 s idle soak flat
+  R11 download size  shipped binary 7,216,960 B (0.126x Go); npm tarball 0.282x; image estimate 0.125x (rule <= 0.3x)
 
 Why R1 reads 3.5 ms where the R1 evidence once read 1.89 ms (inferred, not separately measured): R1 measured
 the 0.6 MB CLI skeleton of its own PR; this is the complete 7.2 MB program.
 
 R11 at the earlier head measured a 4.0 MB binary that did not yet embed the 8.2 MB dev UI. With the
 UI embedded raw, the real shipped binary was 13.3 MB and its npm tarball 0.303x Go, failing the 0.3x rule.
-The UI is now stored brotli-compressed (2.0 MB) and decompressed per request (round trip tested byte for
+The UI is now stored brotli-compressed (2.0 MB) and decompressed on first request, then cached (round trip tested byte for
 byte), which brought the binary to 7.2 MB and the tarball to 0.281x. xtask egress masks the brotli static
 dictionary (RFC 7932) the decompressor carries and still reports 0 unexpected hosts.

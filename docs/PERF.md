@@ -31,9 +31,9 @@ Verdict: PASS
 
 ```
 Metric: `yutu version` wall time over 60 interleaved runs, peak RSS, stripped binary size.
-Spawn floor /usr/bin/true: median 1.31 ms, p90 1.43 ms
-Trunk (Go):  median 12.11 ms, p90 12.90 ms, RSS 36.9 MB, binary 57.1 MB
-Head (Rust): median 3.58 ms, p90 4.08 ms, RSS 6.5 MB, binary 7.2 MB
+Spawn floor /usr/bin/true: median 1.31 ms, p90 1.38 ms
+Trunk (Go):  median 12.07 ms, p90 13.17 ms, RSS 36.8 MB, binary 57.1 MB
+Head (Rust): median 3.52 ms, p90 3.84 ms, RSS 6.5 MB, binary 7.2 MB
 Rule: head median <= 4.0 ms, RSS <= 12 MB, binary <= 15 MB.
 ```
 
@@ -44,8 +44,8 @@ Verdict: PASS
 ```
 Metric: decode a 500-video VideoListResponse (4188444 bytes) and re-encode its items as JSON.
 Probe: Go `go test -bench` (20 iterations, ns/op) and Rust `cargo bench --bench decode` (median of 20), alternated 5 times.
-Go runs (ms):   29.74, 29.50, 29.89, 30.18, 29.69 -> median 29.74 ms
-Rust runs (ms): 12.06, 12.12, 12.07, 12.32, 12.14 -> median 12.12 ms
+Go runs (ms):   29.24, 29.42, 29.46, 29.52, 29.46 -> median 29.46 ms
+Rust runs (ms): 12.27, 12.18, 12.23, 12.20, 12.20 -> median 12.20 ms
 Binary: target/release/yutu 7.22 MB (yutu-api not yet linked into the CLI at this PR).
 Rule: head median <= Go median and binary <= 15 MB.
 ```
@@ -57,7 +57,7 @@ Verdict: PASS
 ```
 Metric: wall time of `channel list --for mine -o json` with a valid cached token against the recorder (60 interleaved runs).
 Trunk is the Go harness, which bypasses auth; head loads and uses the token file (YUTU_PARITY_AUTH=1): 63 head requests carried the cached bearer.
-Trunk median 13.92 ms, head median 5.01 ms (0.36x).
+Trunk median 13.89 ms, head median 5.01 ms (0.36x).
 Rule: head <= 0.5x trunk.
 ```
 
@@ -68,9 +68,9 @@ Verdict: PASS
 ```
 Metric: `video list --maxResults 0 -o json` over 200 pages of 20 items (34.7 MB) from the recorder; wall time from 10 interleaved runs
 after 3 warmups, timed directly (no /usr/bin/time wrapper, whose fixed cost would compress the ratio); peak RSS from 3 separate /usr/bin/time -l runs.
-Spawn floor /usr/bin/true: 2.5 ms. The recorder (Python, same machine) serves 34.7 MB per run in about 90 ms, a floor shared by both.
-Trunk (Go harness): median 333.6 ms, peak RSS 257.6 MB
-Head: median 178.6 ms (0.54x), peak RSS 10.8 MB (0.04x)
+Spawn floor /usr/bin/true: 2.7 ms. The recorder (Python, same machine) serves 34.7 MB per run in about 90 ms, a floor shared by both.
+Trunk (Go harness): median 327.8 ms, peak RSS 269.4 MB
+Head: median 177.9 ms (0.54x), peak RSS 10.4 MB (0.04x)
 Rule: head <= 0.6x trunk wall time and <= 0.4x trunk RSS.
 ```
 
@@ -80,8 +80,8 @@ Verdict: PASS
 
 ```
 Metric: 100 sequential `playlistItem insert --yes` invocations against the recorder, five alternating batches.
-Trunk batches (s): 1.34, 1.34, 1.34, 1.35, 1.35 -> median 1.34 s
-Head batches (s):  0.37, 0.36, 0.36, 0.37, 0.37 -> median 0.37 s (0.27x)
+Trunk batches (s): 1.31, 1.31, 1.32, 1.31, 1.33 -> median 1.31 s
+Head batches (s):  0.36, 0.36, 0.36, 0.37, 0.36 -> median 0.36 s (0.27x)
 Rule: head <= 0.5x trunk.
 ```
 
@@ -91,8 +91,8 @@ Verdict: PASS
 
 ```
 Metric: peak RSS and throughput uploading a 2 GiB file to the recorder (resumable; Go uses 16 MiB chunks, head 8 MiB per E7), 3 alternating runs.
-Trunk: 2980 MB/s, peak RSS 58.0 MB
-Head:  7185 MB/s, peak RSS 14.3 MB
+Trunk: 3112 MB/s, peak RSS 58.3 MB
+Head:  7540 MB/s, peak RSS 14.3 MB
 Rule: head RSS <= 32 MB and head throughput >= trunk.
 Note: the recorder runs in Python on the same machine and is part of both measurements.
 ```
@@ -103,8 +103,8 @@ Verdict: PASS
 
 ```
 Metric: initialize (from spawn to reply) and tools/list latency over 10 fresh stdio sessions, alternating.
-Trunk: initialize 11.32 ms, tools/list 1.52 ms
-Head:  initialize 2.65 ms, tools/list 0.69 ms
+Trunk: initialize 11.13 ms, tools/list 1.56 ms
+Head:  initialize 2.67 ms, tools/list 0.67 ms
 Rule: head initialize <= 4 ms and tools/list <= trunk.
 ```
 
@@ -126,10 +126,10 @@ Upstream: crates/yutu-mcp/examples/perfmock answers tokeninfo and videos.list (1
 first page) from memory; parity/recorder.py tops out near 2,100 req/s and would cap both servers.
 Go calls tokeninfo on every request; head verifies the token once and caches it (E4).
 Machine: 12 logical CPUs, default YUTU_LOG_LEVEL (one INFO line per call on both).
-Round 1: Go 4579 req/s p50 10.24 ms (13768 done, 0 failed); head 41447 req/s p50 1.18 ms (124385 done, 0 failed)
-Round 2: Go 4580 req/s p50 10.33 ms (13776 done, 0 failed); head 41707 req/s p50 1.17 ms (125165 done, 0 failed)
-Round 3: Go 4644 req/s p50 10.18 ms (13967 done, 0 failed); head 41787 req/s p50 1.17 ms (125405 done, 0 failed)
-Median: Go 4580 req/s p50 10.24 ms; head 41707 req/s p50 1.17 ms (9.11x throughput).
+Round 1: Go 4575 req/s p50 10.31 ms (13762 done, 0 failed); head 41193 req/s p50 1.19 ms (123630 done, 0 failed)
+Round 2: Go 4527 req/s p50 10.40 ms (13614 done, 0 failed); head 41802 req/s p50 1.17 ms (125461 done, 0 failed)
+Round 3: Go 4614 req/s p50 10.25 ms (13882 done, 0 failed); head 42034 req/s p50 1.17 ms (126152 done, 0 failed)
+Median: Go 4575 req/s p50 10.31 ms; head 41802 req/s p50 1.17 ms (9.14x throughput).
 Rule: head throughput >= 2x Go and head p50 <= Go p50, with no failed requests.
 ```
 
@@ -141,17 +141,17 @@ Verdict: perf, 50 tool-call scripted session
 
 Script: 50 sequential video-list calls then a text reply; mock LLM and recorder in-process, zero added latency.
 Alternating Go harness and head, measured with /usr/bin/time -l (peak RSS in bytes).
-run 1 go  : wall 0.444s  peak RSS 57.6 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 1 head: wall 0.267s  peak RSS 18.2 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 2 go  : wall 0.475s  peak RSS 57.5 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 2 head: wall 0.289s  peak RSS 18.2 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 3 go  : wall 0.478s  peak RSS 60.0 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
-run 3 head: wall 0.295s  peak RSS 18.3 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 1 go  : wall 0.444s  peak RSS 58.4 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 1 head: wall 0.304s  peak RSS 18.2 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 2 go  : wall 0.467s  peak RSS 58.2 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 2 head: wall 0.280s  peak RSS 18.3 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 3 go  : wall 0.481s  peak RSS 58.4 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
+run 3 head: wall 0.305s  peak RSS 18.2 MiB  (50 recorder requests, 51 model requests, last body 1.33 MiB)
 
-median wall: go 0.475s head 0.289s (head/go 0.61)
-median peak RSS: go 57.6 MiB head 18.2 MiB (head/go 0.32)
-zero-call session (startup, one model call, EOF): go 0.051s head 0.034s
-agent overhead per tool call, (wall - zero-call) / 50, which includes the mock's and recorder's Python handling: go 8.47 ms head 5.12 ms
+median wall: go 0.467s head 0.304s (head/go 0.65)
+median peak RSS: go 58.4 MiB head 18.2 MiB (head/go 0.31)
+zero-call session (startup, one model call, EOF): go 0.056s head 0.034s
+agent overhead per tool call, (wall - zero-call) / 50, which includes the mock's and recorder's Python handling: go 8.22 ms head 5.40 ms
 ```
 
 ## R10: Agent web launcher
@@ -163,15 +163,15 @@ Verdict: perf, `web webui api` idle RSS and /run round-trip p50 (30 calls)
 Alternating launches of the Go harness and head. Idle RSS: `ps -o rss` 2 s after the port opens.
 Latency: 30 sequential POST /api/run calls, each one scripted text reply from the in-process mock LLM,
 timed at the client (fresh connection each); p50 per launch.
-run 1 go  : idle RSS  36.83 MiB  /run p50   2.26 ms
-run 1 head: idle RSS  11.03 MiB  /run p50   1.57 ms
-run 2 go  : idle RSS  36.91 MiB  /run p50   2.30 ms
-run 2 head: idle RSS  11.03 MiB  /run p50   1.66 ms
-run 3 go  : idle RSS  36.20 MiB  /run p50   2.21 ms
-run 3 head: idle RSS  11.03 MiB  /run p50   1.64 ms
+run 1 go  : idle RSS  36.55 MiB  /run p50   2.18 ms
+run 1 head: idle RSS  11.03 MiB  /run p50   1.66 ms
+run 2 go  : idle RSS  36.70 MiB  /run p50   2.22 ms
+run 2 head: idle RSS  10.98 MiB  /run p50   1.66 ms
+run 3 go  : idle RSS  36.72 MiB  /run p50   2.23 ms
+run 3 head: idle RSS  10.92 MiB  /run p50   1.62 ms
 
-median idle RSS: go 36.83 MiB head 11.03 MiB (head/go 0.30)
-median /run p50: go 2.26 ms head 1.64 ms (head/go 0.72)
+median idle RSS: go 36.70 MiB head 10.98 MiB (head/go 0.30)
+median /run p50: go 2.22 ms head 1.66 ms (head/go 0.75)
 ```
 
 ## R11: Download size per channel
@@ -183,12 +183,12 @@ Rule: head <= 0.3x Go on every channel. Sizes in bytes.
 
 raw binary (yutu-darwin-arm64)
   Go v0.11.0 stamped build /Users/juan/Projects/youtube-cli/youtube-cli/ref/yutu-go: 57083794
-  head /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped: 7200448
+  head /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped: 7216960
   ratio vs stamped build: 0.126
 
 npm platform tarball (@*/yutu-darwin-arm64@0.11.0)
   Go @eat-pray-ai tarball from registry.npmjs.org: 16678530
-  head @yutu-rs tarball from npm pack: 4706821
+  head @yutu-rs tarball from npm pack: 4707972
   ratio: 0.282
 
 Docker image (SUBSTITUTED: no Docker here; estimated as uncompressed layer bytes)
@@ -196,6 +196,6 @@ Docker image (SUBSTITUTED: no Docker here; estimated as uncompressed layer bytes
   head image = scratch + CA bundle (Mozilla bundle, 188900; Alpine's is the same set) + head linux musl binary
   Using the host binaries as stand-ins for the linux ones:
   Go estimate:   59083794
-  head estimate: 7389348
+  head estimate: 7405860
   ratio: 0.125
 ```
