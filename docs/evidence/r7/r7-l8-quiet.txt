@@ -1,0 +1,13 @@
+r7 lane 8: PASS
+
+Divergence E5. Go stderr at INFO carries the frames: True; head: False
+--- head stderr ---
+time=2026-10-18T17:12:15.088+01:00 level=INFO msg="starting MCP server" mode=stdio version=v0.11.0
+
+--- go stderr (first 400 bytes) ---
+time=2026-10-18T17:12:15.080+01:00 level=INFO msg="starting MCP server" mode=stdio version=v0.11.0
+read: {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"l","version":"0"}}}
+read: {"jsonrpc":"2.0","method":"notifications/initialized"}
+read: {"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}
+read error: EOF
+

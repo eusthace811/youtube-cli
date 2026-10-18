@@ -1,0 +1,10 @@
+r7 lane 2: PASS
+
+SUBSTITUTED: registering the binary in the operator's Claude Code config would change their setup and there is no test channel; an MCP client lists playlists over stdio against the recorder on both binaries.
+identical result and requests: True
+--- head tool text ---
+ ID      CHANNEL ID           TITLE                      
+ id-0    snippet.channelId-0  @at sign                   
+ id-1    snippet.channelId-1  Ünïcödé ✓ 日本語のタイトル 
+ id-2    snippet.channelId-2  - dash start               
+ zero-0                                                  

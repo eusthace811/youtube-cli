@@ -1,0 +1,5 @@
+r7 lane 3: PASS
+
+declined elicitation; requests sent by head: []
+head result: {"jsonrpc": "2.0", "id": 2, "result": {"content": [{"type": "text", "text": "canceled by user"}], "isError": true}}
+identical to Go: True

@@ -1,0 +1,4 @@
+r7 lane 9: PASS
+
+tools: 74; annotations identical to Go for every tool: True
+counts of true hints: {'readOnlyHint': 22, 'destructiveHint': 15, 'idempotentHint': 43, 'openWorldHint': 74}

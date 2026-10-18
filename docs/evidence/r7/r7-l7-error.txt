@@ -1,0 +1,4 @@
+r7 lane 7: PASS
+
+identical: True
+head: {"jsonrpc": "2.0", "id": 2, "result": {"content": [{"type": "text", "text": "validating \"arguments\": validating root: validating /properties/chart: enum: nope does not equal any of: [chartUnspecified mostPopular]"}], "isError": true}}

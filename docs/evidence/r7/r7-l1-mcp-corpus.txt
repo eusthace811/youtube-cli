@@ -1,0 +1,4 @@
+r7 lane 1: PASS
+
+MCP cases: 1102 (registered E1, E5 and E6 fields excluded per parity/divergences.toml)
+cases: 1102, 0 differences

@@ -1,0 +1,5 @@
+r7 lane 5: PASS
+
+Go query: {'alt': ['json'], 'part': ['id', 'snippet'], 'prettyPrint': ['false'], 'regionCode': ['US']}
+head query: {'alt': ['json'], 'hl': ['ja'], 'part': ['id', 'snippet'], 'prettyPrint': ['false'], 'regionCode': ['US']}
+Divergence E6: head honors {hl}; the payload served by the recorder is the same.
