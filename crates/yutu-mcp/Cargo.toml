@@ -5,14 +5,24 @@ edition.workspace = true
 license.workspace = true
 publish = false
 
+[features]
+parity-endpoint = []
+
 [dependencies]
 yutu-auth.workspace = true
 yutu-core.workspace = true
 yutu-api.workspace = true
 serde.workspace = true
 serde_json = { workspace = true, features = ["raw_value"] }
-tokio = { version = "1", features = ["rt", "sync", "io-std", "io-util"] }
+tokio = { version = "1", features = ["rt", "sync", "io-std", "io-util", "net", "time"] }
+hyper = { version = "1", features = ["server", "http1"] }
+hyper-util = { version = "0.1", default-features = false, features = ["tokio"] }
+http-body-util = "0.1"
+bytes = "1"
+reqwest = { version = "0.13", default-features = false, features = ["rustls-no-provider"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+ring = { version = "0.17", default-features = false }
 
 [dev-dependencies]
 yutu-api = { workspace = true, features = ["parity-endpoint"] }
-tokio = { version = "1", features = ["rt", "net"] }
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "net", "macros"] }
