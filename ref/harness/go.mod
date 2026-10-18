@@ -4,6 +4,7 @@ go 1.27.1
 
 require (
 	github.com/eat-pray-ai/yutu v0.0.0
+	github.com/mattn/go-runewidth v0.0.30
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/pflag v1.0.10
 	google.golang.org/api v0.300.0
@@ -39,7 +40,6 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.31.0 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
 	github.com/jedib0t/go-pretty/v6 v6.8.3 // indirect
-	github.com/mattn/go-runewidth v0.0.30 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/modelcontextprotocol/go-sdk v1.8.0 // indirect
 	github.com/openai/openai-go/v3 v3.68.0 // indirect
