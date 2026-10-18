@@ -100,6 +100,19 @@ impl Service {
 pub enum Media {
     Bytes(Vec<u8>),
     File(std::path::PathBuf),
+    /// A file already opened through the sandbox.
+    Open(std::fs::File),
+}
+
+impl Media {
+    pub(crate) async fn open(&self) -> Result<Option<tokio::fs::File>, Error> {
+        let local = |e: std::io::Error| Error::Local(e.to_string());
+        Ok(match self {
+            Media::Bytes(_) => None,
+            Media::File(p) => Some(tokio::fs::File::open(p).await.map_err(local)?),
+            Media::Open(f) => Some(tokio::fs::File::from_std(f.try_clone().map_err(local)?)),
+        })
+    }
 }
 
 pub struct Call<'a> {
@@ -252,34 +265,31 @@ impl Call<'_> {
 
     async fn upload(self, upload_path: &'static str) -> Result<reqwest::Response, Error> {
         let media = self.media.as_ref().unwrap();
-        let (size, head) = match media {
-            Media::Bytes(b) => (b.len() as u64, b[..b.len().min(512)].to_vec()),
-            Media::File(p) => {
-                use tokio::io::AsyncReadExt;
-                let mut f = tokio::fs::File::open(p)
-                    .await
-                    .map_err(|e| Error::Local(e.to_string()))?;
-                let size = f
-                    .metadata()
-                    .await
-                    .map_err(|e| Error::Local(e.to_string()))?
-                    .len();
+        let (size, head) = match (media, media.open().await?) {
+            (Media::Bytes(b), _) => (b.len() as u64, b[..b.len().min(512)].to_vec()),
+            (_, Some(mut f)) => {
+                use tokio::io::{AsyncReadExt, AsyncSeekExt};
+                let size = f.metadata().await.map_err(|e| Error::Local(e.to_string()))?.len();
                 let mut head = vec![0u8; size.min(512) as usize];
-                f.read_exact(&mut head)
-                    .await
-                    .map_err(|e| Error::Local(e.to_string()))?;
+                f.read_exact(&mut head).await.map_err(|e| Error::Local(e.to_string()))?;
+                f.seek(std::io::SeekFrom::Start(0)).await.map_err(|e| Error::Local(e.to_string()))?;
                 (size, head)
             }
+            (_, None) => unreachable!(),
         };
         let ctype = detect_content_type(&head);
         if size > SINGLE_REQUEST_LIMIT {
             return crate::media::resumable(&self, upload_path, ctype, size).await;
         }
-        let bytes = match media {
-            Media::Bytes(b) => b.clone(),
-            Media::File(p) => tokio::fs::read(p)
-                .await
-                .map_err(|e| Error::Local(e.to_string()))?,
+        let bytes = match (media, media.open().await?) {
+            (Media::Bytes(b), _) => b.clone(),
+            (_, Some(mut f)) => {
+                use tokio::io::AsyncReadExt;
+                let mut buf = Vec::with_capacity(size as usize);
+                f.read_to_end(&mut buf).await.map_err(|e| Error::Local(e.to_string()))?;
+                buf
+            }
+            (_, None) => unreachable!(),
         };
         let boundary = random_hex(30);
         let mut body = Vec::with_capacity(bytes.len() + 512);

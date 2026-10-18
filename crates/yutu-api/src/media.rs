@@ -30,14 +30,7 @@ pub(crate) async fn resumable(
         .ok_or_else(|| Error::Local("resumable upload: no session location".into()))?
         .to_string();
     let mut offset = 0u64;
-    let mut file = match media {
-        Media::File(p) => Some(
-            tokio::fs::File::open(p)
-                .await
-                .map_err(|e| Error::Local(e.to_string()))?,
-        ),
-        Media::Bytes(_) => None,
-    };
+    let mut file = media.open().await?;
     loop {
         let len = RESUMABLE_CHUNK.min(size - offset);
         let mut chunk = vec![0u8; len as usize];
@@ -53,7 +46,7 @@ pub(crate) async fn resumable(
             (None, Media::Bytes(b)) => {
                 chunk.copy_from_slice(&b[offset as usize..(offset + len) as usize])
             }
-            (None, Media::File(_)) => unreachable!(),
+            (None, _) => unreachable!(),
         }
         let range = if len == 0 {
             format!("bytes */{size}")
