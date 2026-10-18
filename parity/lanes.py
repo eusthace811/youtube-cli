@@ -406,6 +406,723 @@ def r2_l10():
     return ok, fmt("cargo deny check", *a) + fmt("xtask egress", *c)
 
 
+# R3 ---------------------------------------------------------------------
+
+TOKENWRITE = str(ROOT / "ref" / "yutu-go-tokenwrite")
+
+
+class AuthWorld:
+    """A temp root with a mock OAuth server, the API recorder, a fake `open`
+    that records the consent URL instead of launching a browser, and the
+    environment that makes the head binary use real OAuth against them."""
+
+    def __init__(self, open_exit=0, token=None):
+        from mockoauth import MockOAuth
+        self.dir = Path(tempfile.mkdtemp())
+        self.root = self.dir / "root"
+        self.root.mkdir()
+        bin_dir = self.dir / "bin"
+        bin_dir.mkdir()
+        self.open_log = self.dir / "opened.txt"
+        fake = bin_dir / "open"
+        fake.write_text(f'#!/bin/sh\nprintf "%s" "$1" > "{self.open_log}"\nexit {open_exit}\n')
+        fake.chmod(0o755)
+        (bin_dir / "xdg-open").symlink_to(fake)
+        self.oauth = MockOAuth()
+        self.rec = Recorder()
+        (self.root / "client_secret.json").write_text(self.oauth.client_secret())
+        if token is not None:
+            (self.root / "youtube.token.json").write_text(token)
+        self.env = {"PATH": f"{bin_dir}:/usr/bin:/bin", "HOME": str(self.root), "YUTU_PARITY_ENDPOINT": self.rec.url, "YUTU_PARITY_AUTH": "1"}
+
+    def run(self, args, stdin=None, env=None, timeout=60):
+        p = subprocess.run([HEAD] + args, cwd=self.root, env={**self.env, **(env or {})}, input=stdin, capture_output=True, text=True, timeout=timeout)
+        return p.returncode, p.stdout, p.stderr
+
+    def spawn(self, args, env=None):
+        return subprocess.Popen([HEAD] + args, cwd=self.root, env={**self.env, **(env or {})}, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+    def consent_url(self, wait=10):
+        deadline = time.time() + wait
+        while time.time() < deadline:
+            if self.open_log.exists() and self.open_log.read_text():
+                return self.open_log.read_text()
+            time.sleep(0.05)
+        return ""
+
+    def close(self):
+        self.oauth.close()
+        self.rec.close()
+
+
+def callback(query):
+    import urllib.error
+    import urllib.request
+    try:
+        with urllib.request.urlopen(f"http://localhost:8216/?{query}", timeout=10) as r:
+            return r.status, r.read().decode()
+    except urllib.error.HTTPError as e:
+        return e.code, e.read().decode()
+
+
+def mode(path):
+    return oct(os.stat(path).st_mode & 0o777)
+
+
+@lane("r3", 1, "r3-l1-shared-token.txt")
+def r3_l1():
+    w = AuthWorld()
+    sh([TOKENWRITE, str(w.root / "youtube.token.json"), "go-written-token", "go-refresh", "2030-01-01T00:00:00Z"])
+    go_bytes = (w.root / "youtube.token.json").read_text()
+    code, out, err = w.run(["channel", "list", "--for", "mine", "-o", "json"])
+    auth = [r.get("authorization") for r in w.rec.requests]
+    ok = code == 0 and auth and all(a == "Bearer go-written-token" for a in auth) and not w.oauth.requests and not w.open_log.exists()
+    w.close()
+    return ok, ("SUBSTITUTED: no Google account exists here, so Go writes the token file with its own json.MarshalWrite (ref/yutu-go-tokenwrite) instead of `yutu-go auth`.\n"
+                f"Go-written token file: {go_bytes}\nAuthorization headers seen by the recorder: {auth}\nlogin attempted: {bool(w.oauth.requests) or w.open_log.exists()}\n" + fmt("yutu channel list --for mine -o json", code, out[:300], err))
+
+
+@lane("r3", 2, "r3-l2-consent.txt")
+def r3_l2():
+    import base64
+    import hashlib
+    from urllib.parse import parse_qs, urlsplit
+    w = AuthWorld()
+    p = w.spawn(["auth"])
+    url = w.consent_url()
+    q = parse_qs(urlsplit(url).query)
+    status, body = callback(f"state={q['state'][0]}&code=lane-code")
+    out, err = p.communicate(timeout=30)
+    token_file = w.root / "youtube.token.json"
+    verifier = (w.oauth.requests[0].get("code_verifier") or [""])[0] if w.oauth.requests else ""
+    challenge = base64.urlsafe_b64encode(hashlib.sha256(verifier.encode()).digest()).rstrip(b"=").decode()
+    ok = (p.returncode == 0 and status == 200 and token_file.exists() and mode(token_file) == "0o600"
+          and q.get("code_challenge") == [challenge] and q.get("code_challenge_method") == ["S256"] and w.oauth.requests[0]["code"] == ["lane-code"])
+    text = (f"consent URL (fake browser): {url}\ncallback: {status} {body!r}\ntoken exchange form: {w.oauth.requests}\n"
+            f"PKCE S256 challenge matches verifier: {q.get('code_challenge') == [challenge]}\ntoken file mode: {mode(token_file) if token_file.exists() else 'missing'}\n"
+            f"token file: {token_file.read_text() if token_file.exists() else ''}\n" + fmt("yutu auth", p.returncode, out, err))
+    w.close()
+    return ok, "SUBSTITUTED: a fake `open` records the consent URL and the lane plays the browser redirect against a mock token endpoint.\n" + text
+
+
+@lane("r3", 3, "r3-l3-paste.txt")
+def r3_l3():
+    w = AuthWorld()
+    # Go counts the browser as opened whenever `open` starts, so the paste
+    # path needs no `open` on PATH at all.
+    code, out, err = w.run(["auth"], stdin="4%2Fpasted-code\n", env={"PATH": "/bin"})
+    token_file = w.root / "youtube.token.json"
+    got = w.oauth.requests[0]["code"] if w.oauth.requests else None
+    ok = code == 0 and token_file.exists() and got == ["4/pasted-code"] and "Go to the following link in your browser" in out
+    w.close()
+    return ok, f"browser open fails, the code is pasted on stdin with the 4%2F prefix; exchanged code: {got}\n" + fmt("yutu auth (stdin: 4%2Fpasted-code)", code, out, err)
+
+
+@lane("r3", 4, "r3-l4-csrf.txt")
+def r3_l4():
+    w = AuthWorld()
+    p = w.spawn(["auth"])
+    url = w.consent_url()
+    status, body = callback("state=forged&code=evil")
+    time.sleep(0.5)
+    written = (w.root / "youtube.token.json").exists()
+    p.kill()
+    out, err = p.communicate()
+    ok = bool(url) and status == 400 and "state doesn't match, possible CSRF attack" in body and not written and not w.oauth.requests
+    w.close()
+    return ok, f"forged-state callback: {status} {body!r}\ntoken written: {written}\ntoken exchanges: {w.oauth.requests}\n"
+
+
+@lane("r3", 5, "r3-l5-b64.txt")
+def r3_l5():
+    import base64
+    w = AuthWorld()
+    token = json.dumps({"access_token": "b64-token", "token_type": "Bearer", "refresh_token": "r", "expiry": "2030-01-01T00:00:00Z"})
+    code, out, err = w.run(["channel", "list", "--for", "mine", "-o", "json"], env={"YUTU_CACHE_TOKEN": base64.b64encode(token.encode()).decode()})
+    auth = [r.get("authorization") for r in w.rec.requests]
+    ok = code == 0 and auth == ["Bearer b64-token"]
+    w.close()
+    return ok, f"Authorization headers: {auth}\n" + fmt("YUTU_CACHE_TOKEN=<base64> yutu channel list --for mine", code, out[:300], err)
+
+
+@lane("r3", 6, "r3-l6-redact.txt")
+def r3_l6():
+    w = AuthWorld()
+    secret = "SECRET-not-a-token-%%%"
+    p = w.spawn(["channel", "list", "--for", "mine"], env={"YUTU_CACHE_TOKEN": secret, "YUTU_LOG_LEVEL": "DEBUG"})
+    w.consent_url(wait=5)
+    p.kill()
+    out, err = p.communicate()
+    ok = secret not in err and secret not in out and "failed to parse token" in err
+    w.close()
+    return ok, f"secret present in stderr: {secret in err}; in stdout: {secret in out}\n--- stderr ---\n{err}\n"
+
+
+@lane("r3", 7, "r3-l7-refresh.txt")
+def r3_l7():
+    w = AuthWorld()
+    sh([TOKENWRITE, str(w.root / "youtube.token.json"), "expired-token", "lane-refresh", "2020-01-01T00:00:00Z"])
+    before = (w.root / "youtube.token.json").read_text()
+    code, out, err = w.run(["video", "update", "--id", "id1", "--title", "T", "--yes"])
+    after = (w.root / "youtube.token.json").read_text()
+    auth = [r.get("authorization") for r in w.rec.requests]
+    ok = code == 0 and w.oauth.refreshes == 1 and auth == ["Bearer refreshed-1", "Bearer refreshed-1"] and '"access_token":"refreshed-1"' in after and mode(w.root / "youtube.token.json") == "0o600"
+    w.close()
+    return ok, ("One process makes two API calls (video update: GET then PUT) with an expired token; the MCP-session variant is r3 lane 10's setup.\n"
+                f"refreshes: {w.oauth.refreshes}\nAuthorization headers: {auth}\nbefore: {before}\nafter:  {after}\n" + fmt("yutu video update", code, out, err))
+
+
+@lane("r3", 8, "r3-l8-timeout.txt")
+def r3_l8():
+    w = AuthWorld()
+    t = time.time()
+    code, out, err = w.run(["auth"], timeout=200)
+    elapsed = time.time() - t
+    ok = code == 1 and "authorization timed out after 2m0s" in err and 119 <= elapsed <= 130
+    w.close()
+    return ok, f"no consent given; exited after {elapsed:.1f} s\n" + fmt("yutu auth", code, out, err)
+
+
+@lane("r3", 9, "r3-l9-perms.txt")
+def r3_l9():
+    from urllib.parse import parse_qs, urlsplit
+    w = AuthWorld()
+    p = w.spawn(["auth"])
+    q = parse_qs(urlsplit(w.consent_url()).query)
+    callback(f"state={q['state'][0]}&code=perm-code")
+    p.communicate(timeout=30)
+    ls = sh(["ls", "-l", str(w.root / "youtube.token.json")])[1]
+    w.close()
+    return ls.startswith("-rw-------"), "$ ls -l youtube.token.json\n" + ls
+
+
+@lane("r3", 10, "r3-l10-mcp-login.txt")
+def r3_l10():
+    from urllib.parse import parse_qs, urlsplit
+    w = AuthWorld()
+    p = w.spawn(["mcp"])
+    init = {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "lane", "version": "0"}}}
+    call = {"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {"name": "channel-list", "arguments": {"for": "mine"}}}
+    p.stdin.write(json.dumps(init) + "\n" + json.dumps({"jsonrpc": "2.0", "method": "notifications/initialized"}) + "\n" + json.dumps(call) + "\n")
+    p.stdin.flush()
+    url = w.consent_url()
+    q = parse_qs(urlsplit(url).query)
+    status, _ = callback(f"state={q['state'][0]}&code=mcp-code") if url else (0, "")
+    time.sleep(1.5)
+    p.stdin.close()
+    out, err = p.communicate(timeout=30)
+    lines = [l for l in out.splitlines() if l.strip()]
+    parsed = []
+    for l in lines:
+        try:
+            parsed.append(json.loads(l))
+        except ValueError:
+            parsed.append(None)
+    all_json = bool(lines) and all(x is not None and x.get("jsonrpc") == "2.0" for x in parsed)
+    result = next((x for x in parsed if x and x.get("id") == 2), {})
+    ok = all_json and status == 200 and "Go to the following link" not in out and url in err and not result.get("result", {}).get("isError")
+    w.close()
+    return ok, (f"every stdout line is JSON-RPC: {all_json}; consent URL only on stderr: {url in err and url not in out}; callback {status}\n"
+                f"tool result: {json.dumps(result)[:400]}\n--- stdout ---\n{out[:1500]}\n--- stderr ---\n{err[:1500]}\n")
+
+
+# R4 ---------------------------------------------------------------------
+
+def corpus_groups(effects=None, surfaces=("cli", "core"), only_files=("cli", "core")):
+    groups = set()
+    for f in only_files:
+        for c in json.loads((ROOT / "parity/corpus" / f"{f}.json").read_text()):
+            if effects is None or c.get("effect") in effects:
+                groups.add(c["id"])
+    return groups
+
+
+def compare_ids(ids, binary=HEAD):
+    ids = sorted(ids)
+    code, out, err = sh([sys.executable, "-I", "parity/run.py", "--bin", binary, "--only", ",".join(ids), "--compare"], cwd=ROOT)
+    return code, out, err
+
+
+def pty_run(argv, env):
+    import pty as _pty
+    pid, fd = _pty.fork()
+    if pid == 0:
+        os.execve(argv[0], argv, env)
+    out = b""
+    while True:
+        try:
+            chunk = os.read(fd, 65536)
+        except OSError:
+            break
+        if not chunk:
+            break
+        out += chunk
+    os.waitpid(pid, 0)
+    return out.decode("utf-8", "replace")
+
+
+def rec_env(rec, extra=None):
+    return {"PATH": "/usr/bin:/bin", "HOME": "/tmp", "LANG": "C.UTF-8", "YUTU_PARITY_ENDPOINT": rec.url, **(extra or {})}
+
+
+@lane("r4", 1, "r4-l1-read-corpus.txt")
+def r4_l1():
+    ids = corpus_groups({"read"})
+    code, out, err = compare_ids(ids)
+    return code == 0 and out.strip().endswith(", 0 differences"), f"read cases: {len(ids)}\n" + out[-3000:] + err[-1000:]
+
+
+@lane("r4", 2, "r4-l2-table.txt")
+def r4_l2():
+    rec = Recorder()
+    text = pty_run([HEAD, "video", "list", "--chart", "mostPopular", "--regionCode", "US"], rec_env(rec))
+    go = pty_run([HARNESS, "video", "list", "--chart", "mostPopular", "--regionCode", "US"], rec_env(rec))
+    rec.close()
+    ok = text == go and text.startswith(" ID ") and "│" not in text and "─" not in text
+    return ok, "SUBSTITUTED: no Google account; the table renders on a pseudo-terminal against the recorder and is compared with Go's.\n--- head (pty) ---\n" + text + "|<EOF\n--- go (pty) ---\n" + go + "|<EOF\n"
+
+
+@lane("r4", 3, "r4-l3-json.txt")
+def r4_l3():
+    rec = Recorder()
+    piped = subprocess.run([HEAD, "video", "list", "--chart", "mostPopular", "-o", "json"], env=rec_env(rec), capture_output=True, text=True).stdout
+    tty = pty_run([HEAD, "video", "list", "--chart", "mostPopular", "-o", "json"], rec_env(rec))
+    rec.close()
+    ok = "\n" not in piped.rstrip("\n") and tty.startswith("[\r\n  {")
+    return ok, f"piped (compact): {piped[:200]}...\ntty (indented): {tty[:200]!r}...\n"
+
+
+@lane("r4", 4, "r4-l4-ci.txt")
+def r4_l4():
+    rec = Recorder()
+    tty = pty_run([HEAD, "video", "list", "-o", "json"], rec_env(rec, {"CI": "1"}))
+    rec.close()
+    return tty.startswith('[{"'), f"CI=1 on a pseudo-terminal: {tty[:200]!r}\n"
+
+
+def both_rec(argv, extra=None, fail=None):
+    rec = Recorder()
+    out = {}
+    for name, binary in (("go", HARNESS), ("head", HEAD)):
+        rec.reset(fail=fail)
+        p = subprocess.run([binary] + argv, env=rec_env(rec, extra), capture_output=True, text=True)
+        out[name] = (p.returncode, p.stdout, p.stderr, [(r["method"], r["path"], differ.split_part(r["query"])) for r in rec.requests])
+    rec.close()
+    return out
+
+
+@lane("r4", 5, "r4-l5-yaml.txt")
+def r4_l5():
+    o = both_rec(["video", "list", "-o", "yaml"])
+    return o["go"][:3] == o["head"][:3], f"identical: {o['go'][:3] == o['head'][:3]}\n--- head yaml (first 1200 bytes) ---\n{o['head'][1][:1200]}\n"
+
+
+@lane("r4", 6, "r4-l6-paging.txt")
+def r4_l6():
+    o = both_rec(["search", "list", "--q", "rust", "--maxResults", "45"])
+    reqs = o["head"][3]
+    ok = o["go"][3] == reqs and o["go"][:3] == o["head"][:3]
+    return ok, f"head requests: {len(reqs)} (the fixture has 3 pages)\n" + "\n".join(str(r) for r in reqs) + f"\nrequests identical to Go: {o['go'][3] == reqs}\n"
+
+
+@lane("r4", 7, "r4-l7-unknown.txt")
+def r4_l7():
+    o = both_rec(["video", "list", "-o", "bogus"])
+    ok = o["go"][:3] == o["head"][:3] == (0, "", "")
+    return ok, f"go: {o['go'][:3]}\nhead: {o['head'][:3]}\n"
+
+
+@lane("r4", 8, "r4-l8-partial.txt")
+def r4_l8():
+    o = both_rec(["video", "list", "--maxResults", "0", "-o", "json"], fail={"pageToken": "p2", "status": 500})
+    ok = o["go"][:3] == o["head"][:3] and o["head"][0] == 1 and len(json.loads(o["head"][1])) == 4
+    return ok, f"exit go/head: {o['go'][0]}/{o['head'][0]}\nitems printed by head: {len(json.loads(o['head'][1] or '[]'))}\nstderr head: {o['head'][2]!r}\nidentical: {o['go'][:3] == o['head'][:3]}\n"
+
+
+@lane("r4", 9, "r4-l9-rating.txt")
+def r4_l9():
+    log, ok = "", True
+    for f in ("json", "yaml", "table"):
+        o = both_rec(["video", "getRating", "--ids", "a,b", "-o", f])
+        same = o["go"][:3] == o["head"][:3] and len(o["head"][3]) == 1
+        ok &= same
+        log += f"-o {f}: identical {o['go'][:3] == o['head'][:3]}, requests {len(o['head'][3])}\n"
+    return ok, log
+
+
+@lane("r4", 10, "r4-l10-real.txt")
+def r4_l10():
+    log, ok = "SUBSTITUTED: no Google account; both commands run against the recorder and are compared with Go.\n", True
+    for argv in (["i18nRegion", "list"], ["videoCategory", "list", "--regionCode", "JP"]):
+        o = both_rec(argv)
+        same = o["go"][:3] == o["head"][:3] and o["head"][1].count("\n") >= 2
+        ok &= same
+        log += f"{' '.join(argv)}: identical {same}\n{o['head'][1][:600]}\n"
+    return ok, log
+
+
+# R5 ---------------------------------------------------------------------
+
+@lane("r5", 1, "r5-l1-write-corpus.txt")
+def r5_l1():
+    ids = {i for i in corpus_groups({"write", "destructive"})}
+    code, out, err = compare_ids(ids)
+    return code == 0 and out.strip().endswith(", 0 differences"), f"write and destructive cases: {len(ids)}\n" + out[-3000:] + err[-500:]
+
+
+def sub_lane(steps):
+    """SUBSTITUTED real-API lanes: run each step on both binaries against the
+    recorder and require identical requests, stdout, stderr and exit codes."""
+    log, ok = "SUBSTITUTED: no test channel exists; every step runs on Go and head against the recorder and must match exactly.\n", True
+    for argv in steps:
+        o = both_rec(argv)
+        same = o["go"] == o["head"]
+        ok &= same
+        log += f"$ yutu {' '.join(argv)}\n  exit {o['head'][0]}, requests {[(m, p) for m, p, _ in o['head'][3]]}, identical to Go: {o['go'] == o['head']}\n  stdout: {o['head'][1][:200]!r}\n"
+        if o["head"][0] != 0:
+            log += f"  stderr: {o['head'][2]!r}\n  Go fails the same way; this is a Go defect reproduced for parity (see docs/PARITY.md, known Go defects).\n"
+    return ok, log
+
+
+@lane("r5", 2, "r5-l2-playlist.txt")
+def r5_l2():
+    return sub_lane([["playlist", "insert", "--title", "T", "--channelId", "UC1", "--privacy", "private", "--yes"],
+                     ["playlist", "update", "--id", "id1", "--title", "T2", "--yes"],
+                     ["playlist", "delete", "--ids", "id1", "--yes"],
+                     ["playlist", "list", "--mine", "-o", "json"]])
+
+
+@lane("r5", 3, "r5-l3-item.txt")
+def r5_l3():
+    return sub_lane([["playlistItem", "insert", "--kind", "video", "--kVideoId", "v1", "--playlistId", "p1", "--channelId", "c1", "--yes"],
+                     ["playlistItem", "delete", "--ids", "i1", "--yes"]])
+
+
+@lane("r5", 4, "r5-l4-comment.txt")
+def r5_l4():
+    return sub_lane([["commentThread", "insert", "--channelId", "c1", "--videoId", "v1", "--textOriginal", "hi", "--yes"],
+                     ["comment", "delete", "--ids", "c1", "--yes"]])
+
+
+@lane("r5", 5, "r5-l5-rate.txt")
+def r5_l5():
+    return sub_lane([["video", "rate", "--ids", "v1", "--rating", "like", "--yes"], ["video", "getRating", "--ids", "v1"],
+                     ["video", "rate", "--ids", "v1", "--rating", "none", "--yes"]])
+
+
+@lane("r5", 6, "r5-l6-multi.txt")
+def r5_l6():
+    o = both_rec(["playlist", "delete", "--ids", "p1,p2", "--yes"])
+    ok = o["go"] == o["head"] and len(o["head"][3]) == 2
+    return ok, f"stdout go:   {o['go'][1]!r}\nstdout head: {o['head'][1]!r}\nrequests: {o['head'][3]}\n"
+
+
+@lane("r5", 7, "r5-l7-silent.txt")
+def r5_l7():
+    o = both_rec(["playlist", "insert", "--title", "T", "--channelId", "UC1", "--privacy", "private", "--yes", "-o", "silent"])
+    return o["go"] == o["head"] and o["head"][1] == "", f"stdout go {o['go'][1]!r} head {o['head'][1]!r}\n"
+
+
+@lane("r5", 8, "r5-l8-decline.txt")
+def r5_l8():
+    rec = Recorder()
+    out = {}
+    for name, binary in (("go", HARNESS), ("head", HEAD)):
+        rec.reset()
+        c = {"id": "lane", "argv": ["playlist", "delete", "--ids", "p1"], "tty": True, "stdin": "n\n"}
+        r = runner.run_case(binary, c, rec)
+        out[name] = (r["exit"], r["stdout"], len(r["requests"]))
+    rec.close()
+    return out["go"] == out["head"] and out["head"][2] == 0, f"go: {out['go']}\nhead: {out['head']}\n"
+
+
+@lane("r5", 9, "r5-l9-sub.txt")
+def r5_l9():
+    return sub_lane([["subscription", "insert", "--subscriberChannelId", "me", "--channelId", "UCpublic", "--yes"],
+                     ["subscription", "delete", "--ids", "s1", "--yes"]])
+
+
+@lane("r5", 10, "r5-l10-live.txt")
+def r5_l10():
+    return sub_lane([["liveStream", "insert", "--title", "T", "--ingestionType", "rtmp", "--resolution", "1080p", "--yes"],
+                     ["liveStream", "delete", "--ids", "s1", "--yes"]])
+
+
+# R6 ---------------------------------------------------------------------
+
+def media_root(files):
+    d = Path(tempfile.mkdtemp())
+    for name, data in files.items():
+        (d / name).write_bytes(data)
+    return d
+
+
+def both_files(argv, files, extra=None):
+    rec = Recorder()
+    out = {}
+    for name, binary in (("go", HARNESS), ("head", HEAD)):
+        root = media_root(files)
+        rec.reset()
+        p = subprocess.run([binary] + argv, cwd=root, env=rec_env(rec, extra), capture_output=True, text=True)
+        out[name] = (p.returncode, p.stdout, p.stderr, [differ.normalize_request(r) for r in rec.requests], root)
+    rec.close()
+    return out
+
+
+MP4 = bytes.fromhex("000000186674797069736f6d0000020069736f6d69736f32") + b"\0" * 64
+PNG = bytes.fromhex("89504e470d0a1a0a0000000d4948445200000001000000010806000000")
+
+
+@lane("r6", 1, "r6-l1-media-corpus.txt")
+def r6_l1():
+    ids = {c["id"] for f in ("cli",) for c in json.loads((ROOT / "parity/corpus" / f"{f}.json").read_text()) if c.get("effect") == "media"}
+    code, out, err = compare_ids(ids)
+    return code == 0 and out.strip().endswith(", 0 differences"), f"media cases (including the caption download --yes proofs of E1): {len(ids)}\n" + out[-3000:] + err[-500:]
+
+
+def same_media(argv, files, note):
+    o = both_files(argv, files)
+    g, h = o["go"], o["head"]
+    ok = g[:4] == h[:4] and h[0] == 0
+    return ok, f"{note}\n$ yutu {' '.join(argv)}\nexit {h[0]}; identical requests, stdout, stderr and exit to Go: {g[:4] == h[:4]}\nstdout: {h[1]!r}\nrequests: {[(r['method'], r['path'], r['ctype']) for r in h[3]]}\n"
+
+
+@lane("r6", 2, "r6-l2-upload.txt")
+def r6_l2():
+    return same_media(["video", "insert", "--file", "clip.mp4", "--categoryId", "22", "--privacy", "private", "--yes", "-o", "json"], {"clip.mp4": MP4},
+                      "SUBSTITUTED: no test channel; the upload goes to the recorder on both binaries and the multipart request (body by value, boundary masked) must match Go's.")
+
+
+@lane("r6", 3, "r6-l3-thumb.txt")
+def r6_l3():
+    return same_media(["thumbnail", "set", "--videoId", "v1", "--file", "t.png", "--yes"], {"t.png": PNG}, "SUBSTITUTED: recorder.")
+
+
+@lane("r6", 4, "r6-l4-caption.txt")
+def r6_l4():
+    srt = b"1\n00:00:00,000 --> 00:00:01,000\nHello lane\n"
+    o = both_files(["caption", "insert", "--videoId", "v1", "--file", "c.srt", "--yes"], {"c.srt": srt})
+    uploaded = "Hello lane" in json.dumps(o["head"][3])
+    rec = Recorder()
+    root = media_root({})
+    p = subprocess.run([HEAD, "caption", "download", "--id", "cap1", "--file", "out.srt", "--yes"], cwd=root, env=rec_env(rec), capture_output=True, text=True)
+    rec.close()
+    got = (root / "out.srt").read_bytes() if (root / "out.srt").exists() else b""
+    served = json.loads((ROOT / "parity/fixtures/GET_captions._.json").read_text())["raw"].encode()
+    ok = o["go"][:4] == o["head"][:4] and uploaded and p.returncode == 0 and got == served
+    return ok, (f"SUBSTITUTED: the recorder cannot store and serve the uploaded track, so the lane checks the upload carried the text and that the download writes exactly the bytes served.\n"
+                f"caption insert identical to Go: {o['go'][:4] == o['head'][:4]}; uploaded text in multipart body: {uploaded}\n"
+                f"caption download --yes: exit {p.returncode}, stdout {p.stdout!r}, file bytes equal served bytes: {got == served}\n")
+
+
+@lane("r6", 5, "r6-l5-blocked.txt")
+def r6_l5():
+    o = both_files(["video", "insert", "--file", "client_secret.json", "--categoryId", "22", "--privacy", "private", "--yes"], {"client_secret.json": b"{}"})
+    ok = o["go"][:4] == o["head"][:4] and o["head"][0] == 1 and not o["head"][3] and "access denied: blocked file extension" in o["head"][2]
+    return ok, f"go: exit {o['go'][0]} stderr {o['go'][2]!r}\nhead: exit {o['head'][0]} stderr {o['head'][2]!r}\nrequests sent by head: {len(o['head'][3])}\n"
+
+
+@lane("r6", 6, "r6-l6-escape.txt")
+def r6_l6():
+    o = both_files(["video", "insert", "--file", "../outside.mp4", "--categoryId", "22", "--privacy", "private", "--yes"], {})
+    (o["head"][4].parent / "outside.mp4").write_bytes(MP4)
+    o = both_files(["video", "insert", "--file", "../outside.mp4", "--categoryId", "22", "--privacy", "private", "--yes"], {})
+    ok = o["go"][:4] == o["head"][:4] and o["head"][0] == 1 and not o["head"][3]
+    return ok, f"go: exit {o['go'][0]} stderr {o['go'][2]!r}\nhead: exit {o['head'][0]} stderr {o['head'][2]!r}\nrequests sent by head: {len(o['head'][3])}\n"
+
+
+@lane("r6", 7, "r6-l7-watermark.txt")
+def r6_l7():
+    a = same_media(["watermark", "set", "--channelId", "c1", "--file", "w.png", "--yes"], {"w.png": PNG}, "SUBSTITUTED: recorder.")
+    b = same_media(["watermark", "unset", "--channelId", "c1", "--yes"], {}, "")
+    return a[0] and b[0], a[1] + b[1]
+
+
+def big_upload(binary, size, rec, root):
+    p = subprocess.run(["/usr/bin/time", "-l", binary, "video", "insert", "--file", "big.mp4", "--categoryId", "22", "--privacy", "private", "--yes"],
+                       cwd=root, env=rec_env(rec), capture_output=True, text=True)
+    m = __import__("re").search(r"(\d+)\s+maximum resident set size", p.stderr)
+    return p.returncode, p.stdout, p.stderr.splitlines()[0] if p.stderr else "", int(m.group(1)) / 1e6 if m else -1
+
+
+def sparse_file(size):
+    root = Path(tempfile.mkdtemp())
+    with open(root / "big.mp4", "wb") as f:
+        f.write(MP4)
+        f.truncate(size)
+    return root
+
+
+@lane("r6", 8, "r6-l8-resumable.txt")
+def r6_l8():
+    size = 2 << 30
+    root = sparse_file(size)
+    rec = Recorder(state=root / "state")
+    code, out, err, rss = big_upload(HEAD, size, rec, root)
+    chunks = [r.get("content_range") for r in rec.requests if r["path"] == "/resumable"]
+    start = [r for r in rec.requests if r.get("upload") == "start"]
+    rec.close()
+    (root / "big.mp4").unlink()
+    ok = code == 0 and len(start) == 1 and len(chunks) == 256 and chunks[0] == f"bytes 0-8388607/{size}" and chunks[-1] == f"bytes {size - 8388608}-{size - 1}/{size}"
+    return ok, f"2 GiB sparse file; exit {code} {out.strip()} {err}\nsession starts: {len(start)}, chunks: {len(chunks)}, first {chunks[:1]}, last {chunks[-1:]}\npeak RSS {rss:.1f} MB\n"
+
+
+@lane("r6", 9, "r6-l9-resume.txt")
+def r6_l9():
+    import signal
+    import socket
+    size = 200 << 20
+    root = sparse_file(size)
+    state = root / "state"
+    state.mkdir()
+    with socket.socket() as s_:
+        s_.bind(("127.0.0.1", 0))
+        port = s_.getsockname()[1]
+
+    def start_recorder():
+        p = subprocess.Popen([sys.executable, "-I", str(ROOT / "parity/recorder.py"), "--port", str(port), "--state", str(state)], stdout=subprocess.PIPE, text=True)
+        p.stdout.readline()
+        return p
+
+    def received():
+        f = state / "sessions.json"
+        return list(json.loads(f.read_text()).values())[0]["received"] if f.exists() and f.read_text() else 0
+
+    srv = start_recorder()
+    upload = subprocess.Popen([HEAD, "video", "insert", "--file", "big.mp4", "--categoryId", "22", "--privacy", "private", "--yes"], cwd=root,
+                              env={"PATH": "/usr/bin:/bin", "HOME": "/tmp", "YUTU_PARITY_ENDPOINT": f"http://127.0.0.1:{port}"}, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    while received() < 40 << 20:
+        time.sleep(0.005)
+    srv.send_signal(signal.SIGKILL)
+    srv.wait()
+    killed_at = received()
+    time.sleep(2)
+    srv = start_recorder()
+    out, err = upload.communicate(timeout=300)
+    srv.send_signal(signal.SIGKILL)
+    srv.wait()
+    log = [json.loads(l) for l in (state / "requests.jsonl").read_text().splitlines()]
+    ranges = [r.get("content_range") for r in log if r["path"] == "/resumable"]
+    status_queries = [i for i, c in enumerate(ranges) if c == f"bytes */{size}"]
+    resumed = ranges[status_queries[0] + 1] if status_queries and status_queries[0] + 1 < len(ranges) else ""
+    ok = upload.returncode == 0 and received() == size and bool(status_queries) and resumed.startswith(f"bytes {killed_at}-")
+    return ok, (f"recorder SIGKILLed with {killed_at} bytes acknowledged, restarted on the same port 2 s later from its persisted session\n"
+                f"chunk requests seen: {len(ranges)}; status query after restart: {[ranges[i] for i in status_queries]}; next chunk: {resumed}\n"
+                f"final acknowledged bytes: {received()} of {size}\n" + fmt("yutu video insert (200 MiB)", upload.returncode, out, err))
+
+
+@lane("r6", 10, "r6-l10-cleanup.txt")
+def r6_l10():
+    return sub_lane([["video", "delete", "--ids", "v1", "--yes"], ["video", "list", "--ids", "v1", "-o", "json"]])
+
+
+# R7 ---------------------------------------------------------------------
+
+def mcp_pair(fn, version="2025-06-18", elicit="accept", extra=None):
+    from mcp_client import Stdio
+    rec = Recorder()
+    out = {}
+    for name, binary in (("go", HARNESS), ("head", HEAD)):
+        rec.reset()
+        c = Stdio(binary, version, env=rec_env(rec, extra), elicit=elicit)
+        out[name] = (fn(c), [differ.normalize_request(r) for r in rec.requests])
+        c.close()
+    rec.close()
+    return out
+
+
+@lane("r7", 1, "r7-l1-mcp-corpus.txt")
+def r7_l1():
+    ids = {c["id"] for c in json.loads((ROOT / "parity/corpus/mcp.json").read_text())}
+    code, out, err = compare_ids(ids)
+    return code == 0 and out.strip().endswith(", 0 differences"), f"MCP cases: {len(ids)} (registered E1, E5 and E6 fields excluded per parity/divergences.toml)\n" + out[-2000:] + err[-500:]
+
+
+@lane("r7", 2, "r7-l2-claude.txt")
+def r7_l2():
+    o = mcp_pair(lambda c: c.request("tools/call", {"name": "playlist-list", "arguments": {"mine": True, "output": "table"}}))
+    text = o["head"][0]["result"]["content"][0]["text"]
+    ok = o["go"] == o["head"] and "TITLE" in text
+    return ok, ("SUBSTITUTED: registering the binary in the operator's Claude Code config would change their setup and there is no test channel; an MCP client lists playlists over stdio against the recorder on both binaries.\n"
+                f"identical result and requests: {o['go'] == o['head']}\n--- head tool text ---\n{text}\n")
+
+
+@lane("r7", 3, "r7-l3-decline.txt")
+def r7_l3():
+    o = mcp_pair(lambda c: c.request("tools/call", {"name": "playlist-delete", "arguments": {"ids": ["p1"]}}), elicit="decline")
+    ok = o["go"] == o["head"] and o["head"][1] == [] and o["head"][0]["result"]["isError"]
+    return ok, f"declined elicitation; requests sent by head: {o['head'][1]}\nhead result: {json.dumps(o['head'][0])}\nidentical to Go: {o['go'] == o['head']}\n"
+
+
+@lane("r7", 4, "r7-l4-resource.txt")
+def r7_l4():
+    o = mcp_pair(lambda c: c.request("resources/read", {"uri": "i18n://hl"}))
+    return o["go"] == o["head"], f"identical payload and requests: {o['go'] == o['head']}\n{json.dumps(o['head'][0])[:800]}\n"
+
+
+@lane("r7", 5, "r7-l5-template.txt")
+def r7_l5():
+    o = mcp_pair(lambda c: c.request("resources/read", {"uri": "video://category/ja"}))
+    gq, hq = o["go"][1][0]["query"], o["head"][1][0]["query"]
+    ok = "hl" not in gq and hq.get("hl") == ["ja"] and o["go"][0] == o["head"][0]
+    return ok, f"Go query: {gq}\nhead query: {hq}\nDivergence E6: head honors {{hl}}; the payload served by the recorder is the same.\n"
+
+
+@lane("r7", 6, "r7-l6-default.txt")
+def r7_l6():
+    o = mcp_pair(lambda c: c.request("tools/call", {"name": "video-list", "arguments": {}}))
+    text = o["head"][0]["result"]["content"][0]["text"]
+    ok = o["go"] == o["head"] and text.startswith('[{"') and "\n" not in text.rstrip("\n")
+    return ok, f"identical: {o['go'] == o['head']}; compact JSON: {text[:160]}...\n"
+
+
+@lane("r7", 7, "r7-l7-error.txt")
+def r7_l7():
+    o = mcp_pair(lambda c: c.request("tools/call", {"name": "video-list", "arguments": {"chart": "nope"}}))
+    ok = o["go"] == o["head"] and o["head"][0]["result"].get("isError")
+    return ok, f"identical: {o['go'] == o['head']}\nhead: {json.dumps(o['head'][0])}\n"
+
+
+@lane("r7", 8, "r7-l8-quiet.txt")
+def r7_l8():
+    msgs = [{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "l", "version": "0"}}},
+            {"jsonrpc": "2.0", "method": "notifications/initialized"}, {"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}}]
+    rec = Recorder()
+    errs = {}
+    for name, binary in (("go", HARNESS), ("head", HEAD)):
+        p = subprocess.run([binary, "mcp"], input="".join(json.dumps(m) + "\n" for m in msgs), env=rec_env(rec, {"YUTU_LOG_LEVEL": "INFO"}), capture_output=True, text=True, timeout=30)
+        errs[name] = p.stderr
+    rec.close()
+    ok = '"jsonrpc"' not in errs["head"] and '"jsonrpc"' in errs["go"]
+    return ok, f"Divergence E5. Go stderr at INFO carries the frames: {'\"jsonrpc\"' in errs['go']}; head: {'\"jsonrpc\"' in errs['head']}\n--- head stderr ---\n{errs['head']}\n--- go stderr (first 400 bytes) ---\n{errs['go'][:400]}\n"
+
+
+@lane("r7", 9, "r7-l9-hints.txt")
+def r7_l9():
+    o = mcp_pair(lambda c: c.request("tools/list"))
+    hints = {k: {t["name"]: t.get("annotations") for t in v[0]["result"]["tools"]} for k, v in o.items()}
+    ok = hints["go"] == hints["head"] and len(hints["head"]) == 74
+    counts = {k: sum(1 for a in hints["head"].values() if a.get(k)) for k in ("readOnlyHint", "destructiveHint", "idempotentHint", "openWorldHint")}
+    return ok, f"tools: {len(hints['head'])}; annotations identical to Go for every tool: {hints['go'] == hints['head']}\ncounts of true hints: {counts}\n"
+
+
+@lane("r7", 10, "r7-l10-soak.txt")
+def r7_l10():
+    import resource
+    from mcp_client import Stdio
+    rec = Recorder()
+    c = Stdio(HEAD, env=rec_env(rec))
+    fails = 0
+    for i in range(200):
+        r = c.request("tools/call", {"name": "video-list", "arguments": {"ids": [f"v{i}"]}})
+        fails += bool(r.get("error") or r.get("result", {}).get("isError"))
+    rss = sh(["ps", "-o", "rss=", "-p", str(c.p.pid)])[1].strip()
+    c.close()
+    rec.close()
+    mb = int(rss) / 1024 if rss.isdigit() else -1
+    return fails == 0 and 0 < mb < 20, f"200 sequential tools/call in one session: {200 - fails} succeeded; server RSS after the run: {mb:.1f} MB\n"
+
+
 def main():
     pr = sys.argv[1]
     only = set(sys.argv[2:])

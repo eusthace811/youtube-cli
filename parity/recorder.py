@@ -43,6 +43,7 @@ class Recorder:
         threading.Thread(target=self.server.serve_forever, daemon=True).start()
 
     def reset(self, fail=None, overrides=None):
+        self._page_cache = {}
         with self.lock:
             self.requests = []
             self.fail = fail or {}
@@ -124,9 +125,13 @@ class Recorder:
         if isinstance(fx, dict) and "raw" in fx:
             return 200, fx.get("ctype", "application/octet-stream"), fx["raw"].encode()
         if isinstance(fx, dict) and "pages" in fx:
-            pages = fx["pages"]
-            page = next((p for p in pages if p.get("_token", "") == token), pages[0])
-            return 200, "application/json", json.dumps({k: v for k, v in page.items() if k != "_token"}).encode()
+            cache = self.__dict__.setdefault("_page_cache", {})
+            ck = (key, token, id(fx))
+            if ck not in cache:
+                pages = fx["pages"]
+                page = next((p for p in pages if p.get("_token", "") == token), pages[0])
+                cache[ck] = json.dumps({k: v for k, v in page.items() if k != "_token"}).encode()
+            return 200, "application/json", cache[ck]
         if fx is None:
             fx = echo(body, ctype)
         return 200, "application/json", json.dumps(fx).encode()
@@ -179,6 +184,8 @@ class _Handler(BaseHTTPRequestHandler):
             status, ctype, payload, extra = self.recorder.resumable(self.command, u.path, query, body, self.headers)
         else:
             status, ctype, payload = self.recorder.respond(self.command, u.path, query, body, self.headers.get("Content-Type", ""))
+        if self.recorder.requests:
+            self.recorder.requests[-1]["authorization"] = self.headers.get("Authorization", "")
         self.send_response(status)
         for k, v in extra.items():
             self.send_header(k, v)
@@ -199,3 +206,31 @@ class _Handler(BaseHTTPRequestHandler):
             self.rfile.readline()
 
     do_GET = do_POST = do_PUT = do_DELETE = _serve
+
+
+def main():
+    """Runs a standalone recorder: `recorder.py --port P --state DIR`. Each
+    request is appended to DIR/requests.jsonl so a lane can kill and restart
+    the process and still see what it received."""
+    import argparse
+    import time
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--port", type=int, required=True)
+    ap.add_argument("--state", required=True)
+    a = ap.parse_args()
+    rec = Recorder(port=a.port, state=a.state)
+    log = Path(a.state) / "requests.jsonl"
+    seen = 0
+    print(rec.url, flush=True)
+    while True:
+        time.sleep(0.02)
+        with rec.lock:
+            fresh = rec.requests[seen:]
+            seen = len(rec.requests)
+        with open(log, "a") as f:
+            for r in fresh:
+                f.write(json.dumps({k: v for k, v in r.items() if k != "body"}) + "\n")
+
+
+if __name__ == "__main__":
+    main()

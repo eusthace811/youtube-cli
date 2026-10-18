@@ -23,4 +23,5 @@ LD="-s -w -X github.com/eat-pray-ai/yutu/cmd.Version=$STAMP_VERSION -X github.co
 (cd harness && "$GO" build -buildvcs=false -trimpath -tags=netgo -ldflags "$LD" -o ../yutu-go-harness .)
 (cd harness && "$GO" build -buildvcs=false -trimpath -tags=netgo -ldflags "$LD" -o ../yutu-go-dump ./dump)
 (cd harness && "$GO" build -buildvcs=false -trimpath -tags=netgo -o ../yutu-go-encode ./encode)
+(cd harness && "$GO" build -buildvcs=false -trimpath -tags=netgo -o ../yutu-go-tokenwrite ./tokenwrite)
 shasum -a 256 yutu-go yutu-go-harness yutu-go-dump

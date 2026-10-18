@@ -9,3 +9,5 @@ __pycache__/
 /parity/out/
 /ref/yutu-go-encode
 /.claude/
+/ref/yutu-go-tokenwrite
+/target-shared/
