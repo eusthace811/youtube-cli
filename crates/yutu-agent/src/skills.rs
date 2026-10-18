@@ -482,7 +482,7 @@ mod tests {
     fn embedded_youtube_skill_parses() {
         let skills = Skills::embedded();
         let skill = skills.find("youtube").unwrap();
-        assert_eq!(skill.frontmatter.license, "MIT");
+        assert_eq!(skill.frontmatter.license, "Apache-2.0");
         assert_eq!(
             skill.frontmatter.metadata,
             vec![
