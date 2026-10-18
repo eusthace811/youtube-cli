@@ -380,7 +380,7 @@ impl Caption {
             .await
             .map_err(|e| OpError::wrap(ERR_DOWNLOAD, e))?;
         let mut file =
-            crate::fsroot::create_write(&self.file).map_err(|e| OpError::wrap(ERR_DOWNLOAD, e))?;
+            super::common::create_write(&self.file).map_err(|e| OpError::wrap(ERR_DOWNLOAD, e))?;
         while let Some(chunk) = res
             .chunk()
             .await

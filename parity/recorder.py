@@ -30,12 +30,14 @@ def google_error(status, message, reason):
 
 
 class Recorder:
-    def __init__(self, fixtures=FIXTURES):
+    def __init__(self, fixtures=FIXTURES, port=0, state=None):
         self.fixtures = Path(fixtures)
+        self.state = Path(state) if state else None
         self.lock = threading.Lock()
         self.reset()
         handler = type("Handler", (_Handler,), {"recorder": self})
-        self.server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
+        ThreadingHTTPServer.allow_reuse_address = True
+        self.server = ThreadingHTTPServer(("127.0.0.1", port), handler)
         self.server.daemon_threads = True
         self.url = f"http://127.0.0.1:{self.server.server_address[1]}"
         threading.Thread(target=self.server.serve_forever, daemon=True).start()
@@ -54,6 +56,56 @@ class Recorder:
             return self.overrides[key]
         f = self.fixtures / f"{key}.json"
         return json.loads(f.read_text()) if f.exists() else None
+
+    def sessions(self):
+        if self.state and (self.state / "sessions.json").exists():
+            return json.loads((self.state / "sessions.json").read_text())
+        return getattr(self, "_sessions", {})
+
+    def save_sessions(self, sessions):
+        self._sessions = sessions
+        if self.state:
+            self.state.mkdir(parents=True, exist_ok=True)
+            (self.state / "sessions.json").write_text(json.dumps(sessions))
+
+    def resumable(self, method, path, query, body, headers):
+        """The resumable upload protocol: a session start answers with a
+        Location, chunks answer 308 with the acknowledged Range until the last
+        one, and `bytes */N` asks for the current offset. Sessions persist in
+        the state dir so a restarted recorder can resume them."""
+        with self.lock:
+            sessions = self.sessions()
+            if "uploadType" in query:
+                sid = str(len(sessions) + 1)
+                sessions[sid] = {"size": int(headers.get("X-Upload-Content-Length") or 0), "received": 0,
+                                 "key": fixture_key(method, path), "body": body.decode("utf-8", "replace")}
+                self.save_sessions(sessions)
+                self.requests.append({"method": method, "path": path, "query": query, "ctype": headers.get("Content-Type", ""),
+                                      "body": body.decode("utf-8", "replace"), "upload": "start"})
+                return 200, None, b"", {"Location": f"{self.url}/resumable/{sid}"}
+            sid = path.rsplit("/", 1)[-1]
+            sess = sessions[sid]
+            crange = headers.get("Content-Range", "")
+            self.requests.append({"method": method, "path": "/resumable", "query": {}, "ctype": headers.get("Content-Type", ""),
+                                  "body": f"<{len(body)} bytes>", "content_range": crange})
+            unit, _, spec = crange.partition(" ")
+            span, _, total = spec.partition("/")
+            if span != "*":
+                first, _, last = span.partition("-")
+                if int(first) == sess["received"]:
+                    sess["received"] = int(last) + 1
+            if total not in ("", "*"):
+                sess["size"] = int(total)
+            self.save_sessions(sessions)
+            if sess["size"] and sess["received"] >= sess["size"]:
+                fx = self.load(sess["key"])
+                if fx is None:
+                    fx = echo(sess["body"].encode(), "application/json")
+                return 200, "application/json", json.dumps(fx).encode(), {}
+            extra = {"Range": f"bytes=0-{sess['received'] - 1}"} if sess["received"] else {}
+            if headers.get("X-GUploader-No-308") == "yes":
+                return 200, None, b"", {**extra, "X-HTTP-Status-Code-Override": "308"}
+            return 308, None, b"", extra
 
     def respond(self, method, path, query, body, ctype):
         key = fixture_key(method, path)
@@ -121,10 +173,15 @@ class _Handler(BaseHTTPRequestHandler):
             body = self._read_chunked()
         else:
             body = self.rfile.read(length) if length else b""
-        status, ctype, payload = self.recorder.respond(
-            self.command, u.path, parse_qs(u.query, keep_blank_values=True), body,
-            self.headers.get("Content-Type", ""))
+        query = parse_qs(u.query, keep_blank_values=True)
+        extra = {}
+        if u.path.startswith("/resumable/") or query.get("uploadType") == ["resumable"]:
+            status, ctype, payload, extra = self.recorder.resumable(self.command, u.path, query, body, self.headers)
+        else:
+            status, ctype, payload = self.recorder.respond(self.command, u.path, query, body, self.headers.get("Content-Type", ""))
         self.send_response(status)
+        for k, v in extra.items():
+            self.send_header(k, v)
         if ctype:
             self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(payload)))
