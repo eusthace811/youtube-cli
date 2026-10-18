@@ -52,6 +52,23 @@ impl App for Yutu {
             )
             .map_err(CmdError::Exit);
         }
+        if inv.command.path == "mcp" {
+            let runtime = tokio::runtime::Builder::new_current_thread()
+                .enable_all()
+                .build()
+                .map_err(|e| CmdError::Message(e.to_string()))?;
+            let mode = inv.flags.string("mode").to_string();
+            let code = runtime.block_on(yutu_mcp::run(
+                &mode,
+                std::sync::Arc::new(CliService),
+                || yutu_auth::set_mcp_stdio(true),
+            ));
+            return if code == 0 {
+                Ok(())
+            } else {
+                Err(CmdError::Exit(code))
+            };
+        }
         if inv.command.path == "version" {
             // Go prints the banner with cobra's cmd.Printf, which writes to stderr.
             let _ = std::io::stderr().write_all(version::banner(&version::process_env).as_bytes());

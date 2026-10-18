@@ -43,8 +43,9 @@ pub trait App {
 /// Runs the command line `args` (without the program name) and returns the
 /// process exit code.
 pub fn execute(args: Vec<String>, app: &dyn App) -> i32 {
-    let (stdout, stderr) = (std::io::stdout(), std::io::stderr());
-    let (mut out, mut err) = (stdout.lock(), stderr.lock());
+    // Unlocked handles: the MCP server writes stdout from its own threads, so
+    // holding the lock for the whole run would deadlock it.
+    let (mut out, mut err) = (std::io::stdout(), std::io::stderr());
     let code = execute_with(args, app, &mut out, &mut err);
     let _ = out.flush();
     code

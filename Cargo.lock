@@ -1757,6 +1757,7 @@ dependencies = [
  "yutu-api",
  "yutu-auth",
  "yutu-core",
+ "yutu-mcp",
 ]
 
 [[package]]
@@ -1812,6 +1813,7 @@ dependencies = [
  "serde_json",
  "tokio",
  "yutu-api",
+ "yutu-auth",
  "yutu-core",
 ]
 
