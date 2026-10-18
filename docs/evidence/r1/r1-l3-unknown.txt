@@ -1,0 +1,20 @@
+r1 lane 3: PASS
+
+$ yutu-go nope
+exit: 1
+--- stdout ---
+
+--- stderr ---
+Error: unknown command "nope" for "yutu"
+Run 'yutu --help' for usage.
+Run 'yutu -h' to see usage.
+
+$ yutu nope
+exit: 1
+--- stdout ---
+
+--- stderr ---
+Error: unknown command "nope" for "yutu"
+Run 'yutu --help' for usage.
+Run 'yutu -h' to see usage.
+

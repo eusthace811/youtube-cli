@@ -1,0 +1,120 @@
+r1 lane 2: PASS
+
+$ yutu-go --help
+exit: 0
+--- stdout ---
+yutu is a CLI, MCP server, and AI agent that automates your YouTube workflows from the terminal or any AI client.
+
+Environment variables:
+  YUTU_CREDENTIAL    Path/Base64/JSON of OAuth client secret (default: client_secret.json)
+  YUTU_CACHE_TOKEN   Path/Base64/JSON of cached OAuth token (default: youtube.token.json)
+  YUTU_ROOT          Root directory for file resolution (default: current working directory)
+  YUTU_LOG_LEVEL     Log level: DEBUG, INFO, WARN, ERROR (default: INFO)
+
+Usage:
+  yutu [flags]
+  yutu [command]
+
+Available Commands:
+  abuseReport            Manage YouTube abuse reports
+  activity               Manage YouTube activities
+  agent                  Start an agent to automate YouTube workflows
+  auth                   Authenticate with YouTube APIs
+  caption                Manage YouTube video captions
+  channel                Manage YouTube channels
+  channelBanner          Manage YouTube channel banners
+  channelSection         Manage YouTube channel sections
+  comment                Manage YouTube comments
+  commentThread          Manage YouTube comment threads
+  completion             Generate the autocompletion script for the specified shell
+  help                   Help about any command
+  i18nLanguage           Manage YouTube i18n languages
+  i18nRegion             Manage YouTube i18n regions
+  liveBroadcast          Manage YouTube live broadcasts
+  liveChatBan            Manage YouTube live chat bans
+  liveChatMessage        Manage YouTube live chat messages
+  liveChatModerator      Manage YouTube live chat moderators
+  liveStream             Manage YouTube live streams
+  mcp                    Start MCP server
+  member                 Manage YouTube channel members
+  membershipsLevel       Manage YouTube membership levels
+  playlist               Manage YouTube playlists
+  playlistImage          Manage YouTube playlist images
+  playlistItem           Manage YouTube playlist items
+  search                 Manage YouTube search
+  subscription           Manage YouTube subscriptions
+  superChatEvent         Manage YouTube Super Chat events
+  thirdPartyLink         Manage YouTube third-party links
+  thumbnail              Manage YouTube video thumbnails
+  version                Show the version of yutu
+  video                  Manage YouTube videos
+  videoAbuseReportReason Manage YouTube video abuse report reasons
+  videoCategory          Manage YouTube video categories
+  watermark              Manage YouTube watermarks
+
+Flags:
+  -h, --help   help for yutu
+
+Use "yutu [command] --help" for more information about a command.
+
+--- stderr ---
+
+$ yutu --help
+exit: 0
+--- stdout ---
+yutu is a CLI, MCP server, and AI agent that automates your YouTube workflows from the terminal or any AI client.
+
+Environment variables:
+  YUTU_CREDENTIAL    Path/Base64/JSON of OAuth client secret (default: client_secret.json)
+  YUTU_CACHE_TOKEN   Path/Base64/JSON of cached OAuth token (default: youtube.token.json)
+  YUTU_ROOT          Root directory for file resolution (default: current working directory)
+  YUTU_LOG_LEVEL     Log level: DEBUG, INFO, WARN, ERROR (default: INFO)
+
+Usage:
+  yutu [flags]
+  yutu [command]
+
+Available Commands:
+  abuseReport            Manage YouTube abuse reports
+  activity               Manage YouTube activities
+  agent                  Start an agent to automate YouTube workflows
+  auth                   Authenticate with YouTube APIs
+  caption                Manage YouTube video captions
+  channel                Manage YouTube channels
+  channelBanner          Manage YouTube channel banners
+  channelSection         Manage YouTube channel sections
+  comment                Manage YouTube comments
+  commentThread          Manage YouTube comment threads
+  completion             Generate the autocompletion script for the specified shell
+  help                   Help about any command
+  i18nLanguage           Manage YouTube i18n languages
+  i18nRegion             Manage YouTube i18n regions
+  liveBroadcast          Manage YouTube live broadcasts
+  liveChatBan            Manage YouTube live chat bans
+  liveChatMessage        Manage YouTube live chat messages
+  liveChatModerator      Manage YouTube live chat moderators
+  liveStream             Manage YouTube live streams
+  mcp                    Start MCP server
+  member                 Manage YouTube channel members
+  membershipsLevel       Manage YouTube membership levels
+  playlist               Manage YouTube playlists
+  playlistImage          Manage YouTube playlist images
+  playlistItem           Manage YouTube playlist items
+  search                 Manage YouTube search
+  subscription           Manage YouTube subscriptions
+  superChatEvent         Manage YouTube Super Chat events
+  thirdPartyLink         Manage YouTube third-party links
+  thumbnail              Manage YouTube video thumbnails
+  version                Show the version of yutu
+  video                  Manage YouTube videos
+  videoAbuseReportReason Manage YouTube video abuse report reasons
+  videoCategory          Manage YouTube video categories
+  watermark              Manage YouTube watermarks
+
+Flags:
+  -h, --help   help for yutu
+
+Use "yutu [command] --help" for more information about a command.
+
+--- stderr ---
+

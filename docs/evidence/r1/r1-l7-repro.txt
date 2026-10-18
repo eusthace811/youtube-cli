@@ -1,0 +1,26 @@
+r1 lane 7: PASS
+
+build 1: exit 0 sha256 75140a7c4d6553ee2b9ac096da549afa6cd7c7918926bc0d7ff133e5c2baeb16
+Compiling toml_writer v1.1.3+spec-1.1.0
+   Compiling toml_parser v1.1.5+spec-1.1.0
+   Compiling syn v3.0.9
+   Compiling toml_datetime v0.7.5+spec-1.1.0
+   Compiling serde_spanned v1.1.2
+   Compiling toml v0.9.12+spec-1.1.0
+   Compiling serde_derive v1.0.229
+   Compiling yutu-core v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-core)
+   Compiling yutu v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu)
+    Finished `release` profile [optimized] target(s) in 3.98s
+
+build 2: exit 0 sha256 75140a7c4d6553ee2b9ac096da549afa6cd7c7918926bc0d7ff133e5c2baeb16
+Compiling toml_writer v1.1.3+spec-1.1.0
+   Compiling toml_parser v1.1.5+spec-1.1.0
+   Compiling syn v3.0.9
+   Compiling toml_datetime v0.7.5+spec-1.1.0
+   Compiling serde_spanned v1.1.2
+   Compiling toml v0.9.12+spec-1.1.0
+   Compiling serde_derive v1.0.229
+   Compiling yutu-core v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-core)
+   Compiling yutu v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu)
+    Finished `release` profile [optimized] target(s) in 3.96s
+

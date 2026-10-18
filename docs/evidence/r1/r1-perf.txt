@@ -1,0 +1,7 @@
+r1 perf: PASS
+
+Metric: `yutu version` wall time over 60 interleaved runs, peak RSS, stripped binary size.
+Spawn floor /usr/bin/true: median 1.30 ms, p90 1.39 ms
+Trunk (Go):  median 12.48 ms, p90 13.48 ms, RSS 36.3 MB, binary 57.1 MB
+Head (Rust): median 1.89 ms, p90 2.08 ms, RSS 2.1 MB, binary 0.6 MB
+Rule: head median <= 4.0 ms, RSS <= 12 MB, binary <= 15 MB.

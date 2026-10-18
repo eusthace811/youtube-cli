@@ -1,0 +1,22 @@
+r1 lane 1: PASS
+
+$ yutu-go version
+exit: 0
+--- stdout ---
+
+--- stderr ---
+  _(\_/)_     yutu v0.11.0 darwin/arm64
+ │   ▶   │    CLI, MCP server, and AI agent to automate YouTube workflows
+ │ • x • │    📦 build: Gopher-2026-10-15T00:00:00Z
+ ╰─/───\─╯    🌟 Star:  Github/eat-pray-ai/yutu (https://github.com/eat-pray-ai/yutu)[0m
+
+$ yutu version
+exit: 0
+--- stdout ---
+
+--- stderr ---
+  _(\_/)_     yutu v0.11.0 darwin/arm64
+ │   ▶   │    CLI, MCP server, and AI agent to automate YouTube workflows
+ │ • x • │    📦 build: Gopher-2026-10-15T00:00:00Z
+ ╰─/───\─╯    🌟 Star:  Github/eat-pray-ai/yutu (https://github.com/eat-pray-ai/yutu)[0m
+

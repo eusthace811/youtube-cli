@@ -1,0 +1,14 @@
+r1 lane 5: PASS
+
+$ xtask egress target/release/yutu
+exit: 0
+--- stdout ---
+egress: display-only https://api.deepseek.com/ (the `yutu agent --help` example of --base-url)
+egress: display-only https://custom.endpoint.com/ (the `yutu agent --help` example of --base-url)
+egress: display-only https://github.com/eat-pray-ai/yutu (the `yutu version` banner link)
+egress: display-only https://github.com/spf13/cobra/issues/1279 (a comment in cobra's fish completion script)
+egress: display-only https://github.com/spf13/cobra/issues/1508 (a comment in cobra's bash completion script)
+egress: 0 unexpected hosts
+
+--- stderr ---
+

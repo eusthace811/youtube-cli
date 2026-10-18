@@ -1,0 +1,52 @@
+r1 lane 8: PASS
+
+$ yutu-go help video
+exit: 0
+--- stdout ---
+Manage YouTube videos. Use this tool to list, upload, update, delete, get rating, or report videos.
+
+Usage:
+  yutu video [flags]
+  yutu video [command]
+
+Available Commands:
+  delete      Delete videos
+  getRating   Get video ratings
+  insert      Upload a video
+  list        List videos
+  rate        Rate a video
+  reportAbuse Report abuse on a video
+  update      Update a video
+
+Flags:
+  -h, --help   help for video
+
+Use "yutu video [command] --help" for more information about a command.
+
+--- stderr ---
+
+$ yutu help video
+exit: 0
+--- stdout ---
+Manage YouTube videos. Use this tool to list, upload, update, delete, get rating, or report videos.
+
+Usage:
+  yutu video [flags]
+  yutu video [command]
+
+Available Commands:
+  delete      Delete videos
+  getRating   Get video ratings
+  insert      Upload a video
+  list        List videos
+  rate        Rate a video
+  reportAbuse Report abuse on a video
+  update      Update a video
+
+Flags:
+  -h, --help   help for video
+
+Use "yutu video [command] --help" for more information about a command.
+
+--- stderr ---
+

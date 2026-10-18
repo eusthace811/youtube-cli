@@ -1,0 +1,64 @@
+r1 lane 10: PASS
+
+SUBSTITUTED: no GitHub repository exists (operator chose a local repo), so the ci.yml steps run locally on macOS; the Linux job cannot run here (no Docker).
+$ cargo fmt --all --check -> exit 0
+
+$ cargo clippy --workspace --all-targets --locked -- -D warnings -> exit 0
+ecking yutu-agent v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-agent)
+    Checking serde v1.0.229
+    Checking serde_json v1.0.154
+    Checking xtask v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/xtask)
+   Compiling toml_datetime v0.7.5+spec-1.1.0
+   Compiling serde_spanned v1.1.2
+   Compiling toml v0.9.12+spec-1.1.0
+   Compiling yutu-core v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-core)
+    Checking yutu v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.46s
+
+$ cargo test --workspace --locked -> exit 0
+7c)
+     Running unittests src/lib.rs (target/debug/deps/yutu_api-ff9685e4b7f10820)
+     Running unittests src/lib.rs (target/debug/deps/yutu_auth-c72969c7d8f0b392)
+     Running unittests src/lib.rs (target/debug/deps/yutu_core-77c2f58ce337948e)
+     Running tests/help_golden.rs (target/debug/deps/help_golden-71b7cbf9e580cd7b)
+     Running tests/registry.rs (target/debug/deps/registry-483cd1da3b0326ff)
+     Running unittests src/lib.rs (target/debug/deps/yutu_mcp-c271c51939d85fdd)
+   Doc-tests yutu_agent
+   Doc-tests yutu_api
+   Doc-tests yutu_auth
+   Doc-tests yutu_core
+   Doc-tests yutu_mcp
+
+$ cargo build --release --locked -> exit 0
+    Finished `release` profile [optimized] target(s) in 0.01s
+
+$ cargo run --locked -p xtask -- egress target/release/yutu -> exit 0
+ --help` example of --base-url)
+egress: display-only https://custom.endpoint.com/ (the `yutu agent --help` example of --base-url)
+egress: display-only https://github.com/eat-pray-ai/yutu (the `yutu version` banner link)
+egress: display-only https://github.com/spf13/cobra/issues/1279 (a comment in cobra's fish completion script)
+egress: display-only https://github.com/spf13/cobra/issues/1508 (a comment in cobra's bash completion script)
+egress: 0 unexpected hosts
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/xtask egress target/release/yutu`
+
+$ cargo deny check -> exit 0
+nse-not-encountered]: license was not encountered
+   ┌─ /Users/juan/Projects/youtube-cli/youtube-cli/deny.toml:23:6
+   │
+23 │     "CDLA-Permissive-2.0",
+   │      ━━━━━━━━━━━━━━━━━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /Users/juan/Projects/youtube-cli/youtube-cli/deny.toml:20:6
+   │
+20 │     "ISC",
+   │      ━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /Users/juan/Projects/youtube-cli/youtube-cli/deny.toml:17:6
+   │
+17 │     "MIT-0",
+   │      ━━━━━ unmatched license allowance
+
+

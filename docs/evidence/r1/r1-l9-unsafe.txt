@@ -1,0 +1,7 @@
+r1 lane 9: PASS
+
+crate roots: ['crates/yutu-agent/src/lib.rs', 'crates/yutu-api/src/lib.rs', 'crates/yutu-auth/src/lib.rs', 'crates/yutu-core/src/lib.rs', 'crates/yutu-mcp/src/lib.rs', 'crates/yutu/src/main.rs', 'xtask/src/main.rs']
+missing forbid: []
+other unsafe mentions:
+
+cargo build exit 0

@@ -155,6 +155,99 @@ def r0_l10():
     return ok, "--- yaml (head) ---\n" + y["stdout"][:800] + "\n--- yaml tail repr ---\n" + repr(y["stdout"][-60:]) + "\n--- table ---\n" + t["stdout"] + "|<EOF\n"
 
 
+# R1 ---------------------------------------------------------------------
+
+def both(args, env=None):
+    env = env or {"PATH": "/usr/bin:/bin", "HOME": "/tmp"}
+    g = sh([GO] + args, env=env)
+    h = sh([HEAD] + args, env=env)
+    return g, h
+
+
+@lane("r1", 1, "r1-l1-version.txt")
+def r1_l1():
+    g, h = both(["version"])
+    return g == h, fmt("yutu-go version", *g) + fmt("yutu version", *h)
+
+
+@lane("r1", 2, "r1-l2-help.txt")
+def r1_l2():
+    g, h = both(["--help"])
+    return g == h, fmt("yutu-go --help", *g) + fmt("yutu --help", *h)
+
+
+@lane("r1", 3, "r1-l3-unknown.txt")
+def r1_l3():
+    g, h = both(["nope"])
+    return g[0] == h[0] and g[2] == h[2], fmt("yutu-go nope", *g) + fmt("yutu nope", *h)
+
+
+@lane("r1", 4, "r1-l4-ban.txt")
+def r1_l4():
+    d = Path(tempfile.mkdtemp())
+    sh(["git", "clone", "--quiet", "--branch", sh(["git", "-C", str(ROOT), "rev-parse", "--abbrev-ref", "HEAD"])[1].strip(), str(ROOT), str(d / "c")])
+    toml = d / "c" / "crates" / "yutu-core" / "Cargo.toml"
+    toml.write_text(toml.read_text().replace("[dependencies]\n", "[dependencies]\ntracing-opentelemetry = \"0.32\"\n", 1))
+    code, out, err = sh(["cargo", "deny", "check", "bans"], cwd=d / "c")
+    named = "tracing-opentelemetry" in out + err
+    return code != 0 and named, fmt("cargo deny check bans (with tracing-opentelemetry added)", code, out[-3000:], err[-3000:])
+
+
+@lane("r1", 5, "r1-l5-egress.txt")
+def r1_l5():
+    code, out, err = sh(["cargo", "run", "-q", "-p", "xtask", "--", "egress", HEAD], cwd=ROOT)
+    return code == 0 and "egress: 0 unexpected hosts" in out + err, fmt("xtask egress target/release/yutu", code, out, err)
+
+
+@lane("r1", 6, "r1-l6-offline.txt")
+def r1_l6():
+    profile = "(version 1)(allow default)(deny network*)"
+    code, out, err = sh(["sandbox-exec", "-p", profile, HEAD, "version"], env={"PATH": "/usr/bin:/bin"})
+    g = sh([GO, "version"], env={"PATH": "/usr/bin:/bin"})
+    return code == 0 and err == g[2], fmt("sandbox-exec (deny network*) yutu version", code, out, err)
+
+
+@lane("r1", 7, "r1-l7-repro.txt")
+def r1_l7():
+    hashes = []
+    log = ""
+    for i in range(2):
+        target = Path(tempfile.mkdtemp()) / "target"
+        code, out, err = sh(["cargo", "build", "--release", "--locked", "--target-dir", str(target), "-p", "yutu"], cwd=ROOT)
+        h = sh(["shasum", "-a", "256", str(target / "release" / "yutu")])[1].split()[0] if code == 0 else "build failed"
+        hashes.append(h)
+        log += f"build {i + 1}: exit {code} sha256 {h}\n{err[-500:]}\n"
+    return len(set(hashes)) == 1 and "failed" not in hashes[0], log
+
+
+@lane("r1", 8, "r1-l8-help-sub.txt")
+def r1_l8():
+    g, h = both(["help", "video"])
+    return g == h, fmt("yutu-go help video", *g) + fmt("yutu help video", *h)
+
+
+@lane("r1", 9, "r1-l9-unsafe.txt")
+def r1_l9():
+    roots = sorted(str(p.relative_to(ROOT)) for p in ROOT.glob("crates/*/src/lib.rs")) + sorted(str(p.relative_to(ROOT)) for p in ROOT.glob("crates/*/src/main.rs")) + ["xtask/src/main.rs"]
+    missing = [r for r in roots if "#![forbid(unsafe_code)]" not in (ROOT / r).read_text()]
+    grep = sh("grep -rn 'unsafe' crates/ xtask/ --include=*.rs | grep -v 'forbid(unsafe_code)' || true", cwd=ROOT)[1]
+    code, out, err = sh(["cargo", "build", "-q", "--workspace"], cwd=ROOT)
+    return not missing and not grep.strip() and code == 0, f"crate roots: {roots}\nmissing forbid: {missing}\nother unsafe mentions:\n{grep}\ncargo build exit {code}\n{err[-1000:]}"
+
+
+@lane("r1", 10, "r1-l10-ci.txt")
+def r1_l10():
+    steps = [["cargo", "fmt", "--all", "--check"], ["cargo", "clippy", "--workspace", "--all-targets", "--locked", "--", "-D", "warnings"],
+             ["cargo", "test", "--workspace", "--locked"], ["cargo", "build", "--release", "--locked"],
+             ["cargo", "run", "--locked", "-p", "xtask", "--", "egress", "target/release/yutu"], ["cargo", "deny", "check"]]
+    log, ok = "SUBSTITUTED: no GitHub repository exists (operator chose a local repo), so the ci.yml steps run locally on macOS; the Linux job cannot run here (no Docker).\n", True
+    for s in steps:
+        code, out, err = sh(s, cwd=ROOT)
+        ok &= code == 0
+        log += f"$ {' '.join(s)} -> exit {code}\n{(out + err)[-600:]}\n"
+    return ok, log
+
+
 def main():
     pr = sys.argv[1]
     only = set(sys.argv[2:])

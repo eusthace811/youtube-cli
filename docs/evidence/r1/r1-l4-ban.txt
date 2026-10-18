@@ -1,0 +1,34 @@
+r1 lane 4: PASS
+
+$ cargo deny check bans (with tracing-opentelemetry added)
+exit: 2
+--- stdout ---
+bans FAILED
+
+--- stderr ---
+error[banned]: crate 'opentelemetry = 0.31.0' is explicitly banned
+   ┌─ /private/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp3pv1rsmc/c/deny.toml:32:16
+   │
+32 │     { crate = "opentelemetry", reason = "no telemetry ships in yutu-rs" },
+   │                ━━━━━━━━━━━━━             ───────────────────────────── reason
+   │                │                          
+   │                banned here
+   │
+   ├ opentelemetry v0.31.0
+     └── tracing-opentelemetry v0.32.1
+         └── yutu-core v0.11.0
+             └── yutu v0.11.0
+
+error[banned]: crate 'tracing-opentelemetry = 0.32.1' is explicitly banned
+   ┌─ /private/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp3pv1rsmc/c/deny.toml:38:16
+   │
+38 │     { crate = "tracing-opentelemetry", reason = "no telemetry ships in yutu-rs" },
+   │                ━━━━━━━━━━━━━━━━━━━━━             ───────────────────────────── reason
+   │                │                                  
+   │                banned here
+   │
+   ├ tracing-opentelemetry v0.32.1
+     └── yutu-core v0.11.0
+         └── yutu v0.11.0
+
+
