@@ -1792,9 +1792,11 @@ dependencies = [
 name = "yutu-core"
 version = "0.11.0"
 dependencies = [
+ "cap-std",
  "serde",
  "serde_json",
  "toml",
+ "yutu-auth",
 ]
 
 [[package]]

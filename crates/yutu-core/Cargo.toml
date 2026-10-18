@@ -6,6 +6,8 @@ license.workspace = true
 publish = false
 
 [dependencies]
+yutu-auth.workspace = true
+cap-std = "4"
 
 [build-dependencies]
 serde.workspace = true
