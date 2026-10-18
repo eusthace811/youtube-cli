@@ -177,16 +177,42 @@ pub async fn agent(llm_url: &str, youtube_url: &str) -> Agent {
     }
 }
 
-/// Runs a console session over `stdin` and returns what it printed.
+/// Runs a console session as a person at a terminal would: each line of
+/// `stdin` is typed only once the next prompt has been printed.
 pub async fn console(agent: &Agent, stdin: &[&str]) -> String {
-    let (tx, rx) = mpsc::channel(stdin.len().max(1));
-    for line in stdin {
-        tx.send(format!("{line}\n")).await.unwrap();
+    let (tx, rx) = mpsc::unbounded_channel();
+    let mut out = Typist {
+        out: Vec::new(),
+        pending: stdin.iter().map(|l| format!("{l}\n")).collect(),
+        tx: Some(tx),
+    };
+    yutu_agent::console::run(agent, rx, &mut out, Streaming::None, true).await;
+    String::from_utf8(out.out).unwrap()
+}
+
+struct Typist {
+    out: Vec<u8>,
+    pending: std::collections::VecDeque<String>,
+    tx: Option<mpsc::UnboundedSender<String>>,
+}
+
+impl std::io::Write for Typist {
+    fn write(&mut self, buf: &[u8]) -> std::io::Result<usize> {
+        self.out.extend_from_slice(buf);
+        if buf.ends_with(b"User -> ") || buf.ends_with(b"[y/N] ") {
+            match self.pending.pop_front() {
+                Some(line) => {
+                    let _ = self.tx.as_ref().map(|tx| tx.send(line));
+                }
+                None => self.tx = None,
+            }
+        }
+        Ok(buf.len())
     }
-    drop(tx);
-    let mut out: Vec<u8> = Vec::new();
-    yutu_agent::console::run(agent, rx, &mut out, Streaming::None).await;
-    String::from_utf8(out).unwrap()
+
+    fn flush(&mut self) -> std::io::Result<()> {
+        Ok(())
+    }
 }
 
 pub fn block_on<F: std::future::Future>(f: F) -> F::Output {
@@ -206,6 +232,7 @@ pub struct Web {
 }
 
 pub const TOKEN: &str = "test-token-0123456789abcdef";
+pub const UI_TOKEN: &str = "test-ui-token-fedcba9876543210";
 
 pub async fn web(args: &str, script: Vec<Value>) -> Web {
     let (llm, model) = mock_llm(script).await;
@@ -220,6 +247,7 @@ pub async fn web(args: &str, script: Vec<Value>) -> Web {
         Arc::new(agent),
         *cfg,
         TOKEN.into(),
+        UI_TOKEN.into(),
         yutu_agent::agent::INSTRUCTION,
         false,
     );

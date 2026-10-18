@@ -52,10 +52,13 @@ impl Llm {
 }
 
 /// The HTTP client both providers share. Generation can think for minutes,
-/// so the idle read bound is generous; `connect` stays short.
+/// so the idle read bound is generous; `connect` stays short. Redirects are
+/// not followed: the API key travels in a custom header that reqwest would
+/// carry to whatever host a redirect names.
 pub(crate) fn http_client() -> reqwest::Client {
     let _ = rustls::crypto::ring::default_provider().install_default();
     reqwest::Client::builder()
+        .redirect(reqwest::redirect::Policy::none())
         .connect_timeout(Duration::from_secs(10))
         .read_timeout(Duration::from_secs(300))
         .user_agent(concat!("yutu-rs/", env!("CARGO_PKG_VERSION")))

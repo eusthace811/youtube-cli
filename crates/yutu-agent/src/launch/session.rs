@@ -227,7 +227,9 @@ impl Session {
                 Slot::Busy { pending, .. } => pending.take(),
             };
             match (pending, &answer) {
-                (Some(p), Some((id, confirmed))) if *id == p.call_id => {
+                // Only the person at the browser may answer; a program's
+                // answer stops the turn like any other message.
+                (Some(p), Some((id, confirmed))) if *id == p.call_id && input.human => {
                     self.append(user_event(&wire::uuid4(), &input));
                     let verdict = if *confirmed {
                         Verdict::Approve

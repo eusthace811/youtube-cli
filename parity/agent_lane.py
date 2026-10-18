@@ -1,7 +1,9 @@
 """Scripted `yutu agent` sessions against the mock LLM and the parity recorder.
 
 Runs the agent (Go harness or Rust head) with its model pointed at
-parity/mockllm and its YouTube calls at parity/recorder, feeds stdin, and
+parity/mockllm and its YouTube calls at parity/recorder, types stdin into a
+pseudo-terminal one line per prompt (head takes approvals only from a
+terminal, after the question is shown), and
 collects what the console printed, what the recorder saw and every model
 request. `lanes` runs the R9 lanes and writes docs/evidence/r9; `compare`
 diffs two binaries on one script.
@@ -12,11 +14,13 @@ diffs two binaries on one script.
 import argparse
 import json
 import os
+import pty
 import re
 import statistics
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 from pathlib import Path
 
@@ -27,6 +31,54 @@ from recorder import Recorder  # noqa: E402
 from server import Mock  # noqa: E402
 
 TIMESTAMP = re.compile(r"time=\S+ ")
+PROMPTS = (b"User -> ", b"[y/N] ")
+
+
+def typed(argv, stdin, env, timeout):
+    """Runs `argv` with a terminal on stdin, typing each line of `stdin` once
+    one more prompt has been printed than lines typed so far, then Ctrl-D.
+    Returns (exit, stdout, stderr)."""
+    master, slave = pty.openpty()
+    p = subprocess.Popen(argv, stdin=slave, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
+    os.close(slave)
+    out, err, seen = bytearray(), bytearray(), threading.Condition()
+
+    def pump(stream, buf):
+        for chunk in iter(lambda: os.read(stream.fileno(), 65536), b""):
+            with seen:
+                buf.extend(chunk)
+                seen.notify_all()
+        with seen:
+            seen.notify_all()
+
+    def drain_echo():
+        try:
+            while os.read(master, 65536):
+                pass
+        except OSError:
+            pass
+
+    threads = [threading.Thread(target=pump, args=(p.stdout, out)),
+               threading.Thread(target=pump, args=(p.stderr, err)),
+               threading.Thread(target=drain_echo, daemon=True)]
+    for t in threads:
+        t.start()
+    deadline = time.time() + timeout
+    keys = [line.encode() for line in stdin.splitlines(keepends=True)] + [b"\x04"]
+    for i, key in enumerate(keys):
+        with seen:
+            while sum(out.count(m) for m in PROMPTS) <= i and p.poll() is None:
+                if not seen.wait(max(0.0, deadline - time.time())) and time.time() > deadline:
+                    p.kill()
+                    raise subprocess.TimeoutExpired(argv, timeout)
+        if p.poll() is not None:
+            break
+        os.write(master, key)
+    p.wait(max(1, deadline - time.time()))
+    for t in threads[:2]:
+        t.join()
+    os.close(master)
+    return p.returncode, bytes(out), bytes(err)
 KEY = "test-llm-key"
 
 
@@ -48,16 +100,17 @@ def session(binary, script, stdin, provider="google", flags=(), env=None, base_f
         e = {k: v for k, v in os.environ.items() if not k.endswith(("_API_KEY", "_BASE_URL"))}
         if not base_flag:
             e["GOOGLE_GEMINI_BASE_URL" if provider == "google" else "OPENAI_BASE_URL"] = base
+        e.pop("CI", None)
         e.update(env or {})
         e["YUTU_PARITY_ENDPOINT"] = rec.url
         run = ["/usr/bin/time", "-l"] + argv if measure else argv
         start = time.perf_counter()
-        p = subprocess.run(run, input=stdin.encode(), capture_output=True, env=e, timeout=timeout)
+        code, stdout, stderr = typed(run, stdin, e, timeout)
         wall = time.perf_counter() - start
         llm = [json.loads(line) for line in open(log.name)]
         mock.close()
     rec.close()
-    stderr = p.stderr.decode()
+    stderr = stderr.decode()
     rss = None
     if measure:
         m = re.search(r"(\d+)\s+maximum resident set size", stderr)
@@ -66,8 +119,8 @@ def session(binary, script, stdin, provider="google", flags=(), env=None, base_f
         stderr = re.sub(r"\s+\S+ real .*", "", stderr, flags=re.S)
     return {
         "argv": [a.replace(KEY, "<key>") for a in argv],
-        "exit": p.returncode,
-        "stdout": p.stdout.decode(),
+        "exit": code,
+        "stdout": stdout.decode(),
         "stderr": TIMESTAMP.sub("time=T ", stderr),
         "recorder": [f'{r["method"]} {r["path"]} {json.dumps(r["query"], sort_keys=True)}' for r in rec.requests],
         "llm": llm,

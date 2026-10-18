@@ -1,0 +1,38 @@
+R12 lane 6: fuzzing, 30 minutes per target on the r12 head (88c68f6), nightly cargo-fuzz (libFuzzer), started in parallel.
+Pass rule: no crash, panic, assertion, timeout, leak or OOM report; the artifact directories stay empty.
+
+Targets:
+- yutu-auth `input`: Go base64 round trips, the token file's Go JSON round trip, client-secret parsing,
+  inline credential decoding and Go path cleaning on arbitrary bytes.
+- yutu-api `decode`: any bytes a hostile server returns must decode to a value or an error, never panic,
+  and every decoded value must encode.
+
+Commands, each run from its crate directory (crates/yutu-auth, crates/yutu-api):
+  cargo +nightly fuzz run input -- -max_total_time=1800
+  cargo +nightly fuzz run decode -- -max_total_time=1800
+
+== input (libFuzzer summary lines from the full log)
+INFO: Seed: 2398345189
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 205 ft: 205 corp: 1/1b exec/s: 0 rss: 55Mb
+#22438511	DONE   cov: 1915 ft: 8606 corp: 2317/446Kb lim: 4096 exec/s: 12458 rss: 1058Mb
+Done 22438511 runs in 1801 second(s)
+exit 0
+
+== decode (libFuzzer summary lines from the full log)
+INFO: Seed: 2397564886
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 207 ft: 207 corp: 1/1b exec/s: 0 rss: 54Mb
+#25267323	DONE   cov: 2766 ft: 10465 corp: 2976/358Kb lim: 4096 exec/s: 14029 rss: 965Mb
+Done 25267323 runs in 1801 second(s)
+exit 0
+
+Artifact directories after both runs:
+  crates/yutu-auth/fuzz/artifacts/input: 0 files
+  crates/yutu-api/fuzz/artifacts/decode: 0 files
+
+The full logs (15,599 and 23,396 lines) are not committed; the lines above are every summary line libFuzzer printed.
+
+PASS: 22,438,511 and 25,267,323 executions in 1801 s each, exit 0, no crash artifacts.

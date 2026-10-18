@@ -50,3 +50,50 @@ fn end_of_input_at_the_prompt_declines() {
         assert!(api_log.lock().unwrap().is_empty());
     })
 }
+
+async fn queued_session(stdin: &[&str], interactive: bool) -> (String, usize) {
+    let (llm, _) = mock_llm(vec![
+        json!({"calls": [{"name": "video-delete", "args": {"ids": ["v1"]}}]}),
+        json!({"text": "Kept it."}),
+        json!({"text": "ok"}),
+    ])
+    .await;
+    let (youtube, api_log) = recorder().await;
+    let agent = agent(&llm, &youtube).await;
+    let (tx, rx) = tokio::sync::mpsc::unbounded_channel();
+    for line in stdin {
+        tx.send(format!("{line}\n")).unwrap();
+    }
+    drop(tx);
+    let mut out: Vec<u8> = Vec::new();
+    yutu_agent::console::run(
+        &agent,
+        rx,
+        &mut out,
+        yutu_agent::launcher::Streaming::None,
+        interactive,
+    )
+    .await;
+    let writes = api_log.lock().unwrap().len();
+    (String::from_utf8(out).unwrap(), writes)
+}
+
+#[test]
+fn a_y_queued_before_the_prompt_does_not_approve() {
+    block_on(async {
+        let (transcript, writes) = queued_session(&["delete video v1", "y"], true).await;
+
+        assert_eq!(writes, 0);
+        assert!(transcript.contains("[y/N] Kept it.\nUser -> \nAgent -> ok"));
+    })
+}
+
+#[test]
+fn without_a_terminal_every_write_is_declined() {
+    block_on(async {
+        let (transcript, writes) = queued_session(&["delete video v1"], false).await;
+
+        assert_eq!(writes, 0);
+        assert!(transcript.contains("[y/N] \nnot a terminal, declined\nKept it."));
+    })
+}

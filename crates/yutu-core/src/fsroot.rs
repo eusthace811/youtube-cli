@@ -68,22 +68,30 @@ impl Root {
         {
             return Err(blocked());
         }
-        if let Ok(meta) = self.dir.dir().metadata(name) {
-            self.refuse_protected(meta.dev(), meta.ino())?;
-        }
+        // The identity check runs on the opened handle and truncation only
+        // after it, so swapping a link in after the checks above cannot
+        // reach a protected file.
         let mut options = OpenOptions::new();
-        options.write(true).create(true).truncate(true).mode(0o600);
-        self.dir
+        options.write(true).create(true).mode(0o600);
+        let file = self
+            .dir
             .dir()
             .open_with(name, &options)
             .map(cap_std::fs::File::into_std)
-            .map_err(|e| go_path_error("openat", name, e))
+            .map_err(|e| go_path_error("openat", name, e))?;
+        let meta = file.metadata()?;
+        self.refuse_protected(meta.dev(), meta.ino())?;
+        file.set_len(0)?;
+        Ok(file)
     }
 }
 
 impl Root {
     /// Refuses the active credential and token files by identity, so a
-    /// renamed path, hard link or symlink cannot reach them (E1).
+    /// renamed path, hard link or symlink cannot reach them (E1). Each is
+    /// looked up both as yutu-auth resolves it (from the working directory,
+    /// absolute paths included) and under the root; a lookup that fails for
+    /// any reason but absence refuses.
     fn refuse_protected(&self, dev: u64, ino: u64) -> io::Result<()> {
         let names = [
             std::env::var("YUTU_CREDENTIAL")
@@ -95,7 +103,21 @@ impl Root {
                 .filter(|v| !v.is_empty())
                 .unwrap_or_else(|| "youtube.token.json".into()),
         ];
+        let same = |m: &std::fs::Metadata| m.dev() == dev && m.ino() == ino;
         for n in names {
+            let abs = gopath::abs(&n).unwrap_or_else(|_| n.clone());
+            match std::fs::metadata(&abs) {
+                Ok(m) if same(&m) => return Err(blocked()),
+                Err(e)
+                    if !matches!(
+                        e.kind(),
+                        io::ErrorKind::NotFound | io::ErrorKind::NotADirectory
+                    ) =>
+                {
+                    return Err(blocked());
+                }
+                _ => {}
+            }
             if let Ok(m) = self.dir.dir().metadata(&n)
                 && m.dev() == dev
                 && m.ino() == ino

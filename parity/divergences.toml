@@ -4,9 +4,9 @@
 
 [divergence.E1]
 summary = "caption download is confirmation-gated and writes only through the sandbox, so it can never overwrite a token or secret"
-prs = ["R4", "R6"]
+prs = ["R4", "R6", "R12"]
 fields = ["requests", "stdout", "stderr", "exit", "files"]
-proof = "cli.caption.download.*.yes cases match Go's golden for the ungated command; crates/yutu-core tests refuse youtube.token.json"
+proof = "cli.caption.download.*.yes cases match Go's golden for the ungated command; crates/yutu-core/tests/fsroot.rs refuses youtube.token.json and fsroot_token_env.rs a token named by an absolute path"
 
 [divergence.E2]
 summary = "a login triggered during stdio MCP prints only to stderr and never reads stdin"
@@ -52,9 +52,9 @@ proof = "crates/yutu-mcp/tests/http.rs and r8 lanes 5 and 7"
 
 [divergence.E9]
 summary = "the agent cannot approve its own writes; a human approves each one"
-prs = ["R9", "R10"]
+prs = ["R9", "R10", "R12"]
 fields = []
-proof = "crates/yutu-agent/tests/confirm.rs, crates/yutu-agent/tests/web_confirm.rs and r10 lane 9"
+proof = "crates/yutu-agent/tests/confirm.rs (including type-ahead and no-terminal declines), crates/yutu-agent/tests/web_confirm.rs (including a program answering the browser's confirmation) and r10 lane 9"
 
 [divergence.E10]
 summary = "the agent reads API keys from environment variables when the flag is absent"
@@ -63,8 +63,8 @@ fields = []
 proof = "r9 lane 9"
 
 [divergence.E11]
-summary = "agent web launchers require a per-launch bearer token"
-prs = ["R10"]
+summary = "agent web launchers require a per-launch bearer token for programs and a separate per-launch token for the dev UI's browser"
+prs = ["R10", "R12"]
 fields = []
 proof = "crates/yutu-agent/tests/auth.rs"
 

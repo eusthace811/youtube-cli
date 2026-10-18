@@ -23,6 +23,7 @@ from recorder import Recorder  # noqa: E402
 from server import Mock  # noqa: E402
 
 TOKEN = re.compile(r"token: ([A-Za-z0-9_-]{20,})")
+UI_TOKEN = re.compile(r"sign in the browser with \S+\?token=([A-Za-z0-9_-]{20,})")
 KEY = "test-llm-key"
 
 
@@ -31,6 +32,7 @@ class WebAgent:
         self.binary, self.script, self.args, self.port = str(binary), script, args, port
         self.provider, self.extra, self.overrides, self.env = provider, list(extra), overrides, env or {}
         self.token = None
+        self.ui_token = None
 
     def __enter__(self):
         self.rec = Recorder()
@@ -62,8 +64,11 @@ class WebAgent:
         else:
             raise RuntimeError("agent did not listen: " + self.stderr())
         time.sleep(0.1)
-        m = TOKEN.search(self.stderr())
+        log = self.stderr()
+        m = TOKEN.search(log)
         self.token = m.group(1) if m else None
+        m = UI_TOKEN.search(log)
+        self.ui_token = m.group(1) if m else None
         return self
 
     def stderr(self):

@@ -1,7 +1,10 @@
 //! ADK's web launcher: one HTTP server on `-host:-port` (loopback by
 //! default) whose routes the active sublaunchers mount, in ADK's order.
-//! Every route needs the bearer token printed at launch (divergence E11);
-//! the dev UI gets it as a cookie from its first, token-carrying URL.
+//! Every route needs a secret printed at launch (divergence E11): programs
+//! send the bearer token, and the dev UI gets its own token as a cookie from
+//! its first, token-carrying URL. The two never stand in for each other, so
+//! a program given the bearer token cannot pass for the person at the
+//! browser, the only caller who may approve writes.
 
 use ::http::Method;
 use std::sync::Arc;
@@ -23,6 +26,7 @@ pub struct App {
     pub tasks: Tasks,
     pub eventarc_slots: Option<tokio::sync::Semaphore>,
     token: String,
+    ui_token: String,
     card: Option<String>,
 }
 
@@ -31,16 +35,18 @@ pub struct App {
 enum Caller {
     /// `Authorization: Bearer`: a program, with no human to approve writes.
     Bearer,
-    /// The dev UI's cookie: a person at the browser.
+    /// The dev UI's cookie, holding the UI token: a person at the browser.
     Browser,
 }
 
 impl App {
+    /// `token` authenticates programs and `ui_token` the dev UI's browser;
     /// `instruction` and `google_search` describe the agent on the A2A card.
     pub fn new(
         agent: Arc<Agent>,
         cfg: WebConfig,
         token: String,
+        ui_token: String,
         instruction: &str,
         google_search: bool,
     ) -> App {
@@ -58,6 +64,7 @@ impl App {
             tasks: Tasks::default(),
             eventarc_slots,
             token,
+            ui_token,
             card,
         }
     }
@@ -73,7 +80,7 @@ impl App {
         let cookie = req.headers.get_all("cookie").iter().find_map(|v| {
             v.to_str().ok()?.split(';').find_map(|pair| {
                 let (k, v) = pair.trim().split_once('=')?;
-                (k == COOKIE && same(v, &self.token)).then_some(())
+                (k == COOKIE && same(v, &self.ui_token)).then_some(())
             })
         });
         cookie.map(|()| Caller::Browser)
@@ -104,6 +111,18 @@ pub async fn handle(app: Arc<App>, req: Req) -> Resp {
     let Some(caller) = app.caller(&req) else {
         return sign_in(&app, &req).unwrap_or_else(unauthorized);
     };
+    // A browser sends the cookie on requests other local pages start, so
+    // cookie callers get the API's Origin and Host checks on every route.
+    if caller == Caller::Browser {
+        let webui_address = app
+            .cfg
+            .api
+            .as_ref()
+            .map_or("", |a| a.webui_address.as_str());
+        if let Err(e) = super::origin::check(&req, webui_address, app.cfg.bind_host()) {
+            return Resp::error(403, &format!("Forbidden: {e}"));
+        }
+    }
     let path = req.path.clone();
     let get = matches!(req.method.as_str(), "GET" | "HEAD");
     let mut wrong_method = false;
@@ -180,7 +199,7 @@ fn sign_in(app: &App, req: &Req) -> Option<Resp> {
         return None;
     }
     let token = req.param("token")?;
-    if !same(&token, &app.token) {
+    if !same(&token, &app.ui_token) {
         return None;
     }
     let rest: Vec<&str> = req
@@ -196,7 +215,10 @@ fn sign_in(app: &App, req: &Req) -> Option<Resp> {
         Resp::redirect(302, &location)
             .header(
                 "set-cookie",
-                format!("{COOKIE}={}; Path=/; HttpOnly; SameSite=Strict", app.token),
+                format!(
+                    "{COOKIE}={}; Path=/; HttpOnly; SameSite=Strict",
+                    app.ui_token
+                ),
             )
             .header("cache-control", "no-store"),
     )
@@ -253,7 +275,7 @@ pub async fn run(app: Arc<App>) -> Result<(), String> {
         info(&format!(
             "       webui:  sign in the browser with {url}{}?token={}",
             webui::PREFIX,
-            app.token
+            app.ui_token
         ));
     }
     if cfg.a2a.is_some() {

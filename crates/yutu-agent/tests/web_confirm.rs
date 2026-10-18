@@ -4,7 +4,7 @@
 
 mod common;
 
-use common::{TOKEN, Web, block_on, http, web};
+use common::{TOKEN, UI_TOKEN, Web, block_on, http, web};
 use serde_json::{Value, json};
 
 const ARGS: &str = "web webui api";
@@ -19,7 +19,7 @@ fn script() -> Vec<Value> {
 }
 
 fn cookie() -> (&'static str, String) {
-    ("Cookie", format!("yutu_token={TOKEN}"))
+    ("Cookie", format!("yutu_token={UI_TOKEN}"))
 }
 
 /// The SSE events of one `/run_sse` call.
@@ -182,5 +182,21 @@ fn bearer_callers_have_no_human_so_writes_are_declined() {
             json!({"error": "Tool execution failed. Details: canceled by user"})
         );
         assert_eq!(events[2]["content"]["parts"][0]["text"], "Done.");
+    });
+}
+
+#[test]
+fn a_program_cannot_answer_the_browser_confirmation() {
+    block_on(async {
+        let w = web(ARGS, script()).await;
+        let (k, v) = cookie();
+        start(&w, (k, &v)).await;
+        let request = assert_paused(&run_sse(&w, (k, &v), text("delete playlist p1")).await);
+        let bearer = format!("Bearer {TOKEN}");
+        run_sse(&w, ("Authorization", &bearer), answer(&request, true)).await;
+        assert_eq!(deletes(&w), 0);
+        let as_cookie = format!("yutu_token={TOKEN}");
+        let r = http(w.port, "POST", SESSION, &[("Cookie", &as_cookie)], b"").await;
+        assert_eq!(r.status, 401, "the bearer token is not a browser cookie");
     });
 }

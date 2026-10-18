@@ -4,7 +4,7 @@
 
 mod common;
 
-use common::{TOKEN, block_on, http, web};
+use common::{TOKEN, UI_TOKEN, block_on, http, web};
 
 const ARGS: &str = "web webui a2a pubsub eventarc api -include_debug_api";
 
@@ -90,12 +90,16 @@ fn every_route_needs_the_token() {
     block_on(async {
         let w = web(ARGS, vec![]).await;
         let wrong = format!("Bearer {}x", TOKEN);
-        let cookie = format!("yutu_token={}x", TOKEN);
-        let refusals: [&[(&str, &str)]; 5] = [
+        let cookie = format!("yutu_token={}x", UI_TOKEN);
+        let bearer_as_cookie = format!("yutu_token={TOKEN}");
+        let ui_as_bearer = format!("Bearer {UI_TOKEN}");
+        let refusals: [&[(&str, &str)]; 7] = [
             &[],
             &[("Authorization", &wrong)],
             &[("Authorization", TOKEN)],
             &[("Cookie", &cookie)],
+            &[("Cookie", &bearer_as_cookie)],
+            &[("Authorization", &ui_as_bearer)],
             &[("Authorization", "Basic dGVzdA==")],
         ];
         for (method, path) in ROUTES {
@@ -119,20 +123,47 @@ fn every_route_needs_the_token() {
 fn the_ui_link_signs_the_browser_in_with_a_cookie() {
     block_on(async {
         let w = web(ARGS, vec![]).await;
-        let link = format!("/ui/?token={TOKEN}&mode=x");
+        let link = format!("/ui/?token={UI_TOKEN}&mode=x");
         let r = http(w.port, "GET", &link, &[], b"").await;
         assert_eq!(r.status, 302);
         assert_eq!(r.header("location"), Some("/ui/?mode=x"));
         assert_eq!(
             r.header("set-cookie"),
-            Some(format!("yutu_token={TOKEN}; Path=/; HttpOnly; SameSite=Strict").as_str())
+            Some(format!("yutu_token={UI_TOKEN}; Path=/; HttpOnly; SameSite=Strict").as_str())
         );
-        let cookie = format!("yutu_token={TOKEN}");
+        let cookie = format!("yutu_token={UI_TOKEN}");
         let r = http(w.port, "GET", "/api/list-apps", &[("Cookie", &cookie)], b"").await;
         assert_eq!((r.status, r.text().as_str()), (200, "[\"Miffy\"]\n"));
         let bad = http(w.port, "GET", "/ui/?token=nope", &[], b"").await;
         assert_eq!(bad.status, 401);
+        let bearer_link = format!("/ui/?token={TOKEN}");
+        let r = http(w.port, "GET", &bearer_link, &[], b"").await;
+        assert_ne!(r.status, 302, "the bearer token does not sign a browser in");
         let not_ui = format!("/api/list-apps?token={TOKEN}");
         assert_eq!(http(w.port, "GET", &not_ui, &[], b"").await.status, 401);
+    });
+}
+
+#[test]
+fn other_local_pages_cannot_drive_any_route_with_the_cookie() {
+    block_on(async {
+        let w = web(ARGS, vec![]).await;
+        let cookie = format!("yutu_token={UI_TOKEN}");
+        for path in [
+            "/a2a/invoke",
+            "/a2a/v1/invoke",
+            "/api/apps/Miffy/trigger/pubsub",
+            "/api/apps/Miffy/trigger/eventarc",
+            "/api/run_sse",
+        ] {
+            let headers = [
+                ("Cookie", cookie.as_str()),
+                ("Origin", "http://localhost:9999"),
+                ("Content-Type", "application/json"),
+            ];
+            let r = http(w.port, "POST", path, &headers, b"{}").await;
+            assert_eq!(r.status, 403, "{path}");
+        }
+        assert!(w.model.lock().unwrap().is_empty());
     });
 }

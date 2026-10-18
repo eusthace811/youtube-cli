@@ -91,7 +91,7 @@ def lane1(go, head):
 
 def sign_in(w):
     """The dev UI's sign-in: GET the token link, keep the cookie (head only)."""
-    s, h, _ = w.request("GET", f"/ui/?token={w.token}", auth=False)
+    s, h, _ = w.request("GET", f"/ui/?token={w.ui_token}", auth=False)
     assert s == 302, s
     return h["set-cookie"].split(";")[0]
 

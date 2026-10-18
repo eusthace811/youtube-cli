@@ -27,7 +27,7 @@ Only these, each one function in `parity/diff.py`:
 
 | Id | Change | PRs | Corpus cases tagged | Proof |
 |---|---|---|---|---|
-| E1 | caption download is confirmation-gated and writes only through the sandbox, so it can never overwrite a token or secret | R4, R6 | 26 | cli.caption.download.*.yes cases match Go's golden for the ungated command; crates/yutu-core tests refuse youtube.token.json |
+| E1 | caption download is confirmation-gated and writes only through the sandbox, so it can never overwrite a token or secret | R4, R6, R12 | 26 | cli.caption.download.*.yes cases match Go's golden for the ungated command; crates/yutu-core/tests/fsroot.rs refuses youtube.token.json and fsroot_token_env.rs a token named by an absolute path |
 | E2 | a login triggered during stdio MCP prints only to stderr and never reads stdin | R3 | 0 | r3 lane 10 and crates/yutu-auth flow tests |
 | E3 | every token refresh is persisted atomically | R3 | 0 | crates/yutu-auth/tests/flow.rs refresh persistence test |
 | E4 | the HTTP token verifier posts the token, caches verified tokens until expiry, and supports an audience allowlist | R8 | 93 | crates/yutu-mcp/tests/http.rs and r8 lanes 9 and 10 |
@@ -35,9 +35,9 @@ Only these, each one function in `parity/diff.py`:
 | E6 | video://category/{hl} honors {hl} | R7 | 2 | mcp.resource.video.category.ja sends hl=ja; r7 lane 5 |
 | E7 | uploads above 16 MiB use resumable 8 MiB chunks streamed from disk | R6 | 0 | r6 lanes 8 and 9 |
 | E8 | the HTTP MCP server sets timeouts and rejects non-loopback Origin headers | R8 | 1 | crates/yutu-mcp/tests/http.rs and r8 lanes 5 and 7 |
-| E9 | the agent cannot approve its own writes; a human approves each one | R9, R10 | 0 | crates/yutu-agent/tests/confirm.rs, crates/yutu-agent/tests/web_confirm.rs and r10 lane 9 |
+| E9 | the agent cannot approve its own writes; a human approves each one | R9, R10, R12 | 0 | crates/yutu-agent/tests/confirm.rs (including type-ahead and no-terminal declines), crates/yutu-agent/tests/web_confirm.rs (including a program answering the browser's confirmation) and r10 lane 9 |
 | E10 | the agent reads API keys from environment variables when the flag is absent | R9 | 0 | r9 lane 9 |
-| E11 | agent web launchers require a per-launch bearer token | R10 | 0 | crates/yutu-agent/tests/auth.rs |
+| E11 | agent web launchers require a per-launch bearer token for programs and a separate per-launch token for the dev UI's browser | R10, R12 | 0 | crates/yutu-agent/tests/auth.rs |
 | E12 | --otel_to_cloud is accepted and ignored with a notice | R10 | 0 | r10 lane 8 |
 | E13 | the skill generator lists only real tools and marks caption download as writing a file | R11 | 0 | xtask/tests/skillgen.rs |
 | E14 | the Docker image documents how to reach --mode http | R11 | 0 | r11 lane 5 |

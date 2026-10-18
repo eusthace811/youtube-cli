@@ -44,7 +44,14 @@ pub fn tokeninfo_url() -> String {
 #[cfg(feature = "parity-endpoint")]
 fn is_loopback_url(url: &str) -> bool {
     let rest = url.strip_prefix("http://").unwrap_or("");
-    let host = rest.split(['/', ':']).next().unwrap_or("");
+    let auth = rest.split(['/', '?', '#']).next().unwrap_or("");
+    if auth.contains(['@', '\\', '%']) {
+        return false;
+    }
+    let host = match auth.rsplit_once(':') {
+        Some((h, port)) if !h.ends_with(':') && port.bytes().all(|b| b.is_ascii_digit()) => h,
+        _ => auth,
+    };
     matches!(host, "127.0.0.1" | "localhost" | "[::1]")
 }
 
@@ -343,5 +350,21 @@ mod tests {
     fn form_encoding_escapes_reserved_bytes() {
         assert_eq!(form_encode("ya29.a-b_c"), "ya29.a-b_c");
         assert_eq!(form_encode("a+b/c=&d e"), "a%2Bb%2Fc%3D%26d+e");
+    }
+}
+
+#[cfg(all(test, feature = "parity-endpoint"))]
+mod loopback_tests {
+    use super::is_loopback_url;
+
+    #[test]
+    fn only_a_plain_loopback_authority_counts() {
+        assert!(is_loopback_url("http://127.0.0.1:8080/tokeninfo"));
+        assert!(is_loopback_url("http://[::1]:8080/"));
+        assert!(is_loopback_url("http://localhost/"));
+        assert!(!is_loopback_url("http://localhost:1@evil.example/"));
+        assert!(!is_loopback_url("http://localhost@evil.example/"));
+        assert!(!is_loopback_url("http://localhost.evil.example/"));
+        assert!(!is_loopback_url("https://127.0.0.1/"));
     }
 }

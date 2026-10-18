@@ -7,7 +7,7 @@ GET /ui/ -> 200 text/html; charset=utf-8 (53361 bytes)
 GET /ui/assets/config/runtime-config.json -> 200 application/json; charset=UTF-8 b'{"backendUrl":"http://localhost:8080/api"}\n'
 GET /api/list-apps?relative_path=./ -> 200 application/json; charset=UTF-8 b'["Miffy"]\n'
 GET /api/version -> 200 application/json; charset=UTF-8 b'{"version":"2.5.0","language":"rust","language_version":"1.99.1"}\n'
-POST /api/apps/Miffy/users/user/sessions -> 200 application/json; charset=UTF-8 b'{"id":"b8487b51-0233-43ac-bfe8-94e28529af9c","appName":"Miffy","userId":"user","lastUpdateTime":1792343021,"events":[],"'
-GET /api/apps/Miffy/users/user/sessions -> 200 application/json; charset=UTF-8 b'[{"id":"b8487b51-0233-43ac-bfe8-94e28529af9c","appName":"Miffy","userId":"user","lastUpdateTime":1792343021,"events":[],'
+POST /api/apps/Miffy/users/user/sessions -> 200 application/json; charset=UTF-8 b'{"id":"c68b80ef-194f-4b55-b3a9-dc7b1f7b60a0","appName":"Miffy","userId":"user","lastUpdateTime":1792345750,"events":[],"'
+GET /api/apps/Miffy/users/user/sessions -> 200 application/json; charset=UTF-8 b'[{"id":"c68b80ef-194f-4b55-b3a9-dc7b1f7b60a0","appName":"Miffy","userId":"user","lastUpdateTime":1792345750,"events":[],'
 POST /api/run_sse -> 200: tool calls ['video-list'], responses [('video-list', ['output'])], reply 'Your video v1 has 42 views.'
 recorder: ['GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}']

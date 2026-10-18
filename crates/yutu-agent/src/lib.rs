@@ -167,6 +167,7 @@ pub fn run(opts: &Options, provider: Arc<dyn ServiceProvider>) -> i32 {
                     Arc::new(agent),
                     *web,
                     launch::wire::token(),
+                    launch::wire::token(),
                     instruction,
                     google_search,
                 );
@@ -186,8 +187,9 @@ pub fn run(opts: &Options, provider: Arc<dyn ServiceProvider>) -> i32 {
         } else {
             Streaming::None
         });
+        let interactive = yutu_core::confirm::interactive(std::io::stdin().is_terminal());
         tokio::select! {
-            () = console::run(&agent, console::stdin_lines(), &mut stdout, streaming) => {}
+            () = console::run(&agent, console::stdin_lines(), &mut stdout, streaming, interactive) => {}
             _ = tokio::signal::ctrl_c() => {}
         }
         0
