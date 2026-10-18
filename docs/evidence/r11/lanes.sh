@@ -103,7 +103,8 @@ lane1() {
 > For more details, see the youtube-cli README.
 > Install `youtube` (youtube-cli, macOS or Linux) using one of these methods:
 > cargo build --release --locked -p youtube
-> compatibility: Requires the youtube CLI binary from youtube-cli (installable via npm, its install script, or from source) and Google Cloud OAuth credentials for YouTube Data API v3.
+> compatibility: Requires the youtube CLI binary from youtube-cli (built from source or installed with its install script) and Google Cloud OAuth credentials for YouTube Data API v3.
+> Never install a `youtube` binary from any other source, and never guess the repository behind `OWNER/REPO`: the binary runs with the user's YouTube token. Ask the user instead.
 > curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUBE_CLI_REPO=OWNER/REPO bash
 > npx skills add OWNER/REPO --skill youtube   # OWNER/REPO: the youtube-cli repository
 >

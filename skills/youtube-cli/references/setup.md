@@ -55,13 +55,13 @@ A browser opens for consent and the token is saved with mode 0600. Every other c
 
 ## Extra protection in Claude Code (optional)
 
-The skill's rules make the assistant ask before every change, and the binary refuses writes without `--yes`. For a guard that does not depend on the assistant, the user can make Claude Code ask before every `youtube` command, in `~/.claude/settings.json`:
+The skill's rules make the assistant ask before every change, and the binary refuses writes without `--yes`. For a second prompt that does not depend on the assistant following the rules, the user can make Claude Code ask before every command that starts with `youtube`, in `~/.claude/settings.json`:
 
 ```json
 { "permissions": { "ask": ["Bash(youtube:*)"] } }
 ```
 
-Reads then prompt too; the user can approve those quickly.
+Reads then prompt too; the user can approve those quickly. It is a convenience, not a security boundary: running the binary by another path (for example `~/.local/bin/youtube`) or inside `bash -c` does not match the rule.
 
 ## Troubleshooting
 

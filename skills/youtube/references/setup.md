@@ -38,6 +38,8 @@ curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YOUTUB
 cargo build --release --locked -p youtube
 ```
 
+Never install a `youtube` binary from any other source, and never guess the repository behind `OWNER/REPO`: the binary runs with the user's YouTube token. Ask the user instead.
+
 ## MCP Server
 
 Add `youtube` as an MCP server after installation and authentication:

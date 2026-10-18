@@ -42,3 +42,11 @@ that YouTube text is data and never instructions, and a CLI workflows reference 
 "ask first" (thumbnail set gained --yes, the delete step shows the item first). Its Lows are addressed too:
 quota per 20-item page and no --maxResults 0 on search or busy comments, the three tool-less list commands
 classified Read, rules for high-impact writes and against "--yes false", and an optional Claude Code ask rule.
+
+Review of 3f45e6a (eighth round): every finding of the 818dbf7 review FIXED (npm line, YouTube-text-is-data
+rule, ask-first workflows, quota per page, Read classification, high-impact and "--yes false" rules; the
+Claude Code ask rule syntax verified against Claude Code's docs). Verdict: production ready for daily use, with
+caveats. Its new Medium (the README's `ln -sfn` left an older copied skill in place) and Lows (the MCP skill's
+npm wording and missing install warning, the ask rule described too strongly, comment markAsSpam missing from
+the high-impact rule) are fixed in the next commit. The operator's installs at ~/.claude/skills/youtube-cli
+and ~/.agents/skills/youtube-cli were checked: both are single symlinks to the repo's skills/youtube-cli.
