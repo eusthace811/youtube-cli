@@ -3,7 +3,7 @@ r11 lane 10: PASS
 Host release binary only; release.yml runs the same check on all six before publishing.
 At b82bce4 this failed on three display-only error-message URLs (two rustls docs.rs
 links, the yutu-auth README#prerequisites link). R11 lists them exactly in DISPLAY_ONLY.
-$ cargo run -q --locked -p xtask -- egress /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/yutu-shipped
+$ cargo run -q --locked -p xtask -- egress /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped
 exit: 0
 --- stdout ---
 egress: masked the brotli static dictionary (RFC 7932 Appendix A, 122784 bytes of word fragments the dev UI's decompressor carries)

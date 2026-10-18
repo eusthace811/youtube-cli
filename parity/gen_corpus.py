@@ -264,6 +264,8 @@ def mcp_cases():
             add(p, {**base, p: v})
             if sch.get("type") == "boolean":
                 add(f"{p}.false", {**base, p: False})
+        if "max_results" in props:
+            add("max_results.zero", {**base, "max_results": 0})
         add("bad-type", {**base, "max_results": "x"} if "max_results" in props else {**base, "unknown_prop": 1})
         add("api.error", base, fail={"request": 1, "status": 403, "message": "The request is not allowed.", "reason": "forbidden"})
     for uri in ("i18n://hl", "i18n://language/ja", "i18n://region/fr", "video://category/ja"):
@@ -282,6 +284,11 @@ def mcp_cases():
     return cases
 
 
+# The update commands whose lookup Go never let fetch anything (E18).
+E18_UPDATES = tuple(f"cli.{r}.update." for r in ("playlist", "playlistItem", "channel", "comment")) + tuple(
+    f"mcp.{r}-update." for r in ("playlist", "playlistItem", "channel", "comment"))
+
+
 def tag_divergences(cases):
     """Marks the cases a registered Appendix E divergence changes, and adds the
     head-only cases that prove the new behavior against Go's golden."""
@@ -292,6 +299,10 @@ def tag_divergences(cases):
             c["divergences"] = ["E1"]
             if cid.startswith("cli.") and not cid.endswith((".help", ".no-yes", ".tty-decline", ".tty-accept")):
                 extra.append({**c, "id": cid + ".yes", "argv": c["argv"] + ["--yes"], "golden_from": cid, "divergences": []})
+        if cid.startswith("mcp.") and cid.endswith(".max_results.zero"):
+            c["divergences"] = sorted(set(c.get("divergences", [])) | {"E17"})
+        if cid.startswith(E18_UPDATES):
+            c["divergences"] = sorted(set(c.get("divergences", [])) | {"E18"})
         if cid == "mcp.resource.video.category.ja":
             c["divergences"] = ["E6"]
         if c.get("surface") == "mcp":

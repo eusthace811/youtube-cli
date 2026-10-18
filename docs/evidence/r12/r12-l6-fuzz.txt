@@ -36,3 +36,6 @@ Artifact directories after both runs:
 The full logs (15,599 and 23,396 lines) are not committed; the lines above are every summary line libFuzzer printed.
 
 PASS: 22,438,511 and 25,267,323 executions in 1801 s each, exit 0, no crash artifacts.
+
+Still current at the final head: `git diff 88c68f6 -- crates/yutu-auth/src crates/yutu-api/src` is empty,
+so the fuzzed code (and both fuzz targets) are unchanged since these runs.

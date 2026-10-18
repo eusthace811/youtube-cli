@@ -22,8 +22,6 @@ jobs:
           - { os: darwin, arch: arm64, target: aarch64-apple-darwin, runner: macos-latest, smoke: true }
           - { os: linux, arch: amd64, target: x86_64-unknown-linux-musl, runner: ubuntu-latest, smoke: true }
           - { os: linux, arch: arm64, target: aarch64-unknown-linux-musl, runner: ubuntu-24.04-arm, smoke: true }
-          - { os: windows, arch: amd64, target: x86_64-pc-windows-msvc, runner: windows-latest, smoke: true }
-          - { os: windows, arch: arm64, target: aarch64-pc-windows-msvc, runner: windows-latest, smoke: false }
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
@@ -46,10 +44,8 @@ jobs:
         run: |
           export YUTU_COMMIT_DATE="$(git log -1 --date='format:%Y-%m-%dT%H:%M:%SZ' --pretty=%cd)"
           cargo build --release --locked -p yutu --target ${{ matrix.target }}
-          ext=""
-          [[ "${{ matrix.os }}" == "windows" ]] && ext=".exe"
           mkdir -p out
-          cp "target/${{ matrix.target }}/release/yutu${ext}" "out/yutu-${{ matrix.os }}-${{ matrix.arch }}${ext}"
+          cp "target/${{ matrix.target }}/release/yutu" "out/yutu-${{ matrix.os }}-${{ matrix.arch }}"
       - name: Smoke test every command's help
         if: matrix.smoke
         shell: bash
@@ -95,7 +91,7 @@ jobs:
         with:
           path: dist-out
           merge-multiple: true
-      - name: Check the six binaries for unexpected network hosts
+      - name: Check the four binaries for unexpected network hosts
         run: |
           rustup show active-toolchain || rustup toolchain install
           cargo run --locked -p xtask -- egress --release dist-out/yutu-*-*
@@ -103,7 +99,7 @@ jobs:
         working-directory: dist-out
         run: |
           sha256sum yutu-darwin-amd64 yutu-darwin-arm64 yutu-linux-amd64 yutu-linux-arm64 \
-            yutu-windows-amd64.exe yutu-windows-arm64.exe yutu.cdx.json > SHA256SUMS
+            yutu.cdx.json > SHA256SUMS
           cat SHA256SUMS
       - uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
@@ -112,14 +108,6 @@ jobs:
             dist-out/yutu-darwin-arm64
             dist-out/yutu-linux-amd64
             dist-out/yutu-linux-arm64
-            dist-out/yutu-windows-amd64.exe
-            dist-out/yutu-windows-arm64.exe
-      - name: winget manifests
-        run: dist/winget/render.sh "${GITHUB_REF_NAME#v}" dist-out/SHA256SUMS winget-out "${GITHUB_REPOSITORY}"
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: winget-manifests
-          path: winget-out
       - name: Publish the GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -128,5 +116,5 @@ jobs:
           [[ "${GITHUB_REF_NAME}" == *-* ]] && prerelease="--prerelease"
           gh release create "${GITHUB_REF_NAME}" --repo "${GITHUB_REPOSITORY}" --verify-tag \
             ${prerelease} --title "${GITHUB_REF_NAME}" \
-            --notes "Install: \`curl -sSfL https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/install.sh | bash\`. Verify a binary: \`gh attestation verify yutu-linux-amd64 --repo ${GITHUB_REPOSITORY}\`." \
+            --notes "Install: \`curl -sSfL https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/install.sh | YUTU_REPO=${GITHUB_REPOSITORY} bash\`. Verify a binary: \`gh attestation verify yutu-linux-amd64 --repo ${GITHUB_REPOSITORY}\`." \
             dist-out/yutu-*-* dist-out/yutu.cdx.json dist-out/SHA256SUMS

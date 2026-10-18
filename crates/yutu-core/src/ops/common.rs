@@ -48,7 +48,9 @@ impl PageSink for Collect {
 
 /// `common.Paginate`: pages of at most 20, the remaining count dropping by
 /// 20 per page whatever the page held, stopping at the last token or an
-/// empty page. Each page goes to `sink`; on error the pages fetched so far
+/// empty page. Unlike Go it also stops when a page token comes back a
+/// second time, since a cycling server would otherwise loop forever once
+/// the limit is lifted (divergence E17). Each page goes to `sink`; on error the pages fetched so far
 /// have been delivered and the joined error is returned. Returns the number
 /// of items fetched.
 pub async fn paginate_to<'s>(
@@ -60,6 +62,7 @@ pub async fn paginate_to<'s>(
     let mut count = 0;
     let mut remaining = max_results;
     let mut token = String::new();
+    let mut seen = std::collections::HashSet::new();
     while remaining > 0 {
         let mut c = call().param("maxResults", remaining.min(PER_PAGE));
         if !token.is_empty() {
@@ -75,7 +78,7 @@ pub async fn paginate_to<'s>(
         let empty = got.is_empty();
         count += got.len();
         sink.page(got);
-        if token.is_empty() || empty {
+        if token.is_empty() || empty || !seen.insert(token.clone()) {
             break;
         }
     }

@@ -14,14 +14,6 @@ which is the command install.sh runs, must print verified.
             dist-out/yutu-darwin-arm64
             dist-out/yutu-linux-amd64
             dist-out/yutu-linux-arm64
-            dist-out/yutu-windows-amd64.exe
-            dist-out/yutu-windows-arm64.exe
-      - name: winget manifests
-        run: dist/winget/render.sh "${GITHUB_REF_NAME#v}" dist-out/SHA256SUMS winget-out "${GITHUB_REPOSITORY}"
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: winget-manifests
-          path: winget-out
       - name: Publish the GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -30,21 +22,6 @@ which is the command install.sh runs, must print verified.
           [[ "${GITHUB_REF_NAME}" == *-* ]] && prerelease="--prerelease"
           gh release create "${GITHUB_REF_NAME}" --repo "${GITHUB_REPOSITORY}" --verify-tag \
             ${prerelease} --title "${GITHUB_REF_NAME}" \
-            --notes "Install: \`curl -sSfL https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/install.sh | bash\`. Verify a binary: \`gh attestation verify yutu-linux-amd64 --repo ${GITHUB_REPOSITORY}\`." \
+            --notes "Install: \`curl -sSfL https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}/install.sh | YUTU_REPO=${GITHUB_REPOSITORY} bash\`. Verify a binary: \`gh attestation verify yutu-linux-amd64 --repo ${GITHUB_REPOSITORY}\`." \
             dist-out/yutu-*-* dist-out/yutu.cdx.json dist-out/SHA256SUMS
 
-The same gh command against a real attested release, Go v0.11.0's darwin-arm64 asset:
-$ gh attestation verify /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/rel/yutu-darwin-arm64 --repo eat-pray-ai/yutu
-exit: 0
---- stdout ---
---- stderr ---
-
-Its verified attestations (signer workflow, predicate type):
-   https://github.com/eat-pray-ai/yutu/.github/workflows/publish.yml@refs/tags/v0.11.0 https://slsa.dev/provenance/v1
-The SBOM step, run locally (cargo-cyclonedx 0.5.9):
-$ cargo cyclonedx --manifest-path /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/crates/yutu/Cargo.toml --format json --spec-version 1.5 --target all --no-build-deps --override-filename yutu.cdx
-exit: 0
---- stdout ---
---- stderr ---
-
-bomFormat CycloneDX specVersion 1.5 components 176 top yutu

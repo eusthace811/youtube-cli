@@ -126,7 +126,14 @@ impl HttpServer {
         loop {
             let (stream, _) = match self.listener.accept().await {
                 Ok(c) => c,
-                Err(e) if is_transient(&e) => continue,
+                Err(e) if is_transient(&e) => {
+                    // Out of descriptors (EMFILE, ENFILE) persists until
+                    // connections close; retrying at once would spin.
+                    if e.raw_os_error().is_some_and(|c| c == 24 || c == 23) {
+                        tokio::time::sleep(std::time::Duration::from_millis(100)).await;
+                    }
+                    continue;
+                }
                 Err(e) => return Err(e),
             };
             let app = self.app.clone();

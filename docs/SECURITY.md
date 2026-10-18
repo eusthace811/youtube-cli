@@ -11,13 +11,13 @@ yutu-rs drives a YouTube channel with OAuth tokens that hold the full `youtube`,
 | Local files | Reading secrets for upload, or overwriting the token or client secret | Every file a user names opens inside the root (`YUTU_ROOT` or the working directory) through cap-std, refusing `..`, absolute paths and escaping symlinks. `.json .env .key .pem .crt .cert .pfx .p12` and well-known secret names are refused for uploads and caption downloads. The active token and credential are also refused by identity (device and inode), however they are named, and the check runs on the opened handle before any truncation (E1). |
 | Local network listeners | Other local processes or web pages driving the account | The OAuth callback listens on loopback only for the duration of a login. HTTP MCP verifies Google bearer tokens, rejects non-loopback `Origin` headers and sets timeouts (E8). Agent web launchers print two per-launch tokens: a bearer token for programs and a sign-in token for the dev UI's browser. Neither works in place of the other, only the browser can approve writes, and browser requests get Origin and Host checks on every route (E11). |
 | LLM API keys | Leaking to a third party | Keys go only to the configured provider. The LLM clients do not follow redirects, so a redirect cannot carry the key header to another host. |
-| The Claude Code and Codex backends (E16) | A prompt-injected model acting through the CLI's own tools instead of yutu's gated ones | yutu runs the CLI only as a model: the conversation goes in on stdin, a reply comes back in a fixed JSON schema, and tool calls return as data that yutu's approval gate handles. Claude Code runs with every built-in tool disabled, no MCP servers, no user settings or hooks and no saved session. Codex runs with a read-only sandbox, web search off, user config and rules ignored, no saved session, in a fresh empty directory that is deleted after each call. Both get their vendors' telemetry opt-outs. |
+| The Claude Code and Codex backends (E16) | A prompt-injected model acting through the CLI's own tools, connectors or environment instead of yutu's gated tools | yutu runs the CLI only as a model: the conversation goes in on stdin, a reply comes back in a fixed JSON schema, and tool calls return as data that yutu's approval gate handles. Claude Code runs with every built-in tool disabled, no MCP servers, no user settings or hooks and no saved session. Codex runs with its connectors (ChatGPT apps such as Gmail, GitHub and Drive), plugins, sub-agents, shell, code execution, browsers, image tools and web search all switched off, user config and rules ignored, a read-only sandbox and no saved session; a real-model check confirmed it can then run nothing. Each call runs in a fresh empty directory that is deleted afterwards, in its own process group that is killed when the call ends, with an environment limited to the basic process variables and the vendor's own (no `YUTU_*` values). Both get their vendors' telemetry opt-outs. |
 | The operator's privacy | Telemetry, analytics, update checks | None ship. `deny.toml` bans the known telemetry, analytics, crash-reporting and update-check crates and OpenSSL. `xtask egress` fails the build if the release binary contains a URL for any host outside Google's OAuth and YouTube APIs and the two LLM providers. R12 lane 5 runs the whole corpus with only loopback networking allowed. |
 | The supply chain | Compromised or unexpected dependencies, tampered releases | crates.io only. `cargo deny` (advisories, bans, licenses, sources) and `cargo audit` run in CI, builds use `--locked`, and CI actions are pinned by commit SHA. Releases ship checksums, a CycloneDX SBOM and GitHub build-provenance attestations. `install.sh` verifies the checksum and the attestation (E15). |
 
 ## Deliberate fixes of Go defects (Appendix E)
 
-`docs/MIGRATING.md` has the user-facing table. `parity/divergences.toml` is the registry the differ enforces, and its `proof` field names each test.
+`docs/MIGRATING.md` has the user-facing table, including the correctness fixes E17 (`max_results` 0) and E18 (updates that always failed). `parity/divergences.toml` is the registry the differ enforces, and its `proof` field names each test.
 
 | Id | Fix | Proof |
 |---|---|---|
@@ -37,11 +37,11 @@ E6, E7, E10 and E14 are correctness and usability fixes with no security effect.
 
 ## Verification at R12
 
-**Supply chain.** `cargo audit` checked 198 crates against 1,338 advisories and found nothing. `cargo deny check` passed advisories, bans, licenses and sources. Its only warnings say two allowed licenses (MIT-0, BSD-2-Clause) match no dependency. Output is in `docs/evidence/r12/r12-l4-audit.txt`.
+**Supply chain.** `cargo audit` checked 202 crates against 1,338 advisories and found nothing. `cargo deny check` passed advisories, bans, licenses and sources. Its only warnings say two allowed licenses (MIT-0, BSD-2-Clause) match no dependency. Output is in `docs/evidence/r12/r12-l4-audit.txt`.
 
 **Fuzzing.** Two libFuzzer targets ran for 30 minutes each. One covers token, credential, base64 and path parsing in `yutu-auth`, the other decoding hostile API responses in `yutu-api`. They made 22.4 million and 25.3 million executions with no crash, panic or failed assertion. See `docs/evidence/r12/r12-l6-fuzz.txt`.
 
-**Unsafe code.** Every crate has `#![forbid(unsafe_code)]`. The only `unsafe` is one `std::env::set_var` call in a single-test integration binary.
+**Unsafe code.** Every crate has `#![forbid(unsafe_code)]`. The only `unsafe` code is two `std::env::set_var` calls, each in an integration-test binary that holds that single test.
 
 **Independent review.** Two audits during the build (R0 to R2 and R3 to R7) were addressed before R12. The R12 review (`docs/evidence/r12/r12-review-3aae399.md`) made 123 attempts on the CLI and MCP gates and broke neither. It broke the agent's gate twice:
 - **C1.** The console accepted an approval from stdin lines read ahead of the question.
@@ -57,6 +57,13 @@ A second independent reviewer re-attacked `94e24a1` (`docs/evidence/r12/r12-rere
 
 The access log also no longer records `token=` values.
 
+Three final independent reviews of `c84e7f4` (security, correctness, operability) followed. The security review found one blocker: with `--provider codex`, Codex still exposed its ChatGPT connectors (Gmail, GitHub, Drive, web search) and passed yutu's whole environment to its shell, so a prompt injection in YouTube data could have reached the token and the operator's other accounts without approval. The fix switches off every Codex feature that gives the model a tool and limits the child's environment to an allowlist. A real Codex run then answered that it could run nothing, where the same request under the previous flags read a local file and counted 43 environment variables. The reviews' other findings are fixed or listed below:
+- Console approvals now wait for the terminal to be quiet for 150 ms before asking, and decline if input never stops. A long paste had still answered 2 times in 10 with an instant mock model.
+- Confirmation text also escapes bidi and zero-width characters.
+- A failed caption download leaves an existing file untouched.
+- CLI provider errors show the CLI's own message.
+- The CLI is killed with everything it started, and its output is capped while it is read.
+
 ## Accepted risks
 
 - **An MCP client that answers the confirmation is trusted.** A client that sends elicitation `accept`, or MRTR `inputResponses.confirm=accept` up front, runs the write. This matches Go. The server cannot tell a human-backed client from one that auto-accepts, so connect only MCP clients that ask you.
@@ -64,8 +71,8 @@ The access log also no longer records `token=` values.
 - **HTTP MCP accepts tokens from any Google OAuth client unless `YUTU_MCP_ALLOWED_CLIENT_IDS` is set.** Verified tokens are cached until they expire, so a revoked token keeps working until then. Set the allowlist when serving MCP over HTTP.
 - **`install.sh` without `gh` cannot verify the attestation.** It verifies the checksum, says it skipped the attestation, and continues (E15).
 - **`install.sh --with-skill` runs `npx --yes skills add` without a pinned version.** It runs only on request.
-- **CI's windows-smoke job runs the downloaded Go v0.11.0 binary without a pinned hash.** The job's token is read-only and the binary ships nowhere.
-- **Codex's read-only sandbox still lets the model read files.** Codex has no switch that removes its shell. A prompt-injected model could read a file the operator can read and put it in its reply. Network access for those commands stays blocked, and the reply can reach YouTube only through a write the human approves. Prefer `--provider claude-code`, whose tools are fully off, when the agent reads untrusted content.
+- **Codex features are switched off by name.** A future Codex release could add a tool under a new feature name, which yutu would not know to disable. Codex also accepts unknown `-c` keys silently. Re-run the E16 real-model check (`parity/agent_lane.py real-cli`) after upgrading Codex.
+- **Two agent web UIs on different localhost ports share the sign-in cookie name**, so signing in to one signs the other out. This fails safe.
 - **`--yes false` (two words) confirms.** pflag reads `false` as an extra argument. Go behaves the same, and the operator still typed `--yes`.
 
 ## Reporting a vulnerability

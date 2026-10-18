@@ -77,7 +77,7 @@ async fn wrong_state_gets_400_and_no_exchange() {
 #[tokio::test(flavor = "current_thread")]
 async fn code_is_exchanged_with_the_verifier_and_refreshes_persist() {
     let mock = MockTokenEndpoint::start(vec![
-        r#"{"access_token":"at-1","token_type":"Bearer","refresh_token":"1//rt","expires_in":11}"#,
+        r#"{"access_token":"at-1","token_type":"Bearer","refresh_token":"1//rt","expires_in":13}"#,
         r#"{"access_token":"at-2","token_type":"Bearer","expires_in":3599}"#,
     ])
     .await;
@@ -147,15 +147,15 @@ async fn code_is_exchanged_with_the_verifier_and_refreshes_persist() {
             saved.refresh_token.as_str(),
             saved.expires_in
         ),
-        ("at-1", "1//rt", 11)
+        ("at-1", "1//rt", 13)
     );
     let mode = |p: &std::path::Path| std::fs::metadata(p).unwrap().permissions().mode() & 0o777;
     assert_eq!(mode(&token_file), 0o600);
     assert_eq!(mode(&dir.join("nested")), 0o755);
 
-    // expires_in 11 leaves the token valid for about one second.
+    // expires_in 13 leaves the token valid for about three seconds.
     assert_eq!(source.token().await.unwrap(), "at-1");
-    tokio::time::sleep(Duration::from_millis(1300)).await;
+    tokio::time::sleep(Duration::from_millis(3300)).await;
     assert_eq!(source.token().await.unwrap(), "at-2");
 
     let recorded = mock.recorded();

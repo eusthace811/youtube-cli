@@ -3,7 +3,7 @@
 
 mod common;
 
-use common::{agent, block_on, console, mock_llm, recorder};
+use common::{agent, block_on, console, cycling_pages, mock_llm, recorder};
 use serde_json::json;
 
 #[test]
@@ -26,5 +26,24 @@ fn zero_max_results_lists_everything() {
             "{requests:?}"
         );
         assert!(requests[0].0.contains("maxResults=20"), "{requests:?}");
+    })
+}
+
+#[test]
+fn a_page_token_that_comes_back_ends_the_listing() {
+    block_on(async {
+        let (llm, _) = mock_llm(vec![
+            json!({"calls": [{"name": "playlist-list", "args": {"mine": true, "max_results": 0}}]}),
+            json!({"text": "Done."}),
+        ])
+        .await;
+        let (youtube, log) = cycling_pages().await;
+        let agent = agent(&llm, &youtube).await;
+
+        console(&agent, &["list my playlists"]).await;
+
+        let requests = log.lock().unwrap();
+        assert_eq!(requests.len(), 2, "{requests:?}");
+        assert!(requests[1].0.contains("pageToken=again"), "{requests:?}");
     })
 }

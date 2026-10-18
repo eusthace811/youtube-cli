@@ -11,14 +11,21 @@
 #   --with-skill   also install the youtube agent skill with `npx skills add`
 #
 # Environment:
-#   YUTU_REPO               GitHub repository of the release (default eat-pray-ai/yutu)
+#   YUTU_REPO               GitHub repository of the yutu-rs releases, owner/name
+#                           (required unless YUTU_RELEASE_URL is set; the release
+#                           notes give the command with it filled in)
 #   YUTU_RELEASE_URL        base URL of the release assets, any URL curl reads
 #                           (default https://github.com/$YUTU_REPO/releases/latest/download)
 #   YUTU_SKIP_ATTESTATION=1 skip the attestation check even when gh is present
 
 set -euo pipefail
 
-REPO="${YUTU_REPO:-eat-pray-ai/yutu}"
+REPO="${YUTU_REPO:-}"
+if [[ -z "${REPO}" && -z "${YUTU_RELEASE_URL:-}" ]]; then
+  echo "Set YUTU_REPO to the GitHub repository of the yutu-rs releases (owner/name)." >&2
+  echo "The Go project's releases (eat-pray-ai/yutu) are a different program." >&2
+  exit 2
+fi
 BASE_URL="${YUTU_RELEASE_URL:-https://github.com/${REPO}/releases/latest/download}"
 INSTALL_DIR="${XDG_BIN_HOME:-${HOME}/.local/bin}"
 WITH_SKILL=0
@@ -92,6 +99,10 @@ if [[ "${YUTU_SKIP_ATTESTATION:-}" == "1" ]]; then
   echo "attestation skipped: YUTU_SKIP_ATTESTATION=1"
 elif ! command -v gh >/dev/null 2>&1; then
   echo "attestation skipped: gh not found (install the GitHub CLI to verify build provenance)"
+elif ! gh auth status >/dev/null 2>&1; then
+  echo "attestation skipped: gh is not signed in (run gh auth login to verify build provenance)"
+elif [[ -z "${REPO}" ]]; then
+  echo "attestation skipped: YUTU_REPO is not set, so the signing repository is unknown"
 elif gh attestation verify "${TMP}/${FILE}" --repo "${REPO}" \
     --signer-workflow "${REPO}/.github/workflows/release.yml" >"${TMP}/attestation.log" 2>&1; then
   echo "attestation verified: ${FILE} was built by ${REPO}/.github/workflows/release.yml"
@@ -108,7 +119,9 @@ mv -f "${TMP}/${FILE}" "${INSTALL_DIR}/yutu"
 "${INSTALL_DIR}/yutu" version
 
 if [[ "${WITH_SKILL}" == "1" ]]; then
-  if command -v npx >/dev/null 2>&1; then
+  if [[ -z "${REPO}" ]]; then
+    echo "Skill skipped: set YUTU_REPO to the yutu-rs repository, which holds the skill."
+  elif command -v npx >/dev/null 2>&1; then
     echo "Installing skill..."
     if npx --yes skills add "${REPO}" --skill youtube -y; then
       echo "Skill installed."

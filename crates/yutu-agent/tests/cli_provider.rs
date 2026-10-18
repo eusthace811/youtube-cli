@@ -29,7 +29,9 @@ printf '%s\n' "$@" > "$D/args.$n"
 cat > "$D/prompt.$n"
 pwd > "$D/cwd.$n"
 env > "$D/env.$n"
+if [ -f "$D/spawn" ]; then sleep 30 & echo $! > "$D/grandchild"; fi
 if [ -f "$D/fail" ]; then echo "not signed in" >&2; exit 3; fi
+if [ -f "$D/fail-json" ]; then printf '{{"type":"result","subtype":"success","is_error":true,"result":"Invalid API key"}}'; exit 1; fi
 reply=$(cat "$D/reply.$n")
 out=""; prev=""
 for a in "$@"; do [ "$prev" = "-o" ] && out="$a"; prev="$a"; done
@@ -115,6 +117,12 @@ fn claude_code_runs_without_tools_and_a_decline_sends_nothing() {
             "the CLI's own default model"
         );
         let env = fake.read("env", 1);
+        assert!(env.lines().any(|l| l.starts_with("HOME=")), "{env}");
+        assert!(
+            !env.lines()
+                .any(|l| l.starts_with("CARGO") || l.starts_with("YUTU_")),
+            "only allowlisted variables reach the CLI: {env}"
+        );
         for var in [
             "DISABLE_TELEMETRY=1",
             "DISABLE_ERROR_REPORTING=1",
@@ -128,8 +136,12 @@ fn claude_code_runs_without_tools_and_a_decline_sends_nothing() {
             !Path::new(cwd.trim_end()).exists(),
             "the scratch directory is removed"
         );
+        assert!(
+            fake.read("args", 1).contains("### video-delete"),
+            "the tool catalog is in the cached system prompt"
+        );
         let first = fake.read("prompt", 1);
-        assert!(first.contains("### video-delete"));
+        assert!(!first.contains("### video-delete"));
         assert!(first.contains("USER: delete video v1"));
         let second = fake.read("prompt", 2);
         assert!(second.contains(r#"ASSISTANT CALLED video-delete with {"ids":["v1"]}"#));
@@ -154,6 +166,12 @@ fn codex_runs_read_only_and_an_approved_delete_reaches_youtube() {
             ("--sandbox", "read-only"),
             ("-c", "web_search=\"disabled\""),
             ("-c", "analytics.enabled=false"),
+            ("-c", "shell_environment_policy.inherit=\"none\""),
+            ("-c", "features.apps=false"),
+            ("-c", "features.plugins=false"),
+            ("-c", "features.multi_agent=false"),
+            ("-c", "features.shell_tool=false"),
+            ("-c", "features.code_mode_host=false"),
         ] {
             assert!(has_pair(&args, flag, value), "{flag} {value:?} in {args:?}");
         }
@@ -214,4 +232,61 @@ fn keys_and_endpoints_are_refused_for_cli_providers() {
             )
         );
     }
+}
+
+#[test]
+fn an_error_the_cli_reports_on_stdout_reaches_the_user() {
+    block_on(async {
+        let fake = Fake::new("failjson", &[]);
+        std::fs::write(fake.dir.join("fail-json"), "").unwrap();
+        let (youtube, _) = recorder().await;
+        let agent = cli_agent("claude-code", &fake.bin(), &youtube).await;
+
+        let transcript = common::console(&agent, &["hi"]).await;
+
+        assert!(
+            transcript
+                .contains("AGENT_ERROR: claude-code: exited with exit status: 1: Invalid API key"),
+            "{transcript}"
+        );
+    })
+}
+
+#[test]
+fn processes_the_cli_starts_end_with_the_call() {
+    block_on(async {
+        let fake = Fake::new("spawn", &[DONE]);
+        std::fs::write(fake.dir.join("spawn"), "").unwrap();
+        let (youtube, _) = recorder().await;
+        let agent = cli_agent("codex", &fake.bin(), &youtube).await;
+
+        common::console(&agent, &["hi"]).await;
+
+        let pid = fake.read("grandchild", 1);
+        let pid = std::fs::read_to_string(fake.dir.join("grandchild")).unwrap_or(pid);
+        let alive = std::process::Command::new("kill")
+            .args(["-0", pid.trim()])
+            .status()
+            .unwrap()
+            .success();
+        assert!(!alive, "the CLI's background child {pid} was killed");
+    })
+}
+
+#[test]
+fn a_missing_cli_is_reported_before_the_session_starts() {
+    let opts = yutu_agent::Options {
+        args: "console".into(),
+        provider: "codex".into(),
+        model: String::new(),
+        api_key: String::new(),
+        base_url: String::new(),
+        instruction: String::new(),
+    };
+    let env = |k: &str| (k == "YUTU_CODEX_BIN").then(|| "/nonexistent/codex".to_string());
+    let err = yutu_agent::model_config(&opts, &env).err().unwrap();
+    assert_eq!(
+        err,
+        "codex: /nonexistent/codex not found; install the Codex CLI and sign in, or set YUTU_CODEX_BIN to its path"
+    );
 }

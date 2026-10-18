@@ -35,8 +35,6 @@
     "@yutu-rs/yutu-darwin-arm64": "0.0.0",
     "@yutu-rs/yutu-darwin-x64": "0.0.0",
     "@yutu-rs/yutu-linux-arm64": "0.0.0",
-    "@yutu-rs/yutu-linux-x64": "0.0.0",
-    "@yutu-rs/yutu-win32-arm64": "0.0.0",
-    "@yutu-rs/yutu-win32-x64": "0.0.0"
+    "@yutu-rs/yutu-linux-x64": "0.0.0"
   }
 }

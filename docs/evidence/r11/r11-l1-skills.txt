@@ -63,7 +63,7 @@ diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills/youtube/SKILL.md 
 --- stderr ---
 
 Distinct changed lines vs the expected set:
-$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.MzX5vESSDh/expected /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.MzX5vESSDh/changed
+$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/expected /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/changed
 exit: 0
 --- stdout ---
 --- stderr ---

@@ -100,6 +100,15 @@ pub async fn mock_llm(script: Vec<Value>) -> (String, Log) {
 }
 
 /// A YouTube API stand-in answering every call with one item.
+/// A YouTube stand-in whose every list page names the same next page.
+pub async fn cycling_pages() -> (String, Log) {
+    serve(|_, _| {
+        let reply = json!({"items": [{"id": "item-1"}], "nextPageToken": "again"});
+        ("application/json", reply.to_string())
+    })
+    .await
+}
+
 pub async fn recorder() -> (String, Log) {
     serve(|_, _| {
         let reply = json!({"items": [{"id": "item-1", "snippet": {"title": "Item one"}}]});

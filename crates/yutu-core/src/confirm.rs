@@ -7,13 +7,16 @@ use std::io::{BufRead, IsTerminal, Write};
 pub const NOT_CONFIRMED: &str = "operation not confirmed (pass confirm: true or rerun with --yes)";
 
 /// A confirmation message safe to show a person: control characters, which
-/// could redraw the terminal around the question, are escaped. Messages are
-/// built from tool arguments a model or MCP client chose.
+/// could redraw the terminal around the question, and the invisible format
+/// characters that reorder or hide text (bidi controls, zero-width marks)
+/// are escaped. Messages are built from tool arguments a model or MCP
+/// client chose.
 pub fn printable(message: &str) -> String {
+    let invisible = |c: char| matches!(c, '\u{ad}' | '\u{61c}' | '\u{180e}' | '\u{200b}'..='\u{200f}' | '\u{202a}'..='\u{202e}' | '\u{2060}'..='\u{2069}' | '\u{feff}');
     message
         .chars()
         .map(|c| {
-            if c.is_control() {
+            if c.is_control() || invisible(c) {
                 format!("\\u{{{:x}}}", u32::from(c))
             } else {
                 c.to_string()
@@ -61,6 +64,10 @@ mod tests {
         assert_eq!(
             super::printable("Delete video(s): v1"),
             "Delete video(s): v1"
+        );
+        assert_eq!(
+            super::printable("Delete: \u{202e}1v\u{200b}"),
+            "Delete: \\u{202e}1v\\u{200b}"
         );
     }
 }

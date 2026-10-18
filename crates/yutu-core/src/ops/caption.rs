@@ -379,16 +379,20 @@ impl Caption {
             .download()
             .await
             .map_err(|e| OpError::wrap(ERR_DOWNLOAD, e))?;
-        let mut file =
-            super::common::create_write(&self.file).map_err(|e| OpError::wrap(ERR_DOWNLOAD, e))?;
+        // The whole body first, as Go reads it, so a failed download
+        // leaves an existing file untouched.
+        let mut body = Vec::new();
         while let Some(chunk) = res
             .chunk()
             .await
             .map_err(|e| OpError::wrap(ERR_DOWNLOAD, e))?
         {
-            file.write_all(&chunk)
-                .map_err(|e| OpError::wrap(ERR_DOWNLOAD, e))?;
+            body.extend_from_slice(&chunk);
         }
+        let mut file =
+            super::common::create_write(&self.file).map_err(|e| OpError::wrap(ERR_DOWNLOAD, e))?;
+        file.write_all(&body)
+            .map_err(|e| OpError::wrap(ERR_DOWNLOAD, e))?;
         let _ = ctx
             .out
             .write_str(&format!("Caption {id} downloaded to {}\n", self.file));

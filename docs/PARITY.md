@@ -7,7 +7,7 @@ Every case runs the Rust binary and compares it with what the Go reference (`eat
 | Surface | Cases | Unexplained differences |
 |---|---|---|
 | cli | 1619 | 0 |
-| mcp | 1102 | 0 |
+| mcp | 1118 | 0 |
 | mcp-http | 93 | 0 |
 | MCP contract and all 117 help texts | 1 | 0 |
 
@@ -31,11 +31,11 @@ Only these, each one function in `parity/diff.py`:
 | E2 | a login triggered during stdio MCP prints only to stderr and never reads stdin | R3 | 0 | r3 lane 10 and crates/yutu-auth flow tests |
 | E3 | every token refresh is persisted atomically | R3 | 0 | crates/yutu-auth/tests/flow.rs refresh persistence test |
 | E4 | the HTTP token verifier posts the token, caches verified tokens until expiry, and supports an audience allowlist | R8 | 93 | crates/yutu-mcp/tests/http.rs and r8 lanes 9 and 10 |
-| E5 | stdio MCP traffic is logged only at DEBUG | R7 | 1102 | r7 lane 8 |
+| E5 | stdio MCP traffic is logged only at DEBUG | R7 | 1118 | r7 lane 8 |
 | E6 | video://category/{hl} honors {hl} | R7 | 2 | mcp.resource.video.category.ja sends hl=ja; r7 lane 5 |
 | E7 | uploads above 16 MiB use resumable 8 MiB chunks streamed from disk | R6 | 0 | r6 lanes 8 and 9 |
 | E8 | the HTTP MCP server sets timeouts and rejects non-loopback Origin headers | R8 | 1 | crates/yutu-mcp/tests/http.rs and r8 lanes 5 and 7 |
-| E9 | the agent cannot approve its own writes; a human approves each one | R9, R10, R12 | 0 | crates/yutu-agent/tests/confirm.rs (including type-ahead and no-terminal declines), crates/yutu-agent/tests/web_confirm.rs (including a program answering the browser's confirmation) and r10 lane 9 |
+| E9 | the agent cannot approve its own writes; a human approves each one, and approval questions (also MCP elicitation messages) escape control, bidi and zero-width characters | R9, R10, R12 | 0 | crates/yutu-agent/tests/confirm.rs (including type-ahead and no-terminal declines), crates/yutu-agent/tests/web_confirm.rs (including a program answering the browser's confirmation) and r10 lane 9 |
 | E10 | the agent reads API keys from environment variables when the flag is absent | R9 | 0 | r9 lane 9 |
 | E11 | agent web launchers require a per-launch bearer token for programs and a separate per-launch token for the dev UI's browser | R10, R12 | 0 | crates/yutu-agent/tests/auth.rs |
 | E12 | --otel_to_cloud is accepted and ignored with a notice | R10 | 0 | r10 lane 8 |
@@ -43,7 +43,8 @@ Only these, each one function in `parity/diff.py`:
 | E14 | the Docker image documents how to reach --mode http | R11 | 0 | r11 lane 5 |
 | E15 | install.sh verifies checksums and attestations and installs the skill only on request | R11 | 0 | xtask/tests/install.rs |
 | E16 | the agent also runs on the Claude Code and Codex CLIs (--provider claude-code|codex), with their tools off or read-only and the same human approval for writes | R12 | 0 | crates/yutu-agent/tests/cli_provider.rs, crates/yutu-core/tests/help_golden.rs and r9 lane 10 |
-| E17 | max_results 0 in an MCP or agent tool call means no limit, as every tool schema says; Go fetched nothing | R12 | 0 | crates/yutu-agent/tests/max_results.rs; found by the E16 real-model lane |
+| E17 | max_results 0 in an MCP or agent tool call means no limit, as every tool schema says; Go fetched nothing | R12 | 16 | crates/yutu-agent/tests/max_results.rs; found by the E16 real-model lane |
+| E18 | playlist, playlistItem, channel and comment update fetch the item they change; Go's lookup fetched nothing, so every such update failed with "failed to get ..." | R12 | 153 | the cli.*.update and mcp.*-update corpus cases, tagged E18, run head against Go's golden |
 
 Contract or help differences accepted under a registered id:
 
@@ -54,11 +55,13 @@ Contract or help differences accepted under a registered id:
 
 Go is the oracle, so these behave as Go does. They are candidates for fixes after cutover.
 
-- **playlist update, playlistItem update (CLI)**: never set MaxResults, so the lookup sends no request and the command fails with "failed to get ..."
-- **channel update, comment update (CLI)**: the same: the lookup paginates with MaxResults 0 and always fails
 - **comment markAsSpam / setModerationStatus**: print the input struct itself, including "confirmed":false
 - **liveBroadcast bind**: prints the response id and an empty stream id when --streamId is unset
 - **agent skill toolset**: list_skills is empty and load_skill finds nothing, because yutu's embed nests the skill one directory deeper than ADK reads; `Skills::embedded()` in crates/yutu-agent is the ready fix
-- **several list tables**: Go dereferences nil nested fields and would crash; the port prints empty cells instead (never reachable with real API responses)
 
-cases: 2815, differences: 0, divergences: 17, all registered
+## Go crashes the port avoids
+
+- **several list tables**: Go dereferences nil nested fields and would crash; the port prints empty cells (never reachable with real API responses)
+- **MCP tools/call with "arguments": null**: Go panics ("assignment to entry in nil map", exit 2, no reply); the port treats it as {}
+
+cases: 2831, differences: 0, divergences: 18, all registered

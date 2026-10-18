@@ -77,6 +77,7 @@ fn install(dir: &Path, args: &[&str]) -> Output {
         .env("XDG_BIN_HOME", dir.join("bin"))
         .env("HOME", dir.join("home"))
         .env("YUTU_SKIP_ATTESTATION", "1")
+        .env("YUTU_REPO", "owner/yutu-rs")
         .output()
         .unwrap()
 }
@@ -141,6 +142,22 @@ fn with_skill_installs_the_skill_through_npx() {
     );
     assert_eq!(
         fs::read_to_string(dir.join("npx.log")).unwrap(),
-        "--yes skills add eat-pray-ai/yutu --skill youtube -y\n"
+        "--yes skills add owner/yutu-rs --skill youtube -y\n"
+    );
+}
+
+#[test]
+fn without_a_repository_it_refuses_to_guess() {
+    let out = Command::new("bash")
+        .arg(Path::new(env!("CARGO_MANIFEST_DIR")).join("../install.sh"))
+        .env_remove("YUTU_REPO")
+        .env_remove("YUTU_RELEASE_URL")
+        .output()
+        .unwrap();
+    assert_eq!(out.status.code(), Some(2));
+    assert_eq!(
+        String::from_utf8(out.stderr).unwrap(),
+        "Set YUTU_REPO to the GitHub repository of the yutu-rs releases (owner/name).\n\
+         The Go project's releases (eat-pray-ai/yutu) are a different program.\n"
     );
 }

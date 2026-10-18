@@ -4,18 +4,18 @@ Rule: head <= 0.3x Go on every channel. Sizes in bytes.
 
 raw binary (yutu-darwin-arm64)
   Go v0.11.0 stamped build /Users/juan/Projects/youtube-cli/youtube-cli/ref/yutu-go: 57083794
-  head /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/yutu-shipped: 7167296
+  head /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped: 7200448
   ratio vs stamped build: 0.126
 
 npm platform tarball (@*/yutu-darwin-arm64@0.11.0)
   Go @eat-pray-ai tarball from registry.npmjs.org: 16678530
-  head @yutu-rs tarball from npm pack: 4689146
-  ratio: 0.281
+  head @yutu-rs tarball from npm pack: 4706821
+  ratio: 0.282
 
 Docker image (SUBSTITUTED: no Docker here; estimated as uncompressed layer bytes)
   Go image = distroless/static-debian13 base (about 2,000,000) + Go linux binary
   head image = scratch + CA bundle (Mozilla bundle, 188900; Alpine's is the same set) + head linux musl binary
   Using the host binaries as stand-ins for the linux ones:
   Go estimate:   59083794
-  head estimate: 7356196
+  head estimate: 7389348
   ratio: 0.125

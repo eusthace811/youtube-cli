@@ -99,15 +99,18 @@ lane2() {
     echo "exit: $?"
     echo
     echo "Same script against Go v0.11.0 (${GO_BIN}), output diffed with head's."
-    echo "Expected differences: the 'Using yutu at' path, and 'caption download --help' listing"
-    echo "--yes, because Rust gates caption download (divergence E1)."
+    echo "Expected differences: the 'Using yutu at' path, 'caption download --help' listing"
+    echo "--yes, because Rust gates caption download (divergence E1), and 'agent --help' naming the"
+    echo "claude-code and codex providers (divergence E16)."
     "${ROOT}/scripts/command-test.sh" "${GO_BIN}" >"${TMP}/go.out" 2>&1
     echo "go exit: $?"
     run diff "${TMP}/go.out" "${TMP}/rust.out"
     echo "The subcommand whose help holds line 257 of head's output: $(sed -n '1,257p' "${TMP}/rust.out" |
       grep -E -- '^(=======|-------) ' | tail -2 | tr '\n' ' ')"
     echo "unexpected differences: $(diff "${TMP}/go.out" "${TMP}/rust.out" | grep -E '^[<>]' |
-      grep -v -e '^[<>] Using yutu at: ' -e '^> *--yes  *Confirm the operation$' | wc -l | tr -d ' ')"
+      grep -v -e '^[<>] Using yutu at: ' -e '^> *--yes  *Confirm the operation$' \
+        -e '^> # Claude Code or Codex CLI, signed in already$' -e '^> yutu agent --provider \(claude-code\|codex\)$' \
+        -e '^[<>]   -p, --provider string  ' | wc -l | tr -d ' ')"
     echo "--- head output, first 40 lines ---"
     head -40 "${TMP}/rust.out"
   } >"${body}"
@@ -125,9 +128,9 @@ lane3() {
     echo "SHA256SUMS:"
     cat "${rel}/SHA256SUMS"
     echo
-    echo "1. gh is installed, so install.sh runs gh attestation verify against eat-pray-ai/yutu."
+    echo "1. gh is installed and signed in, so install.sh runs gh attestation verify against YUTU_REPO."
     echo "   The local build has no published attestation, so this must fail closed:"
-    run env YUTU_RELEASE_URL="file://${rel}" XDG_BIN_HOME="${TMP}/bin1" "${ROOT}/install.sh"
+    run env YUTU_RELEASE_URL="file://${rel}" YUTU_REPO=yutu-rs/yutu-rs XDG_BIN_HOME="${TMP}/bin1" "${ROOT}/install.sh"
     echo "2. Without an attestation to check, skipped explicitly:"
     run env YUTU_RELEASE_URL="file://${rel}" XDG_BIN_HOME="${TMP}/bin2" YUTU_SKIP_ATTESTATION=1 "${ROOT}/install.sh"
     echo "3. Tampered binary:"
@@ -281,16 +284,17 @@ EOF
 lane9() {
   local body="${TMP}/l9"
   {
-    echo "SUBSTITUTED: no Windows host. ci.yml's windows-smoke job runs on windows-latest:"
+    echo "DEFERRED: Windows is not built in this release (decision R12, 2026-10-18). The file sandbox's"
+    echo "identity checks, the console approval's terminal handling and the CLI-provider process groups"
+    echo "use Unix APIs with no Windows port yet, and no Windows host was available to build or test one."
+    echo "ci.yml and release.yml build macOS and Linux only; npm ships no win32 packages; no winget manifest."
     echo
-    sed -n '/windows-smoke:/,$p' "${ROOT}/.github/workflows/ci.yml"
-    echo
-    echo "Its first CI run on a GitHub repository produces the evidence. The same diff on this host:"
+    echo "The help-parity diff the Windows job would have run, on this host:"
     "${GO_BIN}" video list --help >"${TMP}/go-help" 2>&1
     "${BIN}" video list --help >"${TMP}/rs-help" 2>&1
     run diff -u "${TMP}/go-help" "${TMP}/rs-help"
   } >"${body}" 2>&1
-  write 9 windows SUBSTITUTED "${body}"
+  write 9 windows DEFERRED "${body}"
 }
 
 lane10() {

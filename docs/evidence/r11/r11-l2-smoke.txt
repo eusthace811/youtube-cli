@@ -7,24 +7,33 @@ invocations: 112
 exit: 0
 
 Same script against Go v0.11.0 (/Users/juan/Projects/youtube-cli/youtube-cli/ref/yutu-go), output diffed with head's.
-Expected differences: the 'Using yutu at' path, and 'caption download --help' listing
---yes, because Rust gates caption download (divergence E1).
+Expected differences: the 'Using yutu at' path, 'caption download --help' listing
+--yes, because Rust gates caption download (divergence E1), and 'agent --help' naming the
+claude-code and codex providers (divergence E16).
 go exit: 0
-$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/go.out /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/rust.out
+$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/go.out /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.ceL0AEuQNF/rust.out
 exit: 1
 --- stdout ---
 1c1
 < Using yutu at: /Users/juan/Projects/youtube-cli/youtube-cli/ref/yutu-go
 ---
-> Using yutu at: /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/r11/yutu-head
-256a257
+> Using yutu at: /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped
+87a88,90
+> # Claude Code or Codex CLI, signed in already
+> yutu agent --provider claude-code
+> yutu agent --provider codex
+96c99
+<   -p, --provider string      LLM provider: google for Gemini(compatible), openai for OpenAI(compatible) (default "google")
+---
+>   -p, --provider string      LLM provider: google for Gemini(compatible), openai for OpenAI(compatible), claude-code or codex to use that CLI's own sign-in (default "google")
+256a260
 >       --yes                             Confirm the operation
 --- stderr ---
 
 The subcommand whose help holds line 257 of head's output: ------- delete ------- ------- download ------- 
 unexpected differences: 0
 --- head output, first 40 lines ---
-Using yutu at: /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/r11/yutu-head
+Using yutu at: /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped
 yutu is a CLI, MCP server, and AI agent that automates your YouTube workflows from the terminal or any AI client.
 
 Environment variables:

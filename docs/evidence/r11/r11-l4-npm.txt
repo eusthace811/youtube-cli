@@ -1,13 +1,13 @@
 r11 lane 4: PASS
 
-$ /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/dist/npm/stage.sh 0.11.0 /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/npm-bins /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/stage yutu-darwin-arm64
+$ /Users/juan/Projects/youtube-cli/youtube-cli/dist/npm/stage.sh 0.11.0 /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/npm-bins /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage yutu-darwin-arm64
 exit: 0
 --- stdout ---
-staged /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/stage/yutu
-staged /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/stage/yutu-darwin-arm64 from yutu-darwin-arm64
+staged /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage/yutu
+staged /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage/yutu-darwin-arm64 from yutu-darwin-arm64
 --- stderr ---
 
-$ npm pack /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/stage/yutu /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/stage/yutu-darwin-arm64
+$ npm pack /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage/yutu /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/stage/yutu-darwin-arm64
 exit: 0
 --- stdout ---
 yutu-rs-yutu-0.11.0.tgz
@@ -19,44 +19,44 @@ npm notice Tarball Contents
 npm notice 11.4kB LICENSE
 npm notice 531B README.md
 npm notice 1.9kB bin/yutu
-npm notice 978B package.json
+npm notice 894B package.json
 npm notice Tarball Details
 npm notice name: @yutu-rs/yutu
 npm notice version: 0.11.0
 npm notice filename: yutu-rs-yutu-0.11.0.tgz
 npm notice package size: 5.4 kB
-npm notice unpacked size: 14.8 kB
-npm notice shasum: 3533f7db36e28d34f78723ba1ee5753921620ef3
-npm notice integrity: sha512-mU8Kpid0gTpt+[...]v8xkxHdmCgeYQ==
+npm notice unpacked size: 14.6 kB
+npm notice shasum: a15459e9e8d1707e482345bc00ef75d01f83a715
+npm notice integrity: sha512-0Wc8+YHuhT4ll[...]jk7OAsdfYirUA==
 npm notice total files: 4
 npm notice
 npm notice 📦  @yutu-rs/yutu-darwin-arm64@0.11.0
 npm notice 11.4kB LICENSE
-npm notice 4.0MB bin/yutu
+npm notice 7.2MB bin/yutu
 npm notice 371B package.json
 npm notice name: @yutu-rs/yutu-darwin-arm64
 npm notice filename: yutu-rs-yutu-darwin-arm64-0.11.0.tgz
-npm notice package size: 2.0 MB
-npm notice unpacked size: 4.0 MB
-npm notice shasum: 4e7225c56abda7541f208929bd561fa175a08dc5
-npm notice integrity: sha512-fjBYyPb/LRCjR[...]KRsP9oVwHVqDw==
+npm notice package size: 4.7 MB
+npm notice unpacked size: 7.2 MB
+npm notice shasum: e680eaa973da0ec397c394795ba9469994c0b1ad
+npm notice integrity: sha512-M9RTZI98Fv9c2[...]RwMmqbCbnl+eg==
 npm notice total files: 3
 
-total 3992
--rw-r--r--@ 1 juan  staff     5440 Oct 18 17:10 yutu-rs-yutu-0.11.0.tgz
--rw-r--r--@ 1 juan  staff  2033905 Oct 18 17:10 yutu-rs-yutu-darwin-arm64-0.11.0.tgz
+total 9216
+-rw-r--r--@ 1 juan  staff     5418 Oct 18 20:32 yutu-rs-yutu-0.11.0.tgz
+-rw-r--r--@ 1 juan  staff  4706821 Oct 18 20:32 yutu-rs-yutu-darwin-arm64-0.11.0.tgz
 
 Offline global install from the two tarballs; --foreground-scripts would print any lifecycle script.
-$ npm i -g --offline --foreground-scripts --loglevel info --prefix /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/prefix /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/tgz/yutu-rs-yutu-0.11.0.tgz /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/tgz/yutu-rs-yutu-darwin-arm64-0.11.0.tgz
+$ npm i -g --offline --foreground-scripts --loglevel info --prefix /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/prefix /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/tgz/yutu-rs-yutu-0.11.0.tgz /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/tgz/yutu-rs-yutu-darwin-arm64-0.11.0.tgz
 exit: 0
 --- stdout ---
 
-added 2 packages in 124ms
+added 2 packages in 141ms
 --- stderr ---
 npm info using npm@11.12.1
 npm info using node@v25.9.0
-npm http cache @yutu-rs/yutu-darwin-arm64@file:/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/tgz/yutu-rs-yutu-darwin-arm64-0.11.0.tgz 0ms (cache hit)
-npm http cache @yutu-rs/yutu@file:/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/tgz/yutu-rs-yutu-0.11.0.tgz 0ms (cache hit)
+npm http cache @yutu-rs/yutu-darwin-arm64@file:/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/tgz/yutu-rs-yutu-darwin-arm64-0.11.0.tgz 0ms (cache hit)
+npm http cache @yutu-rs/yutu@file:/var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/tgz/yutu-rs-yutu-0.11.0.tgz 0ms (cache hit)
 npm info ok
 
 scripts field of every installed package.json:
@@ -64,7 +64,7 @@ scripts field of every installed package.json:
   @yutu-rs/yutu/package.json: null
 hasInstallScript in the lockfile view: 0
 
-$ /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/prefix/bin/yutu version
+$ /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/prefix/bin/yutu version
 exit: 0
 --- stdout ---
 --- stderr ---

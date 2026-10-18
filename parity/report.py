@@ -20,12 +20,16 @@ import run as runner  # noqa: E402
 from recorder import Recorder  # noqa: E402
 
 KNOWN_GO_DEFECTS = [
-    ("playlist update, playlistItem update (CLI)", "never set MaxResults, so the lookup sends no request and the command fails with \"failed to get ...\""),
-    ("channel update, comment update (CLI)", "the same: the lookup paginates with MaxResults 0 and always fails"),
     ("comment markAsSpam / setModerationStatus", "print the input struct itself, including \"confirmed\":false"),
     ("liveBroadcast bind", "prints the response id and an empty stream id when --streamId is unset"),
     ("agent skill toolset", "list_skills is empty and load_skill finds nothing, because yutu's embed nests the skill one directory deeper than ADK reads; `Skills::embedded()` in crates/yutu-agent is the ready fix"),
-    ("several list tables", "Go dereferences nil nested fields and would crash; the port prints empty cells instead (never reachable with real API responses)"),
+]
+
+# Where Go would crash, the port fails safe instead. No corpus case can
+# record a crash as Go's golden, so these are listed rather than compared.
+GO_CRASHES_AVOIDED = [
+    ("several list tables", "Go dereferences nil nested fields and would crash; the port prints empty cells (never reachable with real API responses)"),
+    ("MCP tools/call with \"arguments\": null", "Go panics (\"assignment to entry in nil map\", exit 2, no reply); the port treats it as {}"),
 ]
 
 
@@ -76,6 +80,7 @@ def build(results, unregistered_contract, registered_contract):
         lines += ["", "Contract or help differences accepted under a registered id:", ""] + [f"- {l[:200]}" for l in registered_contract]
     lines += ["", "## Known Go defects reproduced on purpose", "", "Go is the oracle, so these behave as Go does. They are candidates for fixes after cutover.", ""]
     lines += [f"- **{a}**: {b}" for a, b in KNOWN_GO_DEFECTS]
+    lines += ["", "## Go crashes the port avoids", ""] + [f"- **{a}**: {b}" for a, b in GO_CRASHES_AVOIDED]
     if unexplained:
         lines += ["", "## Unexplained differences", ""] + [f"- `{cid}`: {d[:300]}" for cid, d in unexplained]
     total = len(results) + 1

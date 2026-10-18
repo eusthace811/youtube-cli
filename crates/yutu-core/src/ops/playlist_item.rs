@@ -249,6 +249,9 @@ impl PlaylistItem {
         ctx.service().await?;
         let mut q = self.clone();
         q.fields.parts = vec!["id".into(), "snippet".into(), "status".into()];
+        // Divergence E18: the lookup fetches the one item; Go left the
+        // count at 0, so it fetched nothing and every update failed.
+        q.fields.max_results = 1;
         let (items, err) = q.get(ctx).await?;
         if let Some(e) = err {
             let mut out = OpError::new(ERR_UPDATE);

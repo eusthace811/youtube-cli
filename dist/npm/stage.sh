@@ -30,14 +30,11 @@ asset_of() {
     yutu-darwin-x64) echo "yutu-darwin-amd64" ;;
     yutu-linux-arm64) echo "yutu-linux-arm64" ;;
     yutu-linux-x64) echo "yutu-linux-amd64" ;;
-    yutu-win32-arm64) echo "yutu-windows-arm64.exe" ;;
-    yutu-win32-x64) echo "yutu-windows-amd64.exe" ;;
   esac
 }
 
 if [[ $# -eq 0 ]]; then
-  set -- yutu-darwin-arm64 yutu-darwin-x64 yutu-linux-arm64 yutu-linux-x64 \
-    yutu-win32-arm64 yutu-win32-x64
+  set -- yutu-darwin-arm64 yutu-darwin-x64 yutu-linux-arm64 yutu-linux-x64
 fi
 
 stage() {
@@ -65,7 +62,6 @@ for pkg in "$@"; do
   fi
   stage "${pkg}"
   bin="yutu"
-  [[ "${pkg}" == *win32* ]] && bin="yutu.exe"
   mkdir -p "${OUT_DIR}/${pkg}/bin"
   cp "${BIN_DIR}/${asset}" "${OUT_DIR}/${pkg}/bin/${bin}"
   chmod +x "${OUT_DIR}/${pkg}/bin/${bin}"

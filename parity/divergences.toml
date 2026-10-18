@@ -51,7 +51,7 @@ fields = ["stdout"]
 proof = "crates/yutu-mcp/tests/http.rs and r8 lanes 5 and 7"
 
 [divergence.E9]
-summary = "the agent cannot approve its own writes; a human approves each one"
+summary = "the agent cannot approve its own writes; a human approves each one, and approval questions (also MCP elicitation messages) escape control, bidi and zero-width characters"
 prs = ["R9", "R10", "R12"]
 fields = []
 proof = "crates/yutu-agent/tests/confirm.rs (including type-ahead and no-terminal declines), crates/yutu-agent/tests/web_confirm.rs (including a program answering the browser's confirmation) and r10 lane 9"
@@ -103,6 +103,12 @@ summary = "max_results 0 in an MCP or agent tool call means no limit, as every t
 prs = ["R12"]
 fields = ["requests", "stdout"]
 proof = "crates/yutu-agent/tests/max_results.rs; found by the E16 real-model lane"
+
+[divergence.E18]
+summary = "playlist, playlistItem, channel and comment update fetch the item they change; Go's lookup fetched nothing, so every such update failed with \"failed to get ...\""
+prs = ["R12"]
+fields = ["requests", "stdout", "stderr", "exit"]
+proof = "the cli.*.update and mcp.*-update corpus cases, tagged E18, run head against Go's golden"
 
 # Not in Appendix E yet: found in R9. Go embeds cmd/agent/skills as a
 # directory named "skills", so ADK's file-system source sees no SKILL.md at

@@ -1,0 +1,8 @@
+{
+ "exit": 0,
+ "files": {},
+ "id": "mcp.channel-list.max_results.zero",
+ "requests": [],
+ "stderr": "time=2026-10-18T20:20:30.016+01:00 level=INFO msg=\"starting MCP server\" mode=stdio version=v0.11.0\nread: {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"elicitation\":{}},\"clientInfo\":{\"name\":\"parity\",\"version\":\"0\"}}}\nwrite: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\nread: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}\nread: {\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"channel-list\",\"arguments\":{\"max_results\":0}}}\ntime=2026-10-18T20:20:30.017+01:00 level=INFO msg=channel-list input=\"{\\\"confirmed\\\":false,\\\"parts\\\":[\\\"id\\\",\\\"snippet\\\",\\\"status\\\"],\\\"output\\\":\\\"json\\\"}\" output_length=3\nwrite: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"[]\\n\"}]}}\nread error: EOF\n",
+ "stdout": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"capabilities\":{\"logging\":{},\"resources\":{\"listChanged\":true},\"tools\":{\"listChanged\":true}},\"instructions\":\"Automate YouTube operations\",\"protocolVersion\":\"2025-06-18\",\"serverInfo\":{\"name\":\"yutu\",\"version\":\"v0.11.0\"}}}\n{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"[]\\n\"}]}}\n"
+}

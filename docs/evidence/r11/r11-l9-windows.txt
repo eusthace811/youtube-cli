@@ -1,31 +1,12 @@
-r11 lane 9: SUBSTITUTED
+r11 lane 9: DEFERRED
 
-SUBSTITUTED: no Windows host. ci.yml's windows-smoke job runs on windows-latest:
+DEFERRED: Windows is not built in this release (decision R12, 2026-10-18). The file sandbox's
+identity checks, the console approval's terminal handling and the CLI-provider process groups
+use Unix APIs with no Windows port yet, and no Windows host was available to build or test one.
+ci.yml and release.yml build macOS and Linux only; npm ships no win32 packages; no winget manifest.
 
-  windows-smoke:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
-        with:
-          persist-credentials: false
-      - name: Install toolchain from rust-toolchain.toml
-        shell: bash
-        run: rustup show active-toolchain || rustup toolchain install
-      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
-      - run: cargo build --release --locked -p yutu
-      - name: yutu version
-        shell: bash
-        run: ./target/release/yutu.exe version
-      - name: yutu video list --help matches Go v0.11.0
-        shell: bash
-        run: |
-          curl -sSfL https://github.com/eat-pray-ai/yutu/releases/download/v0.11.0/yutu-windows-amd64.exe -o yutu-go.exe
-          ./target/release/yutu.exe video list --help > rust-help.txt
-          ./yutu-go.exe video list --help > go-help.txt
-          diff -u go-help.txt rust-help.txt
-
-Its first CI run on a GitHub repository produces the evidence. The same diff on this host:
-$ diff -u /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/go-help /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/rs-help
+The help-parity diff the Windows job would have run, on this host:
+$ diff -u /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.2cZX9vOMgl/go-help /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.2cZX9vOMgl/rs-help
 exit: 0
 --- stdout ---
 --- stderr ---

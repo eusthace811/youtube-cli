@@ -206,7 +206,9 @@ impl Verifier {
         }
         let caller = Arc::new(Caller {
             token: Secret::new(token),
-            expires: Instant::now() + Duration::from_secs(secs.unsigned_abs()),
+            // A day at most: tokeninfo never grants more than an hour, and
+            // a hostile value must not overflow the clock.
+            expires: Instant::now() + Duration::from_secs(secs.unsigned_abs().min(86_400)),
             api_base: self.api_base.clone(),
             service: OnceLock::new(),
         });

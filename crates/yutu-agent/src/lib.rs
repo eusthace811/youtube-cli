@@ -125,7 +125,7 @@ pub fn model_config(
             let (var, default) = kind.program_var();
             let program = env(var).unwrap_or_else(|| default.to_string());
             Ok(ModelConfig {
-                llm: llm::Llm::Cli(llm::cli::Cli::new(kind, program.into(), &opts.model)),
+                llm: llm::Llm::Cli(llm::cli::Cli::new(kind, program.into(), &opts.model)?),
                 google_search: false,
             })
         }

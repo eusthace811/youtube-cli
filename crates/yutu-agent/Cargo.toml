@@ -18,7 +18,7 @@ futures-util = { version = "0.3", default-features = false, features = ["std"] }
 bytes = "1"
 chrono = { version = "0.4.45", default-features = false, features = ["clock", "std"] }
 getrandom = "0.3"
-rustix = { version = "1", default-features = false, features = ["std", "termios"] }
+rustix = { version = "1", default-features = false, features = ["std", "termios", "process"] }
 http = "1"
 http-body-util = "0.1"
 hyper = { version = "1", features = ["server", "http1"] }

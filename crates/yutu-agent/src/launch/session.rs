@@ -139,9 +139,18 @@ impl Store {
             .collect()
     }
 
+    /// Removes a session; a turn it left waiting for approval is stopped,
+    /// so its task and history do not outlive it.
     pub fn delete(&self, app: &str, user: &str, id: &str) {
         let key = (app.to_string(), user.to_string(), id.to_string());
-        self.sessions.lock().unwrap().remove(&key);
+        let removed = self.sessions.lock().unwrap().remove(&key);
+        if let Some(session) = removed
+            && let Ok(mut slot) = session.turn.try_lock()
+            && let Slot::Busy { pending, .. } = &mut *slot
+            && let Some(p) = pending.take()
+        {
+            let _ = p.answer.send(Verdict::Stop);
+        }
     }
 }
 

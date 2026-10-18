@@ -180,6 +180,9 @@ impl Channel {
     async fn update(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
         let mut q = self.clone();
         q.fields.parts = vec!["snippet".into()];
+        // Divergence E18: the lookup fetches the one item; Go left the
+        // count at 0, so it fetched nothing and every update failed.
+        q.fields.max_results = 1;
         let (channels, err) = match q.get(ctx).await {
             Ok(fetched) => fetched,
             Err(e) => return Err(prefixed(ERR_UPDATE, e)),

@@ -2,7 +2,7 @@ r11 lane 7: PASS
 
 The zsh script from 'yutu completion zsh' asks the binary through __complete,
 so these two calls are what zsh runs for 'yutu vid<TAB>' and 'yutu video l<TAB>':
-$ /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/r11/yutu-head __complete vid
+$ /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped __complete vid
 exit: 0
 --- stdout ---
 video	Manage YouTube videos
@@ -12,7 +12,7 @@ videoCategory	Manage YouTube video categories
 --- stderr ---
 Completion ended with directive: ShellCompDirectiveNoFileComp
 
-$ /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/r11/yutu-head __complete video l
+$ /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped __complete video l
 exit: 0
 --- stdout ---
 list	List videos
@@ -24,7 +24,7 @@ The generated zsh script calls __complete:
 49:    requestComp="${words[1]} __complete ${words[2,-1]}"
 
 zsh, non-interactive: source the script and check the completion function is defined:
-$ zsh -c autoload -U compinit && compinit -u -d /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/zcompdump; source <("/private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/r11/yutu-head" completion zsh); whence -w _yutu
+$ zsh -c autoload -U compinit && compinit -u -d /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.DXRAQSipJP/zcompdump; source <("/private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/final/yutu-shipped" completion zsh); whence -w _yutu
 exit: 0
 --- stdout ---
 _yutu: function

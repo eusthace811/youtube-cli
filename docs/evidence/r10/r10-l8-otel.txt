@@ -1,8 +1,8 @@
 PASS: lane 8, -otel_to_cloud and xtask egress
 The notice prints in both launchers and xtask egress passes.
 
-web: ['time=2026-10-18T19:43:40.118+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']  (server still serves: GET /api/list-apps -> 200)
-console: ['time=2026-10-18T19:43:41.120+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']
+web: ['time=2026-10-18T20:28:02.515+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']  (server still serves: GET /api/list-apps -> 200)
+console: ['time=2026-10-18T20:28:03.519+01:00 level=WARN msg="telemetry is not supported in yutu-rs"']
 
 $ cargo run -p xtask -- egress /Users/juan/Projects/youtube-cli/youtube-cli/target/release/yutu
 egress: masked the brotli static dictionary (RFC 7932 Appendix A, 122784 bytes of word fragments the dev UI's decompressor carries)
@@ -22,7 +22,7 @@ egress: 0 unexpected hosts
 exit 0
 
 The same check over the vendored dev UI bundle files alone (crates/yutu-agent/assets/webui/distr):
-unexpected hosts: []
+unexpected hosts: ['angular.dev', 'chevrotain.io', 'en.wikipedia.org', 'fonts.googleapis.com', 'fonts.gstatic.com', 'github.com', 'google.github.io', 'json-schema.org', 'jsonquerylang.org', 'langium.org', 'svelte.dev', 'www.apache.org', 'www.w3.org']
 hosts in the binary but not in the bundle: []
   ai.google.dev: the R9 API-key error text (crates/yutu-agent/src/lib.rs at aaa60ff), printed, never fetched.
   docs.rs: rustls's own error texts, present since R9; R11 (e5992d4) lists both as display-only.

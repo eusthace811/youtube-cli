@@ -82,6 +82,35 @@ impl Console<'_> {
         let _ = self.out.flush();
     }
 
+    /// Discards terminal input until none has arrived for 150 ms, so the
+    /// tail of a paste cannot answer the question about to be asked; lines
+    /// already read stay queued for the REPL. False when input never stops
+    /// within 2 s.
+    async fn settle(&mut self) -> bool {
+        use std::io::IsTerminal;
+        let stdin = std::io::stdin();
+        if !stdin.is_terminal() {
+            return true;
+        }
+        let deadline = Instant::now() + std::time::Duration::from_secs(2);
+        let mut quiet = 0;
+        while Instant::now() < deadline {
+            let _ = rustix::termios::tcflush(&stdin, rustix::termios::QueueSelector::IFlush);
+            let mut arrived = false;
+            while let Ok(line) = self.lines.try_recv() {
+                self.ahead.push_back(line.text);
+                arrived = true;
+            }
+            tokio::time::sleep(std::time::Duration::from_millis(50)).await;
+            let pending = rustix::io::ioctl_fionread(&stdin).unwrap_or(0) > 0;
+            quiet = if arrived || pending { 0 } else { quiet + 1 };
+            if quiet >= 3 {
+                return true;
+            }
+        }
+        false
+    }
+
     async fn next_line(&mut self) -> Option<String> {
         match self.ahead.pop_front() {
             Some(line) => Some(line),
@@ -118,11 +147,9 @@ impl Frontend for Console<'_> {
             // only with a line that arrived after the question was shown.
             // Input the terminal still holds is discarded, as sudo does;
             // lines that arrived earlier are kept for the REPL.
-            if self.interactive {
-                let _ = rustix::termios::tcflush(
-                    std::io::stdin(),
-                    rustix::termios::QueueSelector::IFlush,
-                );
+            if self.interactive && !self.settle().await {
+                self.print("\nTool call needs approval, but input is still arriving: declined\n");
+                return Verdict::Decline;
             }
             let asked = Instant::now();
             self.print(&format!(

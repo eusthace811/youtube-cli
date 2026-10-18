@@ -10,8 +10,6 @@ const PLATFORMS = {
   "darwin x64": "@yutu-rs/yutu-darwin-x64",
   "linux arm64": "@yutu-rs/yutu-linux-arm64",
   "linux x64": "@yutu-rs/yutu-linux-x64",
-  "win32 arm64": "@yutu-rs/yutu-win32-arm64",
-  "win32 x64": "@yutu-rs/yutu-win32-x64",
 };
 
 function getBinaryPath() {

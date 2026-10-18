@@ -263,7 +263,11 @@ impl Playlist {
 
     async fn update(&self, ctx: &mut Ctx<'_>) -> Result<(), OpError> {
         ctx.service().await?;
-        let (playlists, err) = self.get(ctx).await?;
+        let mut q = self.clone();
+        // Divergence E18: the lookup fetches the one item; Go left the
+        // count at 0, so it fetched nothing and every update failed.
+        q.fields.max_results = 1;
+        let (playlists, err) = q.get(ctx).await?;
         if let Some(e) = err {
             let mut out = OpError::new(ERR_UPDATE);
             out.extend(e);

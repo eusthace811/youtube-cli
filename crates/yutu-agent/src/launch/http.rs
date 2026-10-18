@@ -116,7 +116,10 @@ impl Resp {
         Resp::new(status)
             .header("location", location)
             .header("content-type", "text/html; charset=utf-8")
-            .body(format!("<a href=\"{location}\">{text}</a>.\n\n"))
+            .body(format!(
+                "<a href=\"{}\">{text}</a>.\n\n",
+                html_escape(location)
+            ))
     }
 
     pub fn stream(
@@ -327,19 +330,36 @@ where
         .map_err(|e| std::io::Error::other(e.to_string()))
 }
 
-/// The request target with any `token=` value hidden, for the access log.
+/// The request target with any `token` value hidden, for the access log.
 fn redact_token(target: &str) -> String {
     let Some((path, query)) = target.split_once('?') else {
         return target.to_string();
     };
     let query: Vec<String> = query
         .split('&')
-        .map(|p| match p.split_once('=') {
-            Some(("token", _)) => "token=REDACTED".to_string(),
-            _ => p.to_string(),
+        .map(|p| {
+            if is_token_param(p) {
+                "token=REDACTED".to_string()
+            } else {
+                p.to_string()
+            }
         })
         .collect();
     format!("{path}?{}", query.join("&"))
+}
+
+/// Whether a query pair's name is `token`, however it is percent-encoded.
+pub fn is_token_param(pair: &str) -> bool {
+    let name = pair.split_once('=').map_or(pair, |(k, _)| k);
+    decode(name) == "token"
+}
+
+fn html_escape(s: &str) -> String {
+    s.replace('&', "&amp;")
+        .replace('<', "&lt;")
+        .replace('>', "&gt;")
+        .replace('"', "&quot;")
+        .replace('\'', "&#39;")
 }
 
 #[cfg(test)]
@@ -349,6 +369,10 @@ mod redact_tests {
         assert_eq!(
             super::redact_token("/ui/?mode=x&token=secret&b=1"),
             "/ui/?mode=x&token=REDACTED&b=1"
+        );
+        assert_eq!(
+            super::redact_token("/ui/?%74oken=secret"),
+            "/ui/?token=REDACTED"
         );
         assert_eq!(super::redact_token("/api/list-apps"), "/api/list-apps");
     }

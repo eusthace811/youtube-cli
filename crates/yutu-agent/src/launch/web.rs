@@ -205,7 +205,7 @@ fn sign_in(app: &App, req: &Req) -> Option<Resp> {
     let rest: Vec<&str> = req
         .query
         .split('&')
-        .filter(|p| !p.is_empty() && !p.starts_with("token="))
+        .filter(|p| !p.is_empty() && !super::http::is_token_param(p))
         .collect();
     let mut location = req.path.clone();
     if !rest.is_empty() {

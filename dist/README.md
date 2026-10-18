@@ -1,23 +1,23 @@
 # Distribution
 
-Every channel ships the same release binaries that `.github/workflows/release.yml` builds on a tag push. The assets keep Go yutu's names, `yutu-{darwin,linux,windows}-{amd64,arm64}`, with `.exe` on Windows. Each release also carries `SHA256SUMS`, a CycloneDX SBOM (`yutu.cdx.json`), and a GitHub build-provenance attestation per binary. Linux binaries are static musl builds, so they run on any distribution and in a `scratch` image.
+Every channel ships the same release binaries that `.github/workflows/release.yml` builds on a tag push. The assets keep Go yutu's names, `yutu-{darwin,linux}-{amd64,arm64}`. Windows is not built yet: the file sandbox, the console approval and the CLI-provider process handling use Unix APIs that have no Windows port, and no Windows host was available to test one. Each release also carries `SHA256SUMS`, a CycloneDX SBOM (`yutu.cdx.json`), and a GitHub build-provenance attestation per binary. Linux binaries are static musl builds, so they run on any distribution and in a `scratch` image.
 
-Nothing in this directory publishes anything. Publishing to npm, a container registry, winget, or the MCP registry is a separate, operator-run step.
+Nothing in this directory publishes anything. Publishing to npm, a container registry, or the MCP registry is a separate, operator-run step; the release workflow only creates the GitHub release.
 
 ## Shell installer
 
 `install.sh` at the repository root downloads the binary for the platform, checks it against the release's `SHA256SUMS`, and stops with `checksum mismatch` and exit 1 when they differ. When `gh` is installed it also runs `gh attestation verify --repo <repo> --signer-workflow <repo>/.github/workflows/release.yml` and stops when that fails. It installs the agent skill only with `--with-skill`.
 
 ```shell
-curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/yutu/main/install.sh | bash
-curl -sSfL https://raw.githubusercontent.com/eat-pray-ai/yutu/main/install.sh | bash -s -- --with-skill
+curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YUTU_REPO=OWNER/REPO bash
+curl -sSfL https://raw.githubusercontent.com/OWNER/REPO/main/install.sh | YUTU_REPO=OWNER/REPO bash -s -- --with-skill
 ```
 
-`YUTU_REPO` picks the GitHub repository, `YUTU_RELEASE_URL` replaces the download base URL (any URL curl reads, including `file://`), and `XDG_BIN_HOME` picks the install directory.
+`YUTU_REPO` names the yutu-rs repository and is required: the installer has no default, so it can never fetch Go yutu's releases by mistake. The GitHub release notes print the command with it filled in. `YUTU_RELEASE_URL` replaces the download base URL (any URL curl reads, including `file://`), and `XDG_BIN_HOME` picks the install directory.
 
 ## npm
 
-`npm/` holds the wrapper package `@yutu-rs/yutu` and six platform packages `@yutu-rs/yutu-{darwin,linux,win32}-{arm64,x64}`, with Go's layout. The wrapper lists the platform packages as optional dependencies, so npm installs only the one whose `os` and `cpu` match. Its `bin/yutu` resolves that package and runs the binary with inherited stdio, propagating the exit code. No package has an install or postinstall script.
+`npm/` holds the wrapper package `@yutu-rs/yutu` and four platform packages `@yutu-rs/yutu-{darwin,linux}-{arm64,x64}`, with Go's layout. The wrapper lists the platform packages as optional dependencies, so npm installs only the one whose `os` and `cpu` match. Its `bin/yutu` resolves that package and runs the binary with inherited stdio, propagating the exit code. No package has an install or postinstall script.
 
 The scope is new because `@eat-pray-ai` is the Go package's scope, and publishing the Rust build there would replace Go's binaries for every existing user. `@yutu-rs` keeps the two installable side by side until cutover. The scope must be created on npm by the operator before the first publish.
 
@@ -45,8 +45,4 @@ The server is then at `http://127.0.0.1:8216/mcp`. Binding `0.0.0.0` makes the s
 
 ## MCP registry
 
-`server.json` is the registry entry for `io.github.eat-pray-ai/yutu-rs`, on schema 2025-12-11, mirroring Go's entry with a stdio and a streamable-HTTP package, both `@yutu-rs/yutu`. The wrapper's `mcpName` matches it. The release pipeline replaces `0.0.0-dev` with the tag version before `mcp-publisher publish`. `YUTU_LOG_LEVEL` lists `WARN`, the spelling yutu reads, where Go's entry listed `WARNING`, which yutu treats as `INFO`.
-
-## winget
-
-`winget/` holds the three manifest templates for `eat-pray-ai.yutu-rs`, a portable `.exe` per architecture. `winget/render.sh VERSION SHA256SUMS OUT_DIR [REPO]` fills in the version and the installer hashes in the `microsoft/winget-pkgs` layout. The release workflow renders them as the `winget-manifests` artifact, ready to submit.
+`server.json` is the registry entry for `io.github.eat-pray-ai/yutu-rs`, on schema 2025-12-11, mirroring Go's entry with a stdio and a streamable-HTTP package, both `@yutu-rs/yutu`. The wrapper's `mcpName` matches it. Before publishing, set `version` (replacing `0.0.0-dev`) to the release version and run `mcp-publisher publish`; no workflow does this yet. The `io.github.eat-pray-ai` namespace belongs to the Go project, so publish under the namespace of the repository that hosts yutu-rs. `YUTU_LOG_LEVEL` lists `WARN`, the spelling yutu reads, where Go's entry listed `WARNING`, which yutu treats as `INFO`.

@@ -13,15 +13,29 @@ mod bundle {
 pub const PREFIX: &str = "/ui/";
 const INDEX: &str = "index.html";
 
-/// A bundle file's bytes, decompressed from the brotli copy in the binary.
+/// A bundle file's bytes, decompressed from the brotli copy in the binary
+/// on first use and kept for later requests.
 fn file(name: &str) -> Option<Vec<u8>> {
+    use std::collections::HashMap;
     use std::io::Read;
-    let (_, br) = bundle::FILES.iter().find(|(n, _)| *n == name)?;
+    use std::sync::{Arc, Mutex, OnceLock};
+    type Cache = Mutex<HashMap<&'static str, Arc<[u8]>>>;
+    static DECODED: OnceLock<Cache> = OnceLock::new();
+    let (key, br) = bundle::FILES.iter().find(|(n, _)| *n == name)?;
+    let cache = DECODED.get_or_init(Mutex::default);
+    if let Some(raw) = cache.lock().unwrap().get(key) {
+        return Some(raw.to_vec());
+    }
     let mut raw = Vec::new();
     brotli_decompressor::Decompressor::new(*br, 1 << 16)
         .read_to_end(&mut raw)
         .expect("the build script wrote valid brotli");
+    cache.lock().unwrap().insert(key, Arc::from(raw.as_slice()));
     Some(raw)
+}
+
+fn exists(name: &str) -> bool {
+    bundle::FILES.iter().any(|(n, _)| *n == name)
 }
 
 fn is_dir(name: &str) -> bool {
@@ -103,7 +117,7 @@ pub fn handle(cfg: &WebUiConfig, req: &Req) -> Option<Resp> {
             .body(body)
     };
     if is_dir(&name) {
-        if name == "." || file(&format!("{name}/{INDEX}")).is_some() {
+        if name == "." || exists(&format!("{name}/{INDEX}")) {
             return Some(html(index()));
         }
         return Some(Resp::not_found());
