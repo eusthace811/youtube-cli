@@ -1,0 +1,19 @@
+PASS: lane 9 in Chrome, a delete asked of the unmodified dev UI waits for the human
+The UI showed ADK's tool confirmation card; YouTube saw no DELETE until "Confirmed" was ticked and submitted.
+
+Head (parity build) ran `agent --args "web -port 18484 webui -api_server_address http://localhost:18484/api
+api -webui_address localhost:18484"` against the mock LLM (playlist-list, playlist-delete PLtest, then
+"Deleted playlist PLtest.") and the YouTube recorder. Chrome opened the printed sign-in link
+http://localhost:18484/ui/?token=<token>, which set the cookie and dropped the token from the address bar.
+
+1. Typed "delete my test playlist". The UI listed playlist-list, its response, playlist-delete(["PLtest"]),
+   the "requires confirmation" response, and adk_request_confirmation with the card:
+   "Delete playlist(s): PLtest Please approve or reject the tool call playlist-delete() by responding with a
+   FunctionResponse with an expected ToolConfirmation payload."  Payload ids: ["PLtest"]  [ ] Confirmed  Submit
+   Screenshot: r10-l9-confirm-held.png
+   Recorder at that point: ['GET /youtube/v3/playlists ...mine=true...']  (model requests: 2)
+2. Ticked Confirmed and pressed Submit. The UI showed the user's adk_request_confirmation response, the real
+   playlist-delete response and "Deleted playlist PLtest."
+   Screenshot: r10-l9-confirm-approved.png
+   Recorder after: ['GET /youtube/v3/playlists ...', 'DELETE /youtube/v3/playlists {"id": ["PLtest"], ...}']
+   (model requests: 3)

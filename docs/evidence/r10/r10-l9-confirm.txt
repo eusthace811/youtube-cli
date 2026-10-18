@@ -1,0 +1,12 @@
+PASS: lane 9, a delete in a web UI session waits for approval
+No DELETE reached YouTube until the human confirmed; then exactly the approved one did.
+
+The dev UI's requests, with its sign-in cookie: the model asks to delete playlist p1, the run pauses at
+ADK's adk_request_confirmation request, and only the human's confirmation sends the DELETE (E9).
+first run_sse -> 200, 7 events; the last asks:
+  {"id": "adk-f43bd8ff-6110-4848-b48c-fa21a0a9e6e1", "name": "adk_request_confirmation", "args": {"originalFunctionCall": {"id": "adk-f3166347-4c4a-41b9-a5ff-65c4751d5e3c", "args": {"ids": ["p1"]}, "name": "playlist-delete"}, "toolConfirmation": {"hint": "Delete playlist(s): p1\n\nPlease approve or reject the tool call playlist-delete() by responding with a FunctionResponse with an expected ToolConfirmation payload.", "confirmed": false, "payload": null}}}
+  longRunningToolIds ['adk-f43bd8ff-6110-4848-b48c-fa21a0a9e6e1']
+recorder while held: ['GET /youtube/v3/playlists {"alt": ["json"], "maxResults": ["5"], "mine": ["true"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}']
+recorder one second later, still held: ['GET /youtube/v3/playlists {"alt": ["json"], "maxResults": ["5"], "mine": ["true"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}']
+confirmation run_sse -> 200: responses [('playlist-delete', ['output'])], reply 'Deleted p1.'
+recorder after approval: ['GET /youtube/v3/playlists {"alt": ["json"], "maxResults": ["5"], "mine": ["true"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}', 'DELETE /youtube/v3/playlists {"alt": ["json"], "id": ["p1"], "prettyPrint": ["false"]}']

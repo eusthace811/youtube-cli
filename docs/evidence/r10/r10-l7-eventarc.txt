@@ -1,0 +1,21 @@
+PASS: lane 7, eventarc trigger samples, Go vs head
+Every sample gets the same status and body from both, and the agent runs on the same input.
+
+== structured CloudEvent (storage finalized)
+go  : 200 {"status":"success"}  model requests 1
+      agent saw: '{"id":"1234567890","source":"//storage.googleapis.com/projects/_/buckets/my-bucket","type":"google.cloud.storage.object.v1.finalized","specversion":"1.0","time":"2026-10-18T12:00:00.000Z","data":{"bucket":"my-bucket","name":"my-file.txt","contentType":"text/plain","size":"42"}}'
+head: 200 {"status":"success"}  model requests 1
+      agent saw: '{"id":"1234567890","source":"//storage.googleapis.com/projects/_/buckets/my-bucket","type":"google.cloud.storage.object.v1.finalized","specversion":"1.0","time":"2026-10-18T12:00:00.000Z","data":{"bucket":"my-bucket","name":"my-file.txt","contentType":"text/plain","size":"42"}}'
+identical status, body and agent input: True
+== binary CloudEvent
+go  : 200 {"status":"success"}  model requests 1
+      agent saw: '{"id":"1234567890","source":"//storage.googleapis.com/projects/_/buckets/my-bucket","type":"google.cloud.storage.object.v1.finalized","specversion":"1.0","data":{"bucket":"my-bucket","name":"my-file.txt","contentType":"text/plain","size":"42"}}'
+head: 200 {"status":"success"}  model requests 1
+      agent saw: '{"id":"1234567890","source":"//storage.googleapis.com/projects/_/buckets/my-bucket","type":"google.cloud.storage.object.v1.finalized","specversion":"1.0","data":{"bucket":"my-bucket","name":"my-file.txt","contentType":"text/plain","size":"42"}}'
+identical status, body and agent input: True
+== Pub/Sub message through Eventarc
+go  : 200 {"status":"success"}  model requests 1
+      agent saw: '{"attributes":{"key":"value"},"data":"Hello Cloud Pub/Sub! Here is my message!"}'
+head: 200 {"status":"success"}  model requests 1
+      agent saw: '{"attributes":{"key":"value"},"data":"Hello Cloud Pub/Sub! Here is my message!"}'
+identical status, body and agent input: True
