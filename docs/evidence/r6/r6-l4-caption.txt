@@ -1,0 +1,5 @@
+r6 lane 4: PASS
+
+SUBSTITUTED: the recorder cannot store and serve the uploaded track, so the lane checks the upload carried the text and that the download writes exactly the bytes served.
+caption insert identical to Go: True; uploaded text in multipart body: True
+caption download --yes: exit 0, stdout 'Caption cap1 downloaded to out.srt\n', file bytes equal served bytes: True

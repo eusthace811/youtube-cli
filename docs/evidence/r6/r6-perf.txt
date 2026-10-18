@@ -1,0 +1,7 @@
+r6 perf: PASS
+
+Metric: peak RSS and throughput uploading a 2 GiB file to the recorder (resumable; Go uses 16 MiB chunks, head 8 MiB per E7), 3 alternating runs.
+Trunk: 3036 MB/s, peak RSS 58.2 MB
+Head:  7903 MB/s, peak RSS 13.9 MB
+Rule: head RSS <= 32 MB and head throughput >= trunk.
+Note: the recorder runs in Python on the same machine and is part of both measurements.

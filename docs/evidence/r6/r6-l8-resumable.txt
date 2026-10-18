@@ -1,0 +1,5 @@
+r6 lane 8: PASS
+
+2 GiB sparse file; exit 0 Video inserted: id-1         0.78 real         0.04 user         0.38 sys
+session starts: 1, chunks: 256, first ['bytes 0-8388607/2147483648'], last ['bytes 2139095040-2147483647/2147483648']
+peak RSS 19.2 MB

@@ -1,0 +1,12 @@
+r6 lane 7: PASS
+
+SUBSTITUTED: recorder.
+$ yutu watermark set --channelId c1 --file w.png --yes
+exit 0; identical requests, stdout, stderr and exit to Go: True
+stdout: 'Watermark set for channel c1\n'
+requests: [('POST', '/upload/youtube/v3/watermarks/set', 'multipart/related; boundary=BOUNDARY')]
+
+$ yutu watermark unset --channelId c1 --yes
+exit 0; identical requests, stdout, stderr and exit to Go: True
+stdout: 'Watermark unset for channel c1\n'
+requests: [('POST', '/youtube/v3/watermarks/unset', '')]

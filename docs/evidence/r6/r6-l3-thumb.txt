@@ -1,0 +1,7 @@
+r6 lane 3: PASS
+
+SUBSTITUTED: recorder.
+$ yutu thumbnail set --videoId v1 --file t.png --yes
+exit 0; identical requests, stdout, stderr and exit to Go: True
+stdout: 'Thumbnail set for video v1'
+requests: [('POST', '/upload/youtube/v3/thumbnails/set', 'multipart/related; boundary=BOUNDARY')]

@@ -1,0 +1,9 @@
+r6 lane 10: PASS
+
+SUBSTITUTED: no test channel exists; every step runs on Go and head against the recorder and must match exactly.
+$ yutu video delete --ids v1 --yes
+  exit 0, requests [('DELETE', '/youtube/v3/videos')], identical to Go: True
+  stdout: 'Video v1 deleted'
+$ yutu video list --ids v1 -o json
+  exit 0, requests [('GET', '/youtube/v3/videos')], identical to Go: True
+  stdout: '[{"ageGating":{"videoGameRating":"anyone"},"brandPartner":{"channelHandle":"brandPartner.channelHandle-0","channelId":"brandPartner.channelId-0"},"contentDetails":{"caption":"true","contentRating":{"a'

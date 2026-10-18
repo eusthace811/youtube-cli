@@ -1,0 +1,4 @@
+r6 lane 1: PASS
+
+media cases (including the caption download --yes proofs of E1): 255
+cases: 255, 0 differences
