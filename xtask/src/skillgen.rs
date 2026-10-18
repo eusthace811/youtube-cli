@@ -80,17 +80,20 @@ fn generate(registry: &Registry) -> Vec<Generated> {
         file("skills/youtube/references/seo-guide.md", SEO_GUIDE.into()),
         // Go writes the agent's copies under cmd/agent. They move to
         // crates/yutu-agent/assets once that crate embeds them.
-        file("skills/agent/INSTRUCTION.md", INSTRUCTION.into()),
         file(
-            "skills/agent/skills/youtube/SKILL.md",
+            "crates/yutu-agent/assets/INSTRUCTION.md",
+            INSTRUCTION.into(),
+        ),
+        file(
+            "crates/yutu-agent/assets/skills/youtube/SKILL.md",
             skill(registry, Target::Agent),
         ),
         file(
-            "skills/agent/skills/youtube/references/workflows.md",
+            "crates/yutu-agent/assets/skills/youtube/references/workflows.md",
             WORKFLOWS.into(),
         ),
         file(
-            "skills/agent/skills/youtube/references/seo-guide.md",
+            "crates/yutu-agent/assets/skills/youtube/references/seo-guide.md",
             SEO_GUIDE.into(),
         ),
     ]

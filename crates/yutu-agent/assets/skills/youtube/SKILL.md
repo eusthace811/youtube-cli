@@ -1,7 +1,7 @@
 ---
 name: youtube
 description: "Use whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, and more."
-license: MIT
+license: Apache-2.0
 metadata:
   author: eat-pray-ai
   homepage: "https://github.com/eat-pray-ai/yutu"
@@ -9,7 +9,7 @@ metadata:
 
 # YouTube
 
-Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, i18nLanguage, i18nRegion, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, videoCategory, watermark.
+Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveStream, member, membershipsLevel, playlist, playlistImage, playlistItem, search, subscription, superChatEvent, thirdPartyLink, thumbnail, video, videoAbuseReportReason, watermark.
 
 ## Key Principles
 
@@ -23,14 +23,11 @@ Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, 
 ### Read (safe, no side effects)
 
 - `activity-list`
-- `caption-download`
 - `caption-list`
 - `channel-list`
 - `channelSection-list`
 - `comment-list`
 - `commentThread-list`
-- `i18nLanguage-list`
-- `i18nRegion-list`
 - `liveBroadcast-list`
 - `liveChatMessage-list`
 - `liveChatModerator-list`
@@ -47,7 +44,6 @@ Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, 
 - `video-getRating`
 - `video-list`
 - `videoAbuseReportReason-list`
-- `videoCategory-list`
 
 ### Write (create or update content)
 
@@ -87,6 +83,10 @@ Manage YouTube resources via MCP tool calls — abuseReport, activity, caption, 
 - `video-reportAbuse`
 - `video-update`
 - `watermark-set`
+
+### Local file (writes a file on this machine — confirm the path with user first)
+
+- `caption-download`
 
 ### Destructive (irreversible deletions — confirm with user first)
 

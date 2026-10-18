@@ -53,6 +53,7 @@ fn markdown_files(dir: &Path, out: &mut Vec<PathBuf>) {
 fn skill_files() -> Vec<(PathBuf, String)> {
     let mut paths = Vec::new();
     markdown_files(&repo().join("skills"), &mut paths);
+    markdown_files(&repo().join("crates/yutu-agent/assets/skills"), &mut paths);
     paths.sort();
     paths
         .into_iter()
@@ -170,7 +171,7 @@ fn heading(effect: &str) -> &'static str {
 fn each_tool_is_listed_under_its_registry_effect() {
     for skill in [
         "skills/youtube/SKILL.md",
-        "skills/agent/skills/youtube/SKILL.md",
+        "crates/yutu-agent/assets/skills/youtube/SKILL.md",
     ] {
         let text = fs::read_to_string(repo().join(skill)).unwrap();
         let mut section = "";
