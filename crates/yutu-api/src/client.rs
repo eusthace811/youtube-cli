@@ -146,7 +146,10 @@ impl Call<'_> {
 
     /// The HTTP method and URL `download()` would send.
     pub fn preview_download(&self) -> (&'static str, String) {
-        (self.method.http_method, self.url(self.method.path, "media", None))
+        (
+            self.method.http_method,
+            self.url(self.method.path, "media", None),
+        )
     }
 
     /// The HTTP method and URL this call would send, for tests and lanes.
