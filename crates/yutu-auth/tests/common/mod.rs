@@ -93,7 +93,11 @@ impl MockTokenEndpoint {
                 };
                 log.lock().unwrap().push(Recorded { head, body });
                 let reply = responses.next().unwrap_or("{\"error\":\"unexpected\"}");
-                let status = if reply.contains("\"error\"") { "400 Bad Request" } else { "200 OK" };
+                let status = if reply.contains("\"error\"") {
+                    "400 Bad Request"
+                } else {
+                    "200 OK"
+                };
                 let resp = format!(
                     "HTTP/1.1 {status}\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{reply}",
                     reply.len()
@@ -168,7 +172,9 @@ pub fn query_value(url: &str, key: &str) -> String {
     let mut i = 0;
     while i < b.len() {
         if b[i] == b'%' {
-            out.push(u8::from_str_radix(std::str::from_utf8(&b[i + 1..i + 3]).unwrap(), 16).unwrap());
+            out.push(
+                u8::from_str_radix(std::str::from_utf8(&b[i + 1..i + 3]).unwrap(), 16).unwrap(),
+            );
             i += 3;
         } else {
             out.push(if b[i] == b'+' { b' ' } else { b[i] });

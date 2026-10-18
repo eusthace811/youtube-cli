@@ -279,7 +279,12 @@ mod tests {
             .unwrap()
             + chrono::Duration::nanoseconds(999_999_999);
         assert_eq!(
-            format_line(&west, Level::Debug, "Root directory set", &[("dir", &"/Users/juan")]),
+            format_line(
+                &west,
+                Level::Debug,
+                "Root directory set",
+                &[("dir", &"/Users/juan")]
+            ),
             "time=2026-01-02T03:04:05.999-05:30 level=DEBUG msg=\"Root directory set\" dir=/Users/juan\n"
         );
     }

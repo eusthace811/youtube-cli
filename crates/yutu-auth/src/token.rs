@@ -81,7 +81,12 @@ impl Token {
         let fields = match value {
             Value::Null => return Ok(token),
             Value::Object(fields) => fields,
-            other => return Err(format!("cannot unmarshal JSON {} into oauth2.Token", kind(&other))),
+            other => {
+                return Err(format!(
+                    "cannot unmarshal JSON {} into oauth2.Token",
+                    kind(&other)
+                ));
+            }
         };
         for (name, v) in fields {
             match name.as_str() {
@@ -99,7 +104,9 @@ impl Token {
                 "expires_in" => {
                     token.expires_in = match v {
                         Value::Null => 0,
-                        Value::Number(n) => n.as_i64().ok_or_else(|| mismatch(&name, &Value::Number(n)))?,
+                        Value::Number(n) => n
+                            .as_i64()
+                            .ok_or_else(|| mismatch(&name, &Value::Number(n)))?,
                         other => return Err(mismatch(&name, &other)),
                     }
                 }
@@ -186,9 +193,9 @@ impl GoTime {
         let b = s.as_bytes();
         let num = |r: std::ops::Range<usize>| -> Option<u32> {
             let d = b.get(r)?;
-            d.iter().all(u8::is_ascii_digit).then(|| {
-                d.iter().fold(0u32, |acc, c| acc * 10 + u32::from(c - b'0'))
-            })
+            d.iter()
+                .all(u8::is_ascii_digit)
+                .then(|| d.iter().fold(0u32, |acc, c| acc * 10 + u32::from(c - b'0')))
         };
         let sep = |i: usize, c: u8| b.get(i) == Some(&c);
         if !(sep(4, b'-') && sep(7, b'-') && sep(10, b'T') && sep(13, b':') && sep(16, b':')) {

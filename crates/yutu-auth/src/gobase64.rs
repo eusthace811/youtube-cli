@@ -22,7 +22,11 @@ pub fn raw_url_encode(src: &[u8]) -> String {
 fn encode(alphabet: &[u8; 64], pad: bool, src: &[u8]) -> String {
     let mut out = String::with_capacity(src.len().div_ceil(3) * 4);
     for chunk in src.chunks(3) {
-        let b = [chunk[0], *chunk.get(1).unwrap_or(&0), *chunk.get(2).unwrap_or(&0)];
+        let b = [
+            chunk[0],
+            *chunk.get(1).unwrap_or(&0),
+            *chunk.get(2).unwrap_or(&0),
+        ];
         let v = u32::from(b[0]) << 16 | u32::from(b[1]) << 8 | u32::from(b[2]);
         for i in 0..=chunk.len() {
             out.push(alphabet[(v >> (18 - 6 * i) & 0x3f) as usize] as char);
@@ -112,7 +116,10 @@ fn decode_quantum(out: &mut Vec<u8>, src: &[u8], mut si: usize) -> Result<usize,
         dlen = j;
         break;
     }
-    let val = u32::from(dbuf[0]) << 18 | u32::from(dbuf[1]) << 12 | u32::from(dbuf[2]) << 6 | u32::from(dbuf[3]);
+    let val = u32::from(dbuf[0]) << 18
+        | u32::from(dbuf[1]) << 12
+        | u32::from(dbuf[2]) << 6
+        | u32::from(dbuf[3]);
     let bytes = [(val >> 16) as u8, (val >> 8) as u8, val as u8];
     out.extend_from_slice(&bytes[..dlen - 1]);
     Ok(si)
