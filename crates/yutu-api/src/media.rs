@@ -41,26 +41,30 @@ pub(crate) async fn resumable(
             "resumable upload: refusing session on another host: {session}"
         )));
     }
-    let mut file = media.open().await?;
+    let file = media.open().await?;
     let mut offset = 0u64;
     let mut stalled = 0u32;
     loop {
         let len = RESUMABLE_CHUNK.min(size - offset);
-        let mut chunk = vec![0u8; len as usize];
-        match (&mut file, media) {
+        let body = match (&file, media) {
             (Some(f), _) => {
+                let mut f = f
+                    .try_clone()
+                    .await
+                    .map_err(|e| Error::Local(e.to_string()))?;
                 f.seek(std::io::SeekFrom::Start(offset))
                     .await
                     .map_err(|e| Error::Local(e.to_string()))?;
-                f.read_exact(&mut chunk)
-                    .await
-                    .map_err(|e| Error::Local(e.to_string()))?;
+                reqwest::Body::wrap_stream(tokio_util::io::ReaderStream::with_capacity(
+                    f.take(len),
+                    1 << 20,
+                ))
             }
             (None, Media::Bytes(b)) => {
-                chunk.copy_from_slice(&b[offset as usize..(offset + len) as usize])
+                reqwest::Body::from(b[offset as usize..(offset + len) as usize].to_vec())
             }
             (None, _) => unreachable!(),
-        }
+        };
         let range = if len == 0 {
             format!("bytes */{size}")
         } else {
@@ -71,8 +75,9 @@ pub(crate) async fn resumable(
             .await?
             .header("Content-Range", range)
             .header("Content-Type", ctype)
+            .header("Content-Length", len.to_string())
             .header("X-GUploader-No-308", "yes")
-            .body(chunk)
+            .body(body)
             .send()
             .await;
         let next = match sent {

@@ -17,6 +17,7 @@ tokio = { version = "1", features = ["rt", "fs", "io-util", "time"] }
 getrandom = "0.3"
 futures-util = { version = "0.3", default-features = false, features = ["std"] }
 bytes = "1"
+tokio-util = { version = "0.7", default-features = false, features = ["io"] }
 
 [[bench]]
 name = "decode"
