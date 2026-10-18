@@ -55,14 +55,31 @@ impl App for Yutu {
             .map_err(CmdError::Exit);
         }
         if inv.command.path == "mcp" {
-            let runtime = tokio::runtime::Builder::new_current_thread()
-                .enable_all()
-                .build()
-                .map_err(|e| CmdError::Message(e.to_string()))?;
             let mode = inv.flags.string("mode").to_string();
+            // HTTP serves concurrent clients; stdio is one session.
+            let runtime = if mode == "http" {
+                tokio::runtime::Builder::new_multi_thread()
+            } else {
+                tokio::runtime::Builder::new_current_thread()
+            }
+            .enable_all()
+            .build()
+            .map_err(|e| CmdError::Message(e.to_string()))?;
+            // yutu sets --host to localhost over cobra-mcp's 127.0.0.1.
+            let host = match inv.flags.changed("host") {
+                true => inv.flags.string("host").to_string(),
+                false => "localhost".to_string(),
+            };
+            let http = yutu_mcp::HttpFlags {
+                host,
+                port: inv.flags.i64("port"),
+                base_url: inv.flags.string("baseUrl").to_string(),
+                stateless: inv.flags.bool("stateless"),
+            };
             let code = runtime.block_on(yutu_mcp::run(
                 &mode,
                 std::sync::Arc::new(CliService),
+                http,
                 || yutu_auth::set_mcp_stdio(true),
             ));
             return if code == 0 {
