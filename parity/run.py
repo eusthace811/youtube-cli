@@ -26,7 +26,7 @@ import diff as differ  # noqa: E402
 PARITY = Path(__file__).resolve().parent
 CORPUS = PARITY / "corpus"
 GOLDEN = PARITY / "golden" / "cases"
-WORK = Path("/tmp/yutu-parity")
+WORK = Path(os.environ.get("YUTU_PARITY_WORK", "/tmp/yutu-parity"))
 
 
 def load_cases(only=None, effects=None, no_media=False):
