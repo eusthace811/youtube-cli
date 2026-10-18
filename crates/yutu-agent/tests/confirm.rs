@@ -20,7 +20,7 @@ fn declining_a_delete_sends_nothing_to_youtube() {
 
         assert_eq!(
             transcript,
-            "\n\nUser -> \nAgent -> \nTool call needs approval: video-delete {\"ids\":[\"v1\"]}\nDelete video(s): v1 [y/N] I did not delete it.\nUser -> \nEOF detected, exiting...\n"
+            "\n\nUser -> \nAgent -> \u{18}\u{1b}\\\u{1b}[0m\nTool call needs approval: video-delete {\"ids\":[\"v1\"]}\nDelete video(s): v1 [y/N] I did not delete it.\nUser -> \nEOF detected, exiting...\n"
         );
         assert!(api_log.lock().unwrap().is_empty());
         let model = model_log.lock().unwrap();
@@ -96,5 +96,27 @@ fn without_a_terminal_every_write_is_declined() {
 
         assert_eq!(writes, 0);
         assert!(transcript.contains("[y/N] \nnot a terminal, declined\nKept it."));
+    })
+}
+
+#[test]
+fn model_text_cannot_hide_the_question() {
+    block_on(async {
+        let (llm, _) = mock_llm(vec![
+            json!({"text": "Listing.\u{1b}]0;title", "calls": [{"name": "video-delete", "args": {"ids": ["v1\u{202e}"]}}]}),
+            json!({"text": "ok"}),
+        ])
+        .await;
+        let (youtube, _) = recorder().await;
+        let agent = agent(&llm, &youtube).await;
+
+        let transcript = console(&agent, &["go", "n"]).await;
+
+        let question = transcript.find("\nTool call needs approval").unwrap();
+        assert!(
+            transcript[..question].ends_with("\u{18}\u{1b}\\\u{1b}[0m"),
+            "open sequences are cancelled and attributes reset before the question: {transcript:?}"
+        );
+        assert!(transcript.contains("v1\\u{202e}"), "{transcript:?}");
     })
 }

@@ -23,7 +23,7 @@ fn three_tool_calls_reach_the_api_and_the_model() {
 
         assert_eq!(
             transcript,
-            "\n\nUser -> \nAgent -> \nTool call needs approval: playlist-insert {\"channel_id\":\"c1\",\"privacy\":\"private\",\"title\":\"Best of\"}\nCreate playlist: Best of [y/N] Created the playlist Best of.\nUser -> \nEOF detected, exiting...\n"
+            "\n\nUser -> \nAgent -> \u{18}\u{1b}\\\u{1b}[0m\nTool call needs approval: playlist-insert {\"channel_id\":\"c1\",\"privacy\":\"private\",\"title\":\"Best of\"}\nCreate playlist: Best of [y/N] Created the playlist Best of.\nUser -> \nEOF detected, exiting...\n"
         );
         let api: Vec<String> = api_log
             .lock()

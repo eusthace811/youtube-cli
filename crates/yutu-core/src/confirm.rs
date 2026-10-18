@@ -12,7 +12,26 @@ pub const NOT_CONFIRMED: &str = "operation not confirmed (pass confirm: true or 
 /// are escaped. Messages are built from tool arguments a model or MCP
 /// client chose.
 pub fn printable(message: &str) -> String {
-    let invisible = |c: char| matches!(c, '\u{ad}' | '\u{61c}' | '\u{180e}' | '\u{200b}'..='\u{200f}' | '\u{202a}'..='\u{202e}' | '\u{2060}'..='\u{2069}' | '\u{feff}');
+    let invisible = |c: char| {
+        matches!(
+            c,
+            '\u{ad}'
+                | '\u{34f}'
+                | '\u{61c}'
+                | '\u{115f}'
+                | '\u{1160}'
+                | '\u{180e}'
+                | '\u{200b}'..='\u{200f}'
+                | '\u{2028}'..='\u{202e}'
+                | '\u{2060}'..='\u{206f}'
+                | '\u{3164}'
+                | '\u{fe00}'..='\u{fe0f}'
+                | '\u{feff}'
+                | '\u{ffa0}'
+                | '\u{e0000}'..='\u{e007f}'
+                | '\u{e0100}'..='\u{e01ef}'
+        )
+    };
     message
         .chars()
         .map(|c| {

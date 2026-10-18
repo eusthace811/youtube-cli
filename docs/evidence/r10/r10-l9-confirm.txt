@@ -4,8 +4,8 @@ No DELETE reached YouTube until the human confirmed; then exactly the approved o
 The dev UI's requests, with its sign-in cookie: the model asks to delete playlist p1, the run pauses at
 ADK's adk_request_confirmation request, and only the human's confirmation sends the DELETE (E9).
 first run_sse -> 200, 7 events; the last asks:
-  {"id": "adk-0a6e97f2-b891-4701-8691-397d7565955c", "name": "adk_request_confirmation", "args": {"originalFunctionCall": {"id": "adk-38e91fff-4f84-47cb-8db9-ee7306b1b6eb", "args": {"ids": ["p1"]}, "name": "playlist-delete"}, "toolConfirmation": {"hint": "Delete playlist(s): p1\n\nPlease approve or reject the tool call playlist-delete() by responding with a FunctionResponse with an expected ToolConfirmation payload.", "confirmed": false, "payload": null}}}
-  longRunningToolIds ['adk-0a6e97f2-b891-4701-8691-397d7565955c']
+  {"id": "adk-f3c6fe35-5770-44ad-b599-291aeeca71bf", "name": "adk_request_confirmation", "args": {"originalFunctionCall": {"id": "adk-3fa76d2c-5d1f-4e59-97db-83ee54e5f4a7", "args": {"ids": ["p1"]}, "name": "playlist-delete"}, "toolConfirmation": {"hint": "Delete playlist(s): p1\n\nPlease approve or reject the tool call playlist-delete() by responding with a FunctionResponse with an expected ToolConfirmation payload.", "confirmed": false, "payload": null}}}
+  longRunningToolIds ['adk-f3c6fe35-5770-44ad-b599-291aeeca71bf']
 recorder while held: ['GET /youtube/v3/playlists {"alt": ["json"], "maxResults": ["5"], "mine": ["true"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}']
 recorder one second later, still held: ['GET /youtube/v3/playlists {"alt": ["json"], "maxResults": ["5"], "mine": ["true"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}']
 confirmation run_sse -> 200: responses [('playlist-delete', ['output'])], reply 'Deleted p1.'

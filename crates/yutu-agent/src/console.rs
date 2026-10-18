@@ -152,9 +152,16 @@ impl Frontend for Console<'_> {
                 return Verdict::Decline;
             }
             let asked = Instant::now();
+            // On a terminal, end any control sequence the model's text left
+            // open (CAN, then ST) and reset attributes, so its output cannot
+            // hide or disguise the question.
+            if self.interactive {
+                self.print("\u{18}\u{1b}\\\u{1b}[0m");
+            }
             self.print(&format!(
                 "\nTool call needs approval: {} {}\n{question} [y/N] ",
-                a.tool, a.args
+                a.tool,
+                yutu_core::confirm::printable(&a.args)
             ));
             if !self.interactive {
                 self.print("\nnot a terminal, declined\n");

@@ -1,6 +1,6 @@
 PASS: lane 4, the listener binds loopback only
 Every listening socket of the agent is 127.0.0.1.
 
-$ lsof -nP -iTCP:18483 -sTCP:LISTEN   (pid 18253, default -host)
+$ lsof -nP -iTCP:18483 -sTCP:LISTEN   (pid 29271, default -host)
 COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
-yutu    18253 juan    9u  IPv4 0x47d1d911c5e45e8c      0t0  TCP 127.0.0.1:18483 (LISTEN)
+yutu    29271 juan    9u  IPv4 0xb96f8ea030127a58      0t0  TCP 127.0.0.1:18483 (LISTEN)

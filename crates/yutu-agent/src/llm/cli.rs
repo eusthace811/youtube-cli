@@ -45,7 +45,7 @@ impl Kind {
     /// home), passed through beside the basic process environment.
     fn env_prefixes(self) -> &'static [&'static str] {
         match self {
-            Kind::ClaudeCode => &["ANTHROPIC_", "CLAUDE"],
+            Kind::ClaudeCode => &["ANTHROPIC_", "CLAUDE_CONFIG_DIR", "CLAUDE_CODE_USE_"],
             Kind::Codex => &["OPENAI_", "CODEX_"],
         }
     }
@@ -351,7 +351,10 @@ impl Cli {
                 let lines: Vec<&str> = err.lines().filter(|l| !l.trim().is_empty()).collect();
                 lines[lines.len().saturating_sub(5)..].join("\n")
             });
-            return Err(format!("{name}: exited with {status}: {why}"));
+            return Err(format!(
+                "{name}: exited with {status}: {}",
+                yutu_core::confirm::printable(&why)
+            ));
         }
         Ok(out)
     }
