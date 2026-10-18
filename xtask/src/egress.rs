@@ -19,6 +19,22 @@ const ALLOWED: &[&str] = &[
 /// URL and does not extend its path, so other URLs on the same host fail.
 const DISPLAY_ONLY: &[(&str, &str)] = &[
     (
+        "http://[",
+        "the format string for bracketed IPv6 listener URLs",
+    ),
+    (
+        "https://accounts.google.com",
+        "the authorization server in the HTTP MCP protected-resource metadata, packed against the next literal",
+    ),
+    (
+        "https://ai.google.dev/gemini-api/docs/api-key",
+        "the agent's missing Gemini key error, as Go's genai prints it",
+    ),
+    (
+        "https://google.github.io/adk-docs/a2a/a2a-extension/",
+        "the A2A extension identifier ADK puts on the agent card",
+    ),
+    (
         "https://github.com/eat-pray-ai/yutu",
         "the `yutu version` banner link",
     ),
@@ -54,16 +70,47 @@ const DISPLAY_ONLY: &[(&str, &str)] = &[
 
 const SCHEMES: &[&str] = &["https", "http", "wss", "ws"];
 
+/// The vendored ADK dev UI bundle. yutu serves these files to the browser
+/// unmodified and never requests the URLs inside them itself, so a URL in
+/// the binary that also appears in the bundle is reported as served, not
+/// fetched. The browser does load Google Fonts from it, as Go's UI does.
+const SERVED_BUNDLE: &str = "crates/yutu-agent/assets/webui";
+
+fn served_urls() -> std::collections::BTreeSet<String> {
+    let mut out = std::collections::BTreeSet::new();
+    let mut dirs = vec![crate::repo_root().join(SERVED_BUNDLE)];
+    while let Some(dir) = dirs.pop() {
+        let Ok(entries) = std::fs::read_dir(&dir) else {
+            continue;
+        };
+        for e in entries.flatten() {
+            let p = e.path();
+            if p.is_dir() {
+                dirs.push(p);
+            } else if let Ok(bytes) = std::fs::read(&p) {
+                out.extend(urls(&bytes).into_iter().map(|f| f.url));
+            }
+        }
+    }
+    out
+}
+
 pub fn run(args: &[String]) -> Result<(), String> {
     if args.is_empty() {
         return Err("usage: xtask egress BINARY...".to_string());
     }
+    let served = served_urls();
+    let mut served_hosts: BTreeMap<String, usize> = BTreeMap::new();
     let mut unexpected: BTreeMap<String, Vec<String>> = BTreeMap::new();
     let mut displayed: BTreeMap<&str, &str> = BTreeMap::new();
     for path in args {
         let bytes = std::fs::read(path).map_err(|e| format!("egress: {path}: {e}"))?;
         for found in urls(&bytes) {
             if ALLOWED.contains(&found.host.as_str()) {
+                continue;
+            }
+            if served.contains(&found.url) {
+                *served_hosts.entry(found.host).or_default() += 1;
                 continue;
             }
             if let Some((url, source)) = DISPLAY_ONLY
@@ -81,6 +128,11 @@ pub fn run(args: &[String]) -> Result<(), String> {
     }
     for (url, source) in &displayed {
         println!("egress: display-only {url} ({source})");
+    }
+    for (host, n) in &served_hosts {
+        println!(
+            "egress: served-to-browser {host} ({n} URLs in the vendored dev UI bundle, {SERVED_BUNDLE})"
+        );
     }
     for (host, urls) in &unexpected {
         println!("egress: unexpected host {host}: {}", urls.join(" "));
