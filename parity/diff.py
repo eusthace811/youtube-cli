@@ -93,7 +93,9 @@ def registered():
 
 
 def compare(golden, head, case, allowed=()):
-    """Returns a list of human-readable differences between two results."""
+    """Returns a list of human-readable differences between two results.
+    Fields a case's registered divergences cover are skipped; pass
+    `allowed` to restrict which registered ids are accepted."""
     accepted = {d for d in case.get("divergences", []) if d in allowed or not allowed}
     known = registered()
     for d in accepted:
@@ -112,7 +114,7 @@ def compare(golden, head, case, allowed=()):
                     out.append(f"request {i} {k}: {json.dumps(g[k], ensure_ascii=False)[:400]} != {json.dumps(h[k], ensure_ascii=False)[:400]}")
     mcp = case.get("surface") == "mcp"
     for field, norm in (("stdout", mask_port), ("stderr", lambda t: mask_port(mask_time(t)))):
-        if field in skip or (mcp and field == "stderr"):
+        if field in skip:
             continue
         g, h = norm(golden[field]), norm(head[field])
         if mcp:

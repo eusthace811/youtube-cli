@@ -184,6 +184,13 @@ type = "string"
 default = ""
 usage = "Translate the captions into this language"
 
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
 [[command]]
 path = "caption insert"
 use = "insert"

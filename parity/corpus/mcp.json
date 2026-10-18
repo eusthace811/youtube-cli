@@ -43,7 +43,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.decline",
@@ -89,7 +92,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.no-elicitation",
@@ -135,7 +141,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.mrtr.accept",
@@ -201,7 +210,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.mrtr.decline",
@@ -267,7 +279,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.description",
@@ -314,7 +329,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.output.json",
@@ -361,7 +379,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.output.yaml",
@@ -408,7 +429,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.output.silent",
@@ -455,7 +479,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.parts",
@@ -505,7 +532,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.related_entity_id",
@@ -552,7 +582,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.subject_url",
@@ -599,7 +632,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.bad-type",
@@ -646,7 +682,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.abuseReport-insert.api.error",
@@ -698,7 +737,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.defaults",
@@ -737,7 +779,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.channel_id",
@@ -778,7 +823,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.for.home",
@@ -819,7 +867,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.for.mine",
@@ -860,7 +911,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.max_results",
@@ -901,7 +955,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.output.json",
@@ -942,7 +999,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.output.yaml",
@@ -983,7 +1043,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.output.table",
@@ -1024,7 +1087,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.parts",
@@ -1068,7 +1134,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.published_after",
@@ -1109,7 +1178,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.published_before",
@@ -1150,7 +1222,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.region_code",
@@ -1191,7 +1266,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.bad-type",
@@ -1232,7 +1310,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.activity-list.api.error",
@@ -1277,7 +1358,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-delete.defaults",
@@ -1321,7 +1405,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-delete.decline",
@@ -1365,7 +1452,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-delete.no-elicitation",
@@ -1409,7 +1499,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-delete.mrtr.accept",
@@ -1471,7 +1564,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-delete.mrtr.decline",
@@ -1533,7 +1629,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-delete.on_behalf_of",
@@ -1578,7 +1677,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-delete.on_behalf_of_content_owner",
@@ -1623,7 +1725,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-delete.bad-type",
@@ -1668,7 +1773,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-delete.api.error",
@@ -1718,7 +1826,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-download.defaults",
@@ -1777,6 +1888,10 @@
   "elicit": "accept",
   "collect": [
    "out.srt"
+  ],
+  "divergences": [
+   "E1",
+   "E5"
   ]
  },
  {
@@ -1837,6 +1952,10 @@
   "elicit": "accept",
   "collect": [
    "out.srt"
+  ],
+  "divergences": [
+   "E1",
+   "E5"
   ]
  },
  {
@@ -1897,6 +2016,10 @@
   "elicit": "accept",
   "collect": [
    "out.srt"
+  ],
+  "divergences": [
+   "E1",
+   "E5"
   ]
  },
  {
@@ -1957,6 +2080,10 @@
   "elicit": "accept",
   "collect": [
    "out.srt"
+  ],
+  "divergences": [
+   "E1",
+   "E5"
   ]
  },
  {
@@ -2017,6 +2144,10 @@
   "elicit": "accept",
   "collect": [
    "out.srt"
+  ],
+  "divergences": [
+   "E1",
+   "E5"
   ]
  },
  {
@@ -2077,6 +2208,10 @@
   "elicit": "accept",
   "collect": [
    "out.srt"
+  ],
+  "divergences": [
+   "E1",
+   "E5"
   ]
  },
  {
@@ -2137,6 +2272,10 @@
   "elicit": "accept",
   "collect": [
    "out.srt"
+  ],
+  "divergences": [
+   "E1",
+   "E5"
   ]
  },
  {
@@ -2197,6 +2336,10 @@
   "elicit": "accept",
   "collect": [
    "out.srt"
+  ],
+  "divergences": [
+   "E1",
+   "E5"
   ]
  },
  {
@@ -2262,7 +2405,11 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E1",
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.defaults",
@@ -2315,7 +2462,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.decline",
@@ -2368,7 +2518,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.no-elicitation",
@@ -2421,7 +2574,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.mrtr.accept",
@@ -2490,7 +2646,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.mrtr.decline",
@@ -2559,7 +2718,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.audio_track_type.unknown",
@@ -2613,7 +2775,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.audio_track_type.primary",
@@ -2667,7 +2832,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.audio_track_type.commentary",
@@ -2721,7 +2889,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.audio_track_type.descriptive",
@@ -2775,7 +2946,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_auto_synced",
@@ -2829,7 +3003,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_auto_synced.false",
@@ -2883,7 +3060,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_cc",
@@ -2937,7 +3117,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_cc.false",
@@ -2991,7 +3174,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_draft",
@@ -3045,7 +3231,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_draft.false",
@@ -3099,7 +3288,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_easy_reader",
@@ -3153,7 +3345,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_easy_reader.false",
@@ -3207,7 +3402,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_large",
@@ -3261,7 +3459,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.is_large.false",
@@ -3315,7 +3516,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.language",
@@ -3369,7 +3573,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.name",
@@ -3423,7 +3630,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.on_behalf_of",
@@ -3477,7 +3687,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.on_behalf_of_content_owner",
@@ -3531,7 +3744,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.output.json",
@@ -3585,7 +3801,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.output.yaml",
@@ -3639,7 +3858,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.output.silent",
@@ -3693,7 +3915,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.track_kind.standard",
@@ -3747,7 +3972,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.track_kind.ASR",
@@ -3801,7 +4029,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.track_kind.forced",
@@ -3855,7 +4086,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.bad-type",
@@ -3909,7 +4143,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-insert.api.error",
@@ -3968,7 +4205,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.defaults",
@@ -4007,7 +4247,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.ids",
@@ -4051,7 +4294,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.on_behalf_of",
@@ -4092,7 +4338,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.on_behalf_of_content_owner",
@@ -4133,7 +4382,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.output.json",
@@ -4174,7 +4426,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.output.yaml",
@@ -4215,7 +4470,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.output.table",
@@ -4256,7 +4514,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.parts",
@@ -4300,7 +4561,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.video_id",
@@ -4341,7 +4605,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.bad-type",
@@ -4382,7 +4649,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-list.api.error",
@@ -4427,7 +4697,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.defaults",
@@ -4479,7 +4752,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.decline",
@@ -4531,7 +4807,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.no-elicitation",
@@ -4583,7 +4862,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.mrtr.accept",
@@ -4650,7 +4932,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.mrtr.decline",
@@ -4717,7 +5002,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.audio_track_type.unknown",
@@ -4770,7 +5058,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.audio_track_type.primary",
@@ -4823,7 +5114,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.audio_track_type.commentary",
@@ -4876,7 +5170,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.audio_track_type.descriptive",
@@ -4929,7 +5226,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.file",
@@ -4982,7 +5282,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_auto_synced",
@@ -5035,7 +5338,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_auto_synced.false",
@@ -5088,7 +5394,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_cc",
@@ -5141,7 +5450,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_cc.false",
@@ -5194,7 +5506,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_draft",
@@ -5247,7 +5562,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_draft.false",
@@ -5300,7 +5618,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_easy_reader",
@@ -5353,7 +5674,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_easy_reader.false",
@@ -5406,7 +5730,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_large",
@@ -5459,7 +5786,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.is_large.false",
@@ -5512,7 +5842,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.language",
@@ -5565,7 +5898,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.name",
@@ -5618,7 +5954,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.on_behalf_of",
@@ -5671,7 +6010,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.on_behalf_of_content_owner",
@@ -5724,7 +6066,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.output.json",
@@ -5777,7 +6122,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.output.yaml",
@@ -5830,7 +6178,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.output.silent",
@@ -5883,7 +6234,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.track_kind.standard",
@@ -5936,7 +6290,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.track_kind.ASR",
@@ -5989,7 +6346,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.track_kind.forced",
@@ -6042,7 +6402,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.bad-type",
@@ -6095,7 +6458,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.caption-update.api.error",
@@ -6153,7 +6519,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.defaults",
@@ -6192,7 +6561,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.category_id",
@@ -6233,7 +6605,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.for.managedByMe",
@@ -6274,7 +6649,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.for.mine",
@@ -6315,7 +6693,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.for.mySubscribers",
@@ -6356,7 +6737,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.for_handle",
@@ -6397,7 +6781,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.for_username",
@@ -6438,7 +6825,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.hl",
@@ -6479,7 +6869,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.ids",
@@ -6523,7 +6916,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.max_results",
@@ -6564,7 +6960,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.on_behalf_of_content_owner",
@@ -6605,7 +7004,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.output.json",
@@ -6646,7 +7048,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.output.yaml",
@@ -6687,7 +7092,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.output.table",
@@ -6728,7 +7136,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.parts",
@@ -6772,7 +7183,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.bad-type",
@@ -6813,7 +7227,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-list.api.error",
@@ -6858,7 +7275,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.defaults",
@@ -6902,7 +7322,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.decline",
@@ -6946,7 +7369,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.no-elicitation",
@@ -6990,7 +7416,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.mrtr.accept",
@@ -7052,7 +7481,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.mrtr.decline",
@@ -7114,7 +7546,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.country",
@@ -7159,7 +7594,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.custom_url",
@@ -7204,7 +7642,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.default_language",
@@ -7249,7 +7690,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.description",
@@ -7294,7 +7738,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.output.json",
@@ -7339,7 +7786,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.output.yaml",
@@ -7384,7 +7834,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.output.silent",
@@ -7429,7 +7882,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.title",
@@ -7474,7 +7930,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.bad-type",
@@ -7519,7 +7978,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channel-update.api.error",
@@ -7569,7 +8031,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.defaults",
@@ -7622,7 +8087,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.decline",
@@ -7675,7 +8143,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.no-elicitation",
@@ -7728,7 +8199,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.mrtr.accept",
@@ -7797,7 +8271,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.mrtr.decline",
@@ -7866,7 +8343,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.on_behalf_of_content_owner",
@@ -7920,7 +8400,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.on_behalf_of_content_owner_channel",
@@ -7974,7 +8457,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.output.json",
@@ -8028,7 +8514,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.output.yaml",
@@ -8082,7 +8571,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.output.silent",
@@ -8136,7 +8628,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.bad-type",
@@ -8190,7 +8685,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelBanner-insert.api.error",
@@ -8249,7 +8747,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-delete.defaults",
@@ -8293,7 +8794,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-delete.decline",
@@ -8337,7 +8841,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-delete.no-elicitation",
@@ -8381,7 +8888,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-delete.mrtr.accept",
@@ -8443,7 +8953,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-delete.mrtr.decline",
@@ -8505,7 +9018,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-delete.on_behalf_of_content_owner",
@@ -8550,7 +9066,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-delete.bad-type",
@@ -8595,7 +9114,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-delete.api.error",
@@ -8645,7 +9167,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.defaults",
@@ -8684,7 +9209,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.channel_id",
@@ -8725,7 +9253,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.hl",
@@ -8766,7 +9297,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.ids",
@@ -8810,7 +9344,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.mine",
@@ -8851,7 +9388,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.mine.false",
@@ -8892,7 +9432,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.on_behalf_of_content_owner",
@@ -8933,7 +9476,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.output.json",
@@ -8974,7 +9520,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.output.yaml",
@@ -9015,7 +9564,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.output.table",
@@ -9056,7 +9608,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.parts",
@@ -9100,7 +9655,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.bad-type",
@@ -9141,7 +9699,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.channelSection-list.api.error",
@@ -9186,7 +9747,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-delete.defaults",
@@ -9230,7 +9794,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-delete.decline",
@@ -9274,7 +9841,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-delete.no-elicitation",
@@ -9318,7 +9888,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-delete.mrtr.accept",
@@ -9380,7 +9953,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-delete.mrtr.decline",
@@ -9442,7 +10018,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-delete.bad-type",
@@ -9487,7 +10066,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-delete.api.error",
@@ -9537,7 +10119,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.defaults",
@@ -9579,7 +10164,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.decline",
@@ -9621,7 +10209,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.no-elicitation",
@@ -9663,7 +10254,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.mrtr.accept",
@@ -9721,7 +10315,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.mrtr.decline",
@@ -9779,7 +10376,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.author_channel_id",
@@ -9822,7 +10422,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.can_rate",
@@ -9865,7 +10468,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.can_rate.false",
@@ -9908,7 +10514,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.channel_id",
@@ -9951,7 +10560,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.output.json",
@@ -9994,7 +10606,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.output.yaml",
@@ -10037,7 +10652,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.output.silent",
@@ -10080,7 +10698,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.video_id",
@@ -10123,7 +10744,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.bad-type",
@@ -10166,7 +10790,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-insert.api.error",
@@ -10214,7 +10841,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.defaults",
@@ -10253,7 +10883,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.ids",
@@ -10297,7 +10930,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.max_results",
@@ -10338,7 +10974,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.output.json",
@@ -10379,7 +11018,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.output.yaml",
@@ -10420,7 +11062,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.output.table",
@@ -10461,7 +11106,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.parent_id",
@@ -10502,7 +11150,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.parts",
@@ -10546,7 +11197,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.text_format.textFormatUnspecified",
@@ -10587,7 +11241,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.text_format.html",
@@ -10628,7 +11285,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.text_format.plainText",
@@ -10669,7 +11329,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.bad-type",
@@ -10710,7 +11373,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-list.api.error",
@@ -10755,7 +11421,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.defaults",
@@ -10799,7 +11468,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.decline",
@@ -10843,7 +11515,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.no-elicitation",
@@ -10887,7 +11562,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.mrtr.accept",
@@ -10949,7 +11627,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.mrtr.decline",
@@ -11011,7 +11692,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.output.json",
@@ -11056,7 +11740,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.output.yaml",
@@ -11101,7 +11788,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.output.silent",
@@ -11146,7 +11836,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.bad-type",
@@ -11191,7 +11884,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-markAsSpam.api.error",
@@ -11241,7 +11937,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.defaults",
@@ -11286,7 +11985,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.decline",
@@ -11331,7 +12033,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.no-elicitation",
@@ -11376,7 +12081,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.mrtr.accept",
@@ -11440,7 +12148,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.mrtr.decline",
@@ -11504,7 +12215,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.ban_author",
@@ -11550,7 +12264,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.ban_author.false",
@@ -11596,7 +12313,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.moderation_status.heldForReview",
@@ -11641,7 +12361,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.moderation_status.published",
@@ -11686,7 +12409,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.moderation_status.rejected",
@@ -11731,7 +12457,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.output.json",
@@ -11777,7 +12506,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.output.yaml",
@@ -11823,7 +12555,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.output.silent",
@@ -11869,7 +12604,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.bad-type",
@@ -11915,7 +12653,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-setModerationStatus.api.error",
@@ -11966,7 +12707,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.defaults",
@@ -12010,7 +12754,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.decline",
@@ -12054,7 +12801,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.no-elicitation",
@@ -12098,7 +12848,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.mrtr.accept",
@@ -12160,7 +12913,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.mrtr.decline",
@@ -12222,7 +12978,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.can_rate",
@@ -12267,7 +13026,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.can_rate.false",
@@ -12312,7 +13074,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.output.json",
@@ -12357,7 +13122,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.output.yaml",
@@ -12402,7 +13170,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.output.silent",
@@ -12447,7 +13218,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.text_original",
@@ -12492,7 +13266,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.viewer_rating.none",
@@ -12537,7 +13314,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.viewer_rating.like",
@@ -12582,7 +13362,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.viewer_rating.dislike",
@@ -12627,7 +13410,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.bad-type",
@@ -12672,7 +13458,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.comment-update.api.error",
@@ -12722,7 +13511,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.defaults",
@@ -12765,7 +13557,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.decline",
@@ -12808,7 +13603,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.no-elicitation",
@@ -12851,7 +13649,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.mrtr.accept",
@@ -12911,7 +13712,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.mrtr.decline",
@@ -12971,7 +13775,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.author_channel_id",
@@ -13015,7 +13822,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.output.json",
@@ -13059,7 +13869,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.output.yaml",
@@ -13103,7 +13916,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.output.silent",
@@ -13147,7 +13963,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.bad-type",
@@ -13191,7 +14010,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-insert.api.error",
@@ -13240,7 +14062,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.defaults",
@@ -13279,7 +14104,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.all_threads_related_to_channel_id",
@@ -13320,7 +14148,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.channel_id",
@@ -13361,7 +14192,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.ids",
@@ -13405,7 +14239,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.max_results",
@@ -13446,7 +14283,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.moderation_status.published",
@@ -13487,7 +14327,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.moderation_status.heldForReview",
@@ -13528,7 +14371,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.moderation_status.likelySpam",
@@ -13569,7 +14415,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.moderation_status.rejected",
@@ -13610,7 +14459,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.order.orderUnspecified",
@@ -13651,7 +14503,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.order.time",
@@ -13692,7 +14547,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.order.relevance",
@@ -13733,7 +14591,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.output.json",
@@ -13774,7 +14635,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.output.yaml",
@@ -13815,7 +14679,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.output.table",
@@ -13856,7 +14723,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.parts",
@@ -13900,7 +14770,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.search_terms",
@@ -13941,7 +14814,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.text_format.textFormatUnspecified",
@@ -13982,7 +14858,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.text_format.html",
@@ -14023,7 +14902,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.video_id",
@@ -14064,7 +14946,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.bad-type",
@@ -14105,7 +14990,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.commentThread-list.api.error",
@@ -14150,7 +15038,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.defaults",
@@ -14194,7 +15085,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.decline",
@@ -14238,7 +15132,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.no-elicitation",
@@ -14282,7 +15179,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.mrtr.accept",
@@ -14344,7 +15244,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.mrtr.decline",
@@ -14406,7 +15309,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.on_behalf_of_content_owner",
@@ -14451,7 +15357,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.on_behalf_of_content_owner_channel",
@@ -14496,7 +15405,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.output.json",
@@ -14541,7 +15453,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.output.yaml",
@@ -14586,7 +15501,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.output.silent",
@@ -14631,7 +15549,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.parts",
@@ -14679,7 +15600,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.stream_id",
@@ -14724,7 +15648,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.bad-type",
@@ -14769,7 +15696,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-bind.api.error",
@@ -14819,7 +15749,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-delete.defaults",
@@ -14863,7 +15796,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-delete.decline",
@@ -14907,7 +15843,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-delete.no-elicitation",
@@ -14951,7 +15890,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-delete.mrtr.accept",
@@ -15013,7 +15955,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-delete.mrtr.decline",
@@ -15075,7 +16020,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-delete.on_behalf_of_content_owner",
@@ -15120,7 +16068,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-delete.on_behalf_of_content_owner_channel",
@@ -15165,7 +16116,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-delete.bad-type",
@@ -15210,7 +16164,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-delete.api.error",
@@ -15260,7 +16217,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.defaults",
@@ -15302,7 +16262,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.decline",
@@ -15344,7 +16307,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.no-elicitation",
@@ -15386,7 +16352,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.mrtr.accept",
@@ -15444,7 +16413,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.mrtr.decline",
@@ -15502,7 +16474,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.description",
@@ -15545,7 +16520,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.on_behalf_of_content_owner",
@@ -15588,7 +16566,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.on_behalf_of_content_owner_channel",
@@ -15631,7 +16612,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.output.json",
@@ -15674,7 +16658,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.output.yaml",
@@ -15717,7 +16704,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.output.silent",
@@ -15760,7 +16750,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.parts",
@@ -15806,7 +16799,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.privacy_status.public",
@@ -15849,7 +16845,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.privacy_status.unlisted",
@@ -15892,7 +16891,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.privacy_status.private",
@@ -15935,7 +16937,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.scheduled_end_time",
@@ -15978,7 +16983,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.bad-type",
@@ -16021,7 +17029,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insert.api.error",
@@ -16069,7 +17080,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.defaults",
@@ -16113,7 +17127,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.decline",
@@ -16157,7 +17174,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.no-elicitation",
@@ -16201,7 +17221,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.mrtr.accept",
@@ -16263,7 +17286,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.mrtr.decline",
@@ -16325,7 +17351,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.cue_duration_secs",
@@ -16370,7 +17399,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.cue_insertion_offset_ms",
@@ -16415,7 +17447,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.cue_type.cueTypeAd",
@@ -16460,7 +17495,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.cue_walltime_ms",
@@ -16505,7 +17543,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.on_behalf_of_content_owner",
@@ -16550,7 +17591,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.on_behalf_of_content_owner_channel",
@@ -16595,7 +17639,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.output.json",
@@ -16640,7 +17687,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.output.yaml",
@@ -16685,7 +17735,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.output.silent",
@@ -16730,7 +17783,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.bad-type",
@@ -16775,7 +17831,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-insertCuepoint.api.error",
@@ -16825,7 +17884,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.defaults",
@@ -16864,7 +17926,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.broadcast_status.all",
@@ -16905,7 +17970,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.broadcast_status.active",
@@ -16946,7 +18014,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.broadcast_status.upcoming",
@@ -16987,7 +18058,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.broadcast_status.completed",
@@ -17028,7 +18102,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.broadcast_type.all",
@@ -17069,7 +18146,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.broadcast_type.event",
@@ -17110,7 +18190,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.broadcast_type.persistent",
@@ -17151,7 +18234,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.ids",
@@ -17195,7 +18281,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.max_results",
@@ -17236,7 +18325,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.mine",
@@ -17277,7 +18369,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.mine.false",
@@ -17318,7 +18413,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.on_behalf_of_content_owner",
@@ -17359,7 +18457,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.on_behalf_of_content_owner_channel",
@@ -17400,7 +18501,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.output.json",
@@ -17441,7 +18545,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.output.yaml",
@@ -17482,7 +18589,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.output.table",
@@ -17523,7 +18633,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.parts",
@@ -17567,7 +18680,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.bad-type",
@@ -17608,7 +18724,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-list.api.error",
@@ -17653,7 +18772,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.defaults",
@@ -17698,7 +18820,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.decline",
@@ -17743,7 +18868,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.no-elicitation",
@@ -17788,7 +18916,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.mrtr.accept",
@@ -17852,7 +18983,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.mrtr.decline",
@@ -17916,7 +19050,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.broadcast_status.testing",
@@ -17961,7 +19098,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.broadcast_status.live",
@@ -18006,7 +19146,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.broadcast_status.complete",
@@ -18051,7 +19194,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.on_behalf_of_content_owner",
@@ -18097,7 +19243,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.on_behalf_of_content_owner_channel",
@@ -18143,7 +19292,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.output.json",
@@ -18189,7 +19341,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.output.yaml",
@@ -18235,7 +19390,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.output.silent",
@@ -18281,7 +19439,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.parts",
@@ -18330,7 +19491,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.bad-type",
@@ -18376,7 +19540,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-transition.api.error",
@@ -18427,7 +19594,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.defaults",
@@ -18471,7 +19641,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.decline",
@@ -18515,7 +19688,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.no-elicitation",
@@ -18559,7 +19735,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.mrtr.accept",
@@ -18621,7 +19800,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.mrtr.decline",
@@ -18683,7 +19865,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.description",
@@ -18728,7 +19913,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.on_behalf_of_content_owner",
@@ -18773,7 +19961,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.on_behalf_of_content_owner_channel",
@@ -18818,7 +20009,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.output.json",
@@ -18863,7 +20057,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.output.yaml",
@@ -18908,7 +20105,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.output.silent",
@@ -18953,7 +20153,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.privacy_status.public",
@@ -18998,7 +20201,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.privacy_status.unlisted",
@@ -19043,7 +20249,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.privacy_status.private",
@@ -19088,7 +20297,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.scheduled_end_time",
@@ -19133,7 +20345,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.scheduled_start_time",
@@ -19178,7 +20393,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.title",
@@ -19223,7 +20441,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.bad-type",
@@ -19268,7 +20489,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveBroadcast-update.api.error",
@@ -19318,7 +20542,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-delete.defaults",
@@ -19362,7 +20589,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-delete.decline",
@@ -19406,7 +20636,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-delete.no-elicitation",
@@ -19450,7 +20683,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-delete.mrtr.accept",
@@ -19512,7 +20748,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-delete.mrtr.decline",
@@ -19574,7 +20813,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-delete.bad-type",
@@ -19619,7 +20861,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-delete.api.error",
@@ -19669,7 +20914,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.defaults",
@@ -19712,7 +20960,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.decline",
@@ -19755,7 +21006,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.no-elicitation",
@@ -19798,7 +21052,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.mrtr.accept",
@@ -19858,7 +21115,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.mrtr.decline",
@@ -19918,7 +21178,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.ban_duration_seconds",
@@ -19962,7 +21225,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.ban_type.permanent",
@@ -20005,7 +21271,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.ban_type.temporary",
@@ -20048,7 +21317,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.output.json",
@@ -20092,7 +21364,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.output.yaml",
@@ -20136,7 +21411,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.output.silent",
@@ -20180,7 +21458,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.parts",
@@ -20227,7 +21508,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.bad-type",
@@ -20271,7 +21555,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatBan-insert.api.error",
@@ -20320,7 +21607,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-delete.defaults",
@@ -20364,7 +21654,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-delete.decline",
@@ -20408,7 +21701,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-delete.no-elicitation",
@@ -20452,7 +21748,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-delete.mrtr.accept",
@@ -20514,7 +21813,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-delete.mrtr.decline",
@@ -20576,7 +21878,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-delete.bad-type",
@@ -20621,7 +21926,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-delete.api.error",
@@ -20671,7 +21979,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.defaults",
@@ -20713,7 +22024,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.decline",
@@ -20755,7 +22069,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.no-elicitation",
@@ -20797,7 +22114,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.mrtr.accept",
@@ -20855,7 +22175,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.mrtr.decline",
@@ -20913,7 +22236,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.output.json",
@@ -20956,7 +22282,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.output.yaml",
@@ -20999,7 +22328,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.output.silent",
@@ -21042,7 +22374,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.parts",
@@ -21088,7 +22423,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.bad-type",
@@ -21131,7 +22469,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-insert.api.error",
@@ -21179,7 +22520,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-list.defaults",
@@ -21220,7 +22564,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-list.hl",
@@ -21262,7 +22609,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-list.max_results",
@@ -21304,7 +22654,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-list.output.json",
@@ -21346,7 +22699,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-list.output.yaml",
@@ -21388,7 +22744,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-list.output.table",
@@ -21430,7 +22789,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-list.parts",
@@ -21475,7 +22837,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-list.bad-type",
@@ -21517,7 +22882,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-list.api.error",
@@ -21564,7 +22932,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.defaults",
@@ -21609,7 +22980,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.decline",
@@ -21654,7 +23028,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.no-elicitation",
@@ -21699,7 +23076,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.mrtr.accept",
@@ -21763,7 +23143,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.mrtr.decline",
@@ -21827,7 +23210,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.output.json",
@@ -21873,7 +23259,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.output.yaml",
@@ -21919,7 +23308,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.output.silent",
@@ -21965,7 +23357,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.status.closed",
@@ -22010,7 +23405,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.bad-type",
@@ -22056,7 +23454,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatMessage-transition.api.error",
@@ -22107,7 +23508,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-delete.defaults",
@@ -22151,7 +23555,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-delete.decline",
@@ -22195,7 +23602,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-delete.no-elicitation",
@@ -22239,7 +23649,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-delete.mrtr.accept",
@@ -22301,7 +23714,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-delete.mrtr.decline",
@@ -22363,7 +23779,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-delete.bad-type",
@@ -22408,7 +23827,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-delete.api.error",
@@ -22458,7 +23880,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.defaults",
@@ -22500,7 +23925,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.decline",
@@ -22542,7 +23970,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.no-elicitation",
@@ -22584,7 +24015,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.mrtr.accept",
@@ -22642,7 +24076,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.mrtr.decline",
@@ -22700,7 +24137,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.output.json",
@@ -22743,7 +24183,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.output.yaml",
@@ -22786,7 +24229,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.output.silent",
@@ -22829,7 +24275,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.parts",
@@ -22875,7 +24324,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.bad-type",
@@ -22918,7 +24370,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-insert.api.error",
@@ -22966,7 +24421,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-list.defaults",
@@ -23007,7 +24465,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-list.max_results",
@@ -23049,7 +24510,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-list.output.json",
@@ -23091,7 +24555,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-list.output.yaml",
@@ -23133,7 +24600,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-list.output.table",
@@ -23175,7 +24645,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-list.parts",
@@ -23220,7 +24693,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-list.bad-type",
@@ -23262,7 +24738,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveChatModerator-list.api.error",
@@ -23309,7 +24788,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-delete.defaults",
@@ -23353,7 +24835,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-delete.decline",
@@ -23397,7 +24882,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-delete.no-elicitation",
@@ -23441,7 +24929,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-delete.mrtr.accept",
@@ -23503,7 +24994,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-delete.mrtr.decline",
@@ -23565,7 +25059,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-delete.on_behalf_of_content_owner",
@@ -23610,7 +25107,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-delete.on_behalf_of_content_owner_channel",
@@ -23655,7 +25155,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-delete.bad-type",
@@ -23700,7 +25203,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-delete.api.error",
@@ -23750,7 +25256,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.defaults",
@@ -23793,7 +25302,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.decline",
@@ -23836,7 +25348,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.no-elicitation",
@@ -23879,7 +25394,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.mrtr.accept",
@@ -23939,7 +25457,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.mrtr.decline",
@@ -23999,7 +25520,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.description",
@@ -24043,7 +25567,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.frame_rate.30fps",
@@ -24087,7 +25614,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.frame_rate.60fps",
@@ -24131,7 +25661,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.frame_rate.variable",
@@ -24175,7 +25708,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.ingestion_type.rtmp",
@@ -24218,7 +25754,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.ingestion_type.dash",
@@ -24261,7 +25800,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.ingestion_type.webrtc",
@@ -24304,7 +25846,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.ingestion_type.hls",
@@ -24347,7 +25892,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.on_behalf_of_content_owner",
@@ -24391,7 +25939,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.on_behalf_of_content_owner_channel",
@@ -24435,7 +25986,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.output.json",
@@ -24479,7 +26033,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.output.yaml",
@@ -24523,7 +26080,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.output.silent",
@@ -24567,7 +26127,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.parts",
@@ -24614,7 +26177,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.resolution.240p",
@@ -24657,7 +26223,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.resolution.360p",
@@ -24700,7 +26269,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.resolution.480p",
@@ -24743,7 +26315,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.resolution.720p",
@@ -24786,7 +26361,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.resolution.1080p",
@@ -24829,7 +26407,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.resolution.1440p",
@@ -24872,7 +26453,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.resolution.2160p",
@@ -24915,7 +26499,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.resolution.variable",
@@ -24958,7 +26545,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.bad-type",
@@ -25002,7 +26592,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-insert.api.error",
@@ -25051,7 +26644,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.defaults",
@@ -25090,7 +26686,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.ids",
@@ -25134,7 +26733,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.max_results",
@@ -25175,7 +26777,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.mine",
@@ -25216,7 +26821,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.mine.false",
@@ -25257,7 +26865,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.on_behalf_of_content_owner",
@@ -25298,7 +26909,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.on_behalf_of_content_owner_channel",
@@ -25339,7 +26953,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.output.json",
@@ -25380,7 +26997,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.output.yaml",
@@ -25421,7 +27041,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.output.table",
@@ -25462,7 +27085,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.parts",
@@ -25506,7 +27132,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.bad-type",
@@ -25547,7 +27176,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-list.api.error",
@@ -25592,7 +27224,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.defaults",
@@ -25636,7 +27271,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.decline",
@@ -25680,7 +27318,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.no-elicitation",
@@ -25724,7 +27365,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.mrtr.accept",
@@ -25786,7 +27430,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.mrtr.decline",
@@ -25848,7 +27495,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.description",
@@ -25893,7 +27543,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.frame_rate.30fps",
@@ -25938,7 +27591,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.frame_rate.60fps",
@@ -25983,7 +27639,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.frame_rate.variable",
@@ -26028,7 +27687,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.ingestion_type.rtmp",
@@ -26073,7 +27735,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.ingestion_type.dash",
@@ -26118,7 +27783,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.ingestion_type.webrtc",
@@ -26163,7 +27831,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.ingestion_type.hls",
@@ -26208,7 +27879,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.on_behalf_of_content_owner",
@@ -26253,7 +27927,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.on_behalf_of_content_owner_channel",
@@ -26298,7 +27975,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.output.json",
@@ -26343,7 +28023,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.output.yaml",
@@ -26388,7 +28071,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.output.silent",
@@ -26433,7 +28119,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.resolution.240p",
@@ -26478,7 +28167,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.resolution.360p",
@@ -26523,7 +28215,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.resolution.480p",
@@ -26568,7 +28263,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.resolution.720p",
@@ -26613,7 +28311,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.resolution.1080p",
@@ -26658,7 +28359,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.resolution.1440p",
@@ -26703,7 +28407,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.resolution.2160p",
@@ -26748,7 +28455,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.resolution.variable",
@@ -26793,7 +28503,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.title",
@@ -26838,7 +28551,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.bad-type",
@@ -26883,7 +28599,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.liveStream-update.api.error",
@@ -26933,7 +28652,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.defaults",
@@ -26972,7 +28694,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.has_access_to_level",
@@ -27013,7 +28738,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.max_results",
@@ -27054,7 +28782,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.member_channel_id",
@@ -27095,7 +28826,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.mode.listMembersModeUnknown",
@@ -27136,7 +28870,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.mode.updates",
@@ -27177,7 +28914,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.mode.all_current",
@@ -27218,7 +28958,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.output.json",
@@ -27259,7 +29002,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.output.yaml",
@@ -27300,7 +29046,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.output.table",
@@ -27341,7 +29090,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.parts",
@@ -27385,7 +29137,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.bad-type",
@@ -27426,7 +29181,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.member-list.api.error",
@@ -27471,7 +29229,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.membershipsLevel-list.defaults",
@@ -27510,7 +29271,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.membershipsLevel-list.output.json",
@@ -27551,7 +29315,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.membershipsLevel-list.output.yaml",
@@ -27592,7 +29359,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.membershipsLevel-list.output.table",
@@ -27633,7 +29403,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.membershipsLevel-list.parts",
@@ -27677,7 +29450,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.membershipsLevel-list.bad-type",
@@ -27718,7 +29494,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.membershipsLevel-list.api.error",
@@ -27763,7 +29542,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-delete.defaults",
@@ -27807,7 +29589,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-delete.decline",
@@ -27851,7 +29636,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-delete.no-elicitation",
@@ -27895,7 +29683,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-delete.mrtr.accept",
@@ -27957,7 +29748,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-delete.mrtr.decline",
@@ -28019,7 +29813,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-delete.on_behalf_of_content_owner",
@@ -28064,7 +29861,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-delete.bad-type",
@@ -28109,7 +29909,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-delete.api.error",
@@ -28159,7 +29962,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.defaults",
@@ -28202,7 +30008,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.decline",
@@ -28245,7 +30054,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.no-elicitation",
@@ -28288,7 +30100,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.mrtr.accept",
@@ -28348,7 +30163,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.mrtr.decline",
@@ -28408,7 +30226,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.description",
@@ -28452,7 +30273,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.language",
@@ -28496,7 +30320,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.output.json",
@@ -28540,7 +30367,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.output.yaml",
@@ -28584,7 +30414,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.output.silent",
@@ -28628,7 +30461,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.privacy.public",
@@ -28671,7 +30507,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.privacy.private",
@@ -28714,7 +30553,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.privacy.unlisted",
@@ -28757,7 +30599,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.tags",
@@ -28804,7 +30649,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.bad-type",
@@ -28848,7 +30696,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-insert.api.error",
@@ -28897,7 +30748,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.defaults",
@@ -28936,7 +30790,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.channel_id",
@@ -28977,7 +30834,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.hl",
@@ -29018,7 +30878,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.ids",
@@ -29062,7 +30925,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.max_results",
@@ -29103,7 +30969,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.mine",
@@ -29144,7 +31013,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.mine.false",
@@ -29185,7 +31057,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.on_behalf_of_content_owner",
@@ -29226,7 +31101,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.on_behalf_of_content_owner_channel",
@@ -29267,7 +31145,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.output.json",
@@ -29308,7 +31189,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.output.yaml",
@@ -29349,7 +31233,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.output.table",
@@ -29390,7 +31277,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.parts",
@@ -29434,7 +31324,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.bad-type",
@@ -29475,7 +31368,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-list.api.error",
@@ -29520,7 +31416,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.defaults",
@@ -29564,7 +31463,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.decline",
@@ -29608,7 +31510,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.no-elicitation",
@@ -29652,7 +31557,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.mrtr.accept",
@@ -29714,7 +31622,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.mrtr.decline",
@@ -29776,7 +31687,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.description",
@@ -29821,7 +31735,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.language",
@@ -29866,7 +31783,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.output.json",
@@ -29911,7 +31831,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.output.yaml",
@@ -29956,7 +31879,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.output.silent",
@@ -30001,7 +31927,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.privacy.public",
@@ -30046,7 +31975,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.privacy.private",
@@ -30091,7 +32023,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.privacy.unlisted",
@@ -30136,7 +32071,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.tags",
@@ -30184,7 +32122,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.title",
@@ -30229,7 +32170,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.bad-type",
@@ -30274,7 +32218,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlist-update.api.error",
@@ -30324,7 +32271,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-delete.defaults",
@@ -30368,7 +32318,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-delete.decline",
@@ -30412,7 +32365,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-delete.no-elicitation",
@@ -30456,7 +32412,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-delete.mrtr.accept",
@@ -30518,7 +32477,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-delete.mrtr.decline",
@@ -30580,7 +32542,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-delete.on_behalf_of_content_owner",
@@ -30625,7 +32590,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-delete.bad-type",
@@ -30670,7 +32638,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-delete.api.error",
@@ -30720,7 +32691,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.defaults",
@@ -30773,7 +32747,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.decline",
@@ -30826,7 +32803,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.no-elicitation",
@@ -30879,7 +32859,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.mrtr.accept",
@@ -30948,7 +32931,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.mrtr.decline",
@@ -31017,7 +33003,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.height",
@@ -31071,7 +33060,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.on_behalf_of_content_owner",
@@ -31125,7 +33117,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.on_behalf_of_content_owner_channel",
@@ -31179,7 +33174,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.output.json",
@@ -31233,7 +33231,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.output.yaml",
@@ -31287,7 +33288,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.output.silent",
@@ -31341,7 +33345,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.type",
@@ -31395,7 +33402,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.width",
@@ -31449,7 +33459,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.bad-type",
@@ -31503,7 +33516,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-insert.api.error",
@@ -31562,7 +33578,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.defaults",
@@ -31601,7 +33620,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.max_results",
@@ -31642,7 +33664,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.on_behalf_of_content_owner",
@@ -31683,7 +33708,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.on_behalf_of_content_owner_channel",
@@ -31724,7 +33752,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.output.json",
@@ -31765,7 +33796,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.output.yaml",
@@ -31806,7 +33840,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.output.table",
@@ -31847,7 +33884,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.parent",
@@ -31888,7 +33928,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.parts",
@@ -31932,7 +33975,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.bad-type",
@@ -31973,7 +34019,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-list.api.error",
@@ -32018,7 +34067,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.defaults",
@@ -32070,7 +34122,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.decline",
@@ -32122,7 +34177,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.no-elicitation",
@@ -32174,7 +34232,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.mrtr.accept",
@@ -32241,7 +34302,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.mrtr.decline",
@@ -32308,7 +34372,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.height",
@@ -32361,7 +34428,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.on_behalf_of_content_owner",
@@ -32414,7 +34484,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.on_behalf_of_content_owner_channel",
@@ -32467,7 +34540,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.output.json",
@@ -32520,7 +34596,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.output.yaml",
@@ -32573,7 +34652,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.output.silent",
@@ -32626,7 +34708,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.type",
@@ -32679,7 +34764,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.width",
@@ -32732,7 +34820,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.bad-type",
@@ -32785,7 +34876,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistImage-update.api.error",
@@ -32843,7 +34937,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-delete.defaults",
@@ -32887,7 +34984,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-delete.decline",
@@ -32931,7 +35031,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-delete.no-elicitation",
@@ -32975,7 +35078,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-delete.mrtr.accept",
@@ -33037,7 +35143,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-delete.mrtr.decline",
@@ -33099,7 +35208,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-delete.on_behalf_of_content_owner",
@@ -33144,7 +35256,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-delete.bad-type",
@@ -33189,7 +35304,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-delete.api.error",
@@ -33239,7 +35357,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.defaults",
@@ -33282,7 +35403,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.decline",
@@ -33325,7 +35449,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.no-elicitation",
@@ -33368,7 +35495,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.mrtr.accept",
@@ -33428,7 +35558,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.mrtr.decline",
@@ -33488,7 +35621,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.description",
@@ -33532,7 +35668,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.k_channel_id",
@@ -33576,7 +35715,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.k_playlist_id",
@@ -33620,7 +35762,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.k_video_id",
@@ -33664,7 +35809,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.kind.video",
@@ -33707,7 +35855,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.kind.channel",
@@ -33750,7 +35901,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.kind.playlist",
@@ -33793,7 +35947,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.on_behalf_of_content_owner",
@@ -33837,7 +35994,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.output.json",
@@ -33881,7 +36041,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.output.yaml",
@@ -33925,7 +36088,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.output.silent",
@@ -33969,7 +36135,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.privacy.public",
@@ -34013,7 +36182,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.privacy.private",
@@ -34057,7 +36229,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.privacy.unlisted",
@@ -34101,7 +36276,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.title",
@@ -34145,7 +36323,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.bad-type",
@@ -34189,7 +36370,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-insert.api.error",
@@ -34238,7 +36422,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.defaults",
@@ -34277,7 +36464,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.ids",
@@ -34321,7 +36511,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.max_results",
@@ -34362,7 +36555,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.on_behalf_of_content_owner",
@@ -34403,7 +36599,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.output.json",
@@ -34444,7 +36643,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.output.yaml",
@@ -34485,7 +36687,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.output.table",
@@ -34526,7 +36731,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.parts",
@@ -34570,7 +36778,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.playlist_id",
@@ -34611,7 +36822,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.video_id",
@@ -34652,7 +36866,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.bad-type",
@@ -34693,7 +36910,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-list.api.error",
@@ -34738,7 +36958,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.defaults",
@@ -34782,7 +37005,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.decline",
@@ -34826,7 +37052,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.no-elicitation",
@@ -34870,7 +37099,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.mrtr.accept",
@@ -34932,7 +37164,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.mrtr.decline",
@@ -34994,7 +37229,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.description",
@@ -35039,7 +37277,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.on_behalf_of_content_owner",
@@ -35084,7 +37325,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.output.json",
@@ -35129,7 +37373,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.output.yaml",
@@ -35174,7 +37421,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.output.silent",
@@ -35219,7 +37469,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.privacy.public",
@@ -35264,7 +37517,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.privacy.private",
@@ -35309,7 +37565,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.privacy.unlisted",
@@ -35354,7 +37613,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.title",
@@ -35399,7 +37661,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.bad-type",
@@ -35444,7 +37709,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.playlistItem-update.api.error",
@@ -35494,7 +37762,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.defaults",
@@ -35533,7 +37804,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.channel_id",
@@ -35574,7 +37848,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.channel_type.channelTypeUnspecified",
@@ -35615,7 +37892,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.channel_type.any",
@@ -35656,7 +37936,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.channel_type.show",
@@ -35697,7 +37980,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.event_type.none",
@@ -35738,7 +38024,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.event_type.upcoming",
@@ -35779,7 +38068,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.event_type.live",
@@ -35820,7 +38112,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.event_type.completed",
@@ -35861,7 +38156,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.for.mine",
@@ -35902,7 +38200,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.for.developer",
@@ -35943,7 +38244,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.for.contentOwner",
@@ -35984,7 +38288,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.location",
@@ -36025,7 +38332,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.location_radius",
@@ -36066,7 +38376,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.max_results",
@@ -36107,7 +38420,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.on_behalf_of_content_owner",
@@ -36148,7 +38464,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.order.searchSortUnspecified",
@@ -36189,7 +38508,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.order.date",
@@ -36230,7 +38552,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.order.rating",
@@ -36271,7 +38596,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.order.viewCount",
@@ -36312,7 +38640,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.order.relevance",
@@ -36353,7 +38684,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.order.title",
@@ -36394,7 +38728,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.order.videoCount",
@@ -36435,7 +38772,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.output.json",
@@ -36476,7 +38816,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.output.yaml",
@@ -36517,7 +38860,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.output.table",
@@ -36558,7 +38904,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.parts",
@@ -36602,7 +38951,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.published_after",
@@ -36643,7 +38995,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.published_before",
@@ -36684,7 +39039,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.q",
@@ -36725,7 +39083,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.region_code",
@@ -36766,7 +39127,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.relevance_language",
@@ -36807,7 +39171,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.safe_search.safeSearchSettingUnspecified",
@@ -36848,7 +39215,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.safe_search.none",
@@ -36889,7 +39259,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.safe_search.moderate",
@@ -36930,7 +39303,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.safe_search.strict",
@@ -36971,7 +39347,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.topic_id",
@@ -37012,7 +39391,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.types",
@@ -37056,7 +39438,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_caption.videoCaptionUnspecified",
@@ -37097,7 +39482,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_caption.any",
@@ -37138,7 +39526,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_caption.closedCaption",
@@ -37179,7 +39570,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_caption.none",
@@ -37220,7 +39614,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_category_id",
@@ -37261,7 +39658,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_definition.any",
@@ -37302,7 +39702,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_definition.high",
@@ -37343,7 +39746,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_definition.standard",
@@ -37384,7 +39790,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_dimension.any",
@@ -37425,7 +39834,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_dimension.2d",
@@ -37466,7 +39878,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_dimension.3d",
@@ -37507,7 +39922,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_duration.videoDurationUnspecified",
@@ -37548,7 +39966,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_duration.any",
@@ -37589,7 +40010,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_duration.short",
@@ -37630,7 +40054,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_duration.medium",
@@ -37671,7 +40098,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_duration.long",
@@ -37712,7 +40142,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_embeddable.videoEmbeddableUnspecified",
@@ -37753,7 +40186,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_embeddable.any",
@@ -37794,7 +40230,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_embeddable.true",
@@ -37835,7 +40274,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_license.any",
@@ -37876,7 +40318,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_license.youtube",
@@ -37917,7 +40362,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_license.creativeCommon",
@@ -37958,7 +40406,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_paid_product_placement.videoPaidProductPlacementUnspecified",
@@ -37999,7 +40450,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_paid_product_placement.any",
@@ -38040,7 +40494,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_paid_product_placement.true",
@@ -38081,7 +40538,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_syndicated.videoSyndicatedUnspecified",
@@ -38122,7 +40582,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_syndicated.any",
@@ -38163,7 +40626,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_syndicated.true",
@@ -38204,7 +40670,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_type.videoTypeUnspecified",
@@ -38245,7 +40714,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_type.any",
@@ -38286,7 +40758,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_type.movie",
@@ -38327,7 +40802,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.video_type.episode",
@@ -38368,7 +40846,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.bad-type",
@@ -38409,7 +40890,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.search-list.api.error",
@@ -38454,7 +40938,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-delete.defaults",
@@ -38498,7 +40985,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-delete.decline",
@@ -38542,7 +41032,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-delete.no-elicitation",
@@ -38586,7 +41079,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-delete.mrtr.accept",
@@ -38648,7 +41144,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-delete.mrtr.decline",
@@ -38710,7 +41209,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-delete.bad-type",
@@ -38755,7 +41257,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-delete.api.error",
@@ -38805,7 +41310,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.defaults",
@@ -38847,7 +41355,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.decline",
@@ -38889,7 +41400,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.no-elicitation",
@@ -38931,7 +41445,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.mrtr.accept",
@@ -38989,7 +41506,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.mrtr.decline",
@@ -39047,7 +41567,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.description",
@@ -39090,7 +41613,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.output.json",
@@ -39133,7 +41659,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.output.yaml",
@@ -39176,7 +41705,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.output.silent",
@@ -39219,7 +41751,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.title",
@@ -39262,7 +41797,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.bad-type",
@@ -39305,7 +41843,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-insert.api.error",
@@ -39353,7 +41894,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.defaults",
@@ -39392,7 +41936,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.channel_id",
@@ -39433,7 +41980,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.for.mine",
@@ -39474,7 +42024,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.for.myRecentSubscribers",
@@ -39515,7 +42068,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.for.mySubscribers",
@@ -39556,7 +42112,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.for_channel_id",
@@ -39597,7 +42156,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.ids",
@@ -39641,7 +42203,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.max_results",
@@ -39682,7 +42247,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.on_behalf_of_content_owner",
@@ -39723,7 +42291,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.on_behalf_of_content_owner_channel",
@@ -39764,7 +42335,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.order.subscriptionOrderUnspecified",
@@ -39805,7 +42379,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.order.relevance",
@@ -39846,7 +42423,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.order.unread",
@@ -39887,7 +42467,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.order.alphabetical",
@@ -39928,7 +42511,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.output.json",
@@ -39969,7 +42555,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.output.yaml",
@@ -40010,7 +42599,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.output.table",
@@ -40051,7 +42643,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.parts",
@@ -40095,7 +42690,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.bad-type",
@@ -40136,7 +42734,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.subscription-list.api.error",
@@ -40181,7 +42782,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.superChatEvent-list.defaults",
@@ -40220,7 +42824,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.superChatEvent-list.hl",
@@ -40261,7 +42868,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.superChatEvent-list.max_results",
@@ -40302,7 +42912,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.superChatEvent-list.output.json",
@@ -40343,7 +42956,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.superChatEvent-list.output.yaml",
@@ -40384,7 +43000,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.superChatEvent-list.output.table",
@@ -40425,7 +43044,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.superChatEvent-list.parts",
@@ -40469,7 +43091,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.superChatEvent-list.bad-type",
@@ -40510,7 +43135,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.superChatEvent-list.api.error",
@@ -40555,7 +43183,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.defaults",
@@ -40597,7 +43228,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.decline",
@@ -40639,7 +43273,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.no-elicitation",
@@ -40681,7 +43318,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.mrtr.accept",
@@ -40739,7 +43379,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.mrtr.decline",
@@ -40797,7 +43440,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.external_channel_id",
@@ -40840,7 +43486,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.type.linkUnspecified",
@@ -40882,7 +43531,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.type.channelToStoreLink",
@@ -40924,7 +43576,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.bad-type",
@@ -40967,7 +43622,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-delete.api.error",
@@ -41015,7 +43673,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.defaults",
@@ -41057,7 +43718,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.decline",
@@ -41099,7 +43763,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.no-elicitation",
@@ -41141,7 +43808,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.mrtr.accept",
@@ -41199,7 +43869,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.mrtr.decline",
@@ -41257,7 +43930,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.external_channel_id",
@@ -41300,7 +43976,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.link_status.unknown",
@@ -41343,7 +44022,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.link_status.failed",
@@ -41386,7 +44068,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.link_status.pending",
@@ -41429,7 +44114,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.link_status.linked",
@@ -41472,7 +44160,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.output.json",
@@ -41515,7 +44206,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.output.yaml",
@@ -41558,7 +44252,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.output.silent",
@@ -41601,7 +44298,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.parts",
@@ -41647,7 +44347,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.type.linkUnspecified",
@@ -41689,7 +44392,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.type.channelToStoreLink",
@@ -41731,7 +44437,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.bad-type",
@@ -41774,7 +44483,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-insert.api.error",
@@ -41822,7 +44534,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.defaults",
@@ -41861,7 +44576,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.external_channel_id",
@@ -41902,7 +44620,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.linking_token",
@@ -41943,7 +44664,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.output.json",
@@ -41984,7 +44708,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.output.yaml",
@@ -42025,7 +44752,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.output.table",
@@ -42066,7 +44796,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.parts",
@@ -42110,7 +44843,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.type.linkUnspecified",
@@ -42151,7 +44887,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.type.channelToStoreLink",
@@ -42192,7 +44931,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.bad-type",
@@ -42233,7 +44975,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-list.api.error",
@@ -42278,7 +45023,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.defaults",
@@ -42319,7 +45067,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.decline",
@@ -42360,7 +45111,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.no-elicitation",
@@ -42401,7 +45155,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.mrtr.accept",
@@ -42457,7 +45214,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.mrtr.decline",
@@ -42513,7 +45273,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.external_channel_id",
@@ -42555,7 +45318,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.link_status.unknown",
@@ -42597,7 +45363,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.link_status.failed",
@@ -42639,7 +45408,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.link_status.pending",
@@ -42681,7 +45453,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.link_status.linked",
@@ -42723,7 +45498,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.output.json",
@@ -42765,7 +45543,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.output.yaml",
@@ -42807,7 +45588,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.output.silent",
@@ -42849,7 +45633,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.parts",
@@ -42894,7 +45681,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.type.linkUnspecified",
@@ -42936,7 +45726,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.type.channelToStoreLink",
@@ -42978,7 +45771,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.bad-type",
@@ -43020,7 +45816,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thirdPartyLink-update.api.error",
@@ -43067,7 +45866,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.defaults",
@@ -43120,7 +45922,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.decline",
@@ -43173,7 +45978,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.no-elicitation",
@@ -43226,7 +46034,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.mrtr.accept",
@@ -43295,7 +46106,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.mrtr.decline",
@@ -43364,7 +46178,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.output.json",
@@ -43418,7 +46235,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.output.yaml",
@@ -43472,7 +46292,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.output.silent",
@@ -43526,7 +46349,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.bad-type",
@@ -43580,7 +46406,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.thumbnail-set.api.error",
@@ -43639,7 +46468,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-delete.defaults",
@@ -43683,7 +46515,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-delete.decline",
@@ -43727,7 +46562,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-delete.no-elicitation",
@@ -43771,7 +46609,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-delete.mrtr.accept",
@@ -43833,7 +46674,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-delete.mrtr.decline",
@@ -43895,7 +46739,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-delete.bad-type",
@@ -43940,7 +46787,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-delete.api.error",
@@ -43990,7 +46840,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-getRating.defaults",
@@ -44034,7 +46887,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-getRating.on_behalf_of_content_owner",
@@ -44079,7 +46935,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-getRating.output.json",
@@ -44124,7 +46983,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-getRating.output.yaml",
@@ -44169,7 +47031,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-getRating.output.table",
@@ -44214,7 +47079,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-getRating.bad-type",
@@ -44259,7 +47127,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-getRating.api.error",
@@ -44309,7 +47180,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.defaults",
@@ -44363,7 +47237,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.decline",
@@ -44417,7 +47294,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.no-elicitation",
@@ -44471,7 +47351,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.mrtr.accept",
@@ -44542,7 +47425,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.mrtr.decline",
@@ -44613,7 +47499,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.auto_levels",
@@ -44668,7 +47557,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.auto_levels.false",
@@ -44723,7 +47615,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.channel_id",
@@ -44778,7 +47673,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.contains_synthetic_media",
@@ -44833,7 +47731,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.contains_synthetic_media.false",
@@ -44888,7 +47789,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.description",
@@ -44943,7 +47847,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.embeddable",
@@ -44998,7 +47905,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.embeddable.false",
@@ -45053,7 +47963,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.for_kids",
@@ -45108,7 +48021,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.for_kids.false",
@@ -45163,7 +48079,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.language",
@@ -45218,7 +48137,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.license.youtube",
@@ -45273,7 +48195,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.license.creativeCommon",
@@ -45328,7 +48253,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.notify_subscribers",
@@ -45383,7 +48311,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.notify_subscribers.false",
@@ -45438,7 +48369,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.on_behalf_of_content_owner",
@@ -45493,7 +48427,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.on_behalf_of_content_owner_channel",
@@ -45548,7 +48485,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.output.json",
@@ -45603,7 +48543,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.output.yaml",
@@ -45658,7 +48601,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.output.silent",
@@ -45713,7 +48659,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.playlist_id",
@@ -45768,7 +48717,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.privacy.public",
@@ -45822,7 +48774,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.privacy.private",
@@ -45876,7 +48831,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.privacy.unlisted",
@@ -45930,7 +48888,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.public_stats_viewable",
@@ -45985,7 +48946,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.public_stats_viewable.false",
@@ -46040,7 +49004,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.publish_at",
@@ -46095,7 +49062,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.recording_date",
@@ -46150,7 +49120,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.stabilize",
@@ -46205,7 +49178,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.stabilize.false",
@@ -46260,7 +49236,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.tags",
@@ -46318,7 +49297,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.thumbnail",
@@ -46373,7 +49355,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.title",
@@ -46428,7 +49413,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.bad-type",
@@ -46483,7 +49471,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-insert.api.error",
@@ -46543,7 +49534,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.defaults",
@@ -46582,7 +49576,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.category_id",
@@ -46623,7 +49620,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.chart.chartUnspecified",
@@ -46664,7 +49664,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.chart.mostPopular",
@@ -46705,7 +49708,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.hl",
@@ -46746,7 +49752,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.ids",
@@ -46790,7 +49799,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.locale",
@@ -46831,7 +49843,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.max_height",
@@ -46872,7 +49887,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.max_results",
@@ -46913,7 +49931,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.max_width",
@@ -46954,7 +49975,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.on_behalf_of_content_owner",
@@ -46995,7 +50019,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.output.json",
@@ -47036,7 +50063,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.output.yaml",
@@ -47077,7 +50107,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.output.table",
@@ -47118,7 +50151,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.parts",
@@ -47162,7 +50198,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.rating",
@@ -47203,7 +50242,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.region_code",
@@ -47244,7 +50286,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.bad-type",
@@ -47285,7 +50330,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-list.api.error",
@@ -47330,7 +50378,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.defaults",
@@ -47375,7 +50426,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.decline",
@@ -47420,7 +50474,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.no-elicitation",
@@ -47465,7 +50522,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.mrtr.accept",
@@ -47529,7 +50589,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.mrtr.decline",
@@ -47593,7 +50656,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.rating.like",
@@ -47638,7 +50704,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.rating.dislike",
@@ -47683,7 +50752,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.rating.none",
@@ -47728,7 +50800,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.bad-type",
@@ -47774,7 +50849,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-rate.api.error",
@@ -47825,7 +50903,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.defaults",
@@ -47870,7 +50951,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.decline",
@@ -47915,7 +50999,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.no-elicitation",
@@ -47960,7 +51047,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.mrtr.accept",
@@ -48024,7 +51114,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.mrtr.decline",
@@ -48088,7 +51181,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.comments",
@@ -48134,7 +51230,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.language",
@@ -48180,7 +51279,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.on_behalf_of_content_owner",
@@ -48226,7 +51328,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.secondary_reason_id",
@@ -48272,7 +51377,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.bad-type",
@@ -48318,7 +51426,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-reportAbuse.api.error",
@@ -48369,7 +51480,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.defaults",
@@ -48413,7 +51527,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.decline",
@@ -48457,7 +51574,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.no-elicitation",
@@ -48501,7 +51621,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.mrtr.accept",
@@ -48563,7 +51686,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.mrtr.decline",
@@ -48625,7 +51751,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.category_id",
@@ -48670,7 +51799,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.contains_synthetic_media",
@@ -48715,7 +51847,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.contains_synthetic_media.false",
@@ -48760,7 +51895,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.description",
@@ -48805,7 +51943,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.embeddable",
@@ -48850,7 +51991,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.embeddable.false",
@@ -48895,7 +52039,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.language",
@@ -48940,7 +52087,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.license.youtube",
@@ -48985,7 +52135,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.license.creativeCommon",
@@ -49030,7 +52183,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.output.json",
@@ -49075,7 +52231,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.output.yaml",
@@ -49120,7 +52279,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.output.silent",
@@ -49165,7 +52327,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.playlist_id",
@@ -49210,7 +52375,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.privacy.public",
@@ -49255,7 +52423,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.privacy.private",
@@ -49300,7 +52471,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.privacy.unlisted",
@@ -49345,7 +52519,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.publish_at",
@@ -49390,7 +52567,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.recording_date",
@@ -49435,7 +52615,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.tags",
@@ -49483,7 +52666,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.thumbnail",
@@ -49528,7 +52714,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.title",
@@ -49573,7 +52762,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.bad-type",
@@ -49618,7 +52810,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.video-update.api.error",
@@ -49668,7 +52863,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.videoAbuseReportReason-list.defaults",
@@ -49707,7 +52905,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.videoAbuseReportReason-list.hl",
@@ -49748,7 +52949,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.videoAbuseReportReason-list.output.json",
@@ -49789,7 +52993,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.videoAbuseReportReason-list.output.yaml",
@@ -49830,7 +53037,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.videoAbuseReportReason-list.output.table",
@@ -49871,7 +53081,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.videoAbuseReportReason-list.parts",
@@ -49915,7 +53128,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.videoAbuseReportReason-list.bad-type",
@@ -49956,7 +53172,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.videoAbuseReportReason-list.api.error",
@@ -50001,7 +53220,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.defaults",
@@ -50054,7 +53276,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.decline",
@@ -50107,7 +53332,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.no-elicitation",
@@ -50160,7 +53388,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.mrtr.accept",
@@ -50229,7 +53460,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.mrtr.decline",
@@ -50298,7 +53532,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.duration_ms",
@@ -50352,7 +53589,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.in_video_position.topLeft",
@@ -50406,7 +53646,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.in_video_position.topRight",
@@ -50460,7 +53703,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.in_video_position.bottomLeft",
@@ -50514,7 +53760,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.in_video_position.bottomRight",
@@ -50568,7 +53817,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.offset_ms",
@@ -50622,7 +53874,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.offset_type.offsetFromStart",
@@ -50676,7 +53931,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.offset_type.offsetFromEnd",
@@ -50730,7 +53988,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.on_behalf_of_content_owner",
@@ -50784,7 +54045,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.bad-type",
@@ -50838,7 +54102,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-set.api.error",
@@ -50897,7 +54164,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-unset.defaults",
@@ -50938,7 +54208,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-unset.decline",
@@ -50979,7 +54252,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-unset.no-elicitation",
@@ -51020,7 +54296,10 @@
     }
    }
   ],
-  "elicit": "error"
+  "elicit": "error",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-unset.mrtr.accept",
@@ -51076,7 +54355,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-unset.mrtr.decline",
@@ -51132,7 +54414,10 @@
     }
    }
   ],
-  "elicit": "decline"
+  "elicit": "decline",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-unset.bad-type",
@@ -51174,7 +54459,10 @@
     }
    }
   ],
-  "elicit": "accept"
+  "elicit": "accept",
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.watermark-unset.api.error",
@@ -51221,7 +54509,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E5"
+  ]
  },
  {
   "id": "mcp.resource.i18n.hl",
@@ -51256,6 +54547,9 @@
      "uri": "i18n://hl"
     }
    }
+  ],
+  "divergences": [
+   "E5"
   ]
  },
  {
@@ -51291,6 +54585,9 @@
      "uri": "i18n://language/ja"
     }
    }
+  ],
+  "divergences": [
+   "E5"
   ]
  },
  {
@@ -51326,6 +54623,9 @@
      "uri": "i18n://region/fr"
     }
    }
+  ],
+  "divergences": [
+   "E5"
   ]
  },
  {
@@ -51361,6 +54661,10 @@
      "uri": "video://category/ja"
     }
    }
+  ],
+  "divergences": [
+   "E5",
+   "E6"
   ]
  },
  {
@@ -51433,6 +54737,9 @@
      "arguments": {}
     }
    }
+  ],
+  "divergences": [
+   "E5"
   ]
  },
  {
@@ -51505,6 +54812,9 @@
      "arguments": {}
     }
    }
+  ],
+  "divergences": [
+   "E5"
   ]
  },
  {
@@ -51575,6 +54885,9 @@
      "arguments": {}
     }
    }
+  ],
+  "divergences": [
+   "E5"
   ]
  },
  {
@@ -51647,6 +54960,9 @@
      "arguments": {}
     }
    }
+  ],
+  "divergences": [
+   "E5"
   ]
  }
 ]
