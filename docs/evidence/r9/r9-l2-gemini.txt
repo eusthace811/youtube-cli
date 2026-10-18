@@ -1,0 +1,18 @@
+PASS: lane 2, Gemini asks for channel statistics
+Same channels request and transcript as Go.
+
+SUBSTITUTED: no real LLM key or Google account exists on this machine, so the real-model lane runs as a scripted mock-LLM session that exercises the same code path.
+tool calls go:   ['channel-list']
+tool calls head: ['channel-list']
+tool call order identical: True
+recorder lines identical: True (1 go, 1 head)
+  GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["statistics"], "prettyPrint": ["false"]}
+exit: go 0 head 0
+stdout identical: True
+  go:   '\n\nUser -> \nAgent -> You have 42 subscribers.\nUser -> \nEOF detected, exiting...\n'
+stderr identical (timestamps masked): False
+  go:   'time=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23454\n'
+  head: 'time=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"parts\\":[\\"statistics\\"],\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\"}" output_length=23454\n'
+model requests: go 2 head 2
+  request 0 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs
+  request 1 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs

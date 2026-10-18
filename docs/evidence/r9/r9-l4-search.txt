@@ -1,0 +1,19 @@
+PASS: lane 4, Gemini's Google Search tool
+Both send {"googleSearch": {}} first; --base-url drops it.
+
+SUBSTITUTED: no real LLM key or Google account exists on this machine, so the real-model lane runs as a scripted mock-LLM session that exercises the same code path.
+No --base-url: GOOGLE_GEMINI_BASE_URL points genai and head at the mock, so the agent believes it
+talks to Google and adds the built-in search tool, as Go does.
+first tools entry go {'googleSearch': {}} head {'googleSearch': {}}
+with --base-url head sends tools[0] keys ['functionDeclarations']
+tool calls go:   []
+tool calls head: []
+tool call order identical: True
+recorder lines identical: True (0 go, 0 head)
+exit: go 0 head 0
+stdout identical: True
+  go:   '\n\nUser -> \nAgent -> The search says yutu is a YouTube CLI.\nUser -> \nEOF detected, exiting...\n'
+stderr identical (timestamps masked): True
+  go:   ''
+model requests: go 1 head 1
+  request 0 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs

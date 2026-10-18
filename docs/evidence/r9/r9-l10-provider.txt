@@ -1,0 +1,7 @@
+PASS: lane 10, unsupported provider
+Exit code, stdout and stderr (timestamps masked) are identical.
+
+go: exit 1 stdout ''
+go: stderr 'time=T level=ERROR msg="model configuration error" error="unsupported provider \\"bogus\\": supported providers are google and openai"\n'
+head: exit 1 stdout ''
+head: stderr 'time=T level=ERROR msg="model configuration error" error="unsupported provider \\"bogus\\": supported providers are google and openai"\n'

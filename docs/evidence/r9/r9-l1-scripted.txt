@@ -1,0 +1,198 @@
+PASS: lane 1, scripted regression, Go harness vs head
+Tool calls and recorder lines match in every session; every other difference is classified at the end.
+
+The same scripted mock-LLM console sessions on ref/yutu-go-harness and head, both providers and
+both streaming modes. Pass rule: same tool calls in the same order and identical recorder lines.
+
+== reads, skills and error paths: provider=google streaming_mode=none
+tool calls go:   ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
+tool calls head: ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
+tool call order identical: True
+recorder lines identical: True (4 go, 4 head)
+  GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}
+  GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+  GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
+function response 4 (list_skills) differs:
+  go:   {"skills": "<available_skills>\n</available_skills>"}
+  head: {"skills": "<available_skills>\n<skill>\n<name>\nyoutube\n</name>\n<description>\nUse whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, a
+function response 5 (load_skill) differs:
+  go:   {"error": "load frontmatter for skill \"youtube\": skill not found"}
+  head: {"skill_name": "youtube", "instructions": "\n# YouTube\n\nManage YouTube resources via MCP tool calls \u2014 abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, i18nLanguage, i18nRegion, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveS
+function response 6 (load_skill_resource) differs:
+  go:   {"error": "load resource 'references/seo-guide.md' from skill 'youtube': skill not found"}
+  head: {"skill_name": "youtube", "path": "references/seo-guide.md", "content": "# YouTube Growth & SEO Guide\n\nBest practices for growing a YouTube channel and optimizing content for discoverability.\n\n## Titles\n\n- Use curiosity gaps, numbers, and power words\n- Front-load keywords for search visibilit
+function response 8 (no-such-tool) differs:
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: liveBroadcast-update, playlistItem-update, liveChatBan-insert, caption-list, video-list, comment-setModerationStatus, liveStream-update, comment-list, playlist-insert, playlistImage-update, thirdPartyLink-update, liveBroadcast-list, video-r
+  head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
+exit: go 0 head 0
+stdout identical: True
+  go:   '\n\nUser -> \nAgent -> Here is what I found.\nUser -> \nEOF detected, exiting...\n'
+stderr identical (timestamps masked): False
+  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"yutu\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"yutu\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+model requests: go 10 head 10
+  request 0 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs
+  request 1 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs
+  request 2 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs
+  request 3 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs
+  request 4 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs
+  request 5 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs; body key 'contents' differs
+  request 6 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs; body key 'contents' differs
+  request 7 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs; body key 'contents' differs
+  request 8 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs; body key 'contents' differs
+  request 9 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs; body key 'contents' differs
+request headers go:   {'user-agent': 'google-adk/2.5.0 gl-go/1.27.1 google-genai-sdk/1.71.0 gl-go/go1.27.1', 'content-type': 'application/json', 'x-goog-api-client': 'google-adk/2.5.0 gl-go/1.27.1 google-genai-sdk/1.71.0 gl-go/go1.27.1', 'x-goog-api-key': '<key>', 'accept-encoding': 'gzip'}
+request headers head: {'content-type': 'application/json', 'x-goog-api-key': '<key>', 'accept': '*/*', 'user-agent': 'yutu-rs/0.11.0', 'accept-encoding': 'gzip'}
+
+== reads, skills and error paths: provider=google streaming_mode=sse
+tool calls go:   ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
+tool calls head: ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
+tool call order identical: True
+recorder lines identical: True (4 go, 4 head)
+  GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}
+  GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+  GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
+function response 4 (list_skills) differs:
+  go:   {"skills": "<available_skills>\n</available_skills>"}
+  head: {"skills": "<available_skills>\n<skill>\n<name>\nyoutube\n</name>\n<description>\nUse whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, a
+function response 5 (load_skill) differs:
+  go:   {"error": "load frontmatter for skill \"youtube\": skill not found"}
+  head: {"skill_name": "youtube", "instructions": "\n# YouTube\n\nManage YouTube resources via MCP tool calls \u2014 abuseReport, activity, caption, channel, channelBanner, channelSection, comment, commentThread, i18nLanguage, i18nRegion, liveBroadcast, liveChatBan, liveChatMessage, liveChatModerator, liveS
+function response 6 (load_skill_resource) differs:
+  go:   {"error": "load resource 'references/seo-guide.md' from skill 'youtube': skill not found"}
+  head: {"skill_name": "youtube", "path": "references/seo-guide.md", "content": "# YouTube Growth & SEO Guide\n\nBest practices for growing a YouTube channel and optimizing content for discoverability.\n\n## Titles\n\n- Use curiosity gaps, numbers, and power words\n- Front-load keywords for search visibilit
+function response 8 (no-such-tool) differs:
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: liveChatMessage-delete, liveBroadcast-delete, comment-setModerationStatus, list_skills, video-rate, load_skill, liveStream-update, video-reportAbuse, video-delete, playlistItem-list, playlistItem-delete, subscription-list, playlistItem-upda
+  head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
+exit: go 0 head 0
+stdout identical: True
+  go:   '\n\nUser -> \nAgent -> Here is what I found.\nUser -> \nEOF detected, exiting...\n'
+stderr identical (timestamps masked): False
+  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"yutu\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"yutu\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+model requests: go 10 head 10
+  request 0 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs
+  request 1 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs
+  request 2 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs
+  request 3 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs
+  request 4 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs
+  request 5 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs; body key 'contents' differs
+  request 6 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs; body key 'contents' differs
+  request 7 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs; body key 'contents' differs
+  request 8 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs; body key 'contents' differs
+  request 9 /v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse: system instruction differs; body key 'contents' differs
+
+== reads, skills and error paths: provider=openai streaming_mode=none
+tool calls go:   ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
+tool calls head: ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
+tool call order identical: True
+recorder lines identical: True (4 go, 4 head)
+  GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}
+  GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+  GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
+function response 4 (list_skills) differs:
+  go:   {"skills": "<available_skills>\n</available_skills>"}
+  head: {"skills": "<available_skills>\n<skill>\n<name>\nyoutube\n</name>\n<description>\nUse whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, a
+function response 5 (load_skill) differs:
+  go:   {"error": "load frontmatter for skill \"youtube\": skill not found"}
+  head: {"frontmatter": {"description": "Use whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, and more.", "license": "MIT", "metadata": {"author
+function response 6 (load_skill_resource) differs:
+  go:   {"error": "load resource 'references/seo-guide.md' from skill 'youtube': skill not found"}
+  head: {"content": "# YouTube Growth & SEO Guide\n\nBest practices for growing a YouTube channel and optimizing content for discoverability.\n\n## Titles\n\n- Use curiosity gaps, numbers, and power words\n- Front-load keywords for search visibility\n- Keep under 60 characters to avoid truncation\n- A/B tes
+function response 8 (no-such-tool) differs:
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: liveChatMessage-list, subscription-list, channel-update, playlistItem-insert, playlist-update, channel-list, liveBroadcast-list, playlist-list, channelBanner-insert, liveStream-list, watermark-unset, caption-download, thumbnail-set, liveCha
+  head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
+exit: go 0 head 0
+stdout identical: True
+  go:   '\n\nUser -> \nAgent -> Here is what I found.\nUser -> \nEOF detected, exiting...\n'
+stderr identical (timestamps masked): False
+  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"yutu\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"yutu\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+model requests: go 10 head 10
+  request 0 /v1/responses: system instruction differs
+  request 1 /v1/responses: system instruction differs
+  request 2 /v1/responses: system instruction differs
+  request 3 /v1/responses: system instruction differs
+  request 4 /v1/responses: system instruction differs
+  request 5 /v1/responses: system instruction differs; body key 'input' differs
+  request 6 /v1/responses: system instruction differs; body key 'input' differs
+  request 7 /v1/responses: system instruction differs; body key 'input' differs
+  request 8 /v1/responses: system instruction differs; body key 'input' differs
+  request 9 /v1/responses: system instruction differs; body key 'input' differs
+
+== reads, skills and error paths: provider=openai streaming_mode=sse
+tool calls go:   ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
+tool calls head: ['video-list', 'channel-list', 'playlist-list', 'search-list', 'list_skills', 'load_skill', 'load_skill_resource', 'video-list', 'no-such-tool']
+tool call order identical: True
+recorder lines identical: True (4 go, 4 head)
+  GET /youtube/v3/videos {"alt": ["json"], "id": ["v1"], "maxResults": ["5"], "part": ["id", "snippet", "status", "statistics"], "prettyPrint": ["false"]}
+  GET /youtube/v3/channels {"alt": ["json"], "maxResults": ["5"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+  GET /youtube/v3/playlists {"alt": ["json"], "channelId": ["UC1"], "maxResults": ["3"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+  GET /youtube/v3/search {"alt": ["json"], "channelType": ["channelTypeUnspecified"], "eventType": ["none"], "maxResults": ["5"], "order": ["relevance"], "part": ["id", "snippet"], "prettyPrint": ["false"], "q": ["yutu"], "safeSearch": ["moderate"], "type": ["video"], "videoCaption": ["any"], "videoDimension": ["any"], "videoDuration": ["any"]}
+function response 4 (list_skills) differs:
+  go:   {"skills": "<available_skills>\n</available_skills>"}
+  head: {"skills": "<available_skills>\n<skill>\n<name>\nyoutube\n</name>\n<description>\nUse whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, a
+function response 5 (load_skill) differs:
+  go:   {"error": "load frontmatter for skill \"youtube\": skill not found"}
+  head: {"frontmatter": {"description": "Use whenever the user mentions YouTube, video uploads, channel management, playlists, video SEO, or any YouTube Data API operation. Manages videos, playlists, comments, captions, subscriptions, thumbnails, analytics, and more.", "license": "MIT", "metadata": {"author
+function response 6 (load_skill_resource) differs:
+  go:   {"error": "load resource 'references/seo-guide.md' from skill 'youtube': skill not found"}
+  head: {"content": "# YouTube Growth & SEO Guide\n\nBest practices for growing a YouTube channel and optimizing content for discoverability.\n\n## Titles\n\n- Use curiosity gaps, numbers, and power words\n- Front-load keywords for search visibility\n- Keep under 60 characters to avoid truncation\n- A/B tes
+function response 8 (no-such-tool) differs:
+  go:   {"error": "tool 'no-such-tool' not found.\nAvailable tools: load_skill, subscription-insert, liveBroadcast-insertCuepoint, channelSection-delete, video-insert, channelBanner-insert, channel-update, subscription-list, member-list, list_skills, commentThread-list, liveChatModerator-insert, thirdPartyL
+  head: {"error": "tool 'no-such-tool' not found.\nAvailable tools: abuseReport-insert, activity-list, caption-delete, caption-download, caption-insert, caption-list, caption-update, channel-list, channel-update, channelBanner-insert, channelSection-delete, channelSection-list, comment-delete, comment-inser
+exit: go 0 head 0
+stdout identical: True
+  go:   '\n\nUser -> \nAgent -> Here is what I found.\nUser -> \nEOF detected, exiting...\n'
+stderr identical (timestamps masked): False
+  go:   'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"],\\"output\\":\\"json\\"}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":3,\\"channel_id\\":\\"UC1\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\"}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\"],\\"output\\":\\"json\\",\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"order\\":\\"relevance\\",\\"q\\":\\"yutu\\",\\"safe_search\\":\\"moderate\\",\\"types\\":[\\"video\\"],\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+  head: 'time=T level=INFO msg=video-list input="{\\"ids\\":[\\"v1\\"],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\",\\"statistics\\"]}" output_length=23371\ntime=T level=INFO msg=channel-list input="{\\"mine\\":true,\\"ids\\":[],\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=23454\ntime=T level=INFO msg=playlist-list input="{\\"channel_id\\":\\"UC1\\",\\"max_results\\":3,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\ntime=T level=INFO msg=search-list input="{\\"q\\":\\"yutu\\",\\"types\\":[\\"video\\"],\\"channel_type\\":\\"channelTypeUnspecified\\",\\"event_type\\":\\"none\\",\\"max_results\\":5,\\"order\\":\\"relevance\\",\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\"],\\"safe_search\\":\\"moderate\\",\\"video_caption\\":\\"any\\",\\"video_dimension\\":\\"any\\",\\"video_duration\\":\\"any\\"}" output_length=3077\n'
+model requests: go 10 head 10
+  request 0 /v1/responses: system instruction differs
+  request 1 /v1/responses: system instruction differs
+  request 2 /v1/responses: system instruction differs
+  request 3 /v1/responses: system instruction differs
+  request 4 /v1/responses: system instruction differs
+  request 5 /v1/responses: system instruction differs; body key 'input' differs
+  request 6 /v1/responses: system instruction differs; body key 'input' differs
+  request 7 /v1/responses: system instruction differs; body key 'input' differs
+  request 8 /v1/responses: system instruction differs; body key 'input' differs
+  request 9 /v1/responses: system instruction differs; body key 'input' differs
+
+== a gated write: Go's in-memory MCP client cannot answer the confirmation, head asks the human (E9)
+tool calls go:   ['playlist-list', 'playlist-delete']
+tool calls head: ['playlist-list', 'playlist-delete']
+tool call order identical: True
+recorder lines identical: True (1 go, 1 head)
+  GET /youtube/v3/playlists {"alt": ["json"], "maxResults": ["5"], "mine": ["true"], "part": ["id", "snippet", "status"], "prettyPrint": ["false"]}
+function response 1 (playlist-delete) differs:
+  go:   {"error": "failed to call MCP tool \"playlist-delete\" with err: multi round-trip: fulfilling input request \"confirm\": client does not support elicitation"}
+  head: {"error": "Tool execution failed. Details: canceled by user"}
+exit: go 0 head 0
+stdout identical: False
+  go:   '\n\nUser -> \nAgent -> ok\nUser -> \nEOF detected, exiting...\n'
+  head: '\n\nUser -> \nAgent -> \nTool call needs approval: playlist-delete {"ids":["p1"]}\nDelete playlist(s): p1 [y/N] ok\nUser -> \nEOF detected, exiting...\n'
+stderr identical (timestamps masked): False
+  go:   'time=T level=INFO msg=playlist-list input="{\\"confirmed\\":false,\\"max_results\\":5,\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"],\\"output\\":\\"json\\",\\"mine\\":true}" output_length=4706\ntime=T level=INFO msg=playlist-delete input="{\\"ids\\":[\\"p1\\"],\\"confirmed\\":false}" mrtr=true\n'
+  head: 'time=T level=INFO msg=playlist-list input="{\\"mine\\":true,\\"max_results\\":5,\\"output\\":\\"json\\",\\"parts\\":[\\"id\\",\\"snippet\\",\\"status\\"]}" output_length=4706\n'
+model requests: go 3 head 3
+  request 0 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs
+  request 1 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs
+  request 2 /v1beta/models/gemini-3.8-flash:generateContent: system instruction differs; body key 'contents' differs
+
+== every difference above, classified
+- playlist-delete response, the approval prompt on stdout, Go's mrtr=true log line: E9. Go's in-memory
+  MCP client declares no elicitation, so every gated tool fails with 'client does not support
+  elicitation' and no write can ever run; head asks the human and sends 'canceled by user' on no.
+- list_skills, load_skill, load_skill_resource responses and the longer system instruction (the
+  skill toolset's block): divergence agent-skills; Go's embedded skills directory is never found.
+- no-such-tool 'Available tools' order: nondeterministic in Go (map order); head lists declarations in order.
+- stderr tool log lines: yutu-mcp (R7) logs the bound input without Go's 'confirmed':false and in
+  schema order; the agent adds nothing to stderr. Not E9/E10.
+- request headers: head sends User-Agent yutu-rs/<version> and none of the SDK identification headers
+  (x-goog-api-client, X-Stainless-*); the key header is the same. Not E9/E10.
+- Parallel calls in one model turn run sequentially in head (approvals are serial); Go runs them
+  concurrently, so its recorder order for such turns is nondeterministic. The scripts here issue one call per turn.
