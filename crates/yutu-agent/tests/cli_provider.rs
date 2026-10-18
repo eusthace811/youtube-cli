@@ -290,3 +290,22 @@ fn a_missing_cli_is_reported_before_the_session_starts() {
         "codex: /nonexistent/codex not found; install the Codex CLI and sign in, or set YUTU_CODEX_BIN to its path"
     );
 }
+
+#[test]
+fn a_tool_name_with_control_characters_cannot_reach_the_terminal() {
+    block_on(async {
+        let bad = r#"{"text":"","calls":[{"name":"x\u001b]10;#000000\u0007","args_json":"nope"}]}"#;
+        let fake = Fake::new("badname", &[bad]);
+        let (youtube, _) = recorder().await;
+        let agent = cli_agent("claude-code", &fake.bin(), &youtube).await;
+
+        let transcript = common::console(&agent, &["hi"]).await;
+
+        assert!(
+            transcript
+                .contains("AGENT_ERROR: claude-code: arguments for x\\u{1b}]10;#000000\\u{7}"),
+            "{transcript:?}"
+        );
+        assert!(!transcript.contains("\u{1b}]10"), "{transcript:?}");
+    })
+}

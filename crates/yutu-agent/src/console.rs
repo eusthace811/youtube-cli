@@ -230,7 +230,9 @@ pub async fn run(
             .turn(&mut history, message, console.stream, &mut console)
             .await
         {
-            console.print(&format!("\nAGENT_ERROR: {e}\n"));
+            // Errors can carry text the model chose (a tool name, the CLI's
+            // own message), so they get the same treatment as its replies.
+            console.print_model(&format!("\nAGENT_ERROR: {e}\n"));
         }
         console.print("\nUser -> ");
     }
