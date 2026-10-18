@@ -1,0 +1,3542 @@
+{
+ "args": "web webui api a2a pubsub eventarc",
+ "script": [
+  {
+   "calls": [
+    {
+     "name": "video-list",
+     "args": {
+      "ids": [
+       "v1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "text": "Here is the video."
+  },
+  {
+   "text": "Streamed reply."
+  },
+  {
+   "text": "Plain reply over SSE."
+  },
+  {
+   "text": "pubsub handled"
+  },
+  {
+   "text": "eventarc handled"
+  },
+  {
+   "text": "eventarc binary handled"
+  },
+  {
+   "text": "a2a v0 reply"
+  },
+  {
+   "text": "a2a v1 reply"
+  },
+  {
+   "text": "a2a v0 streamed"
+  },
+  {
+   "text": "a2a v1 streamed"
+  },
+  {
+   "calls": [
+    {
+     "name": "channel-list",
+     "args": {
+      "ids": [
+       "UC1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "text": "a2a tool reply"
+  },
+  {
+   "calls": [
+    {
+     "name": "channel-list",
+     "args": {
+      "ids": [
+       "UC2"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "text": "a2a tool stream reply"
+  },
+  {
+   "calls": [
+    {
+     "name": "channel-list",
+     "args": {
+      "ids": [
+       "UC3"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "text": "a2a v1 tool reply"
+  }
+ ],
+ "youtube": [
+  "GET /youtube/v3/videos {\"alt\": [\"json\"], \"id\": [\"v1\"], \"maxResults\": [\"5\"], \"part\": [\"id\", \"snippet\", \"status\", \"statistics\"], \"prettyPrint\": [\"false\"]}",
+  "GET /youtube/v3/channels {\"alt\": [\"json\"], \"id\": [\"UC1\"], \"maxResults\": [\"5\"], \"part\": [\"id\", \"snippet\", \"status\"], \"prettyPrint\": [\"false\"]}",
+  "GET /youtube/v3/channels {\"alt\": [\"json\"], \"id\": [\"UC2\"], \"maxResults\": [\"5\"], \"part\": [\"id\", \"snippet\", \"status\"], \"prettyPrint\": [\"false\"]}",
+  "GET /youtube/v3/channels {\"alt\": [\"json\"], \"id\": [\"UC3\"], \"maxResults\": [\"5\"], \"part\": [\"id\", \"snippet\", \"status\"], \"prettyPrint\": [\"false\"]}"
+ ],
+ "exchanges": [
+  {
+   "name": "list apps",
+   "request": {
+    "method": "GET",
+    "path": "/api/list-apps",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": [
+     "Miffy"
+    ],
+    "text": null
+   }
+  },
+  {
+   "name": "list apps relative path",
+   "request": {
+    "method": "GET",
+    "path": "/api/list-apps?relative_path=./",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": [
+     "Miffy"
+    ],
+    "text": null
+   }
+  },
+  {
+   "name": "list apps trailing slash",
+   "request": {
+    "method": "GET",
+    "path": "/api/list-apps/",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": [
+     "Miffy"
+    ],
+    "text": null
+   }
+  },
+  {
+   "name": "version",
+   "request": {
+    "method": "GET",
+    "path": "/api/version",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "version": "2.5.0",
+     "language": "go",
+     "language_version": "go1.27.1"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "health",
+   "request": {
+    "method": "GET",
+    "path": "/health",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json"
+   },
+   "body": {
+    "json": {
+     "status": "ok"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "health head",
+   "request": {
+    "method": "HEAD",
+    "path": "/health",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json"
+   },
+   "body": {
+    "text": ""
+   }
+  },
+  {
+   "name": "api health",
+   "request": {
+    "method": "GET",
+    "path": "/api/health",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "status": "ok"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "create session with id",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1",
+    "headers": {},
+    "body": "{\"state\": {\"a\": 1}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "id": "s1",
+     "appName": "Miffy",
+     "userId": "u1",
+     "lastUpdateTime": "<time>",
+     "events": [],
+     "state": {
+      "a": 1
+     }
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "create session with id again",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1",
+    "headers": {},
+    "body": "{}"
+   },
+   "status": 500,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "session s1 already exists\n"
+   }
+  },
+  {
+   "name": "create session",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/users/u1/sessions",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "id": "<uuid>",
+     "appName": "Miffy",
+     "userId": "u1",
+     "lastUpdateTime": "<time>",
+     "events": [],
+     "state": {}
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "create session bad json",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/users/u1/sessions/s9",
+    "headers": {},
+    "body": "{"
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "unexpected EOF\n"
+   }
+  },
+  {
+   "name": "get session",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "id": "s1",
+     "appName": "Miffy",
+     "userId": "u1",
+     "lastUpdateTime": "<time>",
+     "events": [],
+     "state": {
+      "a": 1
+     }
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "get missing session",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/users/u1/sessions/nope",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "session not found: \"nope\"\n"
+   }
+  },
+  {
+   "name": "patch session",
+   "request": {
+    "method": "PATCH",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1",
+    "headers": {},
+    "body": "{\"stateDelta\": {\"b\": \"x\"}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "id": "s1",
+     "appName": "Miffy",
+     "userId": "u1",
+     "lastUpdateTime": "<time>",
+     "events": [
+      {
+       "id": "<uuid>",
+       "invocationId": "<uuid>",
+       "author": "user",
+       "groundingMetadata": null,
+       "usageMetadata": null,
+       "actions": {
+        "stateDelta": {
+         "b": "x"
+        },
+        "artifactDelta": {}
+       },
+       "content": null
+      }
+     ],
+     "state": {
+      "a": 1,
+      "b": "x"
+     }
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "patch session scoped key",
+   "request": {
+    "method": "PATCH",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1",
+    "headers": {},
+    "body": "{\"stateDelta\": {\"app:b\": 1}}"
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "stateDelta may only contain session-scoped keys; remove [app:b] (the \"app:\", \"user:\" and \"temp:\" prefixes write outside this session)\n"
+   }
+  },
+  {
+   "name": "patch missing session",
+   "request": {
+    "method": "PATCH",
+    "path": "/api/apps/Miffy/users/u1/sessions/nope",
+    "headers": {},
+    "body": "{\"stateDelta\": {\"b\": 1}}"
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "session not found: \"nope\"\n"
+   }
+  },
+  {
+   "name": "run read tool",
+   "request": {
+    "method": "POST",
+    "path": "/api/run",
+    "headers": {},
+    "body": "{\"appName\": \"Miffy\", \"userId\": \"u1\", \"sessionId\": \"s1\", \"newMessage\": {\"role\": \"user\", \"parts\": [{\"text\": \"list languages\"}]}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": [
+     {
+      "id": "<uuid>",
+      "invocationId": "e-<uuid>",
+      "author": "Miffy",
+      "groundingMetadata": null,
+      "usageMetadata": {
+       "candidatesTokenCount": 1,
+       "promptTokenCount": 1,
+       "totalTokenCount": 2
+      },
+      "finishReason": "STOP",
+      "modelVersion": "mock",
+      "actions": {
+       "stateDelta": {},
+       "artifactDelta": {}
+      },
+      "nodeInfo": {
+       "path": "Miffy"
+      },
+      "content": {
+       "role": "model",
+       "parts": [
+        {
+         "functionCall": {
+          "id": "adk-<uuid>",
+          "name": "video-list",
+          "args": {
+           "ids": [
+            "v1"
+           ]
+          }
+         }
+        }
+       ]
+      }
+     },
+     {
+      "id": "<uuid>",
+      "invocationId": "e-<uuid>",
+      "author": "Miffy",
+      "groundingMetadata": null,
+      "usageMetadata": null,
+      "actions": {
+       "stateDelta": {},
+       "artifactDelta": {}
+      },
+      "nodeInfo": {
+       "path": "Miffy"
+      },
+      "content": {
+       "role": "user",
+       "parts": [
+        {
+         "functionResponse": {
+          "id": "adk-<uuid>",
+          "name": "video-list",
+          "response": {
+           "output": "<sha256:f294c747fafe01cb>"
+          }
+         }
+        }
+       ]
+      }
+     },
+     {
+      "id": "<uuid>",
+      "invocationId": "e-<uuid>",
+      "author": "Miffy",
+      "groundingMetadata": null,
+      "usageMetadata": {
+       "candidatesTokenCount": 1,
+       "promptTokenCount": 1,
+       "totalTokenCount": 2
+      },
+      "finishReason": "STOP",
+      "modelVersion": "mock",
+      "actions": {
+       "stateDelta": {},
+       "artifactDelta": {}
+      },
+      "nodeInfo": {
+       "path": "Miffy"
+      },
+      "content": {
+       "role": "model",
+       "parts": [
+        {
+         "text": "Here is the video."
+        }
+       ]
+      }
+     }
+    ],
+    "text": null
+   }
+  },
+  {
+   "name": "run streaming",
+   "request": {
+    "method": "POST",
+    "path": "/api/run_sse",
+    "headers": {},
+    "body": "{\"appName\": \"Miffy\", \"userId\": \"u1\", \"sessionId\": \"s1\", \"newMessage\": {\"role\": \"user\", \"parts\": [{\"text\": \"stream please\"}]}, \"streaming\": true}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/event-stream; charset=UTF-8",
+    "cache-control": "no-cache",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "sse": [
+     {
+      "data": {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "Miffy",
+       "partial": true,
+       "groundingMetadata": null,
+       "usageMetadata": {
+        "candidatesTokenCount": 1,
+        "promptTokenCount": 1,
+        "totalTokenCount": 2
+       },
+       "turnComplete": true,
+       "finishReason": "STOP",
+       "modelVersion": "mock",
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "nodeInfo": {
+        "path": "Miffy"
+       },
+       "content": {
+        "role": "model",
+        "parts": [
+         {
+          "text": "Streamed reply."
+         }
+        ]
+       }
+      }
+     },
+     {
+      "data": {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "Miffy",
+       "groundingMetadata": null,
+       "usageMetadata": {
+        "candidatesTokenCount": 1,
+        "promptTokenCount": 1,
+        "totalTokenCount": 2
+       },
+       "finishReason": "STOP",
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "nodeInfo": {
+        "path": "Miffy"
+       },
+       "content": {
+        "role": "model",
+        "parts": [
+         {
+          "text": "Streamed reply."
+         }
+        ]
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "run sse not streaming",
+   "request": {
+    "method": "POST",
+    "path": "/api/run_sse",
+    "headers": {},
+    "body": "{\"appName\": \"Miffy\", \"userId\": \"u1\", \"sessionId\": \"s1\", \"newMessage\": {\"role\": \"user\", \"parts\": [{\"text\": \"plain please\"}]}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/event-stream; charset=UTF-8",
+    "cache-control": "no-cache",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "sse": [
+     {
+      "data": {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "Miffy",
+       "groundingMetadata": null,
+       "usageMetadata": {
+        "candidatesTokenCount": 1,
+        "promptTokenCount": 1,
+        "totalTokenCount": 2
+       },
+       "finishReason": "STOP",
+       "modelVersion": "mock",
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "nodeInfo": {
+        "path": "Miffy"
+       },
+       "content": {
+        "role": "model",
+        "parts": [
+         {
+          "text": "Plain reply over SSE."
+         }
+        ]
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "get session after runs",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "id": "s1",
+     "appName": "Miffy",
+     "userId": "u1",
+     "lastUpdateTime": "<time>",
+     "events": [
+      {
+       "id": "<uuid>",
+       "invocationId": "<uuid>",
+       "author": "user",
+       "groundingMetadata": null,
+       "usageMetadata": null,
+       "actions": {
+        "stateDelta": {
+         "b": "x"
+        },
+        "artifactDelta": {}
+       },
+       "content": null
+      },
+      {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "user",
+       "groundingMetadata": null,
+       "usageMetadata": null,
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "content": {
+        "role": "user",
+        "parts": [
+         {
+          "text": "list languages"
+         }
+        ]
+       }
+      },
+      {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "Miffy",
+       "groundingMetadata": null,
+       "usageMetadata": {
+        "candidatesTokenCount": 1,
+        "promptTokenCount": 1,
+        "totalTokenCount": 2
+       },
+       "finishReason": "STOP",
+       "modelVersion": "mock",
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "nodeInfo": {
+        "path": "Miffy"
+       },
+       "content": {
+        "role": "model",
+        "parts": [
+         {
+          "functionCall": {
+           "id": "adk-<uuid>",
+           "name": "video-list",
+           "args": {
+            "ids": [
+             "v1"
+            ]
+           }
+          }
+         }
+        ]
+       }
+      },
+      {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "Miffy",
+       "groundingMetadata": null,
+       "usageMetadata": null,
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "nodeInfo": {
+        "path": "Miffy"
+       },
+       "content": {
+        "role": "user",
+        "parts": [
+         {
+          "functionResponse": {
+           "id": "adk-<uuid>",
+           "name": "video-list",
+           "response": {
+            "output": "<sha256:f294c747fafe01cb>"
+           }
+          }
+         }
+        ]
+       }
+      },
+      {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "Miffy",
+       "groundingMetadata": null,
+       "usageMetadata": {
+        "candidatesTokenCount": 1,
+        "promptTokenCount": 1,
+        "totalTokenCount": 2
+       },
+       "finishReason": "STOP",
+       "modelVersion": "mock",
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "nodeInfo": {
+        "path": "Miffy"
+       },
+       "content": {
+        "role": "model",
+        "parts": [
+         {
+          "text": "Here is the video."
+         }
+        ]
+       }
+      },
+      {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "user",
+       "groundingMetadata": null,
+       "usageMetadata": null,
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "content": {
+        "role": "user",
+        "parts": [
+         {
+          "text": "stream please"
+         }
+        ]
+       }
+      },
+      {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "Miffy",
+       "groundingMetadata": null,
+       "usageMetadata": {
+        "candidatesTokenCount": 1,
+        "promptTokenCount": 1,
+        "totalTokenCount": 2
+       },
+       "finishReason": "STOP",
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "nodeInfo": {
+        "path": "Miffy"
+       },
+       "content": {
+        "role": "model",
+        "parts": [
+         {
+          "text": "Streamed reply."
+         }
+        ]
+       }
+      },
+      {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "user",
+       "groundingMetadata": null,
+       "usageMetadata": null,
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "content": {
+        "role": "user",
+        "parts": [
+         {
+          "text": "plain please"
+         }
+        ]
+       }
+      },
+      {
+       "id": "<uuid>",
+       "invocationId": "e-<uuid>",
+       "author": "Miffy",
+       "groundingMetadata": null,
+       "usageMetadata": {
+        "candidatesTokenCount": 1,
+        "promptTokenCount": 1,
+        "totalTokenCount": 2
+       },
+       "finishReason": "STOP",
+       "modelVersion": "mock",
+       "actions": {
+        "stateDelta": {},
+        "artifactDelta": {}
+       },
+       "nodeInfo": {
+        "path": "Miffy"
+       },
+       "content": {
+        "role": "model",
+        "parts": [
+         {
+          "text": "Plain reply over SSE."
+         }
+        ]
+       }
+      }
+     ],
+     "state": {
+      "a": 1,
+      "b": "x"
+     }
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "run missing session",
+   "request": {
+    "method": "POST",
+    "path": "/api/run",
+    "headers": {},
+    "body": "{\"appName\": \"Miffy\", \"userId\": \"u1\", \"sessionId\": \"nope\", \"newMessage\": {\"role\": \"user\", \"parts\": [{\"text\": \"x\"}]}}"
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "failed to get session: session not found: \"nope\"\n"
+   }
+  },
+  {
+   "name": "run sse missing session",
+   "request": {
+    "method": "POST",
+    "path": "/api/run_sse",
+    "headers": {},
+    "body": "{\"appName\": \"Miffy\", \"userId\": \"u1\", \"sessionId\": \"nope\", \"newMessage\": {\"role\": \"user\", \"parts\": [{\"text\": \"x\"}]}}"
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "failed to find the session: failed to get session: session not found: \"nope\"\n"
+   }
+  },
+  {
+   "name": "run unknown field",
+   "request": {
+    "method": "POST",
+    "path": "/api/run",
+    "headers": {},
+    "body": "{\"appName\": \"Miffy\", \"userId\": \"u1\", \"sessionId\": \"s1\", \"newMessage\": {\"role\": \"user\", \"parts\": [{\"text\": \"x\"}]}, \"bogus\": 1}"
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "failed to decode request: json: unknown field \"bogus\"\n"
+   }
+  },
+  {
+   "name": "run missing fields",
+   "request": {
+    "method": "POST",
+    "path": "/api/run",
+    "headers": {},
+    "body": "{\"appName\": \"Miffy\"}"
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "failed to get session: app_name, user_id, session_id are required, got app_name: \"Miffy\", user_id: \"\", session_id: \"\"\n"
+   }
+  },
+  {
+   "name": "run bad json",
+   "request": {
+    "method": "POST",
+    "path": "/api/run",
+    "headers": {},
+    "body": "not json"
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "failed to decode request: invalid character 'o' in literal null (expecting 'u')\n"
+   }
+  },
+  {
+   "name": "run unknown app",
+   "request": {
+    "method": "POST",
+    "path": "/api/run",
+    "headers": {},
+    "body": "{\"appName\": \"Other\", \"userId\": \"u1\", \"sessionId\": \"s1\", \"newMessage\": {\"role\": \"user\", \"parts\": [{\"text\": \"x\"}]}}"
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "failed to get session: session not found: \"s1\"\n"
+   }
+  },
+  {
+   "name": "run live without upgrade",
+   "request": {
+    "method": "GET",
+    "path": "/api/run_live?appName=Miffy&userId=u1&sessionId=s1",
+    "headers": {},
+    "body": null
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "Bad Request\nfailed to upgrade to websocket: websocket: the client is not using the websocket protocol: 'upgrade' token not found in 'Connection' header\n"
+   }
+  },
+  {
+   "name": "run live missing params",
+   "request": {
+    "method": "GET",
+    "path": "/api/run_live",
+    "headers": {},
+    "body": null
+   },
+   "status": 500,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "appName, userId, and sessionId are required\n"
+   }
+  },
+  {
+   "name": "list sessions",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/users/u1/sessions",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": [
+     {
+      "id": "<uuid>",
+      "appName": "Miffy",
+      "userId": "u1",
+      "lastUpdateTime": "<time>",
+      "events": [],
+      "state": {}
+     },
+     {
+      "id": "s1",
+      "appName": "Miffy",
+      "userId": "u1",
+      "lastUpdateTime": "<time>",
+      "events": [],
+      "state": {
+       "a": 1,
+       "b": "x"
+      }
+     }
+    ],
+    "text": null
+   }
+  },
+  {
+   "name": "list artifacts",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1/artifacts",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": [],
+    "text": null
+   }
+  },
+  {
+   "name": "get artifact",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1/artifacts/a.txt",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "artifact not found: file does not exist\n"
+   }
+  },
+  {
+   "name": "get artifact version",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1/artifacts/a.txt/versions/0",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "artifact not found: file does not exist\n"
+   }
+  },
+  {
+   "name": "get artifact bad version",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1/artifacts/a.txt/versions/x",
+    "headers": {},
+    "body": null
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "version parameter must be an integer\n"
+   }
+  },
+  {
+   "name": "delete artifact",
+   "request": {
+    "method": "DELETE",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1/artifacts/a.txt",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": ""
+   }
+  },
+  {
+   "name": "delete session",
+   "request": {
+    "method": "DELETE",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": ""
+   }
+  },
+  {
+   "name": "delete missing session",
+   "request": {
+    "method": "DELETE",
+    "path": "/api/apps/Miffy/users/u1/sessions/s1",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": ""
+   }
+  },
+  {
+   "name": "build graph",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/build_graph",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "404 page not found\n"
+   }
+  },
+  {
+   "name": "build graph image",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/build_graph_image",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "404 page not found\n"
+   }
+  },
+  {
+   "name": "builder",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/builder",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/plain; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": ""
+   }
+  },
+  {
+   "name": "builder save",
+   "request": {
+    "method": "POST",
+    "path": "/api/dev/apps/Miffy/builder/save",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "the agent builder is not implemented in ADK Go",
+     "detail": "ADK Go agents are defined in Go code, so there is no server-side agent configuration to edit."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "builder save tmp",
+   "request": {
+    "method": "POST",
+    "path": "/api/dev/apps/Miffy/builder/save?tmp=true",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "the agent builder is not implemented in ADK Go",
+     "detail": "ADK Go agents are defined in Go code, so there is no server-side agent configuration to edit."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "builder cancel",
+   "request": {
+    "method": "POST",
+    "path": "/api/dev/apps/Miffy/builder/cancel",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "the agent builder is not implemented in ADK Go",
+     "detail": "ADK Go agents are defined in Go code, so there is no server-side agent configuration to edit."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "eval sets",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/eval_sets",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "create eval set",
+   "request": {
+    "method": "POST",
+    "path": "/api/dev/apps/Miffy/eval-sets",
+    "headers": {},
+    "body": "{}"
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "create eval set underscore",
+   "request": {
+    "method": "POST",
+    "path": "/api/dev/apps/Miffy/eval_sets",
+    "headers": {},
+    "body": "{}"
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "get eval set",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/eval_sets/e1",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "delete eval set",
+   "request": {
+    "method": "DELETE",
+    "path": "/api/dev/apps/Miffy/eval_sets/e1",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "eval cases",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/eval_sets/e1/evals",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "get eval case",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/eval_sets/e1/evals/c1",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "put eval case",
+   "request": {
+    "method": "PUT",
+    "path": "/api/dev/apps/Miffy/eval_sets/e1/evals/c1",
+    "headers": {},
+    "body": "{}"
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "delete eval case",
+   "request": {
+    "method": "DELETE",
+    "path": "/api/dev/apps/Miffy/eval_sets/e1/evals/c1",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "add session to eval set",
+   "request": {
+    "method": "POST",
+    "path": "/api/dev/apps/Miffy/eval_sets/e1/add_session",
+    "headers": {},
+    "body": "{}"
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "run eval",
+   "request": {
+    "method": "POST",
+    "path": "/api/dev/apps/Miffy/eval_sets/e1/run_eval",
+    "headers": {},
+    "body": "{}"
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "eval results",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/eval_results",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "eval result",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/eval_results/r1",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "metrics info",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/metrics-info",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "metricsInfo": []
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "trace event",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/debug/trace/ev1",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "404 page not found\n"
+   }
+  },
+  {
+   "name": "trace session",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/debug/trace/session/s1",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "404 page not found\n"
+   }
+  },
+  {
+   "name": "event graph",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/users/u1/sessions/s1/events/ev1/graph",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "404 page not found\n"
+   }
+  },
+  {
+   "name": "tests",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/tests",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "the tests tab is not implemented in ADK Go",
+     "detail": "ADK Go does not implement the web UI tests tab. Write Go tests against runner.Run instead."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "get test",
+   "request": {
+    "method": "GET",
+    "path": "/api/dev/apps/Miffy/tests/t1",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "the tests tab is not implemented in ADK Go",
+     "detail": "ADK Go does not implement the web UI tests tab. Write Go tests against runner.Run instead."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "put test",
+   "request": {
+    "method": "PUT",
+    "path": "/api/dev/apps/Miffy/tests/t1",
+    "headers": {},
+    "body": "{}"
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "the tests tab is not implemented in ADK Go",
+     "detail": "ADK Go does not implement the web UI tests tab. Write Go tests against runner.Run instead."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "delete test",
+   "request": {
+    "method": "DELETE",
+    "path": "/api/dev/apps/Miffy/tests/t1",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "the tests tab is not implemented in ADK Go",
+     "detail": "ADK Go does not implement the web UI tests tab. Write Go tests against runner.Run instead."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "rebuild tests",
+   "request": {
+    "method": "POST",
+    "path": "/api/dev/apps/Miffy/tests/rebuild",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "the tests tab is not implemented in ADK Go",
+     "detail": "ADK Go does not implement the web UI tests tab. Write Go tests against runner.Run instead."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "run tests",
+   "request": {
+    "method": "POST",
+    "path": "/api/dev/apps/Miffy/tests/run",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "the tests tab is not implemented in ADK Go",
+     "detail": "ADK Go does not implement the web UI tests tab. Write Go tests against runner.Run instead."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "legacy eval sets",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/eval_sets",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "legacy eval results",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/eval_results",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "legacy create eval set",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/eval_sets/x",
+    "headers": {},
+    "body": null
+   },
+   "status": 501,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "json": {
+     "error": "eval is not implemented in ADK Go",
+     "detail": "agent evaluation is not installed in ADK Go. Use adk-python for eval workflows."
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "unknown api path",
+   "request": {
+    "method": "GET",
+    "path": "/api/nope",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "404 page not found\n"
+   }
+  },
+  {
+   "name": "wrong method",
+   "request": {
+    "method": "PUT",
+    "path": "/api/list-apps",
+    "headers": {},
+    "body": null
+   },
+   "status": 405,
+   "headers": {
+    "allow": "GET, HEAD",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": ""
+   }
+  },
+  {
+   "name": "options known path",
+   "request": {
+    "method": "OPTIONS",
+    "path": "/api/list-apps",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": ""
+   }
+  },
+  {
+   "name": "preflight",
+   "request": {
+    "method": "OPTIONS",
+    "path": "/api/apps/Miffy/users/u1/sessions",
+    "headers": {
+     "Origin": "http://localhost:8080",
+     "Access-Control-Request-Method": "POST"
+    },
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": ""
+   }
+  },
+  {
+   "name": "foreign origin",
+   "request": {
+    "method": "GET",
+    "path": "/api/list-apps",
+    "headers": {
+     "Origin": "http://evil.example"
+    },
+    "body": null
+   },
+   "status": 403,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "Forbidden: origin not allowed\n"
+   }
+  },
+  {
+   "name": "rebinding host",
+   "request": {
+    "method": "GET",
+    "path": "/api/list-apps",
+    "headers": {
+     "Host": "evil.example:8080"
+    },
+    "body": null
+   },
+   "status": 403,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "Forbidden: host not allowed\n"
+   }
+  },
+  {
+   "name": "pubsub",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/trigger/pubsub",
+    "headers": {},
+    "body": "{\"message\": {\"data\": \"aGVsbG8gZnJvbSBwdWJzdWI=\", \"messageId\": \"1\", \"publishTime\": \"2026-01-01T00:00:00Z\", \"attributes\": {\"k\": \"v\"}}, \"subscription\": \"projects/p/subscriptions/s\"}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "success"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "pubsub bad json",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/trigger/pubsub",
+    "headers": {},
+    "body": "{"
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "failed to decode request: unexpected EOF"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "pubsub empty message",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/trigger/pubsub",
+    "headers": {},
+    "body": "{\"message\": {}}"
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "failed to retrieve message content: empty message data and attributes"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "pubsub unknown app",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Other/trigger/pubsub",
+    "headers": {},
+    "body": "{\"message\": {\"data\": \"aGVsbG8gZnJvbSBwdWJzdWI=\", \"messageId\": \"1\", \"publishTime\": \"2026-01-01T00:00:00Z\", \"attributes\": {\"k\": \"v\"}}, \"subscription\": \"projects/p/subscriptions/s\"}"
+   },
+   "status": 500,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "failed to run agent: failed to load agent: cannot load agent 'Other' - provide an empty string or use 'Miffy'"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "pubsub get",
+   "request": {
+    "method": "GET",
+    "path": "/api/apps/Miffy/trigger/pubsub",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "404 page not found\n"
+   }
+  },
+  {
+   "name": "eventarc structured",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/trigger/eventarc",
+    "headers": {
+     "Content-Type": "application/cloudevents+json"
+    },
+    "body": "{\"specversion\": \"1.0\", \"id\": \"e1\", \"source\": \"//storage.googleapis.com/projects/_/buckets/b\", \"type\": \"google.cloud.storage.object.v1.finalized\", \"data\": {\"bucket\": \"b\", \"name\": \"o\"}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "success"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "eventarc binary",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/trigger/eventarc",
+    "headers": {
+     "ce-id": "e2",
+     "ce-type": "google.cloud.storage.object.v1.finalized",
+     "ce-source": "//storage",
+     "ce-specversion": "1.0"
+    },
+    "body": "{\"bucket\": \"b\"}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "success"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "eventarc pubsub bad data",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/trigger/eventarc",
+    "headers": {
+     "Content-Type": "application/cloudevents+json"
+    },
+    "body": "{\"specversion\": \"1.0\", \"id\": \"e1\", \"source\": \"//storage.googleapis.com/projects/_/buckets/b\", \"type\": \"google.cloud.pubsub.topic.v1.messagePublished\", \"data\": {\"message\": {}}}"
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "failed to retrieve message content: empty message data and attributes"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "eventarc bad json",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/trigger/eventarc",
+    "headers": {
+     "Content-Type": "application/cloudevents+json"
+    },
+    "body": "{"
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "failed to unmarshal eventarc request: unexpected EOF"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "agent card",
+   "request": {
+    "method": "GET",
+    "path": "/.well-known/agent-card.json",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "access-control-allow-origin": "*"
+   },
+   "body": {
+    "json": {
+     "defaultInputModes": [
+      "text/plain"
+     ],
+     "defaultOutputModes": [
+      "text/plain"
+     ],
+     "description": "YouTube growth strategist and workflow assistant — retrieve, create, update, and delete YouTube content.",
+     "name": "Miffy",
+     "version": "2.0.0",
+     "skills": [
+      {
+       "description": "<sha256:4ca029af83602715>",
+       "id": "Miffy",
+       "name": "model",
+       "tags": [
+        "llm"
+       ]
+      }
+     ],
+     "capabilities": {
+      "extensions": [
+       {
+        "description": "Content is spread across task artifacts and the status message, which carries long-running function calls.",
+        "uri": "https://google.github.io/adk-docs/a2a/a2a-extension/"
+       }
+      ],
+      "pushNotifications": false,
+      "streaming": true
+     },
+     "supportedInterfaces": [
+      {
+       "url": "http://localhost:8080/a2a/v1/invoke",
+       "protocolBinding": "JSONRPC",
+       "protocolVersion": "1.0"
+      },
+      {
+       "url": "http://localhost:8080/a2a/invoke",
+       "protocolBinding": "JSONRPC",
+       "protocolVersion": "0.3"
+      }
+     ],
+     "url": "http://localhost:8080/a2a/invoke",
+     "protocolVersion": "0.3",
+     "preferredTransport": "JSONRPC"
+    },
+    "text": "no-newline"
+   }
+  },
+  {
+   "name": "a2a v0 send",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"message/send\", \"params\": {\"message\": {\"kind\": \"message\", \"messageId\": \"m1\", \"role\": \"user\", \"parts\": [{\"kind\": \"text\", \"text\": \"hi\"}]}}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json"
+   },
+   "body": {
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": {
+      "kind": "task",
+      "id": "<uuid>",
+      "artifacts": [
+       {
+        "artifactId": "<uuid>",
+        "parts": [
+         {
+          "kind": "text",
+          "text": "a2a v0 reply"
+         }
+        ]
+       }
+      ],
+      "contextId": "<uuid>",
+      "history": [
+       {
+        "kind": "message",
+        "messageId": "m1",
+        "parts": [
+         {
+          "kind": "text",
+          "text": "hi"
+         }
+        ],
+        "role": "user"
+       }
+      ],
+      "metadata": {
+       "adk_app_name": "Miffy",
+       "adk_session_id": "<uuid>",
+       "adk_user_id": "A2A_USER_<uuid>",
+       "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+      },
+      "status": {
+       "state": "completed",
+       "timestamp": "<time>"
+      }
+     }
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "a2a v1 send",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/v1/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"method\": \"SendMessage\", \"params\": {\"message\": {\"messageId\": \"m2\", \"role\": \"ROLE_USER\", \"parts\": [{\"text\": \"hi\"}]}}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json"
+   },
+   "body": {
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "result": {
+      "task": {
+       "id": "<uuid>",
+       "artifacts": [
+        {
+         "artifactId": "<uuid>",
+         "parts": [
+          {
+           "text": "a2a v1 reply"
+          }
+         ]
+        }
+       ],
+       "contextId": "<uuid>",
+       "history": [
+        {
+         "messageId": "m2",
+         "parts": [
+          {
+           "text": "hi"
+          }
+         ],
+         "role": "ROLE_USER"
+        }
+       ],
+       "metadata": {
+        "adk_app_name": "Miffy",
+        "adk_session_id": "<uuid>",
+        "adk_user_id": "A2A_USER_<uuid>",
+        "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+       },
+       "status": {
+        "state": "TASK_STATE_COMPLETED",
+        "timestamp": "<time>"
+       }
+      }
+     }
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "a2a v0 stream",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 5, \"method\": \"message/stream\", \"params\": {\"message\": {\"kind\": \"message\", \"messageId\": \"m3\", \"role\": \"user\", \"parts\": [{\"kind\": \"text\", \"text\": \"hi\"}]}}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/event-stream",
+    "cache-control": "no-cache"
+   },
+   "body": {
+    "sse": [
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {
+        "kind": "task",
+        "id": "<uuid>",
+        "contextId": "<uuid>",
+        "history": [
+         {
+          "kind": "message",
+          "messageId": "m3",
+          "parts": [
+           {
+            "kind": "text",
+            "text": "hi"
+           }
+          ],
+          "role": "user"
+         }
+        ],
+        "metadata": {
+         "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+        },
+        "status": {
+         "state": "submitted"
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {
+        "kind": "status-update",
+        "contextId": "<uuid>",
+        "final": false,
+        "status": {
+         "state": "working",
+         "timestamp": "<time>"
+        },
+        "taskId": "<uuid>",
+        "metadata": {
+         "adk_app_name": "Miffy",
+         "adk_session_id": "<uuid>",
+         "adk_user_id": "A2A_USER_<uuid>",
+         "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {
+        "kind": "artifact-update",
+        "artifact": {
+         "artifactId": "<uuid>",
+         "parts": [
+          {
+           "kind": "text",
+           "text": "a2a v0 streamed"
+          }
+         ]
+        },
+        "contextId": "<uuid>",
+        "taskId": "<uuid>",
+        "metadata": {
+         "adk_app_name": "Miffy",
+         "adk_author": "Miffy",
+         "adk_invocation_id": "e-<uuid>",
+         "adk_partial": false,
+         "adk_session_id": "<uuid>",
+         "adk_usage_metadata": {
+          "candidatesTokenCount": 1,
+          "promptTokenCount": 1,
+          "totalTokenCount": 2
+         },
+         "adk_user_id": "A2A_USER_<uuid>"
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {
+        "kind": "status-update",
+        "contextId": "<uuid>",
+        "final": true,
+        "status": {
+         "state": "completed",
+         "timestamp": "<time>"
+        },
+        "taskId": "<uuid>",
+        "metadata": {
+         "adk_app_name": "Miffy",
+         "adk_session_id": "<uuid>",
+         "adk_user_id": "A2A_USER_<uuid>",
+         "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "a2a v1 stream",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/v1/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 6, \"method\": \"SendStreamingMessage\", \"params\": {\"message\": {\"messageId\": \"m4\", \"role\": \"ROLE_USER\", \"parts\": [{\"text\": \"hi\"}]}}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/event-stream",
+    "cache-control": "no-cache"
+   },
+   "body": {
+    "sse": [
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "task": {
+         "id": "<uuid>",
+         "contextId": "<uuid>",
+         "history": [
+          {
+           "messageId": "m4",
+           "parts": [
+            {
+             "text": "hi"
+            }
+           ],
+           "role": "ROLE_USER"
+          }
+         ],
+         "metadata": {
+          "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+         },
+         "status": {
+          "state": "TASK_STATE_SUBMITTED"
+         }
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "statusUpdate": {
+         "contextId": "<uuid>",
+         "status": {
+          "state": "TASK_STATE_WORKING",
+          "timestamp": "<time>"
+         },
+         "taskId": "<uuid>",
+         "metadata": {
+          "adk_app_name": "Miffy",
+          "adk_session_id": "<uuid>",
+          "adk_user_id": "A2A_USER_<uuid>",
+          "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+         }
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "artifactUpdate": {
+         "artifact": {
+          "artifactId": "<uuid>",
+          "parts": [
+           {
+            "text": "a2a v1 streamed"
+           }
+          ]
+         },
+         "contextId": "<uuid>",
+         "taskId": "<uuid>",
+         "metadata": {
+          "adk_app_name": "Miffy",
+          "adk_author": "Miffy",
+          "adk_invocation_id": "e-<uuid>",
+          "adk_partial": false,
+          "adk_session_id": "<uuid>",
+          "adk_usage_metadata": {
+           "candidatesTokenCount": 1,
+           "promptTokenCount": 1,
+           "totalTokenCount": 2
+          },
+          "adk_user_id": "A2A_USER_<uuid>"
+         }
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "statusUpdate": {
+         "contextId": "<uuid>",
+         "status": {
+          "state": "TASK_STATE_COMPLETED",
+          "timestamp": "<time>"
+         },
+         "taskId": "<uuid>",
+         "metadata": {
+          "adk_app_name": "Miffy",
+          "adk_session_id": "<uuid>",
+          "adk_user_id": "A2A_USER_<uuid>",
+          "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+         }
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "a2a v0 send with tool",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 9, \"method\": \"message/send\", \"params\": {\"message\": {\"kind\": \"message\", \"messageId\": \"m5\", \"role\": \"user\", \"parts\": [{\"kind\": \"text\", \"text\": \"ch\"}]}}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json"
+   },
+   "body": {
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 9,
+     "result": {
+      "kind": "task",
+      "id": "<uuid>",
+      "artifacts": [
+       {
+        "artifactId": "<uuid>",
+        "parts": [
+         {
+          "kind": "data",
+          "data": {
+           "args": {
+            "ids": [
+             "UC1"
+            ]
+           },
+           "id": "adk-<uuid>",
+           "name": "channel-list"
+          },
+          "metadata": {
+           "adk_is_long_running": false,
+           "adk_type": "function_call"
+          }
+         },
+         {
+          "kind": "data",
+          "data": {
+           "id": "adk-<uuid>",
+           "name": "channel-list",
+           "response": {
+            "output": "<sha256:65ea76d651d6b764>"
+           }
+          },
+          "metadata": {
+           "adk_type": "function_response"
+          }
+         },
+         {
+          "kind": "text",
+          "text": "a2a tool reply"
+         }
+        ]
+       }
+      ],
+      "contextId": "<uuid>",
+      "history": [
+       {
+        "kind": "message",
+        "messageId": "m5",
+        "parts": [
+         {
+          "kind": "text",
+          "text": "ch"
+         }
+        ],
+        "role": "user"
+       }
+      ],
+      "metadata": {
+       "adk_app_name": "Miffy",
+       "adk_session_id": "<uuid>",
+       "adk_user_id": "A2A_USER_<uuid>",
+       "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+      },
+      "status": {
+       "state": "completed",
+       "timestamp": "<time>"
+      }
+     }
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "a2a v0 stream with tool",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"method\": \"message/stream\", \"params\": {\"message\": {\"kind\": \"message\", \"messageId\": \"m6\", \"role\": \"user\", \"parts\": [{\"kind\": \"text\", \"text\": \"ch\"}]}}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/event-stream",
+    "cache-control": "no-cache"
+   },
+   "body": {
+    "sse": [
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "kind": "task",
+        "id": "<uuid>",
+        "contextId": "<uuid>",
+        "history": [
+         {
+          "kind": "message",
+          "messageId": "m6",
+          "parts": [
+           {
+            "kind": "text",
+            "text": "ch"
+           }
+          ],
+          "role": "user"
+         }
+        ],
+        "metadata": {
+         "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+        },
+        "status": {
+         "state": "submitted"
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "kind": "status-update",
+        "contextId": "<uuid>",
+        "final": false,
+        "status": {
+         "state": "working",
+         "timestamp": "<time>"
+        },
+        "taskId": "<uuid>",
+        "metadata": {
+         "adk_app_name": "Miffy",
+         "adk_session_id": "<uuid>",
+         "adk_user_id": "A2A_USER_<uuid>",
+         "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "kind": "artifact-update",
+        "artifact": {
+         "artifactId": "<uuid>",
+         "parts": [
+          {
+           "kind": "data",
+           "data": {
+            "args": {
+             "ids": [
+              "UC2"
+             ]
+            },
+            "id": "adk-<uuid>",
+            "name": "channel-list"
+           },
+           "metadata": {
+            "adk_is_long_running": false,
+            "adk_type": "function_call"
+           }
+          }
+         ]
+        },
+        "contextId": "<uuid>",
+        "taskId": "<uuid>",
+        "metadata": {
+         "adk_app_name": "Miffy",
+         "adk_author": "Miffy",
+         "adk_invocation_id": "e-<uuid>",
+         "adk_partial": false,
+         "adk_session_id": "<uuid>",
+         "adk_usage_metadata": {
+          "candidatesTokenCount": 1,
+          "promptTokenCount": 1,
+          "totalTokenCount": 2
+         },
+         "adk_user_id": "A2A_USER_<uuid>"
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "kind": "artifact-update",
+        "append": true,
+        "artifact": {
+         "artifactId": "<uuid>",
+         "parts": [
+          {
+           "kind": "data",
+           "data": {
+            "id": "adk-<uuid>",
+            "name": "channel-list",
+            "response": {
+             "output": "<sha256:65ea76d651d6b764>"
+            }
+           },
+           "metadata": {
+            "adk_type": "function_response"
+           }
+          }
+         ]
+        },
+        "contextId": "<uuid>",
+        "taskId": "<uuid>",
+        "metadata": {
+         "adk_app_name": "Miffy",
+         "adk_author": "Miffy",
+         "adk_invocation_id": "e-<uuid>",
+         "adk_partial": false,
+         "adk_session_id": "<uuid>",
+         "adk_user_id": "A2A_USER_<uuid>"
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "kind": "artifact-update",
+        "append": true,
+        "artifact": {
+         "artifactId": "<uuid>",
+         "parts": [
+          {
+           "kind": "text",
+           "text": "a2a tool stream reply"
+          }
+         ]
+        },
+        "contextId": "<uuid>",
+        "taskId": "<uuid>",
+        "metadata": {
+         "adk_app_name": "Miffy",
+         "adk_author": "Miffy",
+         "adk_invocation_id": "e-<uuid>",
+         "adk_partial": false,
+         "adk_session_id": "<uuid>",
+         "adk_usage_metadata": {
+          "candidatesTokenCount": 1,
+          "promptTokenCount": 1,
+          "totalTokenCount": 2
+         },
+         "adk_user_id": "A2A_USER_<uuid>"
+        }
+       }
+      }
+     },
+     {
+      "id": "<uuid>",
+      "data": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "kind": "status-update",
+        "contextId": "<uuid>",
+        "final": true,
+        "status": {
+         "state": "completed",
+         "timestamp": "<time>"
+        },
+        "taskId": "<uuid>",
+        "metadata": {
+         "adk_app_name": "Miffy",
+         "adk_session_id": "<uuid>",
+         "adk_user_id": "A2A_USER_<uuid>",
+         "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+        }
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "name": "a2a v1 send with tool",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/v1/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 11, \"method\": \"SendMessage\", \"params\": {\"message\": {\"messageId\": \"m7\", \"role\": \"ROLE_USER\", \"parts\": [{\"text\": \"ch\"}]}}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json"
+   },
+   "body": {
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 11,
+     "result": {
+      "task": {
+       "id": "<uuid>",
+       "artifacts": [
+        {
+         "artifactId": "<uuid>",
+         "parts": [
+          {
+           "data": {
+            "args": {
+             "ids": [
+              "UC3"
+             ]
+            },
+            "id": "adk-<uuid>",
+            "name": "channel-list"
+           },
+           "metadata": {
+            "adk_is_long_running": false,
+            "adk_type": "function_call"
+           }
+          },
+          {
+           "data": {
+            "id": "adk-<uuid>",
+            "name": "channel-list",
+            "response": {
+             "output": "<sha256:65ea76d651d6b764>"
+            }
+           },
+           "metadata": {
+            "adk_type": "function_response"
+           }
+          },
+          {
+           "text": "a2a v1 tool reply"
+          }
+         ]
+        }
+       ],
+       "contextId": "<uuid>",
+       "history": [
+        {
+         "messageId": "m7",
+         "parts": [
+          {
+           "text": "ch"
+          }
+         ],
+         "role": "ROLE_USER"
+        }
+       ],
+       "metadata": {
+        "adk_app_name": "Miffy",
+        "adk_session_id": "<uuid>",
+        "adk_user_id": "A2A_USER_<uuid>",
+        "https://google.github.io/adk-docs/a2a/a2a-extension/": true
+       },
+       "status": {
+        "state": "TASK_STATE_COMPLETED",
+        "timestamp": "<time>"
+       }
+      }
+     }
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "a2a cancel missing",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 7, \"method\": \"tasks/cancel\", \"params\": {\"id\": \"missing\"}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8"
+   },
+   "body": {
+    "text": "{\"jsonrpc\":\"2.0\",\"id\":7,\"error\":{\"code\":-32001,\"message\":\"failed to cancel: cancelation failed: canceler setup failed: failed to load a task: task not found\",\"data\":[{\"@type\":\"type.googleapis.com/google.rpc.ErrorInfo\",\"domain\":\"a2a-protocol.org\",\"metadata\":{\"timestamp\":\"<time>\"},\"reason\":\"TASK_NOT_FOUND\"}]}}\n"
+   }
+  },
+  {
+   "name": "a2a v1 get task",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/v1/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 8, \"method\": \"GetTask\", \"params\": {\"id\": \"missing\"}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json"
+   },
+   "body": {
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 8,
+     "error": {
+      "code": -32001,
+      "message": "failed to get task: task not found",
+      "data": [
+       {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "domain": "a2a-protocol.org",
+        "metadata": {
+         "timestamp": "<time>"
+        },
+        "reason": "TASK_NOT_FOUND"
+       }
+      ]
+     }
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "a2a unknown method",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 3, \"method\": \"nope\", \"params\": {}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8"
+   },
+   "body": {
+    "text": "{\"jsonrpc\":\"2.0\",\"id\":3,\"error\":{\"code\":-32601,\"message\":\"method not found\",\"data\":[{\"@type\":\"type.googleapis.com/google.rpc.ErrorInfo\",\"domain\":\"a2a-protocol.org\",\"metadata\":{\"timestamp\":\"<time>\"},\"reason\":\"METHOD_NOT_FOUND\"}]}}\n"
+   }
+  },
+  {
+   "name": "a2a bad json",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": "{"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8"
+   },
+   "body": {
+    "text": "{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":-32700,\"message\":\"parse error: unexpected EOF\",\"data\":[{\"@type\":\"type.googleapis.com/google.rpc.ErrorInfo\",\"domain\":\"a2a-protocol.org\",\"metadata\":{\"timestamp\":\"<time>\"},\"reason\":\"PARSE_ERROR\"}]}}\n"
+   }
+  },
+  {
+   "name": "a2a get task",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": "{\"jsonrpc\": \"2.0\", \"id\": 4, \"method\": \"tasks/get\", \"params\": {\"id\": \"missing\"}}"
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8"
+   },
+   "body": {
+    "text": "{\"jsonrpc\":\"2.0\",\"id\":4,\"error\":{\"code\":-32001,\"message\":\"failed to get task: task not found\",\"data\":[{\"@type\":\"type.googleapis.com/google.rpc.ErrorInfo\",\"domain\":\"a2a-protocol.org\",\"metadata\":{\"timestamp\":\"<time>\"},\"reason\":\"TASK_NOT_FOUND\"}]}}\n"
+   }
+  },
+  {
+   "name": "a2a get",
+   "request": {
+    "method": "GET",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8"
+   },
+   "body": {
+    "text": "{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":-32600,\"message\":\"invalid request\",\"data\":[{\"@type\":\"type.googleapis.com/google.rpc.ErrorInfo\",\"domain\":\"a2a-protocol.org\",\"metadata\":{\"timestamp\":\"<time>\"},\"reason\":\"INVALID_REQUEST\"}]}}\n"
+   }
+  },
+  {
+   "name": "ui root redirect",
+   "request": {
+    "method": "GET",
+    "path": "/",
+    "headers": {},
+    "body": null
+   },
+   "status": 302,
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "location": "/ui/"
+   },
+   "body": {
+    "text": "<a href=\"/ui/\">Found</a>.\n\n"
+   }
+  },
+  {
+   "name": "ui bare redirect",
+   "request": {
+    "method": "GET",
+    "path": "/ui",
+    "headers": {},
+    "body": null
+   },
+   "status": 301,
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "location": "/ui/"
+   },
+   "body": {
+    "text": "<a href=\"/ui/\">Moved Permanently</a>.\n\n"
+   }
+  },
+  {
+   "name": "ui index",
+   "request": {
+    "method": "GET",
+    "path": "/ui/",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/html; charset=utf-8"
+   },
+   "body": {
+    "sha256": "58bcef6b4efc7d79b3e925cde5c89c74950faa317c6172868aff3e1d200592d2"
+   }
+  },
+  {
+   "name": "ui deep link",
+   "request": {
+    "method": "GET",
+    "path": "/ui/some/route",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/html; charset=utf-8"
+   },
+   "body": {
+    "sha256": "58bcef6b4efc7d79b3e925cde5c89c74950faa317c6172868aff3e1d200592d2"
+   }
+  },
+  {
+   "name": "ui runtime config",
+   "request": {
+    "method": "GET",
+    "path": "/ui/assets/config/runtime-config.json",
+    "headers": {},
+    "body": null
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "backendUrl": "http://localhost:8080/api"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "ui missing asset",
+   "request": {
+    "method": "GET",
+    "path": "/ui/missing.js",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8"
+   },
+   "body": {
+    "text": "404 page not found\n"
+   }
+  },
+  {
+   "name": "ui post",
+   "request": {
+    "method": "POST",
+    "path": "/ui/",
+    "headers": {},
+    "body": null
+   },
+   "status": 405,
+   "headers": {},
+   "body": {
+    "text": ""
+   }
+  },
+  {
+   "name": "not found",
+   "request": {
+    "method": "GET",
+    "path": "/nope",
+    "headers": {},
+    "body": null
+   },
+   "status": 404,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8"
+   },
+   "body": {
+    "text": "404 page not found\n"
+   }
+  },
+  {
+   "name": "run body too large",
+   "request": {
+    "method": "POST",
+    "path": "/api/run",
+    "headers": {},
+    "body": {
+     "big": [
+      "{\"appName\":\"",
+      "\"}"
+     ]
+    }
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8",
+    "access-control-allow-origin": "http://localhost:8080",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization",
+    "vary": "Origin"
+   },
+   "body": {
+    "text": "failed to decode request: http: request body too large\n"
+   }
+  },
+  {
+   "name": "pubsub body too large",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/trigger/pubsub",
+    "headers": {},
+    "body": {
+     "big": [
+      "{\"subscription\":\"",
+      "\"}"
+     ]
+    }
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "failed to decode request: http: request body too large"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "eventarc binary body too large",
+   "request": {
+    "method": "POST",
+    "path": "/api/apps/Miffy/trigger/eventarc",
+    "headers": {
+     "ce-type": "t"
+    },
+    "body": {
+     "big": [
+      "",
+      ""
+     ]
+    }
+   },
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "body": {
+    "json": {
+     "status": "failed to read body: http: request body too large"
+    },
+    "text": null
+   }
+  },
+  {
+   "name": "a2a body too large",
+   "request": {
+    "method": "POST",
+    "path": "/a2a/invoke",
+    "headers": {},
+    "body": {
+     "big": [
+      "{\"jsonrpc\":\"",
+      "\"}"
+     ]
+    }
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "text/plain; charset=utf-8"
+   },
+   "body": {
+    "text": "{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":-32700,\"message\":\"parse error: http: request body too large\",\"data\":[{\"@type\":\"type.googleapis.com/google.rpc.ErrorInfo\",\"domain\":\"a2a-protocol.org\",\"metadata\":{\"timestamp\":\"<time>\"},\"reason\":\"PARSE_ERROR\"}]}}\n"
+   }
+  }
+ ]
+}
