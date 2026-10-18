@@ -1,0 +1,180 @@
+[[command]]
+path = "watermark"
+use = "watermark"
+short = "Manage YouTube watermarks"
+long = "Manage YouTube watermarks. Use this tool to set or unset watermarks for channel videos."
+runnable = true
+
+[[command]]
+path = "watermark set"
+use = "set"
+short = "Set a channel watermark"
+long = "Set a channel watermark. Use this tool to set a channel watermark."
+example = """
+# Set a watermark for a channel
+yutu watermark set --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file watermark.png
+# Set a watermark with position and offset
+yutu watermark set --channelId UC_x5X --file logo.png --inVideoPosition bottomRight --offsetType offsetFromEnd --offsetMs 1000
+# Set a watermark with duration
+yutu watermark set --channelId UC_x5X --file logo.png --durationMs 5000 --offsetMs 2000"""
+runnable = true
+
+[command.tool]
+name = "watermark-set"
+title = "Set a channel watermark"
+description = "Set a channel watermark. Use this tool to set a channel watermark."
+effect = "write"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "ID of the channel",
+      "type": "string"
+    },
+    "duration_ms": {
+      "description": "Duration in milliseconds for which the watermark should be displayed",
+      "minimum": 0,
+      "type": "number"
+    },
+    "file": {
+      "description": "Path to the watermark file",
+      "type": "string"
+    },
+    "in_video_position": {
+      "description": "topLeft|topRight|bottomLeft|bottomRight",
+      "enum": [
+        "topLeft",
+        "topRight",
+        "bottomLeft",
+        "bottomRight"
+      ],
+      "type": "string"
+    },
+    "offset_ms": {
+      "description": "Defines the time at which the watermark will appear",
+      "minimum": 0,
+      "type": "number"
+    },
+    "offset_type": {
+      "description": "offsetFromStart|offsetFromEnd",
+      "enum": [
+        "offsetFromStart",
+        "offsetFromEnd"
+      ],
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    }
+  },
+  "required": [
+    "channel_id",
+    "file"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "ID of the channel"
+required = true
+
+[[command.flag]]
+name = "durationMs"
+short = "d"
+type = "uint64"
+default = "0"
+usage = "Duration in milliseconds for which the watermark should be displayed"
+
+[[command.flag]]
+name = "file"
+short = "f"
+type = "string"
+default = ""
+usage = "Path to the watermark file"
+required = true
+
+[[command.flag]]
+name = "inVideoPosition"
+short = "p"
+type = "string"
+default = ""
+usage = "topLeft|topRight|bottomLeft|bottomRight"
+
+[[command.flag]]
+name = "offsetMs"
+short = "m"
+type = "uint64"
+default = "0"
+usage = "Defines the time at which the watermark will appear"
+
+[[command.flag]]
+name = "offsetType"
+short = "t"
+type = "string"
+default = ""
+usage = "offsetFromStart|offsetFromEnd"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "watermark unset"
+use = "unset"
+short = "Unset a channel watermark"
+long = "Unset a channel watermark. Use this tool to unset a channel watermark."
+example = """
+# Unset watermark for a channel
+yutu watermark unset --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw"""
+runnable = true
+
+[command.tool]
+name = "watermark-unset"
+title = "Unset a channel watermark"
+description = "Unset a channel watermark. Use this tool to unset a channel watermark."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "ID of the channel",
+      "type": "string"
+    }
+  },
+  "required": [
+    "channel_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "ID of the channel"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

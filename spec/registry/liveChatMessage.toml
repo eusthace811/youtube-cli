@@ -1,0 +1,327 @@
+[[command]]
+path = "liveChatMessage"
+use = "liveChatMessage"
+short = "Manage YouTube live chat messages"
+long = "Manage YouTube live chat messages. Use this tool to list, send, delete, or transition messages in a live chat."
+runnable = true
+
+[[command]]
+path = "liveChatMessage delete"
+use = "delete"
+short = "Delete live chat messages"
+long = "Delete live chat messages. Use this tool to remove messages from a live chat by their IDs."
+example = """
+# Delete a live chat message by ID
+yutu liveChatMessage delete --ids abc123
+# Delete multiple live chat messages
+yutu liveChatMessage delete --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "liveChatMessage-delete"
+title = "Delete live chat messages"
+description = "Delete live chat messages. Use this tool to remove messages from a live chat by their IDs."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the live chat messages to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the live chat messages to delete"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveChatMessage insert"
+use = "insert"
+short = "Send a live chat message"
+long = "Send a live chat message. Use this tool to post a text message to a live chat."
+example = """
+# Send a message to a live chat
+yutu liveChatMessage insert --liveChatId abc123 --messageText "Hello everyone!""""
+runnable = true
+
+[command.tool]
+name = "liveChatMessage-insert"
+title = "Send a live chat message"
+description = "Send a live chat message. Use this tool to post a text message to a live chat."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "live_chat_id": {
+      "description": "ID of the live chat",
+      "type": "string"
+    },
+    "message_text": {
+      "description": "Text of the message to send",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet"
+      ],
+      "description": "Parts to include in the response",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "live_chat_id",
+    "message_text"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "liveChatId"
+short = "l"
+type = "string"
+default = ""
+usage = "ID of the live chat"
+required = true
+
+[[command.flag]]
+name = "messageText"
+short = "m"
+type = "string"
+default = ""
+usage = "Text of the message to send"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet]"
+usage = "Parts to include"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveChatMessage list"
+use = "list"
+short = "List live chat messages"
+long = "List live chat messages. Use this tool to list messages in a live chat."
+example = """
+# List messages for a live chat
+yutu liveChatMessage list --liveChatId abc123
+# List messages with limit
+yutu liveChatMessage list --liveChatId abc123 --maxResults 10"""
+runnable = true
+
+[command.tool]
+name = "liveChatMessage-list"
+title = "List live chat messages"
+description = "List live chat messages. Use this tool to list messages in a live chat."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "hl": {
+      "description": "Localization language for system messages",
+      "type": "string"
+    },
+    "live_chat_id": {
+      "description": "ID of the live chat",
+      "type": "string"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet",
+        "authorDetails"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "live_chat_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "hl"
+type = "string"
+default = ""
+usage = "Localization language for system messages"
+
+[[command.flag]]
+name = "liveChatId"
+short = "l"
+type = "string"
+default = ""
+usage = "ID of the live chat"
+required = true
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet,authorDetails]"
+usage = "Comma separated parts"
+
+[[command]]
+path = "liveChatMessage transition"
+use = "transition"
+short = "Transition a live chat message"
+long = "Transition a durable live chat event. Use this tool to change the status of a live chat message (e.g., close a poll)."
+example = """
+# Transition a live chat message to closed
+yutu liveChatMessage transition --ids abc123 --status closed"""
+runnable = true
+
+[command.tool]
+name = "liveChatMessage-transition"
+title = "Transition a live chat message"
+description = "Transition a durable live chat event. Use this tool to change the status of a live chat message (e.g., close a poll)."
+effect = "write"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the live chat messages to transition",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "status": {
+      "description": "Status to transition to (closed)",
+      "enum": [
+        "closed"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids",
+    "status"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the messages to transition"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "status"
+short = "s"
+type = "string"
+default = ""
+usage = "Status to transition to (closed)"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

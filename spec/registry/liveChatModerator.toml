@@ -1,0 +1,235 @@
+[[command]]
+path = "liveChatModerator"
+use = "liveChatModerator"
+short = "Manage YouTube live chat moderators"
+long = "Manage YouTube live chat moderators. Use this tool to list, add, or remove moderators from a live chat."
+runnable = true
+
+[[command]]
+path = "liveChatModerator delete"
+use = "delete"
+short = "Delete live chat moderators"
+long = "Delete live chat moderators. Use this tool to remove moderators from a live chat by their IDs."
+example = """
+# Delete a live chat moderator by ID
+yutu liveChatModerator delete --ids abc123
+# Delete multiple live chat moderators
+yutu liveChatModerator delete --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "liveChatModerator-delete"
+title = "Delete live chat moderators"
+description = "Delete live chat moderators. Use this tool to remove moderators from a live chat by their IDs."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the live chat moderators to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the live chat moderators to delete"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveChatModerator insert"
+use = "insert"
+short = "Add a live chat moderator"
+long = "Add a live chat moderator. Use this tool to add a moderator to a live chat."
+example = """
+# Add a moderator to a live chat
+yutu liveChatModerator insert --liveChatId abc123 --moderatorChannelId UC_xyz"""
+runnable = true
+
+[command.tool]
+name = "liveChatModerator-insert"
+title = "Add a live chat moderator"
+description = "Add a live chat moderator. Use this tool to add a moderator to a live chat."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "live_chat_id": {
+      "description": "ID of the live chat",
+      "type": "string"
+    },
+    "moderator_channel_id": {
+      "description": "Channel ID of the moderator",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet"
+      ],
+      "description": "Parts to include in the response",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "live_chat_id",
+    "moderator_channel_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "liveChatId"
+short = "l"
+type = "string"
+default = ""
+usage = "ID of the live chat"
+required = true
+
+[[command.flag]]
+name = "moderatorChannelId"
+short = "m"
+type = "string"
+default = ""
+usage = "Channel ID of the moderator"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet]"
+usage = "Parts to include"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveChatModerator list"
+use = "list"
+short = "List live chat moderators"
+long = "List live chat moderators. Use this tool to list moderators for a live chat."
+example = """
+# List moderators for a live chat
+yutu liveChatModerator list --liveChatId abc123
+# List moderators with limit
+yutu liveChatModerator list --liveChatId abc123 --maxResults 10"""
+runnable = true
+
+[command.tool]
+name = "liveChatModerator-list"
+title = "List live chat moderators"
+description = "List live chat moderators. Use this tool to list moderators for a live chat."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "live_chat_id": {
+      "description": "ID of the live chat",
+      "type": "string"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "live_chat_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "liveChatId"
+short = "l"
+type = "string"
+default = ""
+usage = "ID of the live chat"
+required = true
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet]"
+usage = "Comma separated parts"

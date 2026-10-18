@@ -1,0 +1,726 @@
+[[command]]
+path = "caption"
+use = "caption"
+short = "Manage YouTube video captions"
+long = "Manage YouTube video captions. Use this tool to list, insert, update, download, or delete video captions."
+runnable = true
+
+[[command]]
+path = "caption delete"
+use = "delete"
+short = "Delete captions"
+long = "Delete captions. Use this tool to delete captions of a video by IDs."
+example = """
+# Delete a caption by ID
+yutu caption delete --ids abc123
+# Delete multiple captions
+yutu caption delete --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "caption-delete"
+title = "Delete captions"
+description = "Delete captions. Use this tool to delete captions of a video by IDs."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the captions to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of": {
+      "description": "ID of the YouTube account that the content owner is acting on behalf of",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the captions to delete"
+required = true
+
+[[command.flag]]
+name = "onBehalfOf"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the YouTube account that the content owner is acting on behalf of"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "B"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "caption download"
+use = "download"
+short = "Download a caption"
+long = "Download a caption. Use this tool to download a caption from a video."
+example = """
+# Download a caption as SRT
+yutu caption download --id abc123 --file subtitle.srt
+# Download a caption as VTT
+yutu caption download --id abc123 --file subtitle.vtt --tfmt vtt
+# Download a caption translated to French
+yutu caption download --id abc123 --file subtitle.srt --tlang fr"""
+runnable = true
+
+[command.tool]
+name = "caption-download"
+title = "Download a caption"
+description = "Download a caption. Use this tool to download a caption from a video."
+effect = "writes_local_file"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "file": {
+      "description": "Path to save the caption file",
+      "type": "string"
+    },
+    "ids": {
+      "description": "ID of the caption to download",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of": {
+      "description": "ID of the YouTube account that the content owner is acting on behalf of",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "tfmt": {
+      "description": "sbv|srt|vtt",
+      "enum": [
+        "sbv",
+        "srt",
+        "vtt"
+      ],
+      "type": "string"
+    },
+    "tlang": {
+      "description": "Translate the captions into this language",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids",
+    "file"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "file"
+short = "f"
+type = "string"
+default = ""
+usage = "Path to save the caption file"
+required = true
+
+[[command.flag]]
+name = "id"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "ID of the caption to download"
+required = true
+
+[[command.flag]]
+name = "onBehalfOf"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the YouTube account that the content owner is acting on behalf of"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "B"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "tfmt"
+short = "t"
+type = "string"
+default = ""
+usage = "sbv|srt|vtt"
+
+[[command.flag]]
+name = "tlang"
+short = "l"
+type = "string"
+default = ""
+usage = "Translate the captions into this language"
+
+[[command]]
+path = "caption insert"
+use = "insert"
+short = "Upload a caption"
+long = "Upload a caption. Use this tool to upload a caption to a video."
+example = """
+# Insert a caption to a video
+yutu caption insert --file subtitle.srt --videoId dQw4w9WgXcQ
+# Insert a caption with language and name
+yutu caption insert --file subtitle.srt --videoId dQw4w9WgXcQ --language en --name English
+# Insert a standard caption and publish immediately
+yutu caption insert --file subtitle.srt --videoId dQw4w9WgXcQ --trackKind standard --isDraft=false"""
+runnable = true
+
+[command.tool]
+name = "caption-insert"
+title = "Upload a caption"
+description = "Upload a caption. Use this tool to upload a caption to a video."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "audio_track_type": {
+      "default": "unknown",
+      "description": "unknown|primary|commentary|descriptive",
+      "enum": [
+        "unknown",
+        "primary",
+        "commentary",
+        "descriptive"
+      ],
+      "type": "string"
+    },
+    "file": {
+      "description": "Path to save the caption file",
+      "type": "string"
+    },
+    "is_auto_synced": {
+      "description": "Whether YouTube synchronized the caption track to the audio track in the video",
+      "type": "boolean"
+    },
+    "is_cc": {
+      "description": "Whether the track contains closed captions for the deaf and hard of hearing",
+      "type": "boolean"
+    },
+    "is_draft": {
+      "description": "whether the caption track is a draft",
+      "type": "boolean"
+    },
+    "is_easy_reader": {
+      "description": "Whether caption track is formatted for 'easy reader'",
+      "type": "boolean"
+    },
+    "is_large": {
+      "description": "Whether the caption track uses large text for the vision-impaired",
+      "type": "boolean"
+    },
+    "language": {
+      "description": "Language of the caption track",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the caption track",
+      "type": "string"
+    },
+    "on_behalf_of": {
+      "description": "ID of the YouTube account that the content owner is acting on behalf of",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "track_kind": {
+      "default": "standard",
+      "description": "standard|ASR|forced",
+      "enum": [
+        "standard",
+        "ASR",
+        "forced"
+      ],
+      "type": "string"
+    },
+    "video_id": {
+      "description": "ID of the video",
+      "type": "string"
+    }
+  },
+  "required": [
+    "file",
+    "video_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "audioTrackType"
+short = "a"
+type = "string"
+default = "unknown"
+usage = "unknown|primary|commentary|descriptive"
+
+[[command.flag]]
+name = "file"
+short = "f"
+type = "string"
+default = ""
+usage = "Path to save the caption file"
+required = true
+
+[[command.flag]]
+name = "isAutoSynced"
+short = "A"
+type = "bool"
+default = "true"
+no_opt_default = "true"
+usage = "Whether YouTube synchronized the caption track to the audio track in the video"
+
+[[command.flag]]
+name = "isCC"
+short = "C"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the track contains closed captions for the deaf and hard of hearing"
+
+[[command.flag]]
+name = "isDraft"
+short = "D"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "whether the caption track is a draft"
+
+[[command.flag]]
+name = "isEasyReader"
+short = "E"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether caption track is formatted for 'easy reader'"
+
+[[command.flag]]
+name = "isLarge"
+short = "L"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the caption track uses large text for the vision-impaired"
+
+[[command.flag]]
+name = "language"
+short = "l"
+type = "string"
+default = ""
+usage = "Language of the caption track"
+
+[[command.flag]]
+name = "name"
+short = "n"
+type = "string"
+default = ""
+usage = "Name of the caption track"
+
+[[command.flag]]
+name = "onBehalfOf"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the YouTube account that the content owner is acting on behalf of"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "B"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "trackKind"
+short = "t"
+type = "string"
+default = "standard"
+usage = "standard|ASR|forced"
+
+[[command.flag]]
+name = "videoId"
+short = "v"
+type = "string"
+default = ""
+usage = "ID of the video"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "caption list"
+use = "list"
+short = "List captions"
+long = "List captions. Use this tool to list captions of a video."
+example = """
+# List captions of a video
+yutu caption list --videoId dQw4w9WgXcQ
+# List captions in JSON format
+yutu caption list --videoId dQw4w9WgXcQ --output json
+# List specific captions by IDs
+yutu caption list --ids abc123,def456 --videoId dQw4w9WgXcQ"""
+runnable = true
+
+[command.tool]
+name = "caption-list"
+title = "List captions"
+description = "List captions. Use this tool to list captions of a video."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the captions to list",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of": {
+      "description": "ID of the YouTube account that the content owner is acting on behalf of",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "video_id": {
+      "description": "ID of the video",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the captions to list"
+
+[[command.flag]]
+name = "onBehalfOf"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the YouTube account that the content owner is acting on behalf of"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "B"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "videoId"
+short = "v"
+type = "string"
+default = ""
+usage = "ID of the video"
+
+[[command]]
+path = "caption update"
+use = "update"
+short = "Update a caption"
+long = "Update a caption. Use this tool to update a caption."
+example = """
+# Publish a draft caption
+yutu caption update --videoId dQw4w9WgXcQ --isDraft=false
+# Update caption language and name
+yutu caption update --videoId dQw4w9WgXcQ --language en --name English
+# Update caption file
+yutu caption update --videoId dQw4w9WgXcQ --file updated.srt"""
+runnable = true
+
+[command.tool]
+name = "caption-update"
+title = "Update a caption"
+description = "Update a caption. Use this tool to update a caption."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "audio_track_type": {
+      "description": "unknown|primary|commentary|descriptive",
+      "enum": [
+        "unknown",
+        "primary",
+        "commentary",
+        "descriptive"
+      ],
+      "type": "string"
+    },
+    "file": {
+      "description": "Path to save the caption file",
+      "type": "string"
+    },
+    "is_auto_synced": {
+      "description": "Whether YouTube synchronized the caption track to the audio track in the video",
+      "type": "boolean"
+    },
+    "is_cc": {
+      "description": "Whether the track contains closed captions for the deaf and hard of hearing",
+      "type": "boolean"
+    },
+    "is_draft": {
+      "description": "whether the caption track is a draft",
+      "type": "boolean"
+    },
+    "is_easy_reader": {
+      "description": "Whether caption track is formatted for 'easy reader'",
+      "type": "boolean"
+    },
+    "is_large": {
+      "description": "Whether the caption track uses large text for the vision-impaired",
+      "type": "boolean"
+    },
+    "language": {
+      "description": "Language of the caption track",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the caption track",
+      "type": "string"
+    },
+    "on_behalf_of": {
+      "description": "ID of the YouTube account that the content owner is acting on behalf of",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "track_kind": {
+      "description": "standard|ASR|forced",
+      "enum": [
+        "standard",
+        "ASR",
+        "forced"
+      ],
+      "type": "string"
+    },
+    "video_id": {
+      "description": "ID of the video",
+      "type": "string"
+    }
+  },
+  "required": [
+    "video_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "audioTrackType"
+short = "a"
+type = "string"
+default = "unknown"
+usage = "unknown|primary|commentary|descriptive"
+
+[[command.flag]]
+name = "file"
+short = "f"
+type = "string"
+default = ""
+usage = "Path to save the caption file"
+
+[[command.flag]]
+name = "isAutoSynced"
+short = "A"
+type = "bool"
+default = "true"
+no_opt_default = "true"
+usage = "Whether YouTube synchronized the caption track to the audio track in the video"
+
+[[command.flag]]
+name = "isCC"
+short = "C"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the track contains closed captions for the deaf and hard of hearing"
+
+[[command.flag]]
+name = "isDraft"
+short = "D"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "whether the caption track is a draft"
+
+[[command.flag]]
+name = "isEasyReader"
+short = "E"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether caption track is formatted for 'easy reader'"
+
+[[command.flag]]
+name = "isLarge"
+short = "L"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the caption track uses large text for the vision-impaired"
+
+[[command.flag]]
+name = "language"
+short = "l"
+type = "string"
+default = ""
+usage = "Language of the caption track"
+
+[[command.flag]]
+name = "name"
+short = "n"
+type = "string"
+default = ""
+usage = "Name of the caption track"
+
+[[command.flag]]
+name = "onBehalfOf"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the YouTube account that the content owner is acting on behalf of"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "B"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "trackKind"
+short = "t"
+type = "string"
+default = "standard"
+usage = "standard|ASR|forced"
+
+[[command.flag]]
+name = "videoId"
+short = "v"
+type = "string"
+default = ""
+usage = "ID of the video"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

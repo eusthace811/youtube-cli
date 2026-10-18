@@ -1,0 +1,294 @@
+[[command]]
+path = "channel"
+use = "channel"
+short = "Manage YouTube channels"
+long = "Manage YouTube channels. Use this tool to list or update channels."
+runnable = true
+
+[[command]]
+path = "channel list"
+use = "list"
+short = "List channels"
+long = "List channels. Use this tool to list channels."
+example = """
+# List my channel info
+yutu channel list --for mine
+# List channel by handle
+yutu channel list --forHandle @GoogleDevelopers
+# List channel by ID in JSON format
+yutu channel list --ids UC_x5XG1OV2P6uZZ5FSM9Ttw --output json
+# List channels in table format
+yutu channel list --maxResults 10 --output table"""
+runnable = true
+
+[command.tool]
+name = "channel-list"
+title = "List channels"
+description = "List channels. Use this tool to list channels."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "category_id": {
+      "description": "Return the channels within the specified guide category id",
+      "type": "string"
+    },
+    "for": {
+      "description": "managedByMe|mine|mySubscribers",
+      "enum": [
+        "managedByMe",
+        "mine",
+        "mySubscribers"
+      ],
+      "type": "string"
+    },
+    "for_handle": {
+      "description": "Return the channel associated with a YouTube handle",
+      "type": "string"
+    },
+    "for_username": {
+      "description": "Return the channel associated with a YouTube username",
+      "type": "string"
+    },
+    "hl": {
+      "description": "Specifies the localization language of the metadata",
+      "type": "string"
+    },
+    "ids": {
+      "default": [],
+      "description": "Return the channels with the specified Ids",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "categoryId"
+short = "g"
+type = "string"
+default = ""
+usage = "Return the channels within the specified guide category id"
+
+[[command.flag]]
+name = "for"
+short = "F"
+type = "string"
+default = ""
+usage = "managedByMe|mine|mySubscribers"
+
+[[command.flag]]
+name = "forHandle"
+short = "d"
+type = "string"
+default = ""
+usage = "Return the channel associated with a YouTube handle"
+
+[[command.flag]]
+name = "forUsername"
+short = "u"
+type = "string"
+default = ""
+usage = "Return the channel associated with a YouTube username"
+
+[[command.flag]]
+name = "hl"
+short = "l"
+type = "string"
+default = ""
+usage = "Specifies the localization language of the metadata"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "Return the channels with the specified Ids"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet,status]"
+usage = "Comma separated parts"
+
+[[command]]
+path = "channel update"
+use = "update"
+short = "Update a channel"
+long = "Update a channel. Use this tool to update a channel."
+example = """
+# Update channel description
+yutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --description 'New description'
+# Update channel title and country
+yutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --title 'New Title' --country US
+# Update channel default language
+yutu channel update --id UC_x5XG1OV2P6uZZ5FSM9Ttw --defaultLanguage en"""
+runnable = true
+
+[command.tool]
+name = "channel-update"
+title = "Update a channel"
+description = "Update a channel. Use this tool to update a channel."
+effect = "write"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "country": {
+      "description": "Country of the channel",
+      "type": "string"
+    },
+    "custom_url": {
+      "description": "Custom URL of the channel",
+      "type": "string"
+    },
+    "default_language": {
+      "description": "The language of the channel's default title and description",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the channel",
+      "type": "string"
+    },
+    "ids": {
+      "description": "ID of the channel to update",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the channel",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "country"
+short = "c"
+type = "string"
+default = ""
+usage = "Country of the channel"
+
+[[command.flag]]
+name = "customUrl"
+short = "u"
+type = "string"
+default = ""
+usage = "Custom URL of the channel"
+
+[[command.flag]]
+name = "defaultLanguage"
+short = "l"
+type = "string"
+default = ""
+usage = "The language of the channel's default title and description"
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the channel"
+
+[[command.flag]]
+name = "id"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "ID of the channel to update"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the channel"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

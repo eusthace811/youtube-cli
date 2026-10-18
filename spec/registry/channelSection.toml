@@ -1,0 +1,188 @@
+[[command]]
+path = "channelSection"
+use = "channelSection"
+short = "Manage YouTube channel sections"
+long = "Manage YouTube channel sections. Use this tool to list or delete channel sections."
+runnable = true
+
+[[command]]
+path = "channelSection delete"
+use = "delete"
+short = "Delete channel sections"
+long = "Delete channel sections. Use this tool to delete channel sections by IDs."
+example = """
+# Delete a channel section by ID
+yutu channelSection delete --ids abc123
+# Delete multiple channel sections
+yutu channelSection delete --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "channelSection-delete"
+title = "Delete channel sections"
+description = "Delete channel sections. Use this tool to delete channel sections by IDs."
+effect = "destructive"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "Delete the channel sections with the given ids",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "Delete the channel sections with the given ids"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "channelSection list"
+use = "list"
+short = "List channel sections"
+long = "List channel sections. Use this tool to list channel sections."
+example = """
+# List my channel sections
+yutu channelSection list --mine
+# List channel sections by channel ID
+yutu channelSection list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw
+# List specific channel sections in JSON format
+yutu channelSection list --ids abc123,def456 --output json"""
+runnable = true
+
+[command.tool]
+name = "channelSection-list"
+title = "List channel sections"
+description = "List channel sections. Use this tool to list channel sections."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "Return the ChannelSections owned by the specified channel id",
+      "type": "string"
+    },
+    "hl": {
+      "description": "Return content in specified language",
+      "type": "string"
+    },
+    "ids": {
+      "description": "Return the channel sections with the given ids",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mine": {
+      "description": "Return the ChannelSections owned by the authenticated user",
+      "type": "boolean"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "Return the ChannelSections owned by the specified channel id"
+
+[[command.flag]]
+name = "hl"
+short = "l"
+type = "string"
+default = ""
+usage = "Return content in specified language"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "Return the channel sections with the given ids"
+
+[[command.flag]]
+name = "mine"
+short = "M"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Return the ChannelSections owned by the authenticated user"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"

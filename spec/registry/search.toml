@@ -1,0 +1,430 @@
+[[command]]
+path = "search"
+use = "search"
+short = "Manage YouTube search"
+long = "Manage YouTube search. Use this tool to search for videos, channels, playlists, and other resources."
+runnable = true
+
+[[command]]
+path = "search list"
+use = "list"
+short = "Search resources"
+long = "Search resources. Use this tool to search for videos, channels, playlists, and other resources."
+example = """
+# Search for videos by keyword
+yutu search list --q 'golang tutorial' --maxResults 10
+# Search videos by duration in JSON format
+yutu search list --q 'music' --types video --videoDuration medium --output json
+# List latest videos from a channel
+yutu search list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --order date --maxResults 5
+# Search for live streams
+yutu search list --q 'live coding' --eventType live --types video"""
+runnable = true
+
+[command.tool]
+name = "search-list"
+title = "Search resources"
+description = "Search resources. Use this tool to search for videos, channels, playlists, and other resources."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "Filter on resources belonging to this channelId",
+      "type": "string"
+    },
+    "channel_type": {
+      "default": "channelTypeUnspecified",
+      "description": "channelTypeUnspecified|any|show",
+      "enum": [
+        "channelTypeUnspecified",
+        "any",
+        "show"
+      ],
+      "type": "string"
+    },
+    "event_type": {
+      "default": "none",
+      "description": "none|upcoming|live|completed",
+      "enum": [
+        "none",
+        "upcoming",
+        "live",
+        "completed"
+      ],
+      "type": "string"
+    },
+    "for": {
+      "description": "mine|developer|contentOwner",
+      "enum": [
+        "mine",
+        "developer",
+        "contentOwner"
+      ],
+      "type": "string"
+    },
+    "location": {
+      "description": "Filter on location of the video",
+      "type": "string"
+    },
+    "location_radius": {
+      "description": "Filter on distance from the location",
+      "type": "string"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "order": {
+      "default": "relevance",
+      "description": "searchSortUnspecified|date|rating|viewCount|relevance|title|videoCount",
+      "enum": [
+        "searchSortUnspecified",
+        "date",
+        "rating",
+        "viewCount",
+        "relevance",
+        "title",
+        "videoCount"
+      ],
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "published_after": {
+      "description": "Filter on resources published after this date",
+      "type": "string"
+    },
+    "published_before": {
+      "description": "Filter on resources published before this date",
+      "type": "string"
+    },
+    "q": {
+      "description": "Textual search terms to match",
+      "type": "string"
+    },
+    "region_code": {
+      "description": "Display the content as seen by viewers in this country",
+      "type": "string"
+    },
+    "relevance_language": {
+      "description": "Return results relevant to this language",
+      "type": "string"
+    },
+    "safe_search": {
+      "default": "moderate",
+      "description": "safeSearchSettingUnspecified|none|moderate|strict",
+      "enum": [
+        "safeSearchSettingUnspecified",
+        "none",
+        "moderate",
+        "strict"
+      ],
+      "type": "string"
+    },
+    "topic_id": {
+      "description": "Restrict results to a particular topic",
+      "type": "string"
+    },
+    "types": {
+      "description": "Restrict results to a particular set of resource types from One Platform",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "video_caption": {
+      "default": "any",
+      "description": "videoCaptionUnspecified|any|closedCaption|none",
+      "enum": [
+        "videoCaptionUnspecified",
+        "any",
+        "closedCaption",
+        "none"
+      ],
+      "type": "string"
+    },
+    "video_category_id": {
+      "description": "Filter on videos in a specific category",
+      "type": "string"
+    },
+    "video_definition": {
+      "description": "Filter on the definition of the videos",
+      "enum": [
+        "any",
+        "high",
+        "standard"
+      ],
+      "type": "string"
+    },
+    "video_dimension": {
+      "default": "any",
+      "description": "any|2d|3d",
+      "enum": [
+        "any",
+        "2d",
+        "3d"
+      ],
+      "type": "string"
+    },
+    "video_duration": {
+      "default": "any",
+      "description": "videoDurationUnspecified|any|short|medium|long",
+      "enum": [
+        "videoDurationUnspecified",
+        "any",
+        "short",
+        "medium",
+        "long"
+      ],
+      "type": "string"
+    },
+    "video_embeddable": {
+      "description": "videoEmbeddableUnspecified|any|true",
+      "enum": [
+        "videoEmbeddableUnspecified",
+        "any",
+        "true"
+      ],
+      "type": "string"
+    },
+    "video_license": {
+      "description": "any|youtube|creativeCommon",
+      "enum": [
+        "any",
+        "youtube",
+        "creativeCommon"
+      ],
+      "type": "string"
+    },
+    "video_paid_product_placement": {
+      "description": "videoPaidProductPlacementUnspecified|any|true",
+      "enum": [
+        "videoPaidProductPlacementUnspecified",
+        "any",
+        "true"
+      ],
+      "type": "string"
+    },
+    "video_syndicated": {
+      "description": "videoSyndicatedUnspecified|any|true",
+      "enum": [
+        "videoSyndicatedUnspecified",
+        "any",
+        "true"
+      ],
+      "type": "string"
+    },
+    "video_type": {
+      "description": "videoTypeUnspecified|any|movie|episode",
+      "enum": [
+        "videoTypeUnspecified",
+        "any",
+        "movie",
+        "episode"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+type = "string"
+default = ""
+usage = "Filter on resources belonging to this channelId"
+
+[[command.flag]]
+name = "channelType"
+type = "string"
+default = "channelTypeUnspecified"
+usage = "channelTypeUnspecified|any|show"
+
+[[command.flag]]
+name = "eventType"
+type = "string"
+default = "none"
+usage = "none|upcoming|live|completed"
+
+[[command.flag]]
+name = "for"
+type = "string"
+default = ""
+usage = "mine|developer|contentOwner"
+
+[[command.flag]]
+name = "location"
+type = "string"
+default = ""
+usage = "Filter on location of the video"
+
+[[command.flag]]
+name = "locationRadius"
+type = "string"
+default = ""
+usage = "Filter on distance from the location"
+
+[[command.flag]]
+name = "maxResults"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "order"
+type = "string"
+default = "relevance"
+usage = "searchSortUnspecified|date|rating|viewCount|relevance|title|videoCount"
+
+[[command.flag]]
+name = "output"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "publishedAfter"
+type = "string"
+default = ""
+usage = "Filter on resources published after this date"
+
+[[command.flag]]
+name = "publishedBefore"
+type = "string"
+default = ""
+usage = "Filter on resources published before this date"
+
+[[command.flag]]
+name = "q"
+type = "string"
+default = ""
+usage = "Textual search terms to match"
+
+[[command.flag]]
+name = "regionCode"
+type = "string"
+default = ""
+usage = "Display the content as seen by viewers in this country"
+
+[[command.flag]]
+name = "relevanceLanguage"
+type = "string"
+default = ""
+usage = "Return results relevant to this language"
+
+[[command.flag]]
+name = "safeSearch"
+type = "string"
+default = "moderate"
+usage = "safeSearchSettingUnspecified|none|moderate|strict"
+
+[[command.flag]]
+name = "topicId"
+type = "string"
+default = ""
+usage = "Restrict results to a particular topic"
+
+[[command.flag]]
+name = "types"
+type = "stringSlice"
+default = "[]"
+usage = "Restrict results to a particular set of resource types from One Platform"
+
+[[command.flag]]
+name = "videoCaption"
+type = "string"
+default = "any"
+usage = "videoCaptionUnspecified|any|closedCaption|none"
+
+[[command.flag]]
+name = "videoCategoryId"
+type = "string"
+default = ""
+usage = "Filter on videos in a specific category"
+
+[[command.flag]]
+name = "videoDefinition"
+type = "string"
+default = ""
+usage = "Filter on the definition of the videos"
+
+[[command.flag]]
+name = "videoDimension"
+type = "string"
+default = "any"
+usage = "any|2d|3d"
+
+[[command.flag]]
+name = "videoDuration"
+type = "string"
+default = "any"
+usage = "videoDurationUnspecified|any|short|medium|long"
+
+[[command.flag]]
+name = "videoEmbeddable"
+type = "string"
+default = ""
+usage = "videoEmbeddableUnspecified|any|true"
+
+[[command.flag]]
+name = "videoLicense"
+type = "string"
+default = ""
+usage = "any|youtube|creativeCommon"
+
+[[command.flag]]
+name = "videoPaidProductPlacement"
+type = "string"
+default = ""
+usage = "videoPaidProductPlacementUnspecified|any|true"
+
+[[command.flag]]
+name = "videoSyndicated"
+type = "string"
+default = ""
+usage = "videoSyndicatedUnspecified|any|true"
+
+[[command.flag]]
+name = "videoType"
+type = "string"
+default = ""
+usage = "videoTypeUnspecified|any|movie|episode"

@@ -1,0 +1,429 @@
+[[command]]
+path = "playlistImage"
+use = "playlistImage"
+short = "Manage YouTube playlist images"
+long = "Manage YouTube playlist images. Use this tool to list, insert, update, or delete playlist images."
+runnable = true
+
+[[command]]
+path = "playlistImage delete"
+use = "delete"
+short = "Delete playlist images"
+long = "Delete playlist images. Use this tool to delete playlist images by IDs."
+example = """
+# Delete a playlist image by ID
+yutu playlistImage delete --ids abc123
+# Delete multiple playlist images
+yutu playlistImage delete --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "playlistImage-delete"
+title = "Delete playlist images"
+description = "Delete playlist images. Use this tool to delete playlist images by IDs."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the playlist images to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the playlist images to delete"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "playlistImage insert"
+use = "insert"
+short = "Upload a playlist image"
+long = "Upload a playlist image. Use this tool to upload a playlist image."
+example = """
+# Insert a playlist cover image
+yutu playlistImage insert --file cover.jpg --playlistId PLxxx
+# Insert a hero image
+yutu playlistImage insert --file cover.png --playlistId PLxxx --type hero
+# Insert an image with custom dimensions
+yutu playlistImage insert --file cover.jpg --playlistId PLxxx --width 2048 --height 1152"""
+runnable = true
+
+[command.tool]
+name = "playlistImage-insert"
+title = "Upload a playlist image"
+description = "Upload a playlist image. Use this tool to upload a playlist image."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "file": {
+      "description": "Path to the image file",
+      "type": "string"
+    },
+    "height": {
+      "description": "The image height",
+      "minimum": 0,
+      "type": "number"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "YouTube channel ID linked to the content owner",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "playlist_id": {
+      "description": "ID of the playlist this image is associated with",
+      "type": "string"
+    },
+    "type": {
+      "description": "The image type (e.g., 'hero')",
+      "type": "string"
+    },
+    "width": {
+      "description": "The image width",
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "file",
+    "playlist_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "file"
+short = "f"
+type = "string"
+default = ""
+usage = "Path to the image file"
+required = true
+
+[[command.flag]]
+name = "height"
+short = "H"
+type = "int64"
+default = "0"
+usage = "The image height"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "YouTube channel ID linked to the content owner"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "playlistId"
+short = "p"
+type = "string"
+default = ""
+usage = "ID of the playlist this image is associated with"
+required = true
+
+[[command.flag]]
+name = "type"
+short = "t"
+type = "string"
+default = ""
+usage = "The image type (e.g., 'hero')"
+
+[[command.flag]]
+name = "width"
+short = "W"
+type = "int64"
+default = "0"
+usage = "The image width"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "playlistImage list"
+use = "list"
+short = "List playlist images"
+long = "List playlist images. Use this tool to list playlist images."
+example = """
+# List images of a playlist
+yutu playlistImage list --parent PLxxx
+# List playlist images with limit in JSON format
+yutu playlistImage list --parent PLxxx --maxResults 10 --output json"""
+runnable = true
+
+[command.tool]
+name = "playlistImage-list"
+title = "List playlist images"
+description = "List playlist images. Use this tool to list playlist images."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "YouTube channel ID linked to the content owner",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parent": {
+      "description": "Return PlaylistImages for this playlist id",
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "kind",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "YouTube channel ID linked to the content owner"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parent"
+short = "P"
+type = "string"
+default = ""
+usage = "Return PlaylistImages for this playlist id"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,kind,snippet]"
+usage = "Comma separated parts"
+
+[[command]]
+path = "playlistImage update"
+use = "update"
+short = "Update a playlist image"
+long = "Update a playlist image. Use this tool to update a playlist image."
+example = """
+# Update a playlist image
+yutu playlistImage update --playlistId PLxxx --type hero --width 2048 --height 1152"""
+runnable = true
+
+[command.tool]
+name = "playlistImage-update"
+title = "Update a playlist image"
+description = "Update a playlist image. Use this tool to update a playlist image."
+effect = "write"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "height": {
+      "description": "The image height",
+      "minimum": 0,
+      "type": "number"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "YouTube channel ID linked to the content owner",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "playlist_id": {
+      "description": "ID of the playlist this image is associated with",
+      "type": "string"
+    },
+    "type": {
+      "description": "The image type (e.g., 'hero')",
+      "type": "string"
+    },
+    "width": {
+      "description": "The image width",
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "playlist_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "height"
+short = "H"
+type = "int64"
+default = "0"
+usage = "The image height"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "YouTube channel ID linked to the content owner"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "playlistId"
+short = "p"
+type = "string"
+default = ""
+usage = "ID of the playlist this image is associated with"
+required = true
+
+[[command.flag]]
+name = "type"
+short = "t"
+type = "string"
+default = ""
+usage = "The image type (e.g., 'hero')"
+
+[[command.flag]]
+name = "width"
+short = "W"
+type = "int64"
+default = "0"
+usage = "The image width"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

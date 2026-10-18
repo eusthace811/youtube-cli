@@ -1,0 +1,105 @@
+[[command]]
+path = "channelBanner"
+use = "channelBanner"
+short = "Manage YouTube channel banners"
+long = "Manage YouTube channel banners. Use this tool to insert or upload channel banners."
+runnable = true
+
+[[command]]
+path = "channelBanner insert"
+use = "insert"
+short = "Upload a channel banner"
+long = "Upload a channel banner. Use this tool to upload a channel banner."
+example = """
+# Upload a channel banner
+yutu channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.jpg
+# Upload a channel banner with JSON output
+yutu channelBanner insert --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --file banner.png --output json"""
+runnable = true
+
+[command.tool]
+name = "channelBanner-insert"
+title = "Upload a channel banner"
+description = "Upload a channel banner. Use this tool to upload a channel banner."
+effect = "write"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "ID of the channel to insert the banner for",
+      "type": "string"
+    },
+    "file": {
+      "description": "Path to the banner image",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "YouTube channel ID linked to the content owner",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "channel_id",
+    "file"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "ID of the channel to insert the banner for"
+required = true
+
+[[command.flag]]
+name = "file"
+short = "f"
+type = "string"
+default = ""
+usage = "Path to the banner image"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "YouTube channel ID linked to the content owner"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

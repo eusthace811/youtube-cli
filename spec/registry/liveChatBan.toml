@@ -1,0 +1,179 @@
+[[command]]
+path = "liveChatBan"
+use = "liveChatBan"
+short = "Manage YouTube live chat bans"
+long = "Manage YouTube live chat bans. Use this tool to ban or unban users from a live chat."
+runnable = true
+
+[[command]]
+path = "liveChatBan delete"
+use = "delete"
+short = "Delete live chat bans"
+long = "Delete live chat bans. Use this tool to unban users from a live chat by ban IDs."
+example = """
+# Delete a live chat ban by ID
+yutu liveChatBan delete --ids abc123
+# Delete multiple live chat bans
+yutu liveChatBan delete --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "liveChatBan-delete"
+title = "Delete live chat bans"
+description = "Delete live chat bans. Use this tool to unban users from a live chat by ban IDs."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the live chat bans to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the live chat bans to delete"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveChatBan insert"
+use = "insert"
+short = "Create a live chat ban"
+long = "Create a live chat ban. Use this tool to ban a user from a live chat."
+example = """
+# Ban a user permanently
+yutu liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType permanent
+# Ban a user temporarily for 5 minutes
+yutu liveChatBan insert --liveChatId abc123 --bannedUserChannelId UC_xyz --banType temporary --banDurationSeconds 300"""
+runnable = true
+
+[command.tool]
+name = "liveChatBan-insert"
+title = "Create a live chat ban"
+description = "Create a live chat ban. Use this tool to ban a user from a live chat."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "ban_duration_seconds": {
+      "description": "Duration of the ban in seconds (only for temporary bans)",
+      "minimum": 0,
+      "type": "number"
+    },
+    "ban_type": {
+      "description": "permanent|temporary",
+      "enum": [
+        "permanent",
+        "temporary"
+      ],
+      "type": "string"
+    },
+    "banned_user_channel_id": {
+      "description": "Channel ID of the user to ban",
+      "type": "string"
+    },
+    "live_chat_id": {
+      "description": "ID of the live chat",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet"
+      ],
+      "description": "Parts to include in the response",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "live_chat_id",
+    "banned_user_channel_id",
+    "ban_type"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "banDurationSeconds"
+short = "d"
+type = "uint64"
+default = "0"
+usage = "Duration of the ban in seconds (only for temporary bans)"
+
+[[command.flag]]
+name = "banType"
+short = "t"
+type = "string"
+default = ""
+usage = "permanent|temporary"
+required = true
+
+[[command.flag]]
+name = "bannedUserChannelId"
+short = "b"
+type = "string"
+default = ""
+usage = "Channel ID of the user to ban"
+required = true
+
+[[command.flag]]
+name = "liveChatId"
+short = "l"
+type = "string"
+default = ""
+usage = "ID of the live chat"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet]"
+usage = "Parts to include"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

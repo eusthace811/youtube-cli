@@ -1,0 +1,75 @@
+[[command]]
+path = "videoAbuseReportReason"
+use = "videoAbuseReportReason"
+short = "Manage YouTube video abuse report reasons"
+long = "Manage YouTube video abuse report reasons. Use this tool to list available abuse report reasons."
+runnable = true
+
+[[command]]
+path = "videoAbuseReportReason list"
+use = "list"
+short = "List video abuse report reasons"
+long = "List video abuse report reasons. Use this tool to list available abuse report reasons."
+example = """
+# List video abuse report reasons
+yutu videoAbuseReportReason list --hl en"""
+runnable = true
+
+[command.tool]
+name = "videoAbuseReportReason-list"
+title = "List video abuse report reasons"
+description = "List video abuse report reasons. Use this tool to list available abuse report reasons."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "hl": {
+      "description": "Host language",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "hl"
+short = "l"
+type = "string"
+default = ""
+usage = "Host language"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"

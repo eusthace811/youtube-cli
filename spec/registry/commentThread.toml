@@ -1,0 +1,291 @@
+[[command]]
+path = "commentThread"
+use = "commentThread"
+short = "Manage YouTube comment threads"
+long = "Manage YouTube comment threads. Use this tool to list or insert new top-level comment threads."
+runnable = true
+
+[[command]]
+path = "commentThread insert"
+use = "insert"
+short = "Create a comment thread"
+long = "Create a comment thread. Use this tool to create a comment thread."
+example = """
+# Post a comment on a video
+yutu commentThread insert --channelId UC_x5X --videoId dQw4w9WgXcQ --authorChannelId UA_x5X --textOriginal 'Great video!'
+# Post a comment with JSON output
+yutu commentThread insert --channelId UC_x5X --videoId dQw4w9WgXcQ --authorChannelId UA_x5X --textOriginal 'Nice work!' --output json"""
+runnable = true
+
+[command.tool]
+name = "commentThread-insert"
+title = "Create a comment thread"
+description = "Create a comment thread. Use this tool to create a comment thread."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "author_channel_id": {
+      "description": "Channel id of the comment author",
+      "type": "string"
+    },
+    "channel_id": {
+      "description": "Channel id of the video owner",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "text_original": {
+      "description": "Text of the comment",
+      "type": "string"
+    },
+    "video_id": {
+      "description": "ID of the video",
+      "type": "string"
+    }
+  },
+  "required": [
+    "channel_id",
+    "text_original",
+    "video_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "authorChannelId"
+short = "a"
+type = "string"
+default = ""
+usage = "Channel id of the comment author"
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "Channel id of the video owner"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "textOriginal"
+short = "t"
+type = "string"
+default = ""
+usage = "Text of the comment"
+required = true
+
+[[command.flag]]
+name = "videoId"
+short = "v"
+type = "string"
+default = ""
+usage = "ID of the video"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "commentThread list"
+use = "list"
+short = "List comment threads"
+long = "List comment threads. Use this tool to list comment threads."
+example = """
+# List comment threads on a video
+yutu commentThread list --videoId dQw4w9WgXcQ --maxResults 10
+# Search comment threads by terms
+yutu commentThread list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --searchTerms 'hello'
+# List specific comment threads in JSON format
+yutu commentThread list --ids abc123,def456 --output json"""
+runnable = true
+
+[command.tool]
+name = "commentThread-list"
+title = "List comment threads"
+description = "List comment threads. Use this tool to list comment threads."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "all_threads_related_to_channel_id": {
+      "description": "Returns the comment threads of all videos of the channel and the channel comments as well",
+      "type": "string"
+    },
+    "channel_id": {
+      "description": "Channel id of the video owner",
+      "type": "string"
+    },
+    "ids": {
+      "description": "IDs of the comment threads",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "moderation_status": {
+      "default": "published",
+      "description": "published|heldForReview|likelySpam|rejected",
+      "enum": [
+        "published",
+        "heldForReview",
+        "likelySpam",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "order": {
+      "default": "time",
+      "description": "orderUnspecified|time|relevance",
+      "enum": [
+        "orderUnspecified",
+        "time",
+        "relevance"
+      ],
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "search_terms": {
+      "description": "Search terms",
+      "type": "string"
+    },
+    "text_format": {
+      "default": "html",
+      "description": "textFormatUnspecified|html",
+      "enum": [
+        "textFormatUnspecified",
+        "html"
+      ],
+      "type": "string"
+    },
+    "video_id": {
+      "description": "Returns the comment threads of the specified video",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "allThreadsRelatedToChannelId"
+short = "a"
+type = "string"
+default = ""
+usage = "Returns the comment threads of all videos of the channel and the channel comments as well"
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "Channel id of the video owner"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the comment threads"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "moderationStatus"
+short = "m"
+type = "string"
+default = "published"
+usage = "published|heldForReview|likelySpam|rejected"
+
+[[command.flag]]
+name = "order"
+short = "O"
+type = "string"
+default = "time"
+usage = "orderUnspecified|time|relevance"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "searchTerms"
+short = "s"
+type = "string"
+default = ""
+usage = "Search terms"
+
+[[command.flag]]
+name = "textFormat"
+short = "t"
+type = "string"
+default = "html"
+usage = "textFormatUnspecified|html"
+
+[[command.flag]]
+name = "videoId"
+short = "v"
+type = "string"
+default = ""
+usage = "Returns the comment threads of the specified video"

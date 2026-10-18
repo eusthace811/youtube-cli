@@ -1,0 +1,88 @@
+[[command]]
+path = "superChatEvent"
+use = "superChatEvent"
+short = "Manage YouTube Super Chat events"
+long = "Manage YouTube Super Chat events. Use this tool to list Super Chat events for a channel."
+runnable = true
+
+[[command]]
+path = "superChatEvent list"
+use = "list"
+short = "List Super Chat events"
+long = "List Super Chat events. Use this tool to list Super Chat events."
+example = """
+# List Super Chat events
+yutu superChatEvent list --maxResults 10"""
+runnable = true
+
+[command.tool]
+name = "superChatEvent-list"
+title = "List Super Chat events"
+description = "List Super Chat events. Use this tool to list Super Chat events."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "hl": {
+      "description": "Return rendered funding amounts in specified language",
+      "type": "string"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "hl"
+short = "l"
+type = "string"
+default = ""
+usage = "Return rendered funding amounts in specified language"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"

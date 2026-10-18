@@ -1,0 +1,83 @@
+[[command]]
+path = "thumbnail"
+use = "thumbnail"
+short = "Manage YouTube video thumbnails"
+long = "Manage YouTube video thumbnails. Use this tool to set custom thumbnails for videos."
+runnable = true
+
+[[command]]
+path = "thumbnail set"
+use = "set"
+short = "Set a thumbnail for a video"
+long = "Set a thumbnail for a video. Use this tool to set a thumbnail for a video."
+example = """
+# Set a thumbnail for a video
+yutu thumbnail set --file image.jpg --videoId dQw4w9WgXcQ
+# Set a thumbnail with JSON output
+yutu thumbnail set --file image.png --videoId dQw4w9WgXcQ --output json"""
+runnable = true
+
+[command.tool]
+name = "thumbnail-set"
+title = "Set a thumbnail for a video"
+description = "Set a thumbnail for a video. Use this tool to set a thumbnail for a video."
+effect = "write"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "file": {
+      "description": "Path to the thumbnail file",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "video_id": {
+      "description": "ID of the video",
+      "type": "string"
+    }
+  },
+  "required": [
+    "file",
+    "video_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "file"
+short = "f"
+type = "string"
+default = ""
+usage = "Path to the thumbnail file"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "videoId"
+short = "v"
+type = "string"
+default = ""
+usage = "ID of the video"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

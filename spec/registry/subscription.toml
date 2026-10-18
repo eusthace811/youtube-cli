@@ -1,0 +1,324 @@
+[[command]]
+path = "subscription"
+use = "subscription"
+short = "Manage YouTube subscriptions"
+long = "Manage YouTube subscriptions. Use this tool to list subscriptions/subscribers, subscribe to channels, or unsubscribe."
+runnable = true
+
+[[command]]
+path = "subscription delete"
+use = "delete"
+short = "Delete subscriptions"
+long = "Delete subscriptions. Use this tool to delete subscriptions by IDs."
+example = """
+# Delete a subscription by ID
+yutu subscription delete --ids abc123
+# Delete multiple subscriptions
+yutu subscription delete --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "subscription-delete"
+title = "Delete subscriptions"
+description = "Delete subscriptions. Use this tool to delete subscriptions by IDs."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the subscriptions to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the subscriptions to delete"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "subscription insert"
+use = "insert"
+short = "Subscribe to a channel"
+long = "Subscribe to a channel. Use this tool to subscribe to a YouTube channel."
+example = """
+# Subscribe to a channel
+yutu subscription insert --subscriberChannelId UC_abc --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw
+# Subscribe with a title
+yutu subscription insert --subscriberChannelId UC_abc --channelId UC_x5X --title 'Google Developers'"""
+runnable = true
+
+[command.tool]
+name = "subscription-insert"
+title = "Subscribe to a channel"
+description = "Subscribe to a channel. Use this tool to subscribe to a YouTube channel."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "ID of the channel to subscribe to",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the subscription",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "subscriber_channel_id": {
+      "description": "Subscriber's channel id",
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the subscription",
+      "type": "string"
+    }
+  },
+  "required": [
+    "subscriber_channel_id",
+    "channel_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "ID of the channel to subscribe to"
+required = true
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the subscription"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "subscriberChannelId"
+short = "s"
+type = "string"
+default = ""
+usage = "Subscriber's channel id"
+required = true
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the subscription"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "subscription list"
+use = "list"
+short = "List subscriptions"
+long = "List subscriptions. Use this tool to list subscriptions."
+example = """
+# List my subscriptions
+yutu subscription list --for mine
+# List subscriptions by channel ID with limit
+yutu subscription list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10
+# List specific subscriptions in JSON format
+yutu subscription list --ids abc123,def456 --output json
+# List subscriptions for a channel alphabetically
+yutu subscription list --forChannelId UC_x5XG1OV2P6uZZ5FSM9Ttw --order alphabetical"""
+runnable = true
+
+[command.tool]
+name = "subscription-list"
+title = "List subscriptions"
+description = "List subscriptions. Use this tool to list subscriptions."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "Return the subscriptions of the given channel owner",
+      "type": "string"
+    },
+    "for": {
+      "description": "mine|myRecentSubscribers|mySubscribers",
+      "enum": [
+        "mine",
+        "myRecentSubscribers",
+        "mySubscribers"
+      ],
+      "type": "string"
+    },
+    "for_channel_id": {
+      "description": "Return the subscriptions to the subset of these channels that the authenticated user is subscribed to",
+      "type": "string"
+    },
+    "ids": {
+      "description": "Return the subscriptions with the given ids for Stubby or Apiary",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "YouTube channel ID linked to the content owner",
+      "type": "string"
+    },
+    "order": {
+      "default": "relevance",
+      "description": "subscriptionOrderUnspecified|relevance|unread|alphabetical",
+      "enum": [
+        "subscriptionOrderUnspecified",
+        "relevance",
+        "unread",
+        "alphabetical"
+      ],
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "Return the subscriptions of the given channel owner"
+
+[[command.flag]]
+name = "for"
+short = "F"
+type = "string"
+default = ""
+usage = "mine|myRecentSubscribers|mySubscribers"
+
+[[command.flag]]
+name = "forChannelId"
+short = "C"
+type = "string"
+default = ""
+usage = "Return the subscriptions to the subset of these channels that the authenticated user is subscribed to"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "Return the subscriptions with the given ids for Stubby or Apiary"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "YouTube channel ID linked to the content owner"
+
+[[command.flag]]
+name = "order"
+short = "O"
+type = "string"
+default = "relevance"
+usage = "subscriptionOrderUnspecified|relevance|unread|alphabetical"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"

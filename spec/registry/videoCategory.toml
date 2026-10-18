@@ -1,0 +1,48 @@
+[[command]]
+path = "videoCategory"
+use = "videoCategory"
+short = "Manage YouTube video categories"
+long = "Manage YouTube video categories. Use this tool to list available video categories."
+runnable = true
+
+[[command]]
+path = "videoCategory list"
+use = "list"
+short = "List video categories"
+long = "List video categories. Use this tool to list available video categories."
+runnable = true
+
+[[command.flag]]
+name = "hl"
+short = "l"
+type = "string"
+default = ""
+usage = "Host language"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the video categories"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "regionCode"
+short = "r"
+type = "string"
+default = "US"
+usage = "Region code"

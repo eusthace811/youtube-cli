@@ -1,0 +1,925 @@
+[[command]]
+path = "liveBroadcast"
+use = "liveBroadcast"
+short = "Manage YouTube live broadcasts"
+long = "Manage YouTube live broadcasts. Use this tool to list, insert, update, delete, bind, transition, or insert cuepoints for live broadcasts."
+runnable = true
+
+[[command]]
+path = "liveBroadcast bind"
+use = "bind"
+short = "Bind a live broadcast to a stream"
+long = "Bind a live broadcast to a stream. Use this tool to bind or unbind a live stream to/from a live broadcast."
+example = """
+# Bind a broadcast to a stream
+yutu liveBroadcast bind --ids broadcast123 --streamId stream456
+# Unbind a broadcast (omit streamId)
+yutu liveBroadcast bind --ids broadcast123"""
+runnable = true
+
+[command.tool]
+name = "liveBroadcast-bind"
+title = "Bind a live broadcast to a stream"
+description = "Bind a live broadcast to a stream. Use this tool to bind or unbind a live stream to/from a live broadcast."
+effect = "write"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the live broadcasts to bind",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet",
+        "contentDetails",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "stream_id": {
+      "description": "ID of the live stream to bind",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the broadcasts to bind"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet,contentDetails,status]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "streamId"
+short = "s"
+type = "string"
+default = ""
+usage = "ID of the live stream to bind"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveBroadcast delete"
+use = "delete"
+short = "Delete live broadcasts"
+long = "Delete live broadcasts. Use this tool to delete live broadcasts by their IDs."
+example = """
+# Delete a live broadcast by ID
+yutu liveBroadcast delete --ids broadcast123
+# Delete multiple live broadcasts
+yutu liveBroadcast delete --ids broadcast123,broadcast456"""
+runnable = true
+
+[command.tool]
+name = "liveBroadcast-delete"
+title = "Delete live broadcasts"
+description = "Delete live broadcasts. Use this tool to delete live broadcasts by their IDs."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the live broadcasts to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the live broadcasts to delete"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveBroadcast insert"
+use = "insert"
+short = "Create a live broadcast"
+long = "Create a live broadcast. Use this tool to create a live broadcast for the authenticated user."
+example = """
+# Create a public live broadcast
+yutu liveBroadcast insert --title "My Broadcast" --privacyStatus public --scheduledStartTime 2026-01-01T00:00:00Z
+# Create a private broadcast with description
+yutu liveBroadcast insert --title "Test Stream" --description "Testing" --privacyStatus private --scheduledStartTime 2026-01-01T00:00:00Z"""
+runnable = true
+
+[command.tool]
+name = "liveBroadcast-insert"
+title = "Create a live broadcast"
+description = "Create a live broadcast. Use this tool to create a live broadcast for the authenticated user."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "description": {
+      "description": "Description of the live broadcast",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet",
+        "status",
+        "contentDetails"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "privacy_status": {
+      "description": "Privacy status (public, unlisted, private)",
+      "enum": [
+        "public",
+        "unlisted",
+        "private"
+      ],
+      "type": "string"
+    },
+    "scheduled_end_time": {
+      "description": "Scheduled end time in RFC 3339 format",
+      "type": "string"
+    },
+    "scheduled_start_time": {
+      "description": "Scheduled start time in RFC 3339 format",
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the live broadcast",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "scheduled_start_time"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the live broadcast"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet,status,contentDetails]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "privacyStatus"
+short = "P"
+type = "string"
+default = ""
+usage = "Privacy status (public, unlisted, private)"
+
+[[command.flag]]
+name = "scheduledEndTime"
+short = "E"
+type = "string"
+default = ""
+usage = "Scheduled end time in RFC 3339 format"
+
+[[command.flag]]
+name = "scheduledStartTime"
+short = "S"
+type = "string"
+default = ""
+usage = "Scheduled start time in RFC 3339 format"
+required = true
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the live broadcast"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveBroadcast insertCuepoint"
+use = "insertCuepoint"
+short = "Insert a cuepoint into a live broadcast"
+long = "Insert a cuepoint into a live broadcast. Use this tool to insert an ad break cuepoint into a currently live broadcast."
+example = """
+# Insert an ad cuepoint of 30 seconds
+yutu liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueDurationSecs 30
+# Insert a cuepoint with offset
+yutu liveBroadcast insertCuepoint --ids broadcast123 --cueType cueTypeAd --cueInsertionOffsetMs 5000"""
+runnable = true
+
+[command.tool]
+name = "liveBroadcast-insertCuepoint"
+title = "Insert a cuepoint into a live broadcast"
+description = "Insert a cuepoint into a live broadcast. Use this tool to insert an ad break cuepoint into a currently live broadcast."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "cue_duration_secs": {
+      "description": "Cuepoint duration in seconds",
+      "minimum": 0,
+      "type": "number"
+    },
+    "cue_insertion_offset_ms": {
+      "description": "Cuepoint insertion offset time in milliseconds",
+      "minimum": 0,
+      "type": "number"
+    },
+    "cue_type": {
+      "description": "Cue type (cueTypeAd)",
+      "enum": [
+        "cueTypeAd"
+      ],
+      "type": "string"
+    },
+    "cue_walltime_ms": {
+      "description": "Cuepoint wall clock time in milliseconds",
+      "minimum": 0,
+      "type": "number"
+    },
+    "ids": {
+      "description": "IDs of the live broadcasts to insert cuepoints into",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "cueDurationSecs"
+short = "D"
+type = "int64"
+default = "0"
+usage = "Cuepoint duration in seconds"
+
+[[command.flag]]
+name = "cueInsertionOffsetMs"
+short = "O"
+type = "int64"
+default = "0"
+usage = "Cuepoint insertion offset time in milliseconds"
+
+[[command.flag]]
+name = "cueType"
+short = "c"
+type = "string"
+default = "cueTypeAd"
+usage = "Cue type (cueTypeAd)"
+
+[[command.flag]]
+name = "cueWalltimeMs"
+short = "W"
+type = "uint64"
+default = "0"
+usage = "Cuepoint wall clock time in milliseconds"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the broadcasts"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveBroadcast list"
+use = "list"
+short = "List live broadcasts"
+long = "List live broadcasts. Use this tool to list live broadcasts for the authenticated user."
+example = """
+# List my live broadcasts
+yutu liveBroadcast list --mine
+# List live broadcasts by ID
+yutu liveBroadcast list --ids broadcast1,broadcast2
+# List active live broadcasts
+yutu liveBroadcast list --mine --broadcastStatus active --output json"""
+runnable = true
+
+[command.tool]
+name = "liveBroadcast-list"
+title = "List live broadcasts"
+description = "List live broadcasts. Use this tool to list live broadcasts for the authenticated user."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "broadcast_status": {
+      "description": "Broadcast status filter (all, active, upcoming, completed)",
+      "enum": [
+        "all",
+        "active",
+        "upcoming",
+        "completed"
+      ],
+      "type": "string"
+    },
+    "broadcast_type": {
+      "description": "Broadcast type filter (all, event, persistent)",
+      "enum": [
+        "all",
+        "event",
+        "persistent"
+      ],
+      "type": "string"
+    },
+    "ids": {
+      "description": "Return live broadcasts with the given ids",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "mine": {
+      "description": "List broadcasts owned by the authenticated user",
+      "type": "boolean"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "broadcastStatus"
+short = "s"
+type = "string"
+default = ""
+usage = "Broadcast status filter (all, active, upcoming, completed)"
+
+[[command.flag]]
+name = "broadcastType"
+short = "T"
+type = "string"
+default = ""
+usage = "Broadcast type filter (all, event, persistent)"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "Return live broadcasts with the given ids"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "mine"
+short = "m"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "List broadcasts owned by the authenticated user"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet,status]"
+usage = "Comma separated parts"
+
+[[command]]
+path = "liveBroadcast transition"
+use = "transition"
+short = "Transition a live broadcast"
+long = "Transition a live broadcast. Use this tool to change the status of a live broadcast (e.g., go live, end broadcast)."
+example = """
+# Transition a broadcast to live
+yutu liveBroadcast transition --ids broadcast123 --broadcastStatus live
+# End a broadcast
+yutu liveBroadcast transition --ids broadcast123 --broadcastStatus complete"""
+runnable = true
+
+[command.tool]
+name = "liveBroadcast-transition"
+title = "Transition a live broadcast"
+description = "Transition a live broadcast. Use this tool to change the status of a live broadcast (e.g., go live, end broadcast)."
+effect = "write"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "broadcast_status": {
+      "description": "Broadcast status to transition to (testing, live, complete)",
+      "enum": [
+        "testing",
+        "live",
+        "complete"
+      ],
+      "type": "string"
+    },
+    "ids": {
+      "description": "IDs of the live broadcasts to transition",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ids",
+    "broadcast_status"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "broadcastStatus"
+short = "s"
+type = "string"
+default = ""
+usage = "Broadcast status to transition to (testing, live, complete)"
+required = true
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the broadcasts to transition"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet,status]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveBroadcast update"
+use = "update"
+short = "Update a live broadcast"
+long = "Update a live broadcast. Use this tool to update an existing live broadcast's settings."
+example = """
+# Update live broadcast title
+yutu liveBroadcast update --id broadcast123 --title "New Title"
+# Update privacy status
+yutu liveBroadcast update --id broadcast123 --privacyStatus unlisted"""
+runnable = true
+
+[command.tool]
+name = "liveBroadcast-update"
+title = "Update a live broadcast"
+description = "Update a live broadcast. Use this tool to update an existing live broadcast's settings."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "description": {
+      "description": "Description of the live broadcast",
+      "type": "string"
+    },
+    "ids": {
+      "description": "ID of the live broadcast to update",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "privacy_status": {
+      "description": "Privacy status (public, unlisted, private)",
+      "enum": [
+        "public",
+        "unlisted",
+        "private"
+      ],
+      "type": "string"
+    },
+    "scheduled_end_time": {
+      "description": "Scheduled end time in RFC 3339 format",
+      "type": "string"
+    },
+    "scheduled_start_time": {
+      "description": "Scheduled start time in RFC 3339 format",
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the live broadcast",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the live broadcast"
+
+[[command.flag]]
+name = "id"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "ID of the live broadcast to update"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "privacyStatus"
+short = "P"
+type = "string"
+default = ""
+usage = "Privacy status (public, unlisted, private)"
+
+[[command.flag]]
+name = "scheduledEndTime"
+short = "E"
+type = "string"
+default = ""
+usage = "Scheduled end time in RFC 3339 format"
+
+[[command.flag]]
+name = "scheduledStartTime"
+short = "S"
+type = "string"
+default = ""
+usage = "Scheduled start time in RFC 3339 format"
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the live broadcast"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

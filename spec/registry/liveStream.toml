@@ -1,0 +1,542 @@
+[[command]]
+path = "liveStream"
+use = "liveStream"
+short = "Manage YouTube live streams"
+long = "Manage YouTube live streams. Use this tool to list, insert, update, or delete live streams."
+runnable = true
+
+[[command]]
+path = "liveStream delete"
+use = "delete"
+short = "Delete live streams"
+long = "Delete live streams. Use this tool to delete live streams by their IDs."
+example = """
+# Delete a live stream by ID
+yutu liveStream delete --ids stream123
+# Delete multiple live streams
+yutu liveStream delete --ids stream123,stream456"""
+runnable = true
+
+[command.tool]
+name = "liveStream-delete"
+title = "Delete live streams"
+description = "Delete live streams. Use this tool to delete live streams by their IDs."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the live streams to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the live streams to delete"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveStream insert"
+use = "insert"
+short = "Create a live stream"
+long = "Create a live stream. Use this tool to create a live stream."
+example = """
+# Create a live stream with RTMP at 1080p
+yutu liveStream insert --title "My Stream" --ingestionType rtmp --resolution 1080p --frameRate 60fps
+# Create a live stream with description
+yutu liveStream insert --title "Gaming Stream" --description "Live gaming session" --ingestionType rtmp --resolution 720p"""
+runnable = true
+
+[command.tool]
+name = "liveStream-insert"
+title = "Create a live stream"
+description = "Create a live stream. Use this tool to create a live stream."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "description": {
+      "description": "Description of the live stream",
+      "type": "string"
+    },
+    "frame_rate": {
+      "description": "Frame rate of the video stream (30fps, 60fps, variable)",
+      "enum": [
+        "30fps",
+        "60fps",
+        "variable"
+      ],
+      "type": "string"
+    },
+    "ingestion_type": {
+      "description": "Ingestion type (rtmp, dash, webrtc, hls)",
+      "enum": [
+        "rtmp",
+        "dash",
+        "webrtc",
+        "hls"
+      ],
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet",
+        "cdn",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "resolution": {
+      "description": "Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)",
+      "enum": [
+        "240p",
+        "360p",
+        "480p",
+        "720p",
+        "1080p",
+        "1440p",
+        "2160p",
+        "variable"
+      ],
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the live stream",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "ingestion_type",
+    "resolution"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the live stream"
+
+[[command.flag]]
+name = "frameRate"
+short = "f"
+type = "string"
+default = ""
+usage = "Frame rate of the video stream (30fps, 60fps, variable)"
+
+[[command.flag]]
+name = "ingestionType"
+short = "I"
+type = "string"
+default = ""
+usage = "Ingestion type (rtmp, dash, webrtc, hls)"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet,cdn,status]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "resolution"
+short = "r"
+type = "string"
+default = ""
+usage = "Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)"
+required = true
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the live stream"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "liveStream list"
+use = "list"
+short = "List live streams"
+long = "List live streams. Use this tool to list live streams for the authenticated user."
+example = """
+# List my live streams
+yutu liveStream list --mine
+# List live streams by ID
+yutu liveStream list --ids stream1,stream2
+# List live streams in JSON format
+yutu liveStream list --mine --output json --maxResults 10"""
+runnable = true
+
+[command.tool]
+name = "liveStream-list"
+title = "List live streams"
+description = "List live streams. Use this tool to list live streams for the authenticated user."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "Return live streams with the given ids",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "mine": {
+      "description": "List streams owned by the authenticated user",
+      "type": "boolean"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet",
+        "cdn",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "Return live streams with the given ids"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "mine"
+short = "m"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "List streams owned by the authenticated user"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet,cdn,status]"
+usage = "Comma separated parts"
+
+[[command]]
+path = "liveStream update"
+use = "update"
+short = "Update a live stream"
+long = "Update a live stream. Use this tool to update an existing live stream's settings."
+example = """
+# Update live stream title
+yutu liveStream update --id stream123 --title "New Title"
+# Update live stream CDN settings
+yutu liveStream update --id stream123 --resolution 1080p --frameRate 60fps"""
+runnable = true
+
+[command.tool]
+name = "liveStream-update"
+title = "Update a live stream"
+description = "Update a live stream. Use this tool to update an existing live stream's settings."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "description": {
+      "description": "Description of the live stream",
+      "type": "string"
+    },
+    "frame_rate": {
+      "description": "Frame rate of the video stream (30fps, 60fps, variable)",
+      "enum": [
+        "30fps",
+        "60fps",
+        "variable"
+      ],
+      "type": "string"
+    },
+    "ids": {
+      "description": "ID of the live stream to update",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ingestion_type": {
+      "description": "Ingestion type (rtmp, dash, webrtc, hls)",
+      "enum": [
+        "rtmp",
+        "dash",
+        "webrtc",
+        "hls"
+      ],
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "Channel ID for content owner operations",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "resolution": {
+      "description": "Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)",
+      "enum": [
+        "240p",
+        "360p",
+        "480p",
+        "720p",
+        "1080p",
+        "1440p",
+        "2160p",
+        "variable"
+      ],
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the live stream",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the live stream"
+
+[[command.flag]]
+name = "frameRate"
+short = "f"
+type = "string"
+default = ""
+usage = "Frame rate of the video stream (30fps, 60fps, variable)"
+
+[[command.flag]]
+name = "id"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "ID of the live stream to update"
+required = true
+
+[[command.flag]]
+name = "ingestionType"
+short = "I"
+type = "string"
+default = ""
+usage = "Ingestion type (rtmp, dash, webrtc, hls)"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "Channel ID for content owner operations"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "resolution"
+short = "r"
+type = "string"
+default = ""
+usage = "Resolution of the video stream (240p, 360p, 480p, 720p, 1080p, 1440p, 2160p, variable)"
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the live stream"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

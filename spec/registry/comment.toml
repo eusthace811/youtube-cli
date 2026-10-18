@@ -1,0 +1,569 @@
+[[command]]
+path = "comment"
+use = "comment"
+short = "Manage YouTube comments"
+long = "Manage YouTube comments. Use this tool to list, create, update, delete, mark as spam, or set moderation status for comments."
+runnable = true
+
+[[command]]
+path = "comment delete"
+use = "delete"
+short = "Delete comments"
+long = "Delete comments. Use this tool to delete comments by IDs."
+example = """
+# Delete a comment by ID
+yutu comment delete --ids abc123
+# Delete multiple comments
+yutu comment delete --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "comment-delete"
+title = "Delete comments"
+description = "Delete comments. Use this tool to delete comments by IDs."
+effect = "destructive"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of comments",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of comments"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "comment insert"
+use = "insert"
+short = "Create a comment"
+long = "Create a comment. Use this tool to create a comment on a video."
+example = """
+# Reply to a comment
+yutu comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Hello'
+# Reply with rating enabled
+yutu comment insert --channelId UC_x5X --videoId dQw4w9 --authorChannelId UA_x5X --parentId UgyXXX --textOriginal 'Reply' --canRate"""
+runnable = true
+
+[command.tool]
+name = "comment-insert"
+title = "Create a comment"
+description = "Create a comment. Use this tool to create a comment on a video."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "author_channel_id": {
+      "description": "Channel id of the comment author",
+      "type": "string"
+    },
+    "can_rate": {
+      "description": "Whether the viewer can rate the comment",
+      "type": "boolean"
+    },
+    "channel_id": {
+      "description": "Channel id of the video owner",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parent_id": {
+      "description": "ID of the parent comment",
+      "type": "string"
+    },
+    "text_original": {
+      "description": "Text of the comment",
+      "type": "string"
+    },
+    "video_id": {
+      "description": "ID of the video",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parent_id",
+    "text_original"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "authorChannelId"
+short = "a"
+type = "string"
+default = ""
+usage = "Channel id of the comment author"
+
+[[command.flag]]
+name = "canRate"
+short = "R"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the viewer can rate the comment"
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "Channel id of the video owner"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parentId"
+short = "P"
+type = "string"
+default = ""
+usage = "ID of the parent comment"
+required = true
+
+[[command.flag]]
+name = "textOriginal"
+short = "t"
+type = "string"
+default = ""
+usage = "Text of the comment"
+required = true
+
+[[command.flag]]
+name = "videoId"
+short = "v"
+type = "string"
+default = ""
+usage = "ID of the video"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "comment list"
+use = "list"
+short = "List comments"
+long = "List comments. Use this tool to list comments by IDs."
+example = """
+# List replies to a comment
+yutu comment list --parentId UgyXXXXXXXX --maxResults 10
+# List specific comments in JSON format
+yutu comment list --ids abc123,def456 --output json
+# List a comment in plain text
+yutu comment list --ids abc123 --textFormat plainText"""
+runnable = true
+
+[command.tool]
+name = "comment-list"
+title = "List comments"
+description = "List comments. Use this tool to list comments by IDs."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of comments",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parent_id": {
+      "description": "Returns replies to the specified comment",
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "text_format": {
+      "default": "html",
+      "description": "textFormatUnspecified|html|plainText",
+      "enum": [
+        "textFormatUnspecified",
+        "html",
+        "plainText"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of comments"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parentId"
+short = "P"
+type = "string"
+default = ""
+usage = "Returns replies to the specified comment"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "textFormat"
+short = "t"
+type = "string"
+default = "html"
+usage = "textFormatUnspecified|html|plainText"
+
+[[command]]
+path = "comment markAsSpam"
+use = "markAsSpam"
+short = "Mark comments as spam"
+long = "Mark comments as spam. Use this tool to mark comments as spam."
+example = """
+# Mark a comment as spam
+yutu comment markAsSpam --ids abc123
+# Mark multiple comments as spam
+yutu comment markAsSpam --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "comment-markAsSpam"
+title = "Mark comments as spam"
+description = "Mark comments as spam. Use this tool to mark comments as spam."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of comments",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of comments"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "comment setModerationStatus"
+use = "setModerationStatus"
+short = "Set comment moderation status"
+long = "Set comment moderation status. Use this tool to set comment moderation status."
+example = """
+# Publish a held comment
+yutu comment setModerationStatus --ids abc123 --moderationStatus published
+# Hold multiple comments for review
+yutu comment setModerationStatus --ids abc123,def456 --moderationStatus heldForReview
+# Reject a comment and ban author
+yutu comment setModerationStatus --ids abc123 --moderationStatus rejected --banAuthor"""
+runnable = true
+
+[command.tool]
+name = "comment-setModerationStatus"
+title = "Set comment moderation status"
+description = "Set comment moderation status. Use this tool to set comment moderation status."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "ban_author": {
+      "description": "If set to true the author of the comment gets added to the ban list",
+      "type": "boolean"
+    },
+    "ids": {
+      "description": "IDs of comments",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "moderation_status": {
+      "description": "heldForReview|published|rejected",
+      "enum": [
+        "heldForReview",
+        "published",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids",
+    "moderation_status"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "banAuthor"
+short = "A"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "If set to true the author of the comment gets added to the ban list"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of comments"
+required = true
+
+[[command.flag]]
+name = "moderationStatus"
+short = "s"
+type = "string"
+default = ""
+usage = "heldForReview|published|rejected"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "comment update"
+use = "update"
+short = "Update a comment"
+long = "Update a comment. Use this tool to update a comment."
+example = """
+# Update comment text
+yutu comment update --id abc123 --textOriginal 'Updated comment'
+# Like a comment
+yutu comment update --id abc123 --viewerRating like
+# Update comment text with rating enabled
+yutu comment update --id abc123 --textOriginal 'New text' --canRate"""
+runnable = true
+
+[command.tool]
+name = "comment-update"
+title = "Update a comment"
+description = "Update a comment. Use this tool to update a comment."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "can_rate": {
+      "description": "Whether the viewer can rate the comment",
+      "type": "boolean"
+    },
+    "ids": {
+      "description": "ID of the comment",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "text_original": {
+      "description": "Text of the comment",
+      "type": "string"
+    },
+    "viewer_rating": {
+      "description": "none|like|dislike",
+      "enum": [
+        "none",
+        "like",
+        "dislike"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "canRate"
+short = "R"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the viewer can rate the comment"
+
+[[command.flag]]
+name = "id"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "ID of the comment"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "textOriginal"
+short = "t"
+type = "string"
+default = ""
+usage = "Text of the comment"
+
+[[command.flag]]
+name = "viewerRating"
+short = "r"
+type = "string"
+default = ""
+usage = "none|like|dislike"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

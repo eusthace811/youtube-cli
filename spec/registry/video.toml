@@ -1,0 +1,1057 @@
+[[command]]
+path = "video"
+use = "video"
+short = "Manage YouTube videos"
+long = "Manage YouTube videos. Use this tool to list, upload, update, delete, get rating, or report videos."
+runnable = true
+
+[[command]]
+path = "video delete"
+use = "delete"
+short = "Delete videos"
+long = "Delete videos. Use this tool to delete videos by IDs."
+example = """
+# Delete a video by ID
+yutu video delete --ids dQw4w9WgXcQ
+# Delete multiple videos
+yutu video delete --ids dQw4w9WgXcQ,abc123"""
+runnable = true
+
+[command.tool]
+name = "video-delete"
+title = "Delete videos"
+description = "Delete videos. Use this tool to delete videos by IDs."
+effect = "destructive"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the videos to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the videos to delete"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "video getRating"
+use = "getRating"
+short = "Get video ratings"
+long = "Get video ratings. Use this tool to get video ratings by IDs."
+example = """
+# Get rating of a video
+yutu video getRating --ids dQw4w9WgXcQ
+# Get ratings of multiple videos in JSON format
+yutu video getRating --ids dQw4w9WgXcQ,abc123 --output json"""
+runnable = true
+
+[command.tool]
+name = "video-getRating"
+title = "Get video ratings"
+description = "Get video ratings. Use this tool to get video ratings by IDs."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the videos to get the rating for",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the videos to get the rating for"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command]]
+path = "video insert"
+use = "insert"
+short = "Upload a video"
+long = "Upload a video. Use this tool to upload a video."
+example = """
+# Upload a public video
+yutu video insert --file video.mp4 --title 'My Video' --categoryId 22 --privacy public
+# Upload a private video with tags
+yutu video insert --file video.mp4 --title 'Tutorial' --categoryId 27 --privacy private --tags 'go,tutorial'
+# Upload an unlisted video with custom thumbnail
+yutu video insert --file video.mp4 --title 'Music Video' --categoryId 10 --privacy unlisted --thumbnail cover.jpg"""
+runnable = true
+
+[command.tool]
+name = "video-insert"
+title = "Upload a video"
+description = "Upload a video. Use this tool to upload a video."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "auto_levels": {
+      "description": "Should auto-levels be applied to the upload",
+      "type": "boolean"
+    },
+    "category_id": {
+      "description": "Category of the video",
+      "type": "string"
+    },
+    "channel_id": {
+      "description": "Channel id of the video",
+      "type": "string"
+    },
+    "contains_synthetic_media": {
+      "default": false,
+      "description": "Whether the video contains altered or synthetic media",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "Description of the video",
+      "type": "string"
+    },
+    "embeddable": {
+      "description": "Whether the video is embeddable",
+      "type": "boolean"
+    },
+    "file": {
+      "description": "Path to the video file",
+      "type": "string"
+    },
+    "for_kids": {
+      "default": false,
+      "description": "Whether the video is for kids",
+      "type": "boolean"
+    },
+    "language": {
+      "description": "Language of the video",
+      "type": "string"
+    },
+    "license": {
+      "description": "youtube|creativeCommon",
+      "enum": [
+        "youtube",
+        "creativeCommon"
+      ],
+      "type": "string"
+    },
+    "notify_subscribers": {
+      "description": "Notify the channel subscribers about the new video",
+      "type": "boolean"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "YouTube channel ID linked to the content owner",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "playlist_id": {
+      "description": "Playlist id of the video",
+      "type": "string"
+    },
+    "privacy": {
+      "description": "public|private|unlisted",
+      "enum": [
+        "public",
+        "private",
+        "unlisted"
+      ],
+      "type": "string"
+    },
+    "public_stats_viewable": {
+      "description": "Whether the extended video statistics can be viewed by everyone",
+      "type": "boolean"
+    },
+    "publish_at": {
+      "description": "Datetime when the video is scheduled to publish",
+      "type": "string"
+    },
+    "recording_date": {
+      "description": "Date and time when the video was recorded",
+      "type": "string"
+    },
+    "stabilize": {
+      "description": "Should stabilize be applied to the upload",
+      "type": "boolean"
+    },
+    "tags": {
+      "default": [
+        "yutu🐰"
+      ],
+      "description": "Comma separated tags",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "thumbnail": {
+      "description": "Path to the thumbnail file",
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the video",
+      "type": "string"
+    }
+  },
+  "required": [
+    "file",
+    "category_id",
+    "privacy"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "autoLevels"
+short = "A"
+type = "bool"
+default = "true"
+no_opt_default = "true"
+usage = "Should auto-levels be applied to the upload"
+
+[[command.flag]]
+name = "categoryId"
+short = "g"
+type = "string"
+default = ""
+usage = "Category of the video"
+required = true
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "Channel id of the video"
+
+[[command.flag]]
+name = "containsSyntheticMedia"
+short = "M"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the video contains altered or synthetic media"
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the video"
+
+[[command.flag]]
+name = "embeddable"
+short = "E"
+type = "bool"
+default = "true"
+no_opt_default = "true"
+usage = "Whether the video is embeddable"
+
+[[command.flag]]
+name = "file"
+short = "f"
+type = "string"
+default = ""
+usage = "Path to the video file"
+required = true
+
+[[command.flag]]
+name = "forKids"
+short = "K"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the video is for kids"
+
+[[command.flag]]
+name = "language"
+short = "l"
+type = "string"
+default = ""
+usage = "Language of the video"
+
+[[command.flag]]
+name = "license"
+short = "L"
+type = "string"
+default = ""
+usage = "youtube|creativeCommon"
+
+[[command.flag]]
+name = "notifySubscribers"
+short = "N"
+type = "bool"
+default = "true"
+no_opt_default = "true"
+usage = "Notify the channel subscribers about the new video"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "YouTube channel ID linked to the content owner"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "playlistId"
+short = "y"
+type = "string"
+default = ""
+usage = "Playlist id of the video"
+
+[[command.flag]]
+name = "privacy"
+short = "p"
+type = "string"
+default = ""
+usage = "public|private|unlisted"
+required = true
+
+[[command.flag]]
+name = "publicStatsViewable"
+short = "P"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the extended video statistics can be viewed by everyone"
+
+[[command.flag]]
+name = "publishAt"
+short = "U"
+type = "string"
+default = ""
+usage = "Datetime when the video is scheduled to publish"
+
+[[command.flag]]
+name = "recordingDate"
+short = "D"
+type = "string"
+default = ""
+usage = "Date and time when the video was recorded"
+
+[[command.flag]]
+name = "stabilize"
+short = "S"
+type = "bool"
+default = "true"
+no_opt_default = "true"
+usage = "Should stabilize be applied to the upload"
+
+[[command.flag]]
+name = "tags"
+short = "a"
+type = "stringSlice"
+default = "[yutu🐰]"
+usage = "Comma separated tags"
+
+[[command.flag]]
+name = "thumbnail"
+short = "u"
+type = "string"
+default = ""
+usage = "Path to the thumbnail file"
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the video"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "video list"
+use = "list"
+short = "List videos"
+long = "List videos. Use this tool to list videos."
+example = """
+# List a video by ID
+yutu video list --ids IBju0NwjQRc
+# List multiple videos in JSON format
+yutu video list --ids IBju0NwjQRc,wZ9z3FUuNvQ --output json
+# List most popular videos by region
+yutu video list --chart mostPopular --regionCode US --maxResults 10
+# List my liked videos
+yutu video list --myRating like --output yaml"""
+runnable = true
+
+[command.tool]
+name = "video-list"
+title = "List videos"
+description = "List videos. Use this tool to list videos."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "category_id": {
+      "description": "Category of the video",
+      "type": "string"
+    },
+    "chart": {
+      "description": "chartUnspecified|mostPopular",
+      "enum": [
+        "chartUnspecified",
+        "mostPopular"
+      ],
+      "type": "string"
+    },
+    "hl": {
+      "description": "Specifies the localization language",
+      "type": "string"
+    },
+    "ids": {
+      "description": "Return videos with the given ids",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "locale": {
+      "description": "Locale of the video metadata to return",
+      "type": "string"
+    },
+    "max_height": {
+      "description": "Max height of the embedded player in pixels",
+      "minimum": 0,
+      "type": "number"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "max_width": {
+      "description": "Max width of the embedded player in pixels",
+      "minimum": 0,
+      "type": "number"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet",
+        "status",
+        "statistics"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "rating": {
+      "description": "Return videos liked/disliked by the authenticated user",
+      "type": "string"
+    },
+    "region_code": {
+      "description": "Specific to the specified region",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "chart"
+short = "c"
+type = "string"
+default = ""
+usage = "chartUnspecified|mostPopular"
+
+[[command.flag]]
+name = "hl"
+short = "l"
+type = "string"
+default = ""
+usage = "Specifies the localization language"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "Return videos with the given ids"
+
+[[command.flag]]
+name = "locale"
+short = "L"
+type = "string"
+default = ""
+usage = "Locale of the video metadata to return"
+
+[[command.flag]]
+name = "maxHeight"
+short = "H"
+type = "int64"
+default = "0"
+usage = "Max height of the embedded player in pixels"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "maxWidth"
+short = "W"
+type = "int64"
+default = "0"
+usage = "Max width of the embedded player in pixels"
+
+[[command.flag]]
+name = "myRating"
+short = "R"
+type = "string"
+default = ""
+usage = "Return videos liked/disliked by the authenticated user"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet,status,statistics]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "regionCode"
+short = "r"
+type = "string"
+default = ""
+usage = "Specific to the specified region"
+
+[[command.flag]]
+name = "videoCategoryId"
+short = "g"
+type = "string"
+default = ""
+usage = "Category of the video"
+
+[[command]]
+path = "video rate"
+use = "rate"
+short = "Rate a video"
+long = "Rate a video. Use this tool to rate a video."
+example = """
+# Like a video
+yutu video rate --ids dQw4w9WgXcQ --rating like
+# Dislike multiple videos
+yutu video rate --ids dQw4w9WgXcQ,abc123 --rating dislike
+# Remove rating from a video
+yutu video rate --ids dQw4w9WgXcQ --rating none"""
+runnable = true
+
+[command.tool]
+name = "video-rate"
+title = "Rate a video"
+description = "Rate a video. Use this tool to rate a video."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the videos to rate",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "rating": {
+      "description": "like|dislike|none",
+      "enum": [
+        "like",
+        "dislike",
+        "none"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids",
+    "rating"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the videos to rate"
+required = true
+
+[[command.flag]]
+name = "rating"
+short = "r"
+type = "string"
+default = ""
+usage = "like|dislike|none"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "video reportAbuse"
+use = "reportAbuse"
+short = "Report abuse on a video"
+long = "Report abuse on a video. Use this tool to report abuse on a video."
+example = """
+# Report abuse on a video
+yutu video reportAbuse --ids dQw4w9WgXcQ --reasonId V
+# Report abuse with secondary reason and language
+yutu video reportAbuse --ids dQw4w9WgXcQ --reasonId V --secondaryReasonId V1 --language en
+# Report abuse with comments
+yutu video reportAbuse --ids dQw4w9WgXcQ --reasonId N --comments 'Spam content'"""
+runnable = true
+
+[command.tool]
+name = "video-reportAbuse"
+title = "Report abuse on a video"
+description = "Report abuse on a video. Use this tool to report abuse on a video."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "comments": {
+      "description": "Additional comments regarding the abuse report",
+      "type": "string"
+    },
+    "ids": {
+      "description": "IDs of the videos to report abuse on",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "language": {
+      "description": "Language that the content was viewed in",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "reason_id": {
+      "description": "ID of the reason for reporting abuse",
+      "type": "string"
+    },
+    "secondary_reason_id": {
+      "description": "ID of the secondary reason for reporting abuse",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids",
+    "reason_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "comments"
+short = "c"
+type = "string"
+default = ""
+usage = "Additional comments regarding the abuse report"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the videos to report abuse on"
+required = true
+
+[[command.flag]]
+name = "language"
+short = "l"
+type = "string"
+default = ""
+usage = "Language that the content was viewed in"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "reasonId"
+short = "r"
+type = "string"
+default = ""
+usage = "ID of the reason for reporting abuse"
+required = true
+
+[[command.flag]]
+name = "secondaryReasonId"
+short = "s"
+type = "string"
+default = ""
+usage = "ID of the secondary reason for reporting abuse"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "video update"
+use = "update"
+short = "Update a video"
+long = "Update a video. Use this tool to update a video."
+example = """
+# Update video title
+yutu video update --id dQw4w9WgXcQ --title 'New Title'
+# Update video description and privacy
+yutu video update --id dQw4w9WgXcQ --description 'Updated description' --privacy public
+# Schedule a private video to publish later
+yutu video update --id dQw4w9WgXcQ --privacy private --publishAt 2026-08-18T15:00:00Z
+# Update video tags and category
+yutu video update --id dQw4w9WgXcQ --tags 'music,pop,2024' --categoryId 10"""
+runnable = true
+
+[command.tool]
+name = "video-update"
+title = "Update a video"
+description = "Update a video. Use this tool to update a video."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "category_id": {
+      "description": "Category of the video",
+      "type": "string"
+    },
+    "contains_synthetic_media": {
+      "description": "Whether the video contains altered or synthetic media",
+      "type": "boolean"
+    },
+    "description": {
+      "description": "Description of the video",
+      "type": "string"
+    },
+    "embeddable": {
+      "description": "Whether the video is embeddable",
+      "type": "boolean"
+    },
+    "ids": {
+      "description": "ID of the video to update",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "language": {
+      "description": "Language of the video",
+      "type": "string"
+    },
+    "license": {
+      "description": "youtube|creativeCommon",
+      "enum": [
+        "youtube",
+        "creativeCommon"
+      ],
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "playlist_id": {
+      "description": "Playlist id of the video",
+      "type": "string"
+    },
+    "privacy": {
+      "description": "public|private|unlisted",
+      "enum": [
+        "public",
+        "private",
+        "unlisted"
+      ],
+      "type": "string"
+    },
+    "publish_at": {
+      "description": "Datetime when the video is scheduled to publish",
+      "type": "string"
+    },
+    "recording_date": {
+      "description": "Date and time when the video was recorded",
+      "type": "string"
+    },
+    "tags": {
+      "description": "Comma separated tags",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "thumbnail": {
+      "description": "Path to the thumbnail file",
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the video",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "categoryId"
+short = "g"
+type = "string"
+default = ""
+usage = "Category of the video"
+
+[[command.flag]]
+name = "containsSyntheticMedia"
+short = "M"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Whether the video contains altered or synthetic media"
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the video"
+
+[[command.flag]]
+name = "embeddable"
+short = "E"
+type = "bool"
+default = "true"
+no_opt_default = "true"
+usage = "Whether the video is embeddable"
+
+[[command.flag]]
+name = "id"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "ID of the video to update"
+required = true
+
+[[command.flag]]
+name = "language"
+short = "l"
+type = "string"
+default = ""
+usage = "Language of the video"
+
+[[command.flag]]
+name = "license"
+short = "L"
+type = "string"
+default = ""
+usage = "youtube|creativeCommon"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "playlistId"
+short = "y"
+type = "string"
+default = ""
+usage = "Playlist id of the video"
+
+[[command.flag]]
+name = "privacy"
+short = "p"
+type = "string"
+default = ""
+usage = "public|private|unlisted"
+
+[[command.flag]]
+name = "publishAt"
+short = "U"
+type = "string"
+default = ""
+usage = "Datetime when the video is scheduled to publish"
+
+[[command.flag]]
+name = "recordingDate"
+short = "D"
+type = "string"
+default = ""
+usage = "Date and time when the video was recorded"
+
+[[command.flag]]
+name = "tags"
+short = "a"
+type = "stringSlice"
+default = "[]"
+usage = "Comma separated tags"
+
+[[command.flag]]
+name = "thumbnail"
+short = "u"
+type = "string"
+default = ""
+usage = "Path to the thumbnail file"
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the video"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

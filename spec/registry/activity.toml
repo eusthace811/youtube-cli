@@ -1,0 +1,141 @@
+[[command]]
+path = "activity"
+use = "activity"
+short = "Manage YouTube activities"
+long = "Manage YouTube activities. Use this tool to list channel activities."
+runnable = true
+
+[[command]]
+path = "activity list"
+use = "list"
+short = "List activities"
+long = "List activities. Use this tool to list activities such as uploads, likes, and favorites."
+example = """
+# List my activities
+yutu activity list --for mine
+# List activities by channel ID with limit
+yutu activity list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10
+# List activities after a date in JSON format
+yutu activity list --publishedAfter 2024-01-01T00:00:00Z --output json"""
+runnable = true
+
+[command.tool]
+name = "activity-list"
+title = "List activities"
+description = "List activities. Use this tool to list activities such as uploads, likes, and favorites."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "ID of the channel",
+      "type": "string"
+    },
+    "for": {
+      "description": "home|mine",
+      "enum": [
+        "home",
+        "mine"
+      ],
+      "type": "string"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet",
+        "contentDetails"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "published_after": {
+      "description": "Filter on activities published after this date",
+      "type": "string"
+    },
+    "published_before": {
+      "description": "Filter on activities published before this date",
+      "type": "string"
+    },
+    "region_code": {
+      "description": "Display the content as seen by viewers in this country",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "ID of the channel"
+
+[[command.flag]]
+name = "for"
+short = "F"
+type = "string"
+default = ""
+usage = "home|mine"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet,contentDetails]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "publishedAfter"
+short = "a"
+type = "string"
+default = ""
+usage = "Filter on activities published after this date"
+
+[[command.flag]]
+name = "publishedBefore"
+short = "b"
+type = "string"
+default = ""
+usage = "Filter on activities published before this date"
+
+[[command.flag]]
+name = "regionCode"
+short = "r"
+type = "string"
+default = ""
+usage = "Display the content as seen by viewers in this country"

@@ -1,0 +1,149 @@
+[[command]]
+path = "abuseReport"
+use = "abuseReport"
+short = "Manage YouTube abuse reports"
+long = "Manage YouTube abuse reports. Use this tool to report abusive content on YouTube."
+runnable = true
+
+[[command]]
+path = "abuseReport insert"
+use = "insert"
+short = "Create an abuse report"
+long = "Create an abuse report. Use this tool to report abusive content on YouTube such as spam, harassment, or violent content."
+example = """
+# Report a video as spam
+yutu abuseReport insert --abuseTypes spam --subjectId VIDEO_ID --subjectTypeId video --description "This video is spam"
+# Report a comment as harassment
+yutu abuseReport insert --abuseTypes harassment --subjectId COMMENT_ID --subjectTypeId comment --description "Harassment in comment""""
+runnable = true
+
+[command.tool]
+name = "abuseReport-insert"
+title = "Create an abuse report"
+description = "Create an abuse report. Use this tool to report abusive content on YouTube such as spam, harassment, or violent content."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "abuse_types": {
+      "description": "Abuse type IDs (e.g., spam, harassment)",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "description": {
+      "description": "Description of the abuse",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet"
+      ],
+      "description": "Parts to include in the response",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "related_entity_id": {
+      "description": "ID of a related entity",
+      "type": "string"
+    },
+    "subject_id": {
+      "description": "ID of the subject being reported",
+      "type": "string"
+    },
+    "subject_type_id": {
+      "description": "Type ID of the subject (e.g., video, comment, channel)",
+      "type": "string"
+    },
+    "subject_url": {
+      "description": "URL of the subject being reported",
+      "type": "string"
+    }
+  },
+  "required": [
+    "abuse_types",
+    "subject_id",
+    "subject_type_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "abuseTypes"
+short = "a"
+type = "stringSlice"
+default = "[]"
+usage = "Abuse type IDs (e.g., spam, harassment)"
+required = true
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the abuse"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet]"
+usage = "Parts to include"
+
+[[command.flag]]
+name = "relatedEntityId"
+short = "r"
+type = "string"
+default = ""
+usage = "ID of a related entity"
+
+[[command.flag]]
+name = "subjectId"
+short = "s"
+type = "string"
+default = ""
+usage = "ID of the subject being reported"
+required = true
+
+[[command.flag]]
+name = "subjectTypeId"
+short = "t"
+type = "string"
+default = ""
+usage = "Type ID of the subject (e.g., video, comment, channel)"
+required = true
+
+[[command.flag]]
+name = "subjectUrl"
+short = "u"
+type = "string"
+default = ""
+usage = "URL of the subject being reported"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

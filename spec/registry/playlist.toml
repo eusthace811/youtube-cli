@@ -1,0 +1,478 @@
+[[command]]
+path = "playlist"
+use = "playlist"
+short = "Manage YouTube playlists"
+long = "Manage YouTube playlists. Use this tool to list, create, update, or delete playlists."
+runnable = true
+
+[[command]]
+path = "playlist delete"
+use = "delete"
+short = "Delete playlists"
+long = "Delete playlists. Use this tool to delete playlists by IDs."
+example = """
+# Delete a playlist by ID
+yutu playlist delete --ids PLxxxx
+# Delete multiple playlists
+yutu playlist delete --ids PLxxx1,PLxxx2"""
+runnable = true
+
+[command.tool]
+name = "playlist-delete"
+title = "Delete playlists"
+description = "Delete playlists. Use this tool to delete playlists by IDs."
+effect = "destructive"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the playlists to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the playlists to delete"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "playlist insert"
+use = "insert"
+short = "Create a playlist"
+long = "Create a playlist. Use this tool to create a playlist."
+example = """
+# Create a public playlist
+yutu playlist insert --title 'My Playlist' --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --privacy public
+# Create a private playlist with description
+yutu playlist insert --title 'Tutorial Series' --channelId UC_x5X --privacy private --description 'My tutorials'
+# Create an unlisted playlist with tags
+yutu playlist insert --title 'Music' --channelId UC_x5X --privacy unlisted --tags 'music,pop'"""
+runnable = true
+
+[command.tool]
+name = "playlist-insert"
+title = "Create a playlist"
+description = "Create a playlist. Use this tool to create a playlist."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "Channel id of the playlist",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the playlist",
+      "type": "string"
+    },
+    "language": {
+      "description": "Language of the playlist",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "privacy": {
+      "description": "public|private|unlisted",
+      "enum": [
+        "public",
+        "private",
+        "unlisted"
+      ],
+      "type": "string"
+    },
+    "tags": {
+      "description": "Comma separated tags",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "title": {
+      "description": "Title of the playlist",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "channel_id",
+    "privacy"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "Channel id of the playlist"
+required = true
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the playlist"
+
+[[command.flag]]
+name = "language"
+short = "l"
+type = "string"
+default = ""
+usage = "Language of the playlist"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "privacy"
+short = "p"
+type = "string"
+default = ""
+usage = "public|private|unlisted"
+required = true
+
+[[command.flag]]
+name = "tags"
+short = "a"
+type = "stringSlice"
+default = "[]"
+usage = "Comma separated tags"
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the playlist"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "playlist list"
+use = "list"
+short = "List playlists"
+long = "List playlists. Use this tool to list playlists."
+example = """
+# List my playlists
+yutu playlist list --mine
+# List playlists by channel ID with limit
+yutu playlist list --channelId UC_x5XG1OV2P6uZZ5FSM9Ttw --maxResults 10
+# List specific playlists in JSON format
+yutu playlist list --ids PLxxx1,PLxxx2 --output json"""
+runnable = true
+
+[command.tool]
+name = "playlist-list"
+title = "List playlists"
+description = "List playlists. Use this tool to list playlists."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "Return the playlists owned by the specified channel id",
+      "type": "string"
+    },
+    "hl": {
+      "description": "Return content in specified language",
+      "type": "string"
+    },
+    "ids": {
+      "description": "Return the playlists with the given Ids for Stubby or Apiary",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "mine": {
+      "description": "Return the playlists owned by the authenticated user",
+      "type": "boolean"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "on_behalf_of_content_owner_channel": {
+      "description": "YouTube channel ID linked to the content owner",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "Return the playlists owned by the specified channel id"
+
+[[command.flag]]
+name = "hl"
+short = "l"
+type = "string"
+default = ""
+usage = "Return content in specified language"
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "Return the playlists with the given Ids for Stubby or Apiary"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "mine"
+short = "M"
+type = "bool"
+default = "true"
+no_opt_default = "true"
+usage = "Return the playlists owned by the authenticated user"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "onBehalfOfContentOwnerChannel"
+short = "B"
+type = "string"
+default = ""
+usage = "YouTube channel ID linked to the content owner"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet,status]"
+usage = "Comma separated parts"
+
+[[command]]
+path = "playlist update"
+use = "update"
+short = "Update a playlist"
+long = "Update a playlist. Use this tool to update a playlist."
+example = """
+# Update playlist title
+yutu playlist update --id PLxxx --title 'Updated Title'
+# Update playlist description and privacy
+yutu playlist update --id PLxxx --description 'New description' --privacy public
+# Update playlist tags
+yutu playlist update --id PLxxx --tags 'music,pop,2024'"""
+runnable = true
+
+[command.tool]
+name = "playlist-update"
+title = "Update a playlist"
+description = "Update a playlist. Use this tool to update a playlist."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "description": {
+      "description": "Description of the playlist",
+      "type": "string"
+    },
+    "ids": {
+      "description": "ID of the playlist to update",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "language": {
+      "description": "Language of the playlist",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "privacy": {
+      "description": "public|private|unlisted",
+      "enum": [
+        "public",
+        "private",
+        "unlisted"
+      ],
+      "type": "string"
+    },
+    "tags": {
+      "description": "Comma separated tags",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "title": {
+      "description": "Title of the playlist",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the playlist"
+
+[[command.flag]]
+name = "id"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "ID of the playlist to update"
+required = true
+
+[[command.flag]]
+name = "language"
+short = "l"
+type = "string"
+default = ""
+usage = "Language of the playlist"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "privacy"
+short = "p"
+type = "string"
+default = ""
+usage = "public|private|unlisted"
+
+[[command.flag]]
+name = "tags"
+short = "a"
+type = "stringSlice"
+default = "[]"
+usage = "Comma separated tags"
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the playlist"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

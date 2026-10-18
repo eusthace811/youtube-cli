@@ -1,0 +1,55 @@
+# Supply-chain and no-telemetry gates. `cargo deny check` must pass on every PR.
+
+[graph]
+all-features = true
+
+[advisories]
+version = 2
+yanked = "deny"
+ignore = []
+
+[licenses]
+version = 2
+allow = [
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "MIT",
+    "MIT-0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Unicode-3.0",
+    "Zlib",
+    "CDLA-Permissive-2.0",
+]
+confidence-threshold = 0.9
+
+[bans]
+multiple-versions = "allow"
+wildcards = "deny"
+allow-wildcard-paths = true
+deny = [
+    { crate = "opentelemetry", reason = "no telemetry ships in yutu-rs" },
+    { crate = "opentelemetry_sdk", reason = "no telemetry ships in yutu-rs" },
+    { crate = "opentelemetry-otlp", reason = "no telemetry ships in yutu-rs" },
+    { crate = "opentelemetry-http", reason = "no telemetry ships in yutu-rs" },
+    { crate = "opentelemetry-semantic-conventions", reason = "no telemetry ships in yutu-rs" },
+    { crate = "opentelemetry-stdout", reason = "no telemetry ships in yutu-rs" },
+    { crate = "tracing-opentelemetry", reason = "no telemetry ships in yutu-rs" },
+    { crate = "sentry", reason = "no telemetry ships in yutu-rs" },
+    { crate = "sentry-core", reason = "no telemetry ships in yutu-rs" },
+    { crate = "sentry-tracing", reason = "no telemetry ships in yutu-rs" },
+    { crate = "posthog-rs", reason = "no telemetry ships in yutu-rs" },
+    { crate = "posthog", reason = "no telemetry ships in yutu-rs" },
+    { crate = "segment", reason = "no telemetry ships in yutu-rs" },
+    { crate = "analytics", reason = "no telemetry ships in yutu-rs" },
+    { crate = "openssl-sys", reason = "TLS is rustls only" },
+    { crate = "openssl", reason = "TLS is rustls only" },
+    { crate = "native-tls", reason = "TLS is rustls only" },
+]
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []

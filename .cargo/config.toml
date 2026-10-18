@@ -1,0 +1,5 @@
+# Build stamps shown by `yutu version`. Release CI overrides them.
+[env]
+YUTU_VERSION = "v0.11.0"
+YUTU_COMMIT_DATE = "2026-10-15T00:00:00Z"
+YUTU_BUILDER = "Gopher"

@@ -1,0 +1,34 @@
+[[command]]
+path = "i18nRegion"
+use = "i18nRegion"
+short = "Manage YouTube i18n regions"
+long = "Manage YouTube i18n regions. Use this tool to list available internationalization regions."
+runnable = true
+
+[[command]]
+path = "i18nRegion list"
+use = "list"
+short = "List i18n regions"
+long = "List i18n regions. Use this tool to list available internationalization regions."
+runnable = true
+
+[[command.flag]]
+name = "hl"
+short = "l"
+type = "string"
+default = ""
+usage = "Host language"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"

@@ -1,0 +1,31 @@
+[workspace]
+resolver = "3"
+members = ["crates/*", "xtask"]
+default-members = ["crates/yutu"]
+
+[workspace.package]
+version = "0.11.0"
+edition = "2024"
+license = "Apache-2.0"
+rust-version = "1.99.1"
+repository = "https://github.com/eat-pray-ai/yutu"
+
+[workspace.dependencies]
+yutu-api = { path = "crates/yutu-api" }
+yutu-auth = { path = "crates/yutu-auth" }
+yutu-core = { path = "crates/yutu-core" }
+yutu-mcp = { path = "crates/yutu-mcp" }
+yutu-agent = { path = "crates/yutu-agent" }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+toml = "0.9"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+strip = true
+panic = "abort"
+opt-level = 3
+
+[profile.dev]
+debug = 1

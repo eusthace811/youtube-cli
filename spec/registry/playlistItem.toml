@@ -1,0 +1,485 @@
+[[command]]
+path = "playlistItem"
+use = "playlistItem"
+short = "Manage YouTube playlist items"
+long = "Manage YouTube playlist items. Use this tool to list items in a playlist, add new items, update items, or remove items."
+runnable = true
+
+[[command]]
+path = "playlistItem delete"
+use = "delete"
+short = "Delete playlist items"
+long = "Delete playlist items. Use this tool to delete playlist items by IDs."
+example = """
+# Delete a playlist item by ID
+yutu playlistItem delete --ids abc123
+# Delete multiple playlist items
+yutu playlistItem delete --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "playlistItem-delete"
+title = "Delete playlist items"
+description = "Delete playlist items. Use this tool to delete playlist items by IDs."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the playlist items to delete",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the playlist items to delete"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "playlistItem insert"
+use = "insert"
+short = "Add a playlist item"
+long = "Add a playlist item. Use this tool to add a playlist item to a playlist."
+example = """
+# Add a video to a playlist
+yutu playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9WgXcQ
+# Add a video to a playlist with privacy setting
+yutu playlistItem insert --kind video --playlistId PLxxx --channelId UC_x5X --kVideoId dQw4w9 --privacy public"""
+runnable = true
+
+[command.tool]
+name = "playlistItem-insert"
+title = "Add a playlist item"
+description = "Add a playlist item. Use this tool to add a playlist item to a playlist."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "channel_id": {
+      "description": "ID that YouTube uses to uniquely identify the user that added the item to the playlist",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the playlist item",
+      "type": "string"
+    },
+    "k_channel_id": {
+      "description": "ID of the channel if kind is channel",
+      "type": "string"
+    },
+    "k_playlist_id": {
+      "description": "ID of the playlist if kind is playlist",
+      "type": "string"
+    },
+    "k_video_id": {
+      "description": "ID of the video if kind is video",
+      "type": "string"
+    },
+    "kind": {
+      "description": "video|channel|playlist",
+      "enum": [
+        "video",
+        "channel",
+        "playlist"
+      ],
+      "type": "string"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "playlist_id": {
+      "description": "The id that YouTube uses to uniquely identify the playlist that the item is in",
+      "type": "string"
+    },
+    "privacy": {
+      "description": "public|private|unlisted",
+      "enum": [
+        "public",
+        "private",
+        "unlisted"
+      ],
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the playlist item",
+      "type": "string"
+    }
+  },
+  "required": [
+    "kind",
+    "playlist_id",
+    "channel_id"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "channelId"
+short = "c"
+type = "string"
+default = ""
+usage = "ID that YouTube uses to uniquely identify the user that added the item to the playlist"
+required = true
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the playlist item"
+
+[[command.flag]]
+name = "kChannelId"
+short = "C"
+type = "string"
+default = ""
+usage = "ID of the channel if kind is channel"
+
+[[command.flag]]
+name = "kPlaylistId"
+short = "Y"
+type = "string"
+default = ""
+usage = "ID of the playlist if kind is playlist"
+
+[[command.flag]]
+name = "kVideoId"
+short = "V"
+type = "string"
+default = ""
+usage = "ID of the video if kind is video"
+
+[[command.flag]]
+name = "kind"
+short = "k"
+type = "string"
+default = ""
+usage = "video|channel|playlist"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "playlistId"
+short = "y"
+type = "string"
+default = ""
+usage = "The id that YouTube uses to uniquely identify the playlist that the item is in"
+required = true
+
+[[command.flag]]
+name = "privacy"
+short = "p"
+type = "string"
+default = ""
+usage = "public|private|unlisted"
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the playlist item"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "playlistItem list"
+use = "list"
+short = "List playlist items"
+long = "List playlist items. Use this tool to list playlist items."
+example = """
+# List items in a playlist
+yutu playlistItem list --playlistId PLxxx
+# List playlist items with limit in JSON format
+yutu playlistItem list --playlistId PLxxx --maxResults 20 --output json
+# List specific playlist items by IDs
+yutu playlistItem list --ids abc123,def456"""
+runnable = true
+
+[command.tool]
+name = "playlistItem-list"
+title = "List playlist items"
+description = "List playlist items. Use this tool to list playlist items."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "ids": {
+      "description": "IDs of the playlist items to list",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "playlist_id": {
+      "description": "Return the playlist items within the given playlist",
+      "type": "string"
+    },
+    "video_id": {
+      "description": "Return the playlist items associated with the given video id",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "ids"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "IDs of the playlist items to list"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet,status]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "playlistId"
+short = "y"
+type = "string"
+default = ""
+usage = "Return the playlist items within the given playlist"
+
+[[command.flag]]
+name = "videoId"
+short = "v"
+type = "string"
+default = ""
+usage = "Return the playlist items associated with the given video id"
+
+[[command]]
+path = "playlistItem update"
+use = "update"
+short = "Update a playlist item"
+long = "Update a playlist item. Use this tool to update a playlist item."
+example = """
+# Update playlist item title
+yutu playlistItem update --id abc123 --title 'Updated Title'
+# Update playlist item description and privacy
+yutu playlistItem update --id abc123 --description 'New description' --privacy public
+# Update playlist item privacy with JSON output
+yutu playlistItem update --id abc123 --privacy private --output json"""
+runnable = true
+
+[command.tool]
+name = "playlistItem-update"
+title = "Update a playlist item"
+description = "Update a playlist item. Use this tool to update a playlist item."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "description": {
+      "description": "Description of the playlist item",
+      "type": "string"
+    },
+    "ids": {
+      "description": "ID of the playlist item to update",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "on_behalf_of_content_owner": {
+      "description": "ID of the content owner, for YouTube content partners",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "privacy": {
+      "description": "public|private|unlisted",
+      "enum": [
+        "public",
+        "private",
+        "unlisted"
+      ],
+      "type": "string"
+    },
+    "title": {
+      "description": "Title of the playlist item",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ids"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "description"
+short = "d"
+type = "string"
+default = ""
+usage = "Description of the playlist item"
+
+[[command.flag]]
+name = "id"
+short = "i"
+type = "stringSlice"
+default = "[]"
+usage = "ID of the playlist item to update"
+required = true
+
+[[command.flag]]
+name = "onBehalfOfContentOwner"
+short = "b"
+type = "string"
+default = ""
+usage = "ID of the content owner, for YouTube content partners"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "privacy"
+short = "p"
+type = "string"
+default = ""
+usage = "public|private|unlisted"
+
+[[command.flag]]
+name = "title"
+short = "t"
+type = "string"
+default = ""
+usage = "Title of the playlist item"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"

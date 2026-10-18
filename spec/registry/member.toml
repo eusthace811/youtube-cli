@@ -1,0 +1,117 @@
+[[command]]
+path = "member"
+use = "member"
+short = "Manage YouTube channel members"
+long = "Manage YouTube channel members. Use this tool to list information about channel members."
+runnable = true
+
+[[command]]
+path = "member list"
+use = "list"
+short = "List channel members"
+long = "List channel members. Use this tool to list information about channel members."
+example = """
+# List all current members
+yutu member list --mode all_current
+# List members with limit
+yutu member list --maxResults 10"""
+runnable = true
+
+[command.tool]
+name = "member-list"
+title = "List channel members"
+description = "List channel members. Use this tool to list information about channel members."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "has_access_to_level": {
+      "description": "Filter members in the results set to the ones that have access to a level",
+      "type": "string"
+    },
+    "max_results": {
+      "default": 5,
+      "description": "The maximum number of items that should be returned, 0 for no limit",
+      "minimum": 0,
+      "type": "number"
+    },
+    "member_channel_id": {
+      "description": "Comma separated list of channel Ids. Only data about members that are part of this list will be included",
+      "type": "string"
+    },
+    "mode": {
+      "default": "all_current",
+      "description": "listMembersModeUnknown, updates, or all_current",
+      "enum": [
+        "listMembersModeUnknown",
+        "updates",
+        "all_current"
+      ],
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "hasAccessToLevel"
+short = "a"
+type = "string"
+default = ""
+usage = "Filter members in the results set to the ones that have access to a level"
+
+[[command.flag]]
+name = "maxResults"
+short = "n"
+type = "int64"
+default = "5"
+usage = "The maximum number of items that should be returned, 0 for no limit"
+
+[[command.flag]]
+name = "memberChannelId"
+short = "c"
+type = "string"
+default = ""
+usage = "Comma separated list of channel Ids. Only data about members that are part of this list will be included"
+
+[[command.flag]]
+name = "mode"
+short = "m"
+type = "string"
+default = "all_current"
+usage = "listMembersModeUnknown, updates, or all_current"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet]"
+usage = "Comma separated parts"

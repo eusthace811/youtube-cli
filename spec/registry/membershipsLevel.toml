@@ -1,0 +1,64 @@
+[[command]]
+path = "membershipsLevel"
+use = "membershipsLevel"
+short = "Manage YouTube membership levels"
+long = "Manage YouTube membership levels. Use this tool to list membership levels."
+runnable = true
+
+[[command]]
+path = "membershipsLevel list"
+use = "list"
+short = "List membership levels"
+long = "List membership levels. Use this tool to list membership levels."
+example = """
+# List membership levels in JSON format
+yutu membershipsLevel list --output json"""
+runnable = true
+
+[command.tool]
+name = "membershipsLevel-list"
+title = "List membership levels"
+description = "List membership levels. Use this tool to list membership levels."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "id",
+        "snippet"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[id,snippet]"
+usage = "Comma separated parts"

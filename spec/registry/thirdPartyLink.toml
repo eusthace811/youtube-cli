@@ -1,0 +1,428 @@
+[[command]]
+path = "thirdPartyLink"
+use = "thirdPartyLink"
+short = "Manage YouTube third-party links"
+long = "Manage YouTube third-party links. Use this tool to list, insert, update, or delete links between a YouTube channel and a third-party service."
+runnable = true
+
+[[command]]
+path = "thirdPartyLink delete"
+use = "delete"
+short = "Delete third-party links"
+long = "Delete third-party links. Use this tool to delete third-party links."
+example = """
+# Delete a third-party link
+yutu thirdPartyLink delete --linkingToken abc123 --type channelToStoreLink"""
+runnable = true
+
+[command.tool]
+name = "thirdPartyLink-delete"
+title = "Delete third-party links"
+description = "Delete third-party links. Use this tool to delete third-party links."
+effect = "destructive"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "external_channel_id": {
+      "description": "Channel ID to which changes should be applied, for delegation",
+      "type": "string"
+    },
+    "linking_token": {
+      "description": "Linking token that identifies the YouTube account and channel",
+      "type": "string"
+    },
+    "type": {
+      "description": "Type of the link: linkUnspecified|channelToStoreLink",
+      "enum": [
+        "linkUnspecified",
+        "channelToStoreLink"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "linking_token",
+    "type"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "externalChannelId"
+short = "e"
+type = "string"
+default = ""
+usage = "Channel ID to which changes should be applied, for delegation"
+
+[[command.flag]]
+name = "linkingToken"
+short = "l"
+type = "string"
+default = ""
+usage = "Linking token that identifies the YouTube account and channel"
+required = true
+
+[[command.flag]]
+name = "type"
+short = "t"
+type = "string"
+default = ""
+usage = "Type of the link: linkUnspecified|channelToStoreLink"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "thirdPartyLink insert"
+use = "insert"
+short = "Create a third-party link"
+long = "Create a third-party link. Use this tool to create a third-party link."
+example = """
+# Insert a new third-party link
+yutu thirdPartyLink insert --linkingToken abc123 --type channelToStoreLink --linkStatus pending --parts snippet,status"""
+runnable = true
+
+[command.tool]
+name = "thirdPartyLink-insert"
+title = "Create a third-party link"
+description = "Create a third-party link. Use this tool to create a third-party link."
+effect = "write"
+idempotent = false
+input_schema = """
+{
+  "properties": {
+    "external_channel_id": {
+      "description": "Channel ID to which changes should be applied, for delegation",
+      "type": "string"
+    },
+    "link_status": {
+      "description": "Status of the link: unknown|failed|pending|linked",
+      "enum": [
+        "unknown",
+        "failed",
+        "pending",
+        "linked"
+      ],
+      "type": "string"
+    },
+    "linking_token": {
+      "description": "Linking token that identifies the YouTube account and channel",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "Type of the link: linkUnspecified|channelToStoreLink",
+      "enum": [
+        "linkUnspecified",
+        "channelToStoreLink"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "linking_token",
+    "type"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "externalChannelId"
+short = "e"
+type = "string"
+default = ""
+usage = "Channel ID to which changes should be applied, for delegation"
+
+[[command.flag]]
+name = "linkStatus"
+short = "s"
+type = "string"
+default = ""
+usage = "Status of the link: unknown|failed|pending|linked"
+
+[[command.flag]]
+name = "linkingToken"
+short = "l"
+type = "string"
+default = ""
+usage = "Linking token that identifies the YouTube account and channel"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet,status]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "type"
+short = "t"
+type = "string"
+default = ""
+usage = "Type of the link: linkUnspecified|channelToStoreLink"
+required = true
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
+
+[[command]]
+path = "thirdPartyLink list"
+use = "list"
+short = "List third-party links"
+long = "List third-party links. Use this tool to list links between a YouTube channel and a third-party service."
+example = """
+# List all third-party links
+yutu thirdPartyLink list --parts snippet,status
+# List links by linking token
+yutu thirdPartyLink list --linkingToken abc123 --parts snippet,status
+# List links by type
+yutu thirdPartyLink list --type channelToStoreLink --parts snippet,status"""
+runnable = true
+
+[command.tool]
+name = "thirdPartyLink-list"
+title = "List third-party links"
+description = "List third-party links. Use this tool to list links between a YouTube channel and a third-party service."
+effect = "read"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "external_channel_id": {
+      "description": "Channel ID to which changes should be applied, for delegation",
+      "type": "string"
+    },
+    "linking_token": {
+      "description": "Linking token that identifies the YouTube account and channel",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|table",
+      "enum": [
+        "json",
+        "yaml",
+        "table"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "Type of the link: linkUnspecified|channelToStoreLink",
+      "enum": [
+        "linkUnspecified",
+        "channelToStoreLink"
+      ],
+      "type": "string"
+    }
+  },
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "externalChannelId"
+short = "e"
+type = "string"
+default = ""
+usage = "Channel ID to which changes should be applied, for delegation"
+
+[[command.flag]]
+name = "linkingToken"
+short = "l"
+type = "string"
+default = ""
+usage = "Linking token that identifies the YouTube account and channel"
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = "table"
+usage = "json|yaml|table"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet,status]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "type"
+short = "t"
+type = "string"
+default = ""
+usage = "Type of the link: linkUnspecified|channelToStoreLink"
+
+[[command]]
+path = "thirdPartyLink update"
+use = "update"
+short = "Update a third-party link"
+long = "Update a third-party link. Use this tool to update the status or type of a link between a YouTube channel and a third-party service."
+example = """
+# Update a third-party link status
+yutu thirdPartyLink update --linkingToken abc123 --linkStatus linked --parts snippet,status
+# Update a third-party link type
+yutu thirdPartyLink update --linkingToken abc123 --type channelToStoreLink --parts snippet,status"""
+runnable = true
+
+[command.tool]
+name = "thirdPartyLink-update"
+title = "Update a third-party link"
+description = "Update a third-party link. Use this tool to update the status or type of a link between a YouTube channel and a third-party service."
+effect = "write"
+idempotent = true
+input_schema = """
+{
+  "properties": {
+    "external_channel_id": {
+      "description": "Channel ID to which changes should be applied, for delegation",
+      "type": "string"
+    },
+    "link_status": {
+      "description": "Status of the link: unknown|failed|pending|linked",
+      "enum": [
+        "unknown",
+        "failed",
+        "pending",
+        "linked"
+      ],
+      "type": "string"
+    },
+    "linking_token": {
+      "description": "Linking token that identifies the YouTube account and channel",
+      "type": "string"
+    },
+    "output": {
+      "default": "json",
+      "description": "json|yaml|silent",
+      "enum": [
+        "json",
+        "yaml",
+        "silent"
+      ],
+      "type": "string"
+    },
+    "parts": {
+      "default": [
+        "snippet",
+        "status"
+      ],
+      "description": "Comma separated parts",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "Type of the link: linkUnspecified|channelToStoreLink",
+      "enum": [
+        "linkUnspecified",
+        "channelToStoreLink"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "linking_token"
+  ],
+  "type": "object"
+}"""
+
+[[command.flag]]
+name = "externalChannelId"
+short = "e"
+type = "string"
+default = ""
+usage = "Channel ID to which changes should be applied, for delegation"
+
+[[command.flag]]
+name = "linkStatus"
+short = "s"
+type = "string"
+default = ""
+usage = "Status of the link: unknown|failed|pending|linked"
+
+[[command.flag]]
+name = "linkingToken"
+short = "l"
+type = "string"
+default = ""
+usage = "Linking token that identifies the YouTube account and channel"
+required = true
+
+[[command.flag]]
+name = "output"
+short = "o"
+type = "string"
+default = ""
+usage = "json|yaml|silent"
+
+[[command.flag]]
+name = "parts"
+short = "p"
+type = "stringSlice"
+default = "[snippet,status]"
+usage = "Comma separated parts"
+
+[[command.flag]]
+name = "type"
+short = "t"
+type = "string"
+default = ""
+usage = "Type of the link: linkUnspecified|channelToStoreLink"
+
+[[command.flag]]
+name = "yes"
+type = "bool"
+default = "false"
+no_opt_default = "true"
+usage = "Confirm the operation"
