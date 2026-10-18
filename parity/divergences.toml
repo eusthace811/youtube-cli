@@ -1,2 +1,93 @@
-# Appendix E of the plan. The differ accepts a difference only when the case
-# names one of these ids, and only in the listed fields.
+# Appendix E of the plan. The differ accepts a difference only for a case
+# that names one of these ids, and only in the listed fields. Each entry
+# also names the PR and the test that proves the new behavior.
+
+[divergence.E1]
+summary = "caption download is confirmation-gated and writes only through the sandbox, so it can never overwrite a token or secret"
+prs = ["R4", "R6"]
+fields = ["requests", "stdout", "stderr", "exit", "files"]
+proof = "cli.caption.download.*.yes cases match Go's golden for the ungated command; crates/yutu-core tests refuse youtube.token.json"
+
+[divergence.E2]
+summary = "a login triggered during stdio MCP prints only to stderr and never reads stdin"
+prs = ["R3"]
+fields = []
+proof = "r3 lane 10 and crates/yutu-auth flow tests"
+
+[divergence.E3]
+summary = "every token refresh is persisted atomically"
+prs = ["R3"]
+fields = []
+proof = "crates/yutu-auth/tests/flow.rs refresh persistence test"
+
+[divergence.E4]
+summary = "the HTTP token verifier posts the token and supports an audience allowlist"
+prs = ["R8"]
+fields = ["requests"]
+proof = "crates/yutu-mcp/tests/http.rs and r8 lanes 9 and 10"
+
+[divergence.E5]
+summary = "stdio MCP traffic is logged only at DEBUG"
+prs = ["R7"]
+fields = ["stderr"]
+proof = "r7 lane 8"
+
+[divergence.E6]
+summary = "video://category/{hl} honors {hl}"
+prs = ["R7"]
+fields = ["requests"]
+proof = "mcp.resource.video.category.ja sends hl=ja; r7 lane 5"
+
+[divergence.E7]
+summary = "uploads above 16 MiB use resumable 8 MiB chunks streamed from disk"
+prs = ["R6"]
+fields = []
+proof = "r6 lanes 8 and 9"
+
+[divergence.E8]
+summary = "the HTTP MCP server sets timeouts and rejects non-loopback Origin headers"
+prs = ["R8"]
+fields = []
+proof = "crates/yutu-mcp/tests/http.rs and r8 lanes 5 and 7"
+
+[divergence.E9]
+summary = "the agent cannot approve its own writes; a human approves each one"
+prs = ["R9", "R10"]
+fields = []
+proof = "crates/yutu-agent/tests/confirm.rs"
+
+[divergence.E10]
+summary = "the agent reads API keys from environment variables when the flag is absent"
+prs = ["R9"]
+fields = []
+proof = "r9 lane 9"
+
+[divergence.E11]
+summary = "agent web launchers require a per-launch bearer token"
+prs = ["R10"]
+fields = []
+proof = "crates/yutu-agent/tests/auth.rs"
+
+[divergence.E12]
+summary = "--otel_to_cloud is accepted and ignored with a notice"
+prs = ["R10"]
+fields = []
+proof = "r10 lane 8"
+
+[divergence.E13]
+summary = "the skill generator lists only real tools and marks caption download as writing a file"
+prs = ["R11"]
+fields = []
+proof = "xtask/tests/skillgen.rs"
+
+[divergence.E14]
+summary = "the Docker image documents how to reach --mode http"
+prs = ["R11"]
+fields = []
+proof = "r11 lane 5"
+
+[divergence.E15]
+summary = "install.sh verifies checksums and attestations and installs the skill only on request"
+prs = ["R11"]
+fields = []
+proof = "xtask/tests/install.rs"

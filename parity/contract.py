@@ -80,12 +80,19 @@ def main():
     ap.add_argument("--allow", default="", help="contract paths accepted as Appendix E differences, as id=path-prefix pairs")
     ap.add_argument("--help-only", action="store_true", help="compare only the --help texts against golden")
     args = ap.parse_args()
+    allowed = [tuple(x.split("=", 1)) for x in args.allow.split(",") if x]
     if args.help_only:
         found = diff(json.loads((GOLDEN / "help.json").read_text()), help_texts(args.bin), "$help")
+        rest = []
         for d in found:
-            print(d)
-        print(f"help: {len(found)} differences")
-        sys.exit(1 if found else 0)
+            hit = next((i for i, prefix in allowed if d.startswith(prefix)), None)
+            if hit:
+                print(f"registered {hit}: {d[:160]}")
+            else:
+                rest.append(d)
+                print(d)
+        print(f"help: {len(rest)} differences")
+        sys.exit(1 if rest else 0)
     contract = mcp_contract(args.bin)
     helps = help_texts(args.bin)
     if not args.compare:
@@ -94,7 +101,6 @@ def main():
         tools = contract["tools"]["result"]["tools"]
         print(f"contract: {len(tools)} tools, {sum(len(t['inputSchema'].get('properties', {})) for t in tools)} properties, {len(helps)} help texts")
         return
-    allowed = [tuple(x.split("=", 1)) for x in args.allow.split(",") if x]
     found = diff(json.loads(Path(args.compare).read_text()), contract)
     golden_help = json.loads((GOLDEN / "help.json").read_text())
     found += diff(golden_help, helps, "$help")

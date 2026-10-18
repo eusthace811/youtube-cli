@@ -282,11 +282,29 @@ def mcp_cases():
     return cases
 
 
+def tag_divergences(cases):
+    """Marks the cases a registered Appendix E divergence changes, and adds the
+    head-only cases that prove the new behavior against Go's golden."""
+    extra = []
+    for c in cases:
+        cid = c["id"]
+        if cid.startswith("cli.caption.download.") or cid.startswith("mcp.caption-download."):
+            c["divergences"] = ["E1"]
+            if cid.startswith("cli.") and not cid.endswith((".help", ".no-yes", ".tty-decline", ".tty-accept")):
+                extra.append({**c, "id": cid + ".yes", "argv": c["argv"] + ["--yes"], "golden_from": cid, "divergences": []})
+        if cid == "mcp.resource.video.category.ja":
+            c["divergences"] = ["E6"]
+        if c.get("surface") == "mcp":
+            c["divergences"] = sorted(set(c.get("divergences", [])) | {"E5"})
+    return cases + extra
+
+
 def main():
     out = PARITY / "corpus"
     out.mkdir(exist_ok=True)
     total = 0
     for name, cases in (("core", core_cases()), ("cli", cli_cases()), ("mcp", mcp_cases())):
+        cases = tag_divergences(cases)
         (out / f"{name}.json").write_text(json.dumps(cases, indent=1, ensure_ascii=False) + "\n")
         total += len(cases)
         print(f"{name}: {len(cases)} cases")
