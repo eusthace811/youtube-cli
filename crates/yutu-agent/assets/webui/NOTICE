@@ -1,0 +1,8 @@
+ADK Web UI (Agent Development Kit Dev UI)
+Copyright 2026 Google LLC
+
+distr/ is the prebuilt Angular bundle of google/adk-web as embedded by the
+Agent Development Kit for Go, google.golang.org/adk/v2 v2.5.0, at
+cmd/launcher/web/webui/distr. It is copied byte for byte and is licensed
+under the Apache License, Version 2.0 (see LICENSE in this directory).
+yutu-rs serves it unmodified at /ui/.
