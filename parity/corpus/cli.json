@@ -991,6 +991,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1021,6 +1024,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1051,6 +1057,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1081,6 +1090,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1111,6 +1123,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1143,6 +1158,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1175,6 +1193,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1207,6 +1228,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1239,6 +1263,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1271,6 +1298,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1303,6 +1333,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1335,6 +1368,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1367,6 +1403,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1399,6 +1438,9 @@
   "collect": [
    "out.srt",
    "val-file"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -1435,7 +1477,10 @@
    "status": 403,
    "message": "The request is not allowed.",
    "reason": "forbidden"
-  }
+  },
+  "divergences": [
+   "E1"
+  ]
  },
  {
   "id": "cli.caption.download.help",
@@ -1445,6 +1490,9 @@
    "caption",
    "download",
    "--help"
+  ],
+  "divergences": [
+   "E1"
   ]
  },
  {
@@ -26528,5 +26576,524 @@
    "unset",
    "--help"
   ]
+ },
+ {
+  "id": "cli.caption.download.defaults.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.defaults"
+ },
+ {
+  "id": "cli.caption.download.file.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--id",
+   "id1",
+   "--file",
+   "out.srt",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.file"
+ },
+ {
+  "id": "cli.caption.download.file.short.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--id",
+   "id1",
+   "-f",
+   "out.srt",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.file.short"
+ },
+ {
+  "id": "cli.caption.download.id.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.id"
+ },
+ {
+  "id": "cli.caption.download.id.short.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "-i",
+   "id1",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.id.short"
+ },
+ {
+  "id": "cli.caption.download.onBehalfOf.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "--onBehalfOf",
+   "val-onBehalfOf",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.onBehalfOf"
+ },
+ {
+  "id": "cli.caption.download.onBehalfOf.short.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "-b",
+   "val-onBehalfOf",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.onBehalfOf.short"
+ },
+ {
+  "id": "cli.caption.download.onBehalfOfContentOwner.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "--onBehalfOfContentOwner",
+   "val-onBehalfOfContentOwner",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.onBehalfOfContentOwner"
+ },
+ {
+  "id": "cli.caption.download.onBehalfOfContentOwner.short.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "-B",
+   "val-onBehalfOfContentOwner",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.onBehalfOfContentOwner.short"
+ },
+ {
+  "id": "cli.caption.download.tfmt.sbv.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "--tfmt",
+   "sbv",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.tfmt.sbv"
+ },
+ {
+  "id": "cli.caption.download.tfmt.srt.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "--tfmt",
+   "srt",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.tfmt.srt"
+ },
+ {
+  "id": "cli.caption.download.tfmt.vtt.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "--tfmt",
+   "vtt",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.tfmt.vtt"
+ },
+ {
+  "id": "cli.caption.download.tlang.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "--tlang",
+   "val-tlang",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.tlang"
+ },
+ {
+  "id": "cli.caption.download.tlang.short.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "-l",
+   "val-tlang",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "divergences": [],
+  "golden_from": "cli.caption.download.tlang.short"
+ },
+ {
+  "id": "cli.caption.download.api.error.yes",
+  "group": "cli.caption.download",
+  "effect": "media",
+  "argv": [
+   "caption",
+   "download",
+   "--file",
+   "out.srt",
+   "--id",
+   "id1",
+   "--yes"
+  ],
+  "media": true,
+  "files": {
+   "video.mp4": {
+    "b64": "AAAAGGZ0eXBpc29tAAACAGlzb21pc28yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   },
+   "thumb.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   },
+   "caption.srt": "1\n00:00:00,000 --> 00:00:01,000\nHello\n",
+   "image.png": {
+    "b64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4//8/AAX+Av6n1qTEAAAAAElFTkSuQmCC"
+   }
+  },
+  "collect": [
+   "out.srt",
+   "val-file"
+  ],
+  "fail": {
+   "request": 1,
+   "status": 403,
+   "message": "The request is not allowed.",
+   "reason": "forbidden"
+  },
+  "divergences": [],
+  "golden_from": "cli.caption.download.api.error"
  }
 ]

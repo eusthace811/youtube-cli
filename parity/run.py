@@ -193,10 +193,12 @@ def main():
     total = 0
     differences = 0
     for case in cases:
+        if not args.compare and case.get("golden_from"):
+            continue
         result = run_case(args.bin, case, rec)
         total += 1
         if args.compare:
-            golden = json.loads((GOLDEN / f"{case['id']}.json").read_text())
+            golden = json.loads((GOLDEN / f"{case.get('golden_from', case['id'])}.json").read_text())
             found = differ.compare(golden, result, case, allowed)
             for d in found:
                 print(f"{case['id']}: {d}")
