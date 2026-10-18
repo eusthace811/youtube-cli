@@ -37,6 +37,24 @@ pub fn list(items: &[Value], indent: bool) -> String {
     out
 }
 
+/// One element of a streamed `[]*T` encoding: the separator and the item.
+/// Writing every item this way, then [`list_end`], gives [`list`]'s bytes.
+pub fn list_item(item: &Value, indent: bool, first: bool, out: &mut String) {
+    out.push_str(if first { "[" } else { "," });
+    newline(indent, 1, out);
+    write_element(item, indent, 1, out);
+}
+
+/// Closes a streamed list of `count` items.
+pub fn list_end(indent: bool, count: usize, out: &mut String) {
+    if count == 0 {
+        out.push_str("[]");
+    } else {
+        newline(indent, 0, out);
+        out.push(']');
+    }
+}
+
 /// Go's json/v2 encoding of one `*T` result.
 pub fn value(v: &Value, indent: bool) -> String {
     let mut out = String::new();
@@ -320,18 +338,28 @@ fn newline(indent: bool, depth: usize, out: &mut String) {
 /// are escaped.
 pub fn quote(s: &str, out: &mut String) {
     out.push('"');
-    for c in s.chars() {
-        match c {
-            '"' => out.push_str("\\\""),
-            '\\' => out.push_str("\\\\"),
-            '\u{08}' => out.push_str("\\b"),
-            '\u{0c}' => out.push_str("\\f"),
-            '\n' => out.push_str("\\n"),
-            '\r' => out.push_str("\\r"),
-            '\t' => out.push_str("\\t"),
-            c if (c as u32) < 0x20 => out.push_str(&format!("\\u{:04x}", c as u32)),
-            c => out.push(c),
+    let bytes = s.as_bytes();
+    let mut start = 0;
+    for (i, &b) in bytes.iter().enumerate() {
+        let esc = match b {
+            b'"' => "\\\"",
+            b'\\' => "\\\\",
+            0x08 => "\\b",
+            0x0c => "\\f",
+            b'\n' => "\\n",
+            b'\r' => "\\r",
+            b'\t' => "\\t",
+            0..0x20 => "",
+            _ => continue,
+        };
+        out.push_str(&s[start..i]);
+        if esc.is_empty() {
+            out.push_str(&format!("\\u{b:04x}"));
+        } else {
+            out.push_str(esc);
         }
+        start = i + 1;
     }
+    out.push_str(&s[start..]);
     out.push('"');
 }

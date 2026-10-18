@@ -71,6 +71,33 @@ fn every_fixture_reencodes_like_go() {
                     check(".items.json", json::list(items, false));
                     check(".items.indent.json", json::list(items, true));
                     check(".items.yaml", yaml::list(items));
+                    let streamed_yaml: String = items
+                        .iter()
+                        .map(|i| yaml::list(std::slice::from_ref(i)))
+                        .collect();
+                    check(
+                        ".items.yaml",
+                        if items.is_empty() {
+                            "[]\n".to_string()
+                        } else {
+                            streamed_yaml
+                        },
+                    );
+                    for indent in [false, true] {
+                        let mut streamed = String::new();
+                        for (n, i) in items.iter().enumerate() {
+                            json::list_item(i, indent, n == 0, &mut streamed);
+                        }
+                        json::list_end(indent, items.len(), &mut streamed);
+                        check(
+                            if indent {
+                                ".items.indent.json"
+                            } else {
+                                ".items.json"
+                            },
+                            streamed,
+                        );
+                    }
                 }
             }
         }

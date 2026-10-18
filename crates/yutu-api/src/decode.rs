@@ -62,6 +62,27 @@ fn go_type(kind: Kind) -> String {
     }
 }
 
+/// Each type's JSON field names, sorted, for exact-match lookup.
+fn field_index(ty: usize) -> &'static [(&'static str, usize)] {
+    static INDEX: std::sync::OnceLock<Vec<Vec<(&'static str, usize)>>> = std::sync::OnceLock::new();
+    &INDEX.get_or_init(|| {
+        crate::generated::TYPES
+            .iter()
+            .map(|t| {
+                let mut v: Vec<_> = t
+                    .fields
+                    .iter()
+                    .enumerate()
+                    .filter(|(_, f)| !f.skip)
+                    .map(|(i, f)| (f.json, i))
+                    .collect();
+                v.sort();
+                v
+            })
+            .collect()
+    })[ty]
+}
+
 struct StructSeed {
     ty: usize,
 }
@@ -91,10 +112,12 @@ impl<'de> Visitor<'de> for StructVisitor {
     fn visit_map<A: MapAccess<'de>>(self, mut map: A) -> Result<Struct, A::Error> {
         let mut s = Struct::new(self.ty);
         let fields = type_def(self.ty).fields;
+        let index = field_index(self.ty);
         while let Some(key) = map.next_key::<std::borrow::Cow<'de, str>>()? {
-            let idx = fields
-                .iter()
-                .position(|f| !f.skip && f.json == key)
+            let idx = index
+                .binary_search_by(|(name, _)| (*name).cmp(&key))
+                .ok()
+                .map(|i| index[i].1)
                 .or_else(|| {
                     fields
                         .iter()
