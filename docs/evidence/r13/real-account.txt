@@ -7,7 +7,9 @@ PASS  token refresh: a copy of the token with its expiry set in the past was ref
       new expiry saved, refresh token kept, file still -rw-------.
 PASS  reads: channel list --for mine, playlist list --mine, playlist list --ids.
 PASS  writes: playlist insert (private), playlist update (E18: the fixed lookup; title confirmed changed),
-      playlist delete. scripts/real-account-check.sh: "all steps succeeded".
+      playlist delete. scripts/real-account-check.sh at commit 9ab0e52, run end to end: create, wait until
+      served, rename, title confirmed "youtube-cli check (renamed)", delete, "all steps succeeded"; no
+      playlist left on the channel afterwards.
       Observed: YouTube serves a stale copy for about 3 s after a create or update; the first run updated a playlist
       created a moment earlier and got "failed to get playlist". Retried a few seconds later it succeeded, and the
       title then read back consistently in snippet.title and localized.title. The script now waits for each write.
@@ -18,3 +20,12 @@ PASS  HTTP MCP: the real access token was verified against Google's tokeninfo an
 
 Not run (they change existing channel content; left to the operator): video upload, playlistItem privacy,
 channel update through brandingSettings, caption download.
+
+Independent review of 28be684 (sixth round): production ready for the operator's daily use, with caveats;
+no Blocker or High. Its Medium (the check left its playlist behind when a step failed) is fixed in 9ab0e52:
+the script deletes the playlist on any exit and was shown to do so with a failing fake binary. Its Lows are
+addressed: the README notes the 7-day sign-in expiry while the consent screen is in Testing and the
+private-only lock on uploads from unaudited projects; this file names the passing commit. Remaining caveats,
+which change existing channel content and await the operator's approval: video upload, playlistItem privacy
+(the reviewer expects YouTube to ignore it, since an item follows its video's privacy), channel update
+through brandingSettings, caption download.
