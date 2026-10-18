@@ -1,0 +1,11 @@
+cuetype: cueTypeAd
+durationsecs: 25
+etag: etag-1
+id: id-1
+insertionoffsettimems: 8570
+walltimems: 8229
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

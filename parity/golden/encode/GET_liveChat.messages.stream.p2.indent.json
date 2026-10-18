@@ -1,0 +1,351 @@
+{
+  "etag": "etag-page-2",
+  "items": [
+    {
+      "authorDetails": {
+        "channelId": "authorDetails.channelId-20",
+        "channelUrl": "authorDetails.channelUrl-20",
+        "displayName": "authorDetails.displayName-20",
+        "profileImageUrl": "authorDetails.profileImageUrl-20"
+      },
+      "etag": "etag-20",
+      "id": "id-20",
+      "kind": "kind-20",
+      "snippet": {
+        "authorChannelId": "snippet.authorChannelId-20",
+        "displayMessage": "snippet.displayMessage-20",
+        "fanFundingEventDetails": {
+          "amountDisplayString": "snippet.fanFundingEventDetails.amountDisplayString-20",
+          "amountMicros": "159713",
+          "currency": "snippet.fanFundingEventDetails.currency-20",
+          "userComment": "snippet.fanFundingEventDetails.userComment-20"
+        },
+        "giftDetails": {
+          "altText": "snippet.giftDetails.altText-20",
+          "comboCount": 290,
+          "giftDuration": "snippet.giftDetails.giftDuration-20",
+          "giftName": "snippet.giftDetails.giftName-20",
+          "giftUrl": "snippet.giftDetails.giftUrl-20",
+          "jewelsAmount": 292,
+          "language": "snippet.giftDetails.language-20"
+        },
+        "giftMembershipReceivedDetails": {
+          "associatedMembershipGiftingMessageId": "snippet.giftMembershipReceivedDetails.associatedMembershipGiftingMessageId-20",
+          "gifterChannelId": "snippet.giftMembershipReceivedDetails.gifterChannelId-20",
+          "memberLevelName": "snippet.giftMembershipReceivedDetails.memberLevelName-20"
+        },
+        "liveChatId": "snippet.liveChatId-20",
+        "memberMilestoneChatDetails": {
+          "memberLevelName": "snippet.memberMilestoneChatDetails.memberLevelName-20",
+          "memberMonth": 306,
+          "userComment": "snippet.memberMilestoneChatDetails.userComment-20"
+        },
+        "membershipGiftingDetails": {
+          "giftMembershipsCount": 313,
+          "giftMembershipsLevelName": "snippet.membershipGiftingDetails.giftMembershipsLevelName-20"
+        },
+        "messageDeletedDetails": {
+          "deletedMessageId": "snippet.messageDeletedDetails.deletedMessageId-20"
+        },
+        "messageRetractedDetails": {
+          "retractedMessageId": "snippet.messageRetractedDetails.retractedMessageId-20"
+        },
+        "newSponsorDetails": {
+          "memberLevelName": "snippet.newSponsorDetails.memberLevelName-20"
+        },
+        "pollDetails": {
+          "metadata": {
+            "options": [
+              {
+                "optionText": "snippet.pollDetails.metadata.options[].optionText-20",
+                "tally": "159744"
+              },
+              {
+                "optionText": "snippet.pollDetails.metadata.options[].optionText-21",
+                "tally": "167663"
+              }
+            ],
+            "questionText": "snippet.pollDetails.metadata.questionText-20"
+          },
+          "status": "closed"
+        },
+        "publishedAt": "2026-03-12T12:34:50Z",
+        "superChatDetails": {
+          "amountDisplayString": "snippet.superChatDetails.amountDisplayString-20",
+          "amountMicros": "159527",
+          "currency": "snippet.superChatDetails.currency-20",
+          "tier": 289,
+          "userComment": "snippet.superChatDetails.userComment-20"
+        },
+        "superStickerDetails": {
+          "amountDisplayString": "snippet.superStickerDetails.amountDisplayString-20",
+          "amountMicros": "159620",
+          "currency": "snippet.superStickerDetails.currency-20",
+          "superStickerMetadata": {
+            "altText": "snippet.superStickerDetails.superStickerMetadata.altText-20",
+            "altTextLanguage": "snippet.superStickerDetails.superStickerMetadata.altTextLanguage-20",
+            "stickerId": "snippet.superStickerDetails.superStickerMetadata.stickerId-20"
+          },
+          "tier": 292
+        },
+        "textMessageDetails": {
+          "messageText": "snippet.textMessageDetails.messageText-20"
+        },
+        "type": "tombstone",
+        "userBannedDetails": {
+          "banDurationSeconds": "159744",
+          "banType": "permanent",
+          "bannedUserDetails": {
+            "channelId": "snippet.userBannedDetails.bannedUserDetails.channelId-20",
+            "channelUrl": "snippet.userBannedDetails.bannedUserDetails.channelUrl-20",
+            "displayName": "snippet.userBannedDetails.bannedUserDetails.displayName-20",
+            "profileImageUrl": "snippet.userBannedDetails.bannedUserDetails.profileImageUrl-20"
+          }
+        }
+      }
+    },
+    {
+      "authorDetails": {
+        "channelId": "authorDetails.channelId-21",
+        "channelUrl": "authorDetails.channelUrl-21",
+        "displayName": "authorDetails.displayName-21",
+        "isChatModerator": true,
+        "isChatOwner": true,
+        "isChatSponsor": true,
+        "isVerified": true,
+        "profileImageUrl": "authorDetails.profileImageUrl-21"
+      },
+      "etag": "etag-21",
+      "id": "id-21",
+      "kind": "kind-21",
+      "snippet": {
+        "authorChannelId": "snippet.authorChannelId-21",
+        "displayMessage": "snippet.displayMessage-21",
+        "fanFundingEventDetails": {
+          "amountDisplayString": "snippet.fanFundingEventDetails.amountDisplayString-21",
+          "amountMicros": "167632",
+          "currency": "snippet.fanFundingEventDetails.currency-21",
+          "userComment": "snippet.fanFundingEventDetails.userComment-21"
+        },
+        "giftDetails": {
+          "altText": "snippet.giftDetails.altText-21",
+          "comboCount": 303,
+          "giftDuration": "snippet.giftDetails.giftDuration-21",
+          "giftName": "snippet.giftDetails.giftName-21",
+          "giftUrl": "snippet.giftDetails.giftUrl-21",
+          "hasVisualEffect": true,
+          "jewelsAmount": 305,
+          "language": "snippet.giftDetails.language-21"
+        },
+        "giftMembershipReceivedDetails": {
+          "associatedMembershipGiftingMessageId": "snippet.giftMembershipReceivedDetails.associatedMembershipGiftingMessageId-21",
+          "gifterChannelId": "snippet.giftMembershipReceivedDetails.gifterChannelId-21",
+          "memberLevelName": "snippet.giftMembershipReceivedDetails.memberLevelName-21"
+        },
+        "hasDisplayContent": true,
+        "liveChatId": "snippet.liveChatId-21",
+        "memberMilestoneChatDetails": {
+          "memberLevelName": "snippet.memberMilestoneChatDetails.memberLevelName-21",
+          "memberMonth": 319,
+          "userComment": "snippet.memberMilestoneChatDetails.userComment-21"
+        },
+        "membershipGiftingDetails": {
+          "giftMembershipsCount": 326,
+          "giftMembershipsLevelName": "snippet.membershipGiftingDetails.giftMembershipsLevelName-21"
+        },
+        "messageDeletedDetails": {
+          "deletedMessageId": "snippet.messageDeletedDetails.deletedMessageId-21"
+        },
+        "messageRetractedDetails": {
+          "retractedMessageId": "snippet.messageRetractedDetails.retractedMessageId-21"
+        },
+        "newSponsorDetails": {
+          "isUpgrade": true,
+          "memberLevelName": "snippet.newSponsorDetails.memberLevelName-21"
+        },
+        "pollDetails": {
+          "metadata": {
+            "options": [
+              {
+                "optionText": "snippet.pollDetails.metadata.options[].optionText-21",
+                "tally": "167663"
+              },
+              {
+                "optionText": "snippet.pollDetails.metadata.options[].optionText-22",
+                "tally": "175582"
+              }
+            ],
+            "questionText": "snippet.pollDetails.metadata.questionText-21"
+          },
+          "status": "unknown"
+        },
+        "publishedAt": "2026-04-13T12:34:51Z",
+        "superChatDetails": {
+          "amountDisplayString": "snippet.superChatDetails.amountDisplayString-21",
+          "amountMicros": "167446",
+          "currency": "snippet.superChatDetails.currency-21",
+          "tier": 302,
+          "userComment": "snippet.superChatDetails.userComment-21"
+        },
+        "superStickerDetails": {
+          "amountDisplayString": "snippet.superStickerDetails.amountDisplayString-21",
+          "amountMicros": "167539",
+          "currency": "snippet.superStickerDetails.currency-21",
+          "superStickerMetadata": {
+            "altText": "snippet.superStickerDetails.superStickerMetadata.altText-21",
+            "altTextLanguage": "snippet.superStickerDetails.superStickerMetadata.altTextLanguage-21",
+            "stickerId": "snippet.superStickerDetails.superStickerMetadata.stickerId-21"
+          },
+          "tier": 305
+        },
+        "textMessageDetails": {
+          "messageText": "snippet.textMessageDetails.messageText-21"
+        },
+        "type": "fanFundingEvent",
+        "userBannedDetails": {
+          "banDurationSeconds": "167663",
+          "banType": "temporary",
+          "bannedUserDetails": {
+            "channelId": "snippet.userBannedDetails.bannedUserDetails.channelId-21",
+            "channelUrl": "snippet.userBannedDetails.bannedUserDetails.channelUrl-21",
+            "displayName": "snippet.userBannedDetails.bannedUserDetails.displayName-21",
+            "profileImageUrl": "snippet.userBannedDetails.bannedUserDetails.profileImageUrl-21"
+          }
+        }
+      }
+    },
+    {
+      "authorDetails": {
+        "channelId": "authorDetails.channelId-22",
+        "channelUrl": "authorDetails.channelUrl-22",
+        "displayName": "authorDetails.displayName-22",
+        "profileImageUrl": "authorDetails.profileImageUrl-22"
+      },
+      "etag": "etag-22",
+      "id": "id-22",
+      "kind": "kind-22",
+      "snippet": {
+        "authorChannelId": "snippet.authorChannelId-22",
+        "displayMessage": "snippet.displayMessage-22",
+        "fanFundingEventDetails": {
+          "amountDisplayString": "snippet.fanFundingEventDetails.amountDisplayString-22",
+          "amountMicros": "175551",
+          "currency": "snippet.fanFundingEventDetails.currency-22",
+          "userComment": "snippet.fanFundingEventDetails.userComment-22"
+        },
+        "giftDetails": {
+          "altText": "snippet.giftDetails.altText-22",
+          "comboCount": 316,
+          "giftDuration": "snippet.giftDetails.giftDuration-22",
+          "giftName": "snippet.giftDetails.giftName-22",
+          "giftUrl": "snippet.giftDetails.giftUrl-22",
+          "jewelsAmount": 318,
+          "language": "snippet.giftDetails.language-22"
+        },
+        "giftMembershipReceivedDetails": {
+          "associatedMembershipGiftingMessageId": "snippet.giftMembershipReceivedDetails.associatedMembershipGiftingMessageId-22",
+          "gifterChannelId": "snippet.giftMembershipReceivedDetails.gifterChannelId-22",
+          "memberLevelName": "snippet.giftMembershipReceivedDetails.memberLevelName-22"
+        },
+        "liveChatId": "snippet.liveChatId-22",
+        "memberMilestoneChatDetails": {
+          "memberLevelName": "snippet.memberMilestoneChatDetails.memberLevelName-22",
+          "memberMonth": 332,
+          "userComment": "snippet.memberMilestoneChatDetails.userComment-22"
+        },
+        "membershipGiftingDetails": {
+          "giftMembershipsCount": 339,
+          "giftMembershipsLevelName": "snippet.membershipGiftingDetails.giftMembershipsLevelName-22"
+        },
+        "messageDeletedDetails": {
+          "deletedMessageId": "snippet.messageDeletedDetails.deletedMessageId-22"
+        },
+        "messageRetractedDetails": {
+          "retractedMessageId": "snippet.messageRetractedDetails.retractedMessageId-22"
+        },
+        "newSponsorDetails": {
+          "memberLevelName": "snippet.newSponsorDetails.memberLevelName-22"
+        },
+        "pollDetails": {
+          "metadata": {
+            "options": [
+              {
+                "optionText": "snippet.pollDetails.metadata.options[].optionText-22",
+                "tally": "175582"
+              },
+              {
+                "optionText": "snippet.pollDetails.metadata.options[].optionText-23",
+                "tally": "183501"
+              }
+            ],
+            "questionText": "snippet.pollDetails.metadata.questionText-22"
+          },
+          "status": "active"
+        },
+        "publishedAt": "2026-05-14T12:34:52Z",
+        "superChatDetails": {
+          "amountDisplayString": "snippet.superChatDetails.amountDisplayString-22",
+          "amountMicros": "175365",
+          "currency": "snippet.superChatDetails.currency-22",
+          "tier": 315,
+          "userComment": "snippet.superChatDetails.userComment-22"
+        },
+        "superStickerDetails": {
+          "amountDisplayString": "snippet.superStickerDetails.amountDisplayString-22",
+          "amountMicros": "175458",
+          "currency": "snippet.superStickerDetails.currency-22",
+          "superStickerMetadata": {
+            "altText": "snippet.superStickerDetails.superStickerMetadata.altText-22",
+            "altTextLanguage": "snippet.superStickerDetails.superStickerMetadata.altTextLanguage-22",
+            "stickerId": "snippet.superStickerDetails.superStickerMetadata.stickerId-22"
+          },
+          "tier": 318
+        },
+        "textMessageDetails": {
+          "messageText": "snippet.textMessageDetails.messageText-22"
+        },
+        "type": "chatEndedEvent",
+        "userBannedDetails": {
+          "banDurationSeconds": "175582",
+          "banType": "permanent",
+          "bannedUserDetails": {
+            "channelId": "snippet.userBannedDetails.bannedUserDetails.channelId-22",
+            "channelUrl": "snippet.userBannedDetails.bannedUserDetails.channelUrl-22",
+            "displayName": "snippet.userBannedDetails.bannedUserDetails.displayName-22",
+            "profileImageUrl": "snippet.userBannedDetails.bannedUserDetails.profileImageUrl-22"
+          }
+        }
+      }
+    },
+    {
+      "authorDetails": {},
+      "id": "zero-2",
+      "snippet": {
+        "fanFundingEventDetails": {},
+        "giftDetails": {},
+        "giftMembershipReceivedDetails": {},
+        "memberMilestoneChatDetails": {},
+        "membershipGiftingDetails": {},
+        "messageDeletedDetails": {},
+        "messageRetractedDetails": {},
+        "newSponsorDetails": {},
+        "pollDetails": {
+          "metadata": {}
+        },
+        "superChatDetails": {},
+        "superStickerDetails": {
+          "superStickerMetadata": {}
+        },
+        "textMessageDetails": {},
+        "userBannedDetails": {
+          "bannedUserDetails": {}
+        }
+      }
+    }
+  ],
+  "kind": "youtube#liveChatMessageListResponse",
+  "pageInfo": {
+    "resultsPerPage": 4,
+    "totalResults": 12
+  }
+}

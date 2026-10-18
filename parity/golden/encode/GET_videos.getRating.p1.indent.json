@@ -1,0 +1,19 @@
+{
+  "etag": "etag-page-1",
+  "items": [
+    {
+      "rating": "like",
+      "videoId": "videoId-10"
+    },
+    {
+      "rating": "dislike",
+      "videoId": "videoId-11"
+    },
+    {
+      "rating": "none",
+      "videoId": "videoId-12"
+    },
+    {}
+  ],
+  "kind": "youtube#videoGetRatingResponse"
+}

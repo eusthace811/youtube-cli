@@ -1,0 +1,37 @@
+etag: etag-1
+kind: kind-1
+linkingtoken: linkingToken-1
+snippet:
+    channeltoaffiliateprogramlink:
+        merchantid: 9407
+        programstatus: active
+        statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-1
+        statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-1
+        forcesendfields: []
+        nullfields: []
+    channeltostorelink:
+        billingdetails:
+            billingstatus: billingStatusPending
+            forcesendfields: []
+            nullfields: []
+        merchantaffiliateprogramdetails:
+            status: merchantAffiliateProgramStatusEligible
+            forcesendfields: []
+            nullfields: []
+        merchantid: 9066
+        storename: snippet.channelToStoreLink.storeName-1
+        storeurl: snippet.channelToStoreLink.storeUrl-1
+        forcesendfields: []
+        nullfields: []
+    type: channelToStoreLink
+    forcesendfields: []
+    nullfields: []
+status:
+    linkstatus: failed
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

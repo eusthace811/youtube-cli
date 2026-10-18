@@ -1,0 +1,24 @@
+{
+  "etag": "etag-1",
+  "id": "id-1",
+  "kind": "kind-1",
+  "snippet": {
+    "authorChannelId": {
+      "value": "snippet.authorChannelId.value-1"
+    },
+    "authorChannelUrl": "snippet.authorChannelUrl-1",
+    "authorDisplayName": "snippet.authorDisplayName-1",
+    "authorProfileImageUrl": "snippet.authorProfileImageUrl-1",
+    "canRate": true,
+    "channelId": "snippet.channelId-1",
+    "likeCount": 30,
+    "moderationStatus": "heldForReview",
+    "parentId": "snippet.parentId-1",
+    "publishedAt": "2026-02-11T12:34:51Z",
+    "textDisplay": "Ünïcödé ✓ 日本語のタイトル snippet.textDisplay",
+    "textOriginal": "snippet.textOriginal-1",
+    "updatedAt": "2026-02-11T12:34:51Z",
+    "videoId": "snippet.videoId-1",
+    "viewerRating": "like"
+  }
+}

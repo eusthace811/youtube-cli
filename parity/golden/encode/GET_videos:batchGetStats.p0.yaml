@@ -1,0 +1,84 @@
+etag: etag-page-0
+items:
+    - contentdetails:
+        duration: contentDetails.duration-0
+        forcesendfields: []
+        nullfields: []
+      etag: etag-0
+      id: id-0
+      kind: kind-0
+      snippet:
+        publishtime: snippet.publishTime-0
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        commentcount: 713
+        likecount: 620
+        viewcount: 620
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        duration: contentDetails.duration-1
+        forcesendfields: []
+        nullfields: []
+      etag: etag-1
+      id: id-1
+      kind: kind-1
+      snippet:
+        publishtime: snippet.publishTime-1
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        commentcount: 8632
+        likecount: 8539
+        viewcount: 8539
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        duration: contentDetails.duration-2
+        forcesendfields: []
+        nullfields: []
+      etag: etag-2
+      id: id-2
+      kind: kind-2
+      snippet:
+        publishtime: snippet.publishTime-2
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        commentcount: 16551
+        likecount: 16458
+        viewcount: 16458
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        duration: ""
+        forcesendfields: []
+        nullfields: []
+      etag: ""
+      id: zero-0
+      kind: ""
+      snippet:
+        publishtime: ""
+        forcesendfields: []
+        nullfields: []
+      statistics:
+        commentcount: 0
+        likecount: 0
+        viewcount: 0
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+kind: youtube#batchGetStatsResponse
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

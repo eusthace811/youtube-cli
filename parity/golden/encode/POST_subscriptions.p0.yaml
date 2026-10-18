@@ -1,0 +1,136 @@
+contentdetails:
+    activitytype: all
+    newitemcount: 40
+    totalitemcount: 42
+    forcesendfields: []
+    nullfields: []
+etag: etag-1
+id: id-1
+kind: kind-1
+snippet:
+    channelid: snippet.channelId-1
+    description: Ünïcödé ✓ 日本語のタイトル snippet.description
+    publishedat: "2026-02-11T12:34:51Z"
+    resourceid:
+        channelid: snippet.resourceId.channelId-1
+        kind: snippet.resourceId.kind-1
+        playlistid: snippet.resourceId.playlistId-1
+        videoid: snippet.resourceId.videoId-1
+        forcesendfields: []
+        nullfields: []
+    thumbnails:
+        default:
+            height: 46
+            url: snippet.thumbnails.default.url-1
+            width: 45
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 42
+            url: snippet.thumbnails.fhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 43
+            url: snippet.thumbnails.high.url-1
+            width: 42
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 45
+            url: snippet.thumbnails.maxres.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 45
+            url: snippet.thumbnails.medium.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 42
+            url: snippet.thumbnails.qhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 47
+            url: snippet.thumbnails.standard.url-1
+            width: 46
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 42
+            url: snippet.thumbnails.uhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: Ünïcödé ✓ 日本語のタイトル
+    forcesendfields: []
+    nullfields: []
+subscribersnippet:
+    channelid: subscriberSnippet.channelId-1
+    description: Ünïcödé ✓ 日本語のタイトル subscriberSnippet.description
+    thumbnails:
+        default:
+            height: 56
+            url: subscriberSnippet.thumbnails.default.url-1
+            width: 55
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 52
+            url: subscriberSnippet.thumbnails.fhd.url-1
+            width: 51
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 53
+            url: subscriberSnippet.thumbnails.high.url-1
+            width: 52
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 55
+            url: subscriberSnippet.thumbnails.maxres.url-1
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 55
+            url: subscriberSnippet.thumbnails.medium.url-1
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 52
+            url: subscriberSnippet.thumbnails.qhd.url-1
+            width: 51
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 57
+            url: subscriberSnippet.thumbnails.standard.url-1
+            width: 56
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 52
+            url: subscriberSnippet.thumbnails.uhd.url-1
+            width: 51
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: "null"
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

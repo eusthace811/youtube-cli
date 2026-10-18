@@ -1,0 +1,70 @@
+items:
+    - id: id-0
+      kind: kind-0
+      snippet:
+        height: 14
+        playlistid: snippet.playlistId-0
+        type: hero
+        width: 13
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - id: id-1
+      kind: kind-1
+      snippet:
+        height: 27
+        playlistid: snippet.playlistId-1
+        type: hero
+        width: 26
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - id: id-2
+      kind: kind-2
+      snippet:
+        height: 40
+        playlistid: snippet.playlistId-2
+        type: hero
+        width: 39
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - id: zero-0
+      kind: ""
+      snippet:
+        height: 0
+        playlistid: ""
+        type: ""
+        width: 0
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+kind: youtube#playlistImageListResponse
+nextpagetoken: p2
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+prevpagetoken: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

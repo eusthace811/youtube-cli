@@ -1,0 +1,303 @@
+etag: etag-page-1
+eventid: ""
+items:
+    - etag: etag-10
+      id:
+        channelid: id.channelId-10
+        kind: id.kind-10
+        playlistid: id.playlistId-10
+        videoid: id.videoId-10
+        forcesendfields: []
+        nullfields: []
+      kind: kind-10
+      snippet:
+        channelid: snippet.channelId-10
+        channeltitle: snippet.channelTitle-10
+        description: null snippet.description
+        livebroadcastcontent: live
+        publishedat: "2026-02-11T12:34:50Z"
+        thumbnails:
+            default:
+                height: 163
+                url: snippet.thumbnails.default.url-10
+                width: 162
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 159
+                url: snippet.thumbnails.fhd.url-10
+                width: 158
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 160
+                url: snippet.thumbnails.high.url-10
+                width: 159
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 162
+                url: snippet.thumbnails.maxres.url-10
+                width: 161
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 162
+                url: snippet.thumbnails.medium.url-10
+                width: 161
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 159
+                url: snippet.thumbnails.qhd.url-10
+                width: 158
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 164
+                url: snippet.thumbnails.standard.url-10
+                width: 163
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 159
+                url: snippet.thumbnails.uhd.url-10
+                width: 158
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: 'key: value'
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-11
+      id:
+        channelid: id.channelId-11
+        kind: id.kind-11
+        playlistid: id.playlistId-11
+        videoid: id.videoId-11
+        forcesendfields: []
+        nullfields: []
+      kind: kind-11
+      snippet:
+        channelid: snippet.channelId-11
+        channeltitle: snippet.channelTitle-11
+        description: ~ snippet.description
+        livebroadcastcontent: completed
+        publishedat: "2026-03-12T12:34:51Z"
+        thumbnails:
+            default:
+                height: 176
+                url: snippet.thumbnails.default.url-11
+                width: 175
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 172
+                url: snippet.thumbnails.fhd.url-11
+                width: 171
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 173
+                url: snippet.thumbnails.high.url-11
+                width: 172
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 175
+                url: snippet.thumbnails.maxres.url-11
+                width: 174
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 175
+                url: snippet.thumbnails.medium.url-11
+                width: 174
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 172
+                url: snippet.thumbnails.qhd.url-11
+                width: 171
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 177
+                url: snippet.thumbnails.standard.url-11
+                width: 176
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 172
+                url: snippet.thumbnails.uhd.url-11
+                width: 171
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: '''single'' quoted'
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-12
+      id:
+        channelid: id.channelId-12
+        kind: id.kind-12
+        playlistid: id.playlistId-12
+        videoid: id.videoId-12
+        forcesendfields: []
+        nullfields: []
+      kind: kind-12
+      snippet:
+        channelid: snippet.channelId-12
+        channeltitle: snippet.channelTitle-12
+        description: '@at sign snippet.description'
+        livebroadcastcontent: none
+        publishedat: "2026-04-13T12:34:52Z"
+        thumbnails:
+            default:
+                height: 189
+                url: snippet.thumbnails.default.url-12
+                width: 188
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 185
+                url: snippet.thumbnails.fhd.url-12
+                width: 184
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 186
+                url: snippet.thumbnails.high.url-12
+                width: 185
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 188
+                url: snippet.thumbnails.maxres.url-12
+                width: 187
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 188
+                url: snippet.thumbnails.medium.url-12
+                width: 187
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 185
+                url: snippet.thumbnails.qhd.url-12
+                width: 184
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 190
+                url: snippet.thumbnails.standard.url-12
+                width: 189
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 185
+                url: snippet.thumbnails.uhd.url-12
+                width: 184
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: <b>tags</b> & "quotes"
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: ""
+      id:
+        channelid: ""
+        kind: ""
+        playlistid: ""
+        videoid: ""
+        forcesendfields: []
+        nullfields: []
+      kind: ""
+      snippet:
+        channelid: ""
+        channeltitle: ""
+        description: ""
+        livebroadcastcontent: ""
+        publishedat: ""
+        thumbnails:
+            default:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: ""
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+kind: youtube#searchListResponse
+nextpagetoken: p3
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+prevpagetoken: ""
+regioncode: ""
+tokenpagination: null
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

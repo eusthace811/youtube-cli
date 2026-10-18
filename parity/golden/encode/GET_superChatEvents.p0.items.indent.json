@@ -1,0 +1,85 @@
+[
+  {
+    "etag": "etag-0",
+    "id": "id-0",
+    "kind": "kind-0",
+    "snippet": {
+      "amountMicros": "620",
+      "channelId": "snippet.channelId-0",
+      "commentText": "snippet.commentText-0",
+      "createdAt": "2026-01-10T12:34:50Z",
+      "currency": "snippet.currency-0",
+      "displayString": "snippet.displayString-0",
+      "messageType": 19,
+      "superStickerMetadata": {
+        "altText": "snippet.superStickerMetadata.altText-0",
+        "altTextLanguage": "snippet.superStickerMetadata.altTextLanguage-0",
+        "stickerId": "snippet.superStickerMetadata.stickerId-0"
+      },
+      "supporterDetails": {
+        "channelId": "snippet.supporterDetails.channelId-0",
+        "channelUrl": "snippet.supporterDetails.channelUrl-0",
+        "displayName": "snippet.supporterDetails.displayName-0",
+        "profileImageUrl": "snippet.supporterDetails.profileImageUrl-0"
+      }
+    }
+  },
+  {
+    "etag": "etag-1",
+    "id": "id-1",
+    "kind": "kind-1",
+    "snippet": {
+      "amountMicros": "8539",
+      "channelId": "snippet.channelId-1",
+      "commentText": "snippet.commentText-1",
+      "createdAt": "2026-02-11T12:34:51Z",
+      "currency": "snippet.currency-1",
+      "displayString": "snippet.displayString-1",
+      "isSuperStickerEvent": true,
+      "messageType": 32,
+      "superStickerMetadata": {
+        "altText": "snippet.superStickerMetadata.altText-1",
+        "altTextLanguage": "snippet.superStickerMetadata.altTextLanguage-1",
+        "stickerId": "snippet.superStickerMetadata.stickerId-1"
+      },
+      "supporterDetails": {
+        "channelId": "snippet.supporterDetails.channelId-1",
+        "channelUrl": "snippet.supporterDetails.channelUrl-1",
+        "displayName": "snippet.supporterDetails.displayName-1",
+        "profileImageUrl": "snippet.supporterDetails.profileImageUrl-1"
+      }
+    }
+  },
+  {
+    "etag": "etag-2",
+    "id": "id-2",
+    "kind": "kind-2",
+    "snippet": {
+      "amountMicros": "16458",
+      "channelId": "snippet.channelId-2",
+      "commentText": "snippet.commentText-2",
+      "createdAt": "2026-03-12T12:34:52Z",
+      "currency": "snippet.currency-2",
+      "displayString": "snippet.displayString-2",
+      "messageType": 45,
+      "superStickerMetadata": {
+        "altText": "snippet.superStickerMetadata.altText-2",
+        "altTextLanguage": "snippet.superStickerMetadata.altTextLanguage-2",
+        "stickerId": "snippet.superStickerMetadata.stickerId-2"
+      },
+      "supporterDetails": {
+        "channelId": "snippet.supporterDetails.channelId-2",
+        "channelUrl": "snippet.supporterDetails.channelUrl-2",
+        "displayName": "snippet.supporterDetails.displayName-2",
+        "profileImageUrl": "snippet.supporterDetails.profileImageUrl-2"
+      }
+    }
+  },
+  {
+    "id": "zero-0",
+    "snippet": {
+      "superStickerMetadata": {},
+      "supporterDetails": {}
+    }
+  }
+]

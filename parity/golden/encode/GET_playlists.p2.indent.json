@@ -1,0 +1,281 @@
+{
+  "etag": "etag-page-2",
+  "items": [
+    {
+      "contentDetails": {
+        "itemCount": 284
+      },
+      "etag": "etag-20",
+      "id": "id-20",
+      "kind": "kind-20",
+      "localizations": {
+        "ka": {
+          "description": "tab\tand\nnewline localizations{}.description",
+          "title": "trailing space "
+        },
+        "kb": {
+          "description": "emoji 🎬🎥 mix localizations{}.description",
+          "title": "# hash"
+        }
+      },
+      "player": {
+        "embedHtml": "player.embedHtml-20"
+      },
+      "snippet": {
+        "channelId": "snippet.channelId-20",
+        "channelTitle": "snippet.channelTitle-20",
+        "defaultLanguage": "snippet.defaultLanguage-20",
+        "description": "emoji 🎬🎥 mix snippet.description",
+        "localized": {
+          "description": "emoji 🎬🎥 mix snippet.localized.description",
+          "title": "null"
+        },
+        "publishedAt": "2026-03-12T12:34:50Z",
+        "tags": [
+          "snippet.tags[]-20",
+          "snippet.tags[]-21"
+        ],
+        "thumbnailVideoId": "snippet.thumbnailVideoId-20",
+        "thumbnails": {
+          "default": {
+            "height": 293,
+            "url": "snippet.thumbnails.default.url-20",
+            "width": 292
+          },
+          "fhd": {
+            "height": 289,
+            "url": "snippet.thumbnails.fhd.url-20",
+            "width": 288
+          },
+          "high": {
+            "height": 290,
+            "url": "snippet.thumbnails.high.url-20",
+            "width": 289
+          },
+          "maxres": {
+            "height": 292,
+            "url": "snippet.thumbnails.maxres.url-20",
+            "width": 291
+          },
+          "medium": {
+            "height": 292,
+            "url": "snippet.thumbnails.medium.url-20",
+            "width": 291
+          },
+          "qhd": {
+            "height": 289,
+            "url": "snippet.thumbnails.qhd.url-20",
+            "width": 288
+          },
+          "standard": {
+            "height": 294,
+            "url": "snippet.thumbnails.standard.url-20",
+            "width": 293
+          },
+          "uhd": {
+            "height": 289,
+            "url": "snippet.thumbnails.uhd.url-20",
+            "width": 288
+          }
+        },
+        "title": "Ünïcödé ✓ 日本語のタイトル"
+      },
+      "status": {
+        "podcastStatus": "enabled",
+        "privacyStatus": "private"
+      }
+    },
+    {
+      "contentDetails": {
+        "itemCount": 297
+      },
+      "etag": "etag-21",
+      "id": "id-21",
+      "kind": "kind-21",
+      "localizations": {
+        "ka": {
+          "description": "true localizations{}.description",
+          "title": "tab\tand\nnewline"
+        },
+        "kb": {
+          "description": "tab\tand\nnewline localizations{}.description",
+          "title": "trailing space "
+        }
+      },
+      "player": {
+        "embedHtml": "player.embedHtml-21"
+      },
+      "snippet": {
+        "channelId": "snippet.channelId-21",
+        "channelTitle": "snippet.channelTitle-21",
+        "defaultLanguage": "snippet.defaultLanguage-21",
+        "description": "tab\tand\nnewline snippet.description",
+        "localized": {
+          "description": "tab\tand\nnewline snippet.localized.description",
+          "title": "A very long line that keeps going well past eighty characters so that any wrapping logic in an emitter shows up clearly here"
+        },
+        "publishedAt": "2026-04-13T12:34:51Z",
+        "tags": [
+          "snippet.tags[]-21",
+          "snippet.tags[]-22"
+        ],
+        "thumbnailVideoId": "snippet.thumbnailVideoId-21",
+        "thumbnails": {
+          "default": {
+            "height": 306,
+            "url": "snippet.thumbnails.default.url-21",
+            "width": 305
+          },
+          "fhd": {
+            "height": 302,
+            "url": "snippet.thumbnails.fhd.url-21",
+            "width": 301
+          },
+          "high": {
+            "height": 303,
+            "url": "snippet.thumbnails.high.url-21",
+            "width": 302
+          },
+          "maxres": {
+            "height": 305,
+            "url": "snippet.thumbnails.maxres.url-21",
+            "width": 304
+          },
+          "medium": {
+            "height": 305,
+            "url": "snippet.thumbnails.medium.url-21",
+            "width": 304
+          },
+          "qhd": {
+            "height": 302,
+            "url": "snippet.thumbnails.qhd.url-21",
+            "width": 301
+          },
+          "standard": {
+            "height": 307,
+            "url": "snippet.thumbnails.standard.url-21",
+            "width": 306
+          },
+          "uhd": {
+            "height": 302,
+            "url": "snippet.thumbnails.uhd.url-21",
+            "width": 301
+          }
+        },
+        "title": "- dash start"
+      },
+      "status": {
+        "podcastStatus": "disabled",
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "contentDetails": {
+        "itemCount": 310
+      },
+      "etag": "etag-22",
+      "id": "id-22",
+      "kind": "kind-22",
+      "localizations": {
+        "ka": {
+          "description": "123 localizations{}.description",
+          "title": "null"
+        },
+        "kb": {
+          "description": "true localizations{}.description",
+          "title": "tab\tand\nnewline"
+        }
+      },
+      "player": {
+        "embedHtml": "player.embedHtml-22"
+      },
+      "snippet": {
+        "channelId": "snippet.channelId-22",
+        "channelTitle": "snippet.channelTitle-22",
+        "defaultLanguage": "snippet.defaultLanguage-22",
+        "description": "true snippet.description",
+        "localized": {
+          "description": "true snippet.localized.description",
+          "title": "123"
+        },
+        "publishedAt": "2026-05-14T12:34:52Z",
+        "tags": [
+          "snippet.tags[]-22",
+          "snippet.tags[]-23"
+        ],
+        "thumbnailVideoId": "snippet.thumbnailVideoId-22",
+        "thumbnails": {
+          "default": {
+            "height": 319,
+            "url": "snippet.thumbnails.default.url-22",
+            "width": 318
+          },
+          "fhd": {
+            "height": 315,
+            "url": "snippet.thumbnails.fhd.url-22",
+            "width": 314
+          },
+          "high": {
+            "height": 316,
+            "url": "snippet.thumbnails.high.url-22",
+            "width": 315
+          },
+          "maxres": {
+            "height": 318,
+            "url": "snippet.thumbnails.maxres.url-22",
+            "width": 317
+          },
+          "medium": {
+            "height": 318,
+            "url": "snippet.thumbnails.medium.url-22",
+            "width": 317
+          },
+          "qhd": {
+            "height": 315,
+            "url": "snippet.thumbnails.qhd.url-22",
+            "width": 314
+          },
+          "standard": {
+            "height": 320,
+            "url": "snippet.thumbnails.standard.url-22",
+            "width": 319
+          },
+          "uhd": {
+            "height": 315,
+            "url": "snippet.thumbnails.uhd.url-22",
+            "width": 314
+          }
+        },
+        "title": "line sep"
+      },
+      "status": {
+        "podcastStatus": "enabled",
+        "privacyStatus": "unlisted"
+      }
+    },
+    {
+      "contentDetails": {},
+      "id": "zero-2",
+      "player": {},
+      "snippet": {
+        "localized": {},
+        "thumbnails": {
+          "default": {},
+          "fhd": {},
+          "high": {},
+          "maxres": {},
+          "medium": {},
+          "qhd": {},
+          "standard": {},
+          "uhd": {}
+        }
+      },
+      "status": {}
+    }
+  ],
+  "kind": "youtube#playlistListResponse",
+  "pageInfo": {
+    "resultsPerPage": 4,
+    "totalResults": 12
+  }
+}

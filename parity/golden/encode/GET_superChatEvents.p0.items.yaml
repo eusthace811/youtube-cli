@@ -1,0 +1,116 @@
+- etag: etag-0
+  id: id-0
+  kind: kind-0
+  snippet:
+    amountmicros: 620
+    channelid: snippet.channelId-0
+    commenttext: snippet.commentText-0
+    createdat: "2026-01-10T12:34:50Z"
+    currency: snippet.currency-0
+    displaystring: snippet.displayString-0
+    issuperstickerevent: false
+    messagetype: 19
+    superstickermetadata:
+        alttext: snippet.superStickerMetadata.altText-0
+        alttextlanguage: snippet.superStickerMetadata.altTextLanguage-0
+        stickerid: snippet.superStickerMetadata.stickerId-0
+        forcesendfields: []
+        nullfields: []
+    supporterdetails:
+        channelid: snippet.supporterDetails.channelId-0
+        channelurl: snippet.supporterDetails.channelUrl-0
+        displayname: snippet.supporterDetails.displayName-0
+        profileimageurl: snippet.supporterDetails.profileImageUrl-0
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: etag-1
+  id: id-1
+  kind: kind-1
+  snippet:
+    amountmicros: 8539
+    channelid: snippet.channelId-1
+    commenttext: snippet.commentText-1
+    createdat: "2026-02-11T12:34:51Z"
+    currency: snippet.currency-1
+    displaystring: snippet.displayString-1
+    issuperstickerevent: true
+    messagetype: 32
+    superstickermetadata:
+        alttext: snippet.superStickerMetadata.altText-1
+        alttextlanguage: snippet.superStickerMetadata.altTextLanguage-1
+        stickerid: snippet.superStickerMetadata.stickerId-1
+        forcesendfields: []
+        nullfields: []
+    supporterdetails:
+        channelid: snippet.supporterDetails.channelId-1
+        channelurl: snippet.supporterDetails.channelUrl-1
+        displayname: snippet.supporterDetails.displayName-1
+        profileimageurl: snippet.supporterDetails.profileImageUrl-1
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: etag-2
+  id: id-2
+  kind: kind-2
+  snippet:
+    amountmicros: 16458
+    channelid: snippet.channelId-2
+    commenttext: snippet.commentText-2
+    createdat: "2026-03-12T12:34:52Z"
+    currency: snippet.currency-2
+    displaystring: snippet.displayString-2
+    issuperstickerevent: false
+    messagetype: 45
+    superstickermetadata:
+        alttext: snippet.superStickerMetadata.altText-2
+        alttextlanguage: snippet.superStickerMetadata.altTextLanguage-2
+        stickerid: snippet.superStickerMetadata.stickerId-2
+        forcesendfields: []
+        nullfields: []
+    supporterdetails:
+        channelid: snippet.supporterDetails.channelId-2
+        channelurl: snippet.supporterDetails.channelUrl-2
+        displayname: snippet.supporterDetails.displayName-2
+        profileimageurl: snippet.supporterDetails.profileImageUrl-2
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: ""
+  id: zero-0
+  kind: ""
+  snippet:
+    amountmicros: 0
+    channelid: ""
+    commenttext: ""
+    createdat: ""
+    currency: ""
+    displaystring: ""
+    issuperstickerevent: false
+    messagetype: 0
+    superstickermetadata:
+        alttext: ""
+        alttextlanguage: ""
+        stickerid: ""
+        forcesendfields: []
+        nullfields: []
+    supporterdetails:
+        channelid: ""
+        channelurl: ""
+        displayname: ""
+        profileimageurl: ""
+        forcesendfields: []
+        nullfields: []
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []

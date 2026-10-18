@@ -1,0 +1,202 @@
+etag: etag-page-1
+eventid: ""
+items:
+    - contentdetails:
+        channels:
+            - contentDetails.channels[]-10
+            - contentDetails.channels[]-11
+        playlists:
+            - contentDetails.playlists[]-10
+            - contentDetails.playlists[]-11
+        forcesendfields: []
+        nullfields: []
+      etag: etag-10
+      id: id-10
+      kind: kind-10
+      localizations:
+        ka:
+            title: "emoji \U0001F3AC\U0001F3A5 mix"
+            forcesendfields: []
+            nullfields: []
+        kb:
+            title: 'line                 sep'
+            forcesendfields: []
+            nullfields: []
+      snippet:
+        channelid: snippet.channelId-10
+        defaultlanguage: snippet.defaultLanguage-10
+        localized:
+            title: |
+                multi
+                line
+                text
+            forcesendfields: []
+            nullfields: []
+        position: 146
+        style: horizontalRow
+        title: 'key: value'
+        type: liveEvents
+        forcesendfields: []
+        nullfields: []
+      targeting:
+        countries:
+            - targeting.countries[]-10
+            - targeting.countries[]-11
+        languages:
+            - targeting.languages[]-10
+            - targeting.languages[]-11
+        regions:
+            - targeting.regions[]-10
+            - targeting.regions[]-11
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        channels:
+            - contentDetails.channels[]-11
+            - contentDetails.channels[]-12
+        playlists:
+            - contentDetails.playlists[]-11
+            - contentDetails.playlists[]-12
+        forcesendfields: []
+        nullfields: []
+      etag: etag-11
+      id: id-11
+      kind: kind-11
+      localizations:
+        ka:
+            title: ' leading space'
+            forcesendfields: []
+            nullfields: []
+        kb:
+            title: "emoji \U0001F3AC\U0001F3A5 mix"
+            forcesendfields: []
+            nullfields: []
+      snippet:
+        channelid: snippet.channelId-11
+        defaultlanguage: snippet.defaultLanguage-11
+        localized:
+            title: "true"
+            forcesendfields: []
+            nullfields: []
+        position: 159
+        style: verticalList
+        title: '''single'' quoted'
+        type: upcomingEvents
+        forcesendfields: []
+        nullfields: []
+      targeting:
+        countries:
+            - targeting.countries[]-11
+            - targeting.countries[]-12
+        languages:
+            - targeting.languages[]-11
+            - targeting.languages[]-12
+        regions:
+            - targeting.regions[]-11
+            - targeting.regions[]-12
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        channels:
+            - contentDetails.channels[]-12
+            - contentDetails.channels[]-13
+        playlists:
+            - contentDetails.playlists[]-12
+            - contentDetails.playlists[]-13
+        forcesendfields: []
+        nullfields: []
+      etag: etag-12
+      id: id-12
+      kind: kind-12
+      localizations:
+        ka:
+            title: |
+                multi
+                line
+                text
+            forcesendfields: []
+            nullfields: []
+        kb:
+            title: ' leading space'
+            forcesendfields: []
+            nullfields: []
+      snippet:
+        channelid: snippet.channelId-12
+        defaultlanguage: snippet.defaultLanguage-12
+        localized:
+            title: "~"
+            forcesendfields: []
+            nullfields: []
+        position: 172
+        style: channelsectionStyleUnspecified
+        title: <b>tags</b> & "quotes"
+        type: completedEvents
+        forcesendfields: []
+        nullfields: []
+      targeting:
+        countries:
+            - targeting.countries[]-12
+            - targeting.countries[]-13
+        languages:
+            - targeting.languages[]-12
+            - targeting.languages[]-13
+        regions:
+            - targeting.regions[]-12
+            - targeting.regions[]-13
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        channels: []
+        playlists: []
+        forcesendfields: []
+        nullfields: []
+      etag: ""
+      id: zero-1
+      kind: ""
+      localizations: {}
+      snippet:
+        channelid: ""
+        defaultlanguage: ""
+        localized:
+            title: ""
+            forcesendfields: []
+            nullfields: []
+        position: 0
+        style: ""
+        title: ""
+        type: ""
+        forcesendfields: []
+        nullfields: []
+      targeting:
+        countries: []
+        languages: []
+        regions: []
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+kind: youtube#channelSectionListResponse
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

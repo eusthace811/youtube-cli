@@ -1,0 +1,135 @@
+etag: etag-page-2
+eventid: ""
+items:
+    - etag: etag-20
+      id: id-20
+      kind: kind-20
+      snippet:
+        authorchannelid:
+            value: snippet.authorChannelId.value-20
+            forcesendfields: []
+            nullfields: []
+        authorchannelurl: snippet.authorChannelUrl-20
+        authordisplayname: snippet.authorDisplayName-20
+        authorprofileimageurl: snippet.authorProfileImageUrl-20
+        canrate: false
+        channelid: snippet.channelId-20
+        likecount: 277
+        moderationstatus: published
+        parentid: snippet.parentId-20
+        publishedat: "2026-03-12T12:34:50Z"
+        textdisplay: "emoji \U0001F3AC\U0001F3A5 mix snippet.textDisplay"
+        textoriginal: snippet.textOriginal-20
+        updatedat: "2026-03-12T12:34:50Z"
+        videoid: snippet.videoId-20
+        viewerrating: dislike
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-21
+      id: id-21
+      kind: kind-21
+      snippet:
+        authorchannelid:
+            value: snippet.authorChannelId.value-21
+            forcesendfields: []
+            nullfields: []
+        authorchannelurl: snippet.authorChannelUrl-21
+        authordisplayname: snippet.authorDisplayName-21
+        authorprofileimageurl: snippet.authorProfileImageUrl-21
+        canrate: true
+        channelid: snippet.channelId-21
+        likecount: 290
+        moderationstatus: heldForReview
+        parentid: snippet.parentId-21
+        publishedat: "2026-04-13T12:34:51Z"
+        textdisplay: |-
+            tab	and
+            newline snippet.textDisplay
+        textoriginal: snippet.textOriginal-21
+        updatedat: "2026-04-13T12:34:51Z"
+        videoid: snippet.videoId-21
+        viewerrating: none
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-22
+      id: id-22
+      kind: kind-22
+      snippet:
+        authorchannelid:
+            value: snippet.authorChannelId.value-22
+            forcesendfields: []
+            nullfields: []
+        authorchannelurl: snippet.authorChannelUrl-22
+        authordisplayname: snippet.authorDisplayName-22
+        authorprofileimageurl: snippet.authorProfileImageUrl-22
+        canrate: false
+        channelid: snippet.channelId-22
+        likecount: 303
+        moderationstatus: likelySpam
+        parentid: snippet.parentId-22
+        publishedat: "2026-05-14T12:34:52Z"
+        textdisplay: true snippet.textDisplay
+        textoriginal: snippet.textOriginal-22
+        updatedat: "2026-05-14T12:34:52Z"
+        videoid: snippet.videoId-22
+        viewerrating: like
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - etag: ""
+      id: zero-2
+      kind: ""
+      snippet:
+        authorchannelid:
+            value: ""
+            forcesendfields: []
+            nullfields: []
+        authorchannelurl: ""
+        authordisplayname: ""
+        authorprofileimageurl: ""
+        canrate: false
+        channelid: ""
+        likecount: 0
+        moderationstatus: ""
+        parentid: ""
+        publishedat: ""
+        textdisplay: ""
+        textoriginal: ""
+        updatedat: ""
+        videoid: ""
+        viewerrating: ""
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+kind: youtube#commentListResponse
+nextpagetoken: ""
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+tokenpagination: null
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

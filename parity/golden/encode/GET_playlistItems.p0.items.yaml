@@ -1,0 +1,360 @@
+- contentdetails:
+    endat: contentDetails.endAt-0
+    note: contentDetails.note-0
+    startat: contentDetails.startAt-0
+    videoid: contentDetails.videoId-0
+    videopublishedat: "2026-01-10T12:34:50Z"
+    forcesendfields: []
+    nullfields: []
+  etag: etag-0
+  id: id-0
+  kind: kind-0
+  snippet:
+    channelid: snippet.channelId-0
+    channeltitle: snippet.channelTitle-0
+    description: Plain title snippet.description
+    playlistid: snippet.playlistId-0
+    position: 16
+    publishedat: "2026-01-10T12:34:50Z"
+    resourceid:
+        channelid: snippet.resourceId.channelId-0
+        kind: snippet.resourceId.kind-0
+        playlistid: snippet.resourceId.playlistId-0
+        videoid: snippet.resourceId.videoId-0
+        forcesendfields: []
+        nullfields: []
+    thumbnails:
+        default:
+            height: 33
+            url: snippet.thumbnails.default.url-0
+            width: 32
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 29
+            url: snippet.thumbnails.fhd.url-0
+            width: 28
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 30
+            url: snippet.thumbnails.high.url-0
+            width: 29
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 32
+            url: snippet.thumbnails.maxres.url-0
+            width: 31
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 32
+            url: snippet.thumbnails.medium.url-0
+            width: 31
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 29
+            url: snippet.thumbnails.qhd.url-0
+            width: 28
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 34
+            url: snippet.thumbnails.standard.url-0
+            width: 33
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 29
+            url: snippet.thumbnails.uhd.url-0
+            width: 28
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: '@at sign'
+    videoownerchannelid: snippet.videoOwnerChannelId-0
+    videoownerchanneltitle: snippet.videoOwnerChannelTitle-0
+    forcesendfields: []
+    nullfields: []
+  status:
+    privacystatus: public
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    endat: contentDetails.endAt-1
+    note: contentDetails.note-1
+    startat: contentDetails.startAt-1
+    videoid: contentDetails.videoId-1
+    videopublishedat: "2026-02-11T12:34:51Z"
+    forcesendfields: []
+    nullfields: []
+  etag: etag-1
+  id: id-1
+  kind: kind-1
+  snippet:
+    channelid: snippet.channelId-1
+    channeltitle: snippet.channelTitle-1
+    description: Ünïcödé ✓ 日本語のタイトル snippet.description
+    playlistid: snippet.playlistId-1
+    position: 29
+    publishedat: "2026-02-11T12:34:51Z"
+    resourceid:
+        channelid: snippet.resourceId.channelId-1
+        kind: snippet.resourceId.kind-1
+        playlistid: snippet.resourceId.playlistId-1
+        videoid: snippet.resourceId.videoId-1
+        forcesendfields: []
+        nullfields: []
+    thumbnails:
+        default:
+            height: 46
+            url: snippet.thumbnails.default.url-1
+            width: 45
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 42
+            url: snippet.thumbnails.fhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 43
+            url: snippet.thumbnails.high.url-1
+            width: 42
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 45
+            url: snippet.thumbnails.maxres.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 45
+            url: snippet.thumbnails.medium.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 42
+            url: snippet.thumbnails.qhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 47
+            url: snippet.thumbnails.standard.url-1
+            width: 46
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 42
+            url: snippet.thumbnails.uhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: Ünïcödé ✓ 日本語のタイトル
+    videoownerchannelid: snippet.videoOwnerChannelId-1
+    videoownerchanneltitle: snippet.videoOwnerChannelTitle-1
+    forcesendfields: []
+    nullfields: []
+  status:
+    privacystatus: unlisted
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    endat: contentDetails.endAt-2
+    note: contentDetails.note-2
+    startat: contentDetails.startAt-2
+    videoid: contentDetails.videoId-2
+    videopublishedat: "2026-03-12T12:34:52Z"
+    forcesendfields: []
+    nullfields: []
+  etag: etag-2
+  id: id-2
+  kind: kind-2
+  snippet:
+    channelid: snippet.channelId-2
+    channeltitle: snippet.channelTitle-2
+    description: <b>tags</b> & "quotes" snippet.description
+    playlistid: snippet.playlistId-2
+    position: 42
+    publishedat: "2026-03-12T12:34:52Z"
+    resourceid:
+        channelid: snippet.resourceId.channelId-2
+        kind: snippet.resourceId.kind-2
+        playlistid: snippet.resourceId.playlistId-2
+        videoid: snippet.resourceId.videoId-2
+        forcesendfields: []
+        nullfields: []
+    thumbnails:
+        default:
+            height: 59
+            url: snippet.thumbnails.default.url-2
+            width: 58
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 55
+            url: snippet.thumbnails.fhd.url-2
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 56
+            url: snippet.thumbnails.high.url-2
+            width: 55
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 58
+            url: snippet.thumbnails.maxres.url-2
+            width: 57
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 58
+            url: snippet.thumbnails.medium.url-2
+            width: 57
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 55
+            url: snippet.thumbnails.qhd.url-2
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 60
+            url: snippet.thumbnails.standard.url-2
+            width: 59
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 55
+            url: snippet.thumbnails.uhd.url-2
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: '- dash start'
+    videoownerchannelid: snippet.videoOwnerChannelId-2
+    videoownerchanneltitle: snippet.videoOwnerChannelTitle-2
+    forcesendfields: []
+    nullfields: []
+  status:
+    privacystatus: private
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    endat: ""
+    note: ""
+    startat: ""
+    videoid: ""
+    videopublishedat: ""
+    forcesendfields: []
+    nullfields: []
+  etag: ""
+  id: zero-0
+  kind: ""
+  snippet:
+    channelid: ""
+    channeltitle: ""
+    description: ""
+    playlistid: ""
+    position: 0
+    publishedat: ""
+    resourceid:
+        channelid: ""
+        kind: ""
+        playlistid: ""
+        videoid: ""
+        forcesendfields: []
+        nullfields: []
+    thumbnails:
+        default:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: ""
+    videoownerchannelid: ""
+    videoownerchanneltitle: ""
+    forcesendfields: []
+    nullfields: []
+  status:
+    privacystatus: ""
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []

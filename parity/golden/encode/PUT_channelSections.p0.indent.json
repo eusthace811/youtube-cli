@@ -1,0 +1,48 @@
+{
+  "contentDetails": {
+    "channels": [
+      "contentDetails.channels[]-1",
+      "contentDetails.channels[]-2"
+    ],
+    "playlists": [
+      "contentDetails.playlists[]-1",
+      "contentDetails.playlists[]-2"
+    ]
+  },
+  "etag": "etag-1",
+  "id": "id-1",
+  "kind": "kind-1",
+  "localizations": {
+    "ka": {
+      "title": "trailing space "
+    },
+    "kb": {
+      "title": "# hash"
+    }
+  },
+  "snippet": {
+    "channelId": "snippet.channelId-1",
+    "defaultLanguage": "snippet.defaultLanguage-1",
+    "localized": {
+      "title": "null"
+    },
+    "position": 29,
+    "style": "horizontalRow",
+    "title": "Ünïcödé ✓ 日本語のタイトル",
+    "type": "singlePlaylist"
+  },
+  "targeting": {
+    "countries": [
+      "targeting.countries[]-1",
+      "targeting.countries[]-2"
+    ],
+    "languages": [
+      "targeting.languages[]-1",
+      "targeting.languages[]-2"
+    ],
+    "regions": [
+      "targeting.regions[]-1",
+      "targeting.regions[]-2"
+    ]
+  }
+}

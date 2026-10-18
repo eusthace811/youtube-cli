@@ -1,0 +1,161 @@
+etag: etag-page-0
+eventid: ""
+items:
+    - etag: etag-0
+      kind: kind-0
+      snippet:
+        creatorchannelid: snippet.creatorChannelId-0
+        memberdetails:
+            channelid: snippet.memberDetails.channelId-0
+            channelurl: snippet.memberDetails.channelUrl-0
+            displayname: snippet.memberDetails.displayName-0
+            profileimageurl: snippet.memberDetails.profileImageUrl-0
+            forcesendfields: []
+            nullfields: []
+        membershipsdetails:
+            accessiblelevels:
+                - snippet.membershipsDetails.accessibleLevels[]-0
+                - snippet.membershipsDetails.accessibleLevels[]-1
+            highestaccessiblelevel: snippet.membershipsDetails.highestAccessibleLevel-0
+            highestaccessibleleveldisplayname: snippet.membershipsDetails.highestAccessibleLevelDisplayName-0
+            membershipsduration:
+                membersince: snippet.membershipsDetails.membershipsDuration.memberSince-0
+                membertotaldurationmonths: 72
+                forcesendfields: []
+                nullfields: []
+            membershipsdurationatlevels:
+                - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-0
+                  membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-0
+                  membertotaldurationmonths: 82
+                  forcesendfields: []
+                  nullfields: []
+                - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-1
+                  membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-1
+                  membertotaldurationmonths: 95
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-1
+      kind: kind-1
+      snippet:
+        creatorchannelid: snippet.creatorChannelId-1
+        memberdetails:
+            channelid: snippet.memberDetails.channelId-1
+            channelurl: snippet.memberDetails.channelUrl-1
+            displayname: snippet.memberDetails.displayName-1
+            profileimageurl: snippet.memberDetails.profileImageUrl-1
+            forcesendfields: []
+            nullfields: []
+        membershipsdetails:
+            accessiblelevels:
+                - snippet.membershipsDetails.accessibleLevels[]-1
+                - snippet.membershipsDetails.accessibleLevels[]-2
+            highestaccessiblelevel: snippet.membershipsDetails.highestAccessibleLevel-1
+            highestaccessibleleveldisplayname: snippet.membershipsDetails.highestAccessibleLevelDisplayName-1
+            membershipsduration:
+                membersince: snippet.membershipsDetails.membershipsDuration.memberSince-1
+                membertotaldurationmonths: 85
+                forcesendfields: []
+                nullfields: []
+            membershipsdurationatlevels:
+                - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-1
+                  membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-1
+                  membertotaldurationmonths: 95
+                  forcesendfields: []
+                  nullfields: []
+                - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-2
+                  membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-2
+                  membertotaldurationmonths: 108
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-2
+      kind: kind-2
+      snippet:
+        creatorchannelid: snippet.creatorChannelId-2
+        memberdetails:
+            channelid: snippet.memberDetails.channelId-2
+            channelurl: snippet.memberDetails.channelUrl-2
+            displayname: snippet.memberDetails.displayName-2
+            profileimageurl: snippet.memberDetails.profileImageUrl-2
+            forcesendfields: []
+            nullfields: []
+        membershipsdetails:
+            accessiblelevels:
+                - snippet.membershipsDetails.accessibleLevels[]-2
+                - snippet.membershipsDetails.accessibleLevels[]-3
+            highestaccessiblelevel: snippet.membershipsDetails.highestAccessibleLevel-2
+            highestaccessibleleveldisplayname: snippet.membershipsDetails.highestAccessibleLevelDisplayName-2
+            membershipsduration:
+                membersince: snippet.membershipsDetails.membershipsDuration.memberSince-2
+                membertotaldurationmonths: 98
+                forcesendfields: []
+                nullfields: []
+            membershipsdurationatlevels:
+                - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-2
+                  membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-2
+                  membertotaldurationmonths: 108
+                  forcesendfields: []
+                  nullfields: []
+                - level: snippet.membershipsDetails.membershipsDurationAtLevels[].level-3
+                  membersince: snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-3
+                  membertotaldurationmonths: 121
+                  forcesendfields: []
+                  nullfields: []
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: ""
+      kind: ""
+      snippet:
+        creatorchannelid: ""
+        memberdetails:
+            channelid: ""
+            channelurl: ""
+            displayname: ""
+            profileimageurl: ""
+            forcesendfields: []
+            nullfields: []
+        membershipsdetails:
+            accessiblelevels: []
+            highestaccessiblelevel: ""
+            highestaccessibleleveldisplayname: ""
+            membershipsduration:
+                membersince: ""
+                membertotaldurationmonths: 0
+                forcesendfields: []
+                nullfields: []
+            membershipsdurationatlevels: []
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+kind: youtube#memberListResponse
+nextpagetoken: p2
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+tokenpagination: null
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

@@ -1,0 +1,16 @@
+- rating: none
+  videoid: videoId-0
+  forcesendfields: []
+  nullfields: []
+- rating: like
+  videoid: videoId-1
+  forcesendfields: []
+  nullfields: []
+- rating: dislike
+  videoid: videoId-2
+  forcesendfields: []
+  nullfields: []
+- rating: ""
+  videoid: ""
+  forcesendfields: []
+  nullfields: []

@@ -1,0 +1,34 @@
+[
+  {
+    "etag": "etag-20",
+    "id": "id-20",
+    "kind": "kind-20",
+    "snippet": {
+      "channelId": "snippet.channelId-20",
+      "title": "Ünïcödé ✓ 日本語のタイトル"
+    }
+  },
+  {
+    "etag": "etag-21",
+    "id": "id-21",
+    "kind": "kind-21",
+    "snippet": {
+      "assignable": true,
+      "channelId": "snippet.channelId-21",
+      "title": "- dash start"
+    }
+  },
+  {
+    "etag": "etag-22",
+    "id": "id-22",
+    "kind": "kind-22",
+    "snippet": {
+      "channelId": "snippet.channelId-22",
+      "title": "line sep"
+    }
+  },
+  {
+    "id": "zero-2",
+    "snippet": {}
+  }
+]

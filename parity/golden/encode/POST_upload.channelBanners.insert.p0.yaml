@@ -1,0 +1,8 @@
+etag: etag-1
+kind: kind-1
+url: url-1
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

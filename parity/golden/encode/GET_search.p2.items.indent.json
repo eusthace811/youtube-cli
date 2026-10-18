@@ -1,0 +1,197 @@
+[
+  {
+    "etag": "etag-20",
+    "id": {
+      "channelId": "id.channelId-20",
+      "kind": "id.kind-20",
+      "playlistId": "id.playlistId-20",
+      "videoId": "id.videoId-20"
+    },
+    "kind": "kind-20",
+    "snippet": {
+      "channelId": "snippet.channelId-20",
+      "channelTitle": "snippet.channelTitle-20",
+      "description": "emoji 🎬🎥 mix snippet.description",
+      "liveBroadcastContent": "none",
+      "publishedAt": "2026-03-12T12:34:50Z",
+      "thumbnails": {
+        "default": {
+          "height": 293,
+          "url": "snippet.thumbnails.default.url-20",
+          "width": 292
+        },
+        "fhd": {
+          "height": 289,
+          "url": "snippet.thumbnails.fhd.url-20",
+          "width": 288
+        },
+        "high": {
+          "height": 290,
+          "url": "snippet.thumbnails.high.url-20",
+          "width": 289
+        },
+        "maxres": {
+          "height": 292,
+          "url": "snippet.thumbnails.maxres.url-20",
+          "width": 291
+        },
+        "medium": {
+          "height": 292,
+          "url": "snippet.thumbnails.medium.url-20",
+          "width": 291
+        },
+        "qhd": {
+          "height": 289,
+          "url": "snippet.thumbnails.qhd.url-20",
+          "width": 288
+        },
+        "standard": {
+          "height": 294,
+          "url": "snippet.thumbnails.standard.url-20",
+          "width": 293
+        },
+        "uhd": {
+          "height": 289,
+          "url": "snippet.thumbnails.uhd.url-20",
+          "width": 288
+        }
+      },
+      "title": "Ünïcödé ✓ 日本語のタイトル"
+    }
+  },
+  {
+    "etag": "etag-21",
+    "id": {
+      "channelId": "id.channelId-21",
+      "kind": "id.kind-21",
+      "playlistId": "id.playlistId-21",
+      "videoId": "id.videoId-21"
+    },
+    "kind": "kind-21",
+    "snippet": {
+      "channelId": "snippet.channelId-21",
+      "channelTitle": "snippet.channelTitle-21",
+      "description": "tab\tand\nnewline snippet.description",
+      "liveBroadcastContent": "upcoming",
+      "publishedAt": "2026-04-13T12:34:51Z",
+      "thumbnails": {
+        "default": {
+          "height": 306,
+          "url": "snippet.thumbnails.default.url-21",
+          "width": 305
+        },
+        "fhd": {
+          "height": 302,
+          "url": "snippet.thumbnails.fhd.url-21",
+          "width": 301
+        },
+        "high": {
+          "height": 303,
+          "url": "snippet.thumbnails.high.url-21",
+          "width": 302
+        },
+        "maxres": {
+          "height": 305,
+          "url": "snippet.thumbnails.maxres.url-21",
+          "width": 304
+        },
+        "medium": {
+          "height": 305,
+          "url": "snippet.thumbnails.medium.url-21",
+          "width": 304
+        },
+        "qhd": {
+          "height": 302,
+          "url": "snippet.thumbnails.qhd.url-21",
+          "width": 301
+        },
+        "standard": {
+          "height": 307,
+          "url": "snippet.thumbnails.standard.url-21",
+          "width": 306
+        },
+        "uhd": {
+          "height": 302,
+          "url": "snippet.thumbnails.uhd.url-21",
+          "width": 301
+        }
+      },
+      "title": "- dash start"
+    }
+  },
+  {
+    "etag": "etag-22",
+    "id": {
+      "channelId": "id.channelId-22",
+      "kind": "id.kind-22",
+      "playlistId": "id.playlistId-22",
+      "videoId": "id.videoId-22"
+    },
+    "kind": "kind-22",
+    "snippet": {
+      "channelId": "snippet.channelId-22",
+      "channelTitle": "snippet.channelTitle-22",
+      "description": "true snippet.description",
+      "liveBroadcastContent": "live",
+      "publishedAt": "2026-05-14T12:34:52Z",
+      "thumbnails": {
+        "default": {
+          "height": 319,
+          "url": "snippet.thumbnails.default.url-22",
+          "width": 318
+        },
+        "fhd": {
+          "height": 315,
+          "url": "snippet.thumbnails.fhd.url-22",
+          "width": 314
+        },
+        "high": {
+          "height": 316,
+          "url": "snippet.thumbnails.high.url-22",
+          "width": 315
+        },
+        "maxres": {
+          "height": 318,
+          "url": "snippet.thumbnails.maxres.url-22",
+          "width": 317
+        },
+        "medium": {
+          "height": 318,
+          "url": "snippet.thumbnails.medium.url-22",
+          "width": 317
+        },
+        "qhd": {
+          "height": 315,
+          "url": "snippet.thumbnails.qhd.url-22",
+          "width": 314
+        },
+        "standard": {
+          "height": 320,
+          "url": "snippet.thumbnails.standard.url-22",
+          "width": 319
+        },
+        "uhd": {
+          "height": 315,
+          "url": "snippet.thumbnails.uhd.url-22",
+          "width": 314
+        }
+      },
+      "title": "line sep"
+    }
+  },
+  {
+    "id": {},
+    "snippet": {
+      "thumbnails": {
+        "default": {},
+        "fhd": {},
+        "high": {},
+        "maxres": {},
+        "medium": {},
+        "qhd": {},
+        "standard": {},
+        "uhd": {}
+      }
+    }
+  }
+]

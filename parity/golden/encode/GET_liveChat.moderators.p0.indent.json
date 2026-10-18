@@ -1,0 +1,59 @@
+{
+  "etag": "etag-page-0",
+  "items": [
+    {
+      "etag": "etag-0",
+      "id": "id-0",
+      "kind": "kind-0",
+      "snippet": {
+        "liveChatId": "snippet.liveChatId-0",
+        "moderatorDetails": {
+          "channelId": "snippet.moderatorDetails.channelId-0",
+          "channelUrl": "snippet.moderatorDetails.channelUrl-0",
+          "displayName": "snippet.moderatorDetails.displayName-0",
+          "profileImageUrl": "snippet.moderatorDetails.profileImageUrl-0"
+        }
+      }
+    },
+    {
+      "etag": "etag-1",
+      "id": "id-1",
+      "kind": "kind-1",
+      "snippet": {
+        "liveChatId": "snippet.liveChatId-1",
+        "moderatorDetails": {
+          "channelId": "snippet.moderatorDetails.channelId-1",
+          "channelUrl": "snippet.moderatorDetails.channelUrl-1",
+          "displayName": "snippet.moderatorDetails.displayName-1",
+          "profileImageUrl": "snippet.moderatorDetails.profileImageUrl-1"
+        }
+      }
+    },
+    {
+      "etag": "etag-2",
+      "id": "id-2",
+      "kind": "kind-2",
+      "snippet": {
+        "liveChatId": "snippet.liveChatId-2",
+        "moderatorDetails": {
+          "channelId": "snippet.moderatorDetails.channelId-2",
+          "channelUrl": "snippet.moderatorDetails.channelUrl-2",
+          "displayName": "snippet.moderatorDetails.displayName-2",
+          "profileImageUrl": "snippet.moderatorDetails.profileImageUrl-2"
+        }
+      }
+    },
+    {
+      "id": "zero-0",
+      "snippet": {
+        "moderatorDetails": {}
+      }
+    }
+  ],
+  "kind": "youtube#liveChatModeratorListResponse",
+  "nextPageToken": "p2",
+  "pageInfo": {
+    "resultsPerPage": 4,
+    "totalResults": 12
+  }
+}

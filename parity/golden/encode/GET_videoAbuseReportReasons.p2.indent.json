@@ -1,0 +1,64 @@
+{
+  "etag": "etag-page-2",
+  "items": [
+    {
+      "etag": "etag-20",
+      "id": "id-20",
+      "kind": "kind-20",
+      "snippet": {
+        "label": "snippet.label-20",
+        "secondaryReasons": [
+          {
+            "id": "snippet.secondaryReasons[].id-20",
+            "label": "snippet.secondaryReasons[].label-20"
+          },
+          {
+            "id": "snippet.secondaryReasons[].id-21",
+            "label": "snippet.secondaryReasons[].label-21"
+          }
+        ]
+      }
+    },
+    {
+      "etag": "etag-21",
+      "id": "id-21",
+      "kind": "kind-21",
+      "snippet": {
+        "label": "snippet.label-21",
+        "secondaryReasons": [
+          {
+            "id": "snippet.secondaryReasons[].id-21",
+            "label": "snippet.secondaryReasons[].label-21"
+          },
+          {
+            "id": "snippet.secondaryReasons[].id-22",
+            "label": "snippet.secondaryReasons[].label-22"
+          }
+        ]
+      }
+    },
+    {
+      "etag": "etag-22",
+      "id": "id-22",
+      "kind": "kind-22",
+      "snippet": {
+        "label": "snippet.label-22",
+        "secondaryReasons": [
+          {
+            "id": "snippet.secondaryReasons[].id-22",
+            "label": "snippet.secondaryReasons[].label-22"
+          },
+          {
+            "id": "snippet.secondaryReasons[].id-23",
+            "label": "snippet.secondaryReasons[].label-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "zero-2",
+      "snippet": {}
+    }
+  ],
+  "kind": "youtube#videoAbuseReportReasonListResponse"
+}

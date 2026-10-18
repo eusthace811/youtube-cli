@@ -1,0 +1,546 @@
+- contentdetails:
+    activitytype: subscriptionActivityTypeUnspecified
+    newitemcount: 27
+    totalitemcount: 29
+    forcesendfields: []
+    nullfields: []
+  etag: etag-0
+  id: id-0
+  kind: kind-0
+  snippet:
+    channelid: snippet.channelId-0
+    description: Plain title snippet.description
+    publishedat: "2026-01-10T12:34:50Z"
+    resourceid:
+        channelid: snippet.resourceId.channelId-0
+        kind: snippet.resourceId.kind-0
+        playlistid: snippet.resourceId.playlistId-0
+        videoid: snippet.resourceId.videoId-0
+        forcesendfields: []
+        nullfields: []
+    thumbnails:
+        default:
+            height: 33
+            url: snippet.thumbnails.default.url-0
+            width: 32
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 29
+            url: snippet.thumbnails.fhd.url-0
+            width: 28
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 30
+            url: snippet.thumbnails.high.url-0
+            width: 29
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 32
+            url: snippet.thumbnails.maxres.url-0
+            width: 31
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 32
+            url: snippet.thumbnails.medium.url-0
+            width: 31
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 29
+            url: snippet.thumbnails.qhd.url-0
+            width: 28
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 34
+            url: snippet.thumbnails.standard.url-0
+            width: 33
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 29
+            url: snippet.thumbnails.uhd.url-0
+            width: 28
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: '@at sign'
+    forcesendfields: []
+    nullfields: []
+  subscribersnippet:
+    channelid: subscriberSnippet.channelId-0
+    description: Plain title subscriberSnippet.description
+    thumbnails:
+        default:
+            height: 43
+            url: subscriberSnippet.thumbnails.default.url-0
+            width: 42
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 39
+            url: subscriberSnippet.thumbnails.fhd.url-0
+            width: 38
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 40
+            url: subscriberSnippet.thumbnails.high.url-0
+            width: 39
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 42
+            url: subscriberSnippet.thumbnails.maxres.url-0
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 42
+            url: subscriberSnippet.thumbnails.medium.url-0
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 39
+            url: subscriberSnippet.thumbnails.qhd.url-0
+            width: 38
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 44
+            url: subscriberSnippet.thumbnails.standard.url-0
+            width: 43
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 39
+            url: subscriberSnippet.thumbnails.uhd.url-0
+            width: 38
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: |-
+        tab	and
+        newline
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    activitytype: all
+    newitemcount: 40
+    totalitemcount: 42
+    forcesendfields: []
+    nullfields: []
+  etag: etag-1
+  id: id-1
+  kind: kind-1
+  snippet:
+    channelid: snippet.channelId-1
+    description: Ünïcödé ✓ 日本語のタイトル snippet.description
+    publishedat: "2026-02-11T12:34:51Z"
+    resourceid:
+        channelid: snippet.resourceId.channelId-1
+        kind: snippet.resourceId.kind-1
+        playlistid: snippet.resourceId.playlistId-1
+        videoid: snippet.resourceId.videoId-1
+        forcesendfields: []
+        nullfields: []
+    thumbnails:
+        default:
+            height: 46
+            url: snippet.thumbnails.default.url-1
+            width: 45
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 42
+            url: snippet.thumbnails.fhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 43
+            url: snippet.thumbnails.high.url-1
+            width: 42
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 45
+            url: snippet.thumbnails.maxres.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 45
+            url: snippet.thumbnails.medium.url-1
+            width: 44
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 42
+            url: snippet.thumbnails.qhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 47
+            url: snippet.thumbnails.standard.url-1
+            width: 46
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 42
+            url: snippet.thumbnails.uhd.url-1
+            width: 41
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: Ünïcödé ✓ 日本語のタイトル
+    forcesendfields: []
+    nullfields: []
+  subscribersnippet:
+    channelid: subscriberSnippet.channelId-1
+    description: Ünïcödé ✓ 日本語のタイトル subscriberSnippet.description
+    thumbnails:
+        default:
+            height: 56
+            url: subscriberSnippet.thumbnails.default.url-1
+            width: 55
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 52
+            url: subscriberSnippet.thumbnails.fhd.url-1
+            width: 51
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 53
+            url: subscriberSnippet.thumbnails.high.url-1
+            width: 52
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 55
+            url: subscriberSnippet.thumbnails.maxres.url-1
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 55
+            url: subscriberSnippet.thumbnails.medium.url-1
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 52
+            url: subscriberSnippet.thumbnails.qhd.url-1
+            width: 51
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 57
+            url: subscriberSnippet.thumbnails.standard.url-1
+            width: 56
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 52
+            url: subscriberSnippet.thumbnails.uhd.url-1
+            width: 51
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: "null"
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    activitytype: uploads
+    newitemcount: 53
+    totalitemcount: 55
+    forcesendfields: []
+    nullfields: []
+  etag: etag-2
+  id: id-2
+  kind: kind-2
+  snippet:
+    channelid: snippet.channelId-2
+    description: <b>tags</b> & "quotes" snippet.description
+    publishedat: "2026-03-12T12:34:52Z"
+    resourceid:
+        channelid: snippet.resourceId.channelId-2
+        kind: snippet.resourceId.kind-2
+        playlistid: snippet.resourceId.playlistId-2
+        videoid: snippet.resourceId.videoId-2
+        forcesendfields: []
+        nullfields: []
+    thumbnails:
+        default:
+            height: 59
+            url: snippet.thumbnails.default.url-2
+            width: 58
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 55
+            url: snippet.thumbnails.fhd.url-2
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 56
+            url: snippet.thumbnails.high.url-2
+            width: 55
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 58
+            url: snippet.thumbnails.maxres.url-2
+            width: 57
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 58
+            url: snippet.thumbnails.medium.url-2
+            width: 57
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 55
+            url: snippet.thumbnails.qhd.url-2
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 60
+            url: snippet.thumbnails.standard.url-2
+            width: 59
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 55
+            url: snippet.thumbnails.uhd.url-2
+            width: 54
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: '- dash start'
+    forcesendfields: []
+    nullfields: []
+  subscribersnippet:
+    channelid: subscriberSnippet.channelId-2
+    description: <b>tags</b> & "quotes" subscriberSnippet.description
+    thumbnails:
+        default:
+            height: 69
+            url: subscriberSnippet.thumbnails.default.url-2
+            width: 68
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 65
+            url: subscriberSnippet.thumbnails.fhd.url-2
+            width: 64
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 66
+            url: subscriberSnippet.thumbnails.high.url-2
+            width: 65
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 68
+            url: subscriberSnippet.thumbnails.maxres.url-2
+            width: 67
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 68
+            url: subscriberSnippet.thumbnails.medium.url-2
+            width: 67
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 65
+            url: subscriberSnippet.thumbnails.qhd.url-2
+            width: 64
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 70
+            url: subscriberSnippet.thumbnails.standard.url-2
+            width: 69
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 65
+            url: subscriberSnippet.thumbnails.uhd.url-2
+            width: 64
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: A very long line that keeps going well past eighty characters so that any wrapping logic in an emitter shows up clearly here
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- contentdetails:
+    activitytype: ""
+    newitemcount: 0
+    totalitemcount: 0
+    forcesendfields: []
+    nullfields: []
+  etag: ""
+  id: zero-0
+  kind: ""
+  snippet:
+    channelid: ""
+    description: ""
+    publishedat: ""
+    resourceid:
+        channelid: ""
+        kind: ""
+        playlistid: ""
+        videoid: ""
+        forcesendfields: []
+        nullfields: []
+    thumbnails:
+        default:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: ""
+    forcesendfields: []
+    nullfields: []
+  subscribersnippet:
+    channelid: ""
+    description: ""
+    thumbnails:
+        default:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        fhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        high:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        maxres:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        medium:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        qhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        standard:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        uhd:
+            height: 0
+            url: ""
+            width: 0
+            forcesendfields: []
+            nullfields: []
+        forcesendfields: []
+        nullfields: []
+    title: ""
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []

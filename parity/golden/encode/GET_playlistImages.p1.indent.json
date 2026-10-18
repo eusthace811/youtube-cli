@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": "id-10",
+      "kind": "kind-10",
+      "snippet": {
+        "height": 144,
+        "playlistId": "snippet.playlistId-10",
+        "type": "hero",
+        "width": 143
+      }
+    },
+    {
+      "id": "id-11",
+      "kind": "kind-11",
+      "snippet": {
+        "height": 157,
+        "playlistId": "snippet.playlistId-11",
+        "type": "hero",
+        "width": 156
+      }
+    },
+    {
+      "id": "id-12",
+      "kind": "kind-12",
+      "snippet": {
+        "height": 170,
+        "playlistId": "snippet.playlistId-12",
+        "type": "hero",
+        "width": 169
+      }
+    },
+    {
+      "id": "zero-1",
+      "snippet": {}
+    }
+  ],
+  "kind": "youtube#playlistImageListResponse",
+  "nextPageToken": "p3",
+  "pageInfo": {
+    "resultsPerPage": 4,
+    "totalResults": 12
+  }
+}

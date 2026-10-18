@@ -1,0 +1,148 @@
+- etag: etag-20
+  kind: kind-20
+  linkingtoken: linkingToken-20
+  snippet:
+    channeltoaffiliateprogramlink:
+        merchantid: 159868
+        programstatus: inactive
+        statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-20
+        statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-20
+        forcesendfields: []
+        nullfields: []
+    channeltostorelink:
+        billingdetails:
+            billingstatus: billingStatusUnspecified
+            forcesendfields: []
+            nullfields: []
+        merchantaffiliateprogramdetails:
+            status: merchantAffiliateProgramStatusUnspecified
+            forcesendfields: []
+            nullfields: []
+        merchantid: 159527
+        storename: snippet.channelToStoreLink.storeName-20
+        storeurl: snippet.channelToStoreLink.storeUrl-20
+        forcesendfields: []
+        nullfields: []
+    type: channelToAffiliateProgramLink
+    forcesendfields: []
+    nullfields: []
+  status:
+    linkstatus: unknown
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: etag-21
+  kind: kind-21
+  linkingtoken: linkingToken-21
+  snippet:
+    channeltoaffiliateprogramlink:
+        merchantid: 167787
+        programstatus: affiliateProgramStatusUnspecified
+        statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-21
+        statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-21
+        forcesendfields: []
+        nullfields: []
+    channeltostorelink:
+        billingdetails:
+            billingstatus: billingStatusPending
+            forcesendfields: []
+            nullfields: []
+        merchantaffiliateprogramdetails:
+            status: merchantAffiliateProgramStatusEligible
+            forcesendfields: []
+            nullfields: []
+        merchantid: 167446
+        storename: snippet.channelToStoreLink.storeName-21
+        storeurl: snippet.channelToStoreLink.storeUrl-21
+        forcesendfields: []
+        nullfields: []
+    type: linkUnspecified
+    forcesendfields: []
+    nullfields: []
+  status:
+    linkstatus: failed
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: etag-22
+  kind: kind-22
+  linkingtoken: linkingToken-22
+  snippet:
+    channeltoaffiliateprogramlink:
+        merchantid: 175706
+        programstatus: active
+        statusupdatereason: snippet.channelToAffiliateProgramLink.statusUpdateReason-22
+        statusupdatetime: snippet.channelToAffiliateProgramLink.statusUpdateTime-22
+        forcesendfields: []
+        nullfields: []
+    channeltostorelink:
+        billingdetails:
+            billingstatus: billingStatusActive
+            forcesendfields: []
+            nullfields: []
+        merchantaffiliateprogramdetails:
+            status: merchantAffiliateProgramStatusActive
+            forcesendfields: []
+            nullfields: []
+        merchantid: 175365
+        storename: snippet.channelToStoreLink.storeName-22
+        storeurl: snippet.channelToStoreLink.storeUrl-22
+        forcesendfields: []
+        nullfields: []
+    type: channelToStoreLink
+    forcesendfields: []
+    nullfields: []
+  status:
+    linkstatus: pending
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: ""
+  kind: ""
+  linkingtoken: ""
+  snippet:
+    channeltoaffiliateprogramlink:
+        merchantid: 0
+        programstatus: ""
+        statusupdatereason: ""
+        statusupdatetime: ""
+        forcesendfields: []
+        nullfields: []
+    channeltostorelink:
+        billingdetails:
+            billingstatus: ""
+            forcesendfields: []
+            nullfields: []
+        merchantaffiliateprogramdetails:
+            status: ""
+            forcesendfields: []
+            nullfields: []
+        merchantid: 0
+        storename: ""
+        storeurl: ""
+        forcesendfields: []
+        nullfields: []
+    type: ""
+    forcesendfields: []
+    nullfields: []
+  status:
+    linkstatus: ""
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []

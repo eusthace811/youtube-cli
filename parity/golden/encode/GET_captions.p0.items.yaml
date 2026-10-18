@@ -1,0 +1,96 @@
+- etag: etag-0
+  id: id-0
+  kind: kind-0
+  snippet:
+    audiotracktype: unknown
+    failurereason: unknownFormat
+    isautosynced: false
+    iscc: false
+    isdraft: false
+    iseasyreader: false
+    islarge: false
+    language: snippet.language-0
+    lastupdated: "2026-01-10T12:34:50Z"
+    name: "~"
+    status: serving
+    trackkind: standard
+    videoid: snippet.videoId-0
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: etag-1
+  id: id-1
+  kind: kind-1
+  snippet:
+    audiotracktype: primary
+    failurereason: unsupportedFormat
+    isautosynced: true
+    iscc: true
+    isdraft: true
+    iseasyreader: true
+    islarge: true
+    language: snippet.language-1
+    lastupdated: "2026-02-11T12:34:51Z"
+    name: Plain title
+    status: syncing
+    trackkind: ASR
+    videoid: snippet.videoId-1
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: etag-2
+  id: id-2
+  kind: kind-2
+  snippet:
+    audiotracktype: commentary
+    failurereason: processingFailed
+    isautosynced: false
+    iscc: false
+    isdraft: false
+    iseasyreader: false
+    islarge: false
+    language: snippet.language-2
+    lastupdated: "2026-03-12T12:34:52Z"
+    name: 'key: value'
+    status: failed
+    trackkind: forced
+    videoid: snippet.videoId-2
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []
+- etag: ""
+  id: zero-0
+  kind: ""
+  snippet:
+    audiotracktype: ""
+    failurereason: ""
+    isautosynced: false
+    iscc: false
+    isdraft: false
+    iseasyreader: false
+    islarge: false
+    language: ""
+    lastupdated: ""
+    name: ""
+    status: ""
+    trackkind: ""
+    videoid: ""
+    forcesendfields: []
+    nullfields: []
+  serverresponse:
+    httpstatuscode: 0
+    header: {}
+  forcesendfields: []
+  nullfields: []

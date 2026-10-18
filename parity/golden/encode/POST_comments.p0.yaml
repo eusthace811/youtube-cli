@@ -1,0 +1,29 @@
+etag: etag-1
+id: id-1
+kind: kind-1
+snippet:
+    authorchannelid:
+        value: snippet.authorChannelId.value-1
+        forcesendfields: []
+        nullfields: []
+    authorchannelurl: snippet.authorChannelUrl-1
+    authordisplayname: snippet.authorDisplayName-1
+    authorprofileimageurl: snippet.authorProfileImageUrl-1
+    canrate: true
+    channelid: snippet.channelId-1
+    likecount: 30
+    moderationstatus: heldForReview
+    parentid: snippet.parentId-1
+    publishedat: "2026-02-11T12:34:51Z"
+    textdisplay: Ünïcödé ✓ 日本語のタイトル snippet.textDisplay
+    textoriginal: snippet.textOriginal-1
+    updatedat: "2026-02-11T12:34:51Z"
+    videoid: snippet.videoId-1
+    viewerrating: like
+    forcesendfields: []
+    nullfields: []
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

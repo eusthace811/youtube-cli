@@ -1,0 +1,40 @@
+- etag: etag-0
+  id: id-0
+  kind: kind-0
+  snippet:
+    hl: snippet.hl-0
+    name: "~"
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: etag-1
+  id: id-1
+  kind: kind-1
+  snippet:
+    hl: snippet.hl-1
+    name: Plain title
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: etag-2
+  id: id-2
+  kind: kind-2
+  snippet:
+    hl: snippet.hl-2
+    name: 'key: value'
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []
+- etag: ""
+  id: zero-0
+  kind: ""
+  snippet:
+    hl: ""
+    name: ""
+    forcesendfields: []
+    nullfields: []
+  forcesendfields: []
+  nullfields: []

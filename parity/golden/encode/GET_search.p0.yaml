@@ -1,0 +1,303 @@
+etag: etag-page-0
+eventid: ""
+items:
+    - etag: etag-0
+      id:
+        channelid: id.channelId-0
+        kind: id.kind-0
+        playlistid: id.playlistId-0
+        videoid: id.videoId-0
+        forcesendfields: []
+        nullfields: []
+      kind: kind-0
+      snippet:
+        channelid: snippet.channelId-0
+        channeltitle: snippet.channelTitle-0
+        description: Plain title snippet.description
+        livebroadcastcontent: none
+        publishedat: "2026-01-10T12:34:50Z"
+        thumbnails:
+            default:
+                height: 33
+                url: snippet.thumbnails.default.url-0
+                width: 32
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 29
+                url: snippet.thumbnails.fhd.url-0
+                width: 28
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 30
+                url: snippet.thumbnails.high.url-0
+                width: 29
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 32
+                url: snippet.thumbnails.maxres.url-0
+                width: 31
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 32
+                url: snippet.thumbnails.medium.url-0
+                width: 31
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 29
+                url: snippet.thumbnails.qhd.url-0
+                width: 28
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 34
+                url: snippet.thumbnails.standard.url-0
+                width: 33
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 29
+                url: snippet.thumbnails.uhd.url-0
+                width: 28
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: '@at sign'
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-1
+      id:
+        channelid: id.channelId-1
+        kind: id.kind-1
+        playlistid: id.playlistId-1
+        videoid: id.videoId-1
+        forcesendfields: []
+        nullfields: []
+      kind: kind-1
+      snippet:
+        channelid: snippet.channelId-1
+        channeltitle: snippet.channelTitle-1
+        description: Ünïcödé ✓ 日本語のタイトル snippet.description
+        livebroadcastcontent: upcoming
+        publishedat: "2026-02-11T12:34:51Z"
+        thumbnails:
+            default:
+                height: 46
+                url: snippet.thumbnails.default.url-1
+                width: 45
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 42
+                url: snippet.thumbnails.fhd.url-1
+                width: 41
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 43
+                url: snippet.thumbnails.high.url-1
+                width: 42
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 45
+                url: snippet.thumbnails.maxres.url-1
+                width: 44
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 45
+                url: snippet.thumbnails.medium.url-1
+                width: 44
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 42
+                url: snippet.thumbnails.qhd.url-1
+                width: 41
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 47
+                url: snippet.thumbnails.standard.url-1
+                width: 46
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 42
+                url: snippet.thumbnails.uhd.url-1
+                width: 41
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: Ünïcödé ✓ 日本語のタイトル
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: etag-2
+      id:
+        channelid: id.channelId-2
+        kind: id.kind-2
+        playlistid: id.playlistId-2
+        videoid: id.videoId-2
+        forcesendfields: []
+        nullfields: []
+      kind: kind-2
+      snippet:
+        channelid: snippet.channelId-2
+        channeltitle: snippet.channelTitle-2
+        description: <b>tags</b> & "quotes" snippet.description
+        livebroadcastcontent: live
+        publishedat: "2026-03-12T12:34:52Z"
+        thumbnails:
+            default:
+                height: 59
+                url: snippet.thumbnails.default.url-2
+                width: 58
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 55
+                url: snippet.thumbnails.fhd.url-2
+                width: 54
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 56
+                url: snippet.thumbnails.high.url-2
+                width: 55
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 58
+                url: snippet.thumbnails.maxres.url-2
+                width: 57
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 58
+                url: snippet.thumbnails.medium.url-2
+                width: 57
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 55
+                url: snippet.thumbnails.qhd.url-2
+                width: 54
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 60
+                url: snippet.thumbnails.standard.url-2
+                width: 59
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 55
+                url: snippet.thumbnails.uhd.url-2
+                width: 54
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: '- dash start'
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+    - etag: ""
+      id:
+        channelid: ""
+        kind: ""
+        playlistid: ""
+        videoid: ""
+        forcesendfields: []
+        nullfields: []
+      kind: ""
+      snippet:
+        channelid: ""
+        channeltitle: ""
+        description: ""
+        livebroadcastcontent: ""
+        publishedat: ""
+        thumbnails:
+            default:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            fhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            high:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            maxres:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            medium:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            qhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            standard:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            uhd:
+                height: 0
+                url: ""
+                width: 0
+                forcesendfields: []
+                nullfields: []
+            forcesendfields: []
+            nullfields: []
+        title: ""
+        forcesendfields: []
+        nullfields: []
+      forcesendfields: []
+      nullfields: []
+kind: youtube#searchListResponse
+nextpagetoken: p2
+pageinfo:
+    resultsperpage: 4
+    totalresults: 12
+    forcesendfields: []
+    nullfields: []
+prevpagetoken: ""
+regioncode: ""
+tokenpagination: null
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

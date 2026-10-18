@@ -1,0 +1,121 @@
+[
+  {
+    "etag": "etag-10",
+    "kind": "kind-10",
+    "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-10",
+      "memberDetails": {
+        "channelId": "snippet.memberDetails.channelId-10",
+        "channelUrl": "snippet.memberDetails.channelUrl-10",
+        "displayName": "snippet.memberDetails.displayName-10",
+        "profileImageUrl": "snippet.memberDetails.profileImageUrl-10"
+      },
+      "membershipsDetails": {
+        "accessibleLevels": [
+          "snippet.membershipsDetails.accessibleLevels[]-10",
+          "snippet.membershipsDetails.accessibleLevels[]-11"
+        ],
+        "highestAccessibleLevel": "snippet.membershipsDetails.highestAccessibleLevel-10",
+        "highestAccessibleLevelDisplayName": "snippet.membershipsDetails.highestAccessibleLevelDisplayName-10",
+        "membershipsDuration": {
+          "memberSince": "snippet.membershipsDetails.membershipsDuration.memberSince-10",
+          "memberTotalDurationMonths": 202
+        },
+        "membershipsDurationAtLevels": [
+          {
+            "level": "snippet.membershipsDetails.membershipsDurationAtLevels[].level-10",
+            "memberSince": "snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-10",
+            "memberTotalDurationMonths": 212
+          },
+          {
+            "level": "snippet.membershipsDetails.membershipsDurationAtLevels[].level-11",
+            "memberSince": "snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-11",
+            "memberTotalDurationMonths": 225
+          }
+        ]
+      }
+    }
+  },
+  {
+    "etag": "etag-11",
+    "kind": "kind-11",
+    "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-11",
+      "memberDetails": {
+        "channelId": "snippet.memberDetails.channelId-11",
+        "channelUrl": "snippet.memberDetails.channelUrl-11",
+        "displayName": "snippet.memberDetails.displayName-11",
+        "profileImageUrl": "snippet.memberDetails.profileImageUrl-11"
+      },
+      "membershipsDetails": {
+        "accessibleLevels": [
+          "snippet.membershipsDetails.accessibleLevels[]-11",
+          "snippet.membershipsDetails.accessibleLevels[]-12"
+        ],
+        "highestAccessibleLevel": "snippet.membershipsDetails.highestAccessibleLevel-11",
+        "highestAccessibleLevelDisplayName": "snippet.membershipsDetails.highestAccessibleLevelDisplayName-11",
+        "membershipsDuration": {
+          "memberSince": "snippet.membershipsDetails.membershipsDuration.memberSince-11",
+          "memberTotalDurationMonths": 215
+        },
+        "membershipsDurationAtLevels": [
+          {
+            "level": "snippet.membershipsDetails.membershipsDurationAtLevels[].level-11",
+            "memberSince": "snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-11",
+            "memberTotalDurationMonths": 225
+          },
+          {
+            "level": "snippet.membershipsDetails.membershipsDurationAtLevels[].level-12",
+            "memberSince": "snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-12",
+            "memberTotalDurationMonths": 238
+          }
+        ]
+      }
+    }
+  },
+  {
+    "etag": "etag-12",
+    "kind": "kind-12",
+    "snippet": {
+      "creatorChannelId": "snippet.creatorChannelId-12",
+      "memberDetails": {
+        "channelId": "snippet.memberDetails.channelId-12",
+        "channelUrl": "snippet.memberDetails.channelUrl-12",
+        "displayName": "snippet.memberDetails.displayName-12",
+        "profileImageUrl": "snippet.memberDetails.profileImageUrl-12"
+      },
+      "membershipsDetails": {
+        "accessibleLevels": [
+          "snippet.membershipsDetails.accessibleLevels[]-12",
+          "snippet.membershipsDetails.accessibleLevels[]-13"
+        ],
+        "highestAccessibleLevel": "snippet.membershipsDetails.highestAccessibleLevel-12",
+        "highestAccessibleLevelDisplayName": "snippet.membershipsDetails.highestAccessibleLevelDisplayName-12",
+        "membershipsDuration": {
+          "memberSince": "snippet.membershipsDetails.membershipsDuration.memberSince-12",
+          "memberTotalDurationMonths": 228
+        },
+        "membershipsDurationAtLevels": [
+          {
+            "level": "snippet.membershipsDetails.membershipsDurationAtLevels[].level-12",
+            "memberSince": "snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-12",
+            "memberTotalDurationMonths": 238
+          },
+          {
+            "level": "snippet.membershipsDetails.membershipsDurationAtLevels[].level-13",
+            "memberSince": "snippet.membershipsDetails.membershipsDurationAtLevels[].memberSince-13",
+            "memberTotalDurationMonths": 251
+          }
+        ]
+      }
+    }
+  },
+  {
+    "snippet": {
+      "memberDetails": {},
+      "membershipsDetails": {
+        "membershipsDuration": {}
+      }
+    }
+  }
+]

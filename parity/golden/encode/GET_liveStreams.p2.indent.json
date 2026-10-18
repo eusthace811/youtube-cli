@@ -1,0 +1,167 @@
+{
+  "etag": "etag-page-2",
+  "items": [
+    {
+      "cdn": {
+        "format": "cdn.format-20",
+        "frameRate": "variable",
+        "ingestionInfo": {
+          "backupIngestionAddress": "cdn.ingestionInfo.backupIngestionAddress-20",
+          "ingestionAddress": "cdn.ingestionInfo.ingestionAddress-20",
+          "rtmpsBackupIngestionAddress": "cdn.ingestionInfo.rtmpsBackupIngestionAddress-20",
+          "rtmpsIngestionAddress": "cdn.ingestionInfo.rtmpsIngestionAddress-20",
+          "streamName": "cdn.ingestionInfo.streamName-20"
+        },
+        "ingestionType": "rtmp",
+        "resolution": "1080p"
+      },
+      "contentDetails": {
+        "closedCaptionsIngestionUrl": "contentDetails.closedCaptionsIngestionUrl-20"
+      },
+      "etag": "etag-20",
+      "id": "id-20",
+      "kind": "kind-20",
+      "snippet": {
+        "channelId": "snippet.channelId-20",
+        "description": "emoji 🎬🎥 mix snippet.description",
+        "publishedAt": "2026-03-12T12:34:50Z",
+        "title": "Ünïcödé ✓ 日本語のタイトル"
+      },
+      "status": {
+        "healthStatus": {
+          "configurationIssues": [
+            {
+              "description": "emoji 🎬🎥 mix status.healthStatus.configurationIssues[].description",
+              "reason": "status.healthStatus.configurationIssues[].reason-20",
+              "severity": "error",
+              "type": "videoCodecMismatch"
+            },
+            {
+              "description": "tab\tand\nnewline status.healthStatus.configurationIssues[].description",
+              "reason": "status.healthStatus.configurationIssues[].reason-21",
+              "severity": "info",
+              "type": "videoInterlaceMismatch"
+            }
+          ],
+          "lastUpdateTimeSeconds": "159651",
+          "status": "good"
+        },
+        "streamStatus": "created"
+      }
+    },
+    {
+      "cdn": {
+        "format": "cdn.format-21",
+        "frameRate": "30fps",
+        "ingestionInfo": {
+          "backupIngestionAddress": "cdn.ingestionInfo.backupIngestionAddress-21",
+          "ingestionAddress": "cdn.ingestionInfo.ingestionAddress-21",
+          "rtmpsBackupIngestionAddress": "cdn.ingestionInfo.rtmpsBackupIngestionAddress-21",
+          "rtmpsIngestionAddress": "cdn.ingestionInfo.rtmpsIngestionAddress-21",
+          "streamName": "cdn.ingestionInfo.streamName-21"
+        },
+        "ingestionType": "dash",
+        "resolution": "1440p"
+      },
+      "contentDetails": {
+        "closedCaptionsIngestionUrl": "contentDetails.closedCaptionsIngestionUrl-21",
+        "isReusable": true
+      },
+      "etag": "etag-21",
+      "id": "id-21",
+      "kind": "kind-21",
+      "snippet": {
+        "channelId": "snippet.channelId-21",
+        "description": "tab\tand\nnewline snippet.description",
+        "isDefaultStream": true,
+        "publishedAt": "2026-04-13T12:34:51Z",
+        "title": "- dash start"
+      },
+      "status": {
+        "healthStatus": {
+          "configurationIssues": [
+            {
+              "description": "tab\tand\nnewline status.healthStatus.configurationIssues[].description",
+              "reason": "status.healthStatus.configurationIssues[].reason-21",
+              "severity": "info",
+              "type": "videoInterlaceMismatch"
+            },
+            {
+              "description": "true status.healthStatus.configurationIssues[].description",
+              "reason": "status.healthStatus.configurationIssues[].reason-22",
+              "severity": "warning",
+              "type": "videoProfileMismatch"
+            }
+          ],
+          "lastUpdateTimeSeconds": "167570",
+          "status": "ok"
+        },
+        "streamStatus": "ready"
+      }
+    },
+    {
+      "cdn": {
+        "format": "cdn.format-22",
+        "frameRate": "60fps",
+        "ingestionInfo": {
+          "backupIngestionAddress": "cdn.ingestionInfo.backupIngestionAddress-22",
+          "ingestionAddress": "cdn.ingestionInfo.ingestionAddress-22",
+          "rtmpsBackupIngestionAddress": "cdn.ingestionInfo.rtmpsBackupIngestionAddress-22",
+          "rtmpsIngestionAddress": "cdn.ingestionInfo.rtmpsIngestionAddress-22",
+          "streamName": "cdn.ingestionInfo.streamName-22"
+        },
+        "ingestionType": "webrtc",
+        "resolution": "2160p"
+      },
+      "contentDetails": {
+        "closedCaptionsIngestionUrl": "contentDetails.closedCaptionsIngestionUrl-22"
+      },
+      "etag": "etag-22",
+      "id": "id-22",
+      "kind": "kind-22",
+      "snippet": {
+        "channelId": "snippet.channelId-22",
+        "description": "true snippet.description",
+        "publishedAt": "2026-05-14T12:34:52Z",
+        "title": "line sep"
+      },
+      "status": {
+        "healthStatus": {
+          "configurationIssues": [
+            {
+              "description": "true status.healthStatus.configurationIssues[].description",
+              "reason": "status.healthStatus.configurationIssues[].reason-22",
+              "severity": "warning",
+              "type": "videoProfileMismatch"
+            },
+            {
+              "description": "123 status.healthStatus.configurationIssues[].description",
+              "reason": "status.healthStatus.configurationIssues[].reason-23",
+              "severity": "error",
+              "type": "videoBitrateMismatch"
+            }
+          ],
+          "lastUpdateTimeSeconds": "175489",
+          "status": "bad"
+        },
+        "streamStatus": "active"
+      }
+    },
+    {
+      "cdn": {
+        "ingestionInfo": {}
+      },
+      "contentDetails": {},
+      "id": "zero-2",
+      "snippet": {},
+      "status": {
+        "healthStatus": {}
+      }
+    }
+  ],
+  "kind": "youtube#liveStreamListResponse",
+  "pageInfo": {
+    "resultsPerPage": 4,
+    "totalResults": 12
+  }
+}

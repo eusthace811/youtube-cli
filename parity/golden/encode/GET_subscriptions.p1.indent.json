@@ -1,0 +1,373 @@
+{
+  "etag": "etag-page-1",
+  "items": [
+    {
+      "contentDetails": {
+        "activityType": "all",
+        "newItemCount": 157,
+        "totalItemCount": 159
+      },
+      "etag": "etag-10",
+      "id": "id-10",
+      "kind": "kind-10",
+      "snippet": {
+        "channelId": "snippet.channelId-10",
+        "description": "null snippet.description",
+        "publishedAt": "2026-02-11T12:34:50Z",
+        "resourceId": {
+          "channelId": "snippet.resourceId.channelId-10",
+          "kind": "snippet.resourceId.kind-10",
+          "playlistId": "snippet.resourceId.playlistId-10",
+          "videoId": "snippet.resourceId.videoId-10"
+        },
+        "thumbnails": {
+          "default": {
+            "height": 163,
+            "url": "snippet.thumbnails.default.url-10",
+            "width": 162
+          },
+          "fhd": {
+            "height": 159,
+            "url": "snippet.thumbnails.fhd.url-10",
+            "width": 158
+          },
+          "high": {
+            "height": 160,
+            "url": "snippet.thumbnails.high.url-10",
+            "width": 159
+          },
+          "maxres": {
+            "height": 162,
+            "url": "snippet.thumbnails.maxres.url-10",
+            "width": 161
+          },
+          "medium": {
+            "height": 162,
+            "url": "snippet.thumbnails.medium.url-10",
+            "width": 161
+          },
+          "qhd": {
+            "height": 159,
+            "url": "snippet.thumbnails.qhd.url-10",
+            "width": 158
+          },
+          "standard": {
+            "height": 164,
+            "url": "snippet.thumbnails.standard.url-10",
+            "width": 163
+          },
+          "uhd": {
+            "height": 159,
+            "url": "snippet.thumbnails.uhd.url-10",
+            "width": 158
+          }
+        },
+        "title": "key: value"
+      },
+      "subscriberSnippet": {
+        "channelId": "subscriberSnippet.channelId-10",
+        "description": "null subscriberSnippet.description",
+        "thumbnails": {
+          "default": {
+            "height": 173,
+            "url": "subscriberSnippet.thumbnails.default.url-10",
+            "width": 172
+          },
+          "fhd": {
+            "height": 169,
+            "url": "subscriberSnippet.thumbnails.fhd.url-10",
+            "width": 168
+          },
+          "high": {
+            "height": 170,
+            "url": "subscriberSnippet.thumbnails.high.url-10",
+            "width": 169
+          },
+          "maxres": {
+            "height": 172,
+            "url": "subscriberSnippet.thumbnails.maxres.url-10",
+            "width": 171
+          },
+          "medium": {
+            "height": 172,
+            "url": "subscriberSnippet.thumbnails.medium.url-10",
+            "width": 171
+          },
+          "qhd": {
+            "height": 169,
+            "url": "subscriberSnippet.thumbnails.qhd.url-10",
+            "width": 168
+          },
+          "standard": {
+            "height": 174,
+            "url": "subscriberSnippet.thumbnails.standard.url-10",
+            "width": 173
+          },
+          "uhd": {
+            "height": 169,
+            "url": "subscriberSnippet.thumbnails.uhd.url-10",
+            "width": 168
+          }
+        },
+        "title": "multi\nline\ntext\n"
+      }
+    },
+    {
+      "contentDetails": {
+        "activityType": "uploads",
+        "newItemCount": 170,
+        "totalItemCount": 172
+      },
+      "etag": "etag-11",
+      "id": "id-11",
+      "kind": "kind-11",
+      "snippet": {
+        "channelId": "snippet.channelId-11",
+        "description": "~ snippet.description",
+        "publishedAt": "2026-03-12T12:34:51Z",
+        "resourceId": {
+          "channelId": "snippet.resourceId.channelId-11",
+          "kind": "snippet.resourceId.kind-11",
+          "playlistId": "snippet.resourceId.playlistId-11",
+          "videoId": "snippet.resourceId.videoId-11"
+        },
+        "thumbnails": {
+          "default": {
+            "height": 176,
+            "url": "snippet.thumbnails.default.url-11",
+            "width": 175
+          },
+          "fhd": {
+            "height": 172,
+            "url": "snippet.thumbnails.fhd.url-11",
+            "width": 171
+          },
+          "high": {
+            "height": 173,
+            "url": "snippet.thumbnails.high.url-11",
+            "width": 172
+          },
+          "maxres": {
+            "height": 175,
+            "url": "snippet.thumbnails.maxres.url-11",
+            "width": 174
+          },
+          "medium": {
+            "height": 175,
+            "url": "snippet.thumbnails.medium.url-11",
+            "width": 174
+          },
+          "qhd": {
+            "height": 172,
+            "url": "snippet.thumbnails.qhd.url-11",
+            "width": 171
+          },
+          "standard": {
+            "height": 177,
+            "url": "snippet.thumbnails.standard.url-11",
+            "width": 176
+          },
+          "uhd": {
+            "height": 172,
+            "url": "snippet.thumbnails.uhd.url-11",
+            "width": 171
+          }
+        },
+        "title": "'single' quoted"
+      },
+      "subscriberSnippet": {
+        "channelId": "subscriberSnippet.channelId-11",
+        "description": "~ subscriberSnippet.description",
+        "thumbnails": {
+          "default": {
+            "height": 186,
+            "url": "subscriberSnippet.thumbnails.default.url-11",
+            "width": 185
+          },
+          "fhd": {
+            "height": 182,
+            "url": "subscriberSnippet.thumbnails.fhd.url-11",
+            "width": 181
+          },
+          "high": {
+            "height": 183,
+            "url": "subscriberSnippet.thumbnails.high.url-11",
+            "width": 182
+          },
+          "maxres": {
+            "height": 185,
+            "url": "subscriberSnippet.thumbnails.maxres.url-11",
+            "width": 184
+          },
+          "medium": {
+            "height": 185,
+            "url": "subscriberSnippet.thumbnails.medium.url-11",
+            "width": 184
+          },
+          "qhd": {
+            "height": 182,
+            "url": "subscriberSnippet.thumbnails.qhd.url-11",
+            "width": 181
+          },
+          "standard": {
+            "height": 187,
+            "url": "subscriberSnippet.thumbnails.standard.url-11",
+            "width": 186
+          },
+          "uhd": {
+            "height": 182,
+            "url": "subscriberSnippet.thumbnails.uhd.url-11",
+            "width": 181
+          }
+        },
+        "title": "true"
+      }
+    },
+    {
+      "contentDetails": {
+        "activityType": "subscriptionActivityTypeUnspecified",
+        "newItemCount": 183,
+        "totalItemCount": 185
+      },
+      "etag": "etag-12",
+      "id": "id-12",
+      "kind": "kind-12",
+      "snippet": {
+        "channelId": "snippet.channelId-12",
+        "description": "@at sign snippet.description",
+        "publishedAt": "2026-04-13T12:34:52Z",
+        "resourceId": {
+          "channelId": "snippet.resourceId.channelId-12",
+          "kind": "snippet.resourceId.kind-12",
+          "playlistId": "snippet.resourceId.playlistId-12",
+          "videoId": "snippet.resourceId.videoId-12"
+        },
+        "thumbnails": {
+          "default": {
+            "height": 189,
+            "url": "snippet.thumbnails.default.url-12",
+            "width": 188
+          },
+          "fhd": {
+            "height": 185,
+            "url": "snippet.thumbnails.fhd.url-12",
+            "width": 184
+          },
+          "high": {
+            "height": 186,
+            "url": "snippet.thumbnails.high.url-12",
+            "width": 185
+          },
+          "maxres": {
+            "height": 188,
+            "url": "snippet.thumbnails.maxres.url-12",
+            "width": 187
+          },
+          "medium": {
+            "height": 188,
+            "url": "snippet.thumbnails.medium.url-12",
+            "width": 187
+          },
+          "qhd": {
+            "height": 185,
+            "url": "snippet.thumbnails.qhd.url-12",
+            "width": 184
+          },
+          "standard": {
+            "height": 190,
+            "url": "snippet.thumbnails.standard.url-12",
+            "width": 189
+          },
+          "uhd": {
+            "height": 185,
+            "url": "snippet.thumbnails.uhd.url-12",
+            "width": 184
+          }
+        },
+        "title": "<b>tags</b> & \"quotes\""
+      },
+      "subscriberSnippet": {
+        "channelId": "subscriberSnippet.channelId-12",
+        "description": "@at sign subscriberSnippet.description",
+        "thumbnails": {
+          "default": {
+            "height": 199,
+            "url": "subscriberSnippet.thumbnails.default.url-12",
+            "width": 198
+          },
+          "fhd": {
+            "height": 195,
+            "url": "subscriberSnippet.thumbnails.fhd.url-12",
+            "width": 194
+          },
+          "high": {
+            "height": 196,
+            "url": "subscriberSnippet.thumbnails.high.url-12",
+            "width": 195
+          },
+          "maxres": {
+            "height": 198,
+            "url": "subscriberSnippet.thumbnails.maxres.url-12",
+            "width": 197
+          },
+          "medium": {
+            "height": 198,
+            "url": "subscriberSnippet.thumbnails.medium.url-12",
+            "width": 197
+          },
+          "qhd": {
+            "height": 195,
+            "url": "subscriberSnippet.thumbnails.qhd.url-12",
+            "width": 194
+          },
+          "standard": {
+            "height": 200,
+            "url": "subscriberSnippet.thumbnails.standard.url-12",
+            "width": 199
+          },
+          "uhd": {
+            "height": 195,
+            "url": "subscriberSnippet.thumbnails.uhd.url-12",
+            "width": 194
+          }
+        },
+        "title": "~"
+      }
+    },
+    {
+      "contentDetails": {},
+      "id": "zero-1",
+      "snippet": {
+        "resourceId": {},
+        "thumbnails": {
+          "default": {},
+          "fhd": {},
+          "high": {},
+          "maxres": {},
+          "medium": {},
+          "qhd": {},
+          "standard": {},
+          "uhd": {}
+        }
+      },
+      "subscriberSnippet": {
+        "thumbnails": {
+          "default": {},
+          "fhd": {},
+          "high": {},
+          "maxres": {},
+          "medium": {},
+          "qhd": {},
+          "standard": {},
+          "uhd": {}
+        }
+      }
+    }
+  ],
+  "kind": "youtube#subscriptionListResponse",
+  "nextPageToken": "p3",
+  "pageInfo": {
+    "resultsPerPage": 4,
+    "totalResults": 12
+  }
+}

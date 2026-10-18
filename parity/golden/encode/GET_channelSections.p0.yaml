@@ -1,0 +1,200 @@
+etag: etag-page-0
+eventid: ""
+items:
+    - contentdetails:
+        channels:
+            - contentDetails.channels[]-0
+            - contentDetails.channels[]-1
+        playlists:
+            - contentDetails.playlists[]-0
+            - contentDetails.playlists[]-1
+        forcesendfields: []
+        nullfields: []
+      etag: etag-0
+      id: id-0
+      kind: kind-0
+      localizations:
+        ka:
+            title: '# hash'
+            forcesendfields: []
+            nullfields: []
+        kb:
+            title: <b>tags</b> & "quotes"
+            forcesendfields: []
+            nullfields: []
+      snippet:
+        channelid: snippet.channelId-0
+        defaultlanguage: snippet.defaultLanguage-0
+        localized:
+            title: |-
+                tab	and
+                newline
+            forcesendfields: []
+            nullfields: []
+        position: 16
+        style: channelsectionStyleUnspecified
+        title: '@at sign'
+        type: channelsectionTypeUndefined
+        forcesendfields: []
+        nullfields: []
+      targeting:
+        countries:
+            - targeting.countries[]-0
+            - targeting.countries[]-1
+        languages:
+            - targeting.languages[]-0
+            - targeting.languages[]-1
+        regions:
+            - targeting.regions[]-0
+            - targeting.regions[]-1
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        channels:
+            - contentDetails.channels[]-1
+            - contentDetails.channels[]-2
+        playlists:
+            - contentDetails.playlists[]-1
+            - contentDetails.playlists[]-2
+        forcesendfields: []
+        nullfields: []
+      etag: etag-1
+      id: id-1
+      kind: kind-1
+      localizations:
+        ka:
+            title: 'trailing space '
+            forcesendfields: []
+            nullfields: []
+        kb:
+            title: '# hash'
+            forcesendfields: []
+            nullfields: []
+      snippet:
+        channelid: snippet.channelId-1
+        defaultlanguage: snippet.defaultLanguage-1
+        localized:
+            title: "null"
+            forcesendfields: []
+            nullfields: []
+        position: 29
+        style: horizontalRow
+        title: Ünïcödé ✓ 日本語のタイトル
+        type: singlePlaylist
+        forcesendfields: []
+        nullfields: []
+      targeting:
+        countries:
+            - targeting.countries[]-1
+            - targeting.countries[]-2
+        languages:
+            - targeting.languages[]-1
+            - targeting.languages[]-2
+        regions:
+            - targeting.regions[]-1
+            - targeting.regions[]-2
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        channels:
+            - contentDetails.channels[]-2
+            - contentDetails.channels[]-3
+        playlists:
+            - contentDetails.playlists[]-2
+            - contentDetails.playlists[]-3
+        forcesendfields: []
+        nullfields: []
+      etag: etag-2
+      id: id-2
+      kind: kind-2
+      localizations:
+        ka:
+            title: |-
+                tab	and
+                newline
+            forcesendfields: []
+            nullfields: []
+        kb:
+            title: 'trailing space '
+            forcesendfields: []
+            nullfields: []
+      snippet:
+        channelid: snippet.channelId-2
+        defaultlanguage: snippet.defaultLanguage-2
+        localized:
+            title: A very long line that keeps going well past eighty characters so that any wrapping logic in an emitter shows up clearly here
+            forcesendfields: []
+            nullfields: []
+        position: 42
+        style: verticalList
+        title: '- dash start'
+        type: multiplePlaylists
+        forcesendfields: []
+        nullfields: []
+      targeting:
+        countries:
+            - targeting.countries[]-2
+            - targeting.countries[]-3
+        languages:
+            - targeting.languages[]-2
+            - targeting.languages[]-3
+        regions:
+            - targeting.regions[]-2
+            - targeting.regions[]-3
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+    - contentdetails:
+        channels: []
+        playlists: []
+        forcesendfields: []
+        nullfields: []
+      etag: ""
+      id: zero-0
+      kind: ""
+      localizations: {}
+      snippet:
+        channelid: ""
+        defaultlanguage: ""
+        localized:
+            title: ""
+            forcesendfields: []
+            nullfields: []
+        position: 0
+        style: ""
+        title: ""
+        type: ""
+        forcesendfields: []
+        nullfields: []
+      targeting:
+        countries: []
+        languages: []
+        regions: []
+        forcesendfields: []
+        nullfields: []
+      serverresponse:
+        httpstatuscode: 0
+        header: {}
+      forcesendfields: []
+      nullfields: []
+kind: youtube#channelSectionListResponse
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

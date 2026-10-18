@@ -1,0 +1,26 @@
+etag: etag-page-1
+eventid: ""
+items:
+    - rating: like
+      videoid: videoId-10
+      forcesendfields: []
+      nullfields: []
+    - rating: dislike
+      videoid: videoId-11
+      forcesendfields: []
+      nullfields: []
+    - rating: none
+      videoid: videoId-12
+      forcesendfields: []
+      nullfields: []
+    - rating: ""
+      videoid: ""
+      forcesendfields: []
+      nullfields: []
+kind: youtube#videoGetRatingResponse
+visitorid: ""
+serverresponse:
+    httpstatuscode: 0
+    header: {}
+forcesendfields: []
+nullfields: []

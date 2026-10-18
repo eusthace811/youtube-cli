@@ -1,0 +1,385 @@
+[
+  {
+    "contentDetails": {
+      "availabilityConfig": {
+        "globalConfig": {
+          "excludedRegionCodes": [
+            "contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-10",
+            "contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-11"
+          ],
+          "interval": {
+            "endTime": "contentDetails.availabilityConfig.globalConfig.interval.endTime-10",
+            "startTime": "contentDetails.availabilityConfig.globalConfig.interval.startTime-10"
+          }
+        },
+        "regionsConfig": {
+          "regionIntervals": [
+            {
+              "interval": {},
+              "regionCode": "contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-10"
+            },
+            {
+              "interval": {},
+              "regionCode": "contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-11"
+            }
+          ]
+        }
+      },
+      "boundStreamId": "contentDetails.boundStreamId-10",
+      "boundStreamLastUpdateTimeMs": "2026-02-11T12:34:50Z",
+      "closedCaptionsType": "closedCaptionsHttpPost",
+      "latencyPreference": "low",
+      "mesh": "contentDetails.mesh-10",
+      "monitorStream": {
+        "broadcastStreamDelayMs": 181,
+        "embedHtml": "contentDetails.monitorStream.embedHtml-10",
+        "enableMonitorStream": false
+      },
+      "projection": "360",
+      "stereoLayout": "leftRight"
+    },
+    "etag": "etag-10",
+    "id": "id-10",
+    "kind": "kind-10",
+    "monetizationDetails": {
+      "cuepointSchedule": {
+        "pauseAdsUntil": "monetizationDetails.cuepointSchedule.pauseAdsUntil-10",
+        "repeatIntervalSecs": 185,
+        "scheduleStrategy": "concurrent"
+      }
+    },
+    "snippet": {
+      "actualEndTime": "2026-02-11T12:34:50Z",
+      "actualStartTime": "2026-02-11T12:34:50Z",
+      "categoryId": "snippet.categoryId-10",
+      "channelId": "snippet.channelId-10",
+      "description": "null snippet.description",
+      "liveChatId": "snippet.liveChatId-10",
+      "publishedAt": "2026-02-11T12:34:50Z",
+      "scheduledEndTime": "2026-02-11T12:34:50Z",
+      "scheduledStartTime": "2026-02-11T12:34:50Z",
+      "thumbnails": {
+        "default": {
+          "height": 163,
+          "url": "snippet.thumbnails.default.url-10",
+          "width": 162
+        },
+        "fhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.fhd.url-10",
+          "width": 158
+        },
+        "high": {
+          "height": 160,
+          "url": "snippet.thumbnails.high.url-10",
+          "width": 159
+        },
+        "maxres": {
+          "height": 162,
+          "url": "snippet.thumbnails.maxres.url-10",
+          "width": 161
+        },
+        "medium": {
+          "height": 162,
+          "url": "snippet.thumbnails.medium.url-10",
+          "width": 161
+        },
+        "qhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.qhd.url-10",
+          "width": 158
+        },
+        "standard": {
+          "height": 164,
+          "url": "snippet.thumbnails.standard.url-10",
+          "width": 163
+        },
+        "uhd": {
+          "height": 159,
+          "url": "snippet.thumbnails.uhd.url-10",
+          "width": 158
+        }
+      },
+      "title": "key: value"
+    },
+    "statistics": {
+      "concurrentViewers": "80058"
+    },
+    "status": {
+      "lifeCycleStatus": "created",
+      "liveBroadcastPriority": "normal",
+      "privacyStatus": "unlisted",
+      "recordingStatus": "recording"
+    }
+  },
+  {
+    "contentDetails": {
+      "availabilityConfig": {
+        "globalConfig": {
+          "excludedRegionCodes": [
+            "contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-11",
+            "contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-12"
+          ],
+          "interval": {
+            "endTime": "contentDetails.availabilityConfig.globalConfig.interval.endTime-11",
+            "startTime": "contentDetails.availabilityConfig.globalConfig.interval.startTime-11"
+          }
+        },
+        "regionsConfig": {
+          "regionIntervals": [
+            {
+              "interval": {},
+              "regionCode": "contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-11"
+            },
+            {
+              "interval": {},
+              "regionCode": "contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-12"
+            }
+          ]
+        }
+      },
+      "boundStreamId": "contentDetails.boundStreamId-11",
+      "boundStreamLastUpdateTimeMs": "2026-03-12T12:34:51Z",
+      "closedCaptionsType": "closedCaptionsEmbedded",
+      "enableAutoStart": true,
+      "enableAutoStop": true,
+      "enableClosedCaptions": true,
+      "enableContentEncryption": true,
+      "enableDvr": true,
+      "enableEmbed": true,
+      "enableLowLatency": true,
+      "latencyPreference": "ultraLow",
+      "mesh": "contentDetails.mesh-11",
+      "monitorStream": {
+        "broadcastStreamDelayMs": 194,
+        "embedHtml": "contentDetails.monitorStream.embedHtml-11",
+        "enableMonitorStream": true
+      },
+      "projection": "mesh",
+      "recordFromStart": true,
+      "startWithSlate": true,
+      "stereoLayout": "topBottom"
+    },
+    "etag": "etag-11",
+    "id": "id-11",
+    "kind": "kind-11",
+    "monetizationDetails": {
+      "cuepointSchedule": {
+        "enabled": true,
+        "pauseAdsUntil": "monetizationDetails.cuepointSchedule.pauseAdsUntil-11",
+        "repeatIntervalSecs": 198,
+        "scheduleStrategy": "nonConcurrent"
+      }
+    },
+    "snippet": {
+      "actualEndTime": "2026-03-12T12:34:51Z",
+      "actualStartTime": "2026-03-12T12:34:51Z",
+      "categoryId": "snippet.categoryId-11",
+      "channelId": "snippet.channelId-11",
+      "description": "~ snippet.description",
+      "isDefaultBroadcast": true,
+      "liveChatId": "snippet.liveChatId-11",
+      "publishedAt": "2026-03-12T12:34:51Z",
+      "scheduledEndTime": "2026-03-12T12:34:51Z",
+      "scheduledStartTime": "2026-03-12T12:34:51Z",
+      "thumbnails": {
+        "default": {
+          "height": 176,
+          "url": "snippet.thumbnails.default.url-11",
+          "width": 175
+        },
+        "fhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.fhd.url-11",
+          "width": 171
+        },
+        "high": {
+          "height": 173,
+          "url": "snippet.thumbnails.high.url-11",
+          "width": 172
+        },
+        "maxres": {
+          "height": 175,
+          "url": "snippet.thumbnails.maxres.url-11",
+          "width": 174
+        },
+        "medium": {
+          "height": 175,
+          "url": "snippet.thumbnails.medium.url-11",
+          "width": 174
+        },
+        "qhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.qhd.url-11",
+          "width": 171
+        },
+        "standard": {
+          "height": 177,
+          "url": "snippet.thumbnails.standard.url-11",
+          "width": 176
+        },
+        "uhd": {
+          "height": 172,
+          "url": "snippet.thumbnails.uhd.url-11",
+          "width": 171
+        }
+      },
+      "title": "'single' quoted"
+    },
+    "statistics": {
+      "concurrentViewers": "87977"
+    },
+    "status": {
+      "lifeCycleStatus": "ready",
+      "liveBroadcastPriority": "high",
+      "madeForKids": true,
+      "privacyStatus": "private",
+      "recordingStatus": "recorded",
+      "selfDeclaredMadeForKids": true
+    }
+  },
+  {
+    "contentDetails": {
+      "availabilityConfig": {
+        "globalConfig": {
+          "excludedRegionCodes": [
+            "contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-12",
+            "contentDetails.availabilityConfig.globalConfig.excludedRegionCodes[]-13"
+          ],
+          "interval": {
+            "endTime": "contentDetails.availabilityConfig.globalConfig.interval.endTime-12",
+            "startTime": "contentDetails.availabilityConfig.globalConfig.interval.startTime-12"
+          }
+        },
+        "regionsConfig": {
+          "regionIntervals": [
+            {
+              "interval": {},
+              "regionCode": "contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-12"
+            },
+            {
+              "interval": {},
+              "regionCode": "contentDetails.availabilityConfig.regionsConfig.regionIntervals[].regionCode-13"
+            }
+          ]
+        }
+      },
+      "boundStreamId": "contentDetails.boundStreamId-12",
+      "boundStreamLastUpdateTimeMs": "2026-04-13T12:34:52Z",
+      "closedCaptionsType": "closedCaptionsTypeUnspecified",
+      "latencyPreference": "latencyPreferenceUnspecified",
+      "mesh": "contentDetails.mesh-12",
+      "monitorStream": {
+        "broadcastStreamDelayMs": 207,
+        "embedHtml": "contentDetails.monitorStream.embedHtml-12",
+        "enableMonitorStream": false
+      },
+      "projection": "projectionUnspecified",
+      "stereoLayout": "stereoLayoutUnspecified"
+    },
+    "etag": "etag-12",
+    "id": "id-12",
+    "kind": "kind-12",
+    "monetizationDetails": {
+      "cuepointSchedule": {
+        "pauseAdsUntil": "monetizationDetails.cuepointSchedule.pauseAdsUntil-12",
+        "repeatIntervalSecs": 211,
+        "scheduleStrategy": "scheduleStrategyUnspecified"
+      }
+    },
+    "snippet": {
+      "actualEndTime": "2026-04-13T12:34:52Z",
+      "actualStartTime": "2026-04-13T12:34:52Z",
+      "categoryId": "snippet.categoryId-12",
+      "channelId": "snippet.channelId-12",
+      "description": "@at sign snippet.description",
+      "liveChatId": "snippet.liveChatId-12",
+      "publishedAt": "2026-04-13T12:34:52Z",
+      "scheduledEndTime": "2026-04-13T12:34:52Z",
+      "scheduledStartTime": "2026-04-13T12:34:52Z",
+      "thumbnails": {
+        "default": {
+          "height": 189,
+          "url": "snippet.thumbnails.default.url-12",
+          "width": 188
+        },
+        "fhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.fhd.url-12",
+          "width": 184
+        },
+        "high": {
+          "height": 186,
+          "url": "snippet.thumbnails.high.url-12",
+          "width": 185
+        },
+        "maxres": {
+          "height": 188,
+          "url": "snippet.thumbnails.maxres.url-12",
+          "width": 187
+        },
+        "medium": {
+          "height": 188,
+          "url": "snippet.thumbnails.medium.url-12",
+          "width": 187
+        },
+        "qhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.qhd.url-12",
+          "width": 184
+        },
+        "standard": {
+          "height": 190,
+          "url": "snippet.thumbnails.standard.url-12",
+          "width": 189
+        },
+        "uhd": {
+          "height": 185,
+          "url": "snippet.thumbnails.uhd.url-12",
+          "width": 184
+        }
+      },
+      "title": "<b>tags</b> & \"quotes\""
+    },
+    "statistics": {
+      "concurrentViewers": "95896"
+    },
+    "status": {
+      "lifeCycleStatus": "testing",
+      "liveBroadcastPriority": "liveBroadcastPriorityUnspecified",
+      "privacyStatus": "public",
+      "recordingStatus": "liveBroadcastRecordingStatusUnspecified"
+    }
+  },
+  {
+    "contentDetails": {
+      "availabilityConfig": {
+        "globalConfig": {
+          "interval": {}
+        },
+        "regionsConfig": {}
+      },
+      "monitorStream": {
+        "enableMonitorStream": false
+      }
+    },
+    "id": "zero-1",
+    "monetizationDetails": {
+      "cuepointSchedule": {}
+    },
+    "snippet": {
+      "thumbnails": {
+        "default": {},
+        "fhd": {},
+        "high": {},
+        "maxres": {},
+        "medium": {},
+        "qhd": {},
+        "standard": {},
+        "uhd": {}
+      }
+    },
+    "statistics": {},
+    "status": {}
+  }
+]
