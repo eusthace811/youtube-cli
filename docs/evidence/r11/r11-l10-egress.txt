@@ -3,9 +3,12 @@ r11 lane 10: PASS
 Host release binary only; release.yml runs the same check on all six before publishing.
 At b82bce4 this failed on three display-only error-message URLs (two rustls docs.rs
 links, the yutu-auth README#prerequisites link). R11 lists them exactly in DISPLAY_ONLY.
-$ cargo run -q --locked -p xtask -- egress /private/tmp/claude-501/-Users-juan-Projects-youtube-cli/c4cc9d95-468f-4667-a2fa-78a63f7fa73b/scratchpad/r11/yutu-head
+$ cargo run -q --locked -p xtask -- egress /tmp/yutu-shipped
 exit: 0
 --- stdout ---
+egress: display-only http://[ (the format string for bracketed IPv6 listener URLs)
+egress: display-only https://accounts.google.com (the authorization server in the HTTP MCP protected-resource metadata, packed against the next literal)
+egress: display-only https://ai.google.dev/gemini-api/docs/api-key (the agent's missing Gemini key error, as Go's genai prints it)
 egress: display-only https://api.deepseek.com/ (the `yutu agent --help` example of --base-url)
 egress: display-only https://custom.endpoint.com/ (the `yutu agent --help` example of --base-url)
 egress: display-only https://docs.rs/rustls/latest/rustls/#cryptography-providers (rustls's missing-crypto-provider panic message)
@@ -14,6 +17,21 @@ egress: display-only https://github.com/eat-pray-ai/yutu (the `yutu version` ban
 egress: display-only https://github.com/eat-pray-ai/yutu#prerequisites (the yutu-auth error that points at the README's credential setup)
 egress: display-only https://github.com/spf13/cobra/issues/1279 (a comment in cobra's fish completion script)
 egress: display-only https://github.com/spf13/cobra/issues/1508 (a comment in cobra's bash completion script)
+egress: display-only https://google.github.io/adk-docs/a2a/a2a-extension/ (the A2A extension identifier ADK puts on the agent card)
+egress: served-to-browser [ (2 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser angular.dev (1 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser chevrotain.io (20 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser en.wikipedia.org (1 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser fonts.googleapis.com (1 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser fonts.gstatic.com (109 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser github.com (10 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser google.github.io (9 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser json-schema.org (6 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser jsonquerylang.org (1 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser langium.org (1 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser svelte.dev (14 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser www.apache.org (2 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
+egress: served-to-browser www.w3.org (59 URLs in the vendored dev UI bundle, crates/yutu-agent/assets/webui)
 egress: 0 unexpected hosts
 --- stderr ---
 

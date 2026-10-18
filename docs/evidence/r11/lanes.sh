@@ -57,13 +57,13 @@ lane1() {
     echo "and the license frontmatter (Go says MIT; every file ships under Apache-2.0)."
     echo
     run diff -r "${GO_SRC}/skills/youtube" "${ROOT}/skills/youtube"
-    run diff "${GO_SRC}/cmd/agent/INSTRUCTION.md" "${ROOT}/skills/agent/INSTRUCTION.md"
-    run diff -r "${GO_SRC}/cmd/agent/skills" "${ROOT}/skills/agent/skills"
+    run diff "${GO_SRC}/cmd/agent/INSTRUCTION.md" "${ROOT}/crates/yutu-agent/assets/INSTRUCTION.md"
+    run diff -r "${GO_SRC}/cmd/agent/skills" "${ROOT}/crates/yutu-agent/assets/skills"
   } >"${body}"
   # Every changed line, deduplicated, must be one of the expected ones.
   diff -r "${GO_SRC}/skills/youtube" "${ROOT}/skills/youtube" >"${TMP}/d1"
-  diff -r "${GO_SRC}/cmd/agent/skills" "${ROOT}/skills/agent/skills" >>"${TMP}/d1"
-  diff "${GO_SRC}/cmd/agent/INSTRUCTION.md" "${ROOT}/skills/agent/INSTRUCTION.md" >>"${TMP}/d1"
+  diff -r "${GO_SRC}/cmd/agent/skills" "${ROOT}/crates/yutu-agent/assets/skills" >>"${TMP}/d1"
+  diff "${GO_SRC}/cmd/agent/INSTRUCTION.md" "${ROOT}/crates/yutu-agent/assets/INSTRUCTION.md" >>"${TMP}/d1"
   grep -E '^[<>]' "${TMP}/d1" | sort -u >"${TMP}/changed"
   cat >"${TMP}/expected" <<'EOF'
 < - `caption-download`

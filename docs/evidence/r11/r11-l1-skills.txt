@@ -5,10 +5,10 @@ Expected differences: E13 (no i18nLanguage-list, i18nRegion-list, videoCategory-
 caption-download under a local-file heading; resources line lists only resources with tools)
 and the license frontmatter (Go says MIT; every file ships under Apache-2.0).
 
-$ diff -r /Users/juan/Projects/youtube-cli/yutu/skills/youtube /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/youtube
+$ diff -r /Users/juan/Projects/youtube-cli/yutu/skills/youtube /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube
 exit: 1
 --- stdout ---
-diff -r /Users/juan/Projects/youtube-cli/yutu/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/youtube/SKILL.md
+diff -r /Users/juan/Projects/youtube-cli/yutu/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/skills/youtube/SKILL.md
 4c4
 < license: MIT
 ---
@@ -31,15 +31,15 @@ diff -r /Users/juan/Projects/youtube-cli/yutu/skills/youtube/SKILL.md /Users/jua
 > - `caption-download`
 --- stderr ---
 
-$ diff /Users/juan/Projects/youtube-cli/yutu/cmd/agent/INSTRUCTION.md /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/agent/INSTRUCTION.md
+$ diff /Users/juan/Projects/youtube-cli/yutu/cmd/agent/INSTRUCTION.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-agent/assets/INSTRUCTION.md
 exit: 0
 --- stdout ---
 --- stderr ---
 
-$ diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/agent/skills
+$ diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills /Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-agent/assets/skills
 exit: 1
 --- stdout ---
-diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/.claude/worktrees/agent-a72aa1b5c6fc015c9/skills/agent/skills/youtube/SKILL.md
+diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills/youtube/SKILL.md /Users/juan/Projects/youtube-cli/youtube-cli/crates/yutu-agent/assets/skills/youtube/SKILL.md
 4c4
 < license: MIT
 ---
@@ -63,7 +63,7 @@ diff -r /Users/juan/Projects/youtube-cli/yutu/cmd/agent/skills/youtube/SKILL.md 
 --- stderr ---
 
 Distinct changed lines vs the expected set:
-$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/expected /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.7bvkPLeMh9/changed
+$ diff /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.MzX5vESSDh/expected /var/folders/8y/_2pshc8j0n30psh0fy71796m0000gn/T/tmp.MzX5vESSDh/changed
 exit: 0
 --- stdout ---
 --- stderr ---
