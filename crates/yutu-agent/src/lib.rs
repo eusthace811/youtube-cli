@@ -5,6 +5,7 @@
 pub mod agent;
 pub mod console;
 mod gojson;
+pub mod launch;
 pub mod launcher;
 pub mod llm;
 pub mod model;
@@ -17,7 +18,7 @@ use yutu_auth::Secret;
 use yutu_auth::log;
 use yutu_core::ops::ServiceProvider;
 
-pub use agent::{Agent, Frontend};
+pub use agent::{Agent, Frontend, Verdict};
 pub use launcher::{Launch, Streaming};
 pub use tools::{Approval, Toolbox};
 
@@ -155,17 +156,30 @@ pub fn run(opts: &Options, provider: Arc<dyn ServiceProvider>) -> i32 {
         let launch = launcher::parse(&launcher::fields(&opts.args), &mut std::io::stderr());
         let config = match launch {
             Ok(Launch::Console(c)) => c,
-            // The R10 hook: the web launchers plug in here.
-            Ok(Launch::Web(_)) => {
-                return launch_failed(
-                    &mut stdout,
-                    "the web launchers are not available in this build",
+            Ok(Launch::Web(web)) => {
+                let instruction = if opts.instruction.is_empty() {
+                    agent::INSTRUCTION
+                } else {
+                    &opts.instruction
+                };
+                let google_search = opts.provider == "google" && opts.base_url.is_empty();
+                let app = launch::web::App::new(
+                    Arc::new(agent),
+                    *web,
+                    launch::wire::token(),
+                    instruction,
+                    google_search,
                 );
+                return match launch::web::run(Arc::new(app)).await {
+                    Ok(()) => 0,
+                    Err(e) => launch_failed(&mut stdout, &e),
+                };
             }
             Err(e) => return launch_failed(&mut stdout, &e),
         };
         if config.otel_to_cloud {
-            log::warn("-otel_to_cloud is ignored: yutu ships no telemetry", &[]);
+            // Divergence E12.
+            log::warn("telemetry is not supported in yutu-rs", &[]);
         }
         let streaming = config.streaming.unwrap_or(if stdout.is_terminal() {
             Streaming::Sse
