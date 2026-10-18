@@ -301,7 +301,7 @@ mod tests {
         let rows = vec![vec![Cell::from("a"), Cell::from("tab\tand\nnewline")]];
         assert_eq!(
             render(&["ID", "Text"], &rows),
-            " ID  TEXT        \n a   tab    and \n     newline     "
+            " ID  TEXT       \n a   tab    and \n     newline    "
         );
     }
 
