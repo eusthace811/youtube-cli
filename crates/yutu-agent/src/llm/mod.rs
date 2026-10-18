@@ -7,10 +7,30 @@ mod sse;
 
 use std::time::Duration;
 
+use serde_json::Value;
+
 use crate::model::{Content, Request};
 
-/// Called with each text chunk of a streamed reply as it arrives.
-pub type OnText<'a> = &'a mut (dyn FnMut(&str) + Send);
+/// What ADK keeps from a model response beside its content; the web
+/// launchers put it on each event.
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct Meta {
+    /// genai's `usageMetadata` object.
+    pub usage: Option<Value>,
+    pub finish_reason: Option<String>,
+    pub model_version: Option<String>,
+    pub turn_complete: bool,
+}
+
+/// A whole model reply.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Reply {
+    pub content: Content,
+    pub meta: Meta,
+}
+
+/// Called with each chunk of a streamed reply as it arrives.
+pub type OnChunk<'a> = &'a mut (dyn FnMut(&Content, &Meta) + Send);
 
 pub enum Llm {
     Gemini(gemini::Gemini),
@@ -22,11 +42,11 @@ impl Llm {
         &self,
         req: &Request<'_>,
         stream: bool,
-        on_text: OnText<'_>,
-    ) -> Result<Content, String> {
+        on_chunk: OnChunk<'_>,
+    ) -> Result<Reply, String> {
         match self {
-            Llm::Gemini(g) => g.generate(req, stream, on_text).await,
-            Llm::OpenAi(o) => o.generate(req, stream, on_text).await,
+            Llm::Gemini(g) => g.generate(req, stream, on_chunk).await,
+            Llm::OpenAi(o) => o.generate(req, stream, on_chunk).await,
         }
     }
 }

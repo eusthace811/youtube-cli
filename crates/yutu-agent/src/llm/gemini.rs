@@ -5,7 +5,7 @@ use reqwest::header::{CONTENT_TYPE, HeaderValue};
 use serde_json::{Map, Value, json};
 use yutu_auth::Secret;
 
-use super::{OnText, REQUEST_TIMEOUT, join_url, sse};
+use super::{Meta, OnChunk, REQUEST_TIMEOUT, Reply, join_url, sse};
 use crate::model::{Content, FunctionCall, Part, Request, Role, merge};
 
 pub const DEFAULT_BASE_URL: &str = "https://generativelanguage.googleapis.com/";
@@ -34,8 +34,8 @@ impl Gemini {
         &self,
         req: &Request<'_>,
         stream: bool,
-        on_text: OnText<'_>,
-    ) -> Result<Content, String> {
+        on_chunk: OnChunk<'_>,
+    ) -> Result<Reply, String> {
         let model = if self.model.starts_with("models/") || self.model.starts_with("tunedModels/") {
             self.model.clone()
         } else {
@@ -85,7 +85,13 @@ impl Gemini {
             let Some(first) = candidates.and_then(|c| c.first()) else {
                 return Err("empty response".into());
             };
-            return Ok(content(&first["content"]));
+            return Ok(Reply {
+                content: content(&first["content"]),
+                meta: Meta {
+                    turn_complete: false,
+                    ..meta(&v)
+                },
+            });
         }
         let resp = builder.send().await.map_err(send_err)?;
         let status = resp.status();
@@ -95,6 +101,7 @@ impl Gemini {
         }
         let mut events = sse::Reader::new(resp);
         let mut parts: Vec<Part> = Vec::new();
+        let mut total = Meta::default();
         while let Some(event) = events.next().await? {
             let chunk: Value = serde_json::from_str(&event.data).map_err(|e| {
                 format!(
@@ -105,18 +112,27 @@ impl Gemini {
             if chunk.get("error").is_some() {
                 return Err(api_error(reqwest::StatusCode::OK, &event.data));
             }
-            for part in content(&chunk["candidates"][0]["content"]).parts {
-                if let Part::Text { text, .. } = &part
-                    && !text.is_empty()
-                {
-                    on_text(text);
-                }
+            let piece = content(&chunk["candidates"][0]["content"]);
+            let chunk_meta = meta(&chunk);
+            on_chunk(&piece, &chunk_meta);
+            for part in piece.parts {
                 merge(&mut parts, part);
             }
+            // ADK's aggregator keeps the last usage and finish reason seen;
+            // the aggregated reply carries no model version.
+            if chunk_meta.usage.is_some() {
+                total.usage = chunk_meta.usage;
+            }
+            if chunk_meta.finish_reason.is_some() {
+                total.finish_reason = chunk_meta.finish_reason;
+            }
         }
-        Ok(Content {
-            role: Role::Model,
-            parts,
+        Ok(Reply {
+            content: Content {
+                role: Role::Model,
+                parts,
+            },
+            meta: total,
         })
     }
 }
@@ -235,6 +251,23 @@ fn content_json(c: &Content) -> Value {
         Role::Model => "model",
     };
     json!({"parts": parts, "role": role})
+}
+
+/// A response's metadata; a chunk with a finish reason completes the turn.
+fn meta(v: &Value) -> Meta {
+    let finish_reason = v["candidates"][0]["finishReason"]
+        .as_str()
+        .filter(|s| !s.is_empty())
+        .map(String::from);
+    Meta {
+        usage: v.get("usageMetadata").filter(|u| u.is_object()).cloned(),
+        turn_complete: finish_reason.is_some(),
+        finish_reason,
+        model_version: v["modelVersion"]
+            .as_str()
+            .filter(|s| !s.is_empty())
+            .map(String::from),
+    }
 }
 
 fn content(v: &Value) -> Content {

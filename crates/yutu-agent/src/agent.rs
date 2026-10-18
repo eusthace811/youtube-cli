@@ -5,7 +5,7 @@
 use std::future::Future;
 use std::pin::Pin;
 
-use crate::llm::Llm;
+use crate::llm::{Llm, Meta};
 use crate::model::{Content, FunctionResponse, Part, Request, Role};
 use crate::tools::{self, Approval, Toolbox};
 
@@ -18,13 +18,30 @@ const MAX_THOUGHT_ONLY_TURNS: usize = 10;
 
 pub type BoxFuture<'a, T> = Pin<Box<dyn Future<Output = T> + Send + 'a>>;
 
+/// A human's answer to an approval request.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Verdict {
+    Approve,
+    Decline,
+    /// Decline this call and every later one in the reply, then end the turn
+    /// once the function responses are in the history, without calling the
+    /// model again: the human moved on to a new message.
+    Stop,
+}
+
 /// Where a turn's output goes and where approvals come from: the console
-/// here, the web launchers in R10.
+/// and the web launchers.
 pub trait Frontend: Send {
-    /// Model text in arrival order: whole replies, or chunks when streaming.
-    fn text(&mut self, text: &str);
-    /// Asks the human to approve a write. Anything but a yes declines.
-    fn approve<'a>(&'a mut self, approval: &'a Approval) -> BoxFuture<'a, bool>;
+    /// One chunk of a streamed model reply, as it arrives.
+    fn chunk(&mut self, chunk: &Content, meta: &Meta);
+    /// Each content the turn adds to the history after the user message: a
+    /// whole model reply with its metadata, or the function responses to
+    /// its calls with `None`.
+    fn content(&mut self, content: &Content, meta: Option<&Meta>);
+    /// Asks the human to approve a write: the call at `position` in the
+    /// model's latest reply.
+    fn approve<'a>(&'a mut self, approval: &'a Approval, position: usize)
+    -> BoxFuture<'a, Verdict>;
 }
 
 pub struct Agent {
@@ -67,13 +84,16 @@ impl Agent {
                 declarations: self.tools.declarations(),
                 google_search: self.tools.google_search(),
             };
-            let reply = self
+            let crate::llm::Reply {
+                content: reply,
+                meta,
+            } = self
                 .llm
-                .generate(&req, stream, &mut |t: &str| frontend.text(t))
+                .generate(&req, stream, &mut |c: &Content, m: &Meta| {
+                    frontend.chunk(c, m)
+                })
                 .await?;
-            if !stream {
-                frontend.text(&reply.text());
-            }
+            frontend.content(&reply, Some(&meta));
             let calls: Vec<_> = reply.calls().cloned().collect();
             let thought = reply.thought_only();
             if !reply.parts.is_empty() {
@@ -87,10 +107,18 @@ impl Agent {
                 return Ok(());
             }
             let mut parts = Vec::with_capacity(calls.len());
-            for call in calls {
+            let mut stopped = false;
+            for (position, call) in calls.into_iter().enumerate() {
                 let response = match self.tools.approval(&call) {
-                    Some(a) if !frontend.approve(&a).await => tools::declined(),
-                    Some(_) => self.tools.run(&call, true).await,
+                    Some(_) if stopped => tools::declined(),
+                    Some(a) => match frontend.approve(&a, position).await {
+                        Verdict::Approve => self.tools.run(&call, true).await,
+                        Verdict::Decline => tools::declined(),
+                        Verdict::Stop => {
+                            stopped = true;
+                            tools::declined()
+                        }
+                    },
                     None => self.tools.run(&call, false).await,
                 };
                 parts.push(Part::Response(FunctionResponse {
@@ -99,10 +127,15 @@ impl Agent {
                     response,
                 }));
             }
-            history.push(Content {
+            let responses = Content {
                 role: Role::User,
                 parts,
-            });
+            };
+            frontend.content(&responses, None);
+            history.push(responses);
+            if stopped {
+                return Ok(());
+            }
         }
     }
 }
