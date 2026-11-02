@@ -81,8 +81,9 @@ youtube video update --id VIDEO_ID \
   --tags 'tag one,tag two' \
   --privacy public --yes
 
-# Set the thumbnail (write: ask first)
-youtube thumbnail set --file thumbnail.jpg --videoId VIDEO_ID --yes
+# Set the thumbnail (write: ask first). --file is relative to YOUTUBE_CLI_ROOT;
+# see "Thumbnails" in SKILL.md.
+youtube thumbnail set --file Projects/channel/thumb.jpg --videoId VIDEO_ID --yes
 
 # Add to the target playlist (write: ask first)
 youtube playlistItem insert --kind video \

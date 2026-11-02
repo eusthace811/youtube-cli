@@ -21,6 +21,7 @@ Run `youtube version` and `youtube channel list --for mine` first. If either fai
 - **Output**: most commands take `-o json|yaml|table` (some add `silent`). Use `-o json` to read IDs and fields programmatically (pipe to `jq` or `python3 -c`); use `-o table` to show results to the user.
 - **Lists**: `--maxResults` (`-n` on most commands; `search list` has no short form) usually defaults to 5; `--maxResults 0` fetches every page.
 - **Lists of values**: flags of type `strings` take comma-separated values, for example `--ids a,b,c`.
+- **File paths**: every file a command reads or writes (`--file`, `--thumbnail`, caption downloads) is opened inside `YOUTUBE_CLI_ROOT`, or the working directory when that is unset, and not relative to where you ran the command. Pass the path relative to that root. An absolute path fails with `path escapes from parent`, and a path relative to the wrong folder fails with `no such file or directory`. Do not change `YOUTUBE_CLI_ROOT` to reach a file, because the credential and token are read through the same root. Copy the file under the root instead, after asking.
 - **Not a terminal**: the shell you run in is not a terminal, so any command that changes the channel stops with `operation not confirmed` unless it carries `--yes`. That is expected; see the rules below for when `--yes` may be added.
 - **Quota**: the YouTube API allows about 10,000 units a day by default. Lists fetch 20 items per page and pay per page: most reads cost 1 unit per page, `search list` 100 per page, uploads far more (Google's quota calculator has current costs). Never use `--maxResults 0` on `search list` or on the comments of a busy video, and avoid large loops.
 
@@ -140,6 +141,41 @@ Flags and examples for each are in [references/commands.md](references/commands.
 - `youtube help`: Help about any command
 - `youtube mcp`: Start MCP server
 - `youtube version`: Show the version of youtube
+
+## Thumbnails
+
+The YouTube API supports custom thumbnails, and so does the CLI, for regular videos and Shorts. Use JPEG or PNG. 1280x720 (16:9) under 2 MB is safest.
+
+1. Find where the file is relative to the root (see "File paths" above):
+
+   ```bash
+   echo "${YOUTUBE_CLI_ROOT:-$PWD}"
+   python3 -c 'import os,sys; print(os.path.relpath(sys.argv[1], os.environ.get("YOUTUBE_CLI_ROOT", os.getcwd())))' /absolute/path/to/thumb.jpg
+   ```
+
+   If the result starts with `..`, the file is outside the root. Ask the user before copying it in.
+2. Show the user the command, and run it with `--yes` only after they agree (it is a write):
+
+   ```bash
+   # An existing video or Short
+   youtube thumbnail set --file Projects/channel/thumb.jpg --videoId VIDEO_ID -o json --yes
+   # Or in the same step as an upload
+   youtube video insert --file Projects/channel/video.mp4 --title 'Title' --categoryId 22 --privacy private --thumbnail Projects/channel/thumb.jpg --yes
+   ```
+
+   For an existing video, use `thumbnail set` rather than `video update --thumbnail`. `video update` also rewrites the video's snippet and status. When `video insert --thumbnail` uploads the video but the thumbnail step fails, it still prints the video and then reports `failed to set video thumbnail`. Read the whole output, then retry with `thumbnail set`.
+3. Tell the user to check the thumbnail in YouTube Studio. It can take a few minutes to show.
+
+| Error | Cause | Fix |
+|-------|-------|-----|
+| `openat ...: no such file or directory` | The path is not relative to the root | Recompute it with step 1 |
+| `openat ...: path escapes from parent` | The path is absolute or outside the root | Use the relative path, or copy the file under the root |
+| `403 ... The thumbnail can't be set for the specified video` | Wrong video ID, or the video is not on the signed-in channel | Check the ID with `youtube video list --id VIDEO_ID` and the channel with `youtube channel list --for mine` |
+| `403 ... not allowed to upload or set custom thumbnails` | The channel does not have custom thumbnails enabled | The user verifies the channel by phone in YouTube Studio (Settings > Channel > Feature eligibility). No API client can get around this |
+| `400 invalidImage` / `mediaBodyRequired` | The file is not a readable JPEG or PNG, or is empty | Re-export the image |
+| `429 uploadRateLimitExceeded` | Too many thumbnails were uploaded recently | Wait and retry later |
+
+**Shorts:** YouTube accepts the call for a Short, but the Shorts feed may still show a frame from the video as the cover. If the user needs a specific cover in the feed, they pick it in the YouTube mobile app or YouTube Studio. With Claude in Chrome you can do this in Studio on the channel the CLI is signed in to: open `https://studio.youtube.com/video/VIDEO_ID/edit`, upload the image with the thumbnail control, and click Save only after the user agrees.
 
 ## Common Workflows
 

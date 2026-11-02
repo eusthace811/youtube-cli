@@ -68,6 +68,9 @@ Reads then prompt too; the user can approve those quickly. It is a convenience, 
 | Message | Cause | Fix |
 |---------|-------|-----|
 | `failed to parse client secret ... illegal base64 data` | The credential path was not found, or lies outside `YOUTUBE_CLI_ROOT`, so it was read as inline Base64 | Check the path and that `YOUTUBE_CLI_ROOT` contains it; for `auth`, pass `--credential` |
+| `openat ...: path escapes from parent` | The path is absolute or points outside `YOUTUBE_CLI_ROOT`. File paths are resolved inside the root | Pass the path relative to `YOUTUBE_CLI_ROOT`, or copy the file under it |
+| `openat ...: no such file or directory` for a file that exists | The path was given relative to the current folder, not to `YOUTUBE_CLI_ROOT` | Pass it relative to `YOUTUBE_CLI_ROOT` |
+| `403 ... not allowed to upload or set custom thumbnails` | The channel does not have custom thumbnails enabled | The user verifies the channel by phone in YouTube Studio (Settings > Channel > Feature eligibility) |
 | `operation not confirmed (pass confirm: true or rerun with --yes)` | A write ran without `--yes` in a shell that is not a terminal | Expected: ask the user, then rerun with `--yes` |
 | `failed to get <resource>` right after creating it | YouTube serves a stale copy for a few seconds after a write | Wait a few seconds and retry |
 | A browser window opens unexpectedly | The token expired and could not be refreshed (weekly while the Google app is in Testing) | Let the user complete the sign-in |
